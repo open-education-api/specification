@@ -36,6 +36,14 @@ paths:
       responses:
         '200':
           schema:
-            type: array
-            items:
-              $ref: 'definitions/Person.yaml'
+            type: object
+            required:
+              - metadata
+              - data
+            properties:
+              metadata:
+                $ref: 'definitions/Metadata.yaml'
+              data:
+                type: array
+                items:
+                  $ref: 'definitions/Person.yaml'
