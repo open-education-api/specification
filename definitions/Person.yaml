@@ -1,0 +1,94 @@
+type: object
+required:
+  - userId
+  - givenname
+  - surname
+  - displayname
+  - affiliations
+  - lastModified  
+properties:
+  userId:
+    type: string
+    description: Unique id of this person
+  givenname:
+    type: string
+    description: The first name of this person
+  surname:
+    type: string
+    description: The family name of this person (SN)
+  displayname:
+    type: string
+    description: The name of this person which will be displayed
+  commonname:
+    type: string
+    description: The full name of this person (CN)
+  nickname:
+    type: string
+    description: The self preferred name of this person
+  affiliations:
+    type: array
+    description: The affiliations of how this person is associated with the organization
+    items: 
+      type: string
+      enum:
+        - student
+        - employee
+        - staff
+        - member
+        - affiliate
+        - organization
+  mail:
+    type: string
+    description: The e-mailaddress of this person
+    format: email
+  telephonenumber:
+    type: string
+    description: The telephone number at the office of this person
+  mobilenumber:
+    type: string
+    description: The mobile number of this person
+  photoSocial:
+    type: string
+    description: The url of the informal picture of this person
+    format: uri
+  photoOfficial:
+    type: string
+    description: The url of the official picture of this person
+    format: uri
+  gender:
+    type: string
+    description: The first letter of this person's gender
+    enum:
+      - M
+      - F
+      - U
+      - X
+  organization:
+    type: string
+    description: The organization with which this person is affiliated
+  department:
+    type: string
+    description: The department with which this person is affiliated
+  title:
+    type: string
+    description: A title to be used for this person
+  office:
+    type: string
+    description: The name of the office where this person is located
+  groups:
+    type: array
+    description: The ids of groups within the organization to which this person belongs
+    items: 
+      type: string
+  lat:
+    type: number
+    description: The latitude of the last updated position of this person
+    format: double 
+  lon:
+    type: number
+    description: The longitude of the last updated position of this person
+    format: double 
+  lastModified:
+    type: string
+    description: The timestamp of the last update on this person’s information
+    format: date-time

@@ -1,0 +1,39 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Open Educational API
+host: api.openonderwijsapi.nl
+basePath: /v1
+schemes:
+  - http
+consumes:
+  - application/x-www-form-urlencoded
+produces:
+  - application/json
+  - application/xml
+paths:
+  /persons:
+    get:
+      summary: GET /persons
+      description: An ordered (default by userId) list all persons.
+      parameters:
+        - name: pageNumber
+          in: query
+          description: The number of items to return per page
+          required: false
+          default: 1
+          type: integer
+          format: int32
+        - name: pageSize
+          in: query
+          description: The page number
+          required: false
+          default: 10
+          type: integer
+          format: int32
+      responses:
+        '200':
+          schema:
+            type: array
+            items:
+              $ref: 'definitions/Person.yaml'
