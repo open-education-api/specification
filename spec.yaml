@@ -37,13 +37,43 @@ paths:
         '200':
           schema:
             type: object
+            xml:
+              name: response
             required:
               - metadata
               - data
             properties:
               metadata:
-                $ref: 'definitions/Metadata.yaml'
+                $ref: 'definitions/ListMetadata.yaml'
               data:
                 type: array
+                xml:
+                  wrapped: true                
                 items:
-                  $ref: 'definitions/Person.yaml'
+                  allOf:
+                    - $ref: 'definitions/Person.yaml'
+                    - type: object
+                      xml:
+                        name: item
+
+  /persons/{userId}:
+    get:
+      summary: GET /persons/{userId}
+      description: A single person.
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            xml:
+              name: response
+            required:
+              - metadata
+              - data
+            properties:
+              metadata:
+                $ref: 'definitions/ResourceMetadata.yaml'
+              data:
+                $ref: 'definitions/Person.yaml'
+        '404':
+          description: Not Found
