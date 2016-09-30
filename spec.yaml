@@ -50,11 +50,7 @@ paths:
                 xml:
                   wrapped: true                
                 items:
-                  allOf:
-                    - $ref: 'definitions/Person.yaml'
-                    - type: object
-                      xml:
-                        name: item
+                  $ref: 'definitions/Person.yaml'
 
   /persons/{userId}:
     get:
