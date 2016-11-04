@@ -35,6 +35,7 @@ paths:
           format: int32
       responses:
         '200':
+          description: OK
           schema:
             type: object
             xml:
@@ -50,12 +51,21 @@ paths:
                 xml:
                   wrapped: true                
                 items:
-                  $ref: 'definitions/Person.yaml'
+                  allOf:
+                    - $ref: 'definitions/Person.yaml'
+                    - xml:
+                        name: item
 
   /persons/{userId}:
     get:
       summary: GET /persons/{userId}
       description: A single person.
+      parameters:
+        - name: userId
+          in: path
+          description: User ID
+          required: true
+          type: string
       responses:
         '200':
           description: OK
