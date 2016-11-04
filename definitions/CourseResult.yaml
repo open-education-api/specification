@@ -1,0 +1,32 @@
+type: object
+required:
+  - course
+  - testResults
+  - lastModified
+  - passed
+properties:
+  course:
+    type: string
+    description: The id from courses from which the results are requested
+  testResults:
+    type: array
+    description: The ids of testresults of the tests made by the student for this course
+    xml:
+      wrapped: true
+    items:
+      type: string
+      xml:
+        name: text
+  lastModified:
+    type: string
+    description: Timestamp for the last moment the course result was updated
+    format: date-time
+  grade:
+    type: string
+    description: The average of the test results.
+  comment:
+    type: string
+    description: The comment on the result for the course
+  passed:
+    type: boolean
+    description: Boolean, representing whether the student did or did not pass the course

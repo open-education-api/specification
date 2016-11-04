@@ -18,3 +18,7 @@ paths:
     $ref: 'paths/PersonCollection.yaml'
   /persons/{userId}:
     $ref: 'paths/PersonInstance.yaml'
+  /courseresults/{userId}:
+    $ref: 'paths/CourseResultCollection.yaml'
+  /courseresults/{userId}/{courseId}:
+    $ref: 'paths/CourseResultInstance.yaml'
