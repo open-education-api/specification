@@ -1,15 +1,11 @@
 type: object
 required:
-  - userId
   - givenname
   - surname
   - displayname
   - affiliations
   - lastModified  
 properties:
-  userId:
-    type: string
-    description: Unique id of this person
   givenname:
     type: string
     description: The first name of this person

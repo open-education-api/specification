@@ -9,77 +9,12 @@ basePath: /v1
 schemes:
   - http
 consumes:
-  - application/x-www-form-urlencoded
+  - application/json
 produces:
   - application/json
   - application/xml
 paths:
   /persons:
-    get:
-      summary: GET /persons
-      description: An ordered (default by userId) list all persons.
-      parameters:
-        - name: pageNumber
-          in: query
-          description: The number of items to return per page
-          required: false
-          default: 1
-          type: integer
-          format: int32
-        - name: pageSize
-          in: query
-          description: The page number
-          required: false
-          default: 10
-          type: integer
-          format: int32
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: object
-            xml:
-              name: response
-            required:
-              - metadata
-              - data
-            properties:
-              metadata:
-                $ref: 'definitions/ListMetadata.yaml'
-              data:
-                type: array
-                xml:
-                  wrapped: true                
-                items:
-                  allOf:
-                    - $ref: 'definitions/Person.yaml'
-                    - xml:
-                        name: item
-
+    $ref: 'paths/PersonCollection.yaml'
   /persons/{userId}:
-    get:
-      summary: GET /persons/{userId}
-      description: A single person.
-      parameters:
-        - name: userId
-          in: path
-          description: User ID
-          required: true
-          type: string
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: object
-            xml:
-              name: response
-            required:
-              - metadata
-              - data
-            properties:
-              metadata:
-                $ref: 'definitions/ResourceMetadata.yaml'
-              data:
-                $ref: 'definitions/Person.yaml'
-        '404':
-          description: Not Found
+    $ref: 'paths/PersonInstance.yaml'
