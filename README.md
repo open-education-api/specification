@@ -30,4 +30,4 @@ The Open Education API is an open source, community-driven project. If you'd lik
 
 ## Community
 
-The Open Education API is driven by the [Open Education API Workgroup](https://openonderwijsapi.nl/en/community/). The working group includes representatives of higher education institutions and suppliers.
+The Open Education API is driven by the [Open Education API Working Group](https://openonderwijsapi.nl/en/community/). The working group includes representatives of higher education institutions and suppliers.
