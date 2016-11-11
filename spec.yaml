@@ -20,6 +20,8 @@ tags:
     description: The course result API provides the (list of) test results from a specific course attended by a student.
   - name: buildings
     description: The building API provides general information about buildings in use by the organization. Updated daily.
+  - name: test results
+    description: The test result API provides information about the results from the tests from different courses done by the student. Updated daily.
 paths:
   /persons:
     $ref: 'paths/PersonCollection.yaml'
@@ -33,4 +35,7 @@ paths:
     $ref: 'paths/BuildingCollection.yaml'
   /buildings/{buildingId}:
     $ref: 'paths/BuildingInstance.yaml'
-  
+  /testresults/{userId}:
+    $ref: 'paths/TestResultCollection.yaml'
+  /testresults/{userId}/{testId}:
+    $ref: 'paths/TestResultInstance.yaml'
