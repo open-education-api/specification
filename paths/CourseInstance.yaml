@@ -1,0 +1,64 @@
+get:
+  summary: GET /courses/{courseId}
+  description: Get a single course.
+  tags:
+    - courses
+  parameters:
+    - name: courseId
+      in: path
+      description: Course ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/CourseFull.yaml'
+    '404':
+      description: Not Found
+put:
+  summary: PUT /courses/{courseId}
+  description: Update (replace) a course.
+  tags:
+    - courses
+  parameters:
+    - name: courseId
+      in: path
+      description: Course ID
+      required: true
+      type: string
+    - name: body
+      in: body
+      description: Request payload
+      required: true
+      schema:
+        $ref: '../definitions/Course.yaml'
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/CourseFull.yaml'
+    '400':
+      description: Bad Request
+    '404':
+      description: Not Found

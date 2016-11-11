@@ -39,3 +39,7 @@ paths:
     $ref: 'paths/TestResultCollection.yaml'
   /testresults/{userId}/{testId}:
     $ref: 'paths/TestResultInstance.yaml'
+  /courses:
+    $ref: 'paths/CourseCollection.yaml'
+  /courses/{courseId}:
+    $ref: 'paths/CourseInstance.yaml'

@@ -1,0 +1,89 @@
+get:
+  summary: GET /courses
+  description: Get an ordered list of all courses.
+  tags:
+    - courses
+  parameters:
+    - name: q
+      in: query
+      description: Search within all fields
+      required: false
+      type: string
+    - name: order
+      in: query
+      description: The field to sort on
+      required: false
+      default: lastModified_desc
+      type: string
+    - name: pageNumber
+      in: query
+      description: The number of items to return per page
+      required: false
+      default: 1
+      type: integer
+      format: int32
+      minimum: 1
+    - name: pageSize
+      in: query
+      description: The page number
+      required: false
+      default: 10
+      type: integer
+      format: int32
+      minimum: 1
+    - name: name
+      in: query
+      description: Filter by name
+      required: false
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ListMetadata.yaml'
+          data:
+            type: array
+            xml:
+              wrapped: true                
+            items:
+              allOf:
+                - $ref: '../definitions/CourseFull.yaml'
+                - xml:
+                    name: item
+post:
+  summary: POST /courses
+  description: Create a new course.
+  tags:
+    - courses
+  parameters:
+    - name: body
+      in: body
+      description: Request payload
+      required: true
+      schema:
+        $ref: '../definitions/Course.yaml'
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/CourseFull.yaml'
+    '400':
+      description: Bad Request
