@@ -2,7 +2,7 @@
 
 ![Open Education API](logo.png)
 
-This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (fka Swagger) specification for the [Open Education API](https://openonderwijsapi.nl/).
+This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (fka Swagger) specification for the [Open Education API](https://openonderwijsapi.nl/en/).
 
 * [Roadmap](#roadmap)
 * [Documentation](#documentation)
@@ -30,4 +30,4 @@ The Open Education API is an open source, community-driven project. If you'd lik
 
 ## Community
 
-The Open Education API is driven by the [Open Education API Workgroup](https://openonderwijsapi.nl/community/). The working group includes representatives of higher education institutions and suppliers.
+The Open Education API is driven by the [Open Education API Workgroup](https://openonderwijsapi.nl/en/community/). The working group includes representatives of higher education institutions and suppliers.
