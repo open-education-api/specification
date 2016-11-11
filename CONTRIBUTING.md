@@ -2,7 +2,7 @@
 
 ## Issue tracker
 
-Our [issue tracker](https://github.com/OpenOnderwijsAPI/OpenOnderwijsAPI-Spec/issues) can be used to discuss problems or additions to the current or next version of the Open Education API specification.
+Our [issue tracker](https://github.com/open-education-api/specification/issues) can be used to discuss problems or additions to the current or next version of the Open Education API specification.
 
 Please follow these guidelines before opening an issue:
 

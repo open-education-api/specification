@@ -22,7 +22,7 @@ The current version is unfinished yet. Currently in progress:
 
 The specification can be rendered as HTML documentation:
 
-* [API Reference Documentation](https://rawgit.com/OpenOnderwijsAPI/OpenOnderwijsAPI-Spec/v1/docs.html)
+* [API Reference Documentation](https://rawgit.com/open-education-api/specification/v1/docs.html)
 
 ## Contributing
 
