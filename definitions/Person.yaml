@@ -4,7 +4,6 @@ required:
   - surname
   - displayname
   - affiliations
-  - lastModified  
 properties:
   givenname:
     type: string
@@ -92,7 +91,3 @@ properties:
     type: number
     description: The longitude of the last updated position of this person
     format: double 
-  lastModified:
-    type: string
-    description: The timestamp of the last update on this person’s information
-    format: date-time

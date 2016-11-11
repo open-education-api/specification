@@ -1,6 +1,8 @@
 get:
   summary: GET /courseresults/{userId}
-  description: An ordered (by lastModified descending) list all course results for the given user.
+  description: Get an ordered list of all course results for the given user.
+  tags:
+    - course results
   parameters:
     - name: userId
       in: path

@@ -13,6 +13,13 @@ consumes:
 produces:
   - application/json
   - application/xml
+tags:
+  - name: persons
+    description: The persons API provides information about persons related to an educational institute.
+  - name: course results
+    description: The course result API provides the (list of) test results from a specific course attended by a student.
+  - name: buildings
+    description: The building API provides general information about buildings in use by the organization. Updated daily.
 paths:
   /persons:
     $ref: 'paths/PersonCollection.yaml'
@@ -22,4 +29,8 @@ paths:
     $ref: 'paths/CourseResultCollection.yaml'
   /courseresults/{userId}/{courseId}:
     $ref: 'paths/CourseResultInstance.yaml'
-    
+  /buildings:
+    $ref: 'paths/BuildingCollection.yaml'
+  /buildings/{buildingId}:
+    $ref: 'paths/BuildingInstance.yaml'
+  

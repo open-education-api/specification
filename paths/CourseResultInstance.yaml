@@ -1,6 +1,8 @@
 get:
   summary: GET /courseresults/{userId}/{courseId}
   description: Get a single course result.
+  tags:
+    - course results
   parameters:
     - name: userId
       in: path

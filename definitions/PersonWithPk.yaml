@@ -1,9 +1,0 @@
-allOf:
-  - type: object
-    required:
-      - userId
-    properties:
-      userId:
-        type: string
-        description: Unique id of this person
-  - $ref: 'Person.yaml'

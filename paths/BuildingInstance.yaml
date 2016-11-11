@@ -1,12 +1,12 @@
 get:
-  summary: GET /persons/{userId}
-  description: Get a single person.
+  summary: GET /buildings/{buildingId}
+  description: Get a single building.
   tags:
-    - persons
+    - buildings
   parameters:
-    - name: userId
+    - name: buildingId
       in: path
-      description: User ID
+      description: Building ID
       required: true
       type: string
   responses:
@@ -23,18 +23,18 @@ get:
           metadata:
             $ref: '../definitions/ResourceMetadata.yaml'
           data:
-            $ref: '../definitions/PersonFull.yaml'
+            $ref: '../definitions/BuildingFull.yaml'
     '404':
       description: Not Found
 put:
-  summary: PUT /persons/{userId}
-  description: Update (replace) a person.
+  summary: PUT /buildings/{buildingId}
+  description: Update (replace) a building.
   tags:
-    - persons
+    - buildings
   parameters:
-    - name: userId
+    - name: buildingId
       in: path
-      description: User ID
+      description: Building ID
       required: true
       type: string
     - name: body
@@ -42,7 +42,7 @@ put:
       description: Request payload
       required: true
       schema:
-        $ref: '../definitions/Person.yaml'
+        $ref: '../definitions/Building.yaml'
   responses:
     '200':
       description: OK
@@ -57,7 +57,7 @@ put:
           metadata:
             $ref: '../definitions/ResourceMetadata.yaml'
           data:
-            $ref: '../definitions/PersonFull.yaml'
+            $ref: '../definitions/BuildingFull.yaml'
     '400':
       description: Bad Request
     '404':
