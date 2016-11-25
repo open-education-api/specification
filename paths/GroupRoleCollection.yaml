@@ -1,0 +1,99 @@
+get:
+  summary: GET /grouproles
+  description: Get an ordered list of all group roles.
+  tags:
+    - group roles
+  parameters:
+    - name: q
+      in: query
+      description: Search within all fields
+      required: false
+      type: string
+    - name: order
+      in: query
+      description: The field to sort on
+      required: false
+      default: grouproleId_asc
+      type: string
+    - name: pageNumber
+      in: query
+      description: The number of items to return per page
+      required: false
+      default: 1
+      type: integer
+      format: int32
+      minimum: 1
+    - name: pageSize
+      in: query
+      description: The page number
+      required: false
+      default: 10
+      type: integer
+      format: int32
+      minimum: 1
+    - name: group
+      in: query
+      description: Filter by group
+      required: false
+      type: string
+    - name: person
+      in: query
+      description: Filter by person
+      required: false
+      type: string
+    - name: roles
+      in: query
+      description: Filter by roles
+      required: false
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ListMetadata.yaml'
+          data:
+            type: array
+            xml:
+              wrapped: true
+            items:
+              allOf:
+                - $ref: '../definitions/GroupFull.yaml'
+                - xml:
+                    name: item
+post:
+  summary: POST /grouproles
+  description: Create a new group role.
+  tags:
+    - group roles
+  parameters:
+    - name: body
+      in: body
+      description: Request payload
+      required: true
+      schema:
+        $ref: '../definitions/GroupRole.yaml'
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/GroupRoleFull.yaml'
+    '400':
+      description: Bad Request

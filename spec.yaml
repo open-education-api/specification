@@ -30,6 +30,8 @@ tags:
     description: The rooms API provides general information about rooms and specific information about the workplaces available. Updated continuously.
   - name: groups
     description: The groups API provides information about groups and memberships. Updated on ad hoc-base.
+  - name: group roles
+    description: The grouproles API provides information about the roles of the members in the various groups. Updated on ad hoc-base.
 paths:
   /persons:
     $ref: 'paths/PersonCollection.yaml'
@@ -63,3 +65,7 @@ paths:
     $ref: 'paths/GroupCollection.yaml'
   /groups/{groupId}:
     $ref: 'paths/GroupInstance.yaml'
+  /grouproles:
+    $ref: 'paths/GroupRoleCollection.yaml'
+  /grouproles/{grouproleId}:
+    $ref: 'paths/GroupRoleInstance.yaml'
