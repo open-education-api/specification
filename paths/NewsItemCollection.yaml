@@ -1,0 +1,99 @@
+get:
+  summary: GET /newsitems
+  description: Get an ordered list of all news items.
+  tags:
+    - news items
+  parameters:
+    - name: q
+      in: query
+      description: Search within all fields
+      required: false
+      type: string
+    - name: order
+      in: query
+      description: The field to sort on
+      required: false
+      default: publishDate_desc
+      type: string
+    - name: pageNumber
+      in: query
+      description: The number of items to return per page
+      required: false
+      default: 1
+      type: integer
+      format: int32
+      minimum: 1
+    - name: pageSize
+      in: query
+      description: The page number
+      required: false
+      default: 10
+      type: integer
+      format: int32
+      minimum: 1
+    - name: feeds
+      in: query
+      description: Filter by feeds
+      required: false
+      type: string
+    - name: publishDate
+      in: query
+      description: Filter by publishDate
+      required: false
+      type: string
+    - name: publishDate
+      in: query
+      description: Filter by publishDate
+      required: false
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ListMetadata.yaml'
+          data:
+            type: array
+            xml:
+              wrapped: true
+            items:
+              allOf:
+                - $ref: '../definitions/NewsItemFull.yaml'
+                - xml:
+                    name: item
+post:
+  summary: POST /newsitems
+  description: Create a new news item.
+  tags:
+    - news items
+  parameters:
+    - name: body
+      in: body
+      description: Request payload
+      required: true
+      schema:
+        $ref: '../definitions/NewsItem.yaml'
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/NewsItemFull.yaml'
+    '400':
+      description: Bad Request
