@@ -26,6 +26,8 @@ tags:
     description: The courses API provides information about the course. Updated on ad hoc-base.
   - name: schedules
     description: The schedules API provides information about the planning of the courses in lessons. Updated on ad hoc-base.
+  - name: rooms
+    description: The rooms API provides general information about rooms and specific information about the workplaces available. Updated continuously.
 paths:
   /persons:
     $ref: 'paths/PersonCollection.yaml'
@@ -51,3 +53,7 @@ paths:
     $ref: 'paths/ScheduleCollection.yaml'
   /schedules/{scheduleId}:
     $ref: 'paths/ScheduleInstance.yaml'
+  /rooms:
+    $ref: 'paths/RoomCollection.yaml'
+  /rooms/{roomId}:
+    $ref: 'paths/RoomInstance.yaml'
