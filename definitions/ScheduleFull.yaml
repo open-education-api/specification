@@ -6,7 +6,7 @@ allOf:
       scheduleId:
         type: string
         description: Unique id of this schedule
-  - $ref: 'Schedule.yaml'
+  - $ref: Schedule.yaml
   - type: object
     required:
       - lastModified

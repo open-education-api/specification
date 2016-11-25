@@ -6,7 +6,7 @@ allOf:
       userId:
         type: string
         description: Unique id of this person
-  - $ref: 'Person.yaml'
+  - $ref: Person.yaml
   - type: object
     required:
       - lastModified

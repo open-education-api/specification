@@ -6,7 +6,7 @@ allOf:
       groupId:
         type: string
         description: Unique id of this group
-  - $ref: 'Group.yaml'
+  - $ref: Group.yaml
   - type: object
     required:
       - lastModified

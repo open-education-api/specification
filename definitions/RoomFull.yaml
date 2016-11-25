@@ -6,7 +6,7 @@ allOf:
       roomId:
         type: string
         description: Unique id for this room
-  - $ref: 'Room.yaml'
+  - $ref: Room.yaml
   - type: object
     required:
       - lastModified

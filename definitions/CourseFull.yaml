@@ -6,7 +6,7 @@ allOf:
       courseId:
         type: string
         description: Unique id of this course
-  - $ref: 'Course.yaml'
+  - $ref: Course.yaml
   - type: object
     required:
       - lastModified

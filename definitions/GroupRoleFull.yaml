@@ -6,7 +6,7 @@ allOf:
       grouproleId:
         type: string
         description: Unique id for this grouprole
-  - $ref: 'GroupRole.yaml'
+  - $ref: GroupRole.yaml
   - type: object
     required:
       - lastModified

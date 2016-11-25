@@ -6,7 +6,7 @@ allOf:
       newsitemId:
         type: string
         description: Unique id for this news item
-  - $ref: 'NewsItem.yaml'
+  - $ref: NewsItem.yaml
   - type: object
     required:
       - lastModified

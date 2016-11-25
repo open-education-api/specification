@@ -6,7 +6,7 @@ allOf:
       buildingId:
         type: string
         description: Unique id of this building
-  - $ref: 'Building.yaml'
+  - $ref: Building.yaml
   - type: object
     required:
       - lastModified

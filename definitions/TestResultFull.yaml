@@ -6,7 +6,7 @@ allOf:
       testResultId:
         type: string
         description: Unique id of this test result
-  - $ref: 'TestResult.yaml'
+  - $ref: TestResult.yaml
   - type: object
     required:
       - lastModified

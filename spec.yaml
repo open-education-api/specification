@@ -38,46 +38,46 @@ tags:
     description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
 paths:
   /persons:
-    $ref: 'paths/PersonCollection.yaml'
+    $ref: paths/PersonCollection.yaml
   /persons/{userId}:
-    $ref: 'paths/PersonInstance.yaml'
+    $ref: paths/PersonInstance.yaml
   /courseresults/{userId}:
-    $ref: 'paths/CourseResultCollection.yaml'
+    $ref: paths/CourseResultCollection.yaml
   /courseresults/{userId}/{courseId}:
-    $ref: 'paths/CourseResultInstance.yaml'
+    $ref: paths/CourseResultInstance.yaml
   /buildings:
-    $ref: 'paths/BuildingCollection.yaml'
+    $ref: paths/BuildingCollection.yaml
   /buildings/{buildingId}:
-    $ref: 'paths/BuildingInstance.yaml'
+    $ref: paths/BuildingInstance.yaml
   /testresults/{userId}:
-    $ref: 'paths/TestResultCollection.yaml'
+    $ref: paths/TestResultCollection.yaml
   /testresults/{userId}/{testId}:
-    $ref: 'paths/TestResultInstance.yaml'
+    $ref: paths/TestResultInstance.yaml
   /courses:
-    $ref: 'paths/CourseCollection.yaml'
+    $ref: paths/CourseCollection.yaml
   /courses/{courseId}:
-    $ref: 'paths/CourseInstance.yaml'
+    $ref: paths/CourseInstance.yaml
   /schedules:
-    $ref: 'paths/ScheduleCollection.yaml'
+    $ref: paths/ScheduleCollection.yaml
   /schedules/{scheduleId}:
-    $ref: 'paths/ScheduleInstance.yaml'
+    $ref: paths/ScheduleInstance.yaml
   /rooms:
-    $ref: 'paths/RoomCollection.yaml'
+    $ref: paths/RoomCollection.yaml
   /rooms/{roomId}:
-    $ref: 'paths/RoomInstance.yaml'
+    $ref: paths/RoomInstance.yaml
   /groups:
-    $ref: 'paths/GroupCollection.yaml'
+    $ref: paths/GroupCollection.yaml
   /groups/{groupId}:
-    $ref: 'paths/GroupInstance.yaml'
+    $ref: paths/GroupInstance.yaml
   /grouproles:
-    $ref: 'paths/GroupRoleCollection.yaml'
+    $ref: paths/GroupRoleCollection.yaml
   /grouproles/{grouproleId}:
-    $ref: 'paths/GroupRoleInstance.yaml'
+    $ref: paths/GroupRoleInstance.yaml
   /newsfeeds:
-    $ref: 'paths/NewsFeedCollection.yaml'
+    $ref: paths/NewsFeedCollection.yaml
   /newsfeeds/{newsfeedId}:
-    $ref: 'paths/NewsFeedInstance.yaml'
+    $ref: paths/NewsFeedInstance.yaml
   /newsitems:
-    $ref: 'paths/NewsItemCollection.yaml'
+    $ref: paths/NewsItemCollection.yaml
   /newsitems/{newsitemId}:
-    $ref: 'paths/NewsItemInstance.yaml'
+    $ref: paths/NewsItemInstance.yaml
