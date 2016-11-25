@@ -1,5 +1,11 @@
 # Contributing Guidelines
 
+## General
+
+The following general rules apply on this project:
+
+* All contributions including documentation, filenames and discussions should be written in English language. 
+
 ## Issue tracker
 
 Our [issue tracker](https://github.com/open-education-api/specification/issues) can be used to discuss problems or additions to the current or next version of the Open Education API specification.
