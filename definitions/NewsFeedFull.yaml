@@ -1,0 +1,17 @@
+allOf:
+  - type: object
+    required:
+      - newsfeedId
+    properties:
+      newsfeedId:
+        type: string
+        description: Unique id for this news feed
+  - $ref: 'NewsFeed.yaml'
+  - type: object
+    required:
+      - lastModified
+    properties:
+      lastModified:
+        type: string
+        description: The timestamp for the last moment this news feed was updated
+        format: date-time

@@ -32,6 +32,8 @@ tags:
     description: The groups API provides information about groups and memberships. Updated on ad hoc-base.
   - name: group roles
     description: The grouproles API provides information about the roles of the members in the various groups. Updated on ad hoc-base.
+  - name: news feeds
+    description: The newsfeeds API returns newsfeeds aggregating one or more news items. Updated on ad hoc-base.
 paths:
   /persons:
     $ref: 'paths/PersonCollection.yaml'
@@ -69,3 +71,7 @@ paths:
     $ref: 'paths/GroupRoleCollection.yaml'
   /grouproles/{grouproleId}:
     $ref: 'paths/GroupRoleInstance.yaml'
+  /newsfeeds:
+      $ref: 'paths/NewsFeedCollection.yaml'
+  /newsfeeds/{newsfeedId}:
+    $ref: 'paths/NewsFeedInstance.yaml'
