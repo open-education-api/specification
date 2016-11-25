@@ -1,0 +1,80 @@
+get:
+  summary: GET /groups/{groupId}
+  description: Get a single group.
+  tags:
+    - groups
+  parameters:
+    - name: groupId
+      in: path
+      description: Group ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/GroupFull.yaml'
+    '404':
+      description: Not Found
+put:
+  summary: PUT /groups/{groupId}
+  description: Update (replace) a group.
+  tags:
+    - groups
+  parameters:
+    - name: groupId
+      in: path
+      description: Group ID
+      required: true
+      type: string
+    - name: body
+      in: body
+      description: Request payload
+      required: true
+      schema:
+        $ref: '../definitions/Group.yaml'
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/GroupFull.yaml'
+    '400':
+      description: Bad Request
+    '404':
+      description: Not Found
+delete:
+  summary: DELETE /groups/{groupId}
+  description: Removes a group.
+  tags:
+    - groups
+  parameters:
+    - name: groupId
+      in: path
+      description: Group ID
+      required: true
+      type: string
+  responses:
+    '204':
+      description: No Content
+    '404':
+      description: Not Found

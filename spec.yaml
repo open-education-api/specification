@@ -28,6 +28,8 @@ tags:
     description: The schedules API provides information about the planning of the courses in lessons. Updated on ad hoc-base.
   - name: rooms
     description: The rooms API provides general information about rooms and specific information about the workplaces available. Updated continuously.
+  - name: groups
+    description: The groups API provides information about groups and memberships. Updated on ad hoc-base.
 paths:
   /persons:
     $ref: 'paths/PersonCollection.yaml'
@@ -57,3 +59,7 @@ paths:
     $ref: 'paths/RoomCollection.yaml'
   /rooms/{roomId}:
     $ref: 'paths/RoomInstance.yaml'
+  /groups:
+    $ref: 'paths/GroupCollection.yaml'
+  /groups/{groupId}:
+    $ref: 'paths/GroupInstance.yaml'
