@@ -22,6 +22,10 @@ tags:
     description: The building API provides general information about buildings in use by the organization. Updated daily.
   - name: test results
     description: The test result API provides information about the results from the tests from different courses done by the student. Updated daily.
+  - name: courses
+    description: The courses API provides information about the course. Updated on ad hoc-base.
+  - name: schedules
+    description: The schedules API provides information about the planning of the courses in lessons. Updated on ad hoc-base.
 paths:
   /persons:
     $ref: 'paths/PersonCollection.yaml'
@@ -43,3 +47,7 @@ paths:
     $ref: 'paths/CourseCollection.yaml'
   /courses/{courseId}:
     $ref: 'paths/CourseInstance.yaml'
+  /schedules:
+    $ref: 'paths/ScheduleCollection.yaml'
+  /schedules/{scheduleId}:
+    $ref: 'paths/ScheduleInstance.yaml'

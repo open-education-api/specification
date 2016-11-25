@@ -1,12 +1,12 @@
 get:
-  summary: GET /courses/{courseId}
-  description: Get a single course.
+  summary: GET /schedules/{scheduleId}
+  description: Get a single schedule.
   tags:
-    - courses
+    - schedules
   parameters:
-    - name: courseId
+    - name: scheduleId
       in: path
-      description: Course ID
+      description: Schedule ID
       required: true
       type: string
   responses:
@@ -23,18 +23,18 @@ get:
           metadata:
             $ref: '../definitions/ResourceMetadata.yaml'
           data:
-            $ref: '../definitions/CourseFull.yaml'
+            $ref: '../definitions/ScheduleFull.yaml'
     '404':
       description: Not Found
 put:
-  summary: PUT /courses/{courseId}
-  description: Update (replace) a course.
+  summary: PUT /schedules/{scheduleId}
+  description: Update (replace) a schedule.
   tags:
-    - courses
+    - schedules
   parameters:
-    - name: courseId
+    - name: scheduleId
       in: path
-      description: Course ID
+      description: Schedule ID
       required: true
       type: string
     - name: body
@@ -42,7 +42,7 @@ put:
       description: Request payload
       required: true
       schema:
-        $ref: '../definitions/Course.yaml'
+        $ref: '../definitions/Schedule.yaml'
   responses:
     '200':
       description: OK
@@ -57,20 +57,20 @@ put:
           metadata:
             $ref: '../definitions/ResourceMetadata.yaml'
           data:
-            $ref: '../definitions/CourseFull.yaml'
+            $ref: '../definitions/ScheduleFull.yaml'
     '400':
       description: Bad Request
     '404':
       description: Not Found
 delete:
-  summary: DELETE /courses/{courseId}
-  description: Removes a course.
+  summary: DELETE /schedules/{scheduleId}
+  description: Removes a schedule.
   tags:
-    - courses
+    - schedules
   parameters:
-    - name: courseId
+    - name: scheduleId
       in: path
-      description: Course ID
+      description: Schedule ID
       required: true
       type: string
   responses:

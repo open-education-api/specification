@@ -82,6 +82,11 @@ post:
   tags:
     - test results
   parameters:
+    - name: userId
+      in: path
+      description: User ID
+      required: true
+      type: string
     - name: body
       in: body
       description: Request payload

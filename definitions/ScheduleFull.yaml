@@ -1,0 +1,17 @@
+allOf:
+  - type: object
+    required:
+      - scheduleId
+    properties:
+      scheduleId:
+        type: string
+        description: Unique id of this schedule
+  - $ref: 'Schedule.yaml'
+  - type: object
+    required:
+      - lastModified
+    properties:
+      lastModified:
+        type: string
+        description: The timestamp of the last moment the information for this schedule is updated
+        format: date-time

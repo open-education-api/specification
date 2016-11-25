@@ -1,8 +1,8 @@
 get:
-  summary: GET /persons
-  description: Get an ordered list of all persons.
+  summary: GET /schedules
+  description: Get an ordered list of all schedules.
   tags:
-    - persons
+    - schedules
   parameters:
     - name: q
       in: query
@@ -13,7 +13,7 @@ get:
       in: query
       description: The field to sort on
       required: false
-      default: userId_asc
+      default: lastModified_desc
       type: string
     - name: pageNumber
       in: query
@@ -31,49 +31,41 @@ get:
       type: integer
       format: int32
       minimum: 1
-    - name: surname
+    - name: roomId
       in: query
-      description: Filter by surname
+      description: Filter by roomId
       required: false
       type: string
-    - name: displayname
+    - name: buildingId
       in: query
-      description: Filter by displayname
+      description: Filter by buildingId
       required: false
       type: string
-    - name: affiliations
+    - name: courseId
       in: query
-      description: Filter by affiliations
+      description: Filter by courseId
       required: false
       type: string
-    - name: gender
+    - name: startDateTime
       in: query
-      description: Filter by gender
+      description: Filter by startDateTime
       required: false
       type: string
-    - name: organization
+      format: date-time
+    - name: endDateTime
       in: query
-      description: Filter by organization
+      description: Filter by endDateTime
       required: false
       type: string
-    - name: department
+      format: date-time
+    - name: groupId
       in: query
-      description: Filter by department
+      description: Filter by groupId
       required: false
       type: string
-    - name: office
+    - name: lecturers
       in: query
-      description: Filter by office
-      required: false
-      type: string
-    - name: groups
-      in: query
-      description: Filter by groups
-      required: false
-      type: string
-    - name: nearests
-      in: query
-      description: "Find the nearest persons by lat/long (format: `lat,lon`)"
+      description: Filter by lecturers
       required: false
       type: string
   responses:
@@ -95,6 +87,35 @@ get:
               wrapped: true                
             items:
               allOf:
-                - $ref: '../definitions/PersonFull.yaml'
+                - $ref: '../definitions/ScheduleFull.yaml'
                 - xml:
                     name: item
+post:
+  summary: POST /schedules
+  description: Create a new schedule.
+  tags:
+    - schedules
+  parameters:
+    - name: body
+      in: body
+      description: Request payload
+      required: true
+      schema:
+        $ref: '../definitions/Schedule.yaml'
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/ScheduleFull.yaml'
+    '400':
+      description: Bad Request
