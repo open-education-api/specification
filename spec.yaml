@@ -15,7 +15,7 @@ produces:
   - application/xml
 tags:
   - name: persons
-    description: The persons API provides information about persons related to an educational institute.
+    description: The persons API provides information about persons related to an educational institute
   - name: course results
     description: The course result API provides the (list of) test results from a specific course attended by a student.
   - name: buildings
