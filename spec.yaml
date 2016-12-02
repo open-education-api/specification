@@ -36,6 +36,8 @@ tags:
     description: The news feeds API returns newsfeeds aggregating one or more news items. Updated on ad hoc-base.
   - name: news items
     description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
+  - name: faculties
+    description: The organizational parts of an organization.
 paths:
   /persons:
     $ref: paths/PersonCollection.yaml
@@ -81,3 +83,7 @@ paths:
     $ref: paths/NewsItemCollection.yaml
   /newsitems/{newsitemId}:
     $ref: paths/NewsItemInstance.yaml
+  /faculties:
+    $ref: paths/FacultyCollection.yaml
+  /faculties/{facultyId}:
+    $ref: paths/FacultyInstance.yaml
