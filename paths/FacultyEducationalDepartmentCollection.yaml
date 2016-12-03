@@ -1,6 +1,6 @@
 get:
   summary: GET /faculties/{facultyId}/educationalDepartments
-  description: Get an ordered list of all educational departments for a given facultie.
+  description: Get an ordered list of all educational departments for a given faculty.
   tags:
     - educational departments
   parameters:
