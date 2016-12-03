@@ -41,7 +41,7 @@ tags:
   - name: educational departments
     description: The educational departments of an organization.
   - name: educational plans
-    description: The educational plans API provides information about the plasns in which the study is organized
+    description: The educational plans API provides information about the plans in which the study is organized
 paths:
   /persons:
     $ref: paths/PersonCollection.yaml
