@@ -40,6 +40,8 @@ tags:
     description: The organizational parts of an organization.
   - name: educational departments
     description: The educational departments of an organization.
+  - name: educational plans
+    description: The educational plans API provides information about the plasns in which the study is organized
 paths:
   /persons:
     $ref: paths/PersonCollection.yaml
@@ -89,7 +91,15 @@ paths:
     $ref: paths/FacultyCollection.yaml
   /faculties/{facultyId}:
     $ref: paths/FacultyInstance.yaml
-  /faculties/{facultyId}/educationalDepartments:
-    $ref: paths/FacultyEducationalDepartmentCollection.yaml
   /educationDepartments/{educationalDepartmentId}:
     $ref: paths/EducationalDepartmentInstance.yaml
+  /faculties/{facultyId}/educationalDepartments:
+    $ref: paths/FacultyEducationalDepartmentCollection.yaml
+  /educationalPlans:
+    $ref: paths/EducationalPlanCollection.yaml
+  /educationalPlans/{educationalPlanId}:
+    $ref: paths/EductionalPlanInstance.yaml
+  /faculties/{facultyId}/educationalPlans:
+    $ref: paths/FacultyEducationalPlanCollection.yaml
+  /educationDepartments/{educationalDepartmentId}/educationalPlans:
+    $ref: paths/EducationalDepartmentEducationalPlanCollection.yaml

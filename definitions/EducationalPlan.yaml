@@ -1,0 +1,29 @@
+type: object
+required:
+  - name
+  - termStartDate
+properties:
+  name:
+    type: string
+    description: The name of this educational plan
+  description:
+    type: string
+    description: The description of this educational plan
+  termStartDate:
+    type: string
+    description: The moment on which this educational plan starts
+    format: date-time
+  termEndDate:
+    type: string
+    description: The moment on which this educational plan starts
+    format: date-time
+  ects:
+    type: number
+    description: The number of EC's that can be archieved in this educational plan
+    format: int32
+    minimum: 0
+  earnedEcts:
+    type: number
+    description: The number of EC's that is earned in this education plan
+    format: int32
+    minimum: 0
