@@ -38,6 +38,8 @@ tags:
     description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
   - name: faculties
     description: The organizational parts of an organization.
+  - name: educational departments
+    description: The educational departments of an organization.
 paths:
   /persons:
     $ref: paths/PersonCollection.yaml
@@ -87,3 +89,7 @@ paths:
     $ref: paths/FacultyCollection.yaml
   /faculties/{facultyId}:
     $ref: paths/FacultyInstance.yaml
+  /faculties/{facultyId}/educationalDepartments:
+    $ref: paths/FacultyEducationalDepartmentCollection.yaml
+  /educationDepartments/{educationalDepartmentId}:
+    $ref: paths/EducationalDepartmentInstance.yaml

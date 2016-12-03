@@ -1,0 +1,17 @@
+allOf:
+  - type: object
+    required:
+      - educationalDepartmentId
+    properties:
+      educationalDepartmentId:
+        type: string
+        description: Unique id for this educational department
+  - $ref: EducationalDepartment.yaml
+  - type: object
+    required:
+      - lastModified
+    properties:
+      lastModified:
+        type: string
+        description: The timestamp for the last moment this educational department was updated
+        format: date-time
