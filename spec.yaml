@@ -98,7 +98,7 @@ paths:
   /educationalPlans:
     $ref: paths/EducationalPlanCollection.yaml
   /educationalPlans/{educationalPlanId}:
-    $ref: paths/EductionalPlanInstance.yaml
+    $ref: paths/EducationalPlansInstance.yaml
   /faculties/{facultyId}/educationalPlans:
     $ref: paths/FacultyEducationalPlanCollection.yaml
   /educationDepartments/{educationalDepartmentId}/educationalPlans:
