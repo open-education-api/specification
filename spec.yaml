@@ -42,6 +42,8 @@ tags:
     description: The educational departments of an organization.
   - name: educational plans
     description: The educational plans API provides information about the plans in which the study is organized
+  - name: course groups
+    description: The course groups API provides informations about the groups which organizes the courses
 paths:
   /persons:
     $ref: paths/PersonCollection.yaml
@@ -103,3 +105,11 @@ paths:
     $ref: paths/FacultyEducationalPlanCollection.yaml
   /educationalDepartments/{educationalDepartmentId}/educationalPlans:
     $ref: paths/EducationalDepartmentEducationalPlanCollection.yaml
+  /courseGroups:
+    $ref: paths/CourseGroupCollection.yaml
+  /educationalDepartments/{educationalDepartmentId}/courseGroups:
+    $ref: paths/EducationalDepartmentCourseGroupCollection.yaml
+  /faculties/{facultyId}/courseGroups:
+    $ref: paths/FacultyCourseGroupCollection.yaml
+  /educationalPlans/{educationalPlanId}/courseGroups:
+    $ref: paths/EducationalPlanCourseGroupCollection.yaml

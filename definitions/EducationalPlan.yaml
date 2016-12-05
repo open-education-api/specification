@@ -15,7 +15,7 @@ properties:
     format: date-time
   termEndDate:
     type: string
-    description: The moment on which this educational plan starts
+    description: The moment on which this educational plan ends
     format: date-time
   ects:
     type: number
