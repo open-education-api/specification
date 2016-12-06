@@ -1,5 +1,5 @@
 get:
-  summary: GET /educationalplans/{facultyId}
+  summary: GET /educationalPlans/{facultyId}
   description: Get a single educational plan.
   tags:
     - educational plans
