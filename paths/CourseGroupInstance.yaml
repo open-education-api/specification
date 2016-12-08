@@ -1,0 +1,28 @@
+get:
+  summary: GET /courseGroups/{courseGroupId}
+  description: Get a single course group.
+  tags:
+    - course groups
+  parameters:
+    - name: courseGroupId
+      in: path
+      description: Course Group ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/CourseGroupFull.yaml'
+    '404':
+      description: Not Found

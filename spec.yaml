@@ -107,6 +107,8 @@ paths:
     $ref: paths/EducationalDepartmentEducationalPlanCollection.yaml
   /courseGroups:
     $ref: paths/CourseGroupCollection.yaml
+  /courseGroups/{couseGroupId}:
+    $ref: paths/CourseGroupInstance.yaml
   /educationalDepartments/{educationalDepartmentId}/courseGroups:
     $ref: paths/EducationalDepartmentCourseGroupCollection.yaml
   /faculties/{facultyId}/courseGroups:
