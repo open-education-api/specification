@@ -4,6 +4,11 @@ get:
   tags:
     - courses
   parameters:
+    - name: educationalPlanId
+      in: path
+      description: Educational plan ID
+      required: true
+      type: string
     - name: q
       in: query
       description: Search within all fields

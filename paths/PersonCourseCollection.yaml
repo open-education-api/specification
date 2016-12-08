@@ -4,6 +4,11 @@ get:
   tags:
     - courses
   parameters:
+    - name: userId
+      in: path
+      description: User ID
+      required: true
+      type: string
     - name: q
       in: query
       description: Search within all fields

@@ -4,6 +4,11 @@ get:
   tags:
     - courses
   parameters:
+    - name: courseGroupId
+      in: path
+      description: Course Group ID
+      required: true
+      type: string
     - name: q
       in: query
       description: Search within all fields
