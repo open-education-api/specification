@@ -125,3 +125,7 @@ paths:
     $ref: paths/EducationalPlanCourseCollection.yaml
   /courseGroups/{courseGroupId}/courses:
     $ref: paths/CourseGroupCourseCollection.yaml
+  /persons/{personId}/educationalPlans:
+    $ref: paths/PersonEducationalPlanCollection.yaml
+  /persons/{personId}/courseGroups:
+    $ref: paths/PersonCourseGroupCollection.yaml
