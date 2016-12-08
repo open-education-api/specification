@@ -1,0 +1,65 @@
+get:
+  summary: GET /faculties/{facultyId}/courseGroups
+  description: Get an ordered list of all course groups for a given faculty.
+  tags:
+    - course groups
+  parameters:
+    - name: facultyId
+      in: path
+      description: Faculty ID
+      required: true
+      type: string
+    - name: q
+      in: query
+      description: Search within all fields
+      required: false
+      type: string
+    - name: order
+      in: query
+      description: The field to sort on
+      required: false
+      default: courseGroupId_asc
+      type: string
+    - name: pageNumber
+      in: query
+      description: The number of items to return per page
+      required: false
+      default: 1
+      type: integer
+      format: int32
+      minimum: 1
+    - name: pageSize
+      in: query
+      description: The page number
+      required: false
+      default: 10
+      type: integer
+      format: int32
+      minimum: 1
+    - name: type
+      in: query
+      description: Filter by type
+      required: false
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ListMetadata.yaml'
+          data:
+            type: array
+            xml:
+              wrapped: true
+            items:
+              allOf:
+                - $ref: '../definitions/CourseGroupFull.yaml'
+                - xml:
+                    name: item

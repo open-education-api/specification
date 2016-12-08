@@ -1,0 +1,28 @@
+get:
+  summary: GET /educationalDepartments/{educationalDepartmentId}
+  description: Get a single educational department.
+  tags:
+    - educational departments
+  parameters:
+    - name: educationalDepartmentId
+      in: path
+      description: educational department ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/EducationalDepartmentFull.yaml'
+    '404':
+      description: Not Found
