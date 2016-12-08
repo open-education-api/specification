@@ -115,3 +115,13 @@ paths:
     $ref: paths/FacultyCourseGroupCollection.yaml
   /educationalPlans/{educationalPlanId}/courseGroups:
     $ref: paths/EducationalPlanCourseGroupCollection.yaml
+  /persons/{userId}/courses:
+    $ref: paths/PersonCourseCollection.yaml
+  /faculties/{facultyId}/courses:
+    $ref: paths/FacultyCourseCollection.yaml
+  /educationalDepartments/{educationalDepartmentId}/courses:
+    $ref: paths/EducationalDepartmentCourseCollection.yaml
+  /educationalPlans/{educationalPlanId}/courses:
+    $ref: paths/EducationalPlanCourseCollection.yaml
+  /courseGroups/{courseGroupId}/courses:
+    $ref: paths/CourseGroupCourseCollection.yaml
