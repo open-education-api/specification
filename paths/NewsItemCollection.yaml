@@ -41,11 +41,6 @@ get:
       description: Filter by publishDate
       required: false
       type: string
-    - name: publishDate
-      in: query
-      description: Filter by publishDate
-      required: false
-      type: string
   responses:
     '200':
       description: OK
@@ -68,32 +63,3 @@ get:
                 - $ref: '../definitions/NewsItemFull.yaml'
                 - xml:
                     name: item
-post:
-  summary: POST /newsitems
-  description: Create a new news item.
-  tags:
-    - news items
-  parameters:
-    - name: body
-      in: body
-      description: Request payload
-      required: true
-      schema:
-        $ref: '../definitions/NewsItem.yaml'
-  responses:
-    '200':
-      description: OK
-      schema:
-        type: object
-        xml:
-          name: response
-        required:
-          - metadata
-          - data
-        properties:
-          metadata:
-            $ref: '../definitions/ResourceMetadata.yaml'
-          data:
-            $ref: '../definitions/NewsItemFull.yaml'
-    '400':
-      description: Bad Request

@@ -26,39 +26,3 @@ get:
             $ref: '../definitions/BuildingFull.yaml'
     '404':
       description: Not Found
-put:
-  summary: PUT /buildings/{buildingId}
-  description: Update (replace) a building.
-  tags:
-    - buildings
-  parameters:
-    - name: buildingId
-      in: path
-      description: Building ID
-      required: true
-      type: string
-    - name: body
-      in: body
-      description: Request payload
-      required: true
-      schema:
-        $ref: '../definitions/Building.yaml'
-  responses:
-    '200':
-      description: OK
-      schema:
-        type: object
-        xml:
-          name: response
-        required:
-          - metadata
-          - data
-        properties:
-          metadata:
-            $ref: '../definitions/ResourceMetadata.yaml'
-          data:
-            $ref: '../definitions/BuildingFull.yaml'
-    '400':
-      description: Bad Request
-    '404':
-      description: Not Found

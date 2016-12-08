@@ -76,37 +76,3 @@ get:
                 name: item
     '404':
       description: Not Found
-post:
-  summary: POST /testresults/{userId}
-  description: Create a new test result for the given user.
-  tags:
-    - test results
-  parameters:
-    - name: userId
-      in: path
-      description: User ID
-      required: true
-      type: string
-    - name: body
-      in: body
-      description: Request payload
-      required: true
-      schema:
-        $ref: '../definitions/TestResult.yaml'
-  responses:
-    '200':
-      description: OK
-      schema:
-        type: object
-        xml:
-          name: response
-        required:
-          - metadata
-          - data
-        properties:
-          metadata:
-            $ref: '../definitions/ResourceMetadata.yaml'
-          data:
-            $ref: '../definitions/TestResultFull.yaml'
-    '400':
-      description: Bad Request

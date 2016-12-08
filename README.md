@@ -27,7 +27,7 @@ These activities are planned for the next period:
 
 The specification can be rendered as HTML documentation:
 
-* [API Reference Documentation](https://rawgit.com/open-education-api/specification/v1/docs.html)
+* [API Reference Documentation](https://rawgit.com/open-education-api/specification/v2/docs.html)
 
 ## Contributing
 
