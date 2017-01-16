@@ -1,0 +1,36 @@
+type: object
+required:
+  - name
+  - type
+properties:
+  name:
+    type: string
+    description: The name of this course group
+  studyYear:
+    type: string
+    description: The year in which this course group was created
+  description:
+    type: string
+    description: The description of this course group
+  type:
+    type: string
+    description: The type of course group (e.g. minor, module, specialization, etc.)
+  ects:
+    type: number
+    description: The number of EC's that can be archieved in this course group
+    format: int32
+    minimum: 0
+  earnedEcts:
+    type: number
+    description: The number of EC's that is earned in this course group
+    format: int32
+    minimum: 0
+  courses:
+    type: array
+    description: The ids of courses affiliated to this course group
+    xml:
+      wrapped: true
+    items:
+      type: string
+      xml:
+        name: text

@@ -34,6 +34,14 @@ tags:
     description: The news feeds API returns newsfeeds aggregating one or more news items. Updated on ad hoc-base.
   - name: news items
     description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
+  - name: faculties
+    description: The organizational parts of an organization.
+  - name: educational departments
+    description: The educational departments of an organization.
+  - name: educational plans
+    description: The educational plans API provides information about the plans in which the study is organized
+  - name: course groups
+    description: The course groups API provides informations about the groups which organizes the courses
 paths:
   /persons:
     $ref: paths/PersonCollection.yaml
@@ -79,3 +87,43 @@ paths:
     $ref: paths/NewsItemCollection.yaml
   /newsitems/{newsitemId}:
     $ref: paths/NewsItemInstance.yaml
+  /faculties:
+    $ref: paths/FacultyCollection.yaml
+  /faculties/{facultyId}:
+    $ref: paths/FacultyInstance.yaml
+  /educationalDepartments/{educationalDepartmentId}:
+    $ref: paths/EducationalDepartmentInstance.yaml
+  /faculties/{facultyId}/educationalDepartments:
+    $ref: paths/FacultyEducationalDepartmentCollection.yaml
+  /educationalPlans:
+    $ref: paths/EducationalPlanCollection.yaml
+  /educationalPlans/{educationalPlanId}:
+    $ref: paths/EducationalPlanInstance.yaml
+  /faculties/{facultyId}/educationalPlans:
+    $ref: paths/FacultyEducationalPlanCollection.yaml
+  /educationalDepartments/{educationalDepartmentId}/educationalPlans:
+    $ref: paths/EducationalDepartmentEducationalPlanCollection.yaml
+  /courseGroups:
+    $ref: paths/CourseGroupCollection.yaml
+  /courseGroups/{couseGroupId}:
+    $ref: paths/CourseGroupInstance.yaml
+  /educationalDepartments/{educationalDepartmentId}/courseGroups:
+    $ref: paths/EducationalDepartmentCourseGroupCollection.yaml
+  /faculties/{facultyId}/courseGroups:
+    $ref: paths/FacultyCourseGroupCollection.yaml
+  /educationalPlans/{educationalPlanId}/courseGroups:
+    $ref: paths/EducationalPlanCourseGroupCollection.yaml
+  /persons/{userId}/courses:
+    $ref: paths/PersonCourseCollection.yaml
+  /faculties/{facultyId}/courses:
+    $ref: paths/FacultyCourseCollection.yaml
+  /educationalDepartments/{educationalDepartmentId}/courses:
+    $ref: paths/EducationalDepartmentCourseCollection.yaml
+  /educationalPlans/{educationalPlanId}/courses:
+    $ref: paths/EducationalPlanCourseCollection.yaml
+  /courseGroups/{courseGroupId}/courses:
+    $ref: paths/CourseGroupCourseCollection.yaml
+  /persons/{personId}/educationalPlans:
+    $ref: paths/PersonEducationalPlanCollection.yaml
+  /persons/{personId}/courseGroups:
+    $ref: paths/PersonCourseGroupCollection.yaml
