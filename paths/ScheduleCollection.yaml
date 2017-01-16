@@ -82,5 +82,4 @@ get:
           data:
             type: array
             items:
-              allOf:
-                - $ref: '../definitions/ScheduleFull.yaml'
+              $ref: '../definitions/ScheduleFull.yaml'

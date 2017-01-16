@@ -55,5 +55,4 @@ get:
           data:
             type: array
             items:
-              allOf:
-                - $ref: '../definitions/NewsItemFull.yaml'
+              $ref: '../definitions/NewsItemFull.yaml'

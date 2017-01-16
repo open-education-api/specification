@@ -90,5 +90,4 @@ get:
           data:
             type: array
             items:
-              allOf:
-                - $ref: '../definitions/PersonFull.yaml'
+              $ref: '../definitions/PersonFull.yaml'

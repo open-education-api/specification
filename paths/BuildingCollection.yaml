@@ -70,5 +70,4 @@ get:
           data:
             type: array
             items:
-              allOf:
-                - $ref: '../definitions/BuildingFull.yaml'
+              $ref: '../definitions/BuildingFull.yaml'

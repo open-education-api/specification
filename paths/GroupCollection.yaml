@@ -60,5 +60,4 @@ get:
           data:
             type: array
             items:
-              allOf:
-                - $ref: '../definitions/GroupFull.yaml'
+              $ref: '../definitions/GroupFull.yaml'

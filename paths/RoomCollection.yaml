@@ -83,5 +83,4 @@ get:
           data:
             type: array
             items:
-              allOf:
-                - $ref: '../definitions/RoomFull.yaml'
+              $ref: '../definitions/RoomFull.yaml'

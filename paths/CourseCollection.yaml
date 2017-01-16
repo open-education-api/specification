@@ -50,5 +50,4 @@ get:
           data:
             type: array
             items:
-              allOf:
-                - $ref: '../definitions/CourseFull.yaml'
+              $ref: '../definitions/CourseFull.yaml'
