@@ -28,9 +28,5 @@ properties:
   courses:
     type: array
     description: The ids of courses affiliated to this course group
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text

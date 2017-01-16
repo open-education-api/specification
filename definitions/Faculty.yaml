@@ -18,9 +18,5 @@ properties:
   departments:
     type: array
     description: The ids of departments of this faculty
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text

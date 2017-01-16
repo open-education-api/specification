@@ -11,18 +11,10 @@ properties:
   educationalPlans:
     type: array
     description: The ids of educational plans for this educational department
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
   courseGroups:
     type: array
     description: The ids of course groups for this educational department
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
