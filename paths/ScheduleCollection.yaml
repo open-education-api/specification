@@ -73,8 +73,6 @@ get:
       description: OK
       schema:
         type: object
-        xml:
-          name: response
         required:
           - metadata
           - data
@@ -83,10 +81,6 @@ get:
             $ref: '../definitions/ListMetadata.yaml'
           data:
             type: array
-            xml:
-              wrapped: true                
             items:
               allOf:
                 - $ref: '../definitions/ScheduleFull.yaml'
-                - xml:
-                    name: item

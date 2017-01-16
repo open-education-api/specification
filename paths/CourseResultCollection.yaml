@@ -35,8 +35,6 @@ get:
       description: OK
       schema:
         type: object
-        xml:
-          name: response
         required:
           - metadata
           - data
@@ -45,8 +43,6 @@ get:
             $ref: '../definitions/ListMetadata.yaml'
           data:
             type: array
-            xml:
-              wrapped: true
             items:
               type: object
               required:
@@ -60,17 +56,11 @@ get:
                 course:
                   type: array
                   description: The ids of courses for which the student has results
-                  xml:
-                    wrapped: true
                   items:
                     type: string
-                    xml:
-                      name: text
                 course.lastModified:
                   type: string
                   description: The timestamp of the last update on this person’s information
                   format: date-time
-              xml:
-                name: item
     '404':
       description: Not Found

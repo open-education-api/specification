@@ -16,18 +16,10 @@ properties:
   items:
     type: array
     description: The ids of newsitems, that are part of this newsfeed
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
   groups:
     type: array
     description: The ids of groups targeted to this newsfeed
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text

@@ -11,24 +11,16 @@ properties:
   courseId:
     type: array
     description: The ids of courses for this test result
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
   courseResult:
     type: string
     description: The uri from courseresults for the course for which the test results are requested
   userId:
     type: array
     description: The ids of persons of the teachers who are responsible for this test
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
   description:
     type: string
     description: The general description for the test result
