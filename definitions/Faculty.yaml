@@ -1,0 +1,26 @@
+type: object
+required:
+  - type
+  - name
+properties:
+  parentId:
+    type: string
+    description: Unique id of the parent faculty
+  type:
+    type: string
+    description: The type of faculty (e.g. institute, faculty, domain)
+  name:
+    type: string
+    description: The name of this faculty
+  description:
+    type: string
+    description: The description of this faculty
+  departments:
+    type: array
+    description: The ids of departments of this faculty
+    xml:
+      wrapped: true
+    items:
+      type: string
+      xml:
+        name: text
