@@ -14,8 +14,6 @@ get:
       description: OK
       schema:
         type: object
-        xml:
-          name: response
         required:
           - metadata
           - data

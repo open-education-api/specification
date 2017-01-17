@@ -7,12 +7,8 @@ properties:
   feeds:
     type: array
     description: The ids of newsfeeds where this news item is aggregated
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
   publishDate:
     type: string
     description: The timestamp on which this news item was published
@@ -23,12 +19,8 @@ properties:
   authors:
     type: array
     description: The authors of the article with this news item
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
   image:
     type: string
     description: The url containing the address of the image belonging to this news item

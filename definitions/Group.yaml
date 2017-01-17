@@ -15,18 +15,10 @@ properties:
   members:
     type: array
     description: The ids of persons, who have a grouprole in this group
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
   courses:
     type: array
     description: The ids of courses, related to this group
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text

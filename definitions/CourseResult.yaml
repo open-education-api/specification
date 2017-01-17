@@ -11,12 +11,8 @@ properties:
   testResults:
     type: array
     description: The ids of testresults of the tests made by the student for this course
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text
   lastModified:
     type: string
     description: Timestamp for the last moment the course result was updated

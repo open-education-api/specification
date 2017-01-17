@@ -13,9 +13,5 @@ properties:
   roles:
     type: array
     description: The roles assigned to the member of the group
-    xml:
-      wrapped: true
     items:
       type: string
-      xml:
-        name: text

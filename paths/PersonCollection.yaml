@@ -81,8 +81,6 @@ get:
       description: OK
       schema:
         type: object
-        xml:
-          name: response
         required:
           - metadata
           - data
@@ -91,10 +89,5 @@ get:
             $ref: '../definitions/ListMetadata.yaml'
           data:
             type: array
-            xml:
-              wrapped: true                
             items:
-              allOf:
-                - $ref: '../definitions/PersonFull.yaml'
-                - xml:
-                    name: item
+              $ref: '../definitions/PersonFull.yaml'

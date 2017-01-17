@@ -10,7 +10,6 @@ schemes:
   - http
 produces:
   - application/json
-  - application/xml
 tags:
   - name: persons
     description: The persons API provides information about persons related to an educational institute.

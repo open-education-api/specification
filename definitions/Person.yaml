@@ -23,9 +23,7 @@ properties:
   affiliations:
     type: array
     description: The affiliations of how this person is associated with the organization
-    xml:
-      wrapped: true
-    items: 
+    items:
       type: string
       enum:
         - student
@@ -34,8 +32,6 @@ properties:
         - member
         - affiliate
         - organization
-      xml:
-        name: text
   mail:
     type: string
     description: The e-mailaddress of this person
@@ -77,12 +73,8 @@ properties:
   groups:
     type: array
     description: The ids of groups within the organization to which this person belongs
-    xml:
-      wrapped: true
-    items: 
+    items:
       type: string
-      xml:
-        name: text
   lat:
     type: number
     description: The latitude of the last updated position of this person

@@ -11,39 +11,23 @@ properties:
   userId:
     type: array
     description: The ids of persons affiliated as student who join this schedule
-    xml:
-      wrapped: true
-    items: 
+    items:
       type: string
-      xml:
-        name: text
   roomId:
     type: array
     description: The ids of rooms where this schedule is located
-    xml:
-      wrapped: true
-    items: 
+    items:
       type: string
-      xml:
-        name: text
   buildingId:
     type: array
     description: The ids from the (nearby) buildings where this schedule is located
-    xml:
-      wrapped: true
-    items: 
+    items:
       type: string
-      xml:
-        name: text
   courseId:
     type: array
     description: The ids of courses affiliated to this schedule
-    xml:
-      wrapped: true
-    items: 
+    items:
       type: string
-      xml:
-        name: text
   startDateTime:
     type: string
     description: The moment on which this schedule starts
@@ -55,21 +39,13 @@ properties:
   groupId:
     type: array
     description: The ids of groups affiliated to this schedule
-    xml:
-      wrapped: true
-    items: 
+    items:
       type: string
-      xml:
-        name: text
   lecturers:
     type: array
     description: The ids of persons affiliated to this schedule as lecturer
-    xml:
-      wrapped: true
-    items: 
+    items:
       type: string
-      xml:
-        name: text
   description:
     type: string
     description: The description of this schedule
