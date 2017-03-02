@@ -1,11 +1,11 @@
 swagger: '2.0'
 info:
-  version: 1.0.0
+  version: 2.0.0 (Draft)
   title: Open Education API
   x-logo:
     url: logo.png
 host: api.openonderwijsapi.nl
-basePath: /v1
+basePath: /v2
 schemes:
   - http
 produces:
