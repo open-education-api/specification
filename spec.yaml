@@ -7,7 +7,7 @@ info:
 host: api.openonderwijsapi.nl
 basePath: /v2
 schemes:
-  - http
+  - https
 produces:
   - application/json
 tags:
