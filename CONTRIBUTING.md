@@ -18,7 +18,7 @@ Please follow these guidelines before opening an issue:
 ## Formatting conventions
 
 * The spec must comply with the [Open API Specification v2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
-* The spec files must be written in [YAML 2.1 format](http://www.yaml.org/spec/1.2/spec.html)
+* The spec files must be written in [YAML 1.2 format](http://www.yaml.org/spec/1.2/spec.html)
 * YAML indentation should be 2 spaces (not tabs)
 * YAML string keys/values should be unquoted when quotation is not needed
 * YAML string keys/values should be single-quoted when quotation is needed
