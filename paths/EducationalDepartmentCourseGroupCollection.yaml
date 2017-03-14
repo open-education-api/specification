@@ -1,5 +1,5 @@
 get:
-  summary: GET /educational-departments/{educationalDepartmentId}/coursegroups
+  summary: GET /educational-departments/{educationalDepartmentId}/course-groups
   description: Get an ordered list of all course groups for a given educational department.
   tags:
     - course groups
