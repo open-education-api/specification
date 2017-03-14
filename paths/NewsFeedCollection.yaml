@@ -1,5 +1,5 @@
 get:
-  summary: GET /newsfeeds
+  summary: GET /news-feeds
   description: Get an ordered list of all news feeds.
   tags:
     - news feeds

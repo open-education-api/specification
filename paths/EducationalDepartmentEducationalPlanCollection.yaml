@@ -1,5 +1,5 @@
 get:
-  summary: GET /educationalDepartments/{educationalDepartmentId}/educationalPlans
+  summary: GET /educational-departments/{educationalDepartmentId}/educational-plans
   description: Get an ordered list of all educational plans for a given educational department.
   tags:
     - educational plans

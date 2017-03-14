@@ -5,17 +5,17 @@ required:
 properties:
   title:
     type: string
-    description: The title for this newsfeed
+    description: The title for this news feed
   description:
     type: string
-    description: The description of this newsfeed
+    description: The description of this news feed
   items:
     type: array
-    description: The ids of newsitems, that are part of this newsfeed
+    description: The ids of news items, that are part of this news feed
     items:
       type: string
   groups:
     type: array
-    description: The ids of groups targeted to this newsfeed
+    description: The ids of groups targeted to this news feed
     items:
       type: string

@@ -1,5 +1,5 @@
 get:
-  summary: GET /faculties/{facultyId}/courseGroups
+  summary: GET /faculties/{facultyId}/coursegroups
   description: Get an ordered list of all course groups for a given faculty.
   tags:
     - course groups

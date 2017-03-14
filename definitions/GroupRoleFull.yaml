@@ -1,11 +1,11 @@
 allOf:
   - type: object
     required:
-      - grouproleId
+      - groupRoleId
     properties:
-      grouproleId:
+      groupRoleId:
         type: string
-        description: Unique id for this grouprole
+        description: Unique id for this group role
   - $ref: GroupRole.yaml
   - type: object
     required:
@@ -13,5 +13,5 @@ allOf:
     properties:
       lastModified:
         type: string
-        description: The timestamp for the last moment this grouprole was updated
+        description: The timestamp for the last moment this group role was updated
         format: date-time

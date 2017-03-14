@@ -1,5 +1,5 @@
 get:
-  summary: GET /educationalDepartments/{educationalDepartmentId}
+  summary: GET /educational-departments/{educationalDepartmentId}
   description: Get a single educational department.
   tags:
     - educational departments

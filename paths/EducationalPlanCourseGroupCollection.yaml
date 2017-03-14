@@ -1,5 +1,5 @@
 get:
-  summary: GET /educationalPlans/{educationalPlanId}/courseGroups
+  summary: GET /educational-plans/{educationalPlanId}/coursegroups
   description: Get an ordered list of all course groups for a given educational plan.
   tags:
     - course groups

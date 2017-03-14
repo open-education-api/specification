@@ -1,5 +1,5 @@
 get:
-  summary: GET /courseGroups/{courseGroupId}
+  summary: GET /coursegroups/{courseGroupId}
   description: Get a single course group.
   tags:
     - course groups

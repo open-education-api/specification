@@ -1,5 +1,5 @@
 get:
-  summary: GET /persons/{personId}/courseGroups
+  summary: GET /persons/{personId}/coursegroups
   description: Get an ordered list of all course groups for a given person.
   tags:
     - course groups

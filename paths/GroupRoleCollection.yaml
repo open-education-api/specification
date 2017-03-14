@@ -1,5 +1,5 @@
 get:
-  summary: GET /grouproles
+  summary: GET /group-roles
   description: Get an ordered list of all group roles.
   tags:
     - group roles
@@ -13,7 +13,7 @@ get:
       in: query
       description: The field to sort on
       required: false
-      default: grouproleId_asc
+      default: groupRoleId_asc
       type: string
     - name: pageNumber
       in: query

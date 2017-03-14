@@ -14,7 +14,7 @@ properties:
     description: The type (from a limited list) with which the goal of the group is identified
   members:
     type: array
-    description: The ids of persons, who have a grouprole in this group
+    description: The ids of persons, who have a group role in this group
     items:
       type: string
   courses:

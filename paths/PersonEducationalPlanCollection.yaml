@@ -1,5 +1,5 @@
 get:
-  summary: GET /persons/{personId}/educationalPlans
+  summary: GET /persons/{personId}/educational-plans
   description: Get an ordered list of all educational plans for a given person.
   tags:
     - educational plans

@@ -6,7 +6,7 @@ required:
 properties:
   feeds:
     type: array
-    description: The ids of newsfeeds where this news item is aggregated
+    description: The ids of news feeds where this news item is aggregated
     items:
       type: string
   publishDate:
