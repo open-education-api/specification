@@ -1,5 +1,5 @@
 get:
-  summary: GET /testresults/{userId}/{testId}
+  summary: GET /test-results/{userId}/{testId}
   description: Get a single test result.
   tags:
     - test results

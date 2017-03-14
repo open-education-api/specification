@@ -15,7 +15,7 @@ properties:
       type: string
   courseResult:
     type: string
-    description: The uri from courseresults for the course for which the test results are requested
+    description: The uri from course results for the course for which the test results are requested
   userId:
     type: array
     description: The ids of persons of the teachers who are responsible for this test

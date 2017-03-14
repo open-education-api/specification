@@ -1,5 +1,5 @@
 get:
-  summary: GET /testresults/{userId}
+  summary: GET /test-results/{userId}
   description: Get an ordered list of all test results for the given user.
   tags:
     - test results
@@ -18,7 +18,7 @@ get:
       in: query
       description: The field to sort on
       required: false
-      default: testresult.lastModified_desc
+      default: testResult.lastModified_desc
       type: string
     - name: pageNumber
       in: query
@@ -53,14 +53,14 @@ get:
               type: object
               required:
                 - courseId
-                - testresult.lastModified
+                - testResult.lastModified
               properties:
                 courseId:
                   type: array
                   description: The courseIds for which the student has test results
                   items:
                     type: string
-                testresult.lastModified:
+                testResult.lastModified:
                   type: string
                   description: Timestamp for the last moment a test result was updated
                   format: date-time

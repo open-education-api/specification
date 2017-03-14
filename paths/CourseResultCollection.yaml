@@ -1,5 +1,5 @@
 get:
-  summary: GET /courseresults/{userId}
+  summary: GET /course-results/{userId}
   description: Get an ordered list of all course results for the given user.
   tags:
     - course results
