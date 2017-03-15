@@ -1,9 +1,9 @@
 allOf:
   - type: object
     required:
-      - newsitemId
+      - newsItemId
     properties:
-      newsitemId:
+      newsItemId:
         type: string
         description: Unique id for this news item
   - $ref: NewsItem.yaml

@@ -1,10 +1,10 @@
 get:
-  summary: GET /newsitems/{newsitemId}
+  summary: GET /news-items/{newsItemId}
   description: Get a single news item.
   tags:
     - news items
   parameters:
-    - name: newsitemId
+    - name: newsItemId
       in: path
       description: News item ID
       required: true

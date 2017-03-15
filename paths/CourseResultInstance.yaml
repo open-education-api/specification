@@ -1,5 +1,5 @@
 get:
-  summary: GET /courseresults/{userId}/{courseId}
+  summary: GET /course-results/{userId}/{courseId}
   description: Get a single course result.
   tags:
     - course results

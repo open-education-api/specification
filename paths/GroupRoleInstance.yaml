@@ -1,10 +1,10 @@
 get:
-  summary: GET /grouproles/{grouproleId}
+  summary: GET /group-roles/{groupRoleId}
   description: Get a single group role.
   tags:
     - group roles
   parameters:
-    - name: grouproleId
+    - name: groupRoleId
       in: path
       description: Group role ID
       required: true

@@ -1,10 +1,10 @@
 get:
-  summary: GET /newsfeeds/{newsfeedId}
+  summary: GET /news-feeds/{newsFeedId}
   description: Get a single news feed.
   tags:
     - news feeds
   parameters:
-    - name: newsfeedId
+    - name: newsFeedId
       in: path
       description: News feed ID
       required: true

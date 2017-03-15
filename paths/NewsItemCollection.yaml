@@ -1,5 +1,5 @@
 get:
-  summary: GET /newsitems
+  summary: GET /news-items
   description: Get an ordered list of all news items.
   tags:
     - news items
