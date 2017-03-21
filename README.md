@@ -6,6 +6,7 @@ This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specificat
 
 * [Roadmap](#roadmap)
 * [Documentation](#documentation)
+* [Development](#development)
 * [Contributing](#contributing)
 * [Community](#community)
 
@@ -18,7 +19,7 @@ Currently there are 2 main branches:
 
 ## Roadmap
 
-These activities are planned for the next period: 
+These activities are planned for the next period:
 
 * Discuss & process feedback v1 (should be backwards-compatible)
 * Discuss & process additions and improvements in separate v2 branch
@@ -28,6 +29,16 @@ These activities are planned for the next period:
 The specification can be rendered as HTML documentation:
 
 * [API Reference Documentation](https://rawgit.com/open-education-api/specification/v2/docs.html)
+
+## Development
+
+To render the reference documentation locally during development, you can start a [Docker](https://www.docker.com/community-edition/) container:
+
+```
+docker run --rm -p 8080:80 -v ${PWD}:/usr/share/nginx/html nginx:alpine
+```
+
+Now you can view the docs in your web browser: http://localhost:8080/docs.html
 
 ## Contributing
 
