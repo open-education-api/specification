@@ -17,7 +17,7 @@ get:
       type: string
     - name: pageSize
       in: query
-      description: The page number
+      description: The number of items per page
       required: false
       default: 10
       type: integer
