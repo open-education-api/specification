@@ -21,8 +21,9 @@ Currently there are 2 main branches:
 
 These activities are planned for the next period:
 
-* Discuss & process feedback v1 (should be backwards-compatible)
 * Discuss & process additions and improvements in separate v2 branch
+* The scope of the V2 specification will be frozen by May 15, 2017
+* The V2 specification will be finalized by the end of June 2017
 
 ## Documentation
 
