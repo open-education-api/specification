@@ -60,13 +60,22 @@ get:
         type: object
         required:
           - pageSize
-          - _links
           - _embedded
+          - _links
         properties:
           pageSize:
             type: number
             format: int32
             description: The number of items per page
+          _embedded:
+            type: object
+            required:
+              - items
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '../definitions/BuildingFull.yaml'
           _links:
             type: object
             required:
@@ -84,12 +93,3 @@ get:
                 type: string
                 format: uri
                 description: Link to next page
-          _embedded:
-            type: object
-            required:
-              - items
-            properties:
-              items:
-                type: array
-                items:
-                  $ref: '../definitions/BuildingFull.yaml'
