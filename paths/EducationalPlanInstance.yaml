@@ -13,14 +13,6 @@ get:
     '200':
       description: OK
       schema:
-        type: object
-        required:
-          - metadata
-          - data
-        properties:
-          metadata:
-            $ref: '../definitions/ResourceMetadata.yaml'
-          data:
-            $ref: '../definitions/EducationalPlanFull.yaml'
+        $ref: '../definitions/EducationalPlanFull.yaml'
     '404':
       description: Not Found

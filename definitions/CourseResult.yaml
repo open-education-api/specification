@@ -4,6 +4,7 @@ required:
   - testResults
   - lastModified
   - passed
+  - _links
 properties:
   course:
     type: string
@@ -26,3 +27,12 @@ properties:
   passed:
     type: boolean
     description: Boolean, representing whether the student did or did not pass the course
+  _links:
+        type: object
+        required:
+          - self
+        properties:
+          self:
+            type: string
+            format: uri
+            description: Link to current resource
