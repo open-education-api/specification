@@ -10,8 +10,18 @@ allOf:
   - type: object
     required:
       - lastModified
+      - _links
     properties:
       lastModified:
         type: string
         description: The timestamp of the last moment the information for this course group is updated
         format: date-time
+      _links:
+        type: object
+        required:
+          - self
+        properties:
+          self:
+            type: string
+            format: uri
+            description: Link to current resource

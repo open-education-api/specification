@@ -15,22 +15,19 @@ get:
       required: false
       default: courseGroupId_asc
       type: string
-    - name: pageNumber
-      in: query
-      description: The number of items to return per page
-      required: false
-      default: 1
-      type: integer
-      format: int32
-      minimum: 1
     - name: pageSize
       in: query
-      description: The page number
+      description: The number of items per page
       required: false
       default: 10
       type: integer
       format: int32
-      minimum: 1
+      enum:
+        - 10
+        - 20
+        - 50
+        - 100
+        - 250
     - name: type
       in: query
       description: Filter by type
@@ -42,12 +39,37 @@ get:
       schema:
         type: object
         required:
-          - metadata
-          - data
+          - pageSize
+          - _embedded
+          - _links
         properties:
-          metadata:
-            $ref: '../definitions/ListMetadata.yaml'
-          data:
-            type: array
-            items:
-              $ref: '../definitions/CourseGroupFull.yaml'
+          pageSize:
+            type: number
+            format: int32
+            description: The number of items per page
+          _embedded:
+            type: object
+            required:
+              - items
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '../definitions/CourseGroupFull.yaml'
+          _links:
+            type: object
+            required:
+              - self
+            properties:
+              self:
+                type: string
+                format: uri
+                description: Link to current page
+              prev:
+                type: string
+                format: uri
+                description: Link to previous page
+              next:
+                type: string
+                format: uri
+                description: Link to next page
