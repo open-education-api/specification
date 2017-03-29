@@ -70,16 +70,11 @@ properties:
   office:
     type: string
     description: The name of the office where this person is located
-  groups:
-    type: array
-    description: The ids of groups within the organization to which this person belongs
-    items:
-      type: string
   lat:
     type: number
     description: The latitude of the last updated position of this person
-    format: double 
+    format: double
   lon:
     type: number
     description: The longitude of the last updated position of this person
-    format: double 
+    format: double

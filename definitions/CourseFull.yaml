@@ -22,6 +22,11 @@ allOf:
           - self
         properties:
           self:
-            type: string
-            format: uri
+            type: object
             description: Link to current resource
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
