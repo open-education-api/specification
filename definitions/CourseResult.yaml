@@ -1,19 +1,9 @@
 type: object
 required:
-  - course
-  - testResults
   - lastModified
   - passed
   - _links
 properties:
-  course:
-    type: string
-    description: The id from courses from which the results are requested
-  testResults:
-    type: array
-    description: The ids of testresults of the tests made by the student for this course
-    items:
-      type: string
   lastModified:
     type: string
     description: Timestamp for the last moment the course result was updated
@@ -31,8 +21,41 @@ properties:
         type: object
         required:
           - self
+          - testResults
         properties:
           self:
-            type: string
-            format: uri
+            type: object
             description: Link to current resource
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+          course:
+            type: object
+            description: The courses from which the results are requested
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+              title:
+                type: string
+          testResults:
+            type: array
+            description: The testresults of the tests made by the student for this course
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+

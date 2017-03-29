@@ -20,8 +20,28 @@ allOf:
         type: object
         required:
           - self
+          - groups
         properties:
           self:
-            type: string
-            format: uri
+            type: object
             description: Link to current resource
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+          groups:
+            type: array
+            description: The groups within the organization to which this person belongs
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

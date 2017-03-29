@@ -57,14 +57,29 @@ get:
               - self
             properties:
               self:
-                type: string
-                format: uri
-                description: Link to current page
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
+                    type: string
+                    format: uri
+                    description: Link to current page
               prev:
-                type: string
-                format: uri
-                description: Link to previous page
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
+                    type: string
+                    format: uri
+                    description: Link to previous page
               next:
-                type: string
-                format: uri
-                description: Link to next page
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
+                    type: string
+                    format: uri
+                    description: Link to next page
