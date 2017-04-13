@@ -48,6 +48,8 @@ get:
             properties:
               items:
                 type: array
+                items:
+                  $ref: '../definitions/CourseResult.yaml'
           _links:
             type: object
             required:
