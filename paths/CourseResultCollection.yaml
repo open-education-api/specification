@@ -14,53 +14,73 @@ get:
       description: Search within all fields
       required: false
       type: string
-    - name: pageNumber
-      in: query
-      description: The number of items to return per page
-      required: false
-      default: 1
-      type: integer
-      format: int32
-      minimum: 1
     - name: pageSize
       in: query
-      description: The page number
+      description: The number of items per page
       required: false
       default: 10
       type: integer
       format: int32
-      minimum: 1
+      enum:
+        - 10
+        - 20
+        - 50
+        - 100
+        - 250
   responses:
     '200':
       description: OK
       schema:
         type: object
         required:
-          - metadata
-          - data
+          - pageSize
+          - _embedded
+          - _links
         properties:
-          metadata:
-            $ref: '../definitions/ListMetadata.yaml'
-          data:
-            type: array
-            items:
-              type: object
-              required:
-                - student
-                - course
-                - course.lastModified
-              properties:
-                student:
-                  type: string
-                  description: The uri from persons of the student whose results are requested
-                course:
-                  type: array
-                  description: The ids of courses for which the student has results
-                  items:
+          pageSize:
+            type: number
+            format: int32
+            description: The number of items per page
+          _embedded:
+            type: object
+            required:
+              - items
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '../definitions/CourseResult.yaml'
+          _links:
+            type: object
+            required:
+              - self
+            properties:
+              self:
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
                     type: string
-                course.lastModified:
-                  type: string
-                  description: The timestamp of the last update on this person’s information
-                  format: date-time
+                    format: uri
+                    description: Link to current page
+              prev:
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
+                    type: string
+                    format: uri
+                    description: Link to previous page
+              next:
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
+                    type: string
+                    format: uri
+                    description: Link to next page
     '404':
       description: Not Found

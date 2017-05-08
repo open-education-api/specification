@@ -10,8 +10,23 @@ allOf:
   - type: object
     required:
       - lastModified
+      - _links
     properties:
       lastModified:
         type: string
         description: The timestamp for the last moment this news feed was updated
         format: date-time
+      _links:
+        type: object
+        required:
+          - self
+        properties:
+          self:
+            type: object
+            description: Link to current resource
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
