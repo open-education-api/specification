@@ -1,7 +1,6 @@
 type: object
 required:
   - title
-  - items
 properties:
   title:
     type: string
@@ -9,13 +8,3 @@ properties:
   description:
     type: string
     description: The description of this news feed
-  items:
-    type: array
-    description: The ids of news items, that are part of this news feed
-    items:
-      type: string
-  groups:
-    type: array
-    description: The ids of groups targeted to this news feed
-    items:
-      type: string

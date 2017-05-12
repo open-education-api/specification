@@ -20,6 +20,12 @@ allOf:
         type: object
         required:
           - self
+          - students
+          - rooms
+          - buildings
+          - courses
+          - groups
+          - lecturers
         properties:
           self:
             type: object
@@ -30,3 +36,87 @@ allOf:
               href:
                 type: string
                 format: uri
+          students:
+            type: array
+            description: Links to the persons affiliated as student who join this schedule
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          rooms:
+            type: array
+            description: Links to the rooms where this schedule is located
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          buildings:
+            type: array
+            description: Links to the (nearby) buildings where this schedule is located
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          courses:
+            type: array
+            description: Links to the courses affiliated to this schedule
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          groups:
+            type: array
+            description: Links to the groups affiliated to this schedule
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          lecturers:
+            type: array
+            description: Links to the persons affiliated to this schedule as lecturer
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

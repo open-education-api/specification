@@ -20,6 +20,7 @@ allOf:
         type: object
         required:
           - self
+          - courses
         properties:
           self:
             type: object
@@ -30,3 +31,17 @@ allOf:
               href:
                 type: string
                 format: uri
+          courses:
+            type: array
+            description: Links to the courses affiliated to this course group
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

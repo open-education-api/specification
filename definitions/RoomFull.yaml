@@ -20,6 +20,7 @@ allOf:
         type: object
         required:
           - self
+          - building
         properties:
           self:
             type: object
@@ -30,3 +31,16 @@ allOf:
               href:
                 type: string
                 format: uri
+          building:
+            type: object
+            description: Link to the building in which the room is located
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+              title:
+                type: string
+

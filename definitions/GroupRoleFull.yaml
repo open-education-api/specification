@@ -20,6 +20,9 @@ allOf:
         type: object
         required:
           - self
+          - group
+          - person
+          - roles
         properties:
           self:
             type: object
@@ -30,3 +33,41 @@ allOf:
               href:
                 type: string
                 format: uri
+          group:
+            type: object
+            description: Link to the group for which the role is described
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+              title:
+                type: string
+          person:
+            type: object
+            description: Link to the person, who is member of the group
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+              title:
+                type: string
+          roles:
+            type: array
+            description: Links to the roles assigned to the member of the group
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
