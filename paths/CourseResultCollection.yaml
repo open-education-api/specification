@@ -9,11 +9,6 @@ get:
       description: User ID
       required: true
       type: string
-    - name: q
-      in: query
-      description: Search within all fields
-      required: false
-      type: string
     - name: pageSize
       in: query
       description: The number of items per page

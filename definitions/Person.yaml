@@ -70,11 +70,3 @@ properties:
   office:
     type: string
     description: The name of the office where this person is located
-  lat:
-    type: number
-    description: The latitude of the last updated position of this person
-    format: double
-  lon:
-    type: number
-    description: The longitude of the last updated position of this person
-    format: double

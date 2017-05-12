@@ -4,11 +4,6 @@ get:
   tags:
     - news feeds
   parameters:
-    - name: q
-      in: query
-      description: Search within all fields
-      required: false
-      type: string
     - name: order
       in: query
       description: The field to sort on
