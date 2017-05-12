@@ -9,7 +9,7 @@ basePath: /v2
 schemes:
   - https
 produces:
-  - application/json
+  - application/hal+json
 tags:
   - name: persons
     description: The persons API provides information about persons related to an educational institute.
