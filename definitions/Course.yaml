@@ -37,7 +37,7 @@ properties:
     description: The format in which this course is given
   language:
     type: string
-    description: The main language in which this course is given, RFC 3066 (NL-nl)
+    description: The main language in which this course is given, RFC 3066 (nl-NL)
   enrollment:
     type: string
     description: The extra information that is provided for enrollment
