@@ -4,11 +4,6 @@ get:
   tags:
     - rooms
   parameters:
-    - name: q
-      in: query
-      description: Search within all fields
-      required: false
-      type: string
     - name: order
       in: query
       description: The field to sort on
@@ -61,11 +56,6 @@ get:
       required: false
       type: number
       format: int32
-    - name: nearests
-      in: query
-      description: "Find the nearest rooms by lat/long (format: `lat,lon`)"
-      required: false
-      type: string
   responses:
     '200':
       description: OK

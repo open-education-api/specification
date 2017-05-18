@@ -4,11 +4,6 @@ get:
   tags:
     - persons
   parameters:
-    - name: q
-      in: query
-      description: Search within all fields
-      required: false
-      type: string
     - name: order
       in: query
       description: The field to sort on
@@ -66,11 +61,6 @@ get:
     - name: groups
       in: query
       description: Filter by groups
-      required: false
-      type: string
-    - name: nearests
-      in: query
-      description: "Find the nearest persons by lat/long (format: `lat,lon`)"
       required: false
       type: string
   responses:
