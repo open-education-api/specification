@@ -4,11 +4,6 @@ required:
   - publishDate
   - content
 properties:
-  feeds:
-    type: array
-    description: The ids of news feeds where this news item is aggregated
-    items:
-      type: string
   publishDate:
     type: string
     description: The timestamp on which this news item was published

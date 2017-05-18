@@ -20,6 +20,8 @@ allOf:
         type: object
         required:
           - self
+          - members
+          - courses
         properties:
           self:
             type: object
@@ -30,3 +32,31 @@ allOf:
               href:
                 type: string
                 format: uri
+          members:
+            type: array
+            description: Links to the persons who have a group role in this group
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          courses:
+            type: array
+            description: Links to the courses related to this group
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

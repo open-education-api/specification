@@ -1,12 +1,8 @@
 type: object
 required:
-  - buildingId
   - abbreviation
   - name
 properties:
-  buildingId:
-    type: string
-    description: The id from buildings in which the room is located
   abbreviation:
     type: string
     description: The abbreviation of the name of this room
@@ -31,12 +27,12 @@ properties:
   lat:
     type: number
     description: The latitude of this room
-    format: double 
+    format: double
   lon:
     type: number
     description: The longitude this room
-    format: double 
+    format: double
   altitude:
     type: number
     description: The altitude this room
-    format: double 
+    format: double

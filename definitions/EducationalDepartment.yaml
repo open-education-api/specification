@@ -8,13 +8,3 @@ properties:
   description:
     type: string
     description: The description of this educational department
-  educationalPlans:
-    type: array
-    description: The ids of educational plans for this educational department
-    items:
-      type: string
-  courseGroups:
-    type: array
-    description: The ids of course groups for this educational department
-    items:
-      type: string

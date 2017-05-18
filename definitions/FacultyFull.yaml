@@ -20,6 +20,7 @@ allOf:
         type: object
         required:
           - self
+          - departments
         properties:
           self:
             type: object
@@ -30,3 +31,29 @@ allOf:
               href:
                 type: string
                 format: uri
+          parent:
+            type: object
+            description: Link to the parent faculty
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+              title:
+                type: string
+          departments:
+            type: array
+            description: Links to the departments of this faculty
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

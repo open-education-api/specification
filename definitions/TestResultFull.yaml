@@ -20,6 +20,9 @@ allOf:
         type: object
         required:
           - self
+          - courses
+          - courseResult
+          - teachers
         properties:
           self:
             type: object
@@ -30,3 +33,43 @@ allOf:
               href:
                 type: string
                 format: uri
+          courses:
+            type: array
+            description: Links to the courses for this test result
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          courseResult:
+            type: object
+            description: Links to the course result for the course for which the test results are requested
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+              title:
+                type: string
+          teachers:
+            type: array
+            description: Links to the persons of the teachers who are responsible for this test
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

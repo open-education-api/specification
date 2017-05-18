@@ -20,6 +20,7 @@ allOf:
         type: object
         required:
           - self
+          - feeds
         properties:
           self:
             type: object
@@ -30,3 +31,17 @@ allOf:
               href:
                 type: string
                 format: uri
+          feeds:
+            type: array
+            description: Links to the news feeds where this news item is aggregated
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

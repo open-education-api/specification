@@ -20,6 +20,9 @@ allOf:
         type: object
         required:
           - self
+          - schedules
+          - lecturers
+          - groups
         properties:
           self:
             type: object
@@ -30,3 +33,45 @@ allOf:
               href:
                 type: string
                 format: uri
+          schedules:
+            type: array
+            description: Links to the schedules for this course
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          lecturers:
+            type: array
+            description: Links to the persons affiliated to this course as lecturer
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          groups:
+            type: array
+            description: Links to the groups connected to this course
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

@@ -20,6 +20,8 @@ allOf:
         type: object
         required:
           - self
+          - items
+          - groups
         properties:
           self:
             type: object
@@ -30,3 +32,31 @@ allOf:
               href:
                 type: string
                 format: uri
+          items:
+            type: array
+            description: Links to the news items, that are part of this news feed
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          groups:
+            type: array
+            description: Links to the groups targeted to this news feed
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string

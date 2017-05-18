@@ -20,6 +20,8 @@ allOf:
         type: object
         required:
           - self
+          - educationalPlans
+          - courseGroups
         properties:
           self:
             type: object
@@ -30,3 +32,32 @@ allOf:
               href:
                 type: string
                 format: uri
+          educationalPlans:
+            type: array
+            description: Links to the educational plans for this educational department
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          courseGroups:
+            type: array
+            description: Links to the course groups for this educational department
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+

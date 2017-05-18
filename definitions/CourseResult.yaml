@@ -18,44 +18,45 @@ properties:
     type: boolean
     description: Boolean, representing whether the student did or did not pass the course
   _links:
+    type: object
+    required:
+      - self
+      - course
+      - testResults
+    properties:
+      self:
         type: object
+        description: Link to current resource
         required:
-          - self
-          - testResults
+          - href
         properties:
-          self:
-            type: object
-            description: Link to current resource
-            required:
-              - href
-            properties:
-              href:
-                type: string
-                format: uri
-          course:
-            type: object
-            description: The courses from which the results are requested
-            required:
-              - href
-              - title
-            properties:
-              href:
-                type: string
-                format: uri
-              title:
-                type: string
-          testResults:
-            type: array
-            description: The testresults of the tests made by the student for this course
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+          href:
+            type: string
+            format: uri
+      course:
+        type: object
+        description: Link to the course from which the results are requested
+        required:
+          - href
+          - title
+        properties:
+          href:
+            type: string
+            format: uri
+          title:
+            type: string
+      testResults:
+        type: array
+        description: Links to the testresults of the tests made by the student for this course
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+            title:
+              type: string
 

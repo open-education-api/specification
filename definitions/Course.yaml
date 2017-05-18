@@ -4,11 +4,6 @@ required:
   - description
   - language
 properties:
-  schedules:
-    type: array
-    description: The ids of schedules for this course
-    items:
-      type: string
   name:
     type: string
     description: The name of this course
@@ -53,19 +48,11 @@ properties:
   link:
     type: string
     description: The url containing the address of the website with more information about the course
+  # @todo convert to link?
   organization:
     type: string
     description: The name of the organization where the courses are given
+  # @todo convert to link?
   department:
     type: string
     description: The name of the department where the courses are given
-  lecturers:
-    type: array
-    description: The ids of persons affiliated to this course as lecturer
-    items:
-      type: string
-  groups:
-    type: array
-    description: The ids of groups, connected to this course
-    items:
-      type: string

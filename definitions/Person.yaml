@@ -58,9 +58,11 @@ properties:
       - F
       - U
       - X
+  # @todo convert to link?
   organization:
     type: string
     description: The organization with which this person is affiliated
+  # @todo convert to link?
   department:
     type: string
     description: The department with which this person is affiliated
