@@ -46,17 +46,17 @@ paths:
     $ref: paths/PersonCollection.yaml
   /persons/{userId}:
     $ref: paths/PersonInstance.yaml
-  /course-results/{userId}:
+  /course-results:
     $ref: paths/CourseResultCollection.yaml
-  /course-results/{userId}/{courseId}:
+  /course-results/{courseResultId}:
     $ref: paths/CourseResultInstance.yaml
   /buildings:
     $ref: paths/BuildingCollection.yaml
   /buildings/{buildingId}:
     $ref: paths/BuildingInstance.yaml
-  /test-results/{userId}:
+  /test-results:
     $ref: paths/TestResultCollection.yaml
-  /test-results/{userId}/{testId}:
+  /test-results/{testResultId}:
     $ref: paths/TestResultInstance.yaml
   /courses:
     $ref: paths/CourseCollection.yaml

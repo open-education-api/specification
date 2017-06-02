@@ -1,14 +1,9 @@
 get:
-  summary: GET /course-results/{userId}
-  description: Get an ordered list of all course results for the given user.
+  summary: GET /course-results
+  description: Get a list of all course results, ordered by result date (descending).
   tags:
     - course results
   parameters:
-    - name: userId
-      in: path
-      description: User ID
-      required: true
-      type: string
     - name: pageSize
       in: query
       description: The number of items per page
@@ -22,6 +17,16 @@ get:
         - 50
         - 100
         - 250
+    - name: course
+      in: query
+      description: Filter by the courseId of a course
+      required: false
+      type: string
+    - name: student
+      in: query
+      description: Filter by the userId of a student
+      required: false
+      type: string
   responses:
     '200':
       description: OK
@@ -44,7 +49,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/CourseResult.yaml'
+                  $ref: '../definitions/CourseResultFull.yaml'
           _links:
             type: object
             required:

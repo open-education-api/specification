@@ -21,6 +21,8 @@ allOf:
         required:
           - self
           - groups
+          - courseResults
+          - testResults
         properties:
           self:
             type: object
@@ -45,3 +47,23 @@ allOf:
                   format: uri
                 title:
                   type: string
+          courseResults:
+            type: object
+            description: Link to the course results for this person
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+            example: /v2/course-results?student=123
+          testResults:
+            type: object
+            description: Link to the test results for this person
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+            example: /v2/test-results?student=123
