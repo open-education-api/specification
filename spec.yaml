@@ -18,7 +18,7 @@ tags:
   - name: buildings
     description: The building API provides general information about buildings in use by the organization.
   - name: test results
-    description: The test result API provides information about the results from the tests from different courses done by the student. Updated daily.
+    description: The test result API provides information about the results from the tests from different courses done by the student.
   - name: courses
     description: The courses API provides information about the course. Updated on ad hoc-base.
   - name: schedules
