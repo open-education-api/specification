@@ -1,6 +1,6 @@
 get:
   summary: GET /faculties
-  description: Get an ordered list of all facultie.
+  description: Get an ordered list of all faculties.
   tags:
     - faculties
   parameters:
