@@ -24,15 +24,3 @@ properties:
     type: number
     format: int32
     description: The total number of available (=non-reserved) workspaces in the room
-  lat:
-    type: number
-    description: The latitude of this room
-    format: double
-  lon:
-    type: number
-    description: The longitude this room
-    format: double
-  altitude:
-    type: number
-    description: The altitude this room
-    format: double
