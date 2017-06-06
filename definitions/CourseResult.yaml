@@ -2,6 +2,7 @@ type: object
 required:
   - passed
   - resultDate
+  - academicYear
 properties:
   passed:
     type: boolean
@@ -15,3 +16,7 @@ properties:
   resultDate:
     type: date
     description: The date this result has been published
+  academicYear:
+    type: string
+    description: The academic year this result has been achieved in (e.g. `2017-2018`)
+    pattern: ^\d{4}-\d{4}$
