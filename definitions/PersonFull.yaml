@@ -9,13 +9,8 @@ allOf:
   - $ref: Person.yaml
   - type: object
     required:
-      - lastModified
       - _links
     properties:
-      lastModified:
-        type: string
-        description: The timestamp of the last update on this person’s information
-        format: date-time
       _links:
         type: object
         required:

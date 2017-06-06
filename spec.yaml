@@ -46,29 +46,17 @@ paths:
     $ref: paths/PersonCollection.yaml
   /persons/{personId}:
     $ref: paths/PersonInstance.yaml
-<<<<<<< HEAD
   /course-results:
     $ref: paths/CourseResultCollection.yaml
   /course-results/{courseResultId}:
-=======
-  /course-results/{personId}:
-    $ref: paths/CourseResultCollection.yaml
-  /course-results/{personId}/{courseId}:
->>>>>>> Processed all /persons to-dos
     $ref: paths/CourseResultInstance.yaml
   /buildings:
     $ref: paths/BuildingCollection.yaml
   /buildings/{buildingId}:
     $ref: paths/BuildingInstance.yaml
-<<<<<<< HEAD
   /test-results:
     $ref: paths/TestResultCollection.yaml
   /test-results/{testResultId}:
-=======
-  /test-results/{personId}:
-    $ref: paths/TestResultCollection.yaml
-  /test-results/{personId}/{testId}:
->>>>>>> Processed all /persons to-dos
     $ref: paths/TestResultInstance.yaml
   /courses:
     $ref: paths/CourseCollection.yaml
