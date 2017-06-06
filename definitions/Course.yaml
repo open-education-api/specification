@@ -2,7 +2,7 @@ type: object
 required:
   - name
   - description
-  - language
+  - mainLanguage
 properties:
   name:
     type: string
@@ -30,7 +30,7 @@ properties:
   format:
     type: string
     description: The format in which this course is given
-  language:
+  mainLanguage:
     type: string
     description: The main language in which this course is given, RFC 3066 (nl-NL)
   enrollment:
