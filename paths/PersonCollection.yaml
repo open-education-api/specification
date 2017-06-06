@@ -8,8 +8,13 @@ get:
       in: query
       description: The field to sort on
       required: false
-      default: userId_asc
+      default: surname_asc
       type: string
+      enum:
+        - surname_asc
+        - surname_desc
+        - givenName_asc
+        - givenName_desc
     - name: pageSize
       in: query
       description: The number of items per page
@@ -28,39 +33,31 @@ get:
       description: Filter by surname
       required: false
       type: string
-    - name: displayname
+    - name: displayName
       in: query
-      description: Filter by displayname
+      description: Filter by displayName
       required: false
       type: string
-    - name: affiliations
+    - name: affiliation
       in: query
-      description: Filter by affiliations
+      description: Filter by affiliation
       required: false
       type: string
-    - name: gender
+      enum:
+        - student
+        - employee
+        - staff
+        - member
+        - affiliate
+        - organization
+    - name: educationalDepartment
       in: query
-      description: Filter by gender
+      description: Filter by educational department
       required: false
       type: string
-    - name: organization
+    - name: group
       in: query
-      description: Filter by organization
-      required: false
-      type: string
-    - name: department
-      in: query
-      description: Filter by department
-      required: false
-      type: string
-    - name: office
-      in: query
-      description: Filter by office
-      required: false
-      type: string
-    - name: groups
-      in: query
-      description: Filter by groups
+      description: Filter by group
       required: false
       type: string
   responses:
