@@ -9,13 +9,8 @@ allOf:
   - $ref: Room.yaml
   - type: object
     required:
-      - lastModified
       - _links
     properties:
-      lastModified:
-        type: string
-        description: The timestamp for the last moment this room was updated
-        format: date-time
       _links:
         type: object
         required:

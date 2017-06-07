@@ -1,15 +1,9 @@
 get:
   summary: GET /rooms
-  description: Get an ordered list of all rooms.
+  description: Get a list of all rooms, ordered by name (ascending).
   tags:
     - rooms
   parameters:
-    - name: order
-      in: query
-      description: The field to sort on
-      required: false
-      default: roomId_asc
-      type: string
     - name: pageSize
       in: query
       description: The number of items per page
@@ -23,39 +17,11 @@ get:
         - 50
         - 100
         - 250
-    - name: buildingId
+    - name: building
       in: query
-      description: Filter by buildingId
+      description: Filter by building
       required: false
       type: string
-    - name: abbreviation
-      in: query
-      description: Filter by abbreviation
-      required: false
-      type: string
-    - name: name
-      in: query
-      description: Filter by name
-      required: false
-      type: string
-    - name: totalSeats
-      in: query
-      description: Filter by totalSeats
-      required: false
-      type: number
-      format: int32
-    - name: totalWorkspaces
-      in: query
-      description: Filter by totalWorkspaces
-      required: false
-      type: number
-      format: int32
-    - name: availableWorkspaces
-      in: query
-      description: Filter by availableWorkspaces
-      required: false
-      type: number
-      format: int32
   responses:
     '200':
       description: OK

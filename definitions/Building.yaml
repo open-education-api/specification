@@ -2,7 +2,6 @@ type: object
 required:
   - abbreviation
   - name
-  - description
   - city
 properties:
   abbreviation:
@@ -26,12 +25,12 @@ properties:
   lat:
     type: number
     description: The latitude of this building
-    format: double 
+    format: double
   lon:
     type: number
     description: The longitude this building
-    format: double 
+    format: double
   altitude:
     type: number
     description: The altitude this building
-    format: double 
+    format: double
