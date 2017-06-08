@@ -10,6 +10,9 @@ get:
       required: false
       default: publishDate_desc
       type: string
+      enum:
+        - publishDate_desc
+        - lastModified_desc
     - name: pageSize
       in: query
       description: The number of items per page
@@ -23,14 +26,9 @@ get:
         - 50
         - 100
         - 250
-    - name: feeds
+    - name: newsFeed
       in: query
-      description: Filter by feeds
-      required: false
-      type: string
-    - name: publishDate
-      in: query
-      description: Filter by publishDate
+      description: Filter by news feed
       required: false
       type: string
   responses:

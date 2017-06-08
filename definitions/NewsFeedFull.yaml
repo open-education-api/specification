@@ -9,13 +9,8 @@ allOf:
   - $ref: NewsFeed.yaml
   - type: object
     required:
-      - lastModified
       - _links
     properties:
-      lastModified:
-        type: string
-        description: The timestamp for the last moment this news feed was updated
-        format: date-time
       _links:
         type: object
         required:
@@ -33,19 +28,15 @@ allOf:
                 type: string
                 format: uri
           items:
-            type: array
-            description: Links to the news items, that are part of this news feed
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+            type: object
+            description: Links to the list of news items, that are part of this news feed
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+            example: /v2/news-items?newsFeed=123
           groups:
             type: array
             description: Links to the groups targeted to this news feed
