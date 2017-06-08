@@ -9,13 +9,8 @@ allOf:
   - $ref: CourseGroup.yaml
   - type: object
     required:
-      - lastModified
       - _links
     properties:
-      lastModified:
-        type: string
-        description: The timestamp of the last moment the information for this course group is updated
-        format: date-time
       _links:
         type: object
         required:

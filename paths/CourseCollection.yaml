@@ -1,15 +1,9 @@
 get:
   summary: GET /courses
-  description: Get an ordered list of all courses.
+  description: Get a list of all courses, ordered by name (ascending).
   tags:
     - courses
   parameters:
-    - name: order
-      in: query
-      description: The field to sort on
-      required: false
-      default: lastModified_desc
-      type: string
     - name: pageSize
       in: query
       description: The number of items per page
@@ -23,11 +17,6 @@ get:
         - 50
         - 100
         - 250
-    - name: name
-      in: query
-      description: Filter by name
-      required: false
-      type: string
   responses:
     '200':
       description: OK
