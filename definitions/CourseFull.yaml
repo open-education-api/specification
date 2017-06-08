@@ -23,6 +23,8 @@ allOf:
           - schedules
           - lecturers
           - groups
+          - courseResults
+          - testResults
         properties:
           self:
             type: object
@@ -75,3 +77,23 @@ allOf:
                   format: uri
                 title:
                   type: string
+          courseResults:
+            type: object
+            description: Link to the course results for this course
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+            example: /v2/course-results?course=123
+          testResults:
+            type: object
+            description: Link to the test results for this course
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+            example: /v2/test-results?course=123

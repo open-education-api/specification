@@ -1,23 +1,18 @@
 get:
-  summary: GET /course-results/{userId}/{courseId}
+  summary: GET /course-results/{courseResultId}
   description: Get a single course result.
   tags:
     - course results
   parameters:
-    - name: userId
+    - name: courseResultId
       in: path
-      description: User ID
-      required: true
-      type: string
-    - name: courseId
-      in: path
-      description: Course ID
+      description: Course result ID
       required: true
       type: string
   responses:
     '200':
       description: OK
       schema:
-        $ref: '../definitions/CourseResult.yaml'
+        $ref: '../definitions/CourseResultFull.yaml'
     '404':
       description: Not Found

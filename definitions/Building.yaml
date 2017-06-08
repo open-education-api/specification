@@ -30,7 +30,3 @@ properties:
     type: number
     description: The longitude this building
     format: double
-  altitude:
-    type: number
-    description: The altitude this building
-    format: double

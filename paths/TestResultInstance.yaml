@@ -1,17 +1,12 @@
 get:
-  summary: GET /test-results/{userId}/{testId}
+  summary: GET /test-results/{testResultId}
   description: Get a single test result.
   tags:
     - test results
   parameters:
-    - name: userId
+    - name: testResultId
       in: path
-      description: User ID
-      required: true
-      type: string
-    - name: testId
-      in: path
-      description: Test ID
+      description: Test result ID
       required: true
       type: string
   responses:

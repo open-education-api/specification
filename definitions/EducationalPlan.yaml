@@ -27,3 +27,6 @@ properties:
     description: The number of EC's that is earned in this education plan
     format: int32
     minimum: 0
+  mainLanguage:
+    type: string
+    description: The main language in which the courses within this education plan are given, RFC 3066 (nl-NL)
