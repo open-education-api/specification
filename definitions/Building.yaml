@@ -2,7 +2,6 @@ type: object
 required:
   - abbreviation
   - name
-  - description
   - city
 properties:
   abbreviation:

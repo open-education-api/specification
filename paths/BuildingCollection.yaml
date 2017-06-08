@@ -1,15 +1,9 @@
 get:
   summary: GET /buildings
-  description: Get an ordered list of all buildings.
+  description: Get a list of all buildings, ordered by name (ascending).
   tags:
     - buildings
   parameters:
-    - name: order
-      in: query
-      description: The field to sort on
-      required: false
-      default: buildingId_asc
-      type: string
     - name: pageSize
       in: query
       description: The number of items per page
@@ -23,26 +17,6 @@ get:
         - 50
         - 100
         - 250
-    - name: abbreviation
-      in: query
-      description: Filter by abbreviation
-      required: false
-      type: string
-    - name: name
-      in: query
-      description: Filter by name
-      required: false
-      type: string
-    - name: postalCode
-      in: query
-      description: Filter by postalCode
-      required: false
-      type: string
-    - name: city
-      in: query
-      description: Filter by city
-      required: false
-      type: string
   responses:
     '200':
       description: OK
