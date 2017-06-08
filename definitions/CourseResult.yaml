@@ -1,62 +1,22 @@
 type: object
 required:
-  - lastModified
   - passed
-  - _links
+  - resultDate
+  - academicYear
 properties:
-  lastModified:
-    type: string
-    description: Timestamp for the last moment the course result was updated
-    format: date-time
-  grade:
-    type: string
-    description: The average of the test results.
-  comment:
-    type: string
-    description: The comment on the result for the course
   passed:
     type: boolean
     description: Boolean, representing whether the student did or did not pass the course
-  _links:
-    type: object
-    required:
-      - self
-      - course
-      - testResults
-    properties:
-      self:
-        type: object
-        description: Link to current resource
-        required:
-          - href
-        properties:
-          href:
-            type: string
-            format: uri
-      course:
-        type: object
-        description: Link to the course from which the results are requested
-        required:
-          - href
-          - title
-        properties:
-          href:
-            type: string
-            format: uri
-          title:
-            type: string
-      testResults:
-        type: array
-        description: Links to the testresults of the tests made by the student for this course
-        items:
-          type: object
-          required:
-            - href
-            - title
-          properties:
-            href:
-              type: string
-              format: uri
-            title:
-              type: string
-
+  grade:
+    type: string
+    description: The average of the test results
+  comment:
+    type: string
+    description: The comment on the result for the course
+  resultDate:
+    type: date
+    description: The date this result has been published
+  academicYear:
+    type: string
+    description: The academic year this result has been achieved in (e.g. `2017-2018`)
+    pattern: ^\d{4}-\d{4}$

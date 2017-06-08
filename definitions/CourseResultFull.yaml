@@ -1,12 +1,12 @@
 allOf:
   - type: object
     required:
-      - testResultId
+      - courseResultId
     properties:
-      testResultId:
+      courseResultId:
         type: string
-        description: Unique id of this test result
-  - $ref: TestResult.yaml
+        description: Unique id of this course result
+  - $ref: CourseResult.yaml
   - type: object
     required:
       - _links
@@ -15,9 +15,9 @@ allOf:
         type: object
         required:
           - self
-          - courses
+          - course
           - student
-          - teachers
+          - testResults
         properties:
           self:
             type: object
@@ -28,20 +28,18 @@ allOf:
               href:
                 type: string
                 format: uri
-          courses:
-            type: array
-            description: Links to the courses for this test result
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+          course:
+            type: object
+            description: Link to the course for this result
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+              title:
+                type: string
           student:
             type: object
             description: Link to the student for this result
@@ -54,9 +52,9 @@ allOf:
                 format: uri
               title:
                 type: string
-          teachers:
+          testResults:
             type: array
-            description: Links to the persons of the teachers who are responsible for this test
+            description: Links to the testresults of the tests made by the student for this course
             items:
               type: object
               required:
