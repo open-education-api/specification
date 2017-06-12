@@ -74,3 +74,13 @@ allOf:
                 type: string
                 format: uri
             example: /v2/test-results?student=123
+          schedule:
+            type: object
+            description: Link to the schedule for this person
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+            example: /v2/schedules?student=123

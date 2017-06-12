@@ -1,15 +1,9 @@
 get:
   summary: GET /schedules
-  description: Get an ordered list of all schedules.
+  description: Get a list of all schedules, ordered by startDateTime (ascending).
   tags:
     - schedules
   parameters:
-    - name: order
-      in: query
-      description: The field to sort on
-      required: false
-      default: lastModified_desc
-      type: string
     - name: pageSize
       in: query
       description: The number of items per page
@@ -23,43 +17,45 @@ get:
         - 50
         - 100
         - 250
-    - name: roomId
+    - name: room
       in: query
-      description: Filter by roomId
+      description: Filter by room
       required: false
       type: string
-    - name: buildingId
+    - name: building
       in: query
-      description: Filter by buildingId
+      description: Filter by building
       required: false
       type: string
-    - name: courseId
+    - name: course
       in: query
-      description: Filter by courseId
+      description: Filter by course
+      required: false
+      type: string
+    - name: group
+      in: query
+      description: Filter by group
+      required: false
+      type: string
+    - name: student
+      in: query
+      description: Filter by student
       required: false
       type: string
     - name: startDateTime
       in: query
-      description: Filter by startDateTime
+      description: Filter by minimum startDateTime
       required: false
       type: string
       format: date-time
+      default: (date-time value of today)
     - name: endDateTime
       in: query
-      description: Filter by endDateTime
+      description: Filter by maximum endDateTime
       required: false
       type: string
       format: date-time
-    - name: groupId
-      in: query
-      description: Filter by groupId
-      required: false
-      type: string
-    - name: lecturers
-      in: query
-      description: Filter by lecturers
-      required: false
-      type: string
+      default: (date-time value of today + 1 month)
   responses:
     '200':
       description: OK

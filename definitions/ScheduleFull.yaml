@@ -9,13 +9,8 @@ allOf:
   - $ref: Schedule.yaml
   - type: object
     required:
-      - lastModified
       - _links
     properties:
-      lastModified:
-        type: string
-        description: The timestamp of the last moment the information for this schedule is updated
-        format: date-time
       _links:
         type: object
         required:
@@ -37,19 +32,14 @@ allOf:
                 type: string
                 format: uri
           students:
-            type: array
-            description: Links to the persons affiliated as student who join this schedule
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+            type: object
+            description: Links to the list of persons affiliated as student who join this schedule
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
           rooms:
             type: array
             description: Links to the rooms where this schedule is located
