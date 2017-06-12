@@ -9,13 +9,8 @@ allOf:
   - $ref: GroupRole.yaml
   - type: object
     required:
-      - lastModified
       - _links
     properties:
-      lastModified:
-        type: string
-        description: The timestamp for the last moment this group role was updated
-        format: date-time
       _links:
         type: object
         required:
