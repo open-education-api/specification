@@ -81,7 +81,7 @@ allOf:
               href:
                 type: string
                 format: uri
-            example: /v2/course-results?course=123
+                example: /v2/course-results?course=123
           testResults:
             type: object
             description: Link to the test results for this course
@@ -91,4 +91,4 @@ allOf:
               href:
                 type: string
                 format: uri
-            example: /v2/test-results?course=123
+                example: /v2/test-results?course=123

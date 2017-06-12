@@ -63,7 +63,7 @@ allOf:
               href:
                 type: string
                 format: uri
-            example: /v2/course-results?student=123
+                example: /v2/course-results?student=123
           testResults:
             type: object
             description: Link to the test results for this person
@@ -73,7 +73,7 @@ allOf:
               href:
                 type: string
                 format: uri
-            example: /v2/test-results?student=123
+                example: /v2/test-results?student=123
           schedule:
             type: object
             description: Link to the schedule for this person
@@ -83,4 +83,4 @@ allOf:
               href:
                 type: string
                 format: uri
-            example: /v2/schedules?student=123
+                example: /v2/schedules?student=123
