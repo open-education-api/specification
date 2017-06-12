@@ -58,9 +58,6 @@ properties:
       - F
       - U
       - X
-  organization:
-    type: string
-    description: The organization with which this person is affiliated
   title:
     type: string
     description: A title to be used for this person
