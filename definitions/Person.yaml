@@ -1,25 +1,25 @@
 type: object
 required:
-  - givenname
+  - givenName
   - surname
-  - displayname
+  - displayName
   - affiliations
 properties:
-  givenname:
+  givenName:
     type: string
     description: The first name of this person
+  surnamePrefix:
+    type: string
+    description: The prefix of the family name of this person
   surname:
     type: string
-    description: The family name of this person (SN)
-  displayname:
+    description: The family name of this person
+  displayName:
     type: string
     description: The name of this person which will be displayed
-  commonname:
+  dateOfBirth:
     type: string
-    description: The full name of this person (CN)
-  nickname:
-    type: string
-    description: The self preferred name of this person
+    description: The date of birth of this person
   affiliations:
     type: array
     description: The affiliations of how this person is associated with the organization
@@ -36,10 +36,10 @@ properties:
     type: string
     description: The e-mailaddress of this person
     format: email
-  telephonenumber:
+  telephoneNumber:
     type: string
     description: The telephone number at the office of this person
-  mobilenumber:
+  mobileNumber:
     type: string
     description: The mobile number of this person
   photoSocial:
@@ -58,14 +58,9 @@ properties:
       - F
       - U
       - X
-  # @todo convert to link?
   organization:
     type: string
     description: The organization with which this person is affiliated
-  # @todo convert to link?
-  department:
-    type: string
-    description: The department with which this person is affiliated
   title:
     type: string
     description: A title to be used for this person

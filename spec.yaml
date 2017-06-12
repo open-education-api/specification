@@ -44,7 +44,7 @@ tags:
 paths:
   /persons:
     $ref: paths/PersonCollection.yaml
-  /persons/{userId}:
+  /persons/{personId}:
     $ref: paths/PersonInstance.yaml
   /course-results:
     $ref: paths/CourseResultCollection.yaml
@@ -112,7 +112,7 @@ paths:
     $ref: paths/FacultyCourseGroupCollection.yaml
   /educational-plans/{educationalPlanId}/course-groups:
     $ref: paths/EducationalPlanCourseGroupCollection.yaml
-  /persons/{userId}/courses:
+  /persons/{personId}/courses:
     $ref: paths/PersonCourseCollection.yaml
   /faculties/{facultyId}/courses:
     $ref: paths/FacultyCourseCollection.yaml

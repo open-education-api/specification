@@ -1,10 +1,10 @@
 get:
-  summary: GET /persons/{userId}/courses
+  summary: GET /persons/{personId}/courses
   description: Get an ordered list of all courses for a given person.
   tags:
     - courses
   parameters:
-    - name: userId
+    - name: personId
       in: path
       description: User ID
       required: true

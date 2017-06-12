@@ -1,21 +1,16 @@
 allOf:
   - type: object
     required:
-      - userId
+      - personId
     properties:
-      userId:
+      personId:
         type: string
         description: Unique id of this person
   - $ref: Person.yaml
   - type: object
     required:
-      - lastModified
       - _links
     properties:
-      lastModified:
-        type: string
-        description: The timestamp of the last update on this person’s information
-        format: date-time
       _links:
         type: object
         required:
@@ -33,6 +28,18 @@ allOf:
               href:
                 type: string
                 format: uri
+          educationalDepartment:
+            type: object
+            description: Link to the educational department with which this person is affiliated
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+              title:
+                type: string
           groups:
             type: array
             description: The groups within the organization to which this person belongs

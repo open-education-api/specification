@@ -4,7 +4,7 @@ get:
   tags:
     - educational plans
   parameters:
-    - name: userId
+    - name: personId
       in: path
       description: User ID
       required: true

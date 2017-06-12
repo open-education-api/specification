@@ -1,10 +1,10 @@
 get:
-  summary: GET /persons/{userId}
+  summary: GET /persons/{personId}
   description: Get a single person.
   tags:
     - persons
   parameters:
-    - name: userId
+    - name: personId
       in: path
       description: User ID
       required: true
