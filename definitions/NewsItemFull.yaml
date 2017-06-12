@@ -31,7 +31,7 @@ allOf:
               href:
                 type: string
                 format: uri
-          feeds:
+          newsFeeds:
             type: array
             description: Links to the news feeds where this news item is aggregated
             items:
