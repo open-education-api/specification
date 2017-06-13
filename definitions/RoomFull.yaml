@@ -15,7 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - building
         properties:
           self:
             type: object

@@ -15,9 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - group
-          - person
-          - roles
         properties:
           self:
             type: object

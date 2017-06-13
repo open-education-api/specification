@@ -22,6 +22,11 @@ get:
       description: Filter by type
       required: false
       type: string
+    - name: student
+      in: query
+      description: Filter by student
+      required: false
+      type: string
   responses:
     '200':
       description: OK

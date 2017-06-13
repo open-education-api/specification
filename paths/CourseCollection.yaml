@@ -17,6 +17,31 @@ get:
         - 50
         - 100
         - 250
+    - name: student
+      in: query
+      description: Filter by student
+      required: false
+      type: string
+    - name: faculty
+      in: query
+      description: Filter by faculty
+      required: false
+      type: string
+    - name: courseGroup
+      in: query
+      description: Filter by course group
+      required: false
+      type: string
+    - name: educationalDepartment
+      in: query
+      description: Filter by educational department
+      required: false
+      type: string
+    - name: educationalPlan
+      in: query
+      description: Filter by educational plan
+      required: false
+      type: string
   responses:
     '200':
       description: OK

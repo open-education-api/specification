@@ -25,3 +25,26 @@ allOf:
               href:
                 type: string
                 format: uri
+          courseGroups:
+            type: array
+            description: Links to the course groups for this educational plan
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          courses:
+            type: object
+            description: Link to the list of courses for this educational plan
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri

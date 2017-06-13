@@ -15,7 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - departments
         properties:
           self:
             type: object
@@ -38,9 +37,9 @@ allOf:
                 format: uri
               title:
                 type: string
-          departments:
+          educationalDepartments:
             type: array
-            description: Links to the departments of this faculty
+            description: Links to the educational departments of this faculty
             items:
               type: object
               required:
@@ -52,3 +51,40 @@ allOf:
                   format: uri
                 title:
                   type: string
+          educationalPlans:
+            type: array
+            description: Links to the educational plans of this faculty
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          courseGroups:
+            type: array
+            description: Links to the course groups of this faculty
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          courses:
+            type: object
+            description: Link to the list of courses for this faculty
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
