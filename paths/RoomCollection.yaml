@@ -44,7 +44,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/RoomFull.yaml'
+                  $ref: '../definitions/Room.yaml'
           _links:
             type: object
             required:

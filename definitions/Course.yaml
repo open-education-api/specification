@@ -1,9 +1,14 @@
 type: object
 required:
+  - courseId
   - name
   - description
   - mainLanguage
+  - _links
 properties:
+  courseId:
+    type: string
+    description: Unique id of this course
   name:
     type: string
     description: The name of this course
@@ -48,11 +53,64 @@ properties:
   link:
     type: string
     description: The url containing the address of the website with more information about the course
-  # @todo convert to link?
-  organization:
-    type: string
-    description: The name of the organization where the courses are given
-  # @todo convert to link?
-  department:
-    type: string
-    description: The name of the department where the courses are given
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/courses/123
+      schedules:
+        type: object
+        description: Link to the list of schedules for this course
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/schedules?course=123
+      lecturers:
+        type: array
+        description: Links to the persons affiliated to this course as lecturer
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/persons/123
+            title:
+              type: string
+              description: The display name of the person
+      courseResults:
+        type: object
+        description: Link to the course results for this course
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/course-results?course=123
+      testResults:
+        type: object
+        description: Link to the test results for this course
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/test-results?course=123

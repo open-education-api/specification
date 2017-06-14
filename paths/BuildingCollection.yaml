@@ -39,7 +39,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/BuildingFull.yaml'
+                  $ref: '../definitions/Building.yaml'
           _links:
             type: object
             required:

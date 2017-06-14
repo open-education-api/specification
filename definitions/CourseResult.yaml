@@ -1,9 +1,14 @@
 type: object
 required:
+  - courseResultId
   - passed
   - resultDate
   - academicYear
+  - _links
 properties:
+  courseResultId:
+    type: string
+    description: Unique id of this course result
   passed:
     type: boolean
     description: Boolean, representing whether the student did or did not pass the course
@@ -20,3 +25,56 @@ properties:
     type: string
     description: The academic year this result has been achieved in (e.g. `2017-2018`)
     pattern: ^\d{4}-\d{4}$
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/course-results/123
+      course:
+        type: object
+        description: Link to the course for this result
+        required:
+          - href
+          - title
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/courses/123
+          title:
+            type: string
+            description: The name of the course
+      student:
+        type: object
+        description: Link to the student for this result
+        required:
+          - href
+          - title
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/persons/123
+          title:
+            type: string
+            description: The display name of the person
+      testResults:
+        type: object
+        description: Link to the list of test results of the tests made by the student for this course
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/test-results?course=123&student=123

@@ -1,9 +1,14 @@
 type: object
 required:
+  - buildingId
   - abbreviation
   - name
   - city
+  - _links
 properties:
+  buildingId:
+    type: string
+    description: Unique id of this building
   abbreviation:
     type: string
     description: The abbreviation of the name of this building
@@ -30,3 +35,28 @@ properties:
     type: number
     description: The longitude this building
     format: double
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/buildings/123
+      rooms:
+        type: object
+        description: Link to the list of all rooms in this building
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/rooms?building=123

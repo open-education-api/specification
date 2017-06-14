@@ -13,6 +13,6 @@ get:
     '200':
       description: OK
       schema:
-        $ref: '../definitions/CourseResultFull.yaml'
+        $ref: '../definitions/CourseResult.yaml'
     '404':
       description: Not Found

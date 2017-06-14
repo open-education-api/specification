@@ -1,8 +1,13 @@
 type: object
 required:
+  - roomId
   - abbreviation
   - name
+  - _links
 properties:
+  roomId:
+    type: string
+    description: Unique id for this room
   abbreviation:
     type: string
     description: The abbreviation of the name of this room
@@ -24,3 +29,32 @@ properties:
     type: number
     format: int32
     description: The total number of available (=non-reserved) workspaces in the room
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/rooms/123
+      building:
+        type: object
+        description: Link to the building in which the room is located
+        required:
+          - href
+          - title
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/buildings/123
+          title:
+            type: string
+            description: The name of the building

@@ -1,9 +1,14 @@
 type: object
 required:
+  - newsItemId
   - publishDate
   - title
   - content
+  - _links
 properties:
+  newsItemId:
+    type: string
+    description: Unique id for this news item
   publishDate:
     type: string
     description: The timestamp on which this news item was published
@@ -25,3 +30,34 @@ properties:
   content:
     type: string
     description: The content of this news item
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/news-items/123
+      newsFeeds:
+        type: array
+        description: Links to the news feeds where this news item is aggregated
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/news-feeds/123
+            title:
+              type: string
+              description: The name of the news feed

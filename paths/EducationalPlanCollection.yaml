@@ -50,7 +50,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/EducationalPlanFull.yaml'
+                  $ref: '../definitions/EducationalPlan.yaml'
           _links:
             type: object
             required:

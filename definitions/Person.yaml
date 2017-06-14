@@ -1,10 +1,15 @@
 type: object
 required:
+  - personId
   - givenName
   - surname
   - displayName
   - affiliations
+  - _links
 properties:
+  personId:
+    type: string
+    description: Unique id of this person
   givenName:
     type: string
     description: The first name of this person
@@ -64,3 +69,88 @@ properties:
   office:
     type: string
     description: The name of the office where this person is located
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/persons/123
+      educationalDepartments:
+        type: object
+        description: Link to the list of educational departments with which this person is affiliated
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/educational-departments?student=123
+      educationalPlans:
+        type: object
+        description: Link to the list of educational plans with which this person is affiliated
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/educational-plans?student=123
+      courseGroups:
+        type: object
+        description: Link to the list of course groups for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/course-groups?student=123
+      courses:
+        type: object
+        description: Link to the list of courses for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/courses?student=123
+      courseResults:
+        type: object
+        description: Link to the list of course results for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/course-results?student=123
+      testResults:
+        type: object
+        description: Link to the list of test results for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/test-results?student=123
+      schedules:
+        type: object
+        description: Link to list of the schedules for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/schedules?student=123

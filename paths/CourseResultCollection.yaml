@@ -55,7 +55,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/CourseResultFull.yaml'
+                  $ref: '../definitions/CourseResult.yaml'
           _links:
             type: object
             required:

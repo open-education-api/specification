@@ -1,11 +1,16 @@
 type: object
 required:
+  - testResultId
   - description
   - testDate
   - grade
   - comment
   - passed
+  - _links
 properties:
+  testResultId:
+    type: string
+    description: Unique id of this test result
   description:
     type: string
     description: The general description for the test result
@@ -31,3 +36,62 @@ properties:
     format: int32
     minimum: 0
     maximum: 100
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/test-results/123
+      course:
+        type: object
+        description: Link to the course for this test result
+        required:
+          - href
+          - title
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/courses/123
+          title:
+            type: string
+            description: The name of the course
+      student:
+        type: object
+        description: Link to the student for this result
+        required:
+          - href
+          - title
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/persons/123
+          title:
+            type: string
+            description: The display name of the person
+      lecturers:
+        type: array
+        description: Links to the persons of the lecturers who are responsible for this test
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/persons/123
+            title:
+              type: string
+              description: The display name of the person

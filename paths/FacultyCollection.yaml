@@ -45,7 +45,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/FacultyFull.yaml'
+                  $ref: '../definitions/Faculty.yaml'
           _links:
             type: object
             required:
