@@ -36,17 +36,3 @@ allOf:
                 type: string
                 format: uri
                 example: /v2/news-items?newsFeed=123
-          groups:
-            type: array
-            description: Links to the groups targeted to this news feed
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string

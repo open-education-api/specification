@@ -17,11 +17,6 @@ get:
         - 50
         - 100
         - 250
-    - name: group
-      in: query
-      description: Filter by group
-      required: false
-      type: string
   responses:
     '200':
       description: OK
