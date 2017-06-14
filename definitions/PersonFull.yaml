@@ -46,20 +46,6 @@ allOf:
                 type: string
                 format: uri
                 example: /v2/educational-plans?student=123
-          groups:
-            type: array
-            description: The groups within the organization to which this person belongs
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
           courseGroups:
             type: object
             description: Link to the list of course groups for this person

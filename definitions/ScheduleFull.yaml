@@ -92,20 +92,6 @@ allOf:
                 title:
                   type: string
                   description: The name of the course
-          groups:
-            type: array
-            description: Links to the groups affiliated to this schedule
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
           lecturers:
             type: array
             description: Links to the persons affiliated to this schedule as lecturer

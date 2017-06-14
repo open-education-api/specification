@@ -32,11 +32,6 @@ get:
       description: Filter by course (courseId)
       required: false
       type: string
-    - name: group
-      in: query
-      description: Filter by group
-      required: false
-      type: string
     - name: student
       in: query
       description: Filter by student (personId)

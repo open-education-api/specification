@@ -70,11 +70,6 @@ get:
       description: Filter by course (courseId)
       required: false
       type: string
-    - name: group
-      in: query
-      description: Filter by group
-      required: false
-      type: string
   responses:
     '200':
       description: OK
