@@ -23,6 +23,11 @@ get:
         - 50
         - 100
         - 250
+    - name: student
+      in: query
+      description: Filter by student (personId)
+      required: false
+      type: string
   responses:
     '200':
       description: OK

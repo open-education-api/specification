@@ -25,6 +25,7 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/course-results/123
           course:
             type: object
             description: Link to the course for this result
@@ -35,8 +36,10 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/courses/123
               title:
                 type: string
+                description: The name of the course
           student:
             type: object
             description: Link to the student for this result
@@ -47,19 +50,17 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/persons/123
               title:
                 type: string
+                description: The display name of the person
           testResults:
-            type: array
-            description: Links to the testresults of the tests made by the student for this course
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+            type: object
+            description: Link to the list of test results of the tests made by the student for this course
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+                example: /v2/test-results?course=123&student=123

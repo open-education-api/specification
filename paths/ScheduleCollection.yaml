@@ -19,17 +19,17 @@ get:
         - 250
     - name: room
       in: query
-      description: Filter by room
+      description: Filter by room (roomId)
       required: false
       type: string
     - name: building
       in: query
-      description: Filter by building
+      description: Filter by building (buildingId)
       required: false
       type: string
     - name: course
       in: query
-      description: Filter by course
+      description: Filter by course (courseId)
       required: false
       type: string
     - name: group
@@ -39,7 +39,7 @@ get:
       type: string
     - name: student
       in: query
-      description: Filter by student
+      description: Filter by student (personId)
       required: false
       type: string
     - name: startDateTime

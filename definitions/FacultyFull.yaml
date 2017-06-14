@@ -25,7 +25,8 @@ allOf:
               href:
                 type: string
                 format: uri
-          parent:
+                example: /v2/faculties/123
+          parentFaculty:
             type: object
             description: Link to the parent faculty
             required:
@@ -35,8 +36,26 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/faculties/123
               title:
                 type: string
+                description: The name of the faculty
+          childFaculties:
+            type: array
+            description: Link to the child faculaties
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                  example: /v2/faculties/123
+                title:
+                  type: string
+                  description: The name of the faculty
           educationalDepartments:
             type: array
             description: Links to the educational departments of this faculty
@@ -49,8 +68,10 @@ allOf:
                 href:
                   type: string
                   format: uri
+                  example: /v2/educational-departments/123
                 title:
                   type: string
+                  description: The name of the educational department
           educationalPlans:
             type: array
             description: Links to the educational plans of this faculty
@@ -63,22 +84,20 @@ allOf:
                 href:
                   type: string
                   format: uri
+                  example: /v2/educational-plans/123
                 title:
                   type: string
+                  description: The name of the educational plan
           courseGroups:
-            type: array
-            description: Links to the course groups of this faculty
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+            type: object
+            description: Link to the list of course groups of this faculty
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+                example: /v2/course-groups?faculty=123
           courses:
             type: object
             description: Link to the list of courses for this faculty
@@ -88,3 +107,4 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/courses?faculty=123
