@@ -19,7 +19,7 @@ get:
         - 250
     - name: building
       in: query
-      description: Filter by building
+      description: Filter by building (buildingId)
       required: false
       type: string
   responses:

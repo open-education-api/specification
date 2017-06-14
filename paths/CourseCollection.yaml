@@ -19,27 +19,27 @@ get:
         - 250
     - name: student
       in: query
-      description: Filter by student
+      description: Filter by student (personId)
       required: false
       type: string
     - name: faculty
       in: query
-      description: Filter by faculty
-      required: false
-      type: string
-    - name: courseGroup
-      in: query
-      description: Filter by course group
+      description: Filter by faculty (facultyId)
       required: false
       type: string
     - name: educationalDepartment
       in: query
-      description: Filter by educational department
+      description: Filter by educational department (educationalDepartmentId)
       required: false
       type: string
     - name: educationalPlan
       in: query
-      description: Filter by educational plan
+      description: Filter by educational plan (educationalPlanId)
+      required: false
+      type: string
+    - name: courseGroup
+      in: query
+      description: Filter by course group (courseGroupId)
       required: false
       type: string
   responses:

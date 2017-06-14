@@ -1,14 +1,14 @@
 get:
-  summary: GET /course-groups
-  description: Get an ordered list of all course groups.
+  summary: GET /educational-department
+  description: Get an ordered list of all educational departments.
   tags:
-    - course groups
+    - educational departments
   parameters:
     - name: order
       in: query
       description: The field to sort on
       required: false
-      default: courseGroupId_asc
+      default: educationalPlanId_asc
       type: string
     - name: pageSize
       in: query
@@ -17,29 +17,15 @@ get:
       default: 10
       type: integer
       format: int32
-    - name: type
-      in: query
-      description: Filter by type
-      required: false
-      type: string
+      enum:
+        - 10
+        - 20
+        - 50
+        - 100
+        - 250
     - name: student
       in: query
       description: Filter by student (personId)
-      required: false
-      type: string
-    - name: faculty
-      in: query
-      description: Filter by faculty (facultyId)
-      required: false
-      type: string
-    - name: educationalDepartment
-      in: query
-      description: Filter by educational department (educationalDepartmentId)
-      required: false
-      type: string
-    - name: educationalPlan
-      in: query
-      description: Filter by educational plan (educationalPlanId)
       required: false
       type: string
   responses:
@@ -64,7 +50,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/CourseGroupFull.yaml'
+                  $ref: '../definitions/EducationalDepartmentFull.yaml'
           _links:
             type: object
             required:

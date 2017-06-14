@@ -25,20 +25,17 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/educational-plans/123
           courseGroups:
-            type: array
-            description: Links to the course groups for this educational plan
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+            type: object
+            description: Link to the list of course groups for this educational plan
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+                example: /v2/course-groups?educationalPlan=123
           courses:
             type: object
             description: Link to the list of courses for this educational plan
@@ -48,3 +45,4 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/courses?educationalPlan=123

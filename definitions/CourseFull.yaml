@@ -25,20 +25,17 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/courses/123
           schedules:
-            type: array
-            description: Links to the schedules for this course
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+            type: object
+            description: Link to the list of schedules for this course
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+                example: /v2/schedules?course=123
           lecturers:
             type: array
             description: Links to the persons affiliated to this course as lecturer
@@ -51,8 +48,10 @@ allOf:
                 href:
                   type: string
                   format: uri
+                  example: /v2/persons/123
                 title:
                   type: string
+                  description: The display name of the person
           groups:
             type: array
             description: Links to the groups connected to this course

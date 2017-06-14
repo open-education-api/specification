@@ -25,20 +25,21 @@ allOf:
               href:
                 type: string
                 format: uri
-          courses:
-            type: array
-            description: Links to the courses for this test result
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+                example: /v2/test-results/123
+          course:
+            type: object
+            description: Link to the course for this test result
+            required:
+              - href
+              - title
+            properties:
+              href:
+                type: string
+                format: uri
+                example: /v2/courses/123
+              title:
+                type: string
+                description: The name of the course
           student:
             type: object
             description: Link to the student for this result
@@ -49,11 +50,13 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/persons/123
               title:
                 type: string
-          teachers:
+                description: The display name of the person
+          lecturers:
             type: array
-            description: Links to the persons of the teachers who are responsible for this test
+            description: Links to the persons of the lecturers who are responsible for this test
             items:
               type: object
               required:
@@ -63,5 +66,7 @@ allOf:
                 href:
                   type: string
                   format: uri
+                  example: /v2/persons/123
                 title:
                   type: string
+                  description: The display name of the person

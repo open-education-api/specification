@@ -9,8 +9,58 @@ allOf:
   - $ref: Schedule.yaml
   - type: object
     required:
+      - _embedded
       - _links
     properties:
+      _embedded:
+        rooms:
+          type: array
+          description: The rooms where this schedule is located
+          items:
+            type: object
+            required:
+              - roomId
+              - abbreviation
+              - name
+            properties:
+              roomId:
+                type: string
+                description: Unique id for this room
+              abbreviation:
+                type: string
+                description: The abbreviation of the name of this room
+              name:
+                type: string
+                description: The name of this room
+              _links:
+                type: object
+                required:
+                  - self
+                properties:
+                  self:
+                    type: object
+                    description: Link to the room
+                    required:
+                      - href
+                    properties:
+                      href:
+                        type: string
+                        format: uri
+                        example: /v2/rooms/123
+                  building:
+                    type: object
+                    description: Link to the building
+                    required:
+                      - href
+                      - title
+                    properties:
+                      href:
+                        type: string
+                        format: uri
+                        example: /v2/buildings/123
+                      title:
+                        type: string
+                        description: The name of the building
       _links:
         type: object
         required:
@@ -25,43 +75,7 @@ allOf:
               href:
                 type: string
                 format: uri
-          students:
-            type: object
-            description: Links to the list of persons affiliated as student who join this schedule
-            required:
-              - href
-            properties:
-              href:
-                type: string
-                format: uri
-          rooms:
-            type: array
-            description: Links to the rooms where this schedule is located
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
-          buildings:
-            type: array
-            description: Links to the (nearby) buildings where this schedule is located
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+                example: /v2/schedules/123
           courses:
             type: array
             description: Links to the courses affiliated to this schedule
@@ -74,8 +88,10 @@ allOf:
                 href:
                   type: string
                   format: uri
+                  example: /v2/courses/123
                 title:
                   type: string
+                  description: The name of the course
           groups:
             type: array
             description: Links to the groups affiliated to this schedule
@@ -102,5 +118,7 @@ allOf:
                 href:
                   type: string
                   format: uri
+                  example: /v2/persons/123
                 title:
                   type: string
+                  description: The name of the person

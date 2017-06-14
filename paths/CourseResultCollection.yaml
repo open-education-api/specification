@@ -19,12 +19,12 @@ get:
         - 250
     - name: course
       in: query
-      description: Filter by the courseId of a course
+      description: Filter by the course (courseId)
       required: false
       type: string
     - name: student
       in: query
-      description: Filter by the userId of a student
+      description: Filter by student (personId)
       required: false
       type: string
     - name: academicYear

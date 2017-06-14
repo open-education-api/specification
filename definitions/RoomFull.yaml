@@ -25,6 +25,7 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/rooms/123
           building:
             type: object
             description: Link to the building in which the room is located
@@ -35,6 +36,7 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/buildings/123
               title:
                 type: string
-
+                description: The name of the building

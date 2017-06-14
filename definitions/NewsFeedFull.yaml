@@ -25,7 +25,8 @@ allOf:
               href:
                 type: string
                 format: uri
-          items:
+                example: /v2/news-feeds/123
+          newsItems:
             type: object
             description: Links to the list of news items, that are part of this news feed
             required:

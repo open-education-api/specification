@@ -90,6 +90,8 @@ paths:
     $ref: paths/FacultyCollection.yaml
   /faculties/{facultyId}:
     $ref: paths/FacultyInstance.yaml
+  /educational-departments:
+    $ref: paths/EducationalDepartmentCollection.yaml
   /educational-departments/{educationalDepartmentId}:
     $ref: paths/EducationalDepartmentInstance.yaml
   /educational-plans:

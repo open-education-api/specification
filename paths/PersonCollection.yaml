@@ -52,7 +52,22 @@ get:
         - organization
     - name: educationalDepartment
       in: query
-      description: Filter by educational department
+      description: Filter by educational department (educationalDepartmentId)
+      required: false
+      type: string
+    - name: educationalPlan
+      in: query
+      description: Filter by educational plan (educationalPlanId)
+      required: false
+      type: string
+    - name: courseGroup
+      in: query
+      description: Filter by course group (courseGroupId)
+      required: false
+      type: string
+    - name: course
+      in: query
+      description: Filter by course (courseId)
       required: false
       type: string
     - name: group

@@ -28,7 +28,7 @@ get:
         - 250
     - name: newsFeed
       in: query
-      description: Filter by news feed
+      description: Filter by news feed (newsFeedId)
       required: false
       type: string
   responses:

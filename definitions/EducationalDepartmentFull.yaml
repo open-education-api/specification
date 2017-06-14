@@ -25,6 +25,7 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/educational-departments/123
           educationalPlans:
             type: array
             description: Links to the educational plans for this educational department
@@ -37,22 +38,20 @@ allOf:
                 href:
                   type: string
                   format: uri
+                  example: /v2/educational-plans/123
                 title:
                   type: string
+                  description: The name of the educational plan
           courseGroups:
-            type: array
-            description: Links to the course groups for this educational department
-            items:
-              type: object
-              required:
-                - href
-                - title
-              properties:
-                href:
-                  type: string
-                  format: uri
-                title:
-                  type: string
+            type: object
+            description: Link to list of course groups for this educational department
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+                example: /v2/course-groups?educationalDepartment=123
           courses:
             type: object
             description: Link to the list of courses for this educational department
@@ -62,3 +61,4 @@ allOf:
               href:
                 type: string
                 format: uri
+                example: /v2/courses?educationalDepartment=123
