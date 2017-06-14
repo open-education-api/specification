@@ -15,11 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - schedules
-          - lecturers
-          - groups
-          - courseResults
-          - testResults
         properties:
           self:
             type: object

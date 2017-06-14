@@ -15,9 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - groups
-          - courseResults
-          - testResults
         properties:
           self:
             type: object
@@ -28,18 +25,34 @@ allOf:
               href:
                 type: string
                 format: uri
-          educationalDepartment:
-            type: object
-            description: Link to the educational department with which this person is affiliated
-            required:
-              - href
-              - title
-            properties:
-              href:
-                type: string
-                format: uri
-              title:
-                type: string
+          educationalDepartments:
+            type: array
+            description: Link to the educational departments with which this person is affiliated
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
+          educationalPlans:
+            type: array
+            description: Link to the educational plans with which this person is affiliated
+            items:
+              type: object
+              required:
+                - href
+                - title
+              properties:
+                href:
+                  type: string
+                  format: uri
+                title:
+                  type: string
           groups:
             type: array
             description: The groups within the organization to which this person belongs
@@ -54,9 +67,29 @@ allOf:
                   format: uri
                 title:
                   type: string
+          courses:
+            type: object
+            description: Link to the list of courses for this person
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+                example: /v2/courses?student=123
+          courseGroups:
+            type: object
+            description: Link to the list of course groups for this person
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri
+                example: /v2/course-groups?student=123
           courseResults:
             type: object
-            description: Link to the course results for this person
+            description: Link to the list of course results for this person
             required:
               - href
             properties:
@@ -66,7 +99,7 @@ allOf:
                 example: /v2/course-results?student=123
           testResults:
             type: object
-            description: Link to the test results for this person
+            description: Link to the list of test results for this person
             required:
               - href
             properties:

@@ -15,8 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - educationalPlans
-          - courseGroups
         properties:
           self:
             type: object
@@ -55,4 +53,12 @@ allOf:
                   format: uri
                 title:
                   type: string
-
+          courses:
+            type: object
+            description: Link to the list of courses for this educational department
+            required:
+              - href
+            properties:
+              href:
+                type: string
+                format: uri

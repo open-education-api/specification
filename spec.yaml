@@ -92,37 +92,11 @@ paths:
     $ref: paths/FacultyInstance.yaml
   /educational-departments/{educationalDepartmentId}:
     $ref: paths/EducationalDepartmentInstance.yaml
-  /faculties/{facultyId}/educational-departments:
-    $ref: paths/FacultyEducationalDepartmentCollection.yaml
   /educational-plans:
     $ref: paths/EducationalPlanCollection.yaml
   /educational-plans/{educationalPlanId}:
     $ref: paths/EducationalPlanInstance.yaml
-  /faculties/{facultyId}/educational-plans:
-    $ref: paths/FacultyEducationalPlanCollection.yaml
-  /educational-departments/{educationalDepartmentId}/educational-plans:
-    $ref: paths/EducationalDepartmentEducationalPlanCollection.yaml
   /course-groups:
     $ref: paths/CourseGroupCollection.yaml
   /course-groups/{courseGroupId}:
     $ref: paths/CourseGroupInstance.yaml
-  /educational-departments/{educationalDepartmentId}/course-groups:
-    $ref: paths/EducationalDepartmentCourseGroupCollection.yaml
-  /faculties/{facultyId}/course-groups:
-    $ref: paths/FacultyCourseGroupCollection.yaml
-  /educational-plans/{educationalPlanId}/course-groups:
-    $ref: paths/EducationalPlanCourseGroupCollection.yaml
-  /persons/{personId}/courses:
-    $ref: paths/PersonCourseCollection.yaml
-  /faculties/{facultyId}/courses:
-    $ref: paths/FacultyCourseCollection.yaml
-  /educational-departments/{educationalDepartmentId}/courses:
-    $ref: paths/EducationalDepartmentCourseCollection.yaml
-  /educational-plans/{educationalPlanId}/courses:
-    $ref: paths/EducationalPlanCourseCollection.yaml
-  /course-groups/{courseGroupId}/courses:
-    $ref: paths/CourseGroupCourseCollection.yaml
-  /persons/{personId}/educational-plans:
-    $ref: paths/PersonEducationalPlanCollection.yaml
-  /persons/{personId}/course-groups:
-    $ref: paths/PersonCourseGroupCollection.yaml

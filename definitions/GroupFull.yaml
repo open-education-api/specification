@@ -15,8 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - members
-          - courses
         properties:
           self:
             type: object

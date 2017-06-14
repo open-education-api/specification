@@ -15,9 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - course
-          - student
-          - testResults
         properties:
           self:
             type: object

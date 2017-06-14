@@ -15,8 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - items
-          - groups
         properties:
           self:
             type: object

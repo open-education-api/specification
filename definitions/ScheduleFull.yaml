@@ -15,12 +15,6 @@ allOf:
         type: object
         required:
           - self
-          - students
-          - rooms
-          - buildings
-          - courses
-          - groups
-          - lecturers
         properties:
           self:
             type: object
