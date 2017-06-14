@@ -13,22 +13,6 @@ produces:
 tags:
   - name: persons
     description: The persons API provides information about persons related to an educational institute.
-  - name: course results
-    description: The course result API provides the (list of) test results from a specific course attended by a student.
-  - name: buildings
-    description: The building API provides general information about buildings in use by the organization.
-  - name: test results
-    description: The test result API provides information about the results from the tests from different courses done by the student.
-  - name: courses
-    description: The courses API provides information about the course. Updated on ad hoc-base.
-  - name: schedules
-    description: The schedules API provides information about the planning of the courses in lessons. Updated on ad hoc-base.
-  - name: rooms
-    description: The rooms API provides general information about rooms and specific information about the workplaces available. Updated continuously.
-  - name: news feeds
-    description: The news feeds API returns news feeds aggregating one or more news items. Updated on ad hoc-base.
-  - name: news items
-    description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
   - name: faculties
     description: The organizational parts of an organization.
   - name: educational departments
@@ -37,43 +21,27 @@ tags:
     description: The educational plans API provides information about the plans in which the study is organized
   - name: course groups
     description: The course groups API provides informations about the groups which organizes the courses
+  - name: courses
+    description: The courses API provides information about the course. Updated on ad hoc-base.
+  - name: course results
+    description: The course result API provides the (list of) test results from a specific course attended by a student.
+  - name: test results
+    description: The test result API provides information about the results from the tests from different courses done by the student.
+  - name: buildings
+    description: The building API provides general information about buildings in use by the organization.
+  - name: rooms
+    description: The rooms API provides general information about rooms and specific information about the workplaces available. Updated continuously.
+  - name: schedules
+    description: The schedules API provides information about the planning of the courses in lessons. Updated on ad hoc-base.
+  - name: news feeds
+    description: The news feeds API returns news feeds aggregating one or more news items. Updated on ad hoc-base.
+  - name: news items
+    description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
 paths:
   /persons:
     $ref: paths/PersonCollection.yaml
   /persons/{personId}:
     $ref: paths/PersonInstance.yaml
-  /course-results:
-    $ref: paths/CourseResultCollection.yaml
-  /course-results/{courseResultId}:
-    $ref: paths/CourseResultInstance.yaml
-  /buildings:
-    $ref: paths/BuildingCollection.yaml
-  /buildings/{buildingId}:
-    $ref: paths/BuildingInstance.yaml
-  /test-results:
-    $ref: paths/TestResultCollection.yaml
-  /test-results/{testResultId}:
-    $ref: paths/TestResultInstance.yaml
-  /courses:
-    $ref: paths/CourseCollection.yaml
-  /courses/{courseId}:
-    $ref: paths/CourseInstance.yaml
-  /schedules:
-    $ref: paths/ScheduleCollection.yaml
-  /schedules/{scheduleId}:
-    $ref: paths/ScheduleInstance.yaml
-  /rooms:
-    $ref: paths/RoomCollection.yaml
-  /rooms/{roomId}:
-    $ref: paths/RoomInstance.yaml
-  /news-feeds:
-    $ref: paths/NewsFeedCollection.yaml
-  /news-feeds/{newsFeedId}:
-    $ref: paths/NewsFeedInstance.yaml
-  /news-items:
-    $ref: paths/NewsItemCollection.yaml
-  /news-items/{newsItemId}:
-    $ref: paths/NewsItemInstance.yaml
   /faculties:
     $ref: paths/FacultyCollection.yaml
   /faculties/{facultyId}:
@@ -90,3 +58,35 @@ paths:
     $ref: paths/CourseGroupCollection.yaml
   /course-groups/{courseGroupId}:
     $ref: paths/CourseGroupInstance.yaml
+  /courses:
+    $ref: paths/CourseCollection.yaml
+  /courses/{courseId}:
+    $ref: paths/CourseInstance.yaml
+  /course-results:
+    $ref: paths/CourseResultCollection.yaml
+  /course-results/{courseResultId}:
+    $ref: paths/CourseResultInstance.yaml
+  /test-results:
+    $ref: paths/TestResultCollection.yaml
+  /test-results/{testResultId}:
+    $ref: paths/TestResultInstance.yaml
+  /buildings:
+    $ref: paths/BuildingCollection.yaml
+  /buildings/{buildingId}:
+    $ref: paths/BuildingInstance.yaml
+  /rooms:
+    $ref: paths/RoomCollection.yaml
+  /rooms/{roomId}:
+    $ref: paths/RoomInstance.yaml
+  /schedules:
+    $ref: paths/ScheduleCollection.yaml
+  /schedules/{scheduleId}:
+    $ref: paths/ScheduleInstance.yaml
+  /news-feeds:
+    $ref: paths/NewsFeedCollection.yaml
+  /news-feeds/{newsFeedId}:
+    $ref: paths/NewsFeedInstance.yaml
+  /news-items:
+    $ref: paths/NewsItemCollection.yaml
+  /news-items/{newsItemId}:
+    $ref: paths/NewsItemInstance.yaml
