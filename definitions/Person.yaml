@@ -25,6 +25,7 @@ properties:
   dateOfBirth:
     type: string
     description: The date of birth of this person, RFC3339 (full-date)
+    format: date
   affiliations:
     type: array
     description: The affiliations of how this person is associated with the organization
