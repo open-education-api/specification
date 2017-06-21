@@ -19,8 +19,8 @@ properties:
     description: The form of assessment
   testDate:
     type: string
-    description: The day when the test was made
-    format: date-time
+    description: The day on which the test was made, RFC3339 (full-date)
+    format: date
   grade:
     type: string
     description: The result for the test, last made

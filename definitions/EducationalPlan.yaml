@@ -16,12 +16,12 @@ properties:
     description: The description of this educational plan
   termStartDate:
     type: string
-    description: The moment on which this educational plan starts
-    format: date-time
+    description: The day on which this educational plan starts, RFC3339 (full-date)
+    format: date
   termEndDate:
     type: string
-    description: The moment on which this educational plan ends
-    format: date-time
+    description: The day on which this educational plan ends, RFC3339 (full-date)
+    format: date
   ects:
     type: number
     description: The number of EC's that can be archieved in this educational plan
@@ -34,7 +34,8 @@ properties:
     minimum: 0
   mainLanguage:
     type: string
-    description: The main language in which the courses within this education plan are given, RFC 3066 (nl-NL)
+    description: The main language in which the courses within this education plan are given, RFC3066
+    example: nl-NL
   _links:
     type: object
     required:

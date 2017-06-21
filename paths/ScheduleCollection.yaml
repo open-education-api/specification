@@ -39,14 +39,14 @@ get:
       type: string
     - name: startDateTime
       in: query
-      description: Filter by minimum startDateTime
+      description: Filter by minimum startDateTime, RFC3339 (date-time)
       required: false
       type: string
       format: date-time
       default: (date-time value of today)
     - name: endDateTime
       in: query
-      description: Filter by maximum endDateTime
+      description: Filter by maximum endDateTime, RFC3339 (date-time)
       required: false
       type: string
       format: date-time

@@ -37,7 +37,8 @@ properties:
     description: The format in which this course is given
   mainLanguage:
     type: string
-    description: The main language in which this course is given, RFC 3066 (nl-NL)
+    description: The main language in which this course is given, RFC3066
+    example: nl-NL
   enrollment:
     type: string
     description: The extra information that is provided for enrollment
@@ -53,6 +54,7 @@ properties:
   link:
     type: string
     description: The url containing the address of the website with more information about the course
+    format: uri
   _links:
     type: object
     required:

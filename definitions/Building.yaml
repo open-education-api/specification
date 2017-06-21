@@ -24,6 +24,7 @@ properties:
   postalCode:
     type: string
     description: The zipcode of the physical location of this building
+    pattern: ^[1-9][0-9]{3}[A-Z]{2}$
   city:
     type: string
     description: The city in which this building is located

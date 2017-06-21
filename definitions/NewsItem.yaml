@@ -9,9 +9,9 @@ properties:
   newsItemId:
     type: string
     description: Unique id for this news item
-  publishDate:
+  publishDateTime:
     type: string
-    description: The timestamp on which this news item was published
+    description: The moment on which this news item was published, RFC3339 (date-time)
     format: date-time
   title:
     type: string

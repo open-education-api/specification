@@ -11,11 +11,11 @@ properties:
     description: Unique id of this schedule
   startDateTime:
     type: string
-    description: The moment on which this schedule starts
+    description: The moment on which this schedule starts, RFC3339 (date-time)
     format: date-time
   endDateTime:
     type: string
-    description: The moment on which this schedule ends
+    description: The moment on which this schedule ends, RFC3339 (date-time)
     format: date-time
   description:
     type: string
