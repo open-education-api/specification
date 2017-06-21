@@ -16,3 +16,5 @@ get:
         $ref: '../definitions/Room.yaml'
     '404':
       description: Not Found
+      schema:
+        $ref: '../definitions/Problem.yaml'

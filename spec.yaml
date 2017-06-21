@@ -2,6 +2,17 @@ swagger: '2.0'
 info:
   version: 2.0.0 (Draft)
   title: Open Education API
+  description: |
+    OpenAPI (fka Swagger) specification for the Open Education API.
+    # Error responses
+    Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
+
+    ```
+    {
+      "code": 404,
+      "title": "Resource not found"
+    }
+    ```
   x-logo:
     url: logo.png
 host: api.openonderwijsapi.nl
@@ -10,6 +21,7 @@ schemes:
   - https
 produces:
   - application/hal+json
+  - application/problem+json
 tags:
   - name: persons
     description: The persons API provides information about persons related to an educational institute.
