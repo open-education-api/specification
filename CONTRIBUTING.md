@@ -34,4 +34,4 @@ Please follow these guidelines before opening an issue:
   * Resource links (HAL `_links` object)
 * Links should have descriptive names (e.g. `author` instead of `person` for blog posts).
 * Nesting of properties, besides hypermedia controls, is not allowed.
-* Date / date-time properties are formatted conforming to the ISO-8601 standard (e.g. `2016-02-03T16:32:50+01:00`).
+* Date / date-time properties are formatted conforming to the [RFC3339](https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14) standard.

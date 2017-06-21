@@ -2,6 +2,7 @@ type: object
 required:
   - newsItemId
   - publishDate
+  - lastModified
   - title
   - content
   - _links
@@ -12,6 +13,10 @@ properties:
   publishDateTime:
     type: string
     description: The moment on which this news item was published, RFC3339 (date-time)
+    format: date-time
+  lastModified:
+    type: string
+    description: The moment on which this news item was updated, RFC3339 (date-time)
     format: date-time
   title:
     type: string
