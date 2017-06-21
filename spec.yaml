@@ -4,6 +4,13 @@ info:
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API.
+
+    # Hypermedia API
+    The Open Education API is designed as a *hypermedia API*. In short, this means all responses will contain hypermedia links
+    to simplify the navigation between the different API calls. Each link (except `self`) is optional. When a specific link is
+    not provided, this could mean the relation does not exist or the targeted endpoint is not implemented. Each client is responsible
+    for checking and handling the links correctly.
+
     # Error responses
     Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
 
