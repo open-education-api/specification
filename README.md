@@ -14,8 +14,9 @@ If you have a question, an idea or some feedback unrelated to the specification,
 
 Currently there are 2 main branches:
 
-* [v1](https://github.com/open-education-api/specification/tree/v1) (Current version - final)
-* [v2](https://github.com/open-education-api/specification/tree/v2) (Future version - draft)
+* [v2](https://github.com/open-education-api/specification/tree/v2) (Current version - final)
+* [v1](https://github.com/open-education-api/specification/tree/v1) (Previous version - stale)
+
 
 ## Roadmap
 
