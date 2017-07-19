@@ -20,9 +20,11 @@ properties:
       type: string
   image:
     type: string
+    format: uri
     description: The url containing the address of the image belonging to this news item
   link:
     type: string
+    format: uri
     description: The url containing the address of the article belonging to this news item
   content:
     type: string
