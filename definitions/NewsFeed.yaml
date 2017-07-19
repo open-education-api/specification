@@ -6,9 +6,11 @@ required:
 properties:
   newsFeedId:
     type: string
+    format: uri
     description: Unique id for this news feed
   title:
     type: string
+    format: uri
     description: The title for this news feed
   description:
     type: string
