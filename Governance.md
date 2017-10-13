@@ -1,8 +1,7 @@
 # Governance model 
 for the Open Education API project 
 
-1 October 2017
-Version: 1.0
+1 October 2017, Version: 1.0
 
 # 1.	Introduction
 This proposal sets out a governance model for the Open Education API project (OOAPI). It describes the decision-making process and the roles of the various members of the project, working group and community. It also sets out the basic rules and guidelines (the so-called by-laws) of all processes related to communication, participation and decision-making within the Open Education API project, with the primary purpose of providing transparency to the Open Education API community.
@@ -148,8 +147,8 @@ This section describes how decision-making within the project takes place.
 The working group is responsible for the community, communication, development, management and promoting the use of the OOAPI, i.e. the specification itself, the documentation, the reference implementation and the online demo. The working group decides on expansion, adaptation and modification of the OOAPI specification. The working group also decides on adding new members to the working group.
 The decision-making procedure is as follows: 
 There are two forms of decision-making:
-•	Decisions on the specification description on GitHub
-•	Decisions on the method and the acceptance of proposed major changes within GitHub, for example, a release.
+ *	Decisions on the specification description on GitHub
+ *	Decisions on the method and the acceptance of proposed major changes within GitHub, for example, a release.
 
 Decisions within GitHub
 For issues within the GitHub environment, the following applies: If an issue is submitted, the master committer has 5 days to prepare for handling the issue. The voting procedure is started within these 5 days so that the decision can be voted on.
@@ -158,16 +157,16 @@ The decision in respect of which an issue is handled is recorded within the GitH
 Other decisions
 Remote voting can take place online at any time through email using the mailinglist openonderwijsapi@googlegroups.com or can be send by email. Any working group member can submit a decision to be voted on. 
 All working group members receive an email of the forthcoming vote. This notification specifies: 
-•	the matter which is the subject of the vote; 
-•	when the vote will take place;
-•	and, if necessary, the timeframe within which a vote must be cast.
+ *	the matter which is the subject of the vote; 
+ *	when the vote will take place;
+ *	and, if necessary, the timeframe within which a vote must be cast.
 There must be a period of at least 7 days between the announcement of the vote and the time a vote can be cast. Only members of the working group can cast a vote.
 Voting can take place online OR at a meeting. If a member cannot attend the meeting, they must make their vote known before the meeting by sending an email to openonderwijsapi@googlegroups.com. Votes cast after the meeting will not be taken into consideration in taking the decision.
 If there is a majority vote, the decision will be adopted.
 If there is no majority vote, or if a vote leads to discussion or a member of the working group appeals against the decision, the vote will be put as an agenda item for the next meeting of the working group. A working group member can appeal against a decision by formulating their objection and sharing it through the mailing list.  
 The following rules apply to decision-making:
-•	Only institutions affiliated with SURFnet and 1 representative per institution have voting rights.
-•	SURFnet is also represented in the working group and has 1 vote.
+ *	Only institutions affiliated with SURFnet and 1 representative per institution have voting rights.
+ *	SURFnet is also represented in the working group and has 1 vote.
 The decision taken is recorded in the decisions list in the minutes or, if it concerns an online decision, is communicated via e-mail.
 
 # 4.4.	Compliancy rules: when are you in compliance with the specification? 
