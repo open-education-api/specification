@@ -1,119 +1,28 @@
-
-
-
-                   
-
-
-
-
 Governance model 
 for the Open Education API project 
 
-
-Project
-:
-P5 – Education innovation with IT
-
-Project year
-:
-2017
-Author(s)
-:
-Frans Ward, Kirsten Veelo, Ronald Ham
-Reviewer(s)
-:
-SURFnet: Christien Bok, Alexander Blanc 
-Open Education API working group: all members of the working group
-Release date
-:
 1 October 2017
-Version
-:
-1.0
+Version: 1.0
 
-Credits
-
-Programme line
-:
-P5 – Education innovation with IT
-Part
-:
-Project – Product management
-Activity
-:
-Open Education API
-Deliverable
-:
-Open Education API Governance
-Access rights
-:
-External
-External party
-:
-None
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Table of Contents
-
-Credits	ii
-Table of Contents	iii
-1.	Introduction	1
-1.1.	Why does the Open Education API need formal governance?	1
-2.	Abbreviations and definitions used	2
-3.	Project participants	3
-3.1.	Open Education API community	4
-3.2.	Open Education API working group	4
-3.3.	Open Education API project group	5
-3.4.	Bureau Edustandaard	5
-4.	The Open Education API 'by-laws'	6
-4.1.	Communication guidelines	6
-4.2.	Rules on participation	6
-4.3.	Rules on decision-making	7
-4.4.	Compliancy rules: when are you in compliance with the specification?	8
-Appendix A :	Code of Conduct (COC)	9
-
-1.	Introduction
+1.	Introduction
 This proposal sets out a governance model for the Open Education API project (OOAPI). It describes the decision-making process and the roles of the various members of the project, working group and community. It also sets out the basic rules and guidelines (the so-called by-laws) of all processes related to communication, participation and decision-making within the Open Education API project, with the primary purpose of providing transparency to the Open Education API community.
 
 The shared goals of a governance model for this Open Education API project are to provide:
-•	Sustainability
-Ensure the sustainability and health of the project and the community;
-
-•	Structure
-Provide structure in the organisation so that the decision-making process is clear;
-
-•	Transparency
-Provide transparency to the community on communication about, participation in and decision-making within the project; 
-
-•	Growth
-Provide for a structure that can grow in the shape of new adopters and developers, and that can support the community;
-
-•	Development
-Support effective development and maintenance of the Open Education API;
-
+•	Sustainability: Ensure the sustainability and health of the project and the community;
+•	Structure:Provide structure in the organisation so that the decision-making process is clear;
+•	Transparency: Provide transparency to the community on communication about, participation in and decision-making within the project; 
+•	Growth: Provide for a structure that can grow in the shape of new adopters and developers, and that can support the community;
+•	Development:Support effective development and maintenance of the Open Education API;
 
 1.1.	Why does the Open Education API need formal governance?
 The Open Education API Working Group (OOAPI-WG) has indicated that the point at which the OOAPI has its first major release, a 1.0 status, has now been reached. This is an important point for institutions to be able to implement and use the OOAPI, given that the API has major-release status and is not considered to be an experiment. 
 This governance model has been drawn up to give the specification a sustainable character. It provides interested parties with an understanding of how the project will be governed. After all, 'Governance' is the governance instrument that sets the framework and defines how strategic goals, decision structures and procedures to address differences of views operate.
 
 
-
 2.	Abbreviations and definitions used
-
 OOAPI
 The Open Education API. In Dutch we say: Open Onderwijs API, hence the abbreviation OOAPI. SURFnet is working with higher education institutions to define a standard API: the Open Education API. Using this API, higher education institutions can make useful information available, such as grades, study credits, schedules and free workstations. Application developers can then integrate this data into new applications.
+
 Project group
 The OOAPI project group, currently provided by SURFnet. Responsible for funding and annual planning.
 
@@ -121,14 +30,17 @@ Working group
 The OOAPI working group. Responsible for development, management, promotion, community, communication, adoption and evaluation of the Open Education API. This working group consists of various institutions, representatives of the OOAPI and SURFnet. 
 Bureau Edustandaard
 Bureau Edustandaard, a partnership between SURF and Kennisnet, is responsible for managing and advising on education-specific and research-specific standards and reference architectures for the entire education and research chain. 
-The project group and the working group are in regular contact with Bureau Edustandaard. Bureau Edustandaard provides advice and support. 
+The project group and the working group are in regular contact with Bureau Edustandaard. Bureau Edustandaard provides advice and support.
+
 Community
 The OOAPI community consists of parties interested in OOAPI developments. Community members are known by name and email address, and register with the community site themselves.
 
 Community site
 The website where community members become members of the OOAPI community and share their knowledge. Google+ Communities is used for this. The community site can be found at: https://plus.google.com/u/1/communities/106455663981908394819
+
 Project site
 The website at https://openonderwijsapi.nl/en/. This website will be used mainly to provide clarification of the project to interested parties. The site also provides access to the reference API, online documentation and the code repository.
+
 Code repository
 The GitHub code repository where the specification for the Open Education API can be found.
 https://github.com/open-education-api
@@ -164,6 +76,7 @@ Provides advice and support for the Open Education API standard.
 The community is formed by individuals, (representatives of) higher education institutions and organisations interested in the OOAPI project. Community members are known by name and email address, and register with the OOAPI community site themselves.
 
 Anyone who uses the OOAPI but is not known by name is an anonymous community member. We do not consider them part of the community.  To a greater or lesser extent, community members participate actively in this project. They ask questions, propose potential modifications to the specification, provide feedback and ensure an active community site. 
+
 3.2.	Open Education API working group
 The working group is a subgroup of the community. This working group is, in essence, central to the OOAPI project and is responsible for the roadmap, further development and overall decision-making within the development of the project. The working group is responsible for the specification in terms of development, management, promotion, community, adoption and evaluation.
 The working group currently consists of the following members.
@@ -192,13 +105,13 @@ The working group member
 •	actively contributes to developing the Open Education API and promotes its use. He or she must invest at least 60 hours a year to achieve the working group's objectives;
 •	must visit at least 3 working group meetings a year.
 Only institutions affiliated with SURFnet and 1 representative for each institution affiliated with SURFnet have voting rights. 
+
 3.3.	Open Education API project group 
 The project group consists of SURFnet staff members. Project staff are actively involved with the OOAPI working group as members of the working group. Project staff have a mandate for implementing the project objectives with the associated resources, as set out in an annual activity plan. Governance is provided by the Education Innovation with IT project manager, through the SURFnet project organisation. 
+
 3.4.	Bureau Edustandaard
 Bureau Edustandaard, a partnership between SURF and Kennisnet, is responsible for managing and advising on education-specific and research-specific standards and reference architectures for the entire education and research chain. Edustandaard is transparent about the standards it manages. The bureau facilitates the Standardisation council, the Architecture council and the Edustandaard working groups. The bureau also maintains contact with other (national and international) standards organisations.
 The project group and the working group are in regular contact with Bureau Edustandaard. Bureau Edustandaard provides advice and support. 
-
-
 
 
 4.	The Open Education API 'by-laws'
@@ -266,6 +179,5 @@ Compliance with the specification is understood to mean:
 Compliance with the specification can be demonstrated with a badge stating 'complies with OOAPI'. Each version of the OOAPI will have its own 'complies with OOAPI Vx.x' badge so that it is clear which version of the specification it complies with.
 
 Appendix A :	Code of Conduct (COC)
-
 The Open Education API project applies the following code of conduct: 
 http://todogroup.org/opencodeofconduct/#Open%20Onderwijs%20API/info@openonderwijsapi.nl 
