@@ -6,7 +6,7 @@ for the Open Education API project
 This proposal sets out a governance model for the Open Education API project (OOAPI). It describes the decision-making process and the roles of the various members of the project, working group and community. It also sets out the basic rules and guidelines (the so-called by-laws) of all processes related to communication, participation and decision-making within the Open Education API project, with the primary purpose of providing transparency to the Open Education API community.
 
 The shared goals of a governance model for this Open Education API project are to provide:
- *	**Sustainability:** 
+ *	**Sustainability:**</br>
  Ensure the sustainability and health of the project and the community;
  *	**Structure:** 
  Provide structure in the organisation so that the decision-making process is clear;
