@@ -7,14 +7,15 @@ for the Open Education API project
 This proposal sets out a governance model for the Open Education API project (OOAPI). It describes the decision-making process and the roles of the various members of the project, working group and community. It also sets out the basic rules and guidelines (the so-called by-laws) of all processes related to communication, participation and decision-making within the Open Education API project, with the primary purpose of providing transparency to the Open Education API community.
 
 The shared goals of a governance model for this Open Education API project are to provide:
- *	Sustainability: Ensure the sustainability and health of the project and the community;
- *	Structure:Provide structure in the organisation so that the decision-making process is clear;
- *	Transparency: Provide transparency to the community on communication about, participation in and decision-making within the project; 
- *	Growth: Provide for a structure that can grow in the shape of new adopters and developers, and that can support the community;
- *	Development:Support effective development and maintenance of the Open Education API;
+ *	**Sustainability:** Ensure the sustainability and health of the project and the community;
+ *	**Structure:** Provide structure in the organisation so that the decision-making process is clear;
+ *	**Transparency:** Provide transparency to the community on communication about, participation in and decision-making within the project; 
+ *	**Growth:** Provide for a structure that can grow in the shape of new adopters and developers, and that can support the community;
+ *	**Development:** Support effective development and maintenance of the Open Education API.
 
 ## 1.1.	Why does the Open Education API need formal governance?
 The Open Education API Working Group (OOAPI-WG) has indicated that the point at which the OOAPI has its first major release, a 1.0 status, has now been reached. This is an important point for institutions to be able to implement and use the OOAPI, given that the API has major-release status and is not considered to be an experiment. 
+
 This governance model has been drawn up to give the specification a sustainable character. It provides interested parties with an understanding of how the project will be governed. After all, 'Governance' is the governance instrument that sets the framework and defines how strategic goals, decision structures and procedures to address differences of views operate.
 
 
@@ -27,7 +28,8 @@ The OOAPI project group, currently provided by SURFnet. Responsible for funding 
 
 **Working group**
 The OOAPI working group. Responsible for development, management, promotion, community, communication, adoption and evaluation of the Open Education API. This working group consists of various institutions, representatives of the OOAPI and SURFnet. 
-Bureau Edustandaard
+
+**Bureau Edustandaard**
 Bureau Edustandaard, a partnership between SURF and Kennisnet, is responsible for managing and advising on education-specific and research-specific standards and reference architectures for the entire education and research chain. 
 The project group and the working group are in regular contact with Bureau Edustandaard. Bureau Edustandaard provides advice and support.
 
