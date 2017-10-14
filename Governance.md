@@ -1,17 +1,21 @@
 # Governance model 
 for the Open Education API project 
-
 *1 October 2017, Version: 1.0*
 
 # 1.	Introduction
 This proposal sets out a governance model for the Open Education API project (OOAPI). It describes the decision-making process and the roles of the various members of the project, working group and community. It also sets out the basic rules and guidelines (the so-called by-laws) of all processes related to communication, participation and decision-making within the Open Education API project, with the primary purpose of providing transparency to the Open Education API community.
 
 The shared goals of a governance model for this Open Education API project are to provide:
- *	**Sustainability:** Ensure the sustainability and health of the project and the community;
- *	**Structure:** Provide structure in the organisation so that the decision-making process is clear;
- *	**Transparency:** Provide transparency to the community on communication about, participation in and decision-making within the project; 
- *	**Growth:** Provide for a structure that can grow in the shape of new adopters and developers, and that can support the community;
- *	**Development:** Support effective development and maintenance of the Open Education API.
+ *	**Sustainability:** 
+ Ensure the sustainability and health of the project and the community;
+ *	**Structure:** 
+ Provide structure in the organisation so that the decision-making process is clear;
+ *	**Transparency:** 
+ Provide transparency to the community on communication about, participation in and decision-making within the project; 
+ *	**Growth:** 
+ Provide for a structure that can grow in the shape of new adopters and developers, and that can support the community;
+ *	**Development:** 
+ Support effective development and maintenance of the Open Education API.
 
 ## 1.1.	Why does the Open Education API need formal governance?
 The Open Education API Working Group (OOAPI-WG) has indicated that the point at which the OOAPI has its first major release, a 1.0 status, has now been reached. This is an important point for institutions to be able to implement and use the OOAPI, given that the API has major-release status and is not considered to be an experiment. 
@@ -21,38 +25,47 @@ This governance model has been drawn up to give the specification a sustainable 
 
 # 2.	Abbreviations and definitions used
 **OOAPI**
+
 The Open Education API. In Dutch we say: Open Onderwijs API, hence the abbreviation OOAPI. SURFnet is working with higher education institutions to define a standard API: the Open Education API. Using this API, higher education institutions can make useful information available, such as grades, study credits, schedules and free workstations. Application developers can then integrate this data into new applications.
 
 **Project group**
+
 The OOAPI project group, currently provided by SURFnet. Responsible for funding and annual planning.
 
 **Working group**
+
 The OOAPI working group. Responsible for development, management, promotion, community, communication, adoption and evaluation of the Open Education API. This working group consists of various institutions, representatives of the OOAPI and SURFnet. 
 
 **Bureau Edustandaard**
+
 Bureau Edustandaard, a partnership between SURF and Kennisnet, is responsible for managing and advising on education-specific and research-specific standards and reference architectures for the entire education and research chain. 
 The project group and the working group are in regular contact with Bureau Edustandaard. Bureau Edustandaard provides advice and support.
 
 **Community**
+
 The OOAPI community consists of parties interested in OOAPI developments. Community members are known by name and email address, and register with the community site themselves.
 
 **Community site**
+
 The website where community members become members of the OOAPI community and share their knowledge. Google+ Communities is used for this. The community site can be found at: https://plus.google.com/u/1/communities/106455663981908394819
 
 **Project site**
+
 The website at https://openonderwijsapi.nl/en/. This website will be used mainly to provide clarification of the project to interested parties. The site also provides access to the reference API, online documentation and the code repository.
 
 **Code repository**
+
 The GitHub code repository where the specification for the Open Education API can be found.
 https://github.com/open-education-api
 
 **Specification repository**
+
 The OOAPI specification and its various versions are maintained in the GitHub specification repository:
 https://github.com/open-education-api/specification
 
 **Mailing list**
-The members of the working group are subscribed to the mailing list, which is intended for members of the working group to communicate with each other. 
-See: https://groups.google.com/forum/#!forum/openonderwijsapi
+
+The members of the working group are subscribed to the mailing list, which is intended for members of the working group to communicate with each other. See: https://groups.google.com/forum/#!forum/openonderwijsapi
 
 
 # 3.	Project participants
@@ -80,11 +93,14 @@ Anyone who uses the OOAPI but is not known by name is an anonymous community mem
 
 ## 3.2.	Open Education API working group
 The working group is a subgroup of the community. This working group is, in essence, central to the OOAPI project and is responsible for the roadmap, further development and overall decision-making within the development of the project. The working group is responsible for the specification in terms of development, management, promotion, community, adoption and evaluation.
+
 The working group currently consists of the following members.
 
 **Who can join the working group?**
  *	Participation is not limited to higher education institutions, and is open to anyone who can represent the interests of the OOAPI. Suppliers can therefore also join the working group.
- *	The ratio between institutions affiliated with SURFnet and organisations not affiliated with SURFnet must be at least 3:1. List of affiliated institutions. 
+ *	The ratio between institutions affiliated with SURFnet and organisations not affiliated with SURFnet must be at least 3:1. 
+ 
+List of affiliated institutions. 
  *	A member of the working group may represent up to one higher education institution or organisation.
  *	The working group may have more than one member from the same institution, but if there are more than 20 members in the working group, the maximum number of members per institution is limited to one. If a member of the working group is unable to attend a meeting, an alternate member may be appointed.
  *	SURFnet's project staff are members of the working group. Their status is protected and their membership does not count towards the total number of members. 
@@ -162,10 +178,12 @@ All working group members receive an email of the forthcoming vote. This notific
  *	the matter which is the subject of the vote; 
  *	when the vote will take place;
  *	and, if necessary, the timeframe within which a vote must be cast.
+ 
 There must be a period of at least 7 days between the announcement of the vote and the time a vote can be cast. Only members of the working group can cast a vote.
 Voting can take place online OR at a meeting. If a member cannot attend the meeting, they must make their vote known before the meeting by sending an email to openonderwijsapi@googlegroups.com. Votes cast after the meeting will not be taken into consideration in taking the decision.
 If there is a majority vote, the decision will be adopted.
 If there is no majority vote, or if a vote leads to discussion or a member of the working group appeals against the decision, the vote will be put as an agenda item for the next meeting of the working group. A working group member can appeal against a decision by formulating their objection and sharing it through the mailing list.  
+
 The following rules apply to decision-making:
  *	Only institutions affiliated with SURFnet and 1 representative per institution have voting rights.
  *	SURFnet is also represented in the working group and has 1 vote.
