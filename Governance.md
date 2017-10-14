@@ -8,13 +8,13 @@ This proposal sets out a governance model for the Open Education API project (OO
 The shared goals of a governance model for this Open Education API project are to provide:
  *	**Sustainability:**</br>
  Ensure the sustainability and health of the project and the community;
- *	**Structure:** 
+ *	**Structure:**</br>
  Provide structure in the organisation so that the decision-making process is clear;
- *	**Transparency:** 
+ *	**Transparency:**</br>
  Provide transparency to the community on communication about, participation in and decision-making within the project; 
- *	**Growth:** 
+ *	**Growth:**</br>
  Provide for a structure that can grow in the shape of new adopters and developers, and that can support the community;
- *	**Development:** 
+ *	**Development:**</br>
  Support effective development and maintenance of the Open Education API.
 
 ## 1.1.	Why does the Open Education API need formal governance?
@@ -24,47 +24,37 @@ This governance model has been drawn up to give the specification a sustainable 
 
 
 # 2.	Abbreviations and definitions used
-**OOAPI**
-
+**OOAPI**</br>
 The Open Education API. In Dutch we say: Open Onderwijs API, hence the abbreviation OOAPI. SURFnet is working with higher education institutions to define a standard API: the Open Education API. Using this API, higher education institutions can make useful information available, such as grades, study credits, schedules and free workstations. Application developers can then integrate this data into new applications.
 
-**Project group**
-
+**Project group**</br>
 The OOAPI project group, currently provided by SURFnet. Responsible for funding and annual planning.
 
-**Working group**
-
+**Working group**</br>
 The OOAPI working group. Responsible for development, management, promotion, community, communication, adoption and evaluation of the Open Education API. This working group consists of various institutions, representatives of the OOAPI and SURFnet. 
 
-**Bureau Edustandaard**
-
+**Bureau Edustandaard**</br>
 Bureau Edustandaard, a partnership between SURF and Kennisnet, is responsible for managing and advising on education-specific and research-specific standards and reference architectures for the entire education and research chain. 
 The project group and the working group are in regular contact with Bureau Edustandaard. Bureau Edustandaard provides advice and support.
 
-**Community**
-
+**Community**</br>
 The OOAPI community consists of parties interested in OOAPI developments. Community members are known by name and email address, and register with the community site themselves.
 
-**Community site**
-
+**Community site**</br>
 The website where community members become members of the OOAPI community and share their knowledge. Google+ Communities is used for this. The community site can be found at: https://plus.google.com/u/1/communities/106455663981908394819
 
-**Project site**
-
+**Project site**</br>
 The website at https://openonderwijsapi.nl/en/. This website will be used mainly to provide clarification of the project to interested parties. The site also provides access to the reference API, online documentation and the code repository.
 
-**Code repository**
-
+**Code repository**</br>
 The GitHub code repository where the specification for the Open Education API can be found.
 https://github.com/open-education-api
 
-**Specification repository**
-
+**Specification repository**</br>
 The OOAPI specification and its various versions are maintained in the GitHub specification repository:
 https://github.com/open-education-api/specification
 
-**Mailing list**
-
+**Mailing list**</br>
 The members of the working group are subscribed to the mailing list, which is intended for members of the working group to communicate with each other. See: https://groups.google.com/forum/#!forum/openonderwijsapi
 
 
@@ -96,27 +86,27 @@ The working group is a subgroup of the community. This working group is, in esse
 
 The working group currently consists of the following members.
 
-**Who can join the working group?**
+**Who can join the working group?**</br>
  *	Participation is not limited to higher education institutions, and is open to anyone who can represent the interests of the OOAPI. Suppliers can therefore also join the working group.
  *	The ratio between institutions affiliated with SURFnet and organisations not affiliated with SURFnet must be at least 3:1. 
  
-List of affiliated institutions. 
+List of affiliated institutions.</br>
  *	A member of the working group may represent up to one higher education institution or organisation.
  *	The working group may have more than one member from the same institution, but if there are more than 20 members in the working group, the maximum number of members per institution is limited to one. If a member of the working group is unable to attend a meeting, an alternate member may be appointed.
  *	SURFnet's project staff are members of the working group. Their status is protected and their membership does not count towards the total number of members. 
 
-**Becoming a member of the working group** 
+**Becoming a member of the working group**</br>
  *	Prospective members can enlist by posting a motivation message on the community site or sending an email to info@openonderwijsapi.nl, with a brief motivation.
  * A prospective member may also be nominated by a member of the working group. 
  *	The working group votes on membership of organisation not affiliated with SURFnet. 
  *	Any new member of the working group must have an authorised signatory of the institution or organisation they work for to sign a letter of intent in which they agree to the rights and obligations of the working group member. 
 
-**Terminating membership of the working group**
+**Terminating membership of the working group**</br>
  *	A working group member can terminate their membership through the mailing list.
  *	The working group may terminate the membership of a member who fails to meet their obligations.
  *	Former working group members can be kept informed of developments, if desired, but lose their voting rights.
 
-**Rights and obligations**
+**Rights and obligations**</br>
 The working group member
  *	represents their employer, an organisation that promotes the interests of the Open Education API. This organisation has the intention to implement the OOAPI within 2 years;
  *	actively contributes to developing the Open Education API and promotes its use. He or she must invest at least 60 hours a year to achieve the working group's objectives;
@@ -127,7 +117,7 @@ Only institutions affiliated with SURFnet and 1 representative for each institut
 The project group consists of SURFnet staff members. Project staff are actively involved with the OOAPI working group as members of the working group. Project staff have a mandate for implementing the project objectives with the associated resources, as set out in an annual activity plan. Governance is provided by the Education Innovation with IT project manager, through the SURFnet project organisation. 
 
 ## 3.4.	Bureau Edustandaard
-Bureau Edustandaard, a partnership between SURF and Kennisnet, is responsible for managing and advising on education-specific and research-specific standards and reference architectures for the entire education and research chain. Edustandaard is transparent about the standards it manages. The bureau facilitates the Standardisation council, the Architecture council and the Edustandaard working groups. The bureau also maintains contact with other (national and international) standards organisations.
+Bureau Edustandaard, a partnership between SURF and Kennisnet, is responsible for managing and advising on education-specific and research-specific standards and reference architectures for the entire education and research chain. Edustandaard is transparent about the standards it manages. The bureau facilitates the Standardisation council, the Architecture council and the Edustandaard working groups. The bureau also maintains contact with other (national and international) standards organisations.</br>
 The project group and the working group are in regular contact with Bureau Edustandaard. Bureau Edustandaard provides advice and support. 
 
 
@@ -163,6 +153,7 @@ This section describes how community members can contribute to the project, for 
 ## 4.3.	Rules on decision-making
 This section describes how decision-making within the project takes place. 
 The working group is responsible for the community, communication, development, management and promoting the use of the OOAPI, i.e. the specification itself, the documentation, the reference implementation and the online demo. The working group decides on expansion, adaptation and modification of the OOAPI specification. The working group also decides on adding new members to the working group.
+
 The decision-making procedure is as follows: 
 There are two forms of decision-making:
  *	Decisions on the specification description on GitHub
