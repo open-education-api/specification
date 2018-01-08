@@ -4,7 +4,6 @@
 
 This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (fka Swagger) specification for the [Open Education API](https://openonderwijsapi.nl/en/).
 
-* [Roadmap](#roadmap)
 * [Documentation](#documentation)
 * [Development](#development)
 * [Contributing](#contributing)
@@ -17,14 +16,6 @@ Currently there are 2 main branches:
 * [v2](https://github.com/open-education-api/specification/tree/v2) (Current version - final)
 * [v1](https://github.com/open-education-api/specification/tree/v1) (Previous version - stale)
 
-
-## Roadmap
-
-These activities are planned for the next period:
-
-* Discuss & process additions and improvements in separate v2 branch
-* The scope of the V2 specification will be frozen by May 15, 2017
-* The V2 specification will be finalized by the end of June 2017
 
 ## Documentation
 
