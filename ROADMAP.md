@@ -27,3 +27,4 @@ in [HORA](https://www.wikixl.nl/wiki/hora/index.php/Hoofdpagina).
 - Design a better mechanism for updating the overview of institution
 OOAPI endpoints
 - Add the institution identifier in the OOAPI specification.
+- Add BIV classification to each OOAPI endpoint.
