@@ -8,6 +8,7 @@ This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specificat
 * [Development](#development)
 * [Contributing](#contributing)
 * [Community](#community)
+* [Roadmap](https://github.com/open-education-api/specification/blob/v2/ROADMAP.md)
 
 If you have a question, an idea or some feedback unrelated to the specification, please visit the [community site](https://plus.google.com/communities/106455663981908394819).
 
