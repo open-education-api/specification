@@ -16,9 +16,8 @@ issuetracker
 - Major update 3.0 (Q2-2018)
 - Publish a list of institutions that have implemented the OOAPI and in
 what API endpoints are supported.
-- Publish a mapping between the OOAPI endpoints and the terms specified
-in [HORA](https://www.wikixl.nl/wiki/hora/index.php/Hoofdpagina): information objects and CIA (BIV) classification.
-See the [OOAPI wiki space(https://github.com/open-education-api/specification/wiki/Mapping-HORA---OOAPI)
+- [Publish a mapping](https://github.com/open-education-api/specification/wiki/Mapping-HORA---OOAPI) between the OOAPI endpoints and the terms specified
+in [HORA](https://www.wikixl.nl/wiki/hora/index.php/Hoofdpagina).
 - Publish the OOAPI datamodel
 
 **For the long term, the following issues are addressed:**
