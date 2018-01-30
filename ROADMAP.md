@@ -29,4 +29,4 @@ See the [OOAPI wiki space](https://github.com/open-education-api/specification/w
 - Design a better mechanism for updating the overview of institution
 OOAPI endpoints
 - Add the institution identifier in the OOAPI specification.
-- Add BIV classification to each OOAPI endpoint.
+- Define guidelines for authentication and autorisation for the implementation of the OOAPI
