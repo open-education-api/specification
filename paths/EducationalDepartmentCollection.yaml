@@ -1,5 +1,5 @@
 get:
-  summary: GET /educational-department
+  summary: GET /educational-departments
   description: Get an ordered list of all educational departments.
   tags:
     - educational departments
