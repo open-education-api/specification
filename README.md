@@ -4,6 +4,7 @@
 
 This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (fka Swagger) specification for the [Open Education API](https://openonderwijsapi.nl/en/).
 
+* [Operating area / Application](#Operating area / Application)
 * [Documentation](#documentation)
 * [Development](#development)
 * [Contributing](#contributing)
