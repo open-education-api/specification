@@ -17,6 +17,12 @@ Currently there are 2 main branches:
 * [v2](https://github.com/open-education-api/specification/tree/v2) (Current version - final)
 * [v1](https://github.com/open-education-api/specification/tree/v1) (Previous version - stale)
 
+## Operating area / Application
+
+The Open Education API is typically used to make educational data available. With educational data we mean 
+the data that is typically stored in the educational systems like the Student Information System (SIS), the Learning Management System (LMS) etc. Think of marks and study credits, couse information, schedules and timetables. 
+Education institutions can now publish this educational data in a standardised way by implementing their own Open Education API, following the the Open Education API specification. By doing so, application developers can then integrate education data that has been made available by the Open Education API implementations of the different education institutions in an uniform way, into new exiting applications.
+See for more information about this project: https://openonderwijsapi.nl/en/
 
 ## Documentation
 
