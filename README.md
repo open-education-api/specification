@@ -4,7 +4,7 @@
 
 This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (fka Swagger) specification for the [Open Education API](https://openonderwijsapi.nl/en/).
 
-* [Operating area / Application](#Operating area / Application)
+* [Operating area and Application](#Operating area and Application)
 * [Documentation](#documentation)
 * [Development](#development)
 * [Contributing](#contributing)
@@ -18,7 +18,7 @@ Currently there are 2 main branches:
 * [v2](https://github.com/open-education-api/specification/tree/v2) (Current version - final)
 * [v1](https://github.com/open-education-api/specification/tree/v1) (Previous version - stale)
 
-## Operating area / Application
+## Operating area and Application
 
 The Open Education API is typically used to make educational data available. With educational data we mean 
 the data that is typically stored in the educational systems like the Student Information System (SIS), the Learning Management System (LMS) etc. Think of marks and study credits, couse information, schedules and timetables. 
