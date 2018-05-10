@@ -22,6 +22,11 @@ get:
       description: Filter by building (buildingId)
       required: false
       type: string
+    - name: type
+      in: query
+      description: Filter by room type (see service metadata for possible values)
+      required: false
+      type: string
   responses:
     '200':
       description: OK

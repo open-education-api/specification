@@ -1,0 +1,79 @@
+type: object
+required:
+  - owner
+  - specification
+  - documentation
+  - _links
+properties:
+  owner:
+    type: string
+    description: Name of the service owner
+  logo:
+    type: string
+    format: uri
+    description: URL of the service logo (image dimensions should be 300x300 pixels)
+  specification:
+    type: string
+    format: uri
+    description: URL of the API specification (YAML or JSON, compliant with [Open API Specification v2](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md))
+  documentation:
+    type: string
+    format: uri
+    description: URL of the API documentation, including general terms and privacy statement
+  courseLevels:
+    type: array
+    description: Set of course levels for the institution
+    items:
+      type: string
+    example:
+      - Bachelor
+      - Master
+  roomTypes:
+    type: array
+    description: Set of room types for the institution
+    items:
+      type: string
+    example:
+      - General purpose
+      - Lecture hall
+      - PC lab
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /
+      endpoints:
+        type: array
+        description: Links to the service (collection) endpoints
+        items:
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              type: string
+              format: uri
+        example:
+          - href: /persons
+          - href: /faculties
+          - href: /educational-departments
+          - href: /educational-plans
+          - href: /course-groups
+          - href: /courses
+          - href: /course-results
+          - href: /test-results
+          - href: /buildings
+          - href: /rooms
+          - href: /schedules
+          - href: /news-feeds
+          - href: /news-items

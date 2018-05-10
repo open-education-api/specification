@@ -14,6 +14,9 @@ properties:
   name:
     type: string
     description: The name of this room
+  type:
+    type: string
+    description: The type of this room (see service metadata for possible values)
   description:
     type: string
     description: The description of this room

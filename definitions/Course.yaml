@@ -31,7 +31,7 @@ properties:
     description: The requirements needed to enter this course
   level:
     type: string
-    description: The level (from a limited list) of this course
+    description: The level of this course (see service metadata for possible values)
   format:
     type: string
     description: The format in which this course is given

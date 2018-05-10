@@ -30,6 +30,8 @@ produces:
   - application/hal+json
   - application/problem+json
 tags:
+  - name: service metadata
+    description: The service API provides metadata for the service.
   - name: persons
     description: The persons API provides information about persons related to an educational institute.
   - name: faculties
@@ -57,6 +59,8 @@ tags:
   - name: news items
     description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
 paths:
+  /:
+    $ref: paths/Service.yaml
   /persons:
     $ref: paths/PersonCollection.yaml
   /persons/{personId}:
