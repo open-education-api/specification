@@ -5,26 +5,12 @@ please contact us at  info@openonderwijsapi.nl.
 
 New issues can also be added by Github users using the [OOAPI Specification Github issue Tracker](https://github.com/open-education-api/specification/issues).
 
-**These activities and additions are planned for the upcoming period
-Q2-2018**
-
-- The issues for the 2.1 release have been colected and discussed in the OOAPI workinggroup. The following issues will be solved by the 2.1 release which will be available in Q2-2018: 
-  - [#65: filters but no values for courses](https://github.com/open-education-api/specification/issues/65)
-  - [#48: Rooms - "Type" attribute](https://github.com/open-education-api/specification/issues/48)
-  - [#37: Add root endpoint for exposing the service metadata](https://github.com/open-education-api/specification/issues/37)
-
-- Discuss the following issues more in detail:
-  - [#30: add 'level' in output of GET /educational-plans (optional)](https://github.com/open-education-api/specification/issues/30)
-  - [#28: Levels // where to put them in OOApi?](https://github.com/open-education-api/specification/issues/28)
-
+**These activities and additions are planned for the period Q3**
+- Align IMS EDU-API with OOAPI.
+- Prepare Governance for Edustandaard.
 - Collect issues for the 3.0 release. Issues can be added using our
 [issuetracker](https://github.com/open-education-api/specification/issues)
 
-- Publish a list of institutions that have implemented the OOAPI and what API endpoints are supported.
-
-- Add definitions to the OOAPI specification where there is no link to the HORA definition.
-
-**These activities and additions are planned for the period Q3**
 - Major update 3.0.
 So far these issues have been appointed 3.0 issues:
  - [#67: add notifications endpoint](https://github.com/open-education-api/specification/issues/67)
