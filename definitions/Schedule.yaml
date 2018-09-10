@@ -106,7 +106,7 @@ properties:
               description: The name of the course
       lecturers:
         type: array
-        description: Links to the persons affiliated to this schedule as lecturer
+        description: Links to the lecturers (persons) of this schedule
         items:
           type: object
           required:

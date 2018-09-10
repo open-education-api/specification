@@ -82,7 +82,7 @@ properties:
             example: /v2/schedules?course=123
       lecturers:
         type: array
-        description: Links to the persons affiliated to this course as lecturer
+        description: Links to the lecturers (persons) of this course
         items:
           type: object
           required:

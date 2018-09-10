@@ -57,7 +57,7 @@ properties:
             description: The name of the course
       student:
         type: object
-        description: Link to the student for this result
+        description: Link to the student (person) for this result
         required:
           - href
           - title

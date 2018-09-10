@@ -67,7 +67,7 @@ properties:
             description: The name of the course
       student:
         type: object
-        description: Link to the student for this result
+        description: Link to the student (person) for this result
         required:
           - href
           - title
@@ -81,7 +81,7 @@ properties:
             description: The display name of the person
       lecturers:
         type: array
-        description: Links to the persons of the lecturers who are responsible for this test
+        description: Links to the lecturers (persons) who are responsible for this test
         items:
           type: object
           required:
