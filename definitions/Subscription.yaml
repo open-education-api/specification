@@ -2,7 +2,6 @@ type: object
 required:
   - subscriptionId
   - callbackUrl
-  - lastModified
   - _links
 properties:
   subscriptionId:
@@ -12,10 +11,6 @@ properties:
     type: string
     format: uri
     description: The URL which will be called for every notification
-  lastModified:
-    type: string
-    description: The moment on which this subscription was updated, RFC3339 (date-time)
-    format: date-time
   _links:
     type: object
     required:
