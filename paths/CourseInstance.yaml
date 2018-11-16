@@ -13,9 +13,13 @@ get:
   responses:
     '200':
       description: OK
-      schema:
-        $ref: '../schemas/Course.yaml'
+      content:
+        application/hal+json:
+          schema:
+            $ref: '../schemas/Course.yaml'
     '404':
       description: Not Found
-      schema:
-        $ref: '../schemas/Problem.yaml'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

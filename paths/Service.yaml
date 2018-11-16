@@ -6,5 +6,7 @@ get:
   responses:
     '200':
       description: OK
-      schema:
-        $ref: '../schemas/Service.yaml'
+      content:
+        application/hal+json:
+          schema:
+            $ref: '../schemas/Service.yaml'
