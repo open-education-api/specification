@@ -13,7 +13,7 @@ post:
     '201':
       description: Created
       content:
-        application/json:
+        application/hal+json:
           schema:
             $ref: '../definitions/Subscription.yaml'
       headers:
@@ -40,4 +40,4 @@ post:
             '200':
               description: The notification is received successfully.
             default:
-              description: The notification is not received successfully. It will be retries automatically.
+              description: The notification is not received successfully. It will be retried automatically.

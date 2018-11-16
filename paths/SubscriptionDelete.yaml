@@ -14,5 +14,7 @@ delete:
       description: No content
     '404':
       description: Not Found
-      schema:
-        $ref: '../definitions/Problem.yaml'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../definitions/Problem.yaml'
