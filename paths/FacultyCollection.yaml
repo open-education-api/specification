@@ -9,8 +9,9 @@ get:
       in: query
       description: The field to sort on
       required: false
-      default: facultyId_asc
-      type: string
+      schema:
+        type: string
+        default: facultyId_asc
   responses:
     '200':
       description: OK

@@ -9,12 +9,14 @@ get:
       in: query
       description: Filter by building (buildingId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: type
       in: query
       description: Filter by room type (see service metadata for possible values)
       required: false
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK

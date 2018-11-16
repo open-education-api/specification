@@ -9,16 +9,18 @@ get:
       in: query
       description: The field to sort on
       required: false
-      default: publishDate_desc
-      type: string
-      enum:
-        - publishDate_desc
-        - lastModified_desc
+      schema:
+        type: string
+        default: publishDate_desc
+        enum:
+          - publishDate_desc
+          - lastModified_desc
     - name: newsFeed
       in: query
       description: Filter by news feed (newsFeedId)
       required: false
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK

@@ -9,13 +9,15 @@ get:
       in: query
       description: The field to sort on
       required: false
-      default: educationalPlanId_asc
-      type: string
+      schema:
+        type: string
+        default: educationalPlanId_asc
     - name: student
       in: query
       description: Filter by student (personId)
       required: false
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK

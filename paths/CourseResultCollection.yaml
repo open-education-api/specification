@@ -9,18 +9,21 @@ get:
       in: query
       description: Filter by the course (courseId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: student
       in: query
       description: Filter by student (personId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: academicYear
       in: query
       description: Filter by the academic year this result has been achieved in (e.g. `2017-2018`)
       required: false
-      type: string
-      pattern: ^\d{4}-\d{4}$
+      schema:
+        type: string
+        pattern: ^\d{4}-\d{4}$
   responses:
     '200':
       description: OK

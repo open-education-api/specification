@@ -9,27 +9,32 @@ get:
       in: query
       description: Filter by student (personId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: faculty
       in: query
       description: Filter by faculty (facultyId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: educationalDepartment
       in: query
       description: Filter by educational department (educationalDepartmentId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: educationalPlan
       in: query
       description: Filter by educational plan (educationalPlanId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: courseGroup
       in: query
       description: Filter by course group (courseGroupId)
       required: false
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK

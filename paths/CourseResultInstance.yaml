@@ -8,7 +8,8 @@ get:
       in: path
       description: Course result ID
       required: true
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK

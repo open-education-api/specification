@@ -9,33 +9,39 @@ get:
       in: query
       description: The field to sort on
       required: false
-      default: courseGroupId_asc
-      type: string
+      schema:
+        type: string
+        default: courseGroupId_asc
     - name: type
       in: query
       description: Filter by type
       required: false
-      type: string
+      schema:
+        type: string
     - name: student
       in: query
       description: Filter by student (personId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: faculty
       in: query
       description: Filter by faculty (facultyId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: educationalDepartment
       in: query
       description: Filter by educational department (educationalDepartmentId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: educationalPlan
       in: query
       description: Filter by educational plan (educationalPlanId)
       required: false
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK
