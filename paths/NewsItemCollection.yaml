@@ -53,7 +53,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/NewsItem.yaml'
+                  $ref: '../schemas/NewsItem.yaml'
           _links:
             type: object
             required:

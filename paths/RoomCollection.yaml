@@ -49,7 +49,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/Room.yaml'
+                  $ref: '../schemas/Room.yaml'
           _links:
             type: object
             required:

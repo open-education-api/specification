@@ -50,7 +50,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/EducationalDepartment.yaml'
+                  $ref: '../schemas/EducationalDepartment.yaml'
           _links:
             type: object
             required:

@@ -73,7 +73,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/Schedule.yaml'
+                  $ref: '../schemas/Schedule.yaml'
           _links:
             type: object
             required:

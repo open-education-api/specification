@@ -49,7 +49,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/TestResult.yaml'
+                  $ref: '../schemas/TestResult.yaml'
           _links:
             type: object
             required:

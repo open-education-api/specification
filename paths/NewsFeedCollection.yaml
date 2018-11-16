@@ -39,7 +39,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/NewsFeed.yaml'
+                  $ref: '../schemas/NewsFeed.yaml'
           _links:
             type: object
             required:

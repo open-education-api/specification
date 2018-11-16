@@ -64,7 +64,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/Course.yaml'
+                  $ref: '../schemas/Course.yaml'
           _links:
             type: object
             required:

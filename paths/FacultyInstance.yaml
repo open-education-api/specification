@@ -13,8 +13,8 @@ get:
     '200':
       description: OK
       schema:
-        $ref: '../definitions/Faculty.yaml'
+        $ref: '../schemas/Faculty.yaml'
     '404':
       description: Not Found
       schema:
-        $ref: '../definitions/Problem.yaml'
+        $ref: '../schemas/Problem.yaml'

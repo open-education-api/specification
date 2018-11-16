@@ -92,7 +92,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/Person.yaml'
+                  $ref: '../schemas/Person.yaml'
           _links:
             type: object
             required:
