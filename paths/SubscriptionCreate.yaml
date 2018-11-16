@@ -35,7 +35,7 @@ post:
             required: true
             content:
               application/json:
-                $ref: '../definitions/Problem.yaml'
+                $ref: '../definitions/Notification.yaml'
           responses:
             '200':
               description: The notification is received successfully.
