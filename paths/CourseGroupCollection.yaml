@@ -4,19 +4,13 @@ get:
   tags:
     - course groups
   parameters:
+    - $ref: '../parameters/PageSize.yaml'
     - name: order
       in: query
       description: The field to sort on
       required: false
       default: courseGroupId_asc
       type: string
-    - name: pageSize
-      in: query
-      description: The number of items per page
-      required: false
-      default: 10
-      type: integer
-      format: int32
     - name: type
       in: query
       description: Filter by type

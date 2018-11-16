@@ -4,6 +4,7 @@ get:
   tags:
     - news items
   parameters:
+    - $ref: '../parameters/PageSize.yaml'
     - name: order
       in: query
       description: The field to sort on
@@ -13,19 +14,6 @@ get:
       enum:
         - publishDate_desc
         - lastModified_desc
-    - name: pageSize
-      in: query
-      description: The number of items per page
-      required: false
-      default: 10
-      type: integer
-      format: int32
-      enum:
-        - 10
-        - 20
-        - 50
-        - 100
-        - 250
     - name: newsFeed
       in: query
       description: Filter by news feed (newsFeedId)

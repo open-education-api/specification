@@ -4,25 +4,13 @@ get:
   tags:
     - faculties
   parameters:
+    - $ref: '../parameters/PageSize.yaml'
     - name: order
       in: query
       description: The field to sort on
       required: false
       default: facultyId_asc
       type: string
-    - name: pageSize
-      in: query
-      description: The number of items per page
-      required: false
-      default: 10
-      type: integer
-      format: int32
-      enum:
-        - 10
-        - 20
-        - 50
-        - 100
-        - 250
   responses:
     '200':
       description: OK
