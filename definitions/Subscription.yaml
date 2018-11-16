@@ -7,6 +7,11 @@ properties:
   subscriptionId:
     type: string
     description: Unique id for this subscription
+  events:
+    type: array
+    description: The events the client is interested in
+    items:
+      type: string
   callbackUrl:
     type: string
     format: uri
