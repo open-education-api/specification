@@ -1,0 +1,18 @@
+delete:
+  summary: DELETE /subscriptions/{subscriptionId}
+  description: Delete a subscription.
+  tags:
+    - subscriptions
+  parameters:
+    - name: subscriptionId
+      in: path
+      description: Subscription ID
+      required: true
+      type: string
+  responses:
+    '204':
+      description: No content
+    '404':
+      description: Not Found
+      schema:
+        $ref: '../definitions/Problem.yaml'

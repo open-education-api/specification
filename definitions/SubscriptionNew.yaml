@@ -1,0 +1,8 @@
+type: object
+required:
+  - callbackUrl
+properties:
+  callbackUrl:
+    type: string
+    format: uri
+    description: The URL which will be called for every notification

@@ -1,0 +1,20 @@
+get:
+  summary: GET /subscriptions/{subscriptionId}
+  description: Get a single subscription.
+  tags:
+    - subscriptions
+  parameters:
+    - name: subscriptionId
+      in: path
+      description: Subscription ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '../definitions/Subscription.yaml'
+    '404':
+      description: Not Found
+      schema:
+        $ref: '../definitions/Problem.yaml'

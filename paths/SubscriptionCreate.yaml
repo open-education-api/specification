@@ -1,0 +1,43 @@
+post:
+  summary: POST /subscriptions
+  description: Create a new subscription.
+  tags:
+    - subscriptions
+  requestBody:
+    content:
+      'application/json':
+        schema:
+          $ref: '../definitions/SubscriptionNew.yaml'
+    required: true
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '../definitions/Subscription.yaml'
+      headers:
+        Location:
+          description: The path of the created subscription resource.
+          type: string
+          format: uri
+    '400':
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../definitions/Problem.yaml'
+  callbacks:
+    notification:
+      '{$request.body#/callbackUrl}':
+        post:
+          requestBody:
+            required: true
+            content:
+              application/json:
+                $ref: '../definitions/Problem.yaml'
+          responses:
+            '200':
+              description: The notification is received successfully.
+            default:
+              description: The notification is not received successfully. It will be retries automatically.

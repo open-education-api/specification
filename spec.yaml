@@ -113,3 +113,11 @@ paths:
     $ref: paths/NewsItemCollection.yaml
   /news-items/{newsItemId}:
     $ref: paths/NewsItemInstance.yaml
+  /subscriptions:
+    allOf:
+      - $ref: paths/SubscriptionCollection.yaml
+      - $ref: paths/SubscriptionCreate.yaml
+  /subscriptions/{subscriptionId}:
+    allOf:
+      - $ref: paths/SubscriptionInstance.yaml
+      - $ref: paths/SubscriptionDelete.yaml

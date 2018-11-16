@@ -1,0 +1,26 @@
+type: object
+required:
+  - notificationId
+  - event
+properties:
+  notificationId:
+    type: string
+    description: Unique id for this notification
+  event:
+    type: string
+    description: The event that has taken place
+  _links:
+    type: object
+    required:
+      - subject
+    properties:
+      subject:
+        type: object
+        description: Link to the subject of the notification
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/schedule/123
