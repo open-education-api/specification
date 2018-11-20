@@ -24,9 +24,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - news-feeds
                 properties:
-                  items:
+                  news-feeds:
                     type: array
                     items:
                       $ref: '../schemas/NewsFeed.yaml'

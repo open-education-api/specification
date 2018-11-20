@@ -36,9 +36,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - test-results
                 properties:
-                  items:
+                  test-results:
                     type: array
                     items:
                       $ref: '../schemas/TestResult.yaml'

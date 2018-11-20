@@ -24,9 +24,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - buildings
                 properties:
-                  items:
+                  buildings:
                     type: array
                     items:
                       $ref: '../schemas/Building.yaml'

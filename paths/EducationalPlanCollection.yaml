@@ -37,9 +37,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - educational-plans
                 properties:
-                  items:
+                  educational-plans:
                     type: array
                     items:
                       $ref: '../schemas/EducationalPlan.yaml'

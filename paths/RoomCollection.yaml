@@ -36,9 +36,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - rooms
                 properties:
-                  items:
+                  rooms:
                     type: array
                     items:
                       $ref: '../schemas/Room.yaml'

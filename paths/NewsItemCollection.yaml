@@ -40,9 +40,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - news-items
                 properties:
-                  items:
+                  news-items:
                     type: array
                     items:
                       $ref: '../schemas/NewsItem.yaml'

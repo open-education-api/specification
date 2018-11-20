@@ -64,9 +64,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - schedules
                 properties:
-                  items:
+                  schedules:
                     type: array
                     items:
                       $ref: '../schemas/Schedule.yaml'

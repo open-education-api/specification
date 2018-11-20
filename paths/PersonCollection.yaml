@@ -85,9 +85,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - persons
                 properties:
-                  items:
+                  persons:
                     type: array
                     items:
                       $ref: '../schemas/Person.yaml'

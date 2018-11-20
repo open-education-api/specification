@@ -37,9 +37,9 @@ get:
               _embedded:
                 type: object
                 required:
-                  - items
+                  - educational-departments
                 properties:
-                  items:
+                  educational-departments:
                     type: array
                     items:
                       $ref: '../schemas/EducationalDepartment.yaml'
