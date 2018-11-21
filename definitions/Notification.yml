@@ -11,8 +11,6 @@ properties:
     description: The event that has taken place
   _links:
     type: object
-    required:
-      - subject
     properties:
       subject:
         type: object
