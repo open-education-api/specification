@@ -11,46 +11,49 @@ properties:
     description: Unique id of this course
   name:
     type: string
-    description: The name of this course
+    description: The name of this course (ECTS-Title)
   abbreviation:
     type: string
-    description: The abbreviation used to identify this course
+    description: The abbreviation or internal code used to identify this course (ECTS-code)
   ects:
     type: number
-    description: The number of EC's that is earned when the course is completed successfully
+    description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
     format: int32
     minimum: 0
   description:
     type: string
-    description: The description of this course
+    description: The description of this course (ECTS-description)
+  learningOutcomes:
+    type: string
+    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome)
   goals:
     type: string
     description: The description of the main goal of this course
   requirements:
     type: string
-    description: The requirements needed to enter this course
+    description: The requirements needed to enter this course (ECTS-prerequisites) 
   level:
     type: string
-    description: The level of this course (see service metadata for possible values)
+    description: The level of this course (see service metadata for possible values) (ECTS-year of study if applicable)
   format:
     type: string
-    description: The format in which this course is given
+    description: The format in which this course is given (ECTS-Mode of delivery)
   mainLanguage:
     type: string
-    description: The main language in which this course is given, RFC3066
+    description: The main language in which this course is given, RFC3066 (ECTS-language of instriction)
     example: nl-NL
   enrollment:
     type: string
     description: The extra information that is provided for enrollment
-  literature:
+  resources:
     type: string
-    description: An overview of the literature that is used in this course
+    description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
   exams:
     type: string
-    description: A description of the way exams for this course are taken
+    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria)
   schedule:
     type: string
-    description: A description of the timeframes, when this course takes place
+    description: A description of the timeframes, when this course takes place (ECTS-Semester/trimester when the component is delivered)
   link:
     type: string
     description: The url containing the address of the website with more information about the course
@@ -82,7 +85,7 @@ properties:
             example: /v2/schedules?course=123
       lecturers:
         type: array
-        description: Links to the lecturers (persons) of this course
+        description: Links information on the lecturer(s) (persons) that are responsible for this course (ECTS)
         items:
           type: object
           required:
