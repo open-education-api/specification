@@ -89,5 +89,5 @@ properties:
           href:
             type: string
             format: uri
-            example: /v3/educationalplans
+            example: /v3/educationalprogrammes
   
