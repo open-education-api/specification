@@ -1,9 +1,11 @@
 type: object
 required:
+  - events
   - callbackUrl
 properties:
   events:
     type: array
+    minItems: 1
     description: The events the client is interested in
     items:
       type: string

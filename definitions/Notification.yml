@@ -22,3 +22,5 @@ properties:
             type: string
             format: uri
             example: /v2/schedule/123
+          title:
+            type: string
