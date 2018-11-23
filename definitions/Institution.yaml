@@ -88,7 +88,7 @@ properties:
             type: string
             format: uri
             example: /v3/institution
-      eudcationalplans:
+      eudcational-programmes:
         type: object
         description: Link to the list of educationalplans at this institution
         required:
