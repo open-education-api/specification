@@ -4,6 +4,14 @@ required:
   - description
   - _links
 properties:
+  institutionId:
+    type: string
+    description: |
+      id of the institution
+  brin:
+    type: string
+    description: |
+      Brincode of the institution 
   name:
     type: string
     description: |
