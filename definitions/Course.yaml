@@ -86,6 +86,19 @@ properties:
             type: string
             format: uri
             example: /v2/schedules?course=123
+      coordinator:
+        type: object
+        description: Link to the coordinator (person) that is responsible, and can be contacted for this course
+        required:
+          - href
+        properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/persons/123
+            title:
+              type: string
+              description: The display name of the person
       lecturers:
         type: array
         description: Links to the lecturers (persons) that are responsible for this course (ECTS)
