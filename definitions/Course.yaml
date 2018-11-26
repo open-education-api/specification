@@ -38,7 +38,7 @@ properties:
   format:
     type: string
     description: The format in which this course is given (ECTS-format)
-  modeofDelivery:
+  modeOfDelivery:
     type: string
     description: information on the mode of delivery of the component, e.g. via e-learning, face-to-face, etc. (ECTS-Mode of delivery)
   mainLanguage:
