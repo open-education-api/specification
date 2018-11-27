@@ -23,12 +23,12 @@ properties:
     description: The day on which this educational plan ends, RFC3339 (full-date)
     format: date
   ects:
-    type: number
+    type: integer
     description: The number of EC's that can be archieved in this educational plan
     format: int32
     minimum: 0
   earnedEcts:
-    type: number
+    type: integer
     description: The number of EC's that is earned in this education plan
     format: int32
     minimum: 0

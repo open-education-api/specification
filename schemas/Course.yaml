@@ -16,7 +16,7 @@ properties:
     type: string
     description: The abbreviation used to identify this course
   ects:
-    type: number
+    type: integer
     description: The number of EC's that is earned when the course is completed successfully
     format: int32
     minimum: 0
