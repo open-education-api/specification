@@ -4,7 +4,7 @@ get:
   tags:
     - schedules
   parameters:
-    - $ref: '../parameters/PageSize.yaml'
+    - $ref: '../parameters/Paging.yaml'
     - name: room
       in: query
       description: Filter by room (roomId)
@@ -54,13 +54,18 @@ get:
             type: object
             required:
               - pageSize
+              - pageNumber
               - _embedded
               - _links
             properties:
               pageSize:
-                type: number
+                type: integer
                 format: int32
                 description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
               _embedded:
                 type: object
                 required:
