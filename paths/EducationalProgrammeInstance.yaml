@@ -1,0 +1,20 @@
+get:
+  summary: GET /educational-programmes/{educationalProgrammeId}
+  description: Get a single educational programme.
+  tags:
+    - educational programme
+  parameters:
+    - name: educationalProgrammeId
+      in: path
+      description: Educational programme ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '../definitions/EducationalProgramme.yaml'
+    '404':
+      description: Not Found
+      schema:
+        $ref: '../definitions/Problem.yaml'

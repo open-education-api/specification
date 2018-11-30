@@ -1,0 +1,20 @@
+get:
+  summary: GET /courseOfferings/{courseOfferingId}
+  description: Get a single course offering.
+  tags:
+    - course offerings
+  parameters:
+    - name: courseOfferingId
+      in: path
+      description: Course offering ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '../definitions/CourseOffering.yaml'
+    '404':
+      description: Not Found
+      schema:
+        $ref: '../definitions/Problem.yaml'

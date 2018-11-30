@@ -36,8 +36,10 @@ properties:
     type: string
     description: The level of this course (see service metadata for possible values) (ECTS-year of study if applicable)
   format:
-    type: string
-    description: The format in which this course is given (ECTS-format)
+    type: array
+    description: The format in which this course is given (ECTS-format) (mutlivalue)
+    items:
+      type: string
   modeOfDelivery:
     type: string
     description: information on the mode of delivery of the component, e.g. via e-learning, face-to-face, etc. (ECTS-Mode of delivery)
@@ -76,16 +78,16 @@ properties:
             type: string
             format: uri
             example: /v2/courses/123
-      schedules:
+      courseOfferings:
         type: object
-        description: Link to the list of schedules for this course
+        description: Link to the list of courseOfferings for this course
         required:
           - href
         properties:
           href:
             type: string
             format: uri
-            example: /v2/schedules?course=123
+            example: /v2/courseOfferings
       coordinator:
         type: object
         description: Link to the coordinator (person) that is responsible, and can be contacted for this course
@@ -183,6 +185,22 @@ properties:
             title:
               type: string
               description: The name of the educational plan
+      educationalProgrammes:
+        type: array
+        description: Links to the educational programmes where this course is part of
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/educationalProgrammes/123
+            title:
+              type: string
+              description: The name of the educational pogramme
       courseGroup:
         type: array
         description: Links to the course groups where this course is part of

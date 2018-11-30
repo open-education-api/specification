@@ -1,8 +1,8 @@
 get:
-  summary: GET /schedules
-  description: Get a list of all schedules, ordered by startDateTime (ascending).
+  summary: GET /course-offerings
+  description: Get a list of all course offerings, ordered by name (ascending).
   tags:
-    - schedules
+    - course offerings
   parameters:
     - name: pageSize
       in: query
@@ -17,40 +17,16 @@ get:
         - 50
         - 100
         - 250
-    - name: room
-      in: query
-      description: Filter by room (roomId)
-      required: false
-      type: string
-    - name: building
-      in: query
-      description: Filter by building (buildingId)
-      required: false
-      type: string
-    - name: courseOffering
-      in: query
-      description: Filter by course offering (courseIdOfferingID)
-      required: false
-      type: string
     - name: student
       in: query
       description: Filter by student (personId)
       required: false
       type: string
-    - name: startDateTime
+    - name: course
       in: query
-      description: Filter by minimum startDateTime, RFC3339 (date-time)
+      description: Filter by course (courseId)
       required: false
       type: string
-      format: date-time
-      default: (date-time value of today)
-    - name: endDateTime
-      in: query
-      description: Filter by maximum endDateTime, RFC3339 (date-time)
-      required: false
-      type: string
-      format: date-time
-      default: (date-time value of today + 1 month)
   responses:
     '200':
       description: OK
@@ -73,7 +49,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../definitions/Schedule.yaml'
+                  $ref: '../definitions/CourseOffering.yaml'
           _links:
             type: object
             required:
