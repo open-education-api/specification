@@ -4,7 +4,8 @@ get:
   tags:
     - news items
   parameters:
-    - $ref: '../parameters/Paging.yaml'
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
     - name: order
       in: query
       description: The field to sort on

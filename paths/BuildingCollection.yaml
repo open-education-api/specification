@@ -4,7 +4,8 @@ get:
   tags:
     - buildings
   parameters:
-    - $ref: '../parameters/Paging.yaml'
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
   responses:
     '200':
       description: OK

@@ -1,0 +1,8 @@
+name: pageNumber
+in: query
+description: The page number to get
+required: false
+schema:
+  type: integer
+  format: int32
+  default: 1

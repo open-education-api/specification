@@ -4,7 +4,8 @@ get:
   tags:
     - test results
   parameters:
-    - $ref: '../parameters/Paging.yaml'
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
     - name: course
       in: query
       description: Filter by the course (courseId)
