@@ -28,7 +28,6 @@ get:
             type: object
             required:
               - pageSize
-              - pageNumber
               - _embedded
               - _links
             properties:
