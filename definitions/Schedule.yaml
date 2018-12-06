@@ -3,7 +3,6 @@ required:
   - scheduleId
   - startDateTime
   - endDateTime
-  - _embedded
   - _links
 properties:
   scheduleId:
@@ -20,59 +19,6 @@ properties:
   description:
     type: string
     description: The description of this schedule
-  _embedded:
-    type: object
-    required:
-      - rooms
-    properties:
-      rooms:
-        type: array
-        description: The rooms where this schedule is located
-        items:
-          type: object
-          required:
-            - roomId
-            - abbreviation
-            - name
-          properties:
-            roomId:
-              type: string
-              description: Unique id for this room
-            abbreviation:
-              type: string
-              description: The abbreviation of the name of this room
-            name:
-              type: string
-              description: The name of this room
-            _links:
-              type: object
-              required:
-                - self
-              properties:
-                self:
-                  type: object
-                  description: Link to the room
-                  required:
-                    - href
-                  properties:
-                    href:
-                      type: string
-                      format: uri
-                      example: /v2/rooms/123
-                building:
-                  type: object
-                  description: Link to the building
-                  required:
-                    - href
-                    - title
-                  properties:
-                    href:
-                      type: string
-                      format: uri
-                      example: /v2/buildings/123
-                    title:
-                      type: string
-                      description: The name of the building
   _links:
     type: object
     required:
@@ -88,9 +34,9 @@ properties:
             type: string
             format: uri
             example: /v2/schedules/123
-      courses:
+      courseOfferings:
         type: array
-        description: Links to the courses affiliated to this schedule
+        description: Links to the courseOfferings affiliated to this schedule
         items:
           type: object
           required:
@@ -100,10 +46,42 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/courses/123
+              example: /v2/courses-offerings/123
             title:
               type: string
-              description: The name of the course
+              description: The name of the course offering
+      tests:
+        type: array
+        description: Links to the tests affiliated to this schedule
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/tests/123
+            title:
+              type: string
+              description: The name of the test
+      rooms:
+        type: array
+        description: Links to the room(s) of this schedule
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/rooms/123
+            title:
+              type: string
+              description: The name of the room
       lecturers:
         type: array
         description: Links to the lecturers (persons) of this schedule
