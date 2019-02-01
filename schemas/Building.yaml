@@ -50,7 +50,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/buildings/123
+            example: /v3/buildings/123
       rooms:
         type: object
         description: Link to the list of all rooms in this building
@@ -60,4 +60,4 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/rooms?building=123
+            example: /v3/rooms?building=123
