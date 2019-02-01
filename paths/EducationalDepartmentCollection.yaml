@@ -4,82 +4,79 @@ get:
   tags:
     - educational departments
   parameters:
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
     - name: order
       in: query
       description: The field to sort on
       required: false
-      default: educationalPlanId_asc
-      type: string
-    - name: pageSize
-      in: query
-      description: The number of items per page
-      required: false
-      default: 10
-      type: integer
-      format: int32
-      enum:
-        - 10
-        - 20
-        - 50
-        - 100
-        - 250
+      schema:
+        type: string
+        default: educationalPlanId_asc
     - name: student
       in: query
       description: Filter by student (personId)
       required: false
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK
-      schema:
-        type: object
-        required:
-          - pageSize
-          - _embedded
-          - _links
-        properties:
-          pageSize:
-            type: number
-            format: int32
-            description: The number of items per page
-          _embedded:
+      content:
+        application/hal+json:
+          schema:
             type: object
             required:
-              - items
+              - pageSize
+              - _embedded
+              - _links
             properties:
-              items:
-                type: array
-                items:
-                  $ref: '../definitions/EducationalDepartment.yaml'
-          _links:
-            type: object
-            required:
-              - self
-            properties:
-              self:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              _embedded:
                 type: object
                 required:
-                  - href
+                  - items
                 properties:
-                  href:
-                    type: string
-                    format: uri
-                    description: Link to current page
-              prev:
+                  items:
+                    type: array
+                    items:
+                      $ref: '../schemas/EducationalDepartment.yaml'
+              _links:
                 type: object
                 required:
-                  - href
+                  - self
                 properties:
-                  href:
-                    type: string
-                    format: uri
-                    description: Link to previous page
-              next:
-                type: object
-                required:
-                  - href
-                properties:
-                  href:
-                    type: string
-                    format: uri
-                    description: Link to next page
+                  self:
+                    type: object
+                    required:
+                      - href
+                    properties:
+                      href:
+                        type: string
+                        format: uri
+                        description: Link to current page
+                  prev:
+                    type: object
+                    required:
+                      - href
+                    properties:
+                      href:
+                        type: string
+                        format: uri
+                        description: Link to previous page
+                  next:
+                    type: object
+                    required:
+                      - href
+                    properties:
+                      href:
+                        type: string
+                        format: uri
+                        description: Link to next page

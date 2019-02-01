@@ -31,7 +31,7 @@ properties:
     type: boolean
     description: Boolean, representing whether the student did or did not pass the test
   weight:
-    type: number
+    type: integer
     description: The weight to 100 as total for this test result in the course result
     format: int32
     minimum: 0
