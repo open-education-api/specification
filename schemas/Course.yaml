@@ -69,7 +69,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/courses/123
+            example: /v3/courses/123
       schedules:
         type: object
         description: Link to the list of schedules for this course
@@ -79,7 +79,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/schedules?course=123
+            example: /v3/schedules?course=123
       lecturers:
         type: array
         description: Links to the lecturers (persons) of this course
@@ -92,7 +92,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/persons/123
+              example: /v3/persons/123
             title:
               type: string
               description: The display name of the person
@@ -105,7 +105,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-results?course=123
+            example: /v3/course-results?course=123
       testResults:
         type: object
         description: Link to the test results for this course
@@ -115,7 +115,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/test-results?course=123
+            example: /v3/test-results?course=123
       faculties:
         type: array
         description: Links to the faculties where this course is given
@@ -128,7 +128,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/faculties/123
+              example: /v3/faculties/123
             title:
               type: string
               description: The name of the faculty
@@ -144,7 +144,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/educationalDepartments/123
+              example: /v3/educationalDepartments/123
             title:
               type: string
               description: The name of the educational department
@@ -160,7 +160,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/educationalPlans/123
+              example: /v3/educationalPlans/123
             title:
               type: string
               description: The name of the educational plan
@@ -176,7 +176,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/courseGroups/123
+              example: /v3/courseGroups/123
             title:
               type: string
               description: The name of the course group
