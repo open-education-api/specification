@@ -24,36 +24,44 @@ info:
     url: logo.png
 tags:
   - name: service metadata
-    description: The service API provides metadata for the service.
+    description: The service API provides additional metadata needed to make the OOAPI fit for this educational institution.
+  - name: institution
+    description: Information on the institution (of higher education) that is exposing this API  
   - name: persons
     description: The persons API provides information about persons related to an educational institute.
   - name: faculties
-    description: The organizational parts of an organization.
+    description: The faculties API provides The organizational parts of an organization (faculty, cluser, domain, etc.) Types can be extended in the metadata service.
   - name: educational departments
-    description: The educational departments of an organization.
+    description: The educational departments API provides the organizational department that is responsible for the execution and recognition of courses.
   - name: educational plans
-    description: The educational plans API provides information about the plans in which the study is organized
+    description: The educational plans API provides a coherent set of educational components, that a person is currently working on or is planning on completing. Usually based on an educationalProgramme.
+  - name: educational programmes
+    description: The educational programmes API provides a coherent set of educational components, aimed at the realization of  competences or objectives in the field of knowledge, insight, attitudes and skills that the person who completes the program must have.
   - name: course groups
-    description: The course groups API provides informations about the groups which organizes the courses
+    description: The course groups API provides collection of educational components (either courses or courseGroups) that can be offered as a whole to a person.
   - name: courses
-    description: The courses API provides information about the course. Updated on ad hoc-base.
+    description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of an educationalProgramme. 
+  - name: course offerings
+    description: The course offerings API provides an instance of a course which has a global timeframe, e.g. a period to which students can enroll and specific lecturers are assigned.
   - name: course results
-    description: The course result API provides the (list of) test results from a specific course attended by a student.
+    description: The course result API provides the aggregated result of a course based on the underlying test results by a student.
   - name: test results
-    description: The test result API provides information about the results from the tests from different courses done by the student.
+    description: The test result API provides the result of executing a test activity.
   - name: buildings
-    description: The building API provides general information about buildings in use by the organization.
+    description: The building API provides a building that is currently used by the organization. Including all location details.
   - name: rooms
-    description: The rooms API provides general information about rooms and specific information about the workplaces available. Updated continuously.
+    description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
   - name: schedules
-    description: The schedules API provides information about the planning of the courses in lessons. Updated on ad hoc-base.
+    description: The schedules API provides the planned learning activity visible in a student view and a lecturer view. Schedules provide the answer to who, what, when, where, additional information for a learnign activity. (Updated on ad hoc-base)
   - name: news feeds
-    description: The news feeds API returns news feeds aggregating one or more news items. Updated on ad hoc-base.
+    description: The news feeds API provides An aggregation of news items regarding a specific theme. (Updated on ad hoc-base)
   - name: news items
-    description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
+    description: The news items API provides a message containing relevant information about an activity taking place a person or a resource. (Updated on ad hoc-base)
 paths:
   /:
     $ref: paths/Service.yaml
+  /institutions:
+    $ref: paths/Institution.yaml  
   /persons:
     $ref: paths/PersonCollection.yaml
   /persons/{personId}:
@@ -70,6 +78,10 @@ paths:
     $ref: paths/EducationalPlanCollection.yaml
   /educational-plans/{educationalPlanId}:
     $ref: paths/EducationalPlanInstance.yaml
+  /educational-programmes:
+    $ref: paths/EducationalProgrammeCollection.yaml
+  /educational-programmes/{educationalProgrammeId}:
+    $ref: paths/EducationalProgrammeInstance.yaml
   /course-groups:
     $ref: paths/CourseGroupCollection.yaml
   /course-groups/{courseGroupId}:
@@ -78,6 +90,10 @@ paths:
     $ref: paths/CourseCollection.yaml
   /courses/{courseId}:
     $ref: paths/CourseInstance.yaml
+  /course-offerings:
+    $ref: paths/CourseOfferingsCollection.yaml
+  /course-offerings/{courseOfferingId}:
+    $ref: paths/CourseOfferingInstance.yaml
   /course-results:
     $ref: paths/CourseResultCollection.yaml
   /course-results/{courseResultId}:
@@ -98,6 +114,10 @@ paths:
     $ref: paths/ScheduleCollection.yaml
   /schedules/{scheduleId}:
     $ref: paths/ScheduleInstance.yaml
+  /tests:
+    $ref: paths/TestCollection.yaml
+  /tests/{testId}:
+    $ref: paths/TestInstance.yaml
   /news-feeds:
     $ref: paths/NewsFeedCollection.yaml
   /news-feeds/{newsFeedId}:
