@@ -4,7 +4,8 @@ get:
   tags:
     - persons
   parameters:
-    - $ref: '../parameters/PageSize.yaml'
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
     - name: order
       in: query
       description: The field to sort on
@@ -79,9 +80,13 @@ get:
               - _links
             properties:
               pageSize:
-                type: number
+                type: integer
                 format: int32
                 description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
               _embedded:
                 type: object
                 required:

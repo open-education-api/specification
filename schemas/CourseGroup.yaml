@@ -21,12 +21,12 @@ properties:
     type: string
     description: The type of course group (e.g. minor, module, specialization, etc.)
   ects:
-    type: number
+    type: integer
     description: The number of EC's that can be archieved in this course group
     format: int32
     minimum: 0
   earnedEcts:
-    type: number
+    type: integer
     description: The number of EC's that is earned in this course group
     format: int32
     minimum: 0
