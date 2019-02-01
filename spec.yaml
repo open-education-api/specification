@@ -26,7 +26,7 @@ tags:
   - name: service metadata
     description: The service API provides additional metadata needed to make the OOAPI fit for this educational institution.
   - name: institution
-    description: Information on the institution (of higher education) that is exposing this API  
+    description: Information on the institution (of higher education) that is exposing this API.
   - name: persons
     description: The persons API provides information about persons related to an educational institute.
   - name: faculties
@@ -61,7 +61,7 @@ paths:
   /:
     $ref: paths/Service.yaml
   /institution:
-    $ref: paths/Institution.yaml  
+    $ref: paths/Institution.yaml
   /persons:
     $ref: paths/PersonCollection.yaml
   /persons/{personId}:
