@@ -50,7 +50,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/educational-plans/123
+            example: /v3/educational-plans/123
       courseGroups:
         type: object
         description: Link to the list of course groups for this educational plan
@@ -60,7 +60,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-groups?educationalPlan=123
+            example: /v3/course-groups?educationalPlan=123
       courses:
         type: object
         description: Link to the list of courses for this educational plan
@@ -70,4 +70,4 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/courses?educationalPlan=123
+            example: /v3/courses?educationalPlan=123
