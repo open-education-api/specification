@@ -1,0 +1,12 @@
+get:
+  summary: GET /
+  description: Get institution data of provider of this service.
+  tags:
+    - institution metadata
+  responses:
+    '200':
+      description: OK
+      content:
+        application/hal+json:
+          schema:
+            $ref: '../schemas/Instituion.yaml'

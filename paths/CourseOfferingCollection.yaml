@@ -1,57 +1,29 @@
 get:
-  summary: GET /schedules
-  description: Get a list of all schedules, ordered by startDateTime (ascending).
+  summary: GET /course-offerings
+  description: Get a list of all course offerings, ordered by name (ascending).
   tags:
-    - schedules
+    - course offerings
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - name: room
-      in: query
-      description: Filter by room (roomId)
-      required: false
-      schema:
-        type: string
-    - name: building
-      in: query
-      description: Filter by building (buildingId)
-      required: false
-      schema:
-        type: string
-    - name: courseOffering
-      in: query
-      description: Filter by course offering (courseOfferingId)
-      required: false
-      schema:
-        type: string
     - name: student
       in: query
       description: Filter by student (personId)
       required: false
-      schema:
+      schema: 
         type: string
-    - name: startDateTime
+    - name: course
       in: query
-      description: Filter by minimum startDateTime, RFC3339 (date-time)
+      description: Filter by course (courseId)
       required: false
       schema:
         type: string
-        format: date-time
-        default: (date-time value of today)
-    - name: endDateTime
-      in: query
-      description: Filter by maximum endDateTime, RFC3339 (date-time)
-      required: false
-      schema:
-        type: string
-        format: date-time
-        default: (date-time value of today + 1 month)
   responses:
     '200':
       description: OK
       content:
         application/hal+json:
-          schema:
+          schema:      
             type: object
             required:
               - pageSize
@@ -63,9 +35,9 @@ get:
                 format: int32
                 description: The number of items per page
               pageNumber:
-                type: integer
-                format: int32
-                description: The current page number
+                  type: integer
+                  format: int32
+                  description: The current page number
               _embedded:
                 type: object
                 required:
@@ -74,7 +46,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Schedule.yaml'
+                      $ref: '../schemas/CourseOffering.yaml'
               _links:
                 type: object
                 required:
