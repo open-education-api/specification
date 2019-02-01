@@ -31,7 +31,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/faculties/123
+            example: /v3/faculties/123
       parentFaculty:
         type: object
         description: Link to the parent faculty
@@ -42,7 +42,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/faculties/123
+            example: /v3/faculties/123
           title:
             type: string
             description: The name of the faculty
@@ -58,7 +58,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/faculties/123
+              example: /v3/faculties/123
             title:
               type: string
               description: The name of the faculty
@@ -74,7 +74,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/educational-departments/123
+              example: /v3/educational-departments/123
             title:
               type: string
               description: The name of the educational department
@@ -90,7 +90,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/educational-plans/123
+              example: /v3/educational-plans/123
             title:
               type: string
               description: The name of the educational plan
@@ -103,7 +103,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-groups?faculty=123
+            example: /v3/course-groups?faculty=123
       courses:
         type: object
         description: Link to the list of courses for this faculty
@@ -113,4 +113,4 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/courses?faculty=123
+            example: /v3/courses?faculty=123

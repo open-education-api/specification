@@ -31,7 +31,7 @@ properties:
     type: boolean
     description: Boolean, representing whether the student did or did not pass the test
   weight:
-    type: number
+    type: integer
     description: The weight to 100 as total for this test result in the course result
     format: int32
     minimum: 0
@@ -50,7 +50,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/test-results/123
+            example: /v3/test-results/123
       course:
         type: object
         description: Link to the course for this test result
@@ -61,7 +61,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/courses/123
+            example: /v3/courses/123
           title:
             type: string
             description: The name of the course
@@ -75,7 +75,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/persons/123
+            example: /v3/persons/123
           title:
             type: string
             description: The display name of the person
@@ -91,7 +91,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/persons/123
+              example: /v3/persons/123
             title:
               type: string
               description: The display name of the person

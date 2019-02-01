@@ -21,12 +21,12 @@ properties:
     type: string
     description: The type of course group (e.g. minor, module, specialization, etc.)
   ects:
-    type: number
+    type: integer
     description: The number of EC's that can be archieved in this course group
     format: int32
     minimum: 0
   earnedEcts:
-    type: number
+    type: integer
     description: The number of EC's that is earned in this course group
     format: int32
     minimum: 0
@@ -44,7 +44,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-groups/123
+            example: /v3/course-groups/123
       courses:
         type: array
         description: Links to the courses affiliated to this course group
@@ -57,7 +57,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/courses/123
+              example: /v3/courses/123
             title:
               type: string
               description: The name of the course

@@ -4,81 +4,78 @@ get:
   tags:
     - rooms
   parameters:
-    - name: pageSize
-      in: query
-      description: The number of items per page
-      required: false
-      default: 10
-      type: integer
-      format: int32
-      enum:
-        - 10
-        - 20
-        - 50
-        - 100
-        - 250
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
     - name: building
       in: query
       description: Filter by building (buildingId)
       required: false
-      type: string
+      schema:
+        type: string
     - name: type
       in: query
       description: Filter by room type (see service metadata for possible values)
       required: false
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK
-      schema:
-        type: object
-        required:
-          - pageSize
-          - _embedded
-          - _links
-        properties:
-          pageSize:
-            type: number
-            format: int32
-            description: The number of items per page
-          _embedded:
+      content:
+        application/hal+json:
+          schema:
             type: object
             required:
-              - items
+              - pageSize
+              - _embedded
+              - _links
             properties:
-              items:
-                type: array
-                items:
-                  $ref: '../definitions/Room.yaml'
-          _links:
-            type: object
-            required:
-              - self
-            properties:
-              self:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              _embedded:
                 type: object
                 required:
-                  - href
+                  - items
                 properties:
-                  href:
-                    type: string
-                    format: uri
-                    description: Link to current page
-              prev:
+                  items:
+                    type: array
+                    items:
+                      $ref: '../schemas/Room.yaml'
+              _links:
                 type: object
                 required:
-                  - href
+                  - self
                 properties:
-                  href:
-                    type: string
-                    format: uri
-                    description: Link to previous page
-              next:
-                type: object
-                required:
-                  - href
-                properties:
-                  href:
-                    type: string
-                    format: uri
-                    description: Link to next page
+                  self:
+                    type: object
+                    required:
+                      - href
+                    properties:
+                      href:
+                        type: string
+                        format: uri
+                        description: Link to current page
+                  prev:
+                    type: object
+                    required:
+                      - href
+                    properties:
+                      href:
+                        type: string
+                        format: uri
+                        description: Link to previous page
+                  next:
+                    type: object
+                    required:
+                      - href
+                    properties:
+                      href:
+                        type: string
+                        format: uri
+                        description: Link to next page

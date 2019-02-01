@@ -21,15 +21,15 @@ properties:
     type: string
     description: The description of this room
   totalSeats:
-    type: number
+    type: integer
     format: int32
     description: The total number of seats located in the room
   totalWorkspaces:
-    type: number
+    type: integer
     format: int32
     description: The total number of workspaces located in the room
   availableWorkspaces:
-    type: number
+    type: integer
     format: int32
     description: The total number of available (=non-reserved) workspaces in the room
   _links:
@@ -46,7 +46,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/rooms/123
+            example: /v3/rooms/123
       building:
         type: object
         description: Link to the building in which the room is located
@@ -57,7 +57,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/buildings/123
+            example: /v3/buildings/123
           title:
             type: string
             description: The name of the building

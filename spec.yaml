@@ -1,4 +1,4 @@
-swagger: '2.0'
+openapi: '3.0.2'
 info:
   version: 3.0
   title: Open Education API
@@ -22,13 +22,6 @@ info:
     ```
   x-logo:
     url: logo.png
-host: api.openonderwijsapi.nl
-basePath: /v2
-schemes:
-  - https
-produces:
-  - application/hal+json
-  - application/problem+json
 tags:
   - name: service metadata
     description: The service API provides metadata for the service.

@@ -51,7 +51,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/news-items/123
+            example: /v3/news-items/123
       newsFeeds:
         type: array
         description: Links to the news feeds where this news item is aggregated
@@ -64,7 +64,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/news-feeds/123
+              example: /v3/news-feeds/123
             title:
               type: string
               description: The name of the news feed

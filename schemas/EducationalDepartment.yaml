@@ -27,7 +27,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/educational-departments/123
+            example: /v3/educational-departments/123
       educationalPlans:
         type: array
         description: Links to the educational plans for this educational department
@@ -40,7 +40,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/educational-plans/123
+              example: /v3/educational-plans/123
             title:
               type: string
               description: The name of the educational plan
@@ -53,7 +53,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-groups?educationalDepartment=123
+            example: /v3/course-groups?educationalDepartment=123
       courses:
         type: object
         description: Link to the list of courses for this educational department
@@ -63,4 +63,4 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/courses?educationalDepartment=123
+            example: /v3/courses?educationalDepartment=123

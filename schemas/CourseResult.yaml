@@ -40,7 +40,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-results/123
+            example: /v3/course-results/123
       course:
         type: object
         description: Link to the course for this result
@@ -51,7 +51,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/courses/123
+            example: /v3/courses/123
           title:
             type: string
             description: The name of the course
@@ -65,7 +65,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/persons/123
+            example: /v3/persons/123
           title:
             type: string
             description: The display name of the person
@@ -78,4 +78,4 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/test-results?course=123&student=123
+            example: /v3/test-results?course=123&student=123

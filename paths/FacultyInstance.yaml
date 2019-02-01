@@ -8,13 +8,18 @@ get:
       in: path
       description: Faculty ID
       required: true
-      type: string
+      schema:
+        type: string
   responses:
     '200':
       description: OK
-      schema:
-        $ref: '../definitions/Faculty.yaml'
+      content:
+        application/hal+json:
+          schema:
+            $ref: '../schemas/Faculty.yaml'
     '404':
       description: Not Found
-      schema:
-        $ref: '../definitions/Problem.yaml'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'
