@@ -1,6 +1,6 @@
 # The Open Education API 'by-laws'
 
-## Communication guidelines
+## a.k.a. the Communication guidelines
 Our aim is to communicate as openly as possible, so open platforms are used for this. At the same time, there will also be a need for consultation exclusively within the working group, so there are multiple communication channels. Each channel has its own target group and purpose. The language of communication is Dutch. The language of the specification and discussions on the specification on GitHub is English.
 1.	**Open Education API website:** The OOAPI site at https://openonderwijsapi.nl/en/ will be used mainly to provide clarification to interested parties. The site also provides references to the reference API, online documentation and the code repository. Communication will primarily be one-way, from the OOAPI project to the interested parties. It will not be possible to directly post or publish to the website through the community. The site indicates that the email address info@openonderwijsapi.nl or the community site can be used to provide feedback if desired.
 2.	**The general email address info@openonderwijsapi.nl:** This address is used as the general email address for the OOAPI project. Email to this address will be delivered to members of the working group. This email address can be used by prospective group members to sign up as a member of the working group.
