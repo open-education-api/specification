@@ -84,7 +84,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/persons/123
+            example: /v3/persons/123
       educationalDepartments:
         type: object
         description: Link to the list of educational departments with which this person is affiliated
@@ -94,7 +94,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/educational-departments?student=123
+            example: /v3/educational-departments?student=123
       educationalPlans:
         type: object
         description: Link to the list of educational plans with which this person is affiliated
@@ -104,7 +104,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/educational-plans?student=123
+            example: /v3/educational-plans?student=123
       courseGroups:
         type: object
         description: Link to the list of course groups for this person
@@ -114,7 +114,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-groups?student=123
+            example: /v3/course-groups?student=123
       courses:
         type: object
         description: Link to the list of courses for this person
@@ -124,7 +124,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/courses?student=123
+            example: /v3/courses?student=123
       courseResults:
         type: object
         description: Link to the list of course results for this person
@@ -134,7 +134,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-results?student=123
+            example: /v3/course-results?student=123
       testResults:
         type: object
         description: Link to the list of test results for this person
@@ -144,7 +144,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/test-results?student=123
+            example: /v3/test-results?student=123
       schedules:
         type: object
         description: Link to list of the schedules for this person
@@ -154,4 +154,4 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/schedules?student=123
+            example: /v3/schedules?student=123
