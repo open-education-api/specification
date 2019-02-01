@@ -74,14 +74,13 @@ properties:
             type: string
             format: uri
             example: /v3/institution
-      eudcational-programmes:
+      educational-programmes:
         type: object
-        description: Link to the list of educationalplans at this institution
+        description: Link to the list of educational programmes at this institution
         required:
           - href
         properties:
           href:
             type: string
             format: uri
-            example: /v3/educationalprogrammes
-  
+            example: /v3/educational-programmes
