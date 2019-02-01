@@ -60,7 +60,7 @@ tags:
 paths:
   /:
     $ref: paths/Service.yaml
-  /institutions:
+  /institution:
     $ref: paths/Institution.yaml  
   /persons:
     $ref: paths/PersonCollection.yaml
