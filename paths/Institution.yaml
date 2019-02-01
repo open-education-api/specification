@@ -9,4 +9,4 @@ get:
       content:
         application/hal+json:
           schema:
-            $ref: '../schemas/Instituion.yaml'
+            $ref: '../schemas/Institution.yaml'
