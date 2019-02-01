@@ -91,7 +91,7 @@ paths:
   /courses/{courseId}:
     $ref: paths/CourseInstance.yaml
   /course-offerings:
-    $ref: paths/CourseOfferingsCollection.yaml
+    $ref: paths/CourseOfferingCollection.yaml
   /course-offerings/{courseOfferingId}:
     $ref: paths/CourseOfferingInstance.yaml
   /course-results:
