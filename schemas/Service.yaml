@@ -15,7 +15,7 @@ properties:
   specification:
     type: string
     format: uri
-    description: URL of the API specification (YAML or JSON, compliant with [Open API Specification v2](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md))
+    description: URL of the API specification (YAML or JSON, compliant with [Open API Specification v3](https://github.com/OAI/OpenAPI-Specification/))
   documentation:
     type: string
     format: uri
@@ -68,8 +68,11 @@ properties:
           - href: /faculties
           - href: /educational-departments
           - href: /educational-plans
+          - href: /educational-programmes
+          - href: /institution
           - href: /course-groups
           - href: /courses
+          - href: /course-offerings
           - href: /course-results
           - href: /test-results
           - href: /buildings
