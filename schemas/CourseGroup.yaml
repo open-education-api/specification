@@ -44,7 +44,7 @@ properties:
           href:
             type: string
             format: uri
-            example: /v2/course-groups/123
+            example: /v3/course-groups/123
       courses:
         type: array
         description: Links to the courses affiliated to this course group
@@ -57,7 +57,7 @@ properties:
             href:
               type: string
               format: uri
-              example: /v2/courses/123
+              example: /v3/courses/123
             title:
               type: string
               description: The name of the course
