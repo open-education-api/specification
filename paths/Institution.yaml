@@ -2,7 +2,7 @@ get:
   summary: GET /Institution
   description: Get institution data of provider of this service.
   tags:
-    - institution metadata
+    - institution
   responses:
     '200':
       description: OK
