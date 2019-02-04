@@ -1,5 +1,5 @@
 get:
-  summary: GET /Institution
+  summary: GET /institution
   description: Get institution data of provider of this service.
   tags:
     - institution metadata
