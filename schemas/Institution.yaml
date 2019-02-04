@@ -1,0 +1,86 @@
+type: object
+required:
+  - name
+  - description
+  - _links
+properties:
+  institutionId:
+    type: string
+    description: id of the institution
+  brin:
+    type: string
+    description: Brincode of the institution 
+  name:
+    type: string
+    description: Name of the institution
+  description:
+    type: string
+    description: Any general description of the institution should clearly mention the type of higher education institution, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences). 
+  academicCalendar:
+     type: object
+     description: links to academic calenders per year
+     properties:
+       year:
+         type: string
+         description: year combination
+       calender:
+          type: url
+          description: Link to the academic calender of the institution (e.g. https://www.roosterrapporten.hu.nl/1718/jaarroosters/HU/timetable_academicyear_calender.pdf)
+  address:
+    type: object
+    description: the full street address including house number and street name of main building
+    properties:
+      street:
+        type: string
+        description: the full street address including house number and street name
+        example: Moreelsepark 48
+      additional:
+        type: string
+        description: further details like building name, suite, apartment number, etc.
+        example: On the other side of the road
+      city:
+        type: string
+        description: name of the city / locality
+        example: Utrecht
+      zip:
+        type: string
+        description: zip code or postal code
+        pattern: ^[1-9][0-9]{3}[A-Z]{2}$
+        example: 3511 EP
+      countryCode:
+        type: string
+        description: the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        example: NL
+    required:
+      - street
+      - city
+      - zip
+      - countryCode
+  logo:
+    type: string
+    format: uri
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v3/institution
+      educational-programmes:
+        type: object
+        description: Link to the list of educational programmes at this institution
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v3/educational-programmes
