@@ -17,7 +17,7 @@ The shared goals of a governance model for this Open Education API project are t
  Support effective development and maintenance of the Open Education API.
 
 ## 1.1.	Why does the Open Education API need formal governance?
-This governance model has been drawn up to give the specification a sustainable character. It provides interested parties with an understanding of how the speci¬¬fication will be governed. After all, 'Governance' is the governance instrument that sets the framework and defines how strategic goals, decision structures and procedures to address differences of views operate.
+This governance model has been drawn up to give the specification a sustainable character. It provides interested parties with an understanding of how the specification will be governed. After all, 'Governance' is the governance instrument that sets the framework and defines how strategic goals, decision structures and procedures to address differences of views operate.
 
 # 2.	Abbreviations and definitions used
 **OOAPI**</br>
