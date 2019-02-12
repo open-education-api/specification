@@ -13,11 +13,10 @@ This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specificat
 
 If you have a question, an idea or some feedback unrelated to the specification, please visit the [community site](https://plus.google.com/communities/106455663981908394819).
 
-Currently there are 3 main branches:
+Currently there are 2 main branches:
 
-* [v3](https://github.com/open-education-api/specification/tree/v3) (Future version - final)
-* [v2](https://github.com/open-education-api/specification/tree/v2) (Current version - stale)
-* [v1](https://github.com/open-education-api/specification/tree/v1) (Previous version - stale)
+* [v3](https://github.com/open-education-api/specification/tree/v3) (Current version - final)
+* [v2](https://github.com/open-education-api/specification/tree/v2) (Previous version - stale)
 
 ## Operating area and Application
 
