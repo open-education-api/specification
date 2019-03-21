@@ -18,8 +18,8 @@ New issues can also be added by Github users using the [OOAPI Specification Gith
 - Collect issues for the 3.1 release. Issues can be added using our
 [issuetracker](https://github.com/open-education-api/specification/issues)
 - [#67: add notifications endpoint](https://github.com/open-education-api/specification/issues/67)
-- Actualise the [Apiman Poc documentation](https://github.com/open-education-api/poc-apiman-docs)
-- Describe the data items of the OOAPI specification
+- Describe the data items of the OOAPI specification (and align with IMS)
 - Document the header info and add this to the OOAPI specification
 - Align IMS EDU-API with OOAPI.
 - Define guidelines for authentication and autorisation for the implementation of the OOAPI
+  (see https://docs.geostandaarden.nl/api/API-Strategie/)
