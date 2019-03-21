@@ -2,7 +2,7 @@ get:
   summary: GET /educational-programmes/{educationalProgrammeId}
   description: Get a single educational programme.
   tags:
-    - educational programme
+    - educational programmes
   parameters:
     - name: educationalProgrammeId
       in: path
