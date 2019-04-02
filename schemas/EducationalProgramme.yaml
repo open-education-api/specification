@@ -35,7 +35,7 @@ properties:
     type: string
     description: Type of qualificaton that can be obtained on finishing the programme
     example: Bachelor of Arts, or Bachelor of Nursing
-  lenghtOfProgramme:
+  lengthOfProgramme:
     type: number
     description: The lenght of the programme specified in months
   levelOfQualification:
