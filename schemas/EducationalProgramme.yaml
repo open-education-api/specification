@@ -44,7 +44,7 @@ properties:
     example: E.g. Bachelor’s degree; EQF for LLL level 6; NLQF level 6
   fieldsOfStudy:
     type: string
-    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf_.
+    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
     example: e.g. 0732 Building and civil engineering
   profileOfProgramme:
     type: string
