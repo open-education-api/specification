@@ -80,4 +80,4 @@ properties:
           href:
             type: string
             format: uri
-            example: /v3/courses?educationalPprogramme=123
+            example: /v3/courses?educationalProgramme=123
