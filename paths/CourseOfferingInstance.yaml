@@ -1,5 +1,5 @@
 get:
-  summary: GET /courseOfferings/{courseOfferingId}
+  summary: GET /course-offerings/{courseOfferingId}
   description: Get a single course offering.
   tags:
     - course offerings
