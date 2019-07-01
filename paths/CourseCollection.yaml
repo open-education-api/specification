@@ -32,7 +32,7 @@ get:
         type: string
     - name: educationalProgramme
       in: query
-      description: Filter by educationalProgramme (educationalProgrammeId)
+      description: Filter by educational programme (educationalProgrammeId)
       required: false
       schema:
         type: string
