@@ -45,6 +45,10 @@ Now you can view the docs in your web browser: http://localhost:8080/docs.html
 
 The Open Education API is an open source, community-driven project. If you'd like to contribute, please follow the [Contributing Guidelines](CONTRIBUTING.md).
 
+## Maillist
+A public mailinglist is available. Users can subscripe at:
+https://list.surfnet.nl/mailman/listinfo/openonderwijsapi
+
 ## Community
 
 The Open Education API is driven by the [Open Education API Working Group](https://openonderwijsapi.nl/en/community/). The working group includes representatives of higher education institutions and suppliers.
