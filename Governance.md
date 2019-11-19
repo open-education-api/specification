@@ -32,8 +32,9 @@ Bureau Edustandaard, a partnership between SURF and Kennisnet, is responsible fo
 **Community**</br>
 The OOAPI community consists of parties interested in OOAPI developments. Community members are known by name and email address, and register with the community site themselves.
 
-**Community site**</br>
-The website where community members become members of the OOAPI community and share their knowledge. Google+ Communities is used for this. The community site can be found at: https://plus.google.com/u/1/communities/106455663981908394819
+**Slack**</br>
+A Slack channel is available at: openonderwijsapi.slack.com </br>
+Since access is on an invite base, send an email to info@openonderwijsapi.nl and you will receive an invitation if you would like to participate on this Open education API slack channel.
 
 **Project site**</br>
 The website at https://openonderwijsapi.nl/en/. This website will be used mainly to provide clarification of the project to interested parties. The site also provides access to the reference API, online documentation and the code repository.
@@ -50,7 +51,7 @@ The OOAPI specification and its various versions are maintained in the GitHub sp
 https://github.com/open-education-api/specification
 
 **Mailing list**</br>
-The members of the working group are subscribed to the mailing list, which is intended for members of the working group to communicate with each other. See: https://groups.google.com/forum/#!forum/openonderwijsapi
+The members of the working group are subscribed to the mailing list, which is intended for members of the working group to communicate with each other. Users can subscribe at: https://list.surfnet.nl/mailman/listinfo/openonderwijsapi
 
 
 # 3.	Project participants and roles
@@ -95,5 +96,3 @@ The project group consists of SURFnet staff members. Project staff are actively 
 ## 3.4.	Bureau Edustandaard
 Bureau Edustandaard manages the OOAPI specification and is responsible for the process of standardisation and the publication of the specifications including the formal documentation. The working group is in regular contact with Bureau Edustandaard and informs the Standardisation council about major changes. 
 Next to that, Edustandaard informs about updates and changes of OOAPI on the website Edustandaard.nl and secures the connection with other standards in the context of ROSA by means of a ROSA scan.
-
-
