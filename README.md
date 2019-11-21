@@ -15,7 +15,7 @@ If you have a question, an idea or some feedback unrelated to the specification,
 
 Currently there are 2 main branches:
 
-* [v3](https://github.com/open-education-api/specification/tree/v3) (Current version - final)
+* [v3](https://github.com/open-education-api/specification/tree/master) (Current version - final)
 * [v2](https://github.com/open-education-api/specification/tree/v2) (Previous version - stale)
 
 ## Operating area and Application
@@ -29,7 +29,7 @@ See for more information about this project: https://openonderwijsapi.nl/en/
 
 The specification can be rendered as HTML documentation:
 
-* [API Reference Documentation](https://rawgit.com/open-education-api/specification/v3/docs.html)
+* [API Reference Documentation](https://open-education-api.github.io/specification/docs.html)
 
 ## Development
 
