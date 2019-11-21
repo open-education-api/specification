@@ -15,8 +15,8 @@ If you have a question, a Slack channel is available at: [openonderwijsapi.slack
 
 Currently there are 2 main branches:
 
-* [v3](https://github.com/open-education-api/specification/tree/master) (Current version - final)
-* [v2](https://github.com/open-education-api/specification/tree/v2) (Previous version - stale)
+* [master](https://github.com/open-education-api/specification/tree/master) (Current version - v3)
+* [v2](https://github.com/open-education-api/specification/tree/v2) (Previous version - v2)
 
 ## Operating area and Application
 
