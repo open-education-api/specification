@@ -11,7 +11,7 @@ This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specificat
 * [Community](#community)
 * [Roadmap](ROADMAP.md)
 
-If you have a question, an idea or some feedback unrelated to the specification, please visit the [community site](https://plus.google.com/communities/106455663981908394819).
+If you have a question, a Slack channel is available at: [openonderwijsapi.slack.com](https://openonderwijsapi.slack.com).
 
 Currently there are 2 main branches:
 
