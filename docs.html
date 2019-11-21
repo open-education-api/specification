@@ -9,13 +9,13 @@
         padding: 0;
       }
 
-      api-logo {
-        margin: 20px 0;
+      .menu-content img {
+        padding: 24px;
       }
     </style>
   </head>
   <body>
-    <redoc spec-url="spec.yaml" expand-responses="200" hide-hostname></redoc>
-    <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-alpha.17/bundles/redoc.standalone.js"></script>
+    <redoc spec-url="spec.yaml" expand-responses="200" json-sample-expand-level="all" disable-search hide-hostname></redoc>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"></script>
   </body>
 </html>

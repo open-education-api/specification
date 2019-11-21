@@ -40,7 +40,7 @@ tags:
   - name: course groups
     description: The course groups API provides collection of educational components (either courses or courseGroups) that can be offered as a whole to a person.
   - name: courses
-    description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of an educationalProgramme. 
+    description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of an educationalProgramme.
   - name: course offerings
     description: The course offerings API provides an instance of a course which has a global timeframe, e.g. a period to which students can enroll and specific lecturers are assigned.
   - name: course results
