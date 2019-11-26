@@ -16,9 +16,8 @@ properties:
     type: string
     description: The abbreviation or internal code used to identify this course (ECTS-code)
   ects:
-    type: integer
+    type: number
     description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
-    format: int32
     minimum: 0
   description:
     type: string
@@ -31,7 +30,7 @@ properties:
     description: The description of the main goal of this course
   requirements:
     type: string
-    description: The requirements needed to enter this course (ECTS-prerequisites) 
+    description: The requirements needed to enter this course (ECTS-prerequisites)
   level:
     type: string
     description: The level of this course (see service metadata for possible values) (ECTS-year of study if applicable)
@@ -40,7 +39,7 @@ properties:
     description: The format in which this course is given (ECTS-format) (mutlivalue)
     items:
       type: string
-  modeOfDelivery: 
+  modeOfDelivery:
     type: string
     description: information on the mode of delivery of the component, e.g. via e-learning, face-to-face, etc. (ECTS-Mode of delivery)
   mainLanguage:
