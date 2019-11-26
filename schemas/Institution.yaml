@@ -9,13 +9,13 @@ properties:
     description: id of the institution
   brin:
     type: string
-    description: Brincode of the institution 
+    description: Brincode of the institution
   name:
     type: string
     description: Name of the institution
   description:
     type: string
-    description: Any general description of the institution should clearly mention the type of higher education institution, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences). 
+    description: Any general description of the institution should clearly mention the type of higher education institution, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
   academicCalendar:
      type: object
      description: links to academic calenders per year
@@ -23,6 +23,7 @@ properties:
        year:
          type: string
          description: year combination
+         pattern: ^\d{4}-\d{4}$
        calender:
           type: url
           description: Link to the academic calender of the institution (e.g. https://www.roosterrapporten.hu.nl/1718/jaarroosters/HU/timetable_academicyear_calender.pdf)

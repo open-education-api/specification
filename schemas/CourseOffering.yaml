@@ -20,10 +20,11 @@ properties:
     type: number
     description: The number of students that have already enrolled for this course offering
     format: int32
-    minimum: 0  
+    minimum: 0
   academicYear:
     type: string
     description: The year in which this courseOffering takes place
+    pattern: ^\d{4}-\d{4}$
   period:
     type: string
     description: The period in which this courseOffering is offered
