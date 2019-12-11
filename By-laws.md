@@ -47,4 +47,4 @@ This section describes how an institution or supplier can demonstrate that they 
 
 # Appendix A: Code of Conduct (COC)
 The Open Education API project applies the following code of conduct:
-https://github.com/open-education-api/specification/blob/v3/code-of-conduct.md
+https://github.com/open-education-api/specification/blob/master/code-of-conduct.md
