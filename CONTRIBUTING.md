@@ -13,7 +13,7 @@ Our [issue tracker](https://github.com/open-education-api/specification/issues) 
 Please follow these guidelines before opening an issue:
 
 * Make sure your issue is not a duplicate.
-* Make sure your issue is relevant to the specification. For other questions, please visit the [community site](https://plus.google.com/communities/106455663981908394819).
+* Make sure your issue is relevant to the specification.
 
 ## Formatting / naming conventions
 
