@@ -1,0 +1,25 @@
+get:
+  summary: GET /persons/{personId}
+  description: Get a single person.
+  tags:
+    - persons
+  parameters:
+    - name: personId
+      in: path
+      description: User ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Person.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

@@ -1,0 +1,122 @@
+type: object
+required:
+  - scheduleId
+  - startDateTime
+  - endDateTime
+  - _embedded
+  - _links
+properties:
+  scheduleId:
+    type: string
+    description: Unique id of this schedule
+  startDateTime:
+    type: string
+    description: The moment on which this schedule starts, RFC3339 (date-time)
+    format: date-time
+  endDateTime:
+    type: string
+    description: The moment on which this schedule ends, RFC3339 (date-time)
+    format: date-time
+  description:
+    type: string
+    description: The description of this schedule
+  _embedded:
+    type: object
+    required:
+      - rooms
+    properties:
+      rooms:
+        type: array
+        description: The rooms where this schedule is located
+        items:
+          type: object
+          required:
+            - roomId
+            - abbreviation
+            - name
+          properties:
+            roomId:
+              type: string
+              description: Unique id for this room
+            abbreviation:
+              type: string
+              description: The abbreviation of the name of this room
+            name:
+              type: string
+              description: The name of this room
+            _links:
+              type: object
+              required:
+                - self
+              properties:
+                self:
+                  type: object
+                  description: Link to the room
+                  required:
+                    - href
+                  properties:
+                    href:
+                      type: string
+                      format: uri
+                      example: /v2/rooms/123
+                building:
+                  type: object
+                  description: Link to the building
+                  required:
+                    - href
+                    - title
+                  properties:
+                    href:
+                      type: string
+                      format: uri
+                      example: /v2/buildings/123
+                    title:
+                      type: string
+                      description: The name of the building
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/schedules/123
+      courses:
+        type: array
+        description: Links to the courses affiliated to this schedule
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/courses/123
+            title:
+              type: string
+              description: The name of the course
+      lecturers:
+        type: array
+        description: Links to the lecturers (persons) of this schedule
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/persons/123
+            title:
+              type: string
+              description: The name of the person

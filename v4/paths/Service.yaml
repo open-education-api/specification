@@ -1,0 +1,12 @@
+get:
+  summary: GET /
+  description: Get metadata for the service.
+  tags:
+    - service metadata
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Service.yaml'

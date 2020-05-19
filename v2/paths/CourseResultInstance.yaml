@@ -1,0 +1,20 @@
+get:
+  summary: GET /course-results/{courseResultId}
+  description: Get a single course result.
+  tags:
+    - course results
+  parameters:
+    - name: courseResultId
+      in: path
+      description: Course result ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '../definitions/CourseResult.yaml'
+    '404':
+      description: Not Found
+      schema:
+        $ref: '../definitions/Problem.yaml'

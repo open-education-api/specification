@@ -1,0 +1,25 @@
+get:
+  summary: GET /components/{componentId}
+  description: Get a single component.
+  tags:
+    - components
+  parameters:
+    - name: componentId
+      in: path
+      description: component ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Component.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

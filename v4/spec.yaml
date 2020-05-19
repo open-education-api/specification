@@ -1,0 +1,100 @@
+openapi: '3.0.3'
+info:
+  version: '4.0-DRAFT'
+  title: Open Education API
+  description: |
+    OpenAPI (fka Swagger) specification for the Open Education API.
+
+    # Error responses
+    Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
+
+    ```
+    {
+      "code": 404,
+      "title": "Resource not found"
+    }
+    ```
+  x-logo:
+    url: ../logo.png
+tags:
+  - name: service metadata
+    description: The service API provides additional metadata needed to make the OOAPI fit for this organization.
+  - name: organizations
+    description: The organizations API provides the organizations that are responsible for the execution and recognition of education.
+  - name: persons
+    description: The persons API provides information about persons related to an organization.
+  - name: programs
+    description: The programs API provides a coherent set of educational components, aimed at the realization of competences or objectives in the field of knowledge, insight, attitudes and skills that the person who completes the program must have.
+  - name: courses
+    description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
+  - name: components
+    description: The components API provides information about components being part of parent courses.
+  - name: offerings
+    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: associations
+    description: The associations API provides information about the association between an offering and a person (e.g. students, lecturers, etc).
+  - name: buildings
+    description: The building API provides a building that is currently used by the organization. Including all location details.
+  - name: rooms
+    description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
+  - name: news feeds
+    description: The news feeds API provides An aggregation of news items regarding a specific theme. (Updated on ad hoc-base)
+  - name: news items
+    description: The news items API provides a message containing relevant information about an activity taking place a person or a resource. (Updated on ad hoc-base)
+paths:
+  /:
+    $ref: paths/Service.yaml
+  /persons:
+    $ref: paths/PersonCollection.yaml
+  /persons/{personId}:
+    $ref: paths/PersonInstance.yaml
+  /persons/{personId}/associations:
+    $ref: paths/PersonAssociationCollection.yaml
+  /organizations:
+    $ref: paths/OrganizationCollection.yaml
+  /organizations/{organizationId}:
+    $ref: paths/OrganizationInstance.yaml
+  /organizations/{organizationId}/programs:
+    $ref: paths/OrganizationProgramCollection.yaml
+  /programs:
+    $ref: paths/ProgramCollection.yaml
+  /programs/{programId}:
+    $ref: paths/ProgramInstance.yaml
+  /programs/{programId}/courses:
+    $ref: paths/ProgramCourseCollection.yaml
+  /programs/{programId}/offerings:
+    $ref: paths/ProgramOfferingCollection.yaml
+  /courses:
+    $ref: paths/CourseCollection.yaml
+  /courses/{courseId}:
+    $ref: paths/CourseInstance.yaml
+  /courses/{courseId}/components:
+    $ref: paths/CourseComponentCollection.yaml
+  /courses/{courseId}/offerings:
+    $ref: paths/CourseOfferingCollection.yaml
+  /components/{componentId}:
+    $ref: paths/ComponentInstance.yaml
+  /components/{componentId}/offerings:
+    $ref: paths/ComponentOfferingCollection.yaml
+  /offerings/{offeringId}:
+    $ref: paths/OfferingInstance.yaml
+  /offerings/{offeringId}/associations:
+    $ref: paths/OfferingAssociationCollection.yaml
+  /associations/{associationId}:
+    $ref: paths/AssociationInstance.yaml
+  /buildings:
+    $ref: paths/BuildingCollection.yaml
+  /buildings/{buildingId}:
+    $ref: paths/BuildingInstance.yaml
+  /rooms:
+    $ref: paths/RoomCollection.yaml
+  /rooms/{roomId}:
+    $ref: paths/RoomInstance.yaml
+  /news-feeds:
+    $ref: paths/NewsFeedCollection.yaml
+  /news-feeds/{newsFeedId}:
+    $ref: paths/NewsFeedInstance.yaml
+  /news-items:
+    $ref: paths/NewsItemCollection.yaml
+  /news-items/{newsItemId}:
+    $ref: paths/NewsItemInstance.yaml

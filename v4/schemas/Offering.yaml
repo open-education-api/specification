@@ -1,0 +1,21 @@
+type: object
+required:
+  - offeringId
+  - type
+properties:
+  offeringId:
+    type: string
+    description: Unique id of this offering
+  description:
+    type: string
+    description: The description of this offering
+  maxNumberStudents:
+    type: number
+    description: The maximum number of students allowd to enroll for this offering
+    format: int32
+    minimum: 0
+  currentNumberStudents:
+    type: number
+    description: The number of students that have already enrolled for this offering
+    format: int32
+    minimum: 0

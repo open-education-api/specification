@@ -1,0 +1,58 @@
+type: object
+required:
+  - name
+  - type
+properties:
+  organizationId:
+    type: string
+    description: Unique id of this organization
+  type:
+    type: string
+    description: The type of this organization
+    enum:
+      - institution
+      - department
+      - faculty
+      - domain
+  name:
+    type: string
+    description: Name of the organization
+  brin:
+    type: string
+    description: BRIN-code of the organization
+  description:
+    type: string
+    description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
+  address:
+    type: object
+    description: the full street address including house number and street name of main building
+    properties:
+      street:
+        type: string
+        description: the full street address including house number and street name
+        example: Moreelsepark 48
+      additional:
+        type: string
+        description: further details like building name, suite, apartment number, etc.
+        example: On the other side of the road
+      city:
+        type: string
+        description: name of the city / locality
+        example: Utrecht
+      zip:
+        type: string
+        description: zip code or postal code
+        pattern: ^[1-9][0-9]{3}[A-Z]{2}$
+        example: 3511 EP
+      countryCode:
+        type: string
+        description: the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+        example: NL
+    required:
+      - street
+      - city
+      - zip
+      - countryCode
+  logo:
+    type: string
+    format: uri

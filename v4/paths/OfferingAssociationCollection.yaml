@@ -1,0 +1,47 @@
+get:
+  summary: GET /offerings/{offeringId}/associations
+  description: Get a list of all offering associations.
+  tags:
+    - offerings
+  parameters:
+    - name: offeringId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - items
+            properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              items:
+                type: array
+                items:
+                  oneOf:
+                    - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+                    - $ref: '../schemas/CourseOfferingAssociation.yaml'
+                    - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

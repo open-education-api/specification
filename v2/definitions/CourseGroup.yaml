@@ -1,0 +1,63 @@
+type: object
+required:
+  - courseGroupId
+  - name
+  - type
+  - _links
+properties:
+  courseGroupId:
+    type: string
+    description: Unique id of this course group
+  name:
+    type: string
+    description: The name of this course group
+  studyYear:
+    type: string
+    description: The year in which this course group was created
+  description:
+    type: string
+    description: The description of this course group
+  type:
+    type: string
+    description: The type of course group (e.g. minor, module, specialization, etc.)
+  ects:
+    type: number
+    description: The number of EC's that can be archieved in this course group
+    format: int32
+    minimum: 0
+  earnedEcts:
+    type: number
+    description: The number of EC's that is earned in this course group
+    format: int32
+    minimum: 0
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/course-groups/123
+      courses:
+        type: array
+        description: Links to the courses affiliated to this course group
+        items:
+          type: object
+          required:
+            - href
+            - title
+          properties:
+            href:
+              type: string
+              format: uri
+              example: /v2/courses/123
+            title:
+              type: string
+              description: The name of the course

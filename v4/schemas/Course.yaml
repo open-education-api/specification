@@ -1,0 +1,61 @@
+type: object
+required:
+  - courseId
+  - name
+  - description
+  - mainLanguage
+properties:
+  courseId:
+    type: string
+    description: Unique id of this course
+  name:
+    type: string
+    description: The name of this course (ECTS-Title)
+  abbreviation:
+    type: string
+    description: The abbreviation or internal code used to identify this course (ECTS-code)
+  ects:
+    type: integer
+    description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
+    format: int32
+    minimum: 0
+  description:
+    type: string
+    description: The description of this course (ECTS-description)
+  learningOutcomes:
+    type: string
+    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome)
+  goals:
+    type: string
+    description: The description of the main goal of this course
+  requirements:
+    type: string
+    description: The requirements needed to enter this course (ECTS-prerequisites)
+  level:
+    type: string
+    description: The level of this course (see service metadata for possible values) (ECTS-year of study if applicable)
+  format:
+    type: array
+    description: The format in which this course is given (ECTS-format) (mutlivalue)
+    items:
+      type: string
+  modeOfDelivery:
+    type: string
+    description: information on the mode of delivery of the component, e.g. via e-learning, face-to-face, etc. (ECTS-Mode of delivery)
+  mainLanguage:
+    type: string
+    description: The main language in which this course is given, RFC3066 (ECTS-language of instriction)
+    example: nl-NL
+  enrollment:
+    type: string
+    description: The extra information that is provided for enrollment
+  resources:
+    type: string
+    description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
+  exams:
+    type: string
+    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria)
+  link:
+    type: string
+    description: The url containing the address of the website with more information about the course
+    format: uri

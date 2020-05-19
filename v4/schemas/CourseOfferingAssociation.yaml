@@ -1,0 +1,19 @@
+allOf:
+  - $ref: './Association.yaml'
+  - type: object
+    required:
+      - passed
+    properties:
+      passed:
+        type: boolean
+        description: Boolean, representing whether the student did or did not pass the course
+      grade:
+        type: string
+        description: The average grade for all components within this course offering
+      comment:
+        type: string
+        description: The comment on the result for the course
+      resultDate:
+        type: string
+        description: The date this result has been published, RFC3339 (full-date)
+        format: date

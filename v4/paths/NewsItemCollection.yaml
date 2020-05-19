@@ -1,0 +1,48 @@
+get:
+  summary: GET /news-items
+  description: Get an ordered list of all news items.
+  tags:
+    - news items
+  parameters:
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - name: order
+      in: query
+      description: The field to sort on
+      required: false
+      schema:
+        type: string
+        default: publishDate_desc
+        enum:
+          - publishDate_desc
+          - lastModified_desc
+    - name: newsFeed
+      in: query
+      description: Filter by news feed (newsFeedId)
+      required: false
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - items
+            properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/NewsItem.yaml'

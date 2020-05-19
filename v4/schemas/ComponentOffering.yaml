@@ -1,0 +1,18 @@
+allOf:
+  - $ref: './Offering.yaml'
+  - type: object
+    required:
+      - startDateTime
+      - endDateTime
+    properties:
+      startDateTime:
+        type: string
+        description: The moment on which this offering starts, RFC3339 (date-time)
+        format: date-time
+      endDateTime:
+        type: string
+        description: The moment on which this offering ends, RFC3339 (date-time)
+        format: date-time
+      assessmentType:
+        type: string
+        description: The form of assessment

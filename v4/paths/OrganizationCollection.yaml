@@ -1,0 +1,43 @@
+get:
+  summary: GET /organizations
+  description: Get an ordered list of all organizations, ordered by name.
+  tags:
+    - organizations
+  parameters:
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - name: type
+      in: query
+      description: Filter by organization type
+      required: false
+      schema:
+        type: string
+        enum:
+          - institution
+          - department
+          - faculty
+          - domain
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - items
+            properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/Organization.yaml'

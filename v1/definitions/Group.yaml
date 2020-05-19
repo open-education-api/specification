@@ -1,0 +1,32 @@
+type: object
+required:
+  - name
+  - type
+properties:
+  name:
+    type: string
+    description: The name for this group
+  description:
+    type: string
+    description: The description of this group
+  type:
+    type: string
+    description: The type (from a limited list) with which the goal of the group is identified
+  members:
+    type: array
+    description: The ids of persons, who have a grouprole in this group
+    xml:
+      wrapped: true
+    items:
+      type: string
+      xml:
+        name: text
+  courses:
+    type: array
+    description: The ids of courses, related to this group
+    xml:
+      wrapped: true
+    items:
+      type: string
+      xml:
+        name: text

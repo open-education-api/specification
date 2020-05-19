@@ -1,0 +1,44 @@
+get:
+  summary: GET /courses/{courseId}/offerings
+  description: Get a list of all course offerings, ordered by name (ascending).
+  tags:
+    - courses
+  parameters:
+    - name: courseId
+      in: path
+      description: Course ID
+      required: true
+      schema:
+        type: string
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - items
+            properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/CourseOffering.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

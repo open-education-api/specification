@@ -1,0 +1,10 @@
+allOf:
+  - $ref: './Offering.yaml'
+  - type: object
+    properties:
+      academicYear:
+        type: string
+        description: The year in which this offering takes place
+      period:
+        type: string
+        description: The period in which this offering is offered

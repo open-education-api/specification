@@ -1,0 +1,75 @@
+get:
+  summary: GET /persons
+  description: Get an ordered list of all persons.
+  tags:
+    - persons
+  parameters:
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - name: order
+      in: query
+      description: The field to sort on
+      required: false
+      schema:
+        type: string
+        default: surname_asc
+        enum:
+          - surname_asc
+          - surname_desc
+          - givenName_asc
+          - givenName_desc
+    - name: surname
+      in: query
+      description: Filter by surname
+      required: false
+      schema:
+        type: string
+    - name: displayName
+      in: query
+      description: Filter by displayName
+      required: false
+      schema:
+        type: string
+    - name: affiliation
+      in: query
+      description: Filter by affiliation
+      required: false
+      schema:
+        type: string
+        enum:
+          - student
+          - employee
+          - staff
+          - member
+          - affiliate
+          - organization
+    - name: course
+      in: query
+      description: Filter by course (courseId)
+      required: false
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - items
+            properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/Person.yaml'

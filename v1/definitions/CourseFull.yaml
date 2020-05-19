@@ -1,0 +1,17 @@
+allOf:
+  - type: object
+    required:
+      - courseId
+    properties:
+      courseId:
+        type: string
+        description: Unique id of this course
+  - $ref: Course.yaml
+  - type: object
+    required:
+      - lastModified
+    properties:
+      lastModified:
+        type: string
+        description: The timestamp of the last moment the information for this course is updated
+        format: date-time

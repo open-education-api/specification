@@ -1,0 +1,11 @@
+allOf:
+  - $ref: './Organization.yaml'
+  - type: object
+    description: These properties are only present when explicitly included
+    properties:
+      parentOrganization:
+        $ref: './Organization.yaml'
+      subOrganizations:
+        type: array
+        items:
+          $ref: './Organization.yaml'

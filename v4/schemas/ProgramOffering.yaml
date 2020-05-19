@@ -1,0 +1,31 @@
+allOf:
+  - $ref: './Offering.yaml'
+  - type: object
+    required:
+      - termStartDate
+    properties:
+      termStartDate:
+        type: string
+        description: The day on which this program starts, RFC3339 (full-date)
+        format: date
+      termEndDate:
+        type: string
+        description: The day on which this program ends, RFC3339 (full-date)
+        format: date
+      lenghtOfProgram:
+        type: number
+        description: The length of the program specified in months
+      modeOfStudy:
+        type: string
+        description: Indicate whether the program is e.g. full-time, part-time, dual, e-learning.
+        example: full-time, part-time, dual, e-learning.
+      academicYear:
+        type: string
+        description: The year in which this offering takes place
+      period:
+        type: string
+        description: The period in which this offering is offered
+      mainLanguage:
+        type: string
+        description: The main language in which the courses within this program are given, RFC3066
+        example: nl-NL

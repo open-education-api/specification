@@ -1,0 +1,71 @@
+type: object
+required:
+  - personId
+  - givenName
+  - surname
+  - displayName
+  - affiliations
+properties:
+  personId:
+    type: string
+    description: Unique id of this person
+  givenName:
+    type: string
+    description: The first name of this person
+  surnamePrefix:
+    type: string
+    description: The prefix of the family name of this person
+  surname:
+    type: string
+    description: The family name of this person
+  displayName:
+    type: string
+    description: The name of this person which will be displayed
+  dateOfBirth:
+    type: string
+    description: The date of birth of this person, RFC3339 (full-date)
+    format: date
+  affiliations:
+    type: array
+    description: The affiliations of how this person is associated with the organization
+    items:
+      type: string
+      enum:
+        - student
+        - employee
+        - staff
+        - member
+        - affiliate
+        - organization
+  mail:
+    type: string
+    description: The e-mailaddress of this person
+    format: email
+  telephoneNumber:
+    type: string
+    description: The telephone number at the office of this person
+  mobileNumber:
+    type: string
+    description: The mobile number of this person
+  photoSocial:
+    type: string
+    description: The url of the informal picture of this person
+    format: uri
+  photoOfficial:
+    type: string
+    description: The url of the official picture of this person
+    format: uri
+  gender:
+    type: string
+    description: The first letter of this person's gender
+    enum:
+      - M
+      - F
+      - U
+      - X
+  title:
+    type: string
+    description: A title to be used for this person
+  office:
+    type: string
+    description: The name of the office where this person is located

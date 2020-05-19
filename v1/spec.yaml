@@ -1,0 +1,83 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Open Education API
+  x-logo:
+    url: ../logo.png
+host: api.openonderwijsapi.nl
+basePath: /v1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+  - application/xml
+tags:
+  - name: persons
+    description: The persons API provides information about persons related to an educational institute.
+  - name: course results
+    description: The course result API provides the (list of) test results from a specific course attended by a student.
+  - name: buildings
+    description: The building API provides general information about buildings in use by the organization. Updated daily.
+  - name: test results
+    description: The test result API provides information about the results from the tests from different courses done by the student. Updated daily.
+  - name: courses
+    description: The courses API provides information about the course. Updated on ad hoc-base.
+  - name: schedules
+    description: The schedules API provides information about the planning of the courses in lessons. Updated on ad hoc-base.
+  - name: rooms
+    description: The rooms API provides general information about rooms and specific information about the workplaces available. Updated continuously.
+  - name: groups
+    description: The groups API provides information about groups and memberships. Updated on ad hoc-base.
+  - name: group roles
+    description: The grouproles API provides information about the roles of the members in the various groups. Updated on ad hoc-base.
+  - name: news feeds
+    description: The news feeds API returns newsfeeds aggregating one or more news items. Updated on ad hoc-base.
+  - name: news items
+    description: The news items API returns news items, used in the news feeds. Updated on ad hoc-base.
+paths:
+  /persons:
+    $ref: paths/PersonCollection.yaml
+  /persons/{userId}:
+    $ref: paths/PersonInstance.yaml
+  /courseresults/{userId}:
+    $ref: paths/CourseResultCollection.yaml
+  /courseresults/{userId}/{courseId}:
+    $ref: paths/CourseResultInstance.yaml
+  /buildings:
+    $ref: paths/BuildingCollection.yaml
+  /buildings/{buildingId}:
+    $ref: paths/BuildingInstance.yaml
+  /testresults/{userId}:
+    $ref: paths/TestResultCollection.yaml
+  /testresults/{userId}/{testId}:
+    $ref: paths/TestResultInstance.yaml
+  /courses:
+    $ref: paths/CourseCollection.yaml
+  /courses/{courseId}:
+    $ref: paths/CourseInstance.yaml
+  /schedules:
+    $ref: paths/ScheduleCollection.yaml
+  /schedules/{scheduleId}:
+    $ref: paths/ScheduleInstance.yaml
+  /rooms:
+    $ref: paths/RoomCollection.yaml
+  /rooms/{roomId}:
+    $ref: paths/RoomInstance.yaml
+  /groups:
+    $ref: paths/GroupCollection.yaml
+  /groups/{groupId}:
+    $ref: paths/GroupInstance.yaml
+  /grouproles:
+    $ref: paths/GroupRoleCollection.yaml
+  /grouproles/{grouproleId}:
+    $ref: paths/GroupRoleInstance.yaml
+  /newsfeeds:
+    $ref: paths/NewsFeedCollection.yaml
+  /newsfeeds/{newsfeedId}:
+    $ref: paths/NewsFeedInstance.yaml
+  /newsitems:
+    $ref: paths/NewsItemCollection.yaml
+  /newsitems/{newsitemId}:
+    $ref: paths/NewsItemInstance.yaml

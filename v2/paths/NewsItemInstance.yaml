@@ -1,0 +1,20 @@
+get:
+  summary: GET /news-items/{newsItemId}
+  description: Get a single news item.
+  tags:
+    - news items
+  parameters:
+    - name: newsItemId
+      in: path
+      description: News item ID
+      required: true
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '../definitions/NewsItem.yaml'
+    '404':
+      description: Not Found
+      schema:
+        $ref: '../definitions/Problem.yaml'

@@ -1,6 +1,6 @@
 openapi: '3.0.2'
 info:
-  version: 3.0
+  version: '3.0'
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API.
@@ -21,7 +21,7 @@ info:
     }
     ```
   x-logo:
-    url: logo.png
+    url: ../logo.png
 tags:
   - name: service metadata
     description: The service API provides additional metadata needed to make the OOAPI fit for this educational institution.

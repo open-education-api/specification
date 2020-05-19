@@ -1,0 +1,21 @@
+type: object
+required:
+  - componentId
+  - type
+  - name
+properties:
+  componentId:
+    type: string
+    description: Unique id of this component
+  type:
+    type: string
+    description: The component type
+    enum:
+      - lecture
+      - test
+  name:
+    type: string
+    description: The name of this test
+  description:
+    type: string
+    description: The description of this test

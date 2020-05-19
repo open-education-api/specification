@@ -1,0 +1,157 @@
+type: object
+required:
+  - personId
+  - givenName
+  - surname
+  - displayName
+  - affiliations
+  - _links
+properties:
+  personId:
+    type: string
+    description: Unique id of this person
+  givenName:
+    type: string
+    description: The first name of this person
+  surnamePrefix:
+    type: string
+    description: The prefix of the family name of this person
+  surname:
+    type: string
+    description: The family name of this person
+  displayName:
+    type: string
+    description: The name of this person which will be displayed
+  dateOfBirth:
+    type: string
+    description: The date of birth of this person, RFC3339 (full-date)
+    format: date
+  affiliations:
+    type: array
+    description: The affiliations of how this person is associated with the organization
+    items:
+      type: string
+      enum:
+        - student
+        - employee
+        - staff
+        - member
+        - affiliate
+        - organization
+  mail:
+    type: string
+    description: The e-mailaddress of this person
+    format: email
+  telephoneNumber:
+    type: string
+    description: The telephone number at the office of this person
+  mobileNumber:
+    type: string
+    description: The mobile number of this person
+  photoSocial:
+    type: string
+    description: The url of the informal picture of this person
+    format: uri
+  photoOfficial:
+    type: string
+    description: The url of the official picture of this person
+    format: uri
+  gender:
+    type: string
+    description: The first letter of this person's gender
+    enum:
+      - M
+      - F
+      - U
+      - X
+  title:
+    type: string
+    description: A title to be used for this person
+  office:
+    type: string
+    description: The name of the office where this person is located
+  _links:
+    type: object
+    required:
+      - self
+    properties:
+      self:
+        type: object
+        description: Link to current resource
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/persons/123
+      educationalDepartments:
+        type: object
+        description: Link to the list of educational departments with which this person is affiliated
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/educational-departments?student=123
+      educationalPlans:
+        type: object
+        description: Link to the list of educational plans with which this person is affiliated
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/educational-plans?student=123
+      courseGroups:
+        type: object
+        description: Link to the list of course groups for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/course-groups?student=123
+      courses:
+        type: object
+        description: Link to the list of courses for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/courses?student=123
+      courseResults:
+        type: object
+        description: Link to the list of course results for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/course-results?student=123
+      testResults:
+        type: object
+        description: Link to the list of test results for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/test-results?student=123
+      schedules:
+        type: object
+        description: Link to list of the schedules for this person
+        required:
+          - href
+        properties:
+          href:
+            type: string
+            format: uri
+            example: /v2/schedules?student=123

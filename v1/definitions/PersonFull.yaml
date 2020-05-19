@@ -1,0 +1,17 @@
+allOf:
+  - type: object
+    required:
+      - userId
+    properties:
+      userId:
+        type: string
+        description: Unique id of this person
+  - $ref: Person.yaml
+  - type: object
+    required:
+      - lastModified
+    properties:
+      lastModified:
+        type: string
+        description: The timestamp of the last update on this person’s information
+        format: date-time

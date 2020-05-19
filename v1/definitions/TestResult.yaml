@@ -1,0 +1,56 @@
+type: object
+required:
+  - courseId
+  - courseResult
+  - description
+  - testDate
+  - grade
+  - comment
+  - passed
+properties:
+  courseId:
+    type: array
+    description: The ids of courses for this test result
+    xml:
+      wrapped: true
+    items:
+      type: string
+      xml:
+        name: text
+  courseResult:
+    type: string
+    description: The uri from courseresults for the course for which the test results are requested
+  userId:
+    type: array
+    description: The ids of persons of the teachers who are responsible for this test
+    xml:
+      wrapped: true
+    items:
+      type: string
+      xml:
+        name: text
+  description:
+    type: string
+    description: The general description for the test result
+  assessmentType:
+    type: string
+    description: The form of assessment
+  testDate:
+    type: string
+    description: The day when the test was made
+    format: date-time
+  grade:
+    type: string
+    description: The result for the test, last made
+  comment:
+    type: string
+    description: The comment on the result for this test
+  passed:
+    type: boolean
+    description: Boolean, representing whether the student did or did not pass the test
+  weight:
+    type: number
+    description: The weight to 100 as total for this test result in the course result
+    format: int32
+    minimum: 0
+    maximum: 100

@@ -1,0 +1,38 @@
+type: object
+required:
+  - owner
+  - specification
+  - documentation
+properties:
+  owner:
+    type: string
+    description: Name of the service owner
+  logo:
+    type: string
+    format: uri
+    description: URL of the service logo (image dimensions should be 300x300 pixels)
+  specification:
+    type: string
+    format: uri
+    description: URL of the API specification (YAML or JSON, compliant with [Open API Specification v3](https://github.com/OAI/OpenAPI-Specification/))
+  documentation:
+    type: string
+    format: uri
+    description: URL of the API documentation, including general terms and privacy statement
+  courseLevels:
+    type: array
+    description: Set of course levels for the organization
+    items:
+      type: string
+    example:
+      - Bachelor
+      - Master
+  roomTypes:
+    type: array
+    description: Set of room types for the organization
+    items:
+      type: string
+    example:
+      - General purpose
+      - Lecture hall
+      - PC lab

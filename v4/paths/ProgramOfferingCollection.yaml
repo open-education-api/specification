@@ -1,0 +1,36 @@
+get:
+  summary: GET /programs/{programId}/offerings
+  description: Get an ordered list of all offerings given through this program.
+  tags:
+    - programs
+  parameters:
+    - name: programId
+      in: path
+      description: Program ID
+      required: true
+      schema:
+        type: string
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - items
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/ProgramOffering.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

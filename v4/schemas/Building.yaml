@@ -1,0 +1,37 @@
+type: object
+required:
+  - buildingId
+  - abbreviation
+  - name
+  - city
+properties:
+  buildingId:
+    type: string
+    description: Unique id of this building
+  abbreviation:
+    type: string
+    description: The abbreviation of the name of this building
+  name:
+    type: string
+    description: The name of this building
+  description:
+    type: string
+    description: The description of this building
+  address:
+    type: string
+    description: The streetname and number + appendix of the physical location of this building
+  postalCode:
+    type: string
+    description: The zipcode of the physical location of this building
+    pattern: ^[1-9][0-9]{3}[A-Z]{2}$
+  city:
+    type: string
+    description: The city in which this building is located
+  lat:
+    type: number
+    description: The latitude of this building
+    format: double
+  lon:
+    type: number
+    description: The longitude this building
+    format: double

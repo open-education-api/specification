@@ -1,0 +1,17 @@
+allOf:
+  - type: object
+    required:
+      - buildingId
+    properties:
+      buildingId:
+        type: string
+        description: Unique id of this building
+  - $ref: Building.yaml
+  - type: object
+    required:
+      - lastModified
+    properties:
+      lastModified:
+        type: string
+        description: The timestamp of the last update on this buildings information
+        format: date-time

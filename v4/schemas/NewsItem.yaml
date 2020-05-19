@@ -1,0 +1,38 @@
+type: object
+required:
+  - newsItemId
+  - title
+  - content
+  - publishDate
+  - lastModified
+properties:
+  newsItemId:
+    type: string
+    description: Unique id for this news item
+  title:
+    type: string
+    description: The title for this news item
+  authors:
+    type: array
+    description: The authors of the article with this news item
+    items:
+      type: string
+  image:
+    type: string
+    format: uri
+    description: The url containing the address of the image belonging to this news item
+  link:
+    type: string
+    format: uri
+    description: The url containing the address of the article belonging to this news item
+  content:
+    type: string
+    description: The content of this news item
+  publishDateTime:
+    type: string
+    description: The moment on which this news item was published, RFC3339 (date-time)
+    format: date-time
+  lastModified:
+    type: string
+    description: The moment on which this news item was updated, RFC3339 (date-time)
+    format: date-time

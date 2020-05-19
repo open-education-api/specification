@@ -1,0 +1,14 @@
+type: object
+required:
+  - newsFeedId
+  - title
+properties:
+  newsFeedId:
+    type: string
+    description: Unique id for this news feed
+  title:
+    type: string
+    description: The title for this news feed
+  description:
+    type: string
+    description: The description of this news feed

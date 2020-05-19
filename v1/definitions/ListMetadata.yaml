@@ -1,0 +1,26 @@
+type: object
+required:
+  - version
+  - totalItems
+  - totalPages
+  - pageSize
+properties:
+  version:
+    type: string
+    description: The complete version number, including subversion numbers, for this API
+    example: 1.32a
+  totalItems:
+    type: integer
+    description: The total number of requested items
+    format: int32
+    example: 2
+  totalPages:
+    type: integer
+    description: The total number of pages for this request
+    format: int32
+    example: 1
+  pageSize:
+    type: integer
+    description: The number of items returned per page for this request
+    format: int32
+    example: 10

@@ -1,0 +1,121 @@
+get:
+  summary: GET /schedules
+  description: Get an ordered list of all schedules.
+  tags:
+    - schedules
+  parameters:
+    - name: q
+      in: query
+      description: Search within all fields
+      required: false
+      type: string
+    - name: order
+      in: query
+      description: The field to sort on
+      required: false
+      default: lastModified_desc
+      type: string
+    - name: pageNumber
+      in: query
+      description: The number of items to return per page
+      required: false
+      default: 1
+      type: integer
+      format: int32
+      minimum: 1
+    - name: pageSize
+      in: query
+      description: The page number
+      required: false
+      default: 10
+      type: integer
+      format: int32
+      minimum: 1
+    - name: roomId
+      in: query
+      description: Filter by roomId
+      required: false
+      type: string
+    - name: buildingId
+      in: query
+      description: Filter by buildingId
+      required: false
+      type: string
+    - name: courseId
+      in: query
+      description: Filter by courseId
+      required: false
+      type: string
+    - name: startDateTime
+      in: query
+      description: Filter by startDateTime
+      required: false
+      type: string
+      format: date-time
+    - name: endDateTime
+      in: query
+      description: Filter by endDateTime
+      required: false
+      type: string
+      format: date-time
+    - name: groupId
+      in: query
+      description: Filter by groupId
+      required: false
+      type: string
+    - name: lecturers
+      in: query
+      description: Filter by lecturers
+      required: false
+      type: string
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ListMetadata.yaml'
+          data:
+            type: array
+            xml:
+              wrapped: true                
+            items:
+              allOf:
+                - $ref: '../definitions/ScheduleFull.yaml'
+                - xml:
+                    name: item
+post:
+  summary: POST /schedules
+  description: Create a new schedule.
+  tags:
+    - schedules
+  parameters:
+    - name: body
+      in: body
+      description: Request payload
+      required: true
+      schema:
+        $ref: '../definitions/Schedule.yaml'
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        xml:
+          name: response
+        required:
+          - metadata
+          - data
+        properties:
+          metadata:
+            $ref: '../definitions/ResourceMetadata.yaml'
+          data:
+            $ref: '../definitions/ScheduleFull.yaml'
+    '400':
+      description: Bad Request

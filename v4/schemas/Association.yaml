@@ -1,0 +1,18 @@
+type: object
+required:
+  - associationId
+  - role
+properties:
+  associationId:
+    type: string
+    description: Unique id of this association
+  role:
+    type: string
+    description: The role of this person associated with the offering
+    enum:
+      - student
+      - lecturer
+      - staff
+  description:
+    type: string
+    description: The general description for the association

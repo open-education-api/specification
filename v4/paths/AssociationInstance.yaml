@@ -1,0 +1,28 @@
+get:
+  summary: GET /associations/{associationId}
+  description: Get a single association.
+  tags:
+    - associations
+  parameters:
+    - name: associationId
+      in: path
+      description: association ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+              - $ref: '../schemas/CourseOfferingAssociation.yaml'
+              - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

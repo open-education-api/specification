@@ -1,0 +1,28 @@
+get:
+  summary: GET /offerings/{offeringId}
+  description: Get a single offering.
+  tags:
+    - offerings
+  parameters:
+    - name: offeringId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '../schemas/ProgramOffering.yaml'
+              - $ref: '../schemas/CourseOffering.yaml'
+              - $ref: '../schemas/ComponentOffering.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

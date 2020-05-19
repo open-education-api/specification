@@ -1,0 +1,20 @@
+allOf:
+  - $ref: './Association.yaml'
+  - type: object
+    properties:
+      grade:
+        type: string
+        description: The result for the offering, last made
+      comment:
+        type: string
+        description: The comment on the result for this offering
+      passed:
+        type: boolean
+        description: Boolean, representing whether the student did or did not pass the offering
+      weight:
+        type: integer
+        description: The weight to 100 as total for this offering in the course
+        format: int32
+        minimum: 0
+        maximum: 100
+

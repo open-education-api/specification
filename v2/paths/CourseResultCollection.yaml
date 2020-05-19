@@ -1,0 +1,92 @@
+get:
+  summary: GET /course-results
+  description: Get a list of all course results, ordered by result date (descending).
+  tags:
+    - course results
+  parameters:
+    - name: pageSize
+      in: query
+      description: The number of items per page
+      required: false
+      default: 10
+      type: integer
+      format: int32
+      enum:
+        - 10
+        - 20
+        - 50
+        - 100
+        - 250
+    - name: course
+      in: query
+      description: Filter by the course (courseId)
+      required: false
+      type: string
+    - name: student
+      in: query
+      description: Filter by student (personId)
+      required: false
+      type: string
+    - name: academicYear
+      in: query
+      description: Filter by the academic year this result has been achieved in (e.g. `2017-2018`)
+      required: false
+      type: string
+      pattern: ^\d{4}-\d{4}$
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: object
+        required:
+          - pageSize
+          - _embedded
+          - _links
+        properties:
+          pageSize:
+            type: number
+            format: int32
+            description: The number of items per page
+          _embedded:
+            type: object
+            required:
+              - items
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '../definitions/CourseResult.yaml'
+          _links:
+            type: object
+            required:
+              - self
+            properties:
+              self:
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
+                    type: string
+                    format: uri
+                    description: Link to current page
+              prev:
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
+                    type: string
+                    format: uri
+                    description: Link to previous page
+              next:
+                type: object
+                required:
+                  - href
+                properties:
+                  href:
+                    type: string
+                    format: uri
+                    description: Link to next page
+    '404':
+      description: Not Found

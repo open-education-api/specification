@@ -1,0 +1,33 @@
+type: object
+required:
+  - roomId
+  - abbreviation
+  - name
+properties:
+  roomId:
+    type: string
+    description: Unique id for this room
+  abbreviation:
+    type: string
+    description: The abbreviation of the name of this room
+  name:
+    type: string
+    description: The name of this room
+  type:
+    type: string
+    description: The type of this room (see service metadata for possible values)
+  description:
+    type: string
+    description: The description of this room
+  totalSeats:
+    type: integer
+    format: int32
+    description: The total number of seats located in the room
+  totalWorkspaces:
+    type: integer
+    format: int32
+    description: The total number of workspaces located in the room
+  availableWorkspaces:
+    type: integer
+    format: int32
+    description: The total number of available (=non-reserved) workspaces in the room
