@@ -4,10 +4,10 @@
 
 This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (fka Swagger) specification for the [Open Education API](https://openonderwijsapi.nl/en/).
 
+* [Versions](#versions)
 * [Operating area and Application](#operating-area-and-application)
-* [Documentation](#documentation)
-* [Development](#development)
 * [Contributing](#contributing)
+* [Mailinglist][#mailinglist]
 * [Community](#community)
 * [Roadmap](ROADMAP.md)
 
@@ -36,7 +36,7 @@ See for more information about this project: https://openonderwijsapi.nl/en/
 
 The Open Education API is an open source, community-driven project. If you'd like to contribute, please follow the [Contributing Guidelines](CONTRIBUTING.md).
 
-## Maillist
+## Mailinglist
 A public mailinglist is available. Users can subscripe at:
 https://list.surfnet.nl/mailman/listinfo/openonderwijsapi
 
