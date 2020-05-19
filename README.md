@@ -7,7 +7,7 @@ This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specificat
 * [Versions](#versions)
 * [Operating area and Application](#operating-area-and-application)
 * [Contributing](#contributing)
-* [Mailinglist][#mailinglist]
+* [Mailinglist](#mailinglist)
 * [Community](#community)
 * [Roadmap](ROADMAP.md)
 
