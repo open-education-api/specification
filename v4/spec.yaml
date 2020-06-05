@@ -62,8 +62,8 @@ paths:
     $ref: paths/AcademicSessionCollection.yaml
   /academic-sessions/{academicSessionId}:
     $ref: paths/AcademicSessionInstance.yaml
-  /academic-sessions/{academicSessionId}/programs:
-    $ref: paths/AcademicSessionProgramCollection.yaml
+  /academic-sessions/{academicSessionId}/offerings:
+    $ref: paths/AcademicSessionOfferingCollection.yaml
   /programs:
     $ref: paths/ProgramCollection.yaml
   /programs/{programId}:
