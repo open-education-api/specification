@@ -1,6 +1,6 @@
 get:
   summary: GET /programs/{programId}/offerings
-  description: Get a ist of all offerings given through this program, ordered chronologically.
+  description: Get a list of all offerings given through this program, ordered chronologically.
   tags:
     - programs
   parameters:

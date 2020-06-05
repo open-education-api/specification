@@ -60,6 +60,10 @@ paths:
     $ref: paths/OrganizationProgramCollection.yaml
   /academic-sessions:
     $ref: paths/AcademicSessionCollection.yaml
+  /academic-sessions/{academicSessionId}:
+    $ref: paths/AcademicSessionInstance.yaml
+  /academic-sessions/{academicSessionId}/programs:
+    $ref: paths/AcademicSessionProgramCollection.yaml
   /programs:
     $ref: paths/ProgramCollection.yaml
   /programs/{programId}:

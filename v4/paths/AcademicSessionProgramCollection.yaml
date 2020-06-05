@@ -1,6 +1,6 @@
 get:
-  summary: GET /academic-sessions
-  description: Get a list of all academic sessions, ordered chronologically.
+  summary: GET /academic-sessions/{academicSessionId}/offerings
+  description: Get a list of all program offerings during this academic session, ordered by name
   tags:
     - academic sessions
   parameters:
@@ -29,4 +29,4 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../schemas/AcademicSession.yaml'
+                  $ref: '../schemas/ProgramOffering.yaml'

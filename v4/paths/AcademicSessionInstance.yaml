@@ -1,0 +1,25 @@
+get:
+  summary: GET /academic-sessions/{academicSessionId}
+  description: Get a single academic session.
+  tags:
+    - academic sessions
+  parameters:
+    - name: academicSessionId
+      in: path
+      description: Academic session ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AcademicSession.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

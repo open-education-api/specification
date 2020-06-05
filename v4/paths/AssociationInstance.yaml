@@ -6,7 +6,7 @@ get:
   parameters:
     - name: associationId
       in: path
-      description: association ID
+      description: Association ID
       required: true
       schema:
         type: string
