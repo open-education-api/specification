@@ -64,6 +64,8 @@ paths:
     $ref: paths/ProgramCourseCollection.yaml
   /programs/{programId}/offerings:
     $ref: paths/ProgramOfferingCollection.yaml
+  /programs/{programId}/organization:
+    $ref: paths/ProgramOrganization.yaml
   /courses:
     $ref: paths/CourseCollection.yaml
   /courses/{courseId}:
