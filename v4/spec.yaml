@@ -23,6 +23,8 @@ tags:
     description: The organizations API provides the organizations that are responsible for the execution and recognition of education.
   - name: persons
     description: The persons API provides information about persons related to an organization.
+  - name: academic sessions
+    description: The academic sessions API provides information about the different time periods a program can be offered.
   - name: programs
     description: The programs API provides a coherent set of educational components, aimed at the realization of competences or objectives in the field of knowledge, insight, attitudes and skills that the person who completes the program must have.
   - name: courses
@@ -56,6 +58,8 @@ paths:
     $ref: paths/OrganizationInstance.yaml
   /organizations/{organizationId}/programs:
     $ref: paths/OrganizationProgramCollection.yaml
+  /academic-sessions:
+    $ref: paths/AcademicSessionCollection.yaml
   /programs:
     $ref: paths/ProgramCollection.yaml
   /programs/{programId}:

@@ -1,6 +1,6 @@
 get:
   summary: GET /programs/{programId}/offerings
-  description: Get an ordered list of all offerings given through this program.
+  description: Get a ist of all offerings given through this program, ordered chronologically.
   tags:
     - programs
   parameters:
@@ -12,6 +12,16 @@ get:
         type: string
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - academicSession
   responses:
     '200':
       description: OK
@@ -24,10 +34,18 @@ get:
               - pageNumber
               - items
             properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
               items:
                 type: array
                 items:
-                  $ref: '../schemas/ProgramOffering.yaml'
+                  $ref: '../schemas/ProgramOfferingExpanded.yaml'
     '404':
       description: Not Found
       content:

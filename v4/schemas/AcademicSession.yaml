@@ -1,0 +1,21 @@
+type: object
+required:
+  - academicSessionId
+  - name
+  - startDate
+  - endDate
+properties:
+  academicSessionId:
+    type: string
+    description: Unique id for this academic session
+  name:
+    type: string
+    description: The name of this program
+  startDate:
+    type: string
+    description: The day on which this academic session starts, RFC3339 (full-date)
+    format: date
+  endDate:
+    type: string
+    description: The day on which this academic session ends, RFC3339 (full-date)
+    format: date
