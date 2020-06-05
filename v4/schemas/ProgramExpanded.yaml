@@ -1,0 +1,11 @@
+allOf:
+  - $ref: './Program.yaml'
+  - type: object
+    description: These properties are only present when explicitly included
+    properties:
+      parentProgram:
+        $ref: './Program.yaml'
+      subPrograms:
+        type: array
+        items:
+          $ref: './Program.yaml'
