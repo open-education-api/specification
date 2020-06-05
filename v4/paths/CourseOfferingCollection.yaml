@@ -1,6 +1,6 @@
 get:
   summary: GET /courses/{courseId}/offerings
-  description: Get a list of all course offerings, ordered by name (ascending).
+  description: Get a list of all offerings for this course, ordered chronologically.
   tags:
     - courses
   parameters:
@@ -12,6 +12,13 @@ get:
         type: string
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
+    - name: since
+      in: query
+      description: Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
+      required: false
+      schema:
+        type: string
+        format: date
   responses:
     '200':
       description: OK

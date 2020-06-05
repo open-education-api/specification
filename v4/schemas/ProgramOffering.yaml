@@ -1,12 +1,14 @@
 allOf:
   - $ref: './Offering.yaml'
   - type: object
+    required:
+      - modeOfStudy
     properties:
       modeOfStudy:
         type: string
-        description: Indicate whether the program is e.g. full-time, part-time, dual, e-learning.
-        example: full-time, part-time, dual, e-learning.
-      mainLanguage:
-        type: string
-        description: The main language in which the courses within this program are given, RFC3066
-        example: nl-NL
+        description: Indicate whether the course is full-time, part-time, dual or self-paced.
+        enum:
+          - full-time
+          - part-time
+          - dual
+          - self-paced

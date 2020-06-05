@@ -1,6 +1,6 @@
 get:
   summary: GET /programs/{programId}/offerings
-  description: Get a list of all offerings given through this program, ordered chronologically.
+  description: Get a list of all offerings for this program, ordered chronologically.
   tags:
     - programs
   parameters:
@@ -12,16 +12,13 @@ get:
         type: string
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - name: expand
+    - name: since
       in: query
-      description: Optional properties to include, separated by a comma
+      description: Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
       required: false
       schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - academicSession
+        type: string
+        format: date
   responses:
     '200':
       description: OK
@@ -45,7 +42,7 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../schemas/ProgramOfferingExpanded.yaml'
+                  $ref: '../schemas/ProgramOffering.yaml'
     '404':
       description: Not Found
       content:

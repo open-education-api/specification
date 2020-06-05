@@ -1,20 +1,26 @@
 type: object
 required:
   - offeringId
-  - type
+  - academicSession
 properties:
   offeringId:
     type: string
     description: Unique id of this offering
+  academicSession:
+    $ref: './AcademicSession.yaml'
   description:
     type: string
     description: The description of this offering
+  mainLanguage:
+    type: string
+    description: The main language in which the courses within this program are given, RFC3066
+    example: nl-NL
   maxNumberStudents:
     type: number
-    description: The maximum number of students allowd to enroll for this offering
+    description: The maximum number of students allowed to enroll for this offering
     format: int32
     minimum: 0
-  currentNumberStudents:
+  enrolledNumberStudents:
     type: number
     description: The number of students that have already enrolled for this offering
     format: int32
