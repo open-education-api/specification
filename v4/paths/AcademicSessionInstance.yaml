@@ -27,7 +27,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/AcademicSession.yaml'
+            $ref: '../schemas/AcademicSessionExpanded.yaml'
     '404':
       description: Not Found
       content:
