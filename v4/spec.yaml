@@ -58,6 +58,10 @@ paths:
     $ref: paths/OrganizationInstance.yaml
   /organizations/{organizationId}/programs:
     $ref: paths/OrganizationProgramCollection.yaml
+  /organizations/{organizationId}/courses:
+    $ref: paths/OrganizationCourseCollection.yaml
+  /organizations/{organizationId}/components:
+    $ref: paths/OrganizationComponentCollection.yaml
   /academic-sessions:
     $ref: paths/AcademicSessionCollection.yaml
   /academic-sessions/{academicSessionId}:
