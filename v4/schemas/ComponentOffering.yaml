@@ -16,3 +16,5 @@ allOf:
       assessmentType:
         type: string
         description: The form of assessment
+      room:
+        $ref: './Room.yaml'

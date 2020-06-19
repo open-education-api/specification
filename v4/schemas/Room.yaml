@@ -1,8 +1,8 @@
 type: object
 required:
   - roomId
-  - abbreviation
   - name
+  - type
 properties:
   roomId:
     type: string
@@ -15,7 +15,13 @@ properties:
     description: The name of this room
   type:
     type: string
-    description: The type of this room (see service metadata for possible values)
+    description: The type of this room
+    enum:
+      - general purpose
+      - lecture hall
+      - pc lab
+      - office
+      - workspace
   description:
     type: string
     description: The description of this room
@@ -23,11 +29,10 @@ properties:
     type: integer
     format: int32
     description: The total number of seats located in the room
-  totalWorkspaces:
+  availableSeats:
     type: integer
     format: int32
-    description: The total number of workspaces located in the room
-  availableWorkspaces:
-    type: integer
-    format: int32
-    description: The total number of available (=non-reserved) workspaces in the room
+    description: The total number of available (=non-reserved) seats in the room
+  floor:
+    type: string
+    description: The floor on which this room is located

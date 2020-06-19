@@ -3,12 +3,22 @@ allOf:
   - type: object
     required:
       - modeOfStudy
+      - startDate
+      - endDate
     properties:
       modeOfStudy:
         type: string
-        description: Indicate whether the course is full-time, part-time, dual or self-paced.
+        description: Indicate whether the program is full-time, part-time, dual or self-paced.
         enum:
           - full-time
           - part-time
           - dual
           - self-paced
+      startDate:
+        type: string
+        description: The moment on which this offering starts, RFC3339 (date)
+        format: date
+      endDate:
+        type: string
+        description: The moment on which this offering ends, RFC3339 (date)
+        format: date

@@ -2,6 +2,9 @@ type: object
 required:
   - offeringId
   - academicSession
+  - description
+  - mainLanguage
+  - isLineItem
 properties:
   offeringId:
     type: string
@@ -25,3 +28,18 @@ properties:
     description: The number of students that have already enrolled for this offering
     format: int32
     minimum: 0
+  pendingNumberStudents:
+    type: number
+    description: The number of students that have a pending enrollment request for this offering
+    format: int32
+    minimum: 0
+  isLineItem:
+    type: boolean
+    description: Whether the offering is a line item or not
+  resultValueType:
+    type: string
+    description: The result value type for this offering
+    enum:
+      - 0..10
+      - a..f
+      - voldoende|onvoldoende

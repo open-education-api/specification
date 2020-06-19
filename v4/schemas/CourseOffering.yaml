@@ -3,6 +3,8 @@ allOf:
   - type: object
     required:
       - modeOfStudy
+      - startDate
+      - endDate
     properties:
       modeOfStudy:
         type: string
@@ -12,3 +14,11 @@ allOf:
           - part-time
           - dual
           - self-paced
+      startDate:
+        type: string
+        description: The moment on which this offering starts, RFC3339 (date)
+        format: date
+      endDate:
+        type: string
+        description: The moment on which this offering ends, RFC3339 (date)
+        format: date
