@@ -2,6 +2,8 @@ type: object
 required:
   - newsFeedId
   - title
+  - description
+  - type
 properties:
   newsFeedId:
     type: string
@@ -12,3 +14,14 @@ properties:
   description:
     type: string
     description: The description of this news feed
+  type:
+    type: string
+    description: The type of the object this news feed relates to
+    enum:
+      - organization
+      - program
+      - course
+      - component
+      - person
+      - building
+      - room

@@ -2,7 +2,7 @@ get:
   summary: GET /news-feeds
   description: Get a list of all news feeds, ordered by title.
   tags:
-    - news feeds
+    - news
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'

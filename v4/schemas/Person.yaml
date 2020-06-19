@@ -5,6 +5,7 @@ required:
   - surname
   - displayName
   - affiliations
+  - mail
 properties:
   personId:
     type: string
@@ -18,12 +19,28 @@ properties:
   surname:
     type: string
     description: The family name of this person
+  initials:
+    type: string
+    description: The initials of this person
   displayName:
     type: string
     description: The name of this person which will be displayed
   dateOfBirth:
     type: string
     description: The date of birth of this person, RFC3339 (full-date)
+    format: date
+  cityOfBirth:
+    type: string
+    description: The city of birth of this person
+  countryOfBirth:
+    type: string
+    description: The country of birth of this person
+  nationality:
+    type: string
+    description: The nationality of this person
+  dateOfNationality:
+    type: string
+    description: The date of nationality of this person, RFC3339 (full-date)
     format: date
   affiliations:
     type: array
@@ -36,11 +53,15 @@ properties:
         - guest
   mail:
     type: string
-    description: The e-mailaddress of this person
+    description: The primary e-mailaddress of this person
+    format: email
+  secondaryMail:
+    type: string
+    description: The secondary e-mailaddress of this person
     format: email
   telephoneNumber:
     type: string
-    description: The telephone number at the office of this person
+    description: The telephone number of this person
   mobileNumber:
     type: string
     description: The mobile number of this person
@@ -54,15 +75,36 @@ properties:
     format: uri
   gender:
     type: string
-    description: The first letter of this person's gender
+    description: The gender of this person
     enum:
       - M
       - F
       - U
       - X
-  title:
+  titlePrefix:
     type: string
-    description: A title to be used for this person
+    description: A title prefix to be used for this person
+  titleSuffix:
+    type: string
+    description: A title suffix to be used for this person
   office:
     type: string
     description: The name of the office where this person is located
+  address:
+    $ref: './Address.yaml'
+  ICEName:
+    type: string
+  ICEPhoneNumber:
+    type: string
+  ICERelation:
+    type: string
+    enum:
+      - partner
+      - parent
+      - other
+  languageOfChoice:
+    type: array
+    description: The language(s) of choice for this person, RFC3066
+    items:
+      type: string
+      example: nl-NL

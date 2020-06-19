@@ -2,9 +2,6 @@ type: object
 required:
   - newsItemId
   - title
-  - content
-  - publishDate
-  - lastModified
 properties:
   newsItemId:
     type: string
@@ -35,4 +32,8 @@ properties:
   lastModified:
     type: string
     description: The moment on which this news item was updated, RFC3339 (date-time)
+    format: date-time
+  validUntil:
+    type: string
+    description: The moment until which this news item is valid, RFC3339 (date-time)
     format: date-time

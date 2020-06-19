@@ -39,10 +39,8 @@ tags:
     description: The building API provides a building that is currently used by the organization. Including all location details.
   - name: rooms
     description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
-  - name: news feeds
-    description: The news feeds API provides An aggregation of news items regarding a specific theme. (Updated on ad hoc-base)
-  - name: news items
-    description: The news items API provides a message containing relevant information about an activity taking place a person or a resource. (Updated on ad hoc-base)
+  - name: news
+    description: The news API provides news feeds and items regarding a specific subject.
 paths:
   /:
     $ref: paths/Service.yaml
@@ -106,7 +104,7 @@ paths:
     $ref: paths/NewsFeedCollection.yaml
   /news-feeds/{newsFeedId}:
     $ref: paths/NewsFeedInstance.yaml
-  /news-items:
-    $ref: paths/NewsItemCollection.yaml
+  /news-feeds/{newsFeedId}/news-items:
+    $ref: paths/NewsFeedItemCollection.yaml
   /news-items/{newsItemId}:
     $ref: paths/NewsItemInstance.yaml

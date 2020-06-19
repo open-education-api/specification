@@ -1,9 +1,15 @@
 get:
-  summary: GET /news-items
+  summary: GET /news-feeds/{newsFeedId}/news-items
   description: Get an ordered list of all news items.
   tags:
-    - news items
+    - news
   parameters:
+    - name: newsFeedId
+      in: path
+      description: News feed ID
+      required: true
+      schema:
+        type: string
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - name: order
@@ -16,12 +22,6 @@ get:
         enum:
           - publishDate_desc
           - lastModified_desc
-    - name: newsFeed
-      in: query
-      description: Filter by news feed (newsFeedId)
-      required: false
-      schema:
-        type: string
   responses:
     '200':
       description: OK
@@ -46,3 +46,9 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/NewsItem.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

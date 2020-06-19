@@ -2,7 +2,7 @@ get:
   summary: GET /news-items/{newsItemId}
   description: Get a single news item.
   tags:
-    - news items
+    - news
   parameters:
     - name: newsItemId
       in: path
