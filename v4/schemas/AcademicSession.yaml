@@ -1,16 +1,16 @@
 type: object
 required:
   - academicSessionId
-  - name
+  - title
   - startDate
   - endDate
 properties:
   academicSessionId:
     type: string
     description: Unique id for this academic session
-  name:
+  title:
     type: string
-    description: The name of this program
+    description: The title of this academic session
   startDate:
     type: string
     description: The day on which this academic session starts, RFC3339 (full-date)

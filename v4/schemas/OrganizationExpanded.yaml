@@ -3,9 +3,9 @@ allOf:
   - type: object
     description: These properties are only present when explicitly included
     properties:
-      parentOrganization:
+      parent:
         $ref: './Organization.yaml'
-      subOrganizations:
+      children:
         type: array
         items:
           $ref: './Organization.yaml'

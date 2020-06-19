@@ -1,0 +1,8 @@
+allOf:
+  - $ref: './AcademicSession.yaml'
+  - type: object
+    properties:
+      parent:
+        $ref: './AcademicSession.yaml'
+      year:
+        $ref: './AcademicSession.yaml'

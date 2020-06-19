@@ -19,8 +19,8 @@ get:
         items:
           type: string
           enum:
-            - parentProgram
-            - subPrograms
+            - parent
+            - children
   responses:
     '200':
       description: OK

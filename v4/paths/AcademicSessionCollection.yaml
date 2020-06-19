@@ -6,6 +6,12 @@ get:
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
+    - name: year
+      in: query
+      description: Filter by year (academicSessionId)
+      required: false
+      schema:
+        type: string
   responses:
     '200':
       description: OK

@@ -3,9 +3,9 @@ allOf:
   - type: object
     description: These properties are only present when explicitly included
     properties:
-      parentProgram:
+      parent:
         $ref: './Program.yaml'
-      subPrograms:
+      children:
         type: array
         items:
           $ref: './Program.yaml'

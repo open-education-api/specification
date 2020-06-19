@@ -10,6 +10,17 @@ get:
       required: true
       schema:
         type: string
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - parent
+            - year
   responses:
     '200':
       description: OK

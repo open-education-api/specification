@@ -1,58 +1,39 @@
 type: object
 required:
-  - name
+  - organizationId
+  - title
+  - shortname
   - type
 properties:
   organizationId:
     type: string
     description: Unique id of this organization
+  title:
+    type: string
+    description: Title of the organization
+  shortname:
+    type: string
+    description: Shortname of the organization
+  description:
+    type: string
+    description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
   type:
     type: string
     description: The type of this organization
     enum:
+      - root
       - institution
       - department
       - faculty
-      - domain
-  name:
-    type: string
-    description: Name of the organization
-  brin:
-    type: string
-    description: BRIN-code of the organization
-  description:
-    type: string
-    description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
-  address:
-    type: object
-    description: the full street address including house number and street name of main building
-    properties:
-      street:
-        type: string
-        description: the full street address including house number and street name
-        example: Moreelsepark 48
-      additional:
-        type: string
-        description: further details like building name, suite, apartment number, etc.
-        example: On the other side of the road
-      city:
-        type: string
-        description: name of the city / locality
-        example: Utrecht
-      zip:
-        type: string
-        description: zip code or postal code
-        pattern: ^[1-9][0-9]{3}[A-Z]{2}$
-        example: 3511 EP
-      countryCode:
-        type: string
-        description: the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-        example: NL
-    required:
-      - street
-      - city
-      - zip
-      - countryCode
+  addresses:
+    type: array
+    description: Addresses of this organization
+    items:
+      $ref: './Address.yaml'
   logo:
     type: string
+    description: Logo of this organization
     format: uri
+  brin:
+    type: string
+    description: BRIN-code of this organization

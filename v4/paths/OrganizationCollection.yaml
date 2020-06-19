@@ -13,10 +13,10 @@ get:
       schema:
         type: string
         enum:
+          - root
           - institution
           - department
           - faculty
-          - domain
   responses:
     '200':
       description: OK
