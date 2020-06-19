@@ -35,10 +35,19 @@ get:
               items:
                 type: array
                 items:
-                  oneOf:
-                    - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-                    - $ref: '../schemas/CourseOfferingAssociation.yaml'
-                    - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+                  allOf:
+                    - oneOf:
+                        - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+                        - $ref: '../schemas/CourseOfferingAssociation.yaml'
+                        - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+                    - type: object
+                      required:
+                        - person
+                      properties:
+                        person:
+                          $ref: '../schemas/Person.yaml'
+                        academicSession:
+                          $ref: '../schemas/AcademicSession.yaml'
     '404':
       description: Not Found
       content:

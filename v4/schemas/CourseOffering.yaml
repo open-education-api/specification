@@ -16,9 +16,9 @@ allOf:
           - self-paced
       startDate:
         type: string
-        description: The moment on which this offering starts, RFC3339 (date)
+        description: The moment on which this offering starts, RFC3339 (full-date)
         format: date
       endDate:
         type: string
-        description: The moment on which this offering ends, RFC3339 (date)
+        description: The moment on which this offering ends, RFC3339 (full-date)
         format: date

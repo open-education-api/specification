@@ -2,7 +2,5 @@ allOf:
   - $ref: './Association.yaml'
   - type: object
     properties:
-      earnedEcts:
-        type: number
-        description: The number of EC's that has been earned so far
-        minimum: 0
+      result:
+        $ref: './ProgramResult.yaml'

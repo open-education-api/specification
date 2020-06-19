@@ -46,9 +46,36 @@ get:
                 type: array
                 items:
                   oneOf:
-                    - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-                    - $ref: '../schemas/CourseOfferingAssociation.yaml'
-                    - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+                    - allOf:
+                        - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+                        - type: object
+                          required:
+                            - offering
+                          properties:
+                            offering:
+                              $ref: '../schemas/ProgramOffering.yaml'
+                            academicSession:
+                              $ref: '../schemas/AcademicSession.yaml'
+                    - allOf:
+                        - $ref: '../schemas/CourseOfferingAssociation.yaml'
+                        - type: object
+                          required:
+                            - offering
+                          properties:
+                            offering:
+                              $ref: '../schemas/CourseOffering.yaml'
+                            academicSession:
+                              $ref: '../schemas/AcademicSession.yaml'
+                    - allOf:
+                        - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+                        - type: object
+                          required:
+                            - offering
+                          properties:
+                            offering:
+                              $ref: '../schemas/ComponentOffering.yaml'
+                            academicSession:
+                              $ref: '../schemas/AcademicSession.yaml'
     '404':
       description: Not Found
       content:

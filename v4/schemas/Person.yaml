@@ -27,16 +27,13 @@ properties:
     format: date
   affiliations:
     type: array
-    description: The affiliations of how this person is associated with the organization
+    description: The affiliations of this person
     items:
       type: string
       enum:
         - student
         - employee
-        - staff
-        - member
-        - affiliate
-        - organization
+        - guest
   mail:
     type: string
     description: The e-mailaddress of this person
