@@ -2,7 +2,8 @@ type: object
 required:
   - componentId
   - type
-  - name
+  - title
+  - abbreviation
 properties:
   componentId:
     type: string
@@ -11,11 +12,16 @@ properties:
     type: string
     description: The component type
     enum:
-      - lecture
       - test
-  name:
+      - lecture
+      - practica
+      - seminar
+  title:
     type: string
     description: The name of this test
+  abbreviation:
+    type: string
+    description: The abbreviation of this test
   description:
     type: string
     description: The description of this test

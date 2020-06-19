@@ -1,0 +1,9 @@
+allOf:
+  - $ref: './Component.yaml'
+  - type: object
+    description: These properties are only present when explicitly included
+    properties:
+      course:
+        type: array
+        items:
+          $ref: './Course.yaml'

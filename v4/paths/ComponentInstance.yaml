@@ -10,13 +10,23 @@ get:
       required: true
       schema:
         type: string
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - course
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/Component.yaml'
+            $ref: '../schemas/ComponentExpanded.yaml'
     '404':
       description: Not Found
       content:

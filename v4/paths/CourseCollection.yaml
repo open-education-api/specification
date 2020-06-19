@@ -6,12 +6,6 @@ get:
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - name: student
-      in: query
-      description: Filter by student (personId)
-      required: false
-      schema:
-        type: string
   responses:
     '200':
       description: OK

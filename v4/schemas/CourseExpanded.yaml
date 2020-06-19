@@ -1,0 +1,11 @@
+allOf:
+  - $ref: './Course.yaml'
+  - type: object
+    description: These properties are only present when explicitly included
+    properties:
+      program:
+        $ref: './Program.yaml'
+      coordinator:
+        type: array
+        items:
+          $ref: './Person.yaml'

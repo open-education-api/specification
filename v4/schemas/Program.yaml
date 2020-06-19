@@ -1,11 +1,25 @@
 type: object
 required:
   - programId
+  - type
   - name
+  - description
 properties:
   programId:
     type: string
     description: Unique id for this program
+  type:
+    type: string
+    description: The type of this program
+    enum:
+      - program
+      - minor
+      - honours
+      - specialization
+      - electives
+      - module
+      - track
+      - joint-degree
   name:
     type: string
     description: The name of this program
@@ -15,16 +29,29 @@ properties:
   ects:
     type: number
     description: The number of EC's that can be archieved in this program
-    format: int32
     minimum: 0
   qualificationAwarded:
     type: string
     description: Type of qualificaton that can be obtained on finishing the program
-    example: Bachelor of Arts, or Bachelor of Nursing
+    enum:
+      - bachelor of science
+      - bachelor of nursing
+      - associate degree
+      - ed
+  lengthOfProgram:
+    type: int
+    description: The duration of this program in months
   levelOfQualification:
     type: string
     description: Level of qualification according to the National Qualification Framework and the European Qualifications Framework
     example: E.g. Bachelor’s degree; EQF for LLL level 6; NLQF level 6
+  sector:
+    type: string
+    description: The sector for this program
+    enum:
+      - mbo
+      - hbo
+      - wo
   fieldsOfStudy:
     type: string
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
@@ -32,6 +59,12 @@ properties:
   profileOfProgram:
     type: string
     description: Brief description of the main focus of the program.
-  programLearningOutcomes:
+  learningOutcomes:
+    type: array
+    description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
+    items:
+      type: string
+  admissionRequirements:
     type: string
-    description: List the learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
+  qualificationRequirements:
+    type: string
