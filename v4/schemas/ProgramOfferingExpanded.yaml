@@ -5,3 +5,5 @@ allOf:
     properties:
       program:
         $ref: './Program.yaml'
+      organization:
+        $ref: './Organization.yaml'

@@ -11,9 +11,11 @@ properties:
   abbreviation:
     type: string
     description: The abbreviation of the name of this room
+    maxLength: 256
   name:
     type: string
     description: The name of this room
+    maxLength: 256
   type:
     type: string
     description: The type of this room
@@ -37,6 +39,9 @@ properties:
   floor:
     type: string
     description: The floor on which this room is located
+  wing:
+    type: string
+    description: The wing in which this room is located
   geolocation:
     type: object
     description: Geolocation of this address (WGS84 coordinate reference system)

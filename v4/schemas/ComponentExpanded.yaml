@@ -7,3 +7,5 @@ allOf:
         type: array
         items:
           $ref: './Course.yaml'
+      organization:
+        $ref: './Organization.yaml'

@@ -16,13 +16,16 @@ properties:
       - test
       - lecture
       - practica
+      - werkcollege
       - seminar
   title:
     type: string
     description: The name of this test
+    maxLength: 256
   abbreviation:
     type: string
     description: The abbreviation of this test
+    maxLength: 256
   description:
     type: string
     description: The description of this test

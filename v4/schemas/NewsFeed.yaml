@@ -12,6 +12,7 @@ properties:
   title:
     type: string
     description: The title for this news feed
+    maxLength: 256
   description:
     type: string
     description: The description of this news feed

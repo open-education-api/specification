@@ -22,6 +22,7 @@ get:
           enum:
             - program
             - coordinator
+            - organization
   responses:
     '200':
       description: OK

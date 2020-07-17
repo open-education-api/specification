@@ -2,7 +2,8 @@ type: object
 required:
   - programId
   - type
-  - name
+  - title
+  - abbreviation
   - description
 properties:
   programId:
@@ -21,9 +22,14 @@ properties:
       - module
       - track
       - joint-degree
-  name:
+  title:
     type: string
     description: The name of this program
+    maxLength: 256
+  abbreviation:
+    type: string
+    description: The abbreviation of this program
+    maxLength: 256
   description:
     type: string
     description: The description of this program
@@ -69,7 +75,8 @@ properties:
   fieldsOfStudy:
     type: string
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
-    example: e.g. 0732 Building and civil engineering
+    maxLength: 4
+    example: '0732'
   profileOfProgram:
     type: string
     description: Brief description of the main focus of the program.
@@ -82,5 +89,10 @@ properties:
     type: string
   qualificationRequirements:
     type: string
+  link:
+    type: string
+    description: URL of the program's website
+    format: uri
+    maxLength: 2048
   ext:
     $ref: './Ext.yaml'

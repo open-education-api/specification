@@ -13,8 +13,10 @@ allOf:
         type: string
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
-      assessmentType:
-        type: string
-        description: The form of assessment
+      resultWeight:
+        type: integer
+        description: The result weight of this offering
+        minimum: 0
+        maximum: 100
       room:
         $ref: './Room.yaml'

@@ -12,9 +12,11 @@ properties:
   title:
     type: string
     description: Title of the organization
+    maxLength: 256
   shortName:
     type: string
     description: Short name of the organization
+    maxLength: 256
   description:
     type: string
     description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
@@ -31,10 +33,16 @@ properties:
     description: Addresses of this organization
     items:
       $ref: './Address.yaml'
+  link:
+    type: string
+    description: URL of the organization's website
+    format: uri
+    maxLength: 2048
   logo:
     type: string
     description: Logo of this organization
     format: uri
+    maxLength: 2048
   brin:
     type: string
     description: BRIN-code of this organization

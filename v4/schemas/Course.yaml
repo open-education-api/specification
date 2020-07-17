@@ -4,7 +4,7 @@ required:
   - title
   - abbreviation
   - description
-  - mainLanguage
+  - level
 properties:
   courseId:
     type: string
@@ -13,9 +13,11 @@ properties:
   title:
     type: string
     description: The title of this course (ECTS-title)
+    maxLength: 256
   abbreviation:
     type: string
     description: The abbreviation or internal code used to identify this course (ECTS-code)
+    maxLength: 256
   ects:
     type: number
     description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
@@ -41,11 +43,6 @@ properties:
       - bachelor
       - master
       - doctoral
-  format:
-    type: array
-    description: The format in which this course is given (ECTS-format)
-    items:
-      type: string
   modeOfDelivery:
     type: array
     description: The mode of delivery of the component (ECTS-mode of delivery)
@@ -68,7 +65,8 @@ properties:
     description: A description of the way exams for this course are taken (ECTS-assessment method and criteria)
   link:
     type: string
-    description: The url containing the address of the website with more information about the course
+    description: URL of the course's website
     format: uri
+    maxLength: 2048
   ext:
     $ref: './Ext.yaml'

@@ -6,15 +6,18 @@ required:
 properties:
   contactEmail:
     type: string
-    format: email
     description: Contact e-mail address of the service owner
+    format: email
+    maxLength: 256
   specification:
     type: string
-    format: uri
     description: URL of the API specification (YAML or JSON, compliant with [Open API Specification v3](https://github.com/OAI/OpenAPI-Specification/))
+    format: uri
+    maxLength: 2048
   documentation:
     type: string
-    format: uri
     description: URL of the API documentation, including general terms and privacy statement
+    format: uri
+    maxLength: 2048
   ext:
     $ref: './Ext.yaml'

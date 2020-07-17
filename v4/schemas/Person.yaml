@@ -14,18 +14,21 @@ properties:
   givenName:
     type: string
     description: The first name of this person
+    maxLength: 256
   surnamePrefix:
     type: string
     description: The prefix of the family name of this person
   surname:
     type: string
     description: The family name of this person
-  initials:
-    type: string
-    description: The initials of this person
+    maxLength: 256
   displayName:
     type: string
     description: The name of this person which will be displayed
+    maxLength: 256
+  initials:
+    type: string
+    description: The initials of this person
   dateOfBirth:
     type: string
     description: The date of birth of this person, RFC3339 (full-date)
@@ -56,24 +59,30 @@ properties:
     type: string
     description: The primary e-mailaddress of this person
     format: email
+    maxLength: 256
   secondaryMail:
     type: string
     description: The secondary e-mailaddress of this person
     format: email
+    maxLength: 256
   telephoneNumber:
     type: string
     description: The telephone number of this person
+    maxLength: 256
   mobileNumber:
     type: string
     description: The mobile number of this person
+    maxLength: 256
   photoSocial:
     type: string
     description: The url of the informal picture of this person
     format: uri
+    maxLength: 2048
   photoOfficial:
     type: string
     description: The url of the official picture of this person
     format: uri
+    maxLength: 2048
   gender:
     type: string
     description: The gender of this person
@@ -95,8 +104,10 @@ properties:
     $ref: './Address.yaml'
   ICEName:
     type: string
+    maxLength: 256
   ICEPhoneNumber:
     type: string
+    maxLength: 256
   ICERelation:
     type: string
     enum:

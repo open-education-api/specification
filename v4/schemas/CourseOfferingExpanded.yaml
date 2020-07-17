@@ -7,3 +7,5 @@ allOf:
         $ref: './Course.yaml'
       programOffering:
         $ref: './ProgramOffering.yaml'
+      organization:
+        $ref: './Organization.yaml'

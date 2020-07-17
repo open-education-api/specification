@@ -9,3 +9,5 @@ allOf:
         type: array
         items:
           $ref: './Person.yaml'
+      organization:
+        $ref: './Organization.yaml'
