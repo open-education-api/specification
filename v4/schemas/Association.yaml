@@ -7,6 +7,7 @@ properties:
   associationId:
     type: string
     description: Unique id of this association
+    format: uuid
   role:
     type: string
     description: The role of this person associated with the offering

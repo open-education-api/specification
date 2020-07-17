@@ -8,6 +8,7 @@ properties:
   organizationId:
     type: string
     description: Unique id of this organization
+    format: uuid
   title:
     type: string
     description: Title of the organization

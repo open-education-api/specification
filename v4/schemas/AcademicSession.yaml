@@ -8,6 +8,7 @@ properties:
   academicSessionId:
     type: string
     description: Unique id for this academic session
+    format: uuid
   title:
     type: string
     description: The title of this academic session

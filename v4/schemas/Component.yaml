@@ -8,6 +8,7 @@ properties:
   componentId:
     type: string
     description: Unique id of this component
+    format: uuid
   type:
     type: string
     description: The component type

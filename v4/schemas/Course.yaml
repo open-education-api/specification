@@ -9,6 +9,7 @@ properties:
   courseId:
     type: string
     description: Unique id of this course
+    format: uuid
   title:
     type: string
     description: The title of this course (ECTS-title)

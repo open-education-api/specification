@@ -8,6 +8,7 @@ properties:
   programId:
     type: string
     description: Unique id for this program
+    format: uuid
   type:
     type: string
     description: The type of this program

@@ -10,6 +10,7 @@ properties:
   personId:
     type: string
     description: Unique id of this person
+    format: uuid
   givenName:
     type: string
     description: The first name of this person

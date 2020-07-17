@@ -4,6 +4,13 @@ get:
   tags:
     - academic sessions
   parameters:
+    - name: academicSessionId
+      in: path
+      description: Academic session ID
+      required: true
+      schema:
+        type: string
+        format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
   responses:

@@ -10,6 +10,7 @@ get:
       required: true
       schema:
         type: string
+        format: uuid
     - name: expand
       in: query
       description: Optional properties to include, separated by a comma

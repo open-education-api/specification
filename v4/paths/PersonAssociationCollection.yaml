@@ -10,6 +10,7 @@ get:
       required: true
       schema:
         type: string
+        format: uuid
     - name: type
       in: query
       description: Association type

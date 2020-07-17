@@ -9,6 +9,7 @@ properties:
   offeringId:
     type: string
     description: Unique id of this offering
+    format: uuid
   academicSession:
     $ref: './AcademicSession.yaml'
   description:

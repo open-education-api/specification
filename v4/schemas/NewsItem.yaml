@@ -6,6 +6,7 @@ properties:
   newsItemId:
     type: string
     description: Unique id for this news item
+    format: uuid
   title:
     type: string
     description: The title for this news item

@@ -8,6 +8,7 @@ properties:
   newsFeedId:
     type: string
     description: Unique id for this news feed
+    format: uuid
   title:
     type: string
     description: The title for this news feed
