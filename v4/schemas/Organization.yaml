@@ -2,7 +2,7 @@ type: object
 required:
   - organizationId
   - title
-  - shortname
+  - shortName
   - type
 properties:
   organizationId:
@@ -12,9 +12,9 @@ properties:
   title:
     type: string
     description: Title of the organization
-  shortname:
+  shortName:
     type: string
-    description: Shortname of the organization
+    description: Short name of the organization
   description:
     type: string
     description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
