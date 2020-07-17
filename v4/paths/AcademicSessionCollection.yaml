@@ -6,6 +6,13 @@ get:
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
+    - name: parent
+      in: query
+      description: Filter by parent (academicSessionId), may be empty to retrieve all years (which have no parent)
+      required: false
+      schema:
+        type: string
+        format: uuid
     - name: year
       in: query
       description: Filter by year (academicSessionId)
