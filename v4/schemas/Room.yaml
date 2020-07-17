@@ -37,3 +37,19 @@ properties:
   floor:
     type: string
     description: The floor on which this room is located
+  geolocation:
+    type: object
+    description: Geolocation of this address (WGS84 coordinate reference system)
+    required:
+      - latitude
+      - longitude
+    properties:
+      latitude:
+        type: number
+        format: double
+      longitude:
+        type: number
+        format: double
+      altitude:
+        type: number
+        format: double
