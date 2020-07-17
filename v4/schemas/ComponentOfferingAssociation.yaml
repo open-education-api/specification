@@ -3,4 +3,4 @@ allOf:
   - type: object
     properties:
       result:
-        $ref: './CourseResult.yaml'
+        $ref: './ComponentResult.yaml'

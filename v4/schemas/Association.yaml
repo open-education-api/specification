@@ -1,6 +1,7 @@
 type: object
 required:
   - associationId
+  - type
   - role
   - state
 properties:
@@ -8,6 +9,13 @@ properties:
     type: string
     description: Unique id of this association
     format: uuid
+  type:
+    type: string
+    description: The type of this association
+    enum:
+      - programOffering
+      - courseOffering
+      - componentOffering
   role:
     type: string
     description: The role of this person associated with the offering
