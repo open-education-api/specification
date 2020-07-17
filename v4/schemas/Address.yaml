@@ -1,6 +1,15 @@
 type: object
 description: The full street address
+required:
+  - type
 properties:
+  type:
+    type: string
+    description: Address type
+    enum:
+      - postal
+      - visit
+      - deliveries
   street:
     type: string
     description: The street name
@@ -25,17 +34,16 @@ properties:
     type: string
     description: the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
     example: NL
-  lat:
-    type: number
-    description: The latitude for this address
-    format: double
-  lon:
-    type: number
-    description: The longitude for this address
-    format: double
-  type:
-    type: string
-    description: Address type
-    enum:
-      - postal
-      - visit
+  geolocation:
+    type: object
+    description: Geolocation of this address (WGS84 coordinate reference system)
+    required:
+      - latitude
+      - longitude
+    properties:
+      latitude:
+        type: number
+        format: double
+      longitude:
+        type: number
+        format: double
