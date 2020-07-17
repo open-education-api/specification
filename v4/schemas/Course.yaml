@@ -70,3 +70,5 @@ properties:
     type: string
     description: The url containing the address of the website with more information about the course
     format: uri
+  ext:
+    $ref: './Ext.yaml'

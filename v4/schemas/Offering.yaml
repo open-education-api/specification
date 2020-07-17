@@ -54,3 +54,5 @@ properties:
       - 'UKletter'
       - '100'
       - '10'
+  ext:
+    $ref: './Ext.yaml'

@@ -109,3 +109,5 @@ properties:
     items:
       type: string
       example: nl-NL
+  ext:
+    $ref: './Ext.yaml'

@@ -33,3 +33,5 @@ properties:
       - canceled
       - denied
       - associated
+  ext:
+    $ref: './Ext.yaml'

@@ -38,3 +38,5 @@ properties:
   brin:
     type: string
     description: BRIN-code of this organization
+  ext:
+    $ref: './Ext.yaml'

@@ -53,3 +53,5 @@ properties:
       altitude:
         type: number
         format: double
+  ext:
+    $ref: './Ext.yaml'

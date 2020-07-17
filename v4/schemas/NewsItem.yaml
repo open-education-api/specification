@@ -38,3 +38,5 @@ properties:
     type: string
     description: The moment until which this news item is valid, RFC3339 (date-time)
     format: date-time
+  ext:
+    $ref: './Ext.yaml'

@@ -16,3 +16,5 @@ properties:
     type: string
     format: uri
     description: URL of the API documentation, including general terms and privacy statement
+  ext:
+    $ref: './Ext.yaml'

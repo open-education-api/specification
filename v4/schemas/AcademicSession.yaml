@@ -20,3 +20,5 @@ properties:
     type: string
     description: The day on which this academic session ends, RFC3339 (full-date)
     format: date
+  ext:
+    $ref: './Ext.yaml'

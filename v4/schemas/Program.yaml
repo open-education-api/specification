@@ -82,3 +82,5 @@ properties:
     type: string
   qualificationRequirements:
     type: string
+  ext:
+    $ref: './Ext.yaml'

@@ -19,3 +19,5 @@ properties:
     description: The description of this building
   address:
     $ref: './Address.yaml'
+  ext:
+    $ref: './Ext.yaml'

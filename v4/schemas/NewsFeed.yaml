@@ -26,3 +26,5 @@ properties:
       - person
       - building
       - room
+  ext:
+    $ref: './Ext.yaml'
