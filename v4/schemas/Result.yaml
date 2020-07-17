@@ -1,14 +1,9 @@
 type: object
 required:
-  - resultId
   - state
   - grade
   - resultDate
 properties:
-  resultId:
-    type: string
-    description: Unique id of this result
-    format: uuid
   state:
     type: string
     description: The state of this result
