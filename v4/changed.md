@@ -2,7 +2,14 @@
 
 ![Open Education API](https://github.com/open-education-api/specification/blob/master/logo.png)
 
-The biggest changes between 3.0 and 4.0 are in the endpoints supported and the model that is used to create the new 4.0 specification
+The OOAPI-specification is finding more use cases. This causes the model to grow and also to change in certain aspects.
+
+New area's of implementation are:
+* Student mobility (to allow students to enroll for courses at guest institutions)
+* Combined calanders for students (to allow students for information over instiutions)
+* Course catalogs, to provide students with information on the types of courses that are available at a given institution at a given time.
+
+The biggest changes between 3.0 and 4.0 are in the endpoints supported, and the model that is used to create the new 4.0 specification. Some of the earlier objects have been removed others objects have grown and can now provide more information (for example the person object, which can now have a larger payload)
 
 ## Models
 The 3.x model is based on:
@@ -15,6 +22,8 @@ the 4.0 model is based on:
 
 * The 4.0 version will be implementing [the Dutch api strategy](https://docs.geostandaarden.nl/api/API-Strategie/)
 * With one adoption: Language used: **US English**
+
+The model itself is also more restricted by using enumerations. At the moment these enumerations are still being discussed. You can join in on the discussion [here](https://github.com/open-education-api/specification/issues/90)
 
 ## Alignment 
 The 4.0 model is partially based on the IMS eduAPI model which is currently still in development. The most important change in the 4.0 model is the introduction of the Nine-Square-Model
@@ -61,3 +70,5 @@ The object model objects: ProgramOfferingAssociation, CourseOfferingAssociation,
 | Rooms                                                         | Rooms             |
 | NewsFeeds                                                     | NewsFeeds         |
 | NewsItems                                                     | NewsItems         |
+
+The endpoints also have more specific enumerations. This is done to improve interoperability between implementations of the OOAPI-specification between institutions. 
