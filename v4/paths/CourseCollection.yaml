@@ -6,6 +6,7 @@ get:
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/search.yaml'
   responses:
     '200':
       description: OK
