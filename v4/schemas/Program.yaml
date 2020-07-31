@@ -22,6 +22,7 @@ properties:
       - module
       - track
       - joint-degree
+      - alliance
   name:
     type: string
     description: The name of this program
