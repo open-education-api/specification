@@ -3,8 +3,10 @@ allOf:
   - type: object
     description: These properties are only present when explicitly included
     properties:
-      program:
-        $ref: './Program.yaml'
+      programs:
+        type: array
+        items:
+          $ref: './Program.yaml'
       coordinator:
         type: array
         items:

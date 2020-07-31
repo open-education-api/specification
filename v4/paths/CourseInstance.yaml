@@ -20,7 +20,7 @@ get:
         items:
           type: string
           enum:
-            - program
+            - programs
             - coordinator
             - organization
   responses:
