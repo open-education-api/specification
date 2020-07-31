@@ -44,7 +44,7 @@ properties:
     description: The wing in which this room is located
   geolocation:
     type: object
-    description: Geolocation of this address (WGS84 coordinate reference system)
+    description: Geolocation of the entrance of this room (WGS84 coordinate reference system)
     required:
       - latitude
       - longitude
@@ -53,9 +53,6 @@ properties:
         type: number
         format: double
       longitude:
-        type: number
-        format: double
-      altitude:
         type: number
         format: double
   ext:

@@ -36,7 +36,7 @@ properties:
     example: NL
   geolocation:
     type: object
-    description: Geolocation of this address (WGS84 coordinate reference system)
+    description: Geolocation of the entrance of this address (WGS84 coordinate reference system)
     required:
       - latitude
       - longitude
