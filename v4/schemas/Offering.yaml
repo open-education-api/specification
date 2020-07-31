@@ -25,6 +25,10 @@ properties:
     type: string
     description: The title of this offering
     maxLength: 256
+  abbreviation:
+    type: string
+    description: The abbreviation or internal code used to identify this offering
+    maxLength: 256
   description:
     type: string
     description: The description of this offering
