@@ -2,7 +2,7 @@ type: object
 required:
   - programId
   - type
-  - title
+  - name
   - abbreviation
   - description
 properties:
@@ -22,7 +22,7 @@ properties:
       - module
       - track
       - joint-degree
-  title:
+  name:
     type: string
     description: The name of this program
     maxLength: 256

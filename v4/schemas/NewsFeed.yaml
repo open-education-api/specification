@@ -1,7 +1,7 @@
 type: object
 required:
   - newsFeedId
-  - title
+  - name
   - description
   - type
 properties:
@@ -9,9 +9,9 @@ properties:
     type: string
     description: Unique id for this news feed
     format: uuid
-  title:
+  name:
     type: string
-    description: The title for this news feed
+    description: The name for this news feed
     maxLength: 256
   description:
     type: string

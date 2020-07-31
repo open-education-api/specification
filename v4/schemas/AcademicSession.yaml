@@ -1,7 +1,7 @@
 type: object
 required:
   - academicSessionId
-  - title
+  - name
   - startDate
   - endDate
 properties:
@@ -9,9 +9,9 @@ properties:
     type: string
     description: Unique id for this academic session
     format: uuid
-  title:
+  name:
     type: string
-    description: The title of this academic session
+    description: The name of this academic session
     maxLength: 256
   startDate:
     type: string

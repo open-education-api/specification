@@ -3,7 +3,7 @@ required:
   - offeringId
   - type
   - academicSession
-  - title
+  - name
   - description
   - mainLanguage
   - isLineItem
@@ -21,9 +21,9 @@ properties:
       - component
   academicSession:
     $ref: './AcademicSession.yaml'
-  title:
+  name:
     type: string
-    description: The title of this offering
+    description: The name of this offering
     maxLength: 256
   abbreviation:
     type: string

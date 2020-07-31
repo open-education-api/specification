@@ -1,7 +1,7 @@
 type: object
 required:
   - courseId
-  - title
+  - name
   - abbreviation
   - description
   - level
@@ -10,9 +10,9 @@ properties:
     type: string
     description: Unique id of this course
     format: uuid
-  title:
+  name:
     type: string
-    description: The title of this course (ECTS-title)
+    description: The name of this course (ECTS-title)
     maxLength: 256
   abbreviation:
     type: string

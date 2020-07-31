@@ -2,7 +2,7 @@ type: object
 required:
   - componentId
   - type
-  - title
+  - name
   - abbreviation
 properties:
   componentId:
@@ -18,7 +18,7 @@ properties:
       - practica
       - werkcollege
       - seminar
-  title:
+  name:
     type: string
     description: The name of this test
     maxLength: 256

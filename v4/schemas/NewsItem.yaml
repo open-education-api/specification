@@ -1,15 +1,15 @@
 type: object
 required:
   - newsItemId
-  - title
+  - name
 properties:
   newsItemId:
     type: string
     description: Unique id for this news item
     format: uuid
-  title:
+  name:
     type: string
-    description: The title for this news item
+    description: The name for this news item
     maxLength: 256
   authors:
     type: array
