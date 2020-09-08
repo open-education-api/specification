@@ -51,7 +51,7 @@ properties:
       - LLM
       - Phd
   lengthOfProgram:
-    type: int
+    type: integer
     description: The duration of this program in months
   levelOfQualification:
     type: string
