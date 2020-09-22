@@ -8,7 +8,7 @@ properties:
     type: string
     description: Unique id for this room
     format: uuid
-    example: 123e4567-e89b-12d3-a456-332114174000 
+    example: 123e4567-e89b-12d3-a456-332114174000
   abbreviation:
     type: string
     description: The abbreviation of the name of this room
@@ -24,11 +24,15 @@ properties:
     description: The type of this room
     enum:
       - general purpose
-      - lecture hall
-      - pc lab
+      - lecture room
+      - computer room
+      - laboratory
       - office
       - workspace
       - exam location
+      - study room
+      - examination room
+      - conference room
     example: exam location
   description:
     type: string

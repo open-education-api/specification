@@ -13,6 +13,14 @@ properties:
     description: The name for this news item
     maxLength: 256
     example: Room Bb 4.35 will be un available from 2020-09-29 until 2020-09-30
+  type:
+    type: string
+    description: The type of this news item
+    enum:
+      - calamity
+      - general
+      - schedule-change
+      - announcement
   authors:
     type: array
     description: The authors of the article with this news item
@@ -49,7 +57,7 @@ properties:
   lastModified:
     type: string
     description: The moment on which this news item was updated, RFC3339 (date-time)
-    format: date-time 
+    format: date-time
     example: 2020-09-28T00:00:00.000Z
 
   ext:

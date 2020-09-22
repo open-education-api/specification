@@ -49,7 +49,7 @@ properties:
               Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
               Data preparation (e.g., coding and feature selection)
               Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
-              Select an appropriate sampling method (e.g., stratified) 
+              Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
   mainLanguage:
@@ -73,7 +73,7 @@ properties:
     description: The number of students that have a pending enrollment request for this offering
     format: int32
     minimum: 0
-    example: 50 
+    example: 50
   isLineItem:
     type: boolean
     description: Whether the offering is a line item or not
@@ -82,11 +82,11 @@ properties:
     type: string
     description: The result value type for this offering
     enum:
-      - 'PF'
-      - 'USletter'
-      - 'UKletter'
-      - '100'
-      - '10'
+      - 'pass-or-fail'
+      - 'US letter'
+      - 'UK letter'
+      - '0-100'
+      - '1-10'
     example: '10'
   ext:
     $ref: './Ext.yaml'

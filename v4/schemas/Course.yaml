@@ -10,7 +10,7 @@ properties:
     type: string
     description: Unique id of this course
     format: uuid
-    example: 123e4567-e89b-12d3-a456-426614174000    
+    example: 123e4567-e89b-12d3-a456-426614174000
   name:
     type: string
     description: The name of this course (ECTS-title)
@@ -48,7 +48,7 @@ properties:
             Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
             Data preparation (e.g., coding and feature selection)
             Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
-            Select an appropriate sampling method (e.g., stratified) 
+            Select an appropriate sampling method (e.g., stratified)
             Perform parametric tests (e.g., repeated measures (M)ANOVA)
             Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)']
   requirements:
@@ -59,8 +59,8 @@ properties:
     type: string
     description: The level of this course (ECTS-year of study if applicable)
     enum:
-      - mbo 3
-      - mbo 4
+      - secondary vocational education 3
+      - secondary vocational education 4
       - associate degree
       - bachelor
       - master
@@ -73,9 +73,11 @@ properties:
       type: string
       enum:
         - distance-learning
-        - face-to-face
+        - on campus
+        - online
         - hybrid
-    example: face-to-face
+        - situated
+      example: situated
   enrollment:
     type: string
     description: The extra information that is provided for enrollment
