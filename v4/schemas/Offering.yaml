@@ -10,9 +10,9 @@ required:
 discriminator:
   propertyName: type
   mapping:
-    program: './ProgramOffering'
-    course: './CourseOffering'
-    component: './ComponentOffering'
+    program: './ProgramOffering.yaml'
+    course: './CourseOffering.yaml'
+    component: './ComponentOffering.yaml'
 properties:
   offeringId:
     type: string
