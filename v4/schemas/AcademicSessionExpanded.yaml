@@ -4,5 +4,7 @@ allOf:
     properties:
       parent:
         $ref: './AcademicSession.yaml'
+        description: The parent Academicsession of this session (e.g. fall semester 20xx where the current session is a week 40)
       year:
         $ref: './AcademicSession.yaml'
+        description: The top level year of this session (e.g. 20xx where the current session is a week 40 of a semester)
