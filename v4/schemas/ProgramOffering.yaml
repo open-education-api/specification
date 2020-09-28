@@ -14,11 +14,14 @@ allOf:
           - part-time
           - dual
           - self-paced
+        example: full-time 
       startDate:
         type: string
         description: The moment on which this offering starts, RFC3339 (full-date)
         format: date
+        example: 2019-08-21
       endDate:
         type: string
         description: The moment on which this offering ends, RFC3339 (full-date)
         format: date
+        example: 2023-06-15

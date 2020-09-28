@@ -9,13 +9,15 @@ properties:
     type: string
     description: Unique id of this association
     format: uuid
+    example: 123e4567-e89b-12d3-a456-1237891417400
   type:
     type: string
     description: The type of this association
     enum:
-      - programOffering
-      - courseOffering
-      - componentOffering
+      - programOfferingAssociation
+      - courseOfferingAssociation
+      - componentOfferingAssociation
+    example: componentOfferingAssociation
   role:
     type: string
     description: The role of this person associated with the offering
@@ -25,6 +27,7 @@ properties:
       - student assistent
       - coordinator
       - guest
+    example: student
   state:
     type: string
     description: The state of this association
@@ -33,5 +36,6 @@ properties:
       - canceled
       - denied
       - associated
+    example: associated
   ext:
     $ref: './Ext.yaml'

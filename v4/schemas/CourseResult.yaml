@@ -8,3 +8,8 @@ allOf:
         type: number
         description: The number of EC's that is earned
         minimum: 0
+        example: 7.5
+      grade:
+        type: string
+        description: The grade of this course association
+        example: 9
