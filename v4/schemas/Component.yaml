@@ -32,7 +32,7 @@ properties:
     example: Test-INFOMQNM
   description:
     type: string
-    description: The description of this test
+    description: The description of this component
     example: 'Prove executable knowledge of research methods, including:
               Acquire knowledge of HCI research paradigms
               Able to design suitable research studies (e.g., choose between within and between subject designs)

@@ -9,14 +9,17 @@ allOf:
         type: string
         description: The moment on which this offering starts, RFC3339 (date-time)
         format: date-time
+        example: 2020-12-15
       endDateTime:
         type: string
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
+        example: 2020-12-16
       resultWeight:
         type: integer
         description: The result weight of this offering
         minimum: 0
         maximum: 100
+        example: 100
       room:
         $ref: './Room.yaml'
