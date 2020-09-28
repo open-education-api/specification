@@ -13,12 +13,12 @@ properties:
     type: string
     description: The abbreviation of the name of this room
     maxLength: 256
-    example: Beatrix-building
+    example: Bb 4.54
   name:
     type: string
     description: The name of this room
     maxLength: 256
-    example: Beatrix building
+    example: Beatrix building room 4.54
   type:
     type: string
     description: The type of this room
@@ -33,7 +33,7 @@ properties:
   description:
     type: string
     description: The description of this room
-    example: External education and exam rooms
+    example: External education and exam room 4.54
   totalSeats:
     type: integer
     format: int32

@@ -8,17 +8,21 @@ properties:
     type: string
     description: Unique id of this building
     format: uuid
+    example: 123e4567-e89b-12d3-a456-331214174000     
   abbreviation:
     type: string
     description: The abbreviation of the name of this building
     maxLength: 256
+    example: Bb
   name:
     type: string
     description: The name of this building
     maxLength: 256
+    example: Beatrix building
   description:
     type: string
     description: The description of this building
+    example: external rooms location for exams
   address:
     $ref: './Address.yaml'
   ext:

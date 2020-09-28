@@ -44,8 +44,10 @@ properties:
       latitude:
         type: number
         format: double
+        example: 52.089123
       longitude:
         type: number
         format: double
+        example: 5.113337
   ext:
     $ref: './Ext.yaml'
