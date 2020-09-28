@@ -8,4 +8,5 @@ allOf:
         items:
           $ref: './Course.yaml'
       organization:
+        description: Organization which provides this component
         $ref: './Organization.yaml'
