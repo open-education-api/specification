@@ -1,11 +1,13 @@
 allOf:
   - $ref: './Program.yaml'
   - type: object
-    description: These properties are only present when explicitly included
+    description: These properties are only present when explicitly included. This allows for creating and displaying strutures of programs
     properties:
       parent:
+        description: Parent program of which the current program is a child.  
         $ref: './Program.yaml'
       children:
         type: array
+        description: Programs which are a part of this program (e.g specializations)
         items:
           $ref: './Program.yaml'
