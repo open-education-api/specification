@@ -8,7 +8,7 @@ required:
   - mainLanguage
   - isLineItem
 discriminator:
-  propertyName: offeringType
+  propertyName: type
   mapping:
     program: './ProgramOffering'
     course: './CourseOffering'
@@ -19,7 +19,7 @@ properties:
     description: Unique id of this offering
     format: uuid
     example: 123e4567-e89b-12d3-a456-134564174000
-  offeringType:
+  type:
     type: string
     description: The type of this offering
 #    enum:
