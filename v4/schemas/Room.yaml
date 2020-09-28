@@ -33,7 +33,7 @@ properties:
   description:
     type: string
     description: The description of this room
-    exmaple: External education and exam rooms
+    example: External education and exam rooms
   totalSeats:
     type: integer
     format: int32
