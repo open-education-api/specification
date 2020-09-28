@@ -10,29 +10,51 @@ properties:
     type: string
     description: Unique id of this course
     format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174000    
   name:
     type: string
     description: The name of this course (ECTS-title)
     maxLength: 256
+    example: Academic and Professional Writing
   abbreviation:
     type: string
     description: The abbreviation or internal code used to identify this course (ECTS-code)
     maxLength: 256
+    example: INFOMQNM
   ects:
     type: number
     description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
     minimum: 0
+    example: 7.5
   description:
     type: string
     description: The description of this course (ECTS-description)
+    example: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges.
+    Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
   learningOutcomes:
     type: array
     description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome)
     items:
       type: string
+    example: ['Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms
+            Able to design suitable research studies (e.g., choose between within and between subject designs)
+            Define/apply/design metrics and scales
+            Define/produce materials (e.g., stimuli and questionnaires)
+            Define protocols for research studies
+            Understands and take in account concepts of reliability and validity
+            Analyze and improve methods and analysis of published scientific articles
+            Able to deliver scientific reports','
+            Executable knowledge of ­­­statistics, including:
+            Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
+            Data preparation (e.g., coding and feature selection)
+            Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
+            Select an appropriate sampling method (e.g., stratified) 
+            Perform parametric tests (e.g., repeated measures (M)ANOVA)
+            Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)']
   requirements:
     type: string
     description: The requirements needed to enter this course (ECTS-prerequisites)
+    example: None
   level:
     type: string
     description: The level of this course (ECTS-year of study if applicable)
@@ -43,6 +65,7 @@ properties:
       - bachelor
       - master
       - doctoral
+    example: master
   modeOfDelivery:
     type: array
     description: The mode of delivery of the component (ECTS-mode of delivery)
@@ -52,21 +75,26 @@ properties:
         - distance-learning
         - face-to-face
         - hybrid
+    example: face-to-face
   enrollment:
     type: string
     description: The extra information that is provided for enrollment
+    example: enrollment through SIS
   resources:
     type: array
     description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
     items:
       type: string
+    example: ['book to be announced', 'on-line resource x']
   assessment:
     type: string
     description: A description of the way exams for this course are taken (ECTS-assessment method and criteria)
+    example: Exam on campus
   link:
     type: string
     description: URL of the course's website
     format: uri
     maxLength: 2048
+    example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
   ext:
     $ref: './Ext.yaml'

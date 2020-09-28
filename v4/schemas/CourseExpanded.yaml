@@ -9,7 +9,9 @@ allOf:
           $ref: './Program.yaml'
       coordinator:
         type: array
+        description: The person(s) responsible for this course
         items:
           $ref: './Person.yaml'
       organization:
+        description: The organization providing the current course
         $ref: './Organization.yaml'
