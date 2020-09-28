@@ -13,6 +13,22 @@ get:
         format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/search.yaml'
+    - name: mainLanguage
+      in: query
+      description: Filter by mainLanguage
+      required: false
+      schema:
+        type: string
+        enum:
+          - nl-nl
+          - en-gb
+    - name: isLineIttem
+      in: query
+      description: Filter by isLineItem
+      required: false
+      schema:
+        type: boolean
     - name: since
       in: query
       description: Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
@@ -20,6 +36,28 @@ get:
       schema:
         type: string
         format: date
+    - name: until
+      in: query
+      description: Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).
+      required: false
+      schema:
+        type: string
+        format: date
+    - name: sort
+      in: query
+      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - offeringId
+            - name
+            - startDateTime
+            - endDateTime
+        default: 
+        - startDateTime
   responses:
     '200':
       description: OK

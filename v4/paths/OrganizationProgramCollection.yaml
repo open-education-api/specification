@@ -14,6 +14,89 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
+    - name: type
+      in: query
+      description: Filter by program type
+      required: false
+      schema:
+        type: string
+        enum:
+          - program
+          - minor
+          - honours
+          - specialization
+          - electives
+          - module
+          - track
+          - joint-degree
+          - alliance
+    - name: qualificationAwarded
+      in: query
+      description: Filter by qualificationAwarded
+      required: false
+      schema:
+        type: string
+        enum:
+          - AD
+          - BA
+          - BSc
+          - LLB
+          - MA
+          - MSc
+          - LLM
+          - PhD
+    - name: levelOfQualification
+      in: query
+      description: Filter by levelOfQualification
+      required: false
+      schema:
+        type: string
+        enum:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '4+'
+          - '5'
+          - '6'
+          - '7'
+          - '8'
+    - name: sector
+      in: query
+      description: Filter by sector
+      required: false
+      schema:
+        type: string
+        enum:
+          - mbo
+          - hbo
+          - wo
+    - name: fieldsOfStudy
+      in: query
+      description: Filter by fieldsOfStudy
+      required: false
+      schema:
+        type: string
+    - name: croho-creboCode
+      in: query
+      description: Filter by croho-creboCode
+      required: false
+      schema:
+        type: string
+    - name: sort
+      in: query
+      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - programId
+            - name
+            - ects
+        default: 
+        - name
   responses:
     '200':
       description: OK

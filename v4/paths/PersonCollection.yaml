@@ -6,49 +6,32 @@ get:
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - name: order
+    - $ref: '../parameters/search.yaml'
+    - name: affiliations
       in: query
-      description: The field to sort on
-      required: false
-      schema:
-        type: string
-        default: surname_asc
-        enum:
-          - surname_asc
-          - surname_desc
-          - givenName_asc
-          - givenName_desc
-    - name: surname
-      in: query
-      description: Filter by surname
-      required: false
-      schema:
-        type: string
-    - name: displayName
-      in: query
-      description: Filter by displayName
-      required: false
-      schema:
-        type: string
-    - name: affiliation
-      in: query
-      description: Filter by affiliation
+      description: Filter by affiliations
       required: false
       schema:
         type: string
         enum:
           - student
           - employee
-          - staff
-          - member
-          - affiliate
-          - organization
-    - name: course
+          - guest
+    - name: sort
       in: query
-      description: Filter by course (courseId)
+      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
       required: false
       schema:
-        type: string
+        type: array
+        items:
+          type: string
+          enum:
+            - personId
+            - givenName
+            - surName
+            - displayName
+        default: 
+        - personId
   responses:
     '200':
       description: OK

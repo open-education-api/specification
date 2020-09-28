@@ -14,6 +14,43 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
+    - name: level
+      in: query
+      description: Filter by level
+      required: false
+      schema:
+        type: string
+        enum:
+          - mbo 3
+          - mbo 4
+          - associate degree
+          - bachelor
+          - master
+          - doctoral
+    - name: modeOfDelivery
+      in: query
+      description: Filter by modeOfDelivery
+      required: false
+      schema:
+        type: string
+        enum:
+          - distance-learning
+          - face-to-face
+          - hybrid
+    - name: sort
+      in: query
+      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - courseId
+            - name
+            - ects
+        default: 
+        - name
   responses:
     '200':
       description: OK

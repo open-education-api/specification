@@ -13,16 +13,29 @@ get:
         format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - name: order
+    - $ref: '../parameters/search.yaml'
+    - name: author
       in: query
-      description: The field to sort on
+      description: Filter by author
       required: false
       schema:
         type: string
-        default: publishDate_desc
-        enum:
-          - publishDate_desc
-          - lastModified_desc
+    - name: sort
+      in: query
+      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - newsItemId
+            - name
+            - validFrom
+            - validUntil
+            - lastModified
+        default:
+        - name
   responses:
     '200':
       description: OK

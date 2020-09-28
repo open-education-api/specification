@@ -6,18 +6,34 @@ get:
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - name: building
-      in: query
-      description: Filter by building (buildingId)
-      required: false
-      schema:
-        type: string
+    - $ref: '../parameters/search.yaml'
     - name: type
       in: query
-      description: Filter by room type (see service metadata for possible values)
+      description: Filter by room type
       required: false
       schema:
         type: string
+        enum:
+          - general purpose
+          - lecture hall
+          - pc lab
+          - office
+          - workspace
+    - name: sort
+      in: query
+      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - roomId
+            - name
+            - totalSeats
+            - availableSeats
+        default:
+        - name
   responses:
     '200':
       description: OK

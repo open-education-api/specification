@@ -89,6 +89,10 @@ properties:
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
     maxLength: 4
     example: '0732'
+  croho-creboCode:
+    type: string
+    description: CrohoCode in wo/hbo or creboCode in mbo
+    example: '59312'
   profileOfProgram:
     type: string
     description: Brief description of the main focus of the program.
