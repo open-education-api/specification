@@ -22,10 +22,6 @@ properties:
   offeringType:
     type: string
     description: The type of this offering
-#    enum:
-#      - program
-#      - course
-#      - component
     example: component
   academicSession:
     $ref: './AcademicSession.yaml'
