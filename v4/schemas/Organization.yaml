@@ -13,13 +13,16 @@ properties:
     type: string
     description: The name of the organization
     maxLength: 256
+    example: Coöperatie SURF U.A.
   shortName:
     type: string
     description: Short name of the organization
     maxLength: 256
+    example: SURF
   description:
     type: string
     description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
+    example: SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.
   type:
     type: string
     description: The type of this organization
@@ -28,6 +31,7 @@ properties:
       - institution
       - department
       - faculty
+    example: root
   addresses:
     type: array
     description: Addresses of this organization
@@ -38,13 +42,20 @@ properties:
     description: URL of the organization's website
     format: uri
     maxLength: 2048
+    example: https://surf.nl
   logo:
     type: string
     description: Logo of this organization
     format: uri
     maxLength: 2048
+    example: https://www.surf.nl/themes/surf/logo.svg
   brin:
     type: string
-    description: BRIN-code of this organization
+    description: 'BRIN-code of this organization
+      -00BX (BRIN-nummer instelling)
+      -26ED00 (BRIN-nummer vestiging)
+      -10305 (nummer Bevoegd Gezag)
+      -641 (nummer Administratie Kantoor)'
+    example: 00AA
   ext:
     $ref: './Ext.yaml'
