@@ -51,11 +51,16 @@ properties:
     example: https://www.surf.nl/themes/surf/logo.svg
   brin:
     type: string
-    description: 'BRIN-code of this organization
+    description: >
+      BRIN-code of this organization
+
       -00BX (BRIN-nummer instelling)
+
       -26ED00 (BRIN-nummer vestiging)
+
       -10305 (nummer Bevoegd Gezag)
-      -641 (nummer Administratie Kantoor)'
+
+      -641 (nummer Administratie Kantoor)
     example: 00AA
   ext:
     $ref: './Ext.yaml'
