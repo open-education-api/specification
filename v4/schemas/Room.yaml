@@ -8,14 +8,17 @@ properties:
     type: string
     description: Unique id for this room
     format: uuid
+    example: 123e4567-e89b-12d3-a456-332114174000 
   abbreviation:
     type: string
     description: The abbreviation of the name of this room
     maxLength: 256
+    example: Beatrix-building
   name:
     type: string
     description: The name of this room
     maxLength: 256
+    example: Beatrix building
   type:
     type: string
     description: The type of this room
@@ -25,23 +28,30 @@ properties:
       - pc lab
       - office
       - workspace
+      - exam location
+    example: exam location
   description:
     type: string
     description: The description of this room
+    exmaple: External education and exam rooms
   totalSeats:
     type: integer
     format: int32
     description: The total number of seats located in the room
+    example: 300
   availableSeats:
     type: integer
     format: int32
     description: The total number of available (=non-reserved) seats in the room
+    example: 200
   floor:
     type: string
     description: The floor on which this room is located
+    example: 4
   wing:
     type: string
     description: The wing in which this room is located
+    example: None
   geolocation:
     type: object
     description: Geolocation of the entrance of this room (WGS84 coordinate reference system)
@@ -52,8 +62,10 @@ properties:
       latitude:
         type: number
         format: double
+        example: 52.088255
       longitude:
         type: number
         format: double
+        example: 5.106669
   ext:
     $ref: './Ext.yaml'
