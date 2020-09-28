@@ -10,9 +10,9 @@ required:
 discriminator:
   propertyName: offeringType
   mapping:     
-    program: './ProgramOffering.yaml'
-    course: './CourseOffering.yaml'
-    component: './ComponentOffering.yaml'
+    program: '#/components/schemas/programOffering'
+    course: '#/components/schemas/courseOffering'
+    component: '#/components/schemas/componentOffering.yaml'
 properties:
   offeringId:
     type: string
@@ -93,3 +93,14 @@ properties:
     example: '10'
   ext:
     $ref: './Ext.yaml'
+
+components:
+  schemas:
+    programOffering:
+      $ref: './ProgramOffering.yaml'
+    courseOffering:
+      $ref: './CourseOffering.yaml'
+    componentOffering:
+      $ref: './ComponentOffering.yaml' 
+
+
