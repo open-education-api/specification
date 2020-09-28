@@ -8,7 +8,7 @@ required:
   - mainLanguage
   - isLineItem
 discriminator:
-  propertyName: type
+  propertyName: offeringType
   mapping:
     program: './ProgramOffering'
     course: './CourseOffering'
@@ -19,13 +19,13 @@ properties:
     description: Unique id of this offering
     format: uuid
     example: 123e4567-e89b-12d3-a456-134564174000
-  type:
+  offeringType:
     type: string
     description: The type of this offering
-    enum:
-      - program
-      - course
-      - component
+#    enum:
+#      - program
+#      - course
+#      - component
     example: component
   academicSession:
     $ref: './AcademicSession.yaml'
