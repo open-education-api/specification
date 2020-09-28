@@ -7,6 +7,12 @@ required:
   - description
   - mainLanguage
   - isLineItem
+discriminator:
+  propertyName: type
+  mapping:
+    program: './ProgramOffering'
+    course: './CourseOffering'
+    component: './ComponentOffering'
 properties:
   offeringId:
     type: string
