@@ -1,15 +1,15 @@
 type: object
 required:
   - offeringId
-  - type
+  - offeringType
   - academicSession
   - name
   - description
   - mainLanguage
   - isLineItem
 discriminator:
-  propertyName: type
-  mapping:
+  propertyName: offeringType
+  mapping:     
     program: './ProgramOffering.yaml'
     course: './CourseOffering.yaml'
     component: './ComponentOffering.yaml'
@@ -19,7 +19,7 @@ properties:
     description: Unique id of this offering
     format: uuid
     example: 123e4567-e89b-12d3-a456-134564174000
-  type:
+  offeringType:
     type: string
     description: The type of this offering
 #    enum:
