@@ -15,9 +15,9 @@ properties:
     type: string
     description: The comment on this result
     example: None
-  grade:
+  score:
     type: string
-    description: The grade of this program/course/component association
+    description: The score of this program/course/component association (based on resultValueType in offering)
     example: 9
   resultDate:
     type: string

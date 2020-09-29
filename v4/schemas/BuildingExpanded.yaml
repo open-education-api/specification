@@ -1,9 +1,0 @@
-allOf:
-  - $ref: './Building.yaml'
-  - type: object
-    description: These properties are only present when explicitly included
-    properties:
-      room:
-        type: array
-        items:
-          $ref: './Room.yaml'

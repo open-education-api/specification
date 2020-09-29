@@ -4,9 +4,8 @@ allOf:
     description: These properties are only present when explicitly included
     properties:
       course:
-        type: array
-        items:
-          $ref: './Course.yaml'
+        description: The course of which this component is a part
+        $ref: './Course.yaml'
       organization:
         description: Organization which provides this component
         $ref: './Organization.yaml'

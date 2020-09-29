@@ -3,10 +3,9 @@ allOf:
   - type: object
     description: These properties are only present when explicitly included
     properties:
-      programs:
-        type: array
-        items:
-          $ref: './Program.yaml'
+      program:
+        description: The program of which this course is a part of
+        $ref: './Program.yaml'
       coordinator:
         type: array
         description: The person(s) responsible for this course

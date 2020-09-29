@@ -30,7 +30,7 @@ properties:
     type: string
     description: The name of this person which will be displayed
     maxLength: 256
-    example: Maarje van Damme
+    example: Maartje van Damme
   initials:
     type: string
     description: The initials of this person
@@ -46,11 +46,11 @@ properties:
     example: Utrecht
   countryOfBirth:
     type: string
-    description: The country of birth of this person
-    example: The Netherlands
+    description: The country of birth of this person the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+    example: NL
   nationality:
     type: string
-    description: The nationality of this person
+    description: The nationality of this person the nationality according to https://gist.github.com/zspine/2365808
     example: Dutch
   dateOfNationality:
     type: string
