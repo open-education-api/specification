@@ -4,10 +4,6 @@ allOf:
     required:
       - weight
     properties:
-      grade:
-        type: string
-        description: The grade of this component association
-        example: 9
       weight:
         type: integer
         description: The weight to 100 as total for this offering in the course

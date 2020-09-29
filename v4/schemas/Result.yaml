@@ -15,6 +15,10 @@ properties:
     type: string
     description: The comment on this result
     example: None
+  grade:
+    type: string
+    description: The grade of this program/course/component association
+    example: 9
   resultDate:
     type: string
     description: The date this result has been published, RFC3339 (full-date)
