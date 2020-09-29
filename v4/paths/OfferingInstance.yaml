@@ -26,6 +26,7 @@ get:
             - courseOffering
             - component
             - organization
+            - academicSession
   responses:
     '200':
       description: OK

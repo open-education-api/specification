@@ -1,12 +1,12 @@
 get:
-  summary: GET /academic-sessions/{academicSessionId}/offerings
-  description: Get a list of all offerings during this academic session
+  summary: GET /organizations/{organizationId}/offerings
+  description: Get a list of all offerings for a given organization
   tags:
-    - academic sessions
+    - organizations
   parameters:
-    - name: academicSessionId
+    - name: organizationId
       in: path
-      description: Academic session ID
+      description: Organization ID
       required: true
       schema:
         type: string

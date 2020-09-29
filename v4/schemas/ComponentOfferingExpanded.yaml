@@ -9,3 +9,5 @@ allOf:
         $ref: './CourseOffering.yaml'
       organization:
         $ref: './Organization.yaml'
+      academicSession:
+        $ref: './AcademicSession.yaml'

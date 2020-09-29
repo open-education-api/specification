@@ -67,6 +67,8 @@ paths:
     $ref: paths/OrganizationCourseCollection.yaml
   /organizations/{organizationId}/components:
     $ref: paths/OrganizationComponentCollection.yaml
+  /organizations/{organizationId}/offerings:
+    $ref: paths/OrganizationOfferingCollection.yaml
   /academic-sessions:
     $ref: paths/AcademicSessionCollection.yaml
   /academic-sessions/{academicSessionId}:
@@ -103,6 +105,8 @@ paths:
     $ref: paths/BuildingCollection.yaml
   /buildings/{buildingId}:
     $ref: paths/BuildingInstance.yaml
+  /buildings/{buildingId}/rooms:
+    $ref: paths/BuildingRoomCollection.yaml
   /rooms:
     $ref: paths/RoomCollection.yaml
   /rooms/{roomId}:

@@ -11,13 +11,23 @@ get:
       schema:
         type: string
         format: uuid
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - building
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/Room.yaml'
+            $ref: '../schemas/RoomExpanded.yaml'
     '404':
       description: Not Found
       content:

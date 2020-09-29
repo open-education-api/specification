@@ -11,3 +11,6 @@ allOf:
         description: Programs which are a part of this program (e.g specializations)
         items:
           $ref: './Program.yaml'
+      organization:
+        description: The organization providing the current course
+        $ref: './Organization.yaml'
