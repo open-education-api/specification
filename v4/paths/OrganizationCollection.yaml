@@ -29,8 +29,12 @@ get:
           enum:
             - organizationId
             - name
+            - organizationId:asc
+            - name:asc
+            - organizationId:desc
+            - name:desc
         default: 
-        - organizationId
+        - name
   responses:
     '200':
       description: OK

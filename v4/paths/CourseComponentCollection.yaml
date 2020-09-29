@@ -37,6 +37,10 @@ get:
           enum:
             - componentId
             - name
+            - componentId:asc
+            - name:asc
+            - componentId:desc
+            - name:desc
         default: 
         - componentId
   responses:

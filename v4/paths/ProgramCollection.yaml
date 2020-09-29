@@ -70,9 +70,9 @@ get:
       required: false
       schema:
         type: string
-    - name: croho-creboCode
+    - name: crohoCreboCode
       in: query
-      description: Filter by croho-creboCode
+      description: Filter by crohoCreboCode
       required: false
       schema:
         type: string
@@ -88,8 +88,14 @@ get:
             - programId
             - name
             - ects
+            - programId:asc
+            - name:asc
+            - ects:asc
+            - programId:desc
+            - name:desc
+            - ects:desc
         default: 
-        - programId
+        - name
   responses:
     '200':
       description: OK

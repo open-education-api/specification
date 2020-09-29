@@ -32,6 +32,14 @@ get:
             - name
             - totalSeats
             - availableSeats
+            - roomId:asc
+            - name:asc
+            - totalSeats:asc
+            - availableSeats:asc
+            - roomId:desc
+            - name:desc
+            - totalSeats:desc
+            - availableSeats:desc
         default:
         - name
   responses:

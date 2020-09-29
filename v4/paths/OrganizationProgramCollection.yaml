@@ -95,6 +95,12 @@ get:
             - programId
             - name
             - ects
+            - programId:asc
+            - name:asc
+            - ects:asc
+            - programId:desc
+            - name:desc
+            - ects:desc
         default: 
         - name
   responses:

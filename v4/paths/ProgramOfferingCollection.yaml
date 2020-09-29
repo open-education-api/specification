@@ -67,6 +67,14 @@ get:
             - name
             - startDate
             - endDate
+            - offeringId:asc
+            - name:asc
+            - startDate:asc
+            - endDate:asc
+            - offeringId:desc
+            - name:desc
+            - startDate:desc
+            - endDate:desc
         default: 
         - startDate
   responses:

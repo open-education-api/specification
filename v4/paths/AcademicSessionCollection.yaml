@@ -32,9 +32,14 @@ get:
           - academicSessionId
           - name
           - startDate
+          - academicSessionId:asc
+          - name:asc
+          - startDate:asc
+          - academicSessionId:desc
+          - name:desc
+          - startDate:desc
         default:
         - startDate
-        - academicSessionId
   responses:
     '200':
       description: OK

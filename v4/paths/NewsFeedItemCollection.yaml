@@ -34,8 +34,18 @@ get:
             - validFrom
             - validUntil
             - lastModified
+            - newsItemId:asc
+            - name:asc
+            - validFrom:asc
+            - validUntil:asc
+            - lastModified:asc
+            - newsItemId:desc
+            - name:desc
+            - validFrom:desc
+            - validUntil:desc
+            - lastModified:desc
         default:
-        - name
+        - newsItemId
   responses:
     '200':
       description: OK

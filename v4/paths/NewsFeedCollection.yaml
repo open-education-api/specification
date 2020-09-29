@@ -32,6 +32,10 @@ get:
           enum:
             - newsFeedId
             - name
+            - newsFeedId:asc
+            - name:asc
+            - newsFeedId:desc
+            - name:desc
         default:
         - name
   responses:

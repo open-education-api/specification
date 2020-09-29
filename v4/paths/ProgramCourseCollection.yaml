@@ -49,8 +49,14 @@ get:
             - courseId
             - name
             - ects
+            - courseId:asc
+            - name:asc
+            - ects:asc
+            - courseId:desc
+            - name:desc
+            - ects:desc
         default: 
-        - name
+        - courseId
   responses:
     '200':
       description: OK

@@ -18,6 +18,10 @@ get:
           enum:
           - buildingId
           - name
+          - buildingId:asc
+          - name:asc
+          - buildingId:desc
+          - name:desc
         default:
         - name
   responses:
