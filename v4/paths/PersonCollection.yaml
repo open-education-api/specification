@@ -60,27 +60,3 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Person.yaml'
-
-post:
-  summary: POST /persons
-  description: Add a person to the records of the institution
-  tags:
-    - persons
-  operationId: addPerson
-  requestBody:
-  $ref: '#/components/requestBodies/PersonBody'
-  responses:
-    '201':
-      description: Created
-    '405':
-      description: Invalid input
-
-components:
-  requestBodies:
-    PersonBody:
-      description: A JSON object containing person information
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '../schemas/Person.yaml'
