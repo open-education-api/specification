@@ -58,7 +58,7 @@ tags:
       containing the given search term (exact partial match, case insensitive)
 
       # Examples
-      <pre lang="json"><code class="language-json">
+      <pre lang="json"><code class="json">
       GET /programs?q=stud
 
       Result:
