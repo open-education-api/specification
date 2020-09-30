@@ -12,6 +12,11 @@ info:
       <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>
     </figure>
 
+    The model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint. 
+
+    The program relations object is not found as a separate endpoint but relations between programs can be found within the program endpoint by expanding that endpoint.
+
+
     # Error responses
     Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
 
@@ -103,6 +108,7 @@ tags:
       * room
 
       # Examples
+      First expand the program only to show additional parent information:
       ```
       GET /programs/{programId}?expand=parent
 
@@ -152,6 +158,8 @@ tags:
       }
       }
       ```
+
+      When additional information is needed on a program the program information can be expanded further by including additional parameters in an array style. If no values are provided for expand there will be no additional information provided. An empty expand parameter will be handled in the same manner as the normal GET function to the API.
 
 
       ```
@@ -254,6 +262,10 @@ tags:
       }
       }
       ```
+  - name: extension information
+    description: |
+      Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
+
 
 paths:
   /:
