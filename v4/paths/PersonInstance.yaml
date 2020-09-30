@@ -40,10 +40,10 @@ post:
 
 components:
   requestBodies:
-  PersonBody:
-    description: A JSON object containing person information
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '../schemas/Person_min.yaml'
+    PersonBody:
+      description: A JSON object containing person information
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Person_min.yaml'
