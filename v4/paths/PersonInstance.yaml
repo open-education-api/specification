@@ -33,8 +33,7 @@ post:
   requestBody:
   content:
     application/json:
-      schema:
-        $ref: '../schemas/Person_min.yaml'
+      $ref: '../schemas/Person_min.yaml'
   responses:
     '201':
       description: Created
