@@ -12,7 +12,7 @@ allOf:
         enum:
           - full-time
           - part-time
-          - dual
+          - dual training
           - self-paced
         example: full-time 
       startDate:

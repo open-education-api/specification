@@ -24,7 +24,7 @@ properties:
     enum:
       - student
       - lecturer
-      - student assistent
+      - teaching assistant
       - coordinator
       - guest
     example: student
