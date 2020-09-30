@@ -53,7 +53,7 @@ tags:
       Endpoints can be searched using the q parameter. This parameter acts as a filter for the endpoint it filters items having a name, abbreviation or description containing the given search term (exact partial match, case insensitive)
 
       # Examples
-      <pre><code>
+      <pre lang="json"><code>
       GET /programs?q=stud
 
       Result:
