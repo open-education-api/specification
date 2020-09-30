@@ -46,4 +46,4 @@ components:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Person_min.yaml'
+            $ref: '../schemas/Person.yaml'
