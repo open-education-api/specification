@@ -48,6 +48,176 @@ tags:
     description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
   - name: news
     description: The news API provides news feeds and items regarding a specific subject.
+  - name: expand information
+    description: |
+      Most elements also provide additional information which is not provided bu default. In order to obtain this information we use an expand mechanism
+
+      # Endpoints which are expandable
+      academic-session
+      association
+      component
+      component-offering
+      course
+      course-offering
+
+
+      # Examples
+      ```
+      {
+        GET /programs/{programId}?expand=parent
+
+        Result:
+        {
+        "programId": "123e4567-e89b-12d3-a456-426614174000",
+        "type": "alliance",
+        "name": "Student Mobility",
+        "abbreviation": "studM",
+        "description": "program that is a place holder for all courses that are made available for student mobility",
+        "ects": 5,
+        "qualificationAwarded": "None",
+        "lengthOfProgram": 6,
+        "levelOfQualification": 6,
+        "sector": "university education",
+        "fieldsOfStudy": "0732",
+        "crohoCreboCode": "59312",
+        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
+        "learningOutcomes": [
+        "string"
+        ],
+        "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+        "qualificationRequirements": "None",
+        "link": "https://bijvak.nl",
+        "ext": { },
+        "parent": {
+          "programId": "123e4567-e89b-12d3-a456-426614174000",
+          "type": "alliance",
+          "name": "Student Mobility",
+          "abbreviation": "studM",
+          "description": "program that is a place holder for all courses that are made available for student mobility",
+          "ects": 5,
+          "qualificationAwarded": "None",
+          "lengthOfProgram": 6,
+          "levelOfQualification": 6,
+          "sector": "university education",
+          "fieldsOfStudy": "0732",
+          "crohoCreboCode": "59312",
+          "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
+          "learningOutcomes": [
+          "string"
+          ],
+          "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+          "qualificationRequirements": "None",
+          "link": "https://bijvak.nl",
+          "ext": { }
+        }
+        }
+      }
+      ```
+
+
+      ```
+      {
+        GET /programs/{programId}?expand=parent,children,organization
+
+        Result:
+        {
+        "programId": "123e4567-e89b-12d3-a456-426614174000",
+        "type": "alliance",
+        "name": "Student Mobility",
+        "abbreviation": "studM",
+        "description": "program that is a place holder for all courses that are made available for student mobility",
+        "ects": 5,
+        "qualificationAwarded": "None",
+        "lengthOfProgram": 6,
+        "levelOfQualification": 6,
+        "sector": "university education",
+        "fieldsOfStudy": "0732",
+        "crohoCreboCode": "59312",
+        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
+        "learningOutcomes": [
+        "string"
+        ],
+        "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+        "qualificationRequirements": "None",
+        "link": "https://bijvak.nl",
+        "ext": { },
+        "parent": {
+          "programId": "123e4567-e89b-12d3-a456-426614174000",
+          "type": "alliance",
+          "name": "Student Mobility",
+          "abbreviation": "studM",
+          "description": "program that is a place holder for all courses that are made available for student mobility",
+          "ects": 5,
+          "qualificationAwarded": "None",
+          "lengthOfProgram": 6,
+          "levelOfQualification": 6,
+          "sector": "university education",
+          "fieldsOfStudy": "0732",
+          "crohoCreboCode": "59312",
+          "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
+          "learningOutcomes": [
+          "string"
+          ],
+          "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+          "qualificationRequirements": "None",
+          "link": "https://bijvak.nl",
+          "ext": { }
+        },
+        "children": [
+          {
+          "programId": "123e4567-e89b-12d3-a456-426614174000",
+          "type": "alliance",
+          "name": "Student Mobility",
+          "abbreviation": "studM",
+          "description": "program that is a place holder for all courses that are made available for student mobility",
+          "ects": 5,
+          "qualificationAwarded": "None",
+          "lengthOfProgram": 6,
+          "levelOfQualification": 6,
+          "sector": "university education",
+          "fieldsOfStudy": "0732",
+          "crohoCreboCode": "59312",
+          "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
+          "learningOutcomes": [
+          "string"
+          ],
+          "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+          "qualificationRequirements": "None",
+          "link": "https://bijvak.nl",
+          "ext": { }
+          }
+        ],
+        "organization": {
+          "organizationId": "123e4567-e89b-12d3-a456-123514174000",
+          "name": "Coöperatie SURF U.A.",
+          "shortName": "SURF",
+          "description": "SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.",
+          "type": "root",
+          "addresses": [
+          {
+          "type": "postal",
+          "street": "Moreelsepark",
+          "streetNumber": 48,
+          "additional": "On the other side of the road",
+          "postalCode": "3511 EP",
+          "city": "Utrecht",
+          "countryCode": "NL",
+          "geolocation": {
+          "latitude": 52.089123,
+          "longitude": 5.113337
+          },
+          "ext": { }
+          }
+          ],
+          "link": "https://surf.nl",
+          "logo": "https://www.surf.nl/themes/surf/logo.svg",
+          "brin": "00AA",
+          "ext": { }
+        }
+        }
+      }
+      ```
+
 paths:
   /:
     $ref: paths/Service.yaml
