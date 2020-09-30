@@ -53,17 +53,16 @@ tags:
       Endpoints can be searched using the q parameter. This parameter acts as a filter for the endpoint it filters items having a name, abbreviation or description containing the given search term (exact partial match, case insensitive)
 
       # Examples
-      ```
-      {
-        GET /programs?q=stud
+      <pre><code>
+      GET /programs?q=stud
 
-        Result:
-        {
+      Result:
+      {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
         "type": "alliance",
-        "name": "Student Mobility",
-        "abbreviation": "<mark>stud</mark>M",
-        "description": "program that is a place holder for all courses that are made available for student mobility",
+        <strong>"name": "Student Mobility",
+        "abbreviation": "studM",
+        "description": "program that is a place holder for all courses that are made available for student mobility",</strong>
         "ects": 5,
         "qualificationAwarded": "None",
         "lengthOfProgram": 6,
@@ -79,9 +78,8 @@ tags:
         "qualificationRequirements": "None",
         "link": "https://bijvak.nl",
         "ext": { }
-        }
       }
-      ```
+      </code></pre>
 
   - name: expand information
     description: |
@@ -101,11 +99,31 @@ tags:
 
       # Examples
       ```
-      {
-        GET /programs/{programId}?expand=parent
+      GET /programs/{programId}?expand=parent
 
-        Result:
-        {
+      Result:
+      {
+      "programId": "123e4567-e89b-12d3-a456-426614174000",
+      "type": "alliance",
+      "name": "Student Mobility",
+      "abbreviation": "studM",
+      "description": "program that is a place holder for all courses that are made available for student mobility",
+      "ects": 5,
+      "qualificationAwarded": "None",
+      "lengthOfProgram": 6,
+      "levelOfQualification": 6,
+      "sector": "university education",
+      "fieldsOfStudy": "0732",
+      "crohoCreboCode": "59312",
+      "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
+      "learningOutcomes": [
+      "string"
+      ],
+      "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+      "qualificationRequirements": "None",
+      "link": "https://bijvak.nl",
+      "ext": { },
+      "parent": {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
         "type": "alliance",
         "name": "Student Mobility",
@@ -125,39 +143,60 @@ tags:
         "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
         "qualificationRequirements": "None",
         "link": "https://bijvak.nl",
-        "ext": { },
-        "parent": {
-          "programId": "123e4567-e89b-12d3-a456-426614174000",
-          "type": "alliance",
-          "name": "Student Mobility",
-          "abbreviation": "studM",
-          "description": "program that is a place holder for all courses that are made available for student mobility",
-          "ects": 5,
-          "qualificationAwarded": "None",
-          "lengthOfProgram": 6,
-          "levelOfQualification": 6,
-          "sector": "university education",
-          "fieldsOfStudy": "0732",
-          "crohoCreboCode": "59312",
-          "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
-          "learningOutcomes": [
-          "string"
-          ],
-          "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
-          "qualificationRequirements": "None",
-          "link": "https://bijvak.nl",
-          "ext": { }
-        }
-        }
+        "ext": { }
+      }
       }
       ```
 
 
       ```
-      {
-        GET /programs/{programId}?expand=parent,children,organization
+      GET /programs/{programId}?expand=parent,children,organization
 
-        Result:
+      Result:
+      {
+      "programId": "123e4567-e89b-12d3-a456-426614174000",
+      "type": "alliance",
+      "name": "Student Mobility",
+      "abbreviation": "studM",
+      "description": "program that is a place holder for all courses that are made available for student mobility",
+      "ects": 5,
+      "qualificationAwarded": "None",
+      "lengthOfProgram": 6,
+      "levelOfQualification": 6,
+      "sector": "university education",
+      "fieldsOfStudy": "0732",
+      "crohoCreboCode": "59312",
+      "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
+      "learningOutcomes": [
+      "string"
+      ],
+      "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+      "qualificationRequirements": "None",
+      "link": "https://bijvak.nl",
+      "ext": { },
+      "parent": {
+        "programId": "123e4567-e89b-12d3-a456-426614174000",
+        "type": "alliance",
+        "name": "Student Mobility",
+        "abbreviation": "studM",
+        "description": "program that is a place holder for all courses that are made available for student mobility",
+        "ects": 5,
+        "qualificationAwarded": "None",
+        "lengthOfProgram": 6,
+        "levelOfQualification": 6,
+        "sector": "university education",
+        "fieldsOfStudy": "0732",
+        "crohoCreboCode": "59312",
+        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
+        "learningOutcomes": [
+        "string"
+        ],
+        "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+        "qualificationRequirements": "None",
+        "link": "https://bijvak.nl",
+        "ext": { }
+      },
+      "children": [
         {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
         "type": "alliance",
@@ -178,81 +217,36 @@ tags:
         "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
         "qualificationRequirements": "None",
         "link": "https://bijvak.nl",
-        "ext": { },
-        "parent": {
-          "programId": "123e4567-e89b-12d3-a456-426614174000",
-          "type": "alliance",
-          "name": "Student Mobility",
-          "abbreviation": "studM",
-          "description": "program that is a place holder for all courses that are made available for student mobility",
-          "ects": 5,
-          "qualificationAwarded": "None",
-          "lengthOfProgram": 6,
-          "levelOfQualification": 6,
-          "sector": "university education",
-          "fieldsOfStudy": "0732",
-          "crohoCreboCode": "59312",
-          "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
-          "learningOutcomes": [
-          "string"
-          ],
-          "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
-          "qualificationRequirements": "None",
-          "link": "https://bijvak.nl",
-          "ext": { }
+        "ext": { }
+        }
+      ],
+      "organization": {
+        "organizationId": "123e4567-e89b-12d3-a456-123514174000",
+        "name": "Coöperatie SURF U.A.",
+        "shortName": "SURF",
+        "description": "SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.",
+        "type": "root",
+        "addresses": [
+        {
+        "type": "postal",
+        "street": "Moreelsepark",
+        "streetNumber": 48,
+        "additional": "On the other side of the road",
+        "postalCode": "3511 EP",
+        "city": "Utrecht",
+        "countryCode": "NL",
+        "geolocation": {
+        "latitude": 52.089123,
+        "longitude": 5.113337
         },
-        "children": [
-          {
-          "programId": "123e4567-e89b-12d3-a456-426614174000",
-          "type": "alliance",
-          "name": "Student Mobility",
-          "abbreviation": "studM",
-          "description": "program that is a place holder for all courses that are made available for student mobility",
-          "ects": 5,
-          "qualificationAwarded": "None",
-          "lengthOfProgram": 6,
-          "levelOfQualification": 6,
-          "sector": "university education",
-          "fieldsOfStudy": "0732",
-          "crohoCreboCode": "59312",
-          "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
-          "learningOutcomes": [
-          "string"
-          ],
-          "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
-          "qualificationRequirements": "None",
-          "link": "https://bijvak.nl",
-          "ext": { }
-          }
+        "ext": { }
+        }
         ],
-        "organization": {
-          "organizationId": "123e4567-e89b-12d3-a456-123514174000",
-          "name": "Coöperatie SURF U.A.",
-          "shortName": "SURF",
-          "description": "SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.",
-          "type": "root",
-          "addresses": [
-          {
-          "type": "postal",
-          "street": "Moreelsepark",
-          "streetNumber": 48,
-          "additional": "On the other side of the road",
-          "postalCode": "3511 EP",
-          "city": "Utrecht",
-          "countryCode": "NL",
-          "geolocation": {
-          "latitude": 52.089123,
-          "longitude": 5.113337
-          },
-          "ext": { }
-          }
-          ],
-          "link": "https://surf.nl",
-          "logo": "https://www.surf.nl/themes/surf/logo.svg",
-          "brin": "00AA",
-          "ext": { }
-        }
-        }
+        "link": "https://surf.nl",
+        "logo": "https://www.surf.nl/themes/surf/logo.svg",
+        "brin": "00AA",
+        "ext": { }
+      }
       }
       ```
 
