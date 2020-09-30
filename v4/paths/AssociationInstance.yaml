@@ -35,3 +35,44 @@ get:
         application/problem+json:
           schema:
             $ref: '../schemas/Problem.yaml'
+post:
+  summary: POST /associations
+  description: Add a single association.
+  tags:
+    - associations
+  operationId: addAssociations
+  requestBody:
+    description: A JSON object containing association information
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Association.yaml'
+      multipart/form-data: 
+        schema:            
+          type: object
+          properties:      
+            personId:      
+              type: string
+              description: Unique id of this person
+              format: uuid
+              example: 123e4567-e89b-12d3-a456-426614174000
+            role:          # Part 2 (string value)
+              type: string
+              description: The role of this person associated with the offering
+              enum:
+                - student
+                - lecturer
+                - teaching assistant
+                - coordinator
+                - guest
+              example: student
+            offeringId:
+              type: string
+              description: Unique id of this offering
+              format: uuid
+  responses:
+    '201':
+      description: Created
+    '405':
+      description: Invalid input
