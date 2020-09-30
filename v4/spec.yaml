@@ -50,7 +50,12 @@ tags:
     description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
   - name: query information (use of q)
     description: |
-      Endpoints can be searched using the q parameter. This parameter acts as a filter for the endpoint it filters items having a name, abbreviation or description containing the given search term (exact partial match, case insensitive)
+      Endpoints can be searched using the q parameter. This parameter acts as a filter for the endpoint it filters items having a:
+      * name,
+      * abbreviation or
+      * description
+      
+      containing the given search term (exact partial match, case insensitive)
 
       # Examples
       <pre lang="json"><code>
