@@ -83,4 +83,4 @@ components:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Person.yaml'
+            $ref: '../schemas/Person_min.yaml'
