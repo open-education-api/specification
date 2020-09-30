@@ -31,9 +31,7 @@ post:
     - persons
   operationId: addPerson
   requestBody:
-  content:
-    application/json:
-      $ref: '../schemas/Person_min.yaml'
+    $ref: '#/components/requestBodies/PersonBody'
   responses:
     '201':
       description: Created
@@ -47,3 +45,14 @@ post:
           example: 123e4567-e89b-12d3-a456-426614174000
     '405':
       description: Invalid input
+
+
+components:
+  requestBodies:
+    PersonBody:
+      description: A JSON object containing person information
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Person_min.yaml'
