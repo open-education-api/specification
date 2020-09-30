@@ -23,12 +23,18 @@ get:
         enum:
           - test
           - lecture
-          - practica
-          - werkcollege
-          - seminar
+          - practical
+          - tutorial
+          - consultation
+          - project
+          - workshop
+          - excursion
+          - independent study
+          - external
+          - skills training
     - name: sort
       in: query
-      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
+      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
       required: false
       schema:
         type: array
@@ -37,11 +43,9 @@ get:
           enum:
             - componentId
             - name
-            - componentId:asc
-            - name:asc
-            - componentId:desc
-            - name:desc
-        default: 
+            - -componentId
+            - -name
+        default:
         - name
   responses:
     '200':
