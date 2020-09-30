@@ -37,7 +37,8 @@ get:
           - MA
           - MSc
           - LLM
-          - PhD
+          - Phd
+          - None
     - name: levelOfQualification
       in: query
       description: Filter by levelOfQualification
@@ -61,9 +62,9 @@ get:
       schema:
         type: string
         enum:
-          - mbo
-          - hbo
-          - wo
+          - secondary vocational education
+          - higher professional education
+          - university education
     - name: fieldsOfStudy
       in: query
       description: Filter by fieldsOfStudy
@@ -78,7 +79,7 @@ get:
         type: string
     - name: sort
       in: query
-      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
+      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
       required: false
       schema:
         type: array
@@ -88,13 +89,10 @@ get:
             - programId
             - name
             - ects
-            - programId:asc
-            - name:asc
-            - ects:asc
-            - programId:desc
-            - name:desc
-            - ects:desc
-        default: 
+            - -programId
+            - -name
+            - -ects
+        default:
         - name
   responses:
     '200':

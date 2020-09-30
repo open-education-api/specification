@@ -21,8 +21,8 @@ get:
       schema:
         type: string
         enum:
-          - mbo 3
-          - mbo 4
+          - secondary vocational education 3
+          - secondary vocational education 4
           - associate degree
           - bachelor
           - master
@@ -35,11 +35,13 @@ get:
         type: string
         enum:
           - distance-learning
-          - face-to-face
+          - on campus
+          - online
           - hybrid
+          - situated
     - name: sort
       in: query
-      description: 'Sort by one or more attributes, examples: [ATTR | ATTR:asc | ATTR:desc | ATTR1,ATTR2:desc]'
+      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
       required: false
       schema:
         type: array
@@ -49,13 +51,10 @@ get:
             - courseId
             - name
             - ects
-            - courseId:asc
-            - name:asc
-            - ects:asc
-            - courseId:desc
-            - name:desc
-            - ects:desc
-        default: 
+            - -courseId
+            - -name
+            - -ects
+        default:
         - name
   responses:
     '200':
