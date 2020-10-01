@@ -1,5 +1,10 @@
 type: string
-description: The type of this news item
+description: |
+  The type of this news item
+  - calamity: calamiteit
+  - general: algemeen
+  - schedule-change: roosterwijziging
+  - announcement: aankondiging
 enum:
   - calamity
   - general

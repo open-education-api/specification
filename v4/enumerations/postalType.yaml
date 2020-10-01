@@ -1,5 +1,9 @@
 type: string
-description: Address type
+description: |
+  Address type
+  - postal: post
+  - visit: bezoek
+  - deliveries: bezorg
 enum:
   - postal
   - visit

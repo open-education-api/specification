@@ -1,5 +1,15 @@
 type: string
-description: The type of this program
+description: |
+  The type of this program
+  - program: opleiding
+  - minor: minor
+  - honours: honours
+  - specialization: specialisatie
+  - elective: keuzevak
+  - module: module
+  - track: track
+  - joint-degree: joint-degree
+  - alliance: alliance
 enum:
   - program
   - minor

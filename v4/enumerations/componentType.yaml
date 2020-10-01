@@ -1,5 +1,17 @@
 type: string
-description: The component type
+description: |
+  The component type
+  - test: tentamen
+  - lecture: college
+  - practical: practicum
+  - tutorial: werkcollege
+  - consultation: consultatie
+  - project: project
+  - workshop: workshop
+  - excursion: excursie
+  - independent study: zelfstudie
+  - external: extern
+  - skills training: vaardighedentraining
 enum:
   - test
   - lecture

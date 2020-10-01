@@ -1,5 +1,9 @@
 type: string
-description: The sector for this program
+description: |
+The sector for this program
+  - secondary vocational education: middelbaar beroepsonderwijs
+  - higher professional education: hoger beroepsonderwijs
+  - university education: universitair onderwijs
 enum:
   - secondary vocational education
   - higher professional education
