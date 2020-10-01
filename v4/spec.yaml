@@ -17,15 +17,6 @@ info:
     The program relations object is not found as a separate endpoint but relations between programs can be found within the program endpoint by expanding that endpoint.
 
 
-    # Error responses
-    Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
-
-    ```
-    {
-      "code": 404,
-      "title": "Resource not found"
-    }
-    ```
   x-logo:
     url: ../logo.png
 tags:
@@ -265,6 +256,17 @@ tags:
   - name: extension information
     description: |
       Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
+
+  - name: Error responses
+    description: |
+      Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
+      ```
+      {
+        "code": 404,
+        "title": "Resource not found"
+      }
+      ```
+
 
 
 paths:
