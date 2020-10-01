@@ -29,7 +29,7 @@ get:
       required: false
       schema:
         $ref: '../enumerations/modeOfStudy.yaml'
-    - name: isLineIttem
+    - name: isLineItem
       in: query
       description: Filter by isLineItem
       required: false
