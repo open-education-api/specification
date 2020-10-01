@@ -46,8 +46,28 @@ post:
     required: true
     content:
       application/json:
-        schema:
-          $ref: '../schemas/Association.yaml'
+        schema:            
+          type: object
+          properties:      
+            personId:      
+              type: string
+              description: Unique id of this person
+              format: uuid
+              example: 123e4567-e89b-12d3-a456-426614174000
+            role:
+              type: string
+              description: The role of this person associated with the offering
+              enum:
+                - student
+                - lecturer
+                - teaching assistant
+                - coordinator
+                - guest
+              example: student
+            offeringId:
+              type: string
+              description: Unique id of this offering
+              format: uuid
       multipart/form-data: 
         schema:            
           type: object
@@ -57,7 +77,7 @@ post:
               description: Unique id of this person
               format: uuid
               example: 123e4567-e89b-12d3-a456-426614174000
-            role:          # Part 2 (string value)
+            role:
               type: string
               description: The role of this person associated with the offering
               enum:
