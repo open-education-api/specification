@@ -34,7 +34,7 @@ get:
           - part-time
           - dual training
           - self-paced
-    - name: isLineIttem
+    - name: isLineItem
       in: query
       description: Filter by isLineItem
       required: false
