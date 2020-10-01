@@ -134,7 +134,7 @@ post:
   summary: POST /persons/{personId}/associations
   description: Add a single association.
   tags:
-    - associations
+    - persons
   operationId: addAssociations
   requestBody:
     description: A JSON object containing association information
@@ -189,5 +189,15 @@ post:
   responses:
     '201':
       description: Created
+      content:
+        application/json:
+          schema:            
+            type: object
+            properties:      
+              associationId:
+                type: string
+                description: Unique id of this association
+                format: uuid
+                example: 123e4567-e89b-12d3-a456-1237891417400
     '405':
       description: Invalid input
