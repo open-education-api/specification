@@ -1,6 +1,6 @@
 type: string
 description: |
-The sector for this program
+  The sector for this program
   - secondary vocational education: middelbaar beroepsonderwijs
   - higher professional education: hoger beroepsonderwijs
   - university education: universitair onderwijs
