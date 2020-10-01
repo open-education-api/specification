@@ -73,7 +73,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/Person.yaml'
+          $ref: '../schemas/PersonMin.yaml'
   responses:
     '201':
       description: Created
