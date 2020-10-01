@@ -16,6 +16,11 @@ info:
 
     The program relations object is not found as a separate endpoint but relations between programs can be found within the program endpoint by expanding that endpoint.
 
+    Information about earlier meetings and presentations can be found <a target="_blank" href="https://github.com/open-education-api/notulen">here</a>
+
+    information on the EDU API model that was also used for tis api is shown <a target="_blank" href="eduapi.png">here</a>
+
+
 
   x-logo:
     url: ../logo.png
