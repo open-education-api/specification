@@ -1,0 +1,7 @@
+type: string
+description: The type of this news item
+enum:
+  - calamity
+  - general
+  - schedule-change
+  - announcement

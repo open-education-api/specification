@@ -12,18 +12,7 @@ get:
       description: Filter by room type
       required: false
       schema:
-        type: string
-        enum:
-          - general purpose
-          - lecture room
-          - computer room
-          - laboratory
-          - office
-          - workspace
-          - exam location
-          - study room
-          - examination room
-          - conference room
+        $ref: '../enumerations/roomType.yaml'
     - name: sort
       in: query
       description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'

@@ -1,0 +1,14 @@
+type: string
+description: The type of this room
+enum:
+  - general purpose
+  - lecture room
+  - computer room
+  - laboratory
+  - office
+  - workspace
+  - exam location
+  - study room
+  - examination room
+  - conference room
+example: exam location

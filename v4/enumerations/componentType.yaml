@@ -1,0 +1,15 @@
+type: string
+description: The component type
+enum:
+  - test
+  - lecture
+  - practical
+  - tutorial
+  - consultation
+  - project
+  - workshop
+  - excursion
+  - independent study
+  - external
+  - skills training
+example: test

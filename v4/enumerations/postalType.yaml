@@ -1,0 +1,6 @@
+type: string
+description: Address type
+enum:
+  - postal
+  - visit
+  - deliveries

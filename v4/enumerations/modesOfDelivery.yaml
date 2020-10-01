@@ -1,0 +1,11 @@
+type: array
+description: The mode of delivery of the component (ECTS-mode of delivery)
+items:
+  type: string
+  enum:
+    - distance-learning
+    - on campus
+    - online
+    - hybrid
+    - situated
+  example: situated

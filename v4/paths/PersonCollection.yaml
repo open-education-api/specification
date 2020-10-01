@@ -12,11 +12,7 @@ get:
       description: Filter by affiliations
       required: false
       schema:
-        type: string
-        enum:
-          - student
-          - employee
-          - guest
+        $ref: '../enumerations/personAffiliations.yaml'
     - name: sort
       in: query
       description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
@@ -79,10 +75,10 @@ post:
       description: Created
       content:
         application/json:
-          schema:            
+          schema:
             type: object
-            properties:      
-              personId:      
+            properties:
+              personId:
                 type: string
                 description: Unique id of this person
                 format: uuid

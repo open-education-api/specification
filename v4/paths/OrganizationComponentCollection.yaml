@@ -19,19 +19,7 @@ get:
       description: Filter by component type
       required: false
       schema:
-        type: string
-        enum:
-          - test
-          - lecture
-          - practical
-          - tutorial
-          - consultation
-          - project
-          - workshop
-          - excursion
-          - independent study
-          - external
-          - skills training
+        $ref: '../enumerations/componentType.yaml'
     - name: sort
       in: query
       description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'

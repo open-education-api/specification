@@ -4,13 +4,7 @@ required:
   - resultDate
 properties:
   state:
-    type: string
-    description: The state of this result
-    enum:
-      - in progress
-      - postponed
-      - completed
-    example: completed
+    $ref: '../enumerations/resultState.yaml'
   comment:
     type: string
     description: The comment on this result

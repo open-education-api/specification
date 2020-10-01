@@ -1,0 +1,7 @@
+type: string
+description: Indicate whether the course is full-time, part-time, dual or self-paced.
+enum:
+  - full-time
+  - part-time
+  - dual training
+  - self-paced

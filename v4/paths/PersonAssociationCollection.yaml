@@ -28,34 +28,19 @@ get:
       description: Filter by role
       required: false
       schema:
-        type: string
-        enum:
-          - student
-          - lecturer
-          - student assistent
-          - coordinator
-          - guest
+        $ref: '../enumerations/associationRole.yaml'
     - name: state
       in: query
       description: Filter by state
       required: false
       schema:
-        type: string
-        enum:
-          - pending
-          - canceled
-          - denied
-          - associated
+        $ref: '../enumerations/associationState.yaml'
     - name: result-state
       in: query
       description: Filter by result state
       required: false
       schema:
-        type: string
-        enum:
-          - in progress
-          - postponed
-          - completed
+        $ref: '../enumerations/resultState.yaml'
     - name: sort
       in: query
       description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
@@ -141,47 +126,31 @@ post:
     required: true
     content:
       application/json:
-        schema:            
+        schema:
           type: object
-          properties:      
-            personId:      
+          properties:
+            personId:
               type: string
               description: Unique id of this person
               format: uuid
               example: 123e4567-e89b-12d3-a456-426614174000
             role:
-              type: string
-              description: The role of this person associated with the offering
-              enum:
-                - student
-                - lecturer
-                - teaching assistant
-                - coordinator
-                - guest
-              example: student
+              $ref: '../enumerations/associationRole.yaml'
             offeringId:
               type: string
               description: Unique id of this offering
               format: uuid
-      multipart/form-data: 
-        schema:            
+      multipart/form-data:
+        schema:
           type: object
-          properties:      
-            personId:      
+          properties:
+            personId:
               type: string
               description: Unique id of this person
               format: uuid
               example: 123e4567-e89b-12d3-a456-426614174000
             role:
-              type: string
-              description: The role of this person associated with the offering
-              enum:
-                - student
-                - lecturer
-                - teaching assistant
-                - coordinator
-                - guest
-              example: student
+              $ref: '../enumerations/associationRole.yaml'
             offeringId:
               type: string
               description: Unique id of this offering
@@ -191,9 +160,9 @@ post:
       description: Created
       content:
         application/json:
-          schema:            
+          schema:
             type: object
-            properties:      
+            properties:
               associationId:
                 type: string
                 description: Unique id of this association

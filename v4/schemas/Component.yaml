@@ -11,21 +11,7 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   type:
-    type: string
-    description: The component type
-    enum:
-      - test
-      - lecture
-      - practical
-      - tutorial
-      - consultation
-      - project
-      - workshop
-      - excursion
-      - independent study
-      - external
-      - skills training
-    example: test
+    $ref: '../enumerations/componentType.yaml'
   name:
     type: string
     description: The name of this test

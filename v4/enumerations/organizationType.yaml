@@ -1,0 +1,8 @@
+type: string
+description: The type of this organization
+enum:
+  - root
+  - institution
+  - department
+  - faculty
+example: root

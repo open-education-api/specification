@@ -1,0 +1,7 @@
+type: string
+description: The sector for this program
+enum:
+  - secondary vocational education
+  - higher professional education
+  - university education
+example: university education

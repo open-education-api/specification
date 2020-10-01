@@ -19,23 +19,8 @@ properties:
       - componentOfferingAssociation
     example: componentOfferingAssociation
   role:
-    type: string
-    description: The role of this person associated with the offering
-    enum:
-      - student
-      - lecturer
-      - teaching assistant
-      - coordinator
-      - guest
-    example: student
+    $ref: '../enumerations/associationRole.yaml'
   state:
-    type: string
-    description: The state of this association
-    enum:
-      - pending
-      - canceled
-      - denied
-      - associated
-    example: associated
+    $ref: '../enumerations/associationState.yaml'
   ext:
     $ref: './Ext.yaml'

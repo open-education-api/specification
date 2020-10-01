@@ -19,59 +19,25 @@ get:
       description: Filter by program type
       required: false
       schema:
-        type: string
-        enum:
-          - program
-          - minor
-          - honours
-          - specialization
-          - electives
-          - module
-          - track
-          - joint-degree
-          - alliance
+        $ref: '../enumerations/programType.yaml'
     - name: qualificationAwarded
       in: query
       description: Filter by qualificationAwarded
       required: false
       schema:
-        type: string
-        enum:
-          - AD
-          - BA
-          - BSc
-          - LLB
-          - MA
-          - MSc
-          - LLM
-          - PhD
-          - None
+        $ref: '../enumerations/qualificationAwarded.yaml'
     - name: levelOfQualification
       in: query
       description: Filter by levelOfQualification
       required: false
       schema:
-        type: string
-        enum:
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '4+'
-          - '5'
-          - '6'
-          - '7'
-          - '8'
+        $ref: '../enumerations/levelOfQualification.yaml'
     - name: sector
       in: query
       description: Filter by sector
       required: false
       schema:
-        type: string
-        enum:
-          - secondary vocational education
-          - higher professional education
-          - university education
+        $ref: '../enumerations/sector.yaml'
     - name: fieldsOfStudy
       in: query
       description: Filter by fieldsOfStudy

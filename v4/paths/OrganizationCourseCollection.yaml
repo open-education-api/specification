@@ -19,26 +19,13 @@ get:
       description: Filter by level
       required: false
       schema:
-        type: string
-        enum:
-          - secondary vocational education 3
-          - secondary vocational education 4
-          - associate degree
-          - bachelor
-          - master
-          - doctoral
+        $ref: '../enumerations/level.yaml'
     - name: modeOfDelivery
       in: query
       description: Filter by modeOfDelivery
       required: false
       schema:
-        type: string
-        enum:
-          - distance-learning
-          - on campus
-          - online
-          - hybrid
-          - situated
+        $ref: '../enumerations/modesofDelivery.yaml'
     - name: sort
       in: query
       description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'

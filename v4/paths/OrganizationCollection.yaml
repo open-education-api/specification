@@ -12,12 +12,7 @@ get:
       description: Filter by organization type
       required: false
       schema:
-        type: string
-        enum:
-          - root
-          - institution
-          - department
-          - faculty
+        $ref: '../enumerations/organizationType.yaml'
     - name: sort
       in: query
       description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
