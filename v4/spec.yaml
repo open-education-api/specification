@@ -258,6 +258,20 @@ tags:
       }
       }
       ```
+  - name: sorting information
+    description: |
+      Most endpoints provide sorting. To sort you can sort on the elements that are specified per endpoint. All elements can be sorted ascending by default o descending, 
+      by adding "-" in front of the element to be sorted. The sorting takes place based on comma separated values. e.g.:
+
+      ```
+      GET /programs?sort=programId
+      ```
+      provides a list of all programs sorted ascending based on programId
+      ```
+      GET /programs?sort=name,-ects
+      ```
+      provides a list of all programs first sorted on name ascending and ects descending
+      
   - name: extension information
     description: |
       Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
