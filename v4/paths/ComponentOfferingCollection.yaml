@@ -45,6 +45,7 @@ get:
         format: date
     - name: sort
       in: query
+      explode: false
       description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
       required: false
       schema:
@@ -60,8 +61,7 @@ get:
             - -name
             - -startDateTime
             - -endDateTime
-        default:
-        - startDateTime
+        default: startDateTime
   responses:
     '200':
       description: OK
