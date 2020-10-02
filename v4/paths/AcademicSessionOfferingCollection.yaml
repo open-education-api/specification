@@ -33,7 +33,7 @@ get:
         enum:
           - nl-nl
           - en-gb
-    - name: isLineIttem
+    - name: isLineItem
       in: query
       description: Filter by isLineItem
       required: false
