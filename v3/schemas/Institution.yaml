@@ -24,7 +24,8 @@ properties:
          type: string
          description: year combination
        calender:
-          type: url
+          type: string
+          format: uri
           description: Link to the academic calender of the institution (e.g. https://www.roosterrapporten.hu.nl/1718/jaarroosters/HU/timetable_academicyear_calender.pdf)
   address:
     type: object
