@@ -12,7 +12,7 @@ info:
       <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>
     </figure>
 
-    The model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint. 
+    The model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.
 
     The program relations object is not found as a separate endpoint but relations between programs can be found within the program endpoint by expanding that endpoint.
 
@@ -272,7 +272,7 @@ tags:
       ```
   - name: sorting information
     description: |
-      Most endpoints provide sorting. To sort you can sort on the elements that are specified per endpoint. All elements can be sorted ascending by default o descending, 
+      Most endpoints provide sorting. To sort you can sort on the elements that are specified per endpoint. All elements can be sorted ascending by default o descending,
       by adding "-" in front of the element to be sorted. The sorting takes place based on comma separated values. e.g.:
 
       ```
@@ -283,7 +283,7 @@ tags:
       GET /programs?sort=name,-ects
       ```
       provides a list of all programs first sorted on name ascending and ects descending
-      
+
   - name: extension information
     description: |
       Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
@@ -309,6 +309,8 @@ paths:
     $ref: paths/Service.yaml
   /persons:
     $ref: paths/PersonCollection.yaml
+  /persons/me:
+    $ref: paths/PersonMe.yaml
   /persons/{personId}:
     $ref: paths/PersonInstance.yaml
   /persons/{personId}/associations:
