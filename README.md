@@ -37,7 +37,7 @@ See for more information about this project: https://openonderwijsapi.nl/en/
 The Open Education API is an open source, community-driven project. If you'd like to contribute, please follow the [Contributing Guidelines](CONTRIBUTING.md).
 
 ## Mailinglist
-A public mailinglist is available. Users can subscripe at:
+A public mailinglist is available. Users can subscribe at:
 https://list.surfnet.nl/mailman/listinfo/openonderwijsapi
 
 ## Community
