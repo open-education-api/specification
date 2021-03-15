@@ -49,6 +49,9 @@ tags:
     description: The programs API provides a coherent set of educational components, aimed at the realization of competences or objectives in the field of knowledge, insight, attitudes and skills that the person who completes the program must have.
   - name: rooms
     description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
+  - name: about identifiers
+    description: |
+      All identifiers should be globally unique for the scope of an institute. This should be guaranteed automatically, when using UUID's as prescribed by this specification.
   - name: query information (use of q)
     description: |
       Endpoints can be searched using the q parameter. This parameter acts as a filter for the endpoint it filters items having a:
