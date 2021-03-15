@@ -4,6 +4,7 @@ get:
   tags:
     - associations
   parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
     - name: associationId
       in: path
       description: Association ID

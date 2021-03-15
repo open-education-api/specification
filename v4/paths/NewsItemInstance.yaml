@@ -4,6 +4,7 @@ get:
   tags:
     - news
   parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
     - name: newsItemId
       in: path
       description: News item ID

@@ -4,6 +4,7 @@ get:
   tags:
     - academic sessions
   parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
     - name: academicSessionId
       in: path
       description: Academic session ID

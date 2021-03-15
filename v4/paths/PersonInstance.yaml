@@ -4,6 +4,7 @@ get:
   tags:
     - persons
   parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
     - name: personId
       in: path
       description: User ID
