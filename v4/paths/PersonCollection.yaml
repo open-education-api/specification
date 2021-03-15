@@ -6,7 +6,7 @@ get:
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - $ref: '../parameters/search.yaml'
+    - $ref: '../parameters/personSearch.yaml'
     - name: affiliations
       in: query
       description: Filter by affiliations

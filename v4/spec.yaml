@@ -55,7 +55,16 @@ tags:
       * name,
       * abbreviation or
       * description
-      
+
+      or for persons:
+      * givenName
+      * surNamePrefix
+      * surname
+      * displayName
+      * initials
+      * mail
+      * secondaryMail
+
       containing the given search term (exact partial match, case insensitive)
 
       # Examples
