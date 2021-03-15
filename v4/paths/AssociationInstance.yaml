@@ -20,7 +20,7 @@ get:
         items:
           type: string
           enum:
-            - persons
+            - person
             - offering
   responses:
     '200':
