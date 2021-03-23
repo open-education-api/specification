@@ -13,11 +13,7 @@ get:
       description: Filter by affiliations
       required: false
       schema:
-        type: string
-        enum:
-          - student
-          - employee
-          - guest
+        $ref: '../enumerations/personAffiliations.yaml'
     - name: sort
       in: query
       explode: false
@@ -61,4 +57,3 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Person.yaml'
-

@@ -20,20 +20,7 @@ properties:
     maxLength: 256
     example: Beatrix building room 4.54
   type:
-    type: string
-    description: The type of this room
-    enum:
-      - general purpose
-      - lecture room
-      - computer room
-      - laboratory
-      - office
-      - workspace
-      - exam location
-      - study room
-      - examination room
-      - conference room
-    example: exam location
+    $ref: '../enumerations/roomType.yaml'
   description:
     type: string
     description: The description of this room

@@ -7,14 +7,7 @@ allOf:
       - endDate
     properties:
       modeOfStudy:
-        type: string
-        description: Indicate whether the program is full-time, part-time, dual or self-paced.
-        enum:
-          - full-time
-          - part-time
-          - dual training
-          - self-paced
-        example: full-time 
+        $ref: '../enumerations/modeOfStudy.yaml'
       startDate:
         type: string
         description: The moment on which this offering starts, RFC3339 (full-date)

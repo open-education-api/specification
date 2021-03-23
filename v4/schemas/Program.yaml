@@ -12,19 +12,7 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   type:
-    type: string
-    description: The type of this program
-    enum:
-      - program
-      - minor
-      - honours
-      - specialization
-      - elective
-      - module
-      - track
-      - joint-degree
-      - alliance
-    example: alliance
+    $ref: '../enumerations/programType.yaml'
   name:
     type: string
     description: The name of this program
@@ -45,45 +33,15 @@ properties:
     minimum: 0
     example: 5
   qualificationAwarded:
-    type: string
-    description: Type of qualificaton that can be obtained on finishing the program
-    enum:
-      - AD
-      - BA
-      - BSc
-      - LLB
-      - MA
-      - MSc
-      - LLM
-      - Phd
-      - None
-    example: None
+    $ref: '../enumerations/qualificationAwarded.yaml'
   lengthOfProgram:
     type: integer
     description: The duration of this program in months
     example: 6
   levelOfQualification:
-    type: string
-    description: Level of qualification according to the National Qualification Framework and the European Qualifications Framework
-    enum:
-      - '1'
-      - '2'
-      - '3'
-      - '4'
-      - '4+'
-      - '5'
-      - '6'
-      - '7'
-      - '8'
-    example: 6
+    $ref: '../enumerations/levelOfQualification.yaml'
   sector:
-    type: string
-    description: The sector for this program
-    enum:
-      - secondary vocational education
-      - higher professional education
-      - university education
-    example: university education
+    $ref: '../enumerations/sector.yaml'
   fieldsOfStudy:
     type: string
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.

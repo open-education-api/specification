@@ -29,12 +29,7 @@ get:
       description: Filter by modeOfStudy
       required: false
       schema:
-        type: string
-        enum:
-          - full-time
-          - part-time
-          - dual
-          - self-paced
+        $ref: '../enumerations/modeOfStudy.yaml'
     - name: isLineItem
       in: query
       description: Filter by isLineItem

@@ -96,14 +96,7 @@ properties:
     maxLength: 2048
     example: https://upload.wikimedia.org/wikipedia/commons/6/66/Johannes_Vermeer_%281632-1675%29_-_The_Girl_With_The_Pearl_Earring_%281665%29.jpg
   gender:
-    type: string
-    description: The gender of this person
-    enum:
-      - M
-      - F
-      - U
-      - X
-    example: F
+    $ref: '../enumerations/gender.yaml'
   titlePrefix:
     type: string
     description: A title prefix to be used for this person
@@ -128,13 +121,7 @@ properties:
     maxLength: 256
     example: +31 623 456 789
   ICERelation:
-    type: string
-    description: Type of relation between person and In Case of Emergency contact
-    enum:
-      - partner
-      - parent
-      - other
-    example: partner
+    $ref: '../enumerations/ICERelationType.yaml'
   languageOfChoice:
     type: array
     description: The language(s) of choice for this person, RFC3066

@@ -56,28 +56,9 @@ properties:
     description: The requirements needed to enter this course (ECTS-prerequisites)
     example: None
   level:
-    type: string
-    description: The level of this course (ECTS-year of study if applicable)
-    enum:
-      - secondary vocational education 3
-      - secondary vocational education 4
-      - associate degree
-      - bachelor
-      - master
-      - doctoral
-    example: master
+    $ref: '../enumerations/level.yaml'
   modeOfDelivery:
-    type: array
-    description: The mode of delivery of the component (ECTS-mode of delivery)
-    items:
-      type: string
-      enum:
-        - distance-learning
-        - on campus
-        - online
-        - hybrid
-        - situated
-      example: situated
+    $ref: '../enumerations/modesOfDelivery.yaml'
   enrollment:
     type: string
     description: The extra information that is provided for enrollment

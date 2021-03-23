@@ -4,12 +4,7 @@ required:
   - type
 properties:
   type:
-    type: string
-    description: Address type
-    enum:
-      - postal
-      - visit
-      - deliveries
+    $ref: '../enumerations/postalType.yaml'
   street:
     type: string
     description: The street name
