@@ -297,6 +297,10 @@ tags:
         "title": "Resource not found"
       }
       ```
+  - name: Multi-lingual support
+    description: |
+      The OOAPI specifcation relies on the HTTP content negotiation mechanism to specify how a client can request information in a specific (natural) language, and how a server should respond to that request. In short: a client adds an `Accept-Language` header to their request, which the server uses to determine in what language the requested content should be returned. More information about this mechanism can be found at [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language).
+
 
 
 
