@@ -6,10 +6,9 @@ allOf:
   - type: object
     description: These properties are only present when explicitly included
     properties:
-      persons:
-        type: array
-        items:
-          $ref: './Person.yaml'
+      person:
+        description: The person this association is to
+        $ref: './Person.yaml'
       offering:
         description: The offering this association is for
         $ref: './Offering.yaml'

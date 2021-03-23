@@ -2,7 +2,6 @@ type: object
 required:
   - offeringId
   - type
-  - academicSession
   - name
   - description
   - mainLanguage
