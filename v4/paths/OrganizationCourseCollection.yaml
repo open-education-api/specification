@@ -26,7 +26,7 @@ get:
       description: Filter by modeOfDelivery
       required: false
       schema:
-        $ref: '../enumerations/modesofDelivery.yaml'
+        $ref: '../enumerations/modesOfDelivery.yaml'
     - name: sort
       in: query
       explode: false
