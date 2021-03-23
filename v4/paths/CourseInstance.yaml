@@ -4,6 +4,7 @@ get:
   tags:
     - courses
   parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
     - name: courseId
       in: path
       description: Course ID
