@@ -4,6 +4,7 @@ get:
   tags:
     - components
   parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
     - name: componentId
       in: path
       description: component ID

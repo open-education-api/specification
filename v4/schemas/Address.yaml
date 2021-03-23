@@ -12,7 +12,7 @@ properties:
   streetNumber:
     type: string
     description: The street number
-    example: 48
+    example: "48"
   additional:
     type: string
     description: Further details like building name, suite, apartment number, etc.

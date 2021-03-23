@@ -4,6 +4,7 @@ get:
   tags:
     - associations
   parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
     - name: associationId
       in: path
       description: Association ID
@@ -20,7 +21,7 @@ get:
         items:
           type: string
           enum:
-            - persons
+            - person
             - offering
   responses:
     '200':

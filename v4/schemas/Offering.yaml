@@ -2,7 +2,6 @@ type: object
 required:
   - offeringId
   - type
-  - academicSession
   - name
   - description
   - mainLanguage
@@ -77,7 +76,7 @@ properties:
   isLineItem:
     type: boolean
     description: Whether the offering is a line item or not
-    exmaple: true
+    example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
   ext:

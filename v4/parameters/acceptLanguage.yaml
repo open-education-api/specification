@@ -1,0 +1,6 @@
+name: Accept-Language
+in: header
+description: The Accept-Language request HTTP header advertises which languages the client is able to understand, and which locale variant is preferred. See [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language) for more information.
+required: false
+schema:
+  type: string

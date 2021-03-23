@@ -17,11 +17,11 @@ If you have a question, a Slack channel is available at: [openonderwijsapi.slack
 
 This is the current version:
 
-* [v3](https://open-education-api.github.io/specification/v3/docs.html) (Current version - v3)
+* [v4](https://open-education-api.github.io/specification/v4/docs.html) (Current version - v4)
 
-These are the previous and draft versions:
+These are the previous versions:
 
-* [v4](https://open-education-api.github.io/specification/v4/docs.html) (Next version / draft - v4)
+* [v3](https://open-education-api.github.io/specification/v3/docs.html) (Previous version - v3)
 * [v2](https://open-education-api.github.io/specification/v2/docs.html) (Previous version - v2)
 * [v1](https://open-education-api.github.io/specification/v1/docs.html) (Previous version - v1)
 
@@ -37,7 +37,7 @@ See for more information about this project: https://openonderwijsapi.nl/en/
 The Open Education API is an open source, community-driven project. If you'd like to contribute, please follow the [Contributing Guidelines](CONTRIBUTING.md).
 
 ## Mailinglist
-A public mailinglist is available. Users can subscripe at:
+A public mailinglist is available. Users can subscribe at:
 https://list.surfnet.nl/mailman/listinfo/openonderwijsapi
 
 ## Community

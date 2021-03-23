@@ -1,6 +1,6 @@
 openapi: "3.0.3"
 info:
-  version: "4.0-DRAFT"
+  version: "4.0"
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API.
@@ -49,13 +49,25 @@ tags:
     description: The programs API provides a coherent set of educational components, aimed at the realization of competences or objectives in the field of knowledge, insight, attitudes and skills that the person who completes the program must have.
   - name: rooms
     description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
+  - name: about identifiers
+    description: |
+      All identifiers should be globally unique for the scope of an institute. This should be guaranteed automatically, when using UUID's as prescribed by this specification.
   - name: query information (use of q)
     description: |
       Endpoints can be searched using the q parameter. This parameter acts as a filter for the endpoint it filters items having a:
       * name,
       * abbreviation or
       * description
-      
+
+      or for persons:
+      * givenName
+      * surNamePrefix
+      * surname
+      * displayName
+      * initials
+      * mail
+      * secondaryMail
+
       containing the given search term (exact partial match, case insensitive)
 
       # Examples
@@ -239,7 +251,7 @@ tags:
         {
         "type": "postal",
         "street": "Moreelsepark",
-        "streetNumber": 48,
+        "streetNumber": "48",
         "additional": "On the other side of the road",
         "postalCode": "3511 EP",
         "city": "Utrecht",
@@ -258,6 +270,20 @@ tags:
       }
       }
       ```
+  - name: sorting information
+    description: |
+      Most endpoints provide sorting. To sort you can sort on the elements that are specified per endpoint. All elements can be sorted ascending by default o descending, 
+      by adding "-" in front of the element to be sorted. The sorting takes place based on comma separated values. e.g.:
+
+      ```
+      GET /programs?sort=programId
+      ```
+      provides a list of all programs sorted ascending based on programId
+      ```
+      GET /programs?sort=name,-ects
+      ```
+      provides a list of all programs first sorted on name ascending and ects descending
+      
   - name: extension information
     description: |
       Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
@@ -271,6 +297,10 @@ tags:
         "title": "Resource not found"
       }
       ```
+  - name: Multi-lingual support
+    description: |
+      The OOAPI specifcation relies on the HTTP content negotiation mechanism to specify how a client can request information in a specific (natural) language, and how a server should respond to that request. In short: a client adds an `Accept-Language` header to their request, which the server uses to determine in what language the requested content should be returned. More information about this mechanism can be found at [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language).
+
 
 
 

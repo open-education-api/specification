@@ -4,6 +4,7 @@ get:
   tags:
     - organizations
   parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
     - name: organizationId
       in: path
       description: Organization ID
@@ -22,6 +23,7 @@ get:
         $ref: '../enumerations/componentType.yaml'
     - name: sort
       in: query
+      explode: false
       description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
       required: false
       schema:
@@ -33,8 +35,7 @@ get:
             - name
             - -componentId
             - -name
-        default:
-        - name
+        default: name
   responses:
     '200':
       description: OK

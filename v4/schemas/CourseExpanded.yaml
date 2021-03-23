@@ -3,10 +3,12 @@ allOf:
   - type: object
     description: These properties are only present when explicitly included
     properties:
-      program:
+      programs:
         description: The program of which this course is a part of
-        $ref: './Program.yaml'
-      coordinator:
+        type: array   # array is used because of implementation of alliances in program where courses can be part of regular education and alliances
+        items:  
+          $ref: './Program.yaml'
+      coordinators:
         type: array
         description: The person(s) responsible for this course
         items:

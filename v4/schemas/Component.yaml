@@ -14,12 +14,12 @@ properties:
     $ref: '../enumerations/componentType.yaml'
   name:
     type: string
-    description: The name of this test
+    description: The name of this component
     maxLength: 256
     example: Written test for INFOMQNM
   abbreviation:
     type: string
-    description: The abbreviation of this test
+    description: The abbreviation of this component
     maxLength: 256
     example: Test-INFOMQNM
   description:
