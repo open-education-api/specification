@@ -1,4 +1,5 @@
 type: object
+description: A period in time during which an offering can take place. Academicsessions can be nested.
 required:
   - academicSessionId
   - name

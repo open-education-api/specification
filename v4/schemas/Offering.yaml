@@ -1,4 +1,5 @@
 type: object
+description: Either a program, course or component offering which descrbes the program, course or offering in time 
 required:
   - offeringId
   - type

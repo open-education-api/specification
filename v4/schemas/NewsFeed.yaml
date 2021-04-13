@@ -1,4 +1,5 @@
 type: object
+description: A placeholder or collection of news items 
 required:
   - newsFeedId
   - name

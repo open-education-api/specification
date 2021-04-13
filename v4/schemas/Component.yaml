@@ -1,4 +1,5 @@
 type: object
+description: A component is a part of a course 
 required:
   - componentId
   - type

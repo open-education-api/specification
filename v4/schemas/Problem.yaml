@@ -1,4 +1,5 @@
 type: object
+description: A system message including the error code and an explanation 
 required:
   - status
   - title

@@ -1,4 +1,5 @@
 type: object
+description: A description of a group of people working to gether to achieve a goal 
 required:
   - organizationId
   - name
