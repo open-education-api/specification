@@ -1,4 +1,5 @@
 type: object
+description: A relationship between a person object and an offering
 required:
   - associationId
   - type

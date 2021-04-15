@@ -1,4 +1,5 @@
 type: object
+description: A newsitem contains the message and metadata of that message 
 required:
   - newsItemId
   - name

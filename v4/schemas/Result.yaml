@@ -1,4 +1,5 @@
 type: object
+description: A result as part of an association 
 required:
   - state
   - resultDate
