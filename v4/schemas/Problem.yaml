@@ -7,7 +7,7 @@ properties:
   status:
     type: string
     description: The HTTP status code
-    example: 404
+    example: '404'
   title:
     type: string
     description: A short, human-readable summary of the problem type

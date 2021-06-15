@@ -13,7 +13,7 @@ properties:
   score:
     type: string
     description: The score of this program/course/component association (based on resultValueType in offering)
-    example: 9
+    example: '9'
   resultDate:
     type: string
     description: The date this result has been published, RFC3339 (full-date)

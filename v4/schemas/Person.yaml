@@ -40,7 +40,7 @@ properties:
     type: string
     description: The date of birth of this person, RFC3339 (full-date)
     format: date
-    example: 2003-09-30
+    example: '2003-09-30'
   cityOfBirth:
     type: string
     description: The city of birth of this person
@@ -57,7 +57,7 @@ properties:
     type: string
     description: The date of nationality of this person, RFC3339 (full-date)
     format: date
-    example: 2003-09-30
+    example: '2003-09-30'
   affiliations:
     $ref: '../enumerations/personAffiliations.yaml'
   mail:

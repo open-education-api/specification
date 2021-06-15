@@ -39,7 +39,7 @@ properties:
   floor:
     type: string
     description: The floor on which this room is located
-    example: 4
+    example: '4'
   wing:
     type: string
     description: The wing in which this room is located
