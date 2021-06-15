@@ -1,4 +1,5 @@
 type: object
+description: An area within a building where education can take place
 required:
   - roomId
   - name

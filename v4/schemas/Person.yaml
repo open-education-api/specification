@@ -1,4 +1,5 @@
 type: object
+description: A person that has a relationship with this institution 
 required:
   - personId
   - givenName
