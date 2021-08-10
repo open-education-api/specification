@@ -9,6 +9,20 @@ body:
         Thank you for taking the time to file a change request for the OOAPI specification.
         *Please answer the following questions about the requested change so the OOAPI work group can handle your request.*
   - type: input
+    id: organization
+    attributes:
+      label: Organization
+      description: Which organization do you represent?
+    validations:
+      required: true
+  - type: input
+    id: project
+    attributes:
+      label: Project
+      description: If you are requesting a change because of a specific project, please enter it here.
+    validations:
+      required: false
+  - type: input
     id: contact
     attributes:
       label: Contact Details
