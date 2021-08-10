@@ -1,0 +1,67 @@
+name: Change request
+description: Use this form to specify all OOAPI change requests
+title: "[Change request]: "
+labels: [Needs triage]
+assignees:
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to file a change request for the OOAPI specification.
+        *Please answer the following questions about the requested change so we the work group can handle your request.*
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      description: Please give a short description of the requested change
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of the OOAPI are you targeting?
+      options:
+        - v3
+        - v4
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Usecase
+      description: What usecase would this change make possible?
+    validations:
+      required: false
+  - type: dropdown
+    id: supporting-institutions
+    attributes:
+      label: Which institutions support this change? Changes to the OOAPI specification have to be supported by at least one educational institution that officially participates in the OOAPI workgroup before they will be considered.
+      multiple: true
+      options:
+        - Avans University (Piet Brekelmans)
+        - InHolland University of Applied Sciences (Arthur van Alten)
+        - Leiden University of Applied Sciences (Mark de Jong, Frank Schimmel)
+        - University of Amsterdam (Tom Kuipers)
+        - Arnhem Nijmegen University of Applied Sciences (Niels Kregting)
+        - The Hague University of Applied Sciences (Henk Schouten, Danny Klootwijk)
+        - Utrecht University of Applied Sciences (Joost Veerman, Xiaojie Bormans)
+        - Leiden University (Maarten van Schie)
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed solution
+      description: If you have a proposed solution, you can specify it here.
+  - type: textarea
+    id: requests-and-responses
+    attributes:
+      label: Requests and responses
+      description: Which requests or responses would be changed/added/removed by this change?
