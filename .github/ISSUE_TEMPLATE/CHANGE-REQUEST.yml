@@ -2,7 +2,7 @@ name: Change request
 description: Use this form to specify all OOAPI change requests
 title: "[Change request]: "
 labels: [Needs triage]
-assignees:
+assignees: ''
 body:
   - type: markdown
     attributes:
