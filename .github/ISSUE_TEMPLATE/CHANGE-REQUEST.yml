@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thank you for taking the time to file a change request for the OOAPI specification.
-        *Please answer the following questions about the requested change so we the work group can handle your request.*
+        *Please answer the following questions about the requested change so the OOAPI work group can handle your request.*
   - type: input
     id: contact
     attributes:
