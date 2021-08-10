@@ -1,7 +1,7 @@
 ---
 name: Change request
 about: Use this template to specify all OOAPI change requests
-title: "[Requested]"
+title: "[Change request] "
 labels: ''
 assignees: ''
 
