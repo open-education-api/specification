@@ -43,7 +43,8 @@ body:
   - type: dropdown
     id: supporting-institutions
     attributes:
-      label: Which institutions support this change? Changes to the OOAPI specification have to be supported by at least one educational institution that officially participates in the OOAPI workgroup before they will be considered.
+      label: Which institutions support this change?
+      description: Changes to the OOAPI specification have to be supported by at least one educational institution that officially participates in the OOAPI workgroup before they will be considered.
       multiple: true
       options:
         - Avans University (Piet Brekelmans)
