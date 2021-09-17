@@ -289,6 +289,12 @@ tags:
     description: |
       Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
 
+  - name: formatting and displaying results from API
+    description: |
+      Most endpoints provide results with attributes that describe a result. These descriptions can be formatted to improve readability. 
+      Where additional readability is expected the result can be provided in Markdown. For OOAPI we choose to use a subset of the ([GitHub Flavored Markdown Spec](https://guides.github.com/features/mastering-markdown/))
+      The description SHOULD NOT use the images element for optimal interoperability.
+
   - name: Error responses
     description: |
       Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):

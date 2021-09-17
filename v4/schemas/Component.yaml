@@ -25,7 +25,7 @@ properties:
     example: Test-INFOMQNM
   description:
     type: string
-    description: The description of this component
+    description: The description of this component. Markdown syntax MAY be used for rich text representation.
     example: 'Prove executable knowledge of research methods, including:
               Acquire knowledge of HCI research paradigms
               Able to design suitable research studies (e.g., choose between within and between subject designs)
