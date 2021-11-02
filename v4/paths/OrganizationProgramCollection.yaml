@@ -92,3 +92,5 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Program.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'

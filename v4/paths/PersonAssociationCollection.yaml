@@ -109,6 +109,8 @@ get:
                               $ref: '../schemas/ComponentOffering.yaml'
                             academicSession:
                               $ref: '../schemas/AcademicSession.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'
     '404':
       description: Not Found
       content:

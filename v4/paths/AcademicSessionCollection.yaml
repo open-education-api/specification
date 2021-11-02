@@ -62,3 +62,5 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/AcademicSession.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'

@@ -92,6 +92,8 @@ get:
                           $ref: '../schemas/Person.yaml'
                         academicSession:
                           $ref: '../schemas/AcademicSession.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'
     '404':
       description: Not Found
       content:

@@ -93,6 +93,8 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/ProgramOffering.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'
     '404':
       description: Not Found
       content:

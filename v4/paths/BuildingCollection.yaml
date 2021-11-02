@@ -47,3 +47,5 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Building.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'
