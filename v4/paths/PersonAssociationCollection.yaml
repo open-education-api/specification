@@ -109,3 +109,9 @@ get:
                               $ref: '../schemas/ComponentOffering.yaml'
                             academicSession:
                               $ref: '../schemas/AcademicSession.yaml'
+    '400':
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'
