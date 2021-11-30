@@ -87,9 +87,3 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/ComponentOffering.yaml'
-    '404':
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '../schemas/Problem.yaml'

@@ -12,3 +12,9 @@ get:
         application/json:
           schema:
             $ref: '../schemas/Service.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

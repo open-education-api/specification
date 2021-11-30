@@ -92,9 +92,3 @@ get:
                           $ref: '../schemas/Person.yaml'
                         academicSession:
                           $ref: '../schemas/AcademicSession.yaml'
-    '404':
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '../schemas/Problem.yaml'
