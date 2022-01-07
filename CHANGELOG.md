@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - CHANGELOG.md
 - Improved explanation on Markdown
+- ext objects to all collection endpoints
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
