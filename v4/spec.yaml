@@ -292,8 +292,8 @@ tags:
   - name: formatting and displaying results from API
     description: |
       Most endpoints provide results with attributes that describe a result. These descriptions can be formatted to improve readability. 
-      Where additional readability is expected the result can be provided in Markdown. For OOAPI we choose to use a subset of the ([GitHub Flavored Markdown Spec](https://guides.github.com/features/mastering-markdown/))
-      The description SHOULD NOT use the images element for optimal interoperability.
+      Where additional readability is expected the result can be provided in Markdown. For OOAPI we choose to use a subset of the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/). More information and guidelines can be read [here](https://guides.github.com/features/mastering-markdown/)
+      The description SHOULD NOT use: Task list Items, The images element ans Raw HTML for optimal interoperability. Git Hub Markdown is choosen as it provides some extra structure for data input on top of commonmark Markdown. This will alllow for better typed information.
 
   - name: Error responses
     description: |
