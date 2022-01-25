@@ -53,3 +53,5 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Organization.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'

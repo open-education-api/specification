@@ -57,3 +57,5 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Room.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'
