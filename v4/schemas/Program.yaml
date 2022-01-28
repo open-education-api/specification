@@ -26,7 +26,7 @@ properties:
     example: studM
   description:
     type: string
-    description: The description of this program
+    description: The description of this program. Markdown syntax MAY be used for rich text representation.
     example: program that is a place holder for all courses that are made available for student mobility
   ects:
     type: number
@@ -54,11 +54,11 @@ properties:
     example: '59312'
   profileOfProgram:
     type: string
-    description: Brief description of the main focus of the program.
+    description: Brief description of the main focus of the program. Markdown syntax MAY be used for rich text representation.
     example: the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program
   learningOutcomes:
     type: array
-    description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
+    description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement. Markdown syntax MAY be used for rich text representation.
     items:
       type: string
   admissionRequirements:

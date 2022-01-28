@@ -24,7 +24,7 @@ properties:
     $ref: '../enumerations/roomType.yaml'
   description:
     type: string
-    description: The description of this room
+    description: The description of this room. Markdown syntax MAY be used for rich text representation.
     example: External education and exam room 4.54
   totalSeats:
     type: integer
