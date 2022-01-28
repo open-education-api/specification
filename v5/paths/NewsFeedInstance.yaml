@@ -1,0 +1,27 @@
+get:
+  summary: GET /news-feeds/{newsFeedId}
+  description: Get a single news feed.
+  tags:
+    - news
+  parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
+    - name: newsFeedId
+      in: path
+      description: News feed ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/NewsFeed.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

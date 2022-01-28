@@ -1,0 +1,76 @@
+get:
+  summary: GET /programs/{programId}/courses
+  description: Get an ordered list of all courses given through this program.
+  tags:
+    - programs
+  parameters:
+    - name: programId
+      in: path
+      description: Program ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/search.yaml'
+    - $ref: '../parameters/acceptLanguage.yaml'
+    - name: level
+      in: query
+      description: Filter by level
+      required: false
+      schema:
+        $ref: '../enumerations/level.yaml'
+    - name: modeOfDelivery
+      in: query
+      description: Filter by modeOfDelivery
+      required: false
+      schema:
+        $ref: '../enumerations/modesOfDelivery.yaml'
+    - name: sort
+      in: query
+      explode: false
+      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - courseId
+            - name
+            - ects
+            - -courseId
+            - -name
+            - -ects
+        default: courseId
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - items
+            properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/Course.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

@@ -1,0 +1,36 @@
+type: object
+description: A placeholder or collection of news items 
+required:
+  - newsFeedId
+  - name
+  - description
+  - type
+properties:
+  newsFeedId:
+    type: string
+    description: Unique id for this news feed
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-134564174222
+  name:
+    type: string
+    description: The name for this news feed
+    maxLength: 256
+    example: room Bb 4.35 news
+  description:
+    type: string
+    description: The description of this news feed
+    example: all information on what happens in room Bb 4.35
+  type:
+    type: string
+    description: The type of the object this news feed relates to
+    enum:
+      - organization
+      - program
+      - course
+      - component
+      - person
+      - building
+      - room
+    example: room
+  ext:
+    $ref: './Ext.yaml'

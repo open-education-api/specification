@@ -1,0 +1,27 @@
+type: object
+description: A relationship between a person object and an offering
+required:
+  - associationId
+  - type
+  - role
+  - state
+properties:
+  associationId:
+    type: string
+    description: Unique id of this association
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-1237891417400
+  type:
+    type: string
+    description: The type of this association
+    enum:
+      - programOfferingAssociation
+      - courseOfferingAssociation
+      - componentOfferingAssociation
+    example: componentOfferingAssociation
+  role:
+    $ref: '../enumerations/associationRole.yaml'
+  state:
+    $ref: '../enumerations/associationState.yaml'
+  ext:
+    $ref: './Ext.yaml'

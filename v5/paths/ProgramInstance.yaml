@@ -1,0 +1,39 @@
+get:
+  summary: GET /programs/{programId}
+  description: Get a single program.
+  tags:
+    - programs
+  parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
+    - name: programId
+      in: path
+      description: Program ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - parent
+            - children
+            - organization
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProgramExpanded.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

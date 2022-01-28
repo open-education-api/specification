@@ -1,0 +1,26 @@
+get:
+  summary: GET /persons/me
+  description: Returns the person object for the currently authenticated user.
+  security:
+    - bearerAuth: []
+  tags:
+    - persons
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Person.yaml'
+    '401':
+      description: Unauthorized
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

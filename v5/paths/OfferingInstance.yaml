@@ -1,0 +1,46 @@
+get:
+  summary: GET /offerings/{offeringId}
+  description: Get a single offering.
+  tags:
+    - offerings
+  parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
+    - name: offeringId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - program
+            - programOffering
+            - course
+            - courseOffering
+            - component
+            - organization
+            - academicSession
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '../schemas/ProgramOfferingExpanded.yaml'
+              - $ref: '../schemas/CourseOfferingExpanded.yaml'
+              - $ref: '../schemas/ComponentOfferingExpanded.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

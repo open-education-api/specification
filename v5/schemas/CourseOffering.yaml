@@ -1,0 +1,18 @@
+allOf:
+  - $ref: './Offering.yaml'
+  - type: object
+    required:
+      - modeOfStudy
+      - startDate
+      - endDate
+    properties:
+      modeOfStudy:
+        $ref: '../enumerations/modeOfStudy.yaml'
+      startDate:
+        type: string
+        description: The moment on which this offering starts, RFC3339 (full-date)
+        format: date
+      endDate:
+        type: string
+        description: The moment on which this offering ends, RFC3339 (full-date)
+        format: date

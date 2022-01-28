@@ -1,0 +1,38 @@
+get:
+  summary: GET /associations/{associationId}
+  description: Get a single association.
+  tags:
+    - associations
+  parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
+    - name: associationId
+      in: path
+      description: Association ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - person
+            - offering
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AssociationExpanded.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

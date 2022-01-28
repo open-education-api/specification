@@ -1,0 +1,59 @@
+get:
+  summary: GET /buildings/{buildingId}/rooms
+  description: Get a list of all rooms in a building.
+  tags:
+    - buildings
+  parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/search.yaml'
+    - name: type
+      in: query
+      description: Filter by room type
+      required: false
+      schema:
+        $ref: '../enumerations/roomType.yaml'
+    - name: sort
+      in: query
+      explode: false
+      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - roomId
+            - name
+            - totalSeats
+            - availableSeats
+            - -roomId
+            - -name
+            - -totalSeats
+            - -availableSeats
+        default: name
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - items
+            properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/Room.yaml'
