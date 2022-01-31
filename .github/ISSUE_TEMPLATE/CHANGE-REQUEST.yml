@@ -45,6 +45,7 @@ body:
       options:
         - v3
         - v4
+        - v5
     validations:
       required: true
   - type: textarea
