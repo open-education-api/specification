@@ -47,3 +47,9 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Building.yaml'
+    '400':
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

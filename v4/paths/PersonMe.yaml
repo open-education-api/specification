@@ -12,6 +12,12 @@ get:
         application/json:
           schema:
             $ref: '../schemas/Person.yaml'
+    '400':
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'
     '401':
       description: Unauthorized
       content:

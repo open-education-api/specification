@@ -294,8 +294,9 @@ tags:
       Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
       ```
       {
-        "code": 404,
-        "title": "Resource not found"
+        "status": 404,
+        "title": "A short, human-readable summary of the problem type, e.g. 'resource not found'."
+        "detail": "An optional human-readable explanation specific to this occurrence of the problem."
       }
       ```
   - name: Multi-lingual support

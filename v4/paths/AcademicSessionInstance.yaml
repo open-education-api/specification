@@ -30,6 +30,12 @@ get:
         application/json:
           schema:
             $ref: '../schemas/AcademicSessionExpanded.yaml'
+    '400':
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'
     '404':
       description: Not Found
       content:
