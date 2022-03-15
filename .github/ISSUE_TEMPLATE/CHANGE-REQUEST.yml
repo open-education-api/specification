@@ -80,3 +80,8 @@ body:
     attributes:
       label: Requests and responses
       description: Which requests or responses would be changed/added/removed by this change?
+  - type: textarea
+    id: your-question
+    attributes:
+      label: What is your question for the OOAPI work group?
+      description: Do you need a particular decision to continu working on this issue.
