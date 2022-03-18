@@ -47,6 +47,8 @@ get:
             required:
               - pageSize
               - pageNumber
+              - hasPreviousPage
+              - hasNextPage
               - items
             properties:
               pageSize:
@@ -57,6 +59,16 @@ get:
                 type: integer
                 format: int32
                 description: The current page number
+              hasPreviousPage:
+                type: boolean
+                description: Whether there is a previous page
+              hasNextPage:
+                type: boolean
+                description: Whether there is a previous page
+              totalPages:
+                type: integer
+                format: int32
+                description: Total number of pages
               items:
                 type: array
                 items:
