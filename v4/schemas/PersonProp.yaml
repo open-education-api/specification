@@ -1,11 +1,5 @@
 type: object
-description: A person that has a relationship with this institution, this set is the minimal set 
-required:
-  - givenName
-  - surname
-  - displayName
-  - affiliations
-  - mail
+description: A person that has a relationship with this institution, regular properties set 
 properties:
   givenName:
     type: string

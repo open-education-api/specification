@@ -1,0 +1,38 @@
+post:
+  summary: POST /associations/me
+  description: POST a single association (enroll a person based on person object and offering object)
+  security:
+    - openId:
+      - my_association_write
+  tags:
+    - associations
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:  
+          type: object
+          properties:
+            issuer:
+              $ref: '../schemas/HEI.yaml'            
+            associationItem:
+              $ref: '../schemas/AssociationMinExpanded.yaml'
+  responses:
+    '201':
+      description: OK
+      content:
+        application/json:
+          schema:
+            properties:
+              response:
+                allOf:
+                  - $ref: '../schemas/AssociationId.yaml'
+                  - $ref: '../schemas/PostResponse.yaml'
+
+    '400':
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

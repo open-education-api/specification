@@ -1,0 +1,14 @@
+get:
+  parameters:
+    - $ref: '../parameters/acceptLanguage.yaml'
+  summary: GET /
+  description: Get basic information about an Institution covered by this endpoint.
+  tags:
+    - HEI
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/HEI.yaml'

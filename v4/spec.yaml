@@ -26,6 +26,9 @@ info:
     url: ../logo.png
 
 tags:
+
+  - name: HEI
+    description: The HEI API provides additional metadata about the organization for whcih this endpoint is created. The HEI structure is also used to identfy other institutions.
   - name: service metadata
     description: The service API provides additional metadata needed to make the OOAPI fit for this organization.
   - name: academic sessions
@@ -314,10 +317,17 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+    openId: 
+      type: openIdConnect
+      openIdConnectUrl: /.well-known/openid-configuration
+
+
 
 paths:
   /:
     $ref: paths/Service.yaml
+  /hei:
+    $ref: paths/HEI.yaml
   /persons:
     $ref: paths/PersonCollection.yaml
   /persons/me:
@@ -370,6 +380,10 @@ paths:
     $ref: paths/OfferingAssociationCollection.yaml
   /associations/{associationId}:
     $ref: paths/AssociationInstance.yaml
+  /associations/me:
+    $ref: paths/AssociationInstanceMe.yaml
+  /associations/externaloffering:
+    $ref: paths/AssociationExternalOffering.yaml
   /buildings:
     $ref: paths/BuildingCollection.yaml
   /buildings/{buildingId}:

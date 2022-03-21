@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [Unreleased] - 2022-03-21
+### Added
+- split person and associations into properties - requiredvalues - ID and a aggragated person object this allows for better reuse e.g. in POST where ID is not mandatory and in typed responses
+- HEI endpoint to also create an HEI object that is needed as a value to direct associations for external students and offerings
+- languageTyped string (a key value pare for mulitlanguage values) 
+- associations/me endpoint with OIDC security information
+
 ## [Unreleased] - 2022-01-07
 ### Added
 - CHANGELOG.md

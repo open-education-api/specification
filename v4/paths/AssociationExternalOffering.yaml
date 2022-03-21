@@ -1,0 +1,125 @@
+post:
+  summary: POST /associations/externaloffering
+  description: POST an external offering as a placeholder and test if the person is allowed to take part in the external offering based on educational program at original institute
+  tags:
+    - associations
+  requestBody:
+# input expected something along the lines of
+# {
+#     "personId": "???",
+#     "type": "courseOfferingAssociation",
+#     "role": "student",
+#     "state": "associated",
+#     "ext": {
+#         "issuer": {
+#             "organization": {
+#                 "name": "TU Eindhoven",
+#                 "brin": "25DW",
+#                 "address": {
+#                     "countryCode": "NL"
+#                 }
+#             },
+#             "offering": {
+#                 "name": "Periode 3",
+#                 "abbreviation": "BLOK3",
+#                 "resultValueType": "1-10"
+#             },
+#             "course": {
+#                 "name": "Academic and Professional Writing",
+#                 "abbreviaton": "INFOMQNM",
+#                 "name-en": "Academic and Professional Writing",
+#                 "name-nl": "Academisch en professioneel schrijven",
+#                 "level": "bachelor"
+#             }
+#         }
+#     },
+#     "result": {
+#         "state": "completed",
+#         "score": "8",
+#         "resultDate": "2020-09-28",
+#         "ects": "6",
+#         "comment": "Goed gedaan"
+#     }
+# }
+# output expexted something along the lines of either association ID or that added with a status
+
+    required: true
+    content:
+      application/json:
+        schema:  
+          type: object
+          properties:
+                associationItem:
+                  oneOf:
+                    - allOf:
+                        - type: object
+                          required:
+                            - offering
+                            - person
+                          properties:
+                            issuer:
+                              $ref: '../schemas/HEI.yaml'
+                            offering:
+                              $ref: '../schemas/ProgramOfferingExpanded.yaml'
+                            person:
+                              $ref: '../schemas/PersonProp.yaml'
+                            result:
+                              $ref: '../schemas/Result.yaml'  
+                    - allOf:
+                        - type: object
+                          required:
+                            - offering
+                            - person
+                          properties:
+                            issuer:
+                              $ref: '../schemas/HEI.yaml'
+                            offering:
+                              $ref: '../schemas/CourseOfferingExpanded.yaml'
+                            person:
+                              $ref: '../schemas/PersonProp.yaml'
+                            result:
+                              $ref: '../schemas/Result.yaml'
+                    - allOf:
+                        - type: object
+                          required:
+                            - offering
+                            - person
+                          properties:
+                            issuer:
+                              $ref: '../schemas/HEI.yaml'
+                            offering:
+                              $ref: '../schemas/ComponentOfferingExpanded.yaml'
+                            person:
+                              $ref: '../schemas/PersonProp.yaml'
+                            result:
+                              $ref: '../schemas/Result.yaml'
+  responses:
+    '201':
+      description: OK
+      content:
+        application/json:
+          schema:
+            properties:
+              response:
+                allOf:
+                  - $ref: '../schemas/AssociationId.yaml'
+                  - $ref: '../schemas/PostResponse.yaml'
+              # associationId:
+              #   type: string
+              #   description: Unique id of this association
+              #   format: uuid
+              #   example: 123e4567-e89b-12d3-a456-1237891417400
+              # message:
+              #   description: information displayed to user
+              #   type: string
+              # redirect:
+              #   description: URL where additional information can be found e.g. by use of deeplink
+              #   type: string
+              #   format: uri
+
+    '400':
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

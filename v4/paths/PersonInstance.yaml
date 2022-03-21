@@ -18,9 +18,48 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Person.yaml'
+            allOf:
+              - $ref: '../schemas/PersonId.yaml'
+              - $ref: '../schemas/PersonProp.yaml'
+              - $ref: '../schemas/PersonReq.yaml'
+              
     '404':
       description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'
+
+
+
+post:
+  summary: POST /persons
+  description: POST a single person.
+  tags:
+    - persons
+  requestBody:
+    required: true
+    content:
+      application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/PersonProp.yaml'
+              - $ref: '../schemas/PersonReq.yaml'
+  
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            properties:
+              personId:
+                description: User ID
+                type: string
+                format: uuid
+
+    '400':
+      description: Bad Request
       content:
         application/problem+json:
           schema:

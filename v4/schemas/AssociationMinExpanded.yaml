@@ -1,5 +1,4 @@
 allOf:
-  - $ref: '../schemas/AssociationId.yaml'
   - oneOf:
     - $ref: '../schemas/ProgramOfferingAssociation.yaml'
     - $ref: '../schemas/CourseOfferingAssociation.yaml'
@@ -9,7 +8,7 @@ allOf:
     properties:
       person:
         description: The person this association is to
-        $ref: './Person.yaml'
+        $ref: './PersonProp.yaml'
       offering:
         description: The offering this association is for
         $ref: './Offering.yaml'

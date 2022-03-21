@@ -1,0 +1,13 @@
+type: object
+description: A string with the associated languagecode 
+required:
+  - language
+properties:
+  language:
+    type: string
+    description: language code based on RFC3066 https://datatracker.ietf.org/doc/html/rfc3066 
+    example: 'en-GB'
+  value:
+    type: string
+    description: The actual string value represented in the language of language code
+    example: Resource stringvalue

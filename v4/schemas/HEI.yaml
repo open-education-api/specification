@@ -1,0 +1,38 @@
+# added this element based on: https://occapi.uni-foundation.eu/#operation/getInstitutions combined with language rules from https://www.imsglobal.org/spec/eduapi/v1p0#/education 
+
+type: object
+description: An object describing an HEI institution.
+required:
+  - type
+properties:
+  heiId:
+    type: string
+    description: The unique identifier for this Institution.
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174012
+  shacHome:
+    type: string
+    description: The SCHAC code of the Institution.
+    format: hostname
+    example: example.com            
+  abbreviation:
+    type: string
+    description: The abbreviation of the name of this institution
+    example: e.g.
+  language:
+    type: string
+    description: The primary language used in the described entity.
+    format: languageCode
+    example: en-GB
+  name:
+    type: array
+    description: The name of this institution.
+    items:
+      $ref: './LanguageTypedString.yaml' 
+  url:
+    type: array
+    description: The url where the website of this institution can be found (based on language chosen)
+    items:
+      $ref: './LanguageTypedString.yaml'
+  ext:
+    $ref: './Ext.yaml'
