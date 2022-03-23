@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
+- Changed pagination by adding `hasNextPage`, `hasPreviousPage` and optional `totalPages` attributes to all collection responses. This should make pagination easier for clients.
+
 
 ## [4.0.0] - 2019-09-01
 ### Added
