@@ -43,21 +43,13 @@ get:
       content:
         application/json:
           schema:
-            type: object
-            required:
-              - pageSize
-              - pageNumber
-              - items
-            properties:
-              pageSize:
-                type: integer
-                format: int32
-                description: The number of items per page
-              pageNumber:
-                type: integer
-                format: int32
-                description: The current page number
-              items:
-                type: array
-                items:
-                  $ref: '../schemas/Course.yaml'
+            allOf:
+              - $ref: '../schemas/Pagination.yaml'
+              - type: object
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '../schemas/Course.yaml'
