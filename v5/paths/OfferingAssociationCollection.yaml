@@ -104,9 +104,15 @@ get:
                           $ref: '../schemas/Person.yaml'
                         academicSession:
                           $ref: '../schemas/AcademicSession.yaml'
-    '404':
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '../schemas/Problem.yaml'
+    '400':
+      $ref: '../schemas/ErrorInvalidRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotImplemented.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorFatalError.yaml'

@@ -1,0 +1,5 @@
+description: Invalid request
+content:
+  application/problem+json:
+    schema:
+      $ref: 'Problem.yaml'
