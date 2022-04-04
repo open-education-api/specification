@@ -308,6 +308,11 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+    openId: 
+      type: openIdConnect
+      openIdConnectUrl: /.well-known/openid-configuration
+
+
 
 paths:
   /:
@@ -364,6 +369,8 @@ paths:
     $ref: paths/OfferingAssociationCollection.yaml
   /associations/{associationId}:
     $ref: paths/AssociationInstance.yaml
+  /associations/me:
+    $ref: paths/AssociationInstanceMe.yaml
   /buildings:
     $ref: paths/BuildingCollection.yaml
   /buildings/{buildingId}:

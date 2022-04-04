@@ -1,3 +1,12 @@
+## [Unreleased] - 2022-04-04
+### Added
+- associations/me endpoint with OIDC security information
+- persons POST endpoint 
+
+#### Changed
+- split person and associations into properties - ID and a aggragated person association object this allows for better reuse e.g. in POST where ID is not mandatory and in typed responses
+
+
 # Changes in update 4.0 to 5.0 Education API Specification
 
 ![Open Education API](https://github.com/open-education-api/specification/blob/master/logo.png)
