@@ -1,4 +1,4 @@
-description: Method not implemented
+description: Method not allowed
 content:
   application/problem+json:
     schema:

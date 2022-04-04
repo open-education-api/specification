@@ -40,7 +40,7 @@ get:
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
     '405':
-      $ref: '../schemas/ErrorMethodNotImplemented.yaml'
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':

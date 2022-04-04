@@ -128,7 +128,7 @@ get:
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
     '405':
-      $ref: '../schemas/ErrorMethodNotImplemented.yaml'
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
