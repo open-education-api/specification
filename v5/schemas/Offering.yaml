@@ -35,7 +35,7 @@ properties:
     example: Test-INFOMQNM-20FS
   description:
     type: string
-    description: The description of this offering
+    description: The description of this offering. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: 'Prove in wirting knowledge of research methods, including:
               Acquire knowledge of HCI research paradigms
               Able to design suitable research studies (e.g., choose between within and between subject designs)

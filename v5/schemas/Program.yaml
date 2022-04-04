@@ -26,7 +26,7 @@ properties:
     example: studM
   description:
     type: string
-    description: The description of this program
+    description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: program that is a place holder for all courses that are made available for student mobility
   ects:
     type: number
