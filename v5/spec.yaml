@@ -38,6 +38,8 @@ tags:
     description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
   - name: components
     description: The components API provides information about components being part of parent courses.
+  - name: groups
+    description: The groups API provides information about groups related to an organization.
   - name: news
     description: The news API provides news feeds and items regarding a specific subject.
   - name: offerings
@@ -320,6 +322,8 @@ paths:
     $ref: paths/PersonInstance.yaml
   /persons/{personId}/associations:
     $ref: paths/PersonAssociationCollection.yaml
+  /persons/{personId}/groups:
+    $ref: paths/PersonGroupCollection.yaml
   /organizations:
     $ref: paths/OrganizationCollection.yaml
   /organizations/{organizationId}:
@@ -332,6 +336,8 @@ paths:
     $ref: paths/OrganizationComponentCollection.yaml
   /organizations/{organizationId}/offerings:
     $ref: paths/OrganizationOfferingCollection.yaml
+  /organizations/{organizationId}/groups:
+    $ref: paths/OrganizationGroupCollection.yaml
   /academic-sessions:
     $ref: paths/AcademicSessionCollection.yaml
   /academic-sessions/{academicSessionId}:
@@ -362,6 +368,8 @@ paths:
     $ref: paths/OfferingInstance.yaml
   /offerings/{offeringId}/associations:
     $ref: paths/OfferingAssociationCollection.yaml
+  /offerings/{offeringId}/groups:
+    $ref: paths/OfferingGroupCollection.yaml
   /associations/{associationId}:
     $ref: paths/AssociationInstance.yaml
   /buildings:
@@ -382,3 +390,9 @@ paths:
     $ref: paths/NewsFeedItemCollection.yaml
   /news-items/{newsItemId}:
     $ref: paths/NewsItemInstance.yaml
+  /groups:
+    $ref: paths/GroupCollection.yaml
+  /groups/{groupId}:
+    $ref: paths/GroupInstance.yaml
+  /groups/{groupId}/persons:
+    $ref: paths/GroupPersonCollection.yaml
