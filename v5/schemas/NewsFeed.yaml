@@ -18,7 +18,7 @@ properties:
     example: room Bb 4.35 news
   description:
     type: string
-    description: The description of this news feed
+    description: The description of this news feed. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: all information on what happens in room Bb 4.35
   type:
     type: string
