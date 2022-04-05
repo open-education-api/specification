@@ -1,8 +1,11 @@
 type: string
-description: The type of this organization
+description: The type of this organization. Each OOAPI endpoint should have a single organization with type `root`, describing the root organization.
 enum:
   - root
-  - institution
+  - institute
   - department
   - faculty
+  - branch
+  - academy
+  - school
 example: root
