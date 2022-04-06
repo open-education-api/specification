@@ -66,7 +66,7 @@ get:
                 items:
                   $ref: '../schemas/Organization.yaml'
     '400':
-      $ref: '../schemas/ErrorInvalidRequest.yaml'
+      $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
@@ -76,4 +76,4 @@ get:
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
-      $ref: '../schemas/ErrorFatalError.yaml'
+      $ref: '../schemas/ErrorInternalServerError.yaml'
