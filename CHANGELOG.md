@@ -10,10 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved explanation on Markdown
 - ext objects to all collection endpoints
 - #158 Improve error responses to make them more semantically correct
+- Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
 - Changed pagination for all responses returning a collection of items. Responses now include `hasNextPage`, `hasPreviousPage` and optional `totalPages` attributes. These additions make pagination easier for clients.
+- Removed 404 responses for paths that return a collection.
 
 ## [4.0.0] - 2019-09-01
 ### Added

@@ -112,3 +112,15 @@ get:
                     - $ref: '../schemas/ProgramOffering.yaml'
                     - $ref: '../schemas/CourseOffering.yaml'
                     - $ref: '../schemas/ComponentOffering.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
