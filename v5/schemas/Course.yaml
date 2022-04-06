@@ -29,12 +29,11 @@ properties:
     example: 7.5
   description:
     type: string
-    description: The description of this course (ECTS-description)
-    example: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges.
-    Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
+    description: The description of this course (ECTS-description). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    example: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
   learningOutcomes:
     type: array
-    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome)
+    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     items:
       type: string
     example: ['Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms
@@ -54,7 +53,7 @@ properties:
             Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)']
   requirements:
     type: string
-    description: The requirements needed to enter this course (ECTS-prerequisites)
+    description: The requirements needed to enter this course (ECTS-prerequisites). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: None
   level:
     $ref: '../enumerations/level.yaml'
@@ -63,7 +62,7 @@ properties:
   enrollment:
     type: string
     description: The extra information that is provided for enrollment
-    example: enrollment through SIS
+    example: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
     description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
@@ -72,7 +71,7 @@ properties:
     example: ['book to be announced', 'on-line resource x']
   assessment:
     type: string
-    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria)
+    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: Exam on campus
   link:
     type: string

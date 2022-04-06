@@ -26,7 +26,7 @@ properties:
     example: studM
   description:
     type: string
-    description: The description of this program
+    description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: program that is a place holder for all courses that are made available for student mobility
   ects:
     type: number
@@ -54,7 +54,7 @@ properties:
     example: '59312'
   profileOfProgram:
     type: string
-    description: Brief description of the main focus of the program.
+    description: Brief description of the main focus of the program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program
   learningOutcomes:
     type: array
@@ -63,7 +63,7 @@ properties:
       type: string
   admissionRequirements:
     type: string
-    description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students.
+    description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
   qualificationRequirements:
     type: string
