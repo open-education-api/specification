@@ -5,6 +5,11 @@ allOf:
       parent:
         $ref: './AcademicSession.yaml'
         description: The parent Academicsession of this session (e.g. fall semester 20xx where the current session is a week 40)
+      children:
+        type: array
+        description: The list of Academicsession children of this Session (e.g. all academic sessions in fall semester 20xx)
+        items:
+          $ref: './AcademicSession.yaml'
       year:
         $ref: './AcademicSession.yaml'
         description: The top level year of this session (e.g. 20xx where the current session is a week 40 of a semester)

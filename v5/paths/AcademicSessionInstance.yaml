@@ -22,6 +22,7 @@ get:
           type: string
           enum:
             - parent
+            - children
             - year
   responses:
     '200':
