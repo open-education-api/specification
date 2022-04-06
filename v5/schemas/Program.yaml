@@ -6,6 +6,7 @@ required:
   - name
   - abbreviation
   - description
+  - mainLanguage
 properties:
   programId:
     type: string
@@ -28,6 +29,10 @@ properties:
     type: string
     description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: program that is a place holder for all courses that are made available for student mobility
+  mainLanguage:
+    type: string
+    description: The main language in which this program is given. A string formatted according to RFC3066.
+    example: nl-NL
   ects:
     type: number
     description: The number of Euopean Credits that can be archieved in this program

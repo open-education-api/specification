@@ -1,0 +1,6 @@
+name: mainLanguage
+in: query
+description: Filter by mainLanguage, which is a a string describing the language, formatted according to RFC3339.
+required: false
+schema:
+  type: string

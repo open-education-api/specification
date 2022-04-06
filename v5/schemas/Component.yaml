@@ -4,6 +4,7 @@ required:
   - componentId
   - type
   - name
+  - mainLanguage
   - abbreviation
 properties:
   componentId:
@@ -43,5 +44,9 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
+  mainLanguage:
+    type: string
+    description: The main language in which this component is given. A string formatted according to RFC3066.
+    example: nl-NL
   ext:
     $ref: './Ext.yaml'

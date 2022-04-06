@@ -15,15 +15,6 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: mainLanguage
-      in: query
-      description: Filter by mainLanguage
-      required: false
-      schema:
-        type: string
-        enum:
-          - nl-nl
-          - en-gb
     - name: modeOfStudy
       in: query
       description: Filter by modeOfStudy

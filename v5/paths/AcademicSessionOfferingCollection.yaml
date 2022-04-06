@@ -25,15 +25,6 @@ get:
           - program
           - course
           - component
-    - name: mainLanguage
-      in: query
-      description: Filter by mainLanguage
-      required: false
-      schema:
-        type: string
-        enum:
-          - nl-nl
-          - en-gb
     - name: isLineItem
       in: query
       description: Filter by isLineItem
