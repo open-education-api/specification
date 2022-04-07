@@ -25,9 +25,17 @@ properties:
     maxLength: 256
     example: studM
   description:
-    type: string
+    type: array
     description: The description of this program
-    example: program that is a place holder for all courses that are made available for student mobility
+    "$comment": 'Origin: LanguageTypedString (Unordered); A String with an associated language code.'
+    minItems: 1
+    items:
+      "$ref": "#/$defs/LanguageTypedString"
+    example: 
+    - language: en-US
+      value: program that is a place holder for all courses that are made available for student mobility
+    - language: nl-NL
+      value: program is de bovenliggende entiteit voor alle courses die worden aangeboden voor studentmobiliteit
   ects:
     type: number
     description: The number of Euopean Credits that can be archieved in this program
