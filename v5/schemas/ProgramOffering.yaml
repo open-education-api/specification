@@ -3,7 +3,6 @@ allOf:
   - type: object
     required:
       - modeOfStudy
-      - startDate
       - endDate
     properties:
       modeOfStudy:
@@ -18,3 +17,22 @@ allOf:
         description: The moment on which this offering ends, RFC3339 (full-date)
         format: date
         example: 2023-06-15
+      startEnrollDate:
+        type: string
+        description: The first day on which a prospective student can enroll for this program.
+        format: date
+        example: 2019-05-01
+      endEnrollDate: 
+        type: string
+        description: The last day on which a prospective student can enroll for this program.
+        format: date
+        example: 2019-08-01
+      flexibleEntryPeriodStart:
+        type: string
+        description: If this is a program wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd` instead of `startDate`.
+        format: date
+      flexibleEntryPeriodEnd:
+        type: string
+        description: If this is a program wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart` instead of `startDate`.
+        format: date
+
