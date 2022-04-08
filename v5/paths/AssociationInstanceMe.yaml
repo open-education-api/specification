@@ -1,6 +1,6 @@
 post:
   summary: POST /associations/me
-  description: POST a single association (enroll a person based on person information obtained from .wellknown endpoint and offering object)
+  description: POST a single association enroll a person based on person information obtained from .wellknown endpoint and an offering. The offering can either be identified by an offeringId if known or the full offering details. When the association is used locally the issuer object SHOULD NOT be used.
   security:
     - openId:
       - my_association_write
@@ -17,9 +17,20 @@ post:
             issuer:
               $ref: '../schemas/Organization.yaml'            
             associationItem:
-              $ref: '../schemas/AssociationProp.yaml'
+              $ref: '../schemas/AssociationProperties.yaml'
             offering:
-              $ref: '../schemas/Offering.yaml'
+              oneOf:
+                - $ref: '../schemas/ComponentOfferingExpanded.yaml'
+                - $ref: '../schemas/CourseOfferingExpanded.yaml'
+                - $ref: '../schemas/ProgramOfferingExpanded.yaml'
+                - $ref: '../schemas/OfferingIdAndType.yaml'
+                  # type: object
+                  # properties:
+                  #   OfferingId:
+                  #     $ref: '../schemas/OfferingId.yaml'
+                  #   OfferingType:
+                  #     $ref: '../enumerations/offeringType.yaml'
+
   responses:
     '201':
       description: OK

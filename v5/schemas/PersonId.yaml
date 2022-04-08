@@ -1,4 +1,5 @@
 type: object
+# description: ID of a person that has a relationship with this institution 
 properties:
   personId:
     type: string
