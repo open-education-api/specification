@@ -15,9 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
 - Changed pagination for all responses returning a collection of items. Responses now include `hasNextPage`, `hasPreviousPage` and optional `totalPages` attributes. These additions make pagination easier for clients.
-- Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
+- Changed the enumeration for organizationTypes. Renamed `institution` to `institute` to prevent confusion with `root`. Added `branch`, `academy` and `school`.
 - Changed postalType enumeration. Added `billing` address type
 - Removed 404 responses for paths that return a collection.
+
+### Removed
+- Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
 
 ## [4.0.0] - 2019-09-01
 ### Added
