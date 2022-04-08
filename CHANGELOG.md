@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
 - Adds attribute `firstStartDate` to Program.
 - Adds the attribute `duration` to Course and Component.
-- Adds `enrollStartDate` and `enrollEndDate` to ProgramOffering and CourseOffering.
+- Adds `enrollStartDate` and `enrollEndDate` to all Offerings.
 - Adds `flexibleEntryPeriodStart` and `flexibleEntryPeriodEnd` to ProgramOffering and CourseOffering. These two attributes can be used instead of a `startDate` to signify a Program or Course wherein a student can start at various moments with the offering, without missing anything.
 
 ### Changed
