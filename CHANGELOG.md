@@ -19,6 +19,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed postalType enumeration. Added `billing` address type
 - Removed 404 responses for paths that return a collection.
 
+### Removed
+- Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
+
 ## [4.0.0] - 2019-09-01
 ### Added
 - Educations concept to align with EDU-API including the nine square model, for programs, courses and components offerings will be provided that can also be associated to a person
