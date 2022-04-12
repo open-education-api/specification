@@ -1,9 +1,9 @@
 type: string
 description: |
   The type of this group
-  - learning group: A collection of participants carrying out common learning activities (definition from HORA)
-  - class: A collection of participants carrying out jointly scheduled educational activities (definition from HORA)
-  - team: A collection of participants
+  - learning group: A collection of participants carrying out common learning activities
+  - class: A collection of participants carrying out jointly scheduled educational activities
+  - team: A collection of members of a team, either students, employees or mixed.
 enum:
   - learning group
   - class

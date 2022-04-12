@@ -39,7 +39,7 @@ tags:
   - name: components
     description: The components API provides information about components being part of parent courses.
   - name: groups
-    description: The groups API provides information about groups related to an organization.
+    description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees. 
   - name: news
     description: The news API provides news feeds and items regarding a specific subject.
   - name: offerings
