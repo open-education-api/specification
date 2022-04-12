@@ -104,6 +104,8 @@ get:
                           $ref: '../schemas/Person.yaml'
                         academicSession:
                           $ref: '../schemas/AcademicSession.yaml'
+              ext:
+                  $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
