@@ -71,5 +71,18 @@ properties:
     format: uri
     maxLength: 2048
     example: https://bijvak.nl
+  otherCodes:
+    type: object
+    description: A dictionary with human readable codes/identifiers for the entity being described
+    additionalProperties:
+      type: string
+      properties:
+        code:
+          type: string
+        identifier:
+          type: string
+    example:
+      isat: 12345
+      loi_id: CRI/13466290
   ext:
     $ref: './Ext.yaml'
