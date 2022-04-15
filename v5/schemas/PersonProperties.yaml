@@ -1,11 +1,5 @@
 type: object
-description: A person that has a relationship with this institution, this set is the minimal set 
-required:
-  - givenName
-  - surname
-  - displayName
-  - affiliations
-  - mail
+description: A person that has a relationship with this institution 
 properties:
   givenName:
     type: string
@@ -53,15 +47,7 @@ properties:
     format: date
     example: '2003-09-30'
   affiliations:
-    type: array
-    description: The affiliations of this person, the relations a person has with the organization providing this endpoint
-    items:
-      type: string
-      enum:
-        - student
-        - employee
-        - guest
-      example: student
+    $ref: '../enumerations/personAffiliations.yaml'
   mail:
     type: string
     description: The primary e-mailaddress of this person

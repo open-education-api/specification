@@ -31,7 +31,43 @@ tags:
   - name: academic sessions
     description: The academic sessions API provides information about the different time periods a program can be offered.
   - name: associations
-    description: The associations API provides information about the association between an offering and a person (e.g. students, lecturers, etc).
+    description: |
+      The associations API provides information about the association between an offering and a person (e.g. students, lecturers, etc).
+      Associations can be posted between institutions This requires information details on the offering and the persons.
+      To allow for this information a complete person object and offering object can be part of the API. 
+      The structure is explained in the following model: 
+      <table>
+        <tr>
+         <td></td>
+         <td colspan=3 align=center>offering</td>
+        </tr>
+        <tr>
+         <td rowspan=3>student</td>
+         <td></td>
+         <td>internal</td>
+         <td>external</td>
+        </tr>
+        <tr>
+         <td>internal</td>
+         <td>POST <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a> local enrollment</td>
+         <td>POST <a href="#tag/associations/paths/~1associations~1external~1me/post">/associations/external/me</a> gets student details from .wellknown uses offering details (provided by external institution)</td>
+        </tr>
+        <tr>
+         <td>external</td>
+         <td> 
+          POST <a href="#tag/associations/paths/~1associations~1external/post">/associations/external/</a> requires full student details and offering details
+          <br> or alternatively:
+          <ul>
+           <li>create student with POST <a href="#tag/persons/paths/~1persons~1{personId}/post">/persons</a></li>
+           <li>enroll this person using POST <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a></li>
+          </ul>
+          for the enrollment
+         </td>
+         <td>no support needed</td>
+        </tr>
+      </table>
+      direct: <a href="#tag/associations/paths/~1associations~1{associationId}/post"> POST /associations/{associationId}</a>
+
   - name: buildings
     description: The building API provides a building that is currently used by the organization. Including all location details.
   - name: courses
@@ -308,6 +344,11 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+    openId: 
+      type: openIdConnect
+      openIdConnectUrl: /.well-known/openid-configuration
+
+
 
 paths:
   /:
@@ -364,6 +405,12 @@ paths:
     $ref: paths/OfferingAssociationCollection.yaml
   /associations/{associationId}:
     $ref: paths/AssociationInstance.yaml
+  /associations/me:
+    $ref: paths/AssociationInstanceMe.yaml
+  /associations/external:
+    $ref: paths/AssociationInstanceExternal.yaml    
+  /associations/external/me:
+    $ref: paths/AssociationInstanceExternalMe.yaml
   /buildings:
     $ref: paths/BuildingCollection.yaml
   /buildings/{buildingId}:

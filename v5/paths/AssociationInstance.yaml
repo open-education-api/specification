@@ -36,3 +36,47 @@ get:
         application/problem+json:
           schema:
             $ref: '../schemas/Problem.yaml'
+
+
+post:
+  summary: POST /associations/{associationId}
+  description: POST an update on a local enrollment to pass a grade or status.
+  security:
+    - openId:
+      - associations.write
+  tags:
+    - associations
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:  
+          type: object
+          required:
+            - associationItem
+          properties:
+            associationItem:
+              $ref: '../schemas/AssociationProperties.yaml'
+            result:
+              $ref: '../schemas/result.yaml'
+
+
+  responses:
+    '201':
+      description: OK
+      content:
+        application/json:
+          schema:
+            properties:
+              response:
+                allOf:
+                  - $ref: '../schemas/AssociationId.yaml'
+                  - $ref: '../schemas/PostResponse.yaml'
+
+    '400':
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

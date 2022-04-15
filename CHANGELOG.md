@@ -4,16 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2022-01-07
+## [Unreleased] - 2022-04-15
 ### Added
 - CHANGELOG.md
 - Improved explanation on Markdown
 - ext objects to all collection endpoints
 - #158 Improve error responses to make them more semantically correct
+- associations/me endpoint with OIDC security information
+- associations/external endpoint
+- associations/external/me endpoint
+- persons POST endpoint 
+- explanation on associations
+- extra attribute on results 
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
 - Changed pagination for all responses returning a collection of items. Responses now include `hasNextPage`, `hasPreviousPage` and optional `totalPages` attributes. These additions make pagination easier for clients.
+- split person and associations into properties - ID and a aggragated person association object this allows for better reuse e.g. in POST where ID is not mandatory and in typed responses
 
 ## [4.0.0] - 2019-09-01
 ### Added
