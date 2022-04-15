@@ -48,10 +48,6 @@ properties:
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
     maxLength: 4
     example: '0732'
-  crohoCreboCode:
-    type: string
-    description: CrohoCode in wo/hbo or creboCode in mbo
-    example: '59312'
   learningOutcomes:
     type: array
     description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
@@ -71,18 +67,14 @@ properties:
     format: uri
     maxLength: 2048
     example: https://bijvak.nl
+  primaryCode:
+    description: The primary human readable identifier for the entity
+    type: string
   otherCodes:
-    type: object
-    description: A dictionary with human readable codes/identifiers for the entity being described
-    additionalProperties:
-      type: string
-      properties:
-        code:
-          type: string
-        identifier:
-          type: string
-    example:
-      isat: 12345
-      loi_id: CRI/13466290
+    type: array
+    description: A dictionary with human readable codes/identifiers
+    minItems: 1
+    items:
+      $ref: './otherCode.yaml'
   ext:
     $ref: './Ext.yaml'
