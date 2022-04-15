@@ -125,7 +125,6 @@ tags:
         "sector": "university education",
         "fieldsOfStudy": "0732",
         "crohoCreboCode": "59312",
-        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
         "learningOutcomes": [
         "string"
         ],
@@ -171,7 +170,6 @@ tags:
       "sector": "university education",
       "fieldsOfStudy": "0732",
       "crohoCreboCode": "59312",
-      "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
       "learningOutcomes": [
       "string"
       ],
@@ -192,7 +190,6 @@ tags:
         "sector": "university education",
         "fieldsOfStudy": "0732",
         "crohoCreboCode": "59312",
-        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
         "learningOutcomes": [
         "string"
         ],
@@ -224,7 +221,6 @@ tags:
       "sector": "university education",
       "fieldsOfStudy": "0732",
       "crohoCreboCode": "59312",
-      "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
       "learningOutcomes": [
       "string"
       ],
@@ -245,7 +241,6 @@ tags:
         "sector": "university education",
         "fieldsOfStudy": "0732",
         "crohoCreboCode": "59312",
-        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
         "learningOutcomes": [
         "string"
         ],
@@ -268,7 +263,6 @@ tags:
         "sector": "university education",
         "fieldsOfStudy": "0732",
         "crohoCreboCode": "59312",
-        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
         "learningOutcomes": [
         "string"
         ],
@@ -325,13 +319,20 @@ tags:
     description: |
       Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
 
+  - name: formatting and displaying results from API
+    description: |
+      Most endpoints provide results with attributes that describe a result. These descriptions can be formatted to improve readability. 
+      Where additional readability is expected the result can be provided in Markdown. For OOAPI we choose to use a subset of the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/). More information and guidelines can be read [here](https://guides.github.com/features/mastering-markdown/)
+      The description SHOULD NOT use: Task list Items, The images element and Raw HTML for optimal interoperability. Git Hub Markdown is choosen as it provides some extra structure for data input on top of commonmark Markdown. This will alllow for better typed information.
+
   - name: Error responses
     description: |
       Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
       ```
       {
-        "code": 404,
-        "title": "Resource not found"
+        "status": 404,
+        "title": "Resource not found",
+        "detail": "The resource with id 00000000-0000-0000-0000-000000000000 could not be found."
       }
       ```
   - name: Multi-lingual support

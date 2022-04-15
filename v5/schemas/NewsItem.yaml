@@ -37,7 +37,7 @@ properties:
     example: https://www.universiteitvanharderwijk.nl/cms/ruimtegebrek
   content:
     type: string
-    description: The content of this news item
+    description: The content of this news item. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: 'The room Bb 4.35 will be under maintenance'
   validFrom:
     type: string
