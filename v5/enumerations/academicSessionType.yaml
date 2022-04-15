@@ -1,0 +1,13 @@
+type: string
+description: |
+  The type of this Academic Session
+  - year: academic year
+  - semester: semester, typically there are two semesters per academic year
+  - term: term, typically there are three terms per academic year
+  - period: any other period in an academic year
+enum:
+  - year
+  - semester
+  - term
+  - period
+example: semester

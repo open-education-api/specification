@@ -19,12 +19,20 @@ get:
         application/json:
           schema:
             $ref: '../schemas/Person.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
     '404':
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '../schemas/Problem.yaml'
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
 
 post:
   summary: POST /persons
@@ -53,9 +61,4 @@ post:
                   - $ref: '../schemas/PostResponse.yaml'
 
     '400':
-      description: Bad Request
-      content:
-        application/problem+json:
-          schema:
-            $ref: '../schemas/Problem.yaml'
-
+      $ref: '../schemas/ErrorBadRequest.yaml'
