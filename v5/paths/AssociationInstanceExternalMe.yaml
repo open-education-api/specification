@@ -1,6 +1,8 @@
 post:
-  summary: POST /associations/me
-  description: POST a single association enroll a person based on person information obtained from .wellknown endpoint and an offering. The offering can either be identified by an offeringId if known or the full offering details. When the association is used locally the issuer object SHOULD NOT be used.
+  summary: POST /associations/external/me
+  description: |
+    POST a single association enroll a person based on person information obtained from .wellknown endpoint and an offering. 
+    The offering can either be identified by an offeringId if known or the full offering details. 
   security:
     - openId:
       - my_association_write
@@ -13,14 +15,16 @@ post:
       application/json:
         schema:  
           type: object
-          required:
-            - offering
           properties:
+            issuer:
+              $ref: '../schemas/Organization.yaml'            
             associationItem:
               $ref: '../schemas/AssociationProperties.yaml'
             offering:
-              $ref: '../schemas/OfferingIdAndType.yaml'
-
+              oneOf:
+                - $ref: '../schemas/ComponentOfferingExpanded.yaml'
+                - $ref: '../schemas/CourseOfferingExpanded.yaml'
+                - $ref: '../schemas/ProgramOfferingExpanded.yaml'
 
   responses:
     '201':
