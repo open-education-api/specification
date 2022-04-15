@@ -4,7 +4,7 @@ post:
     POST a single association enroll a person based on person information included and the complete information on the offering.
   security:
     - openId:
-      - my_association_write
+      - associations:external.write
   tags:
     - associations
 

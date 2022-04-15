@@ -43,7 +43,7 @@ post:
   description: POST an update on a local enrollment to pass a grade or status.
   security:
     - openId:
-      - my_association_write
+      - associations.write
   tags:
     - associations
 

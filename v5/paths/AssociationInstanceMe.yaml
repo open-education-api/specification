@@ -3,7 +3,7 @@ post:
   description: POST a single association enroll a person based on person information obtained from .wellknown endpoint and an offering. The offering can either be identified by an offeringId if known or the full offering details. When the association is used locally the issuer object SHOULD NOT be used.
   security:
     - openId:
-      - my_association_write
+      - associations:me.write
   tags:
     - associations
 
