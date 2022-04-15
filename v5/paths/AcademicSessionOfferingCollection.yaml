@@ -112,6 +112,8 @@ get:
                     - $ref: '../schemas/ProgramOffering.yaml'
                     - $ref: '../schemas/CourseOffering.yaml'
                     - $ref: '../schemas/ComponentOffering.yaml'
+              ext:
+                  $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
