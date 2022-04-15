@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ext objects to all collection endpoints
 - #158 Improve error responses to make them more semantically correct
 - Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
+- #163 Multilingual responses for M2M requests
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases

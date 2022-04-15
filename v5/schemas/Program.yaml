@@ -25,9 +25,11 @@ properties:
     maxLength: 256
     example: studM
   description:
-    type: string
-    description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: program that is a place holder for all courses that are made available for student mobility
+    description: The description of this program
+    type: array
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
   ects:
     type: number
     description: The number of Euopean Credits that can be archieved in this program
