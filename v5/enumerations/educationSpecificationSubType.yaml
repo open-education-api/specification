@@ -1,0 +1,7 @@
+type: string
+description: |
+  The Sub type of education specification
+    - module: MOUDLE
+enum:
+  - module
+example: module

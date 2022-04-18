@@ -1,0 +1,11 @@
+type: string
+description: |
+  The entity contoling this education. The type of entity that certifies this education.
+    - instituition: INSTELLING
+    - accreditation organisation: NVAO
+    - ministry: OCW
+enum:
+- instituition
+- accreditation organisation
+- ministry
+example: institution

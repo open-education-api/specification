@@ -1,0 +1,26 @@
+type: object
+description: An amount of effort to complete this education with the measuring method code.
+properties:
+  typeOfStudyLoad:
+    description: |
+      The type in which the studyload is measured
+      - contacttime: CONTACTUUR	amount of time spent in classes
+      - ects: ECTS_PUNT	European Credit Transfer System
+      - sbu: SBU	studentloadhours
+      - sp: STUDIEPUNT studentpoints
+      - hour: UUR	hours
+    type: string
+    enum:
+      - contacttime
+      - ects
+      - sbu
+      - sp
+      - hour
+    example: ects
+  value:
+    description: The amount of load depicted in numbers
+    type: number
+    example: 3
+example:
+  typeOfStudyLoad: ects
+  value: 3

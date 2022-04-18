@@ -79,5 +79,10 @@ properties:
     format: uri
     maxLength: 2048
     example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
+  educationSpecification:
+    type: string
+    description: UUID of educationSpecification if it exists
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174111    
   ext:
     $ref: './Ext.yaml'
