@@ -14,7 +14,7 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: type
+    - name: associationType
       in: query
       description: Filter by association type
       required: false
@@ -121,12 +121,16 @@ get:
                               $ref: '../schemas/ComponentOffering.yaml'
                             academicSession:
                               $ref: '../schemas/AcademicSession.yaml'
+              ext:
+                  $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

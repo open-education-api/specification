@@ -2,7 +2,7 @@ type: object
 description: A relationship between a person object and an offering
 required:
   - associationId
-  - type
+  - associationType
   - role
   - state
 properties:
@@ -11,7 +11,7 @@ properties:
     description: Unique id of this association
     format: uuid
     example: 123e4567-e89b-12d3-a456-1237891417400
-  type:
+  associationType:
     type: string
     description: The type of this association
     enum:

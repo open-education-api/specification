@@ -36,3 +36,8 @@ allOf:
         type: string
         description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart` instead of `startDate`.
         format: date
+      addresses:
+        type: array
+        description: Addresses for this offering
+        items:
+          $ref: './Address.yaml'

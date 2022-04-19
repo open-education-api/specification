@@ -8,7 +8,7 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - name: type
+    - name: organizationType
       in: query
       description: Filter by organization type
       required: false
@@ -65,6 +65,8 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Organization.yaml'
+              ext:
+                  $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

@@ -13,6 +13,14 @@ The OOAPI-specification is finding more use cases. This causes the model to grow
 New area's of implementation are:
 * Compatibility with RIO
 
+## [unreleased]
+
+### added
+- added academicSessionType and children attributes to academicSession
+
+### changed
+- changed type parameters and type attibutes to explicit parameters and attributes, for example program.type -> program.programType
+
 ## Models
 the 4.0 model is based on:
 ![4.0_model](./OOAPI_model_v4.png)

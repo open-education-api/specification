@@ -8,7 +8,7 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: type
+    - name: newsFeedType
       in: query
       description: Filter by news type
       required: false
@@ -73,6 +73,8 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/NewsFeed.yaml'
+              ext:
+                  $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

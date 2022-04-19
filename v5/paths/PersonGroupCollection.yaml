@@ -1,12 +1,12 @@
 get:
-  summary: GET /components/{componentId}/offerings
-  description: Get a list of all offerings for this component, ordered chronologically.
+  summary: GET /persons/{personId}/groups
+  description: Get an ordered list of all groups for a given person, ordered by name.
   tags:
-    - components
+    - persons
   parameters:
-    - name: componentId
+    - name: personId
       in: path
-      description: Component ID
+      description: Person ID
       required: true
       schema:
         type: string
@@ -15,35 +15,12 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: mainLanguage
+    - name: groupType
       in: query
-      description: Filter by mainLanguage
+      description: Filter by group type
       required: false
       schema:
-        type: string
-        enum:
-          - nl-nl
-          - en-gb
-    - name: isLineItem
-      in: query
-      description: Filter by isLineItem
-      required: false
-      schema:
-        type: boolean
-    - name: since
-      in: query
-      description: Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
-      required: false
-      schema:
-        type: string
-        format: date
-    - name: until
-      in: query
-      description: Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).
-      required: false
-      schema:
-        type: string
-        format: date
+        $ref: '../enumerations/groupType.yaml'
     - name: sort
       in: query
       explode: false
@@ -54,15 +31,13 @@ get:
         items:
           type: string
           enum:
-            - offeringId
+            - groupId
             - name
-            - startDateTime
-            - endDateTime
-            - -offeringId
+            - startDate
+            - -groupId
             - -name
-            - -startDateTime
-            - -endDateTime
-        default: startDateTime
+            - -startDate
+        default: name
   responses:
     '200':
       description: OK
@@ -98,20 +73,12 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../schemas/ComponentOffering.yaml'
+                  $ref: '../schemas/Group.yaml'
               ext:
-                  $ref: '../schemas/Ext.yaml'
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
-    '401':
-      $ref: '../schemas/ErrorUnauthorized.yaml'
-    '403':
-      $ref: '../schemas/ErrorForbidden.yaml'
+                $ref: '../schemas/Ext.yaml'
     '404':
-      $ref: '../schemas/ErrorNotFound.yaml'
-    '405':
-      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
-    '429':
-      $ref: '../schemas/ErrorTooManyRequests.yaml'
-    '500':
-      $ref: '../schemas/ErrorInternalServerError.yaml'
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

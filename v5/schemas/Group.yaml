@@ -1,0 +1,46 @@
+type: object
+description: A group of persons that could be associated to an offering.
+required:
+  - groupId
+  - groupType
+  - name
+properties:
+  groupId:
+    type: string
+    description: Unique id for this group
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174000
+  groupType:
+    $ref: '../enumerations/groupType.yaml'
+  name:
+    type: string
+    description: The name of this group
+    maxLength: 256
+    example: statistics students
+  description:
+    type: string
+    description: The description of this group
+    example: The group of students that follow statistics classes
+  sourceId:
+    type: string
+    description: The original id of this group in the source system
+    maxLength: 256
+    example: group-abc987
+  startDate:
+    type: string
+    description: The day on which this group starts being active, RFC3339 (full-date)
+    format: date
+    example: '2020-08-17'
+  endDate:
+    type: string
+    description: The day on which this group ends being active, RFC3339 (full-date)
+    format: date
+    example: '2020-12-18'
+  personCount:
+    type: number
+    description: The number of persons that are member of this group
+    format: int32
+    minimum: 0
+    example: 183
+  ext:
+    $ref: './Ext.yaml'

@@ -2,7 +2,7 @@ type: object
 description: A component is a part of a course 
 required:
   - componentId
-  - type
+  - componentType
   - name
   - abbreviation
 properties:
@@ -11,7 +11,7 @@ properties:
     description: Unique id of this component
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
-  type:
+  componentType:
     $ref: '../enumerations/componentType.yaml'
   name:
     type: string
@@ -48,5 +48,10 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
+  addresses:
+    type: array
+    description: Addresses for this component
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'
