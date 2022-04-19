@@ -9,13 +9,13 @@ properties:
     description: Unique id for this news item
     format: uuid
     example: 123e4567-e89b-12d3-a456-122564174000
+  newsItemType:
+    $ref: '../enumerations/newsItemType.yaml'
   name:
     type: string
     description: The name for this news item
     maxLength: 256
     example: Room Bb 4.35 will be un available from 2020-09-29 until 2020-09-30
-  type:
-    $ref: '../enumerations/newsItemType.yaml'
   authors:
     type: array
     description: The authors of the article with this news item
