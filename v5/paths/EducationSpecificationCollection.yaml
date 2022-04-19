@@ -1,0 +1,20 @@
+get:
+  summary: GET /education-specifications
+  description: Get a list of all education specifications, ordered by name (ascending).
+  tags:
+    - education specifications
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../schemas/Pagination.yaml'
+          - type: object
+            required:
+              - items
+            properties:
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/EducationSpecification.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'

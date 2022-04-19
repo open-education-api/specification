@@ -74,7 +74,7 @@ tags:
     description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
   - name: components
     description: The components API provides information about components being part of parent courses.
-  - name: educationSpecifications
+  - name: education specifications
     description: |
       The education specification API provides information on the specification of an education object. 
       This specification allows for other education objects to be derived from it.    
@@ -436,5 +436,7 @@ paths:
     $ref: paths/NewsFeedItemCollection.yaml
   /news-items/{newsItemId}:
     $ref: paths/NewsItemInstance.yaml
-  /educationspecifications/{educationSpecificationID}/rooms:
+  /education-specifications/{educationSpecificationID}:
     $ref: paths/EducationSpecificationInstance.yaml
+  /education-specifications:
+    $ref: paths/EducationSpecificationCollection.yaml    

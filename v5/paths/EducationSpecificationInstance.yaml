@@ -1,8 +1,8 @@
 get:
-  summary: GET /educationspecification/{educationspecificationId}
+  summary: GET /education-specifications/{educationSpecificationId}
   description: Get a single education specification.
   tags:
-    - educationSpecifications
+    - education specifications
   parameters:
     - $ref: '../parameters/acceptLanguage.yaml'
     - name: educationSpecificationId
