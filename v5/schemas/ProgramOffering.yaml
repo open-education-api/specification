@@ -3,6 +3,7 @@ allOf:
   - type: object
     required:
       - modeOfStudy
+      - startDate
       - endDate
     properties:
       modeOfStudy:

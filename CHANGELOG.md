@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds attribute `firstStartDate` to Program.
 - Adds the attribute `duration` to Course and Component.
 - Adds `enrollStartDate` and `enrollEndDate` to all Offerings.
-- Adds `flexibleEntryPeriodStart` and `flexibleEntryPeriodEnd` to ProgramOffering and CourseOffering. These two attributes can be used instead of a `startDate` to signify a Program or Course wherein a student can start at various moments with the offering, without missing anything.
+- Adds `flexibleEntryPeriodStart` and `flexibleEntryPeriodEnd` to ProgramOffering and CourseOffering. These two attributes can be used in addition to `startDate` to signify a Program or Course wherein a student can start at various moments with the offering, without missing anything. In that case `startDate` is usually the same as `flexibleEntryPeriodStart`.
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
@@ -23,7 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed postalType enumeration. Added `billing` address type
 - Removed 404 responses for paths that return a collection.
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
-- Made `endDate` (ProgramOffering and CourseOffering) and `endDateTime` (ComponentOffering) optional attributes instead of required. This is because of the addition of the flexible start / end date(times), which makes it possible to also have offerings which have flexible starting or ending dates.
 
 ## [4.0.0] - 2019-09-01
 ### Added
