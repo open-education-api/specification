@@ -2,17 +2,18 @@ type: object
 description: A collection of courses that lead to a certifiable learning outcome   
 required:
   - programId
-  - type
+  - programType
   - name
   - abbreviation
   - description
+  - mainLanguage
 properties:
   programId:
     type: string
     description: Unique id for this program
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
-  type:
+  programType:
     $ref: '../enumerations/programType.yaml'
   name:
     type: string
@@ -28,6 +29,10 @@ properties:
     type: string
     description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: program that is a place holder for all courses that are made available for student mobility
+  mainLanguage:
+    type: string
+    description: The main language in which this program is given. A string formatted according to RFC3066.
+    example: nl-NL
   ects:
     type: number
     description: The number of Euopean Credits that can be archieved in this program
@@ -35,10 +40,15 @@ properties:
     example: 5
   qualificationAwarded:
     $ref: '../enumerations/qualificationAwarded.yaml'
-  lengthOfProgram:
-    type: integer
-    description: The duration of this program in months
-    example: 6
+  duration:
+    type: string
+    description: The duration of this program. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+    format: duration
+    example: P1DT30H4S
+  firstStartDate:
+    type: string
+    description: The date when participants can follow this program for the first time. 
+    format: date
   levelOfQualification:
     $ref: '../enumerations/levelOfQualification.yaml'
   sector:
@@ -76,5 +86,10 @@ properties:
     description: UUID of educationSpecification if it exists
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174111
+  addresses:
+    type: array
+    description: Addresses for this program
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'
