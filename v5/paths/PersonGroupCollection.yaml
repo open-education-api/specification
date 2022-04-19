@@ -1,19 +1,26 @@
 get:
-  summary: GET /rooms
-  description: Get a list of all rooms, ordered by name (ascending).
+  summary: GET /persons/{personId}/groups
+  description: Get an ordered list of all groups for a given person, ordered by name.
   tags:
-    - rooms
+    - persons
   parameters:
+    - name: personId
+      in: path
+      description: Person ID
+      required: true
+      schema:
+        type: string
+        format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: roomType
+    - name: groupType
       in: query
-      description: Filter by room type
+      description: Filter by group type
       required: false
       schema:
-        $ref: '../enumerations/roomType.yaml'
+        $ref: '../enumerations/groupType.yaml'
     - name: sort
       in: query
       explode: false
@@ -24,14 +31,12 @@ get:
         items:
           type: string
           enum:
-            - roomId
+            - groupId
             - name
-            - totalSeats
-            - availableSeats
-            - -roomId
+            - startDate
+            - -groupId
             - -name
-            - -totalSeats
-            - -availableSeats
+            - -startDate
         default: name
   responses:
     '200':
@@ -68,18 +73,12 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../schemas/Room.yaml'
+                  $ref: '../schemas/Group.yaml'
               ext:
-                  $ref: '../schemas/Ext.yaml'
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
-    '401':
-      $ref: '../schemas/ErrorUnauthorized.yaml'
-    '403':
-      $ref: '../schemas/ErrorForbidden.yaml'
-    '405':
-      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
-    '429':
-      $ref: '../schemas/ErrorTooManyRequests.yaml'
-    '500':
-      $ref: '../schemas/ErrorInternalServerError.yaml'
+                $ref: '../schemas/Ext.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

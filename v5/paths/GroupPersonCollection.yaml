@@ -1,19 +1,26 @@
 get:
-  summary: GET /rooms
-  description: Get a list of all rooms, ordered by name (ascending).
+  summary: GET /groups/{groupId}/persons
+  description: Get an ordered list of all persons that are member of a given group, ordered by personId.
   tags:
-    - rooms
+    - groups
   parameters:
+    - name: groupId
+      in: path
+      description: Group ID
+      required: true
+      schema:
+        type: string
+        format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - $ref: '../parameters/search.yaml'
+    - $ref: '../parameters/personSearch.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: roomType
+    - name: affiliations
       in: query
-      description: Filter by room type
+      description: Filter by affiliations
       required: false
       schema:
-        $ref: '../enumerations/roomType.yaml'
+        $ref: '../enumerations/personAffiliations.yaml'
     - name: sort
       in: query
       explode: false
@@ -24,15 +31,15 @@ get:
         items:
           type: string
           enum:
-            - roomId
-            - name
-            - totalSeats
-            - availableSeats
-            - -roomId
-            - -name
-            - -totalSeats
-            - -availableSeats
-        default: name
+            - personId
+            - givenName
+            - surName
+            - displayName
+            - -personId
+            - -givenName
+            - -surName
+            - -displayName
+        default: personId
   responses:
     '200':
       description: OK
@@ -68,18 +75,12 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../schemas/Room.yaml'
+                  $ref: '../schemas/Person.yaml'
               ext:
-                  $ref: '../schemas/Ext.yaml'
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
-    '401':
-      $ref: '../schemas/ErrorUnauthorized.yaml'
-    '403':
-      $ref: '../schemas/ErrorForbidden.yaml'
-    '405':
-      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
-    '429':
-      $ref: '../schemas/ErrorTooManyRequests.yaml'
-    '500':
-      $ref: '../schemas/ErrorInternalServerError.yaml'
+                $ref: '../schemas/Ext.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

@@ -28,6 +28,11 @@ properties:
     description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
     minimum: 0
     example: 7.5
+  duration:
+    type: string
+    description: The duration of this course. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+    format: duration
+    example: P1DT30H4S
   description:
     type: string
     description: The description of this course (ECTS-description). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
@@ -84,5 +89,10 @@ properties:
     format: uri
     maxLength: 2048
     example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
+  addresses:
+    type: array
+    description: Addresses for this course
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'
