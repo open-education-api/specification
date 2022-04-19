@@ -79,5 +79,10 @@ properties:
     format: uri
     maxLength: 2048
     example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
+  addresses:
+    type: array
+    description: Addresses for this course
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'

@@ -21,5 +21,10 @@ allOf:
         minimum: 0
         maximum: 100
         example: 100
+      addresses:
+        type: array
+        description: Addresses for this offering
+        items:
+          $ref: './Address.yaml'
       room:
         $ref: './Room.yaml'

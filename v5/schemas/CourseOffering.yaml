@@ -16,3 +16,8 @@ allOf:
         type: string
         description: The moment on which this offering ends, RFC3339 (full-date)
         format: date
+      addresses:
+        type: array
+        description: Addresses for this offering
+        items:
+          $ref: './Address.yaml'

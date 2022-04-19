@@ -80,5 +80,10 @@ properties:
     example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
+  addresses:
+    type: array
+    description: Addresses for this offering
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'

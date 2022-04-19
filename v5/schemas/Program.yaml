@@ -71,5 +71,10 @@ properties:
     format: uri
     maxLength: 2048
     example: https://bijvak.nl
+  addresses:
+    type: array
+    description: Addresses for this program
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'
