@@ -4,7 +4,9 @@ description: |
   - postal: post
   - visit: bezoek
   - deliveries: bezorg
+  - billing: factuur
 enum:
   - postal
   - visit
   - deliveries
+  - billing

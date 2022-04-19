@@ -24,7 +24,7 @@ properties:
     example: Beatrix building room 4.54
   description:
     type: string
-    description: The description of this room
+    description: The description of this room. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: External education and exam room 4.54
   totalSeats:
     type: integer

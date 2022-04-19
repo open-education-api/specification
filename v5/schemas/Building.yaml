@@ -22,7 +22,7 @@ properties:
     example: Beatrix building
   description:
     type: string
-    description: The description of this building
+    description: The description of this building. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: external rooms location for exams
   address:
     $ref: './Address.yaml'
