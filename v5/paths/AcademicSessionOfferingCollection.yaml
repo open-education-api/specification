@@ -15,6 +15,7 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
+    - $ref: '../parameters/teachingLanguage.yaml'
     - name: offeringType
       in: query
       description: Filter by offering type
@@ -25,15 +26,6 @@ get:
           - program
           - course
           - component
-    - name: mainLanguage
-      in: query
-      description: Filter by mainLanguage
-      required: false
-      schema:
-        type: string
-        enum:
-          - nl-nl
-          - en-gb
     - name: isLineItem
       in: query
       description: Filter by isLineItem
