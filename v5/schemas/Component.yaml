@@ -23,6 +23,11 @@ properties:
     description: The abbreviation of this component
     maxLength: 256
     example: Test-INFOMQNM
+  duration:
+    type: string
+    description: The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+    format: duration
+    example: P1DT30H4S
   description:
     type: string
     description: The description of this component. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
