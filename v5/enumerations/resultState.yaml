@@ -4,5 +4,4 @@ enum:
   - in progress
   - postponed
   - completed
-  - queued
 example: completed
