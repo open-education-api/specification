@@ -15,7 +15,7 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: type
+    - name: programType
       in: query
       description: Filter by program type
       required: false

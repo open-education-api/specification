@@ -8,7 +8,7 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: type
+    - name: newsFeedType
       in: query
       description: Filter by news type
       required: false

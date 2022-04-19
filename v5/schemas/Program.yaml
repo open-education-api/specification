@@ -2,7 +2,7 @@ type: object
 description: A collection of courses that lead to a certifiable learning outcome   
 required:
   - programId
-  - type
+  - programType
   - name
   - abbreviation
   - description
@@ -12,7 +12,7 @@ properties:
     description: Unique id for this program
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
-  type:
+  programType:
     $ref: '../enumerations/programType.yaml'
   name:
     type: string

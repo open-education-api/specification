@@ -80,7 +80,7 @@ tags:
       Result:
       {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
-        "type": "alliance",
+        "programType": "alliance",
         <strong>"name": "Student Mobility",
         "abbreviation": "studM",
         "description": "program that is a place holder for all courses that are made available for student mobility",</strong>
@@ -125,7 +125,7 @@ tags:
       Result:
       {
       "programId": "123e4567-e89b-12d3-a456-426614174000",
-      "type": "alliance",
+      "programType": "alliance",
       "name": "Student Mobility",
       "abbreviation": "studM",
       "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -145,7 +145,7 @@ tags:
       "ext": { },
       "parent": {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
-        "type": "alliance",
+        "programType": "alliance",
         "name": "Student Mobility",
         "abbreviation": "studM",
         "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -176,7 +176,7 @@ tags:
       Result:
       {
       "programId": "123e4567-e89b-12d3-a456-426614174000",
-      "type": "alliance",
+      "programType": "alliance",
       "name": "Student Mobility",
       "abbreviation": "studM",
       "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -196,7 +196,7 @@ tags:
       "ext": { },
       "parent": {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
-        "type": "alliance",
+        "programType": "alliance",
         "name": "Student Mobility",
         "abbreviation": "studM",
         "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -218,7 +218,7 @@ tags:
       "children": [
         {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
-        "type": "alliance",
+        "programType": "alliance",
         "name": "Student Mobility",
         "abbreviation": "studM",
         "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -243,10 +243,10 @@ tags:
         "name": "Coöperatie SURF U.A.",
         "shortName": "SURF",
         "description": "SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.",
-        "type": "root",
+        "organizationType": "root",
         "addresses": [
         {
-        "type": "postal",
+        "addressType": "postal",
         "street": "Moreelsepark",
         "streetNumber": "48",
         "additional": "On the other side of the road",

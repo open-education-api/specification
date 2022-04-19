@@ -2,7 +2,7 @@ type: object
 description: A component is a part of a course 
 required:
   - componentId
-  - type
+  - componentType
   - name
   - abbreviation
 properties:
@@ -11,7 +11,7 @@ properties:
     description: Unique id of this component
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
-  type:
+  componentType:
     $ref: '../enumerations/componentType.yaml'
   name:
     type: string
