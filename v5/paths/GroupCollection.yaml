@@ -1,13 +1,19 @@
 get:
-  summary: GET /buildings
-  description: Get a list of all buildings, ordered by name (ascending).
+  summary: GET /groups
+  description: Get a list of all groups, ordered by name (ascending).
   tags:
-    - buildings
+    - groups
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
+    - name: groupType
+      in: query
+      description: Filter by group type
+      required: false
+      schema:
+        $ref: '../enumerations/groupType.yaml'
     - name: sort
       in: query
       explode: false
@@ -18,10 +24,12 @@ get:
         items:
           type: string
           enum:
-          - buildingId
-          - name
-          - -buildingId
-          - -name
+            - groupId
+            - name
+            - startDate
+            - -groupId
+            - -name
+            - -startDate
         default: name
   responses:
     '200':
@@ -58,18 +66,6 @@ get:
               items:
                 type: array
                 items:
-                  $ref: '../schemas/Building.yaml'
+                  $ref: '../schemas/Group.yaml'
               ext:
                   $ref: '../schemas/Ext.yaml'
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
-    '401':
-      $ref: '../schemas/ErrorUnauthorized.yaml'
-    '403':
-      $ref: '../schemas/ErrorForbidden.yaml'
-    '405':
-      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
-    '429':
-      $ref: '../schemas/ErrorTooManyRequests.yaml'
-    '500':
-      $ref: '../schemas/ErrorInternalServerError.yaml'

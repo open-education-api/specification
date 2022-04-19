@@ -76,5 +76,10 @@ properties:
     minItems: 1
     items:
       $ref: './otherCode.yaml'
+  addresses:
+    type: array
+    description: Addresses for this program
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'

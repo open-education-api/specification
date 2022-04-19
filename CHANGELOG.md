@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2022-04-12
+### added
+- added group functionality to ooapi
+
 ## [Unreleased] - 2022-01-07
 ### Added
 - CHANGELOG.md
@@ -12,14 +16,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #158 Improve error responses to make them more semantically correct
 - Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
 - #157 Added `primaryCode` and `otherCodes` to Program schema
+- #164 Add `addresses` to Program, Course, Offering and Component schema's
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
 - Changed pagination for all responses returning a collection of items. Responses now include `hasNextPage`, `hasPreviousPage` and optional `totalPages` attributes. These additions make pagination easier for clients.
-- Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
+- Changed the enumeration for organizationTypes. Renamed `institution` to `institute` to prevent confusion with `root`. Added `branch`, `academy` and `school`.
 - Changed postalType enumeration. Added `billing` address type
 - Removed 404 responses for paths that return a collection.
 - #157 removed `crohoCreboCode`. Use the new otherCode schema for this.
+
+### Removed
+- Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
 
 ## [4.0.0] - 2019-09-01
 ### Added
