@@ -1,3 +1,9 @@
+## [Unreleased] - 2022-04-04
+### Added
+
+#### Changed
+- additional information in the use of markdown in files and in information (spec.yaml)-file
+
 # Changes in update 4.0 to 5.0 Education API Specification
 
 ![Open Education API](https://github.com/open-education-api/specification/blob/master/logo.png)
@@ -6,6 +12,14 @@ The OOAPI-specification is finding more use cases. This causes the model to grow
 
 New area's of implementation are:
 * Compatibility with RIO
+
+## [unreleased]
+
+### added
+- added academicSessionType and children attributes to academicSession
+
+### changed
+- changed type parameters and type attibutes to explicit parameters and attributes, for example program.type -> program.programType
 
 ## Models
 the 4.0 model is based on:

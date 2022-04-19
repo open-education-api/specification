@@ -1,4 +1,4 @@
-openapi: "3.0.3"
+openapi: "3.1"
 info:
   version: "5.0"
   title: Open Education API
@@ -38,6 +38,8 @@ tags:
     description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
   - name: components
     description: The components API provides information about components being part of parent courses.
+  - name: groups
+    description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees. 
   - name: news
     description: The news API provides news feeds and items regarding a specific subject.
   - name: offerings
@@ -78,7 +80,7 @@ tags:
       Result:
       {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
-        "type": "alliance",
+        "programType": "alliance",
         <strong>"name": "Student Mobility",
         "abbreviation": "studM",
         "description": "program that is a place holder for all courses that are made available for student mobility",</strong>
@@ -89,7 +91,6 @@ tags:
         "sector": "university education",
         "fieldsOfStudy": "0732",
         "crohoCreboCode": "59312",
-        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
         "learningOutcomes": [
         "string"
         ],
@@ -124,7 +125,7 @@ tags:
       Result:
       {
       "programId": "123e4567-e89b-12d3-a456-426614174000",
-      "type": "alliance",
+      "programType": "alliance",
       "name": "Student Mobility",
       "abbreviation": "studM",
       "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -135,7 +136,6 @@ tags:
       "sector": "university education",
       "fieldsOfStudy": "0732",
       "crohoCreboCode": "59312",
-      "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
       "learningOutcomes": [
       "string"
       ],
@@ -145,7 +145,7 @@ tags:
       "ext": { },
       "parent": {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
-        "type": "alliance",
+        "programType": "alliance",
         "name": "Student Mobility",
         "abbreviation": "studM",
         "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -156,7 +156,6 @@ tags:
         "sector": "university education",
         "fieldsOfStudy": "0732",
         "crohoCreboCode": "59312",
-        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
         "learningOutcomes": [
         "string"
         ],
@@ -177,7 +176,7 @@ tags:
       Result:
       {
       "programId": "123e4567-e89b-12d3-a456-426614174000",
-      "type": "alliance",
+      "programType": "alliance",
       "name": "Student Mobility",
       "abbreviation": "studM",
       "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -188,7 +187,6 @@ tags:
       "sector": "university education",
       "fieldsOfStudy": "0732",
       "crohoCreboCode": "59312",
-      "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
       "learningOutcomes": [
       "string"
       ],
@@ -198,7 +196,7 @@ tags:
       "ext": { },
       "parent": {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
-        "type": "alliance",
+        "programType": "alliance",
         "name": "Student Mobility",
         "abbreviation": "studM",
         "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -209,7 +207,6 @@ tags:
         "sector": "university education",
         "fieldsOfStudy": "0732",
         "crohoCreboCode": "59312",
-        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
         "learningOutcomes": [
         "string"
         ],
@@ -221,7 +218,7 @@ tags:
       "children": [
         {
         "programId": "123e4567-e89b-12d3-a456-426614174000",
-        "type": "alliance",
+        "programType": "alliance",
         "name": "Student Mobility",
         "abbreviation": "studM",
         "description": "program that is a place holder for all courses that are made available for student mobility",
@@ -232,7 +229,6 @@ tags:
         "sector": "university education",
         "fieldsOfStudy": "0732",
         "crohoCreboCode": "59312",
-        "profileOfProgram": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program",
         "learningOutcomes": [
         "string"
         ],
@@ -247,10 +243,10 @@ tags:
         "name": "Coöperatie SURF U.A.",
         "shortName": "SURF",
         "description": "SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.",
-        "type": "root",
+        "organizationType": "root",
         "addresses": [
         {
-        "type": "postal",
+        "addressType": "postal",
         "street": "Moreelsepark",
         "streetNumber": "48",
         "additional": "On the other side of the road",
@@ -289,13 +285,20 @@ tags:
     description: |
       Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
 
+  - name: formatting and displaying results from API
+    description: |
+      Most endpoints provide results with attributes that describe a result. These descriptions can be formatted to improve readability. 
+      Where additional readability is expected the result can be provided in Markdown. For OOAPI we choose to use a subset of the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/). More information and guidelines can be read [here](https://guides.github.com/features/mastering-markdown/)
+      The description SHOULD NOT use: Task list Items, The images element and Raw HTML for optimal interoperability. Git Hub Markdown is choosen as it provides some extra structure for data input on top of commonmark Markdown. This will alllow for better typed information.
+
   - name: Error responses
     description: |
       Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
       ```
       {
-        "code": 404,
-        "title": "Resource not found"
+        "status": 404,
+        "title": "Resource not found",
+        "detail": "The resource with id 00000000-0000-0000-0000-000000000000 could not be found."
       }
       ```
   - name: Multi-lingual support
@@ -320,6 +323,8 @@ paths:
     $ref: paths/PersonInstance.yaml
   /persons/{personId}/associations:
     $ref: paths/PersonAssociationCollection.yaml
+  /persons/{personId}/groups:
+    $ref: paths/PersonGroupCollection.yaml
   /organizations:
     $ref: paths/OrganizationCollection.yaml
   /organizations/{organizationId}:
@@ -332,6 +337,8 @@ paths:
     $ref: paths/OrganizationComponentCollection.yaml
   /organizations/{organizationId}/offerings:
     $ref: paths/OrganizationOfferingCollection.yaml
+  /organizations/{organizationId}/groups:
+    $ref: paths/OrganizationGroupCollection.yaml
   /academic-sessions:
     $ref: paths/AcademicSessionCollection.yaml
   /academic-sessions/{academicSessionId}:
@@ -362,6 +369,8 @@ paths:
     $ref: paths/OfferingInstance.yaml
   /offerings/{offeringId}/associations:
     $ref: paths/OfferingAssociationCollection.yaml
+  /offerings/{offeringId}/groups:
+    $ref: paths/OfferingGroupCollection.yaml
   /associations/{associationId}:
     $ref: paths/AssociationInstance.yaml
   /buildings:
@@ -382,3 +391,9 @@ paths:
     $ref: paths/NewsFeedItemCollection.yaml
   /news-items/{newsItemId}:
     $ref: paths/NewsItemInstance.yaml
+  /groups:
+    $ref: paths/GroupCollection.yaml
+  /groups/{groupId}:
+    $ref: paths/GroupInstance.yaml
+  /groups/{groupId}/persons:
+    $ref: paths/GroupPersonCollection.yaml

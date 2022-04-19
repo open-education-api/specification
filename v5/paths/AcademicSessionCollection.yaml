@@ -7,9 +7,15 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
+    - name: academicSessionType
+      in: query
+      description: Filter by academic session type
+      required: false
+      schema:
+        $ref: '../enumerations/academicSessionType.yaml'
     - name: parent
       in: query
-      description: Filter by parent (academicSessionId), may be empty to retrieve all years (which have no parent)
+      description: Filter by parent (academicSessionId)
       required: false
       schema:
         type: string
@@ -54,3 +60,17 @@ get:
                     type: array
                     items:
                       $ref: '../schemas/AcademicSession.yaml'
+                  ext:
+                    $ref: '../schemas/Ext.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

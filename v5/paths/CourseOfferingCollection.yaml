@@ -15,15 +15,7 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: mainLanguage
-      in: query
-      description: Filter by mainLanguage
-      required: false
-      schema:
-        type: string
-        enum:
-          - nl-nl
-          - en-gb
+    - $ref: '../parameters/teachingLanguage.yaml'
     - name: modeOfStudy
       in: query
       description: Filter by modeOfStudy
@@ -85,9 +77,19 @@ get:
                     type: array
                     items:
                       $ref: '../schemas/CourseOffering.yaml'
+                  ext:
+                    $ref: '../schemas/Ext.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
     '404':
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '../schemas/Problem.yaml'
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

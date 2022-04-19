@@ -1,10 +1,10 @@
 type: object
 description: The full street address
 required:
-  - type
+  - addressType
 properties:
-  type:
-    $ref: '../enumerations/postalType.yaml'
+  AddressType:
+    $ref: '../enumerations/addressType.yaml'
   street:
     type: string
     description: The street name
