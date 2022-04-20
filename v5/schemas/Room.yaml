@@ -4,7 +4,6 @@ required:
   - roomId
   - roomType
   - name
-  - type
   - primaryCode
 properties:
   roomId:
