@@ -1,0 +1,10 @@
+type: object
+description: Object for aggregating different consumer additions
+properties:
+  RIO: { $ref: './RIO/Program.yaml'}
+
+
+# the propertieslist can be added by other consumers for this object  
+# properties:
+#   RIO: { $ref: './RIO/program.yaml'}
+#   Test: { $ref: './Test/program.yaml'}

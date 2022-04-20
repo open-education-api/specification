@@ -1,0 +1,84 @@
+type: object
+description: A collection of courses that lead to a certifiable learning outcome   
+required:
+  - programType
+  - name
+  - abbreviation
+  - description
+  - mainLanguage
+properties:
+  programType:
+    $ref: '../enumerations/programType.yaml'
+  name:
+    type: string
+    description: The name of this program
+    maxLength: 256
+    example: Student Mobility
+  abbreviation:
+    type: string
+    description: The abbreviation of this program
+    maxLength: 256
+    example: studM
+  description:
+    type: string
+    description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    example: program that is a place holder for all courses that are made available for student mobility
+  mainLanguage:
+    type: string
+    description: The main language in which this program is given. A string formatted according to RFC3066.
+    example: nl-NL
+  ects:
+    type: number
+    description: The number of Euopean Credits that can be archieved in this program
+    minimum: 0
+    example: 5
+  qualificationAwarded:
+    $ref: '../enumerations/qualificationAwarded.yaml'
+  duration:
+    type: string
+    description: The duration of this program. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+    format: duration
+    example: P1DT30H4S
+  firstStartDate:
+    type: string
+    description: The date when participants can follow this program for the first time. 
+    format: date
+  levelOfQualification:
+    $ref: '../enumerations/levelOfQualification.yaml'
+  sector:
+    $ref: '../enumerations/sector.yaml'
+  fieldsOfStudy:
+    type: string
+    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
+    maxLength: 4
+    example: '0732'
+  crohoCreboCode:
+    type: string
+    description: CrohoCode in wo/hbo or creboCode in mbo
+    example: '59312'
+  learningOutcomes:
+    type: array
+    description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
+    items:
+      type: string
+  admissionRequirements:
+    type: string
+    description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    example: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
+  qualificationRequirements:
+    type: string
+    description: Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.
+    example: None
+  link:
+    type: string
+    description: URL of the program's website
+    format: uri
+    maxLength: 2048
+    example: https://bijvak.nl
+  addresses:
+    type: array
+    description: Addresses for this program
+    items:
+      $ref: './Address.yaml'
+  ext:
+    $ref: './Ext.yaml'

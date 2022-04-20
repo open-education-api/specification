@@ -1,0 +1,24 @@
+type: object
+description: A time-line override of the program.
+properties:
+  startDateTime:
+    type: string
+    description: The moment on which this timelineOverride starts, RFC3339 (date-time)
+    format: date-time
+    example: 2021-09-01
+  endDateTime:
+    type: string
+    description: The moment on which this timelineOverride ends, RFC3339 (date-time)
+    format: date-time
+    example: 2022-08-31
+  program:
+    allOf:
+    - $ref: '../schemas/CourseProperties.yaml'
+    - type: object
+      description: container for consumers
+      properties:
+        consumers:
+          description: The additional consumer elements that can be provided
+          type: array
+          items:
+            $ref: '../consumers/Program.yaml'

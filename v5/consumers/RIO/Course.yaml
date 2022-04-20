@@ -1,0 +1,7 @@
+type: object
+description: RIO add on attributes to a collection of courses that lead to a certifiable learning outcome   
+properties:
+  test:
+    type: string
+    description: testing course purposes
+    example: None2

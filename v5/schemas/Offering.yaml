@@ -1,3 +1,11 @@
 allOf:
   - $ref: '../schemas/OfferingId.yaml'
   - $ref: '../schemas/OfferingProperties.yaml'
+  - type: object
+    description: container for consumers
+    properties:
+      consumers:
+        description: The additional consumer elements that can be provided
+        type: array
+        items:
+          $ref: '../consumers/Offering.yaml'
