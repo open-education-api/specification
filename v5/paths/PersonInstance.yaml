@@ -12,6 +12,7 @@ get:
       schema:
         type: string
         format: uuid
+    - $ref: '../parameters/primaryCode.yaml'
   responses:
     '200':
       description: OK

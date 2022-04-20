@@ -6,12 +6,16 @@ required:
   - name
   - abbreviation
   - description
+  - primaryCode
 properties:
   programId:
     type: string
     description: Unique id for this program
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+  primaryCode:
+    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
+    type: string
   type:
     $ref: '../enumerations/programType.yaml'
   name:
@@ -67,15 +71,12 @@ properties:
     format: uri
     maxLength: 2048
     example: https://bijvak.nl
-  primaryCode:
-    description: The primary human readable identifier for the entity
-    type: string
   otherCodes:
     type: array
     description: A dictionary with human readable codes/identifiers
     minItems: 1
     items:
-      $ref: './otherCode.yaml'
+      $ref: './OtherCode.yaml'
   addresses:
     type: array
     description: Addresses for this program

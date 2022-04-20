@@ -4,12 +4,16 @@ required:
   - roomId
   - name
   - type
+  - primaryCode
 properties:
   roomId:
     type: string
     description: Unique id for this room
     format: uuid
     example: 123e4567-e89b-12d3-a456-332114174000
+  primaryCode:
+    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
+    type: string
   abbreviation:
     type: string
     description: The abbreviation of the name of this room
@@ -59,5 +63,11 @@ properties:
         type: number
         format: double
         example: 5.106669
+  otherCodes:
+    type: array
+    description: A dictionary with human readable codes/identifiers
+    minItems: 1
+    items:
+      $ref: './OtherCode.yaml'
   ext:
     $ref: './Ext.yaml'

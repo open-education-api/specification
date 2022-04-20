@@ -4,12 +4,17 @@ required:
   - groupId
   - groupType
   - name
+  - primaryCode
 properties:
   groupId:
     type: string
     description: Unique id for this group
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+  primaryCode:
+    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
+    type: string
+    example: group-abc987
   groupType:
     $ref: '../enumerations/groupType.yaml'
   name:
@@ -21,11 +26,6 @@ properties:
     type: string
     description: The description of this group
     example: The group of students that follow statistics classes
-  sourceId:
-    type: string
-    description: The original id of this group in the source system
-    maxLength: 256
-    example: group-abc987
   startDate:
     type: string
     description: The day on which this group starts being active, RFC3339 (full-date)
@@ -42,5 +42,11 @@ properties:
     format: int32
     minimum: 0
     example: 183
+  otherCodes:
+    type: array
+    description: A dictionary with human readable codes/identifiers
+    minItems: 1
+    items:
+      $ref: './OtherCode.yaml'
   ext:
     $ref: './Ext.yaml'

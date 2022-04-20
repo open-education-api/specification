@@ -5,12 +5,16 @@ required:
   - name
   - shortName
   - type
+  - primaryCode
 properties:
   organizationId:
     type: string
     description: Unique id of this organization
     format: uuid
     example: 123e4567-e89b-12d3-a456-123514174000
+  primaryCode:
+    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
+    type: string
   name:
     type: string
     description: The name of the organization
@@ -44,18 +48,14 @@ properties:
     format: uri
     maxLength: 2048
     example: https://www.surf.nl/themes/surf/logo.svg
-  brin:
-    type: string
-    description: >
-      BRIN-code of this organization
-
-      -00BX (BRIN-nummer instelling)
-
-      -26ED00 (BRIN-nummer vestiging)
-
-      -10305 (nummer Bevoegd Gezag)
-
-      -641 (nummer Administratie Kantoor)
-    example: 00AA
+  otherCodes:
+    type: array
+    description: A dictionary with human readable codes/identifiers
+    minItems: 1
+    items:
+      $ref: './OtherCode.yaml'
+    example:
+      - brin: 00AA
+      - kvk: 12345678
   ext:
     $ref: './Ext.yaml'

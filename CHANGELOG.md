@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ext objects to all collection endpoints
 - #158 Improve error responses to make them more semantically correct
 - Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
-- #157 Added `primaryCode` and `otherCodes` to Program schema
+- #157 Added `primaryCode` and `otherCodes`
 - #164 Add `addresses` to Program, Course, Offering and Component schema's
 
 ### Changed
@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed the enumeration for organizationTypes. Renamed `institution` to `institute` to prevent confusion with `root`. Added `branch`, `academy` and `school`.
 - Changed postalType enumeration. Added `billing` address type
 - Removed 404 responses for paths that return a collection.
-- #157 removed `crohoCreboCode`. Use the new otherCode schema for this.
+- #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
 
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.

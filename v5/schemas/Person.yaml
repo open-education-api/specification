@@ -7,12 +7,16 @@ required:
   - displayName
   - affiliations
   - mail
+  - primaryCode
 properties:
   personId:
     type: string
     description: Unique id of this person
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+  primaryCode:
+    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
+    type: string
   givenName:
     type: string
     description: The first name of this person
@@ -127,5 +131,11 @@ properties:
     items:
       type: string
       example: nl-NL
+  otherCodes:
+    type: array
+    description: A dictionary with human readable codes/identifiers
+    minItems: 1
+    items:
+      $ref: './OtherCode.yaml'
   ext:
     $ref: './Ext.yaml'
