@@ -2,6 +2,7 @@ type: object
 description: A description of a group of people working to gether to achieve a goal 
 required:
   - organizationId
+  - organizationType
   - name
   - shortName
   - type
@@ -15,6 +16,8 @@ properties:
   primaryCode:
     description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
     type: string
+  organizationType:
+    $ref: '../enumerations/organizationType.yaml'
   name:
     type: string
     description: The name of the organization
@@ -29,8 +32,6 @@ properties:
     type: string
     description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.
-  type:
-    $ref: '../enumerations/organizationType.yaml'
   addresses:
     type: array
     description: Addresses of this organization

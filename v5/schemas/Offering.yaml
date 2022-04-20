@@ -2,10 +2,9 @@ type: object
 description: Either a program, course or component offering which descrbes the program, course or offering in time 
 required:
   - offeringId
-  - type
+  - offeringType
   - name
   - description
-  - mainLanguage
   - isLineItem
 properties:
   offeringId:
@@ -16,7 +15,7 @@ properties:
   primaryCode:
     description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
     type: string
-  type:
+  offeringType:
     type: string
     description: The type of this offering
     enum:
@@ -55,9 +54,9 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
-  mainLanguage:
+  teachingLanguage:
     type: string
-    description: The main language in which the courses within this program are given, RFC3066
+    description: The teaching language in which this offering is given. A string formatted according to RFC3066. In principle this should be the same language as the Program, Course or Component for which this is an offering.
     example: nl-NL
   maxNumberStudents:
     type: number

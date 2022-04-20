@@ -5,6 +5,7 @@ required:
   - name
   - abbreviation
   - description
+  - mainLanguage
   - level
   - primaryCode
 properties:
@@ -31,10 +32,19 @@ properties:
     description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
     minimum: 0
     example: 7.5
+  duration:
+    type: string
+    description: The duration of this course. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+    format: duration
+    example: P1DT30H4S
   description:
     type: string
     description: The description of this course (ECTS-description). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
+  mainLanguage:
+    type: string
+    description: The main language in which this course is given. A string formatted according to RFC3066.
+    example: nl-NL
   learningOutcomes:
     type: array
     description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.

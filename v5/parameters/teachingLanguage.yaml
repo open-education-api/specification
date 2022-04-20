@@ -1,0 +1,6 @@
+name: teachingLanguage
+in: query
+description: Filter by teachingLanguage, which is a string describing the main teaching language, formatted according to RFC3339.
+required: false
+schema:
+  type: string

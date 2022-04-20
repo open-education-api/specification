@@ -14,7 +14,7 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/acceptLanguage.yaml'
-    - name: type
+    - name: associationType
       in: query
       description: Filter by association type
       required: false
@@ -61,68 +61,48 @@ get:
       content:
         application/json:
           schema:
-            type: object
-            required:
-              - pageSize
-              - pageNumber
-              - hasPreviousPage
-              - hasNextPage
-              - items
-            properties:
-              pageSize:
-                type: integer
-                format: int32
-                description: The number of items per page
-              pageNumber:
-                type: integer
-                format: int32
-                description: The current page number
-              hasPreviousPage:
-                type: boolean
-                description: Whether there is a previous page
-              hasNextPage:
-                type: boolean
-                description: Whether there is a previous page
-              totalPages:
-                type: integer
-                format: int32
-                description: Total number of pages
-              items:
-                type: array
-                items:
-                  oneOf:
-                    - allOf:
-                        - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-                        - type: object
-                          required:
-                            - offering
-                          properties:
-                            offering:
-                              $ref: '../schemas/ProgramOffering.yaml'
-                            academicSession:
-                              $ref: '../schemas/AcademicSession.yaml'
-                    - allOf:
-                        - $ref: '../schemas/CourseOfferingAssociation.yaml'
-                        - type: object
-                          required:
-                            - offering
-                          properties:
-                            offering:
-                              $ref: '../schemas/CourseOffering.yaml'
-                            academicSession:
-                              $ref: '../schemas/AcademicSession.yaml'
-                    - allOf:
-                        - $ref: '../schemas/ComponentOfferingAssociation.yaml'
-                        - type: object
-                          required:
-                            - offering
-                          properties:
-                            offering:
-                              $ref: '../schemas/ComponentOffering.yaml'
-                            academicSession:
-                              $ref: '../schemas/AcademicSession.yaml'
-              ext:
-                  $ref: '../schemas/Ext.yaml'
+            allOf:
+              - $ref: '../schemas/Pagination.yaml'
+              - type: object
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    items:
+                      oneOf:
+                        - allOf:
+                            - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+                            - type: object
+                              required:
+                                - offering
+                              properties:
+                                offering:
+                                  $ref: '../schemas/ProgramOffering.yaml'
+                                academicSession:
+                                  $ref: '../schemas/AcademicSession.yaml'
+                        - allOf:
+                            - $ref: '../schemas/CourseOfferingAssociation.yaml'
+                            - type: object
+                              required:
+                                - offering
+                              properties:
+                                offering:
+                                  $ref: '../schemas/CourseOffering.yaml'
+                                academicSession:
+                                  $ref: '../schemas/AcademicSession.yaml'
+                        - allOf:
+                            - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+                            - type: object
+                              required:
+                                - offering
+                              properties:
+                                offering:
+                                  $ref: '../schemas/ComponentOffering.yaml'
+                                academicSession:
+                                  $ref: '../schemas/AcademicSession.yaml'
+                  ext:
+                    $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
