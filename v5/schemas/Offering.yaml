@@ -23,19 +23,29 @@ properties:
   academicSession:
     $ref: './AcademicSession.yaml'
   name:
-    type: string
+    type: array
     description: The name of this offering
-    maxLength: 256
-    example: Final written test for INFOMQNM for fall semseter 2020
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: Final written test for INFOMQNM for fall semseter 2020
   abbreviation:
     type: string
     description: The abbreviation or internal code used to identify this offering
     maxLength: 256
     example: Test-INFOMQNM-20FS
   description:
-    type: string
-    description: The description of this offering. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: 'Prove in wirting knowledge of research methods, including:
+    type: array
+    description: The description of this offering.
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: >
+              'Prove in writing knowledge of research methods, including:
               Acquire knowledge of HCI research paradigms
               Able to design suitable research studies (e.g., choose between within and between subject designs)
               Define/apply/design metrics and scales

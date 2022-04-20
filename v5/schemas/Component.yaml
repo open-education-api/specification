@@ -15,10 +15,14 @@ properties:
   componentType:
     $ref: '../enumerations/componentType.yaml'
   name:
-    type: string
+    type: array
     description: The name of this component
-    maxLength: 256
-    example: Written test for INFOMQNM
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: Written test for INFOMQNM
   abbreviation:
     type: string
     description: The abbreviation of this component
@@ -30,9 +34,15 @@ properties:
     format: duration
     example: P1DT30H4S
   description:
-    type: string
-    description: The description of this component. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: 'Prove executable knowledge of research methods, including:
+    type: array
+    description: The description of this component.
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: >
+              'Prove executable knowledge of research methods, including:
               Acquire knowledge of HCI research paradigms
               Able to design suitable research studies (e.g., choose between within and between subject designs)
               Define/apply/design metrics and scales

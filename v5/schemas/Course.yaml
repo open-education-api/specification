@@ -14,10 +14,14 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   name:
-    type: string
+    type: array
     description: The name of this course (ECTS-title)
-    maxLength: 256
-    example: Academic and Professional Writing
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: Academic and Professional Writing
   abbreviation:
     type: string
     description: The abbreviation or internal code used to identify this course (ECTS-code)
@@ -34,19 +38,28 @@ properties:
     format: duration
     example: P1DT30H4S
   description:
-    type: string
-    description: The description of this course (ECTS-description). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
+    type: array
+    description: The description of this course (ECTS-description).
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
   mainLanguage:
     type: string
     description: The main language in which this course is given. A string formatted according to RFC3066.
     example: nl-NL
   learningOutcomes:
     type: array
-    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome).
+    minItems: 1
     items:
-      type: string
-    example: ['Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: >
+           'Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms
             Able to design suitable research studies (e.g., choose between within and between subject designs)
             Define/apply/design metrics and scales
             Define/produce materials (e.g., stimuli and questionnaires)
@@ -60,7 +73,7 @@ properties:
             Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
             Select an appropriate sampling method (e.g., stratified)
             Perform parametric tests (e.g., repeated measures (M)ANOVA)
-            Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)']
+            Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
   requirements:
     type: string
     description: The requirements needed to enter this course (ECTS-prerequisites). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
@@ -80,9 +93,14 @@ properties:
       type: string
     example: ['book to be announced', 'on-line resource x']
   assessment:
-    type: string
-    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: Exam on campus
+    type: array
+    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria).
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: Exam on campus
   link:
     type: string
     description: URL of the course's website

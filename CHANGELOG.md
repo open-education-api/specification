@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed postalType enumeration. Added `billing` address type
 - Removed 404 responses for paths that return a collection.
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
+- #163 Changed object types from string to array: `Name`, `Description`, `learningOutcomes`, `admissionrequirements` and `qualificationRequirements`(if present) in Program, Course, Component, Offering and Organization.
 
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
