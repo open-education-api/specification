@@ -2,14 +2,16 @@ type: object
 description: An area within a building where education can take place
 required:
   - roomId
+  - roomType
   - name
-  - type
 properties:
   roomId:
     type: string
     description: Unique id for this room
     format: uuid
     example: 123e4567-e89b-12d3-a456-332114174000
+  roomType:
+    $ref: '../enumerations/roomType.yaml'
   abbreviation:
     type: string
     description: The abbreviation of the name of this room
@@ -20,8 +22,6 @@ properties:
     description: The name of this room
     maxLength: 256
     example: Beatrix building room 4.54
-  type:
-    $ref: '../enumerations/roomType.yaml'
   description:
     type: string
     description: The description of this room. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.

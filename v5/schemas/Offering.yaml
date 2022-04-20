@@ -2,10 +2,9 @@ type: object
 description: Either a program, course or component offering which descrbes the program, course or offering in time 
 required:
   - offeringId
-  - type
+  - offeringType
   - name
   - description
-  - mainLanguage
   - isLineItem
 properties:
   offeringId:
@@ -13,7 +12,7 @@ properties:
     description: Unique id of this offering
     format: uuid
     example: 123e4567-e89b-12d3-a456-134564174000
-  type:
+  offeringType:
     type: string
     description: The type of this offering
     enum:
@@ -52,9 +51,9 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
-  mainLanguage:
+  teachingLanguage:
     type: string
-    description: The main language in which the courses within this program are given, RFC3066
+    description: The teaching language in which this offering is given. A string formatted according to RFC3066. In principle this should be the same language as the Program, Course or Component for which this is an offering.
     example: nl-NL
   maxNumberStudents:
     type: number
@@ -80,5 +79,10 @@ properties:
     example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
+  addresses:
+    type: array
+    description: Addresses for this offering
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'

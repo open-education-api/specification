@@ -2,8 +2,9 @@ type: object
 description: A component is a part of a course 
 required:
   - componentId
-  - type
+  - componentType
   - name
+  - mainLanguage
   - abbreviation
 properties:
   componentId:
@@ -11,7 +12,7 @@ properties:
     description: Unique id of this component
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
-  type:
+  componentType:
     $ref: '../enumerations/componentType.yaml'
   name:
     type: string
@@ -23,6 +24,11 @@ properties:
     description: The abbreviation of this component
     maxLength: 256
     example: Test-INFOMQNM
+  duration:
+    type: string
+    description: The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+    format: duration
+    example: P1DT30H4S
   description:
     type: string
     description: The description of this component. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
@@ -43,5 +49,14 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
+  teachingLanguage:
+    type: string
+    description: The teaching language in which this component is given. A string formatted according to RFC3066.
+    example: nl-NL
+  addresses:
+    type: array
+    description: Addresses for this component
+    items:
+      $ref: './Address.yaml'
   ext:
     $ref: './Ext.yaml'
