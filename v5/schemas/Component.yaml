@@ -68,6 +68,6 @@ properties:
     description: A dictionary with human readable codes/identifiers
     minItems: 1
     items:
-      $ref: './OtherCode.yaml'
+      $ref: './IdentifierEntry.yaml'
   ext:
     $ref: './Ext.yaml'

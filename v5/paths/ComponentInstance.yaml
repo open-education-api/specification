@@ -12,7 +12,6 @@ get:
       schema:
         type: string
         format: uuid
-    - $ref: '../parameters/primaryCode.yaml'
     - name: expand
       in: query
       description: Optional properties to include, separated by a comma

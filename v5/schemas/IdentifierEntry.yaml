@@ -6,8 +6,6 @@ properties:
   value:
     description: Human readable value for the code/identifier
     type: string
-example:
-  crohoCreboCode: 59312
 required:
   - code
   - value
