@@ -11,7 +11,7 @@ properties:
     description: The moment on which this timelineOverride ends, RFC3339 (date-time)
     format: date-time
     example: 2022-08-31
-  program:
+  course:
     allOf:
     - $ref: '../schemas/CourseProperties.yaml'
     - type: object

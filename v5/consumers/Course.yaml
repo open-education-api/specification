@@ -1,10 +1,18 @@
 type: object
 description: Object for aggregating different consumer additions
 properties:
-  RIO: { $ref: './RIO/Course.yaml'}
+  consumerName:
+    description: the name of the array of additional consumer attributes
+    type: string
+  consumerObject:
+    description: object with key value pairs describing the element and type
+    type: object
+example:
+  RIO : { "jointPartnerCode": "string", "foreignPartner": "string", "deficiency": "deficiencies", "requirementsActivities": "requirements", "propaedeuticFase": "no_propaedeutic_fase", "studyChoiceCheck": "no_study_choice_check", "acceleratedRoute": "acceleratied_route", "explanationRequiredPermission": "string", "requiredPermissionRegistration": "yes"}
 
 
-# the propertieslist can be added by other consumers for this object  
+
+# proposed sollution to add consumers is by changing filling the propertieslist by other consumers for this object  
 # properties:
 #   RIO: { $ref: './RIO/program.yaml'}
 #   Test: { $ref: './Test/program.yaml'}

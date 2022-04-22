@@ -10,10 +10,10 @@ allOf:
         items:
           $ref: '../consumers/Course.yaml'
   - type: object 
-    description: time-override element
+    description: time override element
     properties:
-      time-override:
-        description: time-override element
+      timeOverride:
+        description: time override element
         type: array
         items:
         - $ref: '../schemas/TimeOverRideCourse.yaml'
