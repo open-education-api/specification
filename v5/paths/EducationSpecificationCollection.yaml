@@ -7,7 +7,7 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - name: type
+    - name: educationSpecificationType
       in: query
       description: Filter by type of education specification
       required: false
@@ -35,11 +35,11 @@ get:
         items:
           type: string
           enum:
-            - type
+            - educationSpecificationType
             - name
             - primarycode
             - controllingEntity
-            - -type
+            - -educationSpecificationType
             - -name
             - -primarycode
             - -controllingEntity

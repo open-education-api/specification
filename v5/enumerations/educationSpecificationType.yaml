@@ -1,11 +1,11 @@
-type: string
+educationSpecificatonType: string
 description: |
   The type of education specification
     - program: HOOPLEIDING
     - programVariant: HOOPLEIDINGSVARIANT
     - privateProgram: PARTICULIEREOPLEIDING
-    - cluster: HOONDERWIJSEENHEDENCLUSTER
-    - educationUnit: HOONDERWIJSEENHEID
+    - programCluster: HOONDERWIJSEENHEDENCLUSTER
+    - course: HOONDERWIJSEENHEID
 enum:
   - program
   - programVariant

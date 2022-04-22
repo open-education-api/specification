@@ -1,11 +1,11 @@
 type: string
 description: |
   The entity controlling this education. The type of entity that certifies this education.
-    - instituition: INSTELLING
+    - institution: INSTELLING
     - accreditation organisation: NVAO
     - ministry: OCW
 enum:
-- instituition
+- institution
 - accreditation organisation
 - ministry
 example: institution

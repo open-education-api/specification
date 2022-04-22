@@ -4,7 +4,7 @@ description: |
   It is used to aggregate education objects from a supplying institution.
   It clusters programs to a main educationSpecification that is used in registries such as RIO.
 required:
-  - type
+  - educationSpecificationType
   - name
   - startDate
   - controllingEntity
@@ -14,9 +14,9 @@ properties:
       type: string
   otherCodes:
     $ref: './otherCode.yaml'    
-  type:
+  educationSpecificationType:
     $ref: '../enumerations/educationSpecificationType.yaml'
-  subType:
+  educationSpecificationSubType:
     $ref: '../enumerations/educationSpecificationSubType.yaml'
   name:
     type: string
