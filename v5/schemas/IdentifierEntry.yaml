@@ -1,12 +1,12 @@
 type: object
 properties:
-  code:
-    description: An code/identifier
+  codeType:
+    description: The type of the code/identifier
     type: string
-  value:
+  code:
     description: Human readable value for the code/identifier
     type: string
 required:
+  - codeType
   - code
-  - value
 additionalProperties: false

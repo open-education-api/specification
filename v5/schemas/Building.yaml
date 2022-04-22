@@ -4,6 +4,7 @@ required:
   - buildingId
   - name
   - address
+  - primaryCode
 properties:
   buildingId:
     type: string
@@ -11,8 +12,11 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-331214174000     
   primaryCode:
-    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
-    type: string
+    description: The primary human readable identifier for this building. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: BAG
+      code: 0344100000139910
   abbreviation:
     type: string
     description: The abbreviation of the name of this building
@@ -31,11 +35,11 @@ properties:
     $ref: './Address.yaml'
   otherCodes:
     type: array
-    description: A dictionary with human readable codes/identifiers
-    minItems: 1
+    description: An arry of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-      - bag-id: 0344100000139910
+      - codeType: BAG
+        code: 0344100000139910
   ext:
     $ref: './Ext.yaml'

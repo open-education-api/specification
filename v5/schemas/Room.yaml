@@ -12,15 +12,18 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-332114174000
   primaryCode:
-    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
-    type: string
+    description: The primary human readable identifier for the room. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: roomCode
+      code: Bb4.54
   roomType:
     $ref: '../enumerations/roomType.yaml'
   abbreviation:
     type: string
     description: The abbreviation of the name of this room
     maxLength: 256
-    example: Bb 4.54
+    example: Bb4.54
   name:
     type: string
     description: The name of this room
@@ -65,8 +68,7 @@ properties:
         example: 5.106669
   otherCodes:
     type: array
-    description: A dictionary with human readable codes/identifiers
-    minItems: 1
+    description: An arry of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   ext:

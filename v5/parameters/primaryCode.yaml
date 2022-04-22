@@ -1,6 +1,6 @@
 name: primaryCode
 in: query
-description: The primaryCode of the requested item. This is often the source identifier defined by the institution
+description: The primaryCode of the requested item. This is often the source identifier as defined by the institution.
 required: false
 schema:
   type: string

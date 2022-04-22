@@ -13,8 +13,11 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-123514174000
   primaryCode:
-    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
-    type: string
+    description: The primary human readable identifier for the organization. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: orgId
+      code: Org01-Root
   organizationType:
     $ref: '../enumerations/organizationType.yaml'
   name:
@@ -50,12 +53,14 @@ properties:
     example: https://www.surf.nl/themes/surf/logo.svg
   otherCodes:
     type: array
-    description: A dictionary with human readable codes/identifiers
+    description: An arry of additional human readable codes/identifiers for the entity being described.
     minItems: 1
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-      - brin: 00AA
-      - kvk: 12345678
+      - codeType: brin
+        code: 00AA
+      - codeType: kvk 
+        code: 12345678
   ext:
     $ref: './Ext.yaml'

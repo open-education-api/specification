@@ -15,22 +15,23 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   primaryCode:
-    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
+    description: The primary human readable identifier for the program. This is often the source identifier as defined by the institution.
     $ref: './IdentifierEntry.yaml'
     example:
-      systemId: 1a2b3c4d5e6f7g8h9i
+      codeType: programCode
+      code: BIO
   programType:
     $ref: '../enumerations/programType.yaml'
   name:
     type: string
     description: The name of this program
     maxLength: 256
-    example: Student Mobility
+    example: Biology
   abbreviation:
     type: string
     description: The abbreviation of this program
     maxLength: 256
-    example: studM
+    example: BIO
   description:
     type: string
     description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
@@ -85,12 +86,12 @@ properties:
     example: https://bijvak.nl
   otherCodes:
     type: array
-    description: A dictionary with human readable codes/identifiers
-    minItems: 1
+    description: An arry of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-    - crohoCreboCode: 59312
+    - codeType: CROHO
+      code: 59312
   addresses:
     type: array
     description: Addresses for this program

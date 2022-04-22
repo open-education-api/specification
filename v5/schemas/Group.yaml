@@ -12,9 +12,11 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   primaryCode:
-    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
-    type: string
-    example: group-abc987
+    description: The primary human readable identifier for this group. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: groupCode
+      code: group-abc987
   groupType:
     $ref: '../enumerations/groupType.yaml'
   name:
@@ -44,8 +46,7 @@ properties:
     example: 183
   otherCodes:
     type: array
-    description: A dictionary with human readable codes/identifiers
-    minItems: 1
+    description: An arry of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   ext:

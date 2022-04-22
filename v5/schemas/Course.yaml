@@ -15,8 +15,8 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   primaryCode:
-    description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
-    type: string
+    description: The primary human readable identifier for this course. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
   name:
     type: string
     description: The name of this course (ECTS-title)
@@ -100,8 +100,7 @@ properties:
       $ref: './Address.yaml'
   otherCodes:
     type: array
-    description: A dictionary with human readable codes/identifiers
-    minItems: 1
+    description: An arry of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   ext:
