@@ -6,6 +6,7 @@ required:
   - name
   - abbreviation
   - description
+  - primaryCode
   - mainLanguage
 properties:
   programId:
@@ -13,18 +14,24 @@ properties:
     description: Unique id for this program
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+  primaryCode:
+    description: The primary human readable identifier for the program. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: programCode
+      code: BIO
   programType:
     $ref: '../enumerations/programType.yaml'
   name:
     type: string
     description: The name of this program
     maxLength: 256
-    example: Student Mobility
+    example: Biology
   abbreviation:
     type: string
     description: The abbreviation of this program
     maxLength: 256
-    example: studM
+    example: BIO
   description:
     type: string
     description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
@@ -58,10 +65,6 @@ properties:
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
     maxLength: 4
     example: '0732'
-  crohoCreboCode:
-    type: string
-    description: CrohoCode in wo/hbo or creboCode in mbo
-    example: '59312'
   learningOutcomes:
     type: array
     description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
@@ -81,6 +84,14 @@ properties:
     format: uri
     maxLength: 2048
     example: https://bijvak.nl
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+    example:
+    - codeType: CROHO
+      code: 59312
   addresses:
     type: array
     description: Addresses for this program

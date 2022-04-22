@@ -4,12 +4,19 @@ required:
   - buildingId
   - name
   - address
+  - primaryCode
 properties:
   buildingId:
     type: string
     description: Unique id of this building
     format: uuid
     example: 123e4567-e89b-12d3-a456-331214174000     
+  primaryCode:
+    description: The primary human readable identifier for this building. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: BAG
+      code: 0344100000139910
   abbreviation:
     type: string
     description: The abbreviation of the name of this building
@@ -26,5 +33,13 @@ properties:
     example: external rooms location for exams
   address:
     $ref: './Address.yaml'
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+    example:
+      - codeType: BAG
+        code: 0344100000139910
   ext:
     $ref: './Ext.yaml'

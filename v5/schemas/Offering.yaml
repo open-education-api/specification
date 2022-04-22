@@ -2,6 +2,7 @@ type: object
 description: Either a program, course or component offering which descrbes the program, course or offering in time 
 required:
   - offeringId
+  - primaryCode
   - offeringType
   - name
   - description
@@ -12,6 +13,12 @@ properties:
     description: Unique id of this offering
     format: uuid
     example: 123e4567-e89b-12d3-a456-134564174000
+  primaryCode:
+    description: The primary human readable identifier for this offering. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: offeringCode
+      code: INFOMQNM-20FS
   offeringType:
     type: string
     description: The type of this offering
@@ -84,5 +91,10 @@ properties:
     description: Addresses for this offering
     items:
       $ref: './Address.yaml'
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
   ext:
     $ref: './Ext.yaml'
