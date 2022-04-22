@@ -1,0 +1,62 @@
+type: object
+description: A group of persons that could be associated to an offering.
+required:
+  - groupId
+  - groupType
+  - name
+  - primaryCode
+properties:
+  groupId:
+    type: string
+    description: Unique id for this group
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174000
+  primaryCode:
+    description: The primary human readable identifier for this group. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: groupCode
+      code: group-abc987
+  groupType:
+    $ref: '../enumerations/groupType.yaml'
+  name:
+    type: array
+    description: The name of this group
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: statistics students
+  description:
+    type: array
+    description: The description of this group
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: The group of students that follow statistics classes
+  startDate:
+    type: string
+    description: The day on which this group starts being active, RFC3339 (full-date)
+    format: date
+    example: '2020-08-17'
+  endDate:
+    type: string
+    description: The day on which this group ends being active, RFC3339 (full-date)
+    format: date
+    example: '2020-12-18'
+  personCount:
+    type: number
+    description: The number of persons that are member of this group
+    format: int32
+    minimum: 0
+    example: 183
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+  ext:
+    $ref: './Ext.yaml'

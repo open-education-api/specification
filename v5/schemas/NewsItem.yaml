@@ -9,13 +9,17 @@ properties:
     description: Unique id for this news item
     format: uuid
     example: 123e4567-e89b-12d3-a456-122564174000
-  name:
-    type: string
-    description: The name for this news item
-    maxLength: 256
-    example: Room Bb 4.35 will be un available from 2020-09-29 until 2020-09-30
-  type:
+  newsItemType:
     $ref: '../enumerations/newsItemType.yaml'
+  name:
+    type: array
+    description: The name for this news item
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: Room Bb 4.35 will be un available from 2020-09-29 until 2020-09-30
   authors:
     type: array
     description: The authors of the article with this news item
@@ -36,9 +40,14 @@ properties:
     maxLength: 2048
     example: https://www.universiteitvanharderwijk.nl/cms/ruimtegebrek
   content:
-    type: string
-    description: The content of this news item. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: 'The room Bb 4.35 will be under maintenance'
+    type: array
+    description: The content of this news item.
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: 'The room Bb 4.35 will be under maintenance'
   validFrom:
     type: string
     description: The moment from which this news item is valid, RFC3339 (date-time)

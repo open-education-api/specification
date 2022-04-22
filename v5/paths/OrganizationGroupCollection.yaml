@@ -1,0 +1,83 @@
+get:
+  summary: GET /organizations/{organizationId}/groups
+  description: Get an ordered list of all groups for a given organization, ordered by name.
+  tags:
+    - organizations
+  parameters:
+    - name: organizationId
+      in: path
+      description: Organization ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/search.yaml'
+    - name: groupType
+      in: query
+      description: Filter by group type
+      required: false
+      schema:
+        $ref: '../enumerations/groupType.yaml'
+    - name: sort
+      in: query
+      explode: false
+      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - groupId
+            - name
+            - startDate
+            - -groupId
+            - -name
+            - -startDate
+        default: name
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - pageSize
+              - pageNumber
+              - hasPreviousPage
+              - hasNextPage
+              - items
+            properties:
+              pageSize:
+                type: integer
+                format: int32
+                description: The number of items per page
+              pageNumber:
+                type: integer
+                format: int32
+                description: The current page number
+              hasPreviousPage:
+                type: boolean
+                description: Whether there is a previous page
+              hasNextPage:
+                type: boolean
+                description: Whether there is a previous page
+              totalPages:
+                type: integer
+                format: int32
+                description: Total number of pages
+              items:
+                type: array
+                items:
+                  $ref: '../schemas/Group.yaml'
+              ext:
+                $ref: '../schemas/Ext.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

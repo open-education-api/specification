@@ -1,13 +1,20 @@
 type: object
 description: Either a program, course or component offering which descrbes the program, course or offering in time 
 required:
-  - type
+  - primaryCode
+  - offeringType
   - name
   - description
-  - mainLanguage
+  - teachingLanguage
   - isLineItem
 properties:
-  type:
+  primaryCode:
+    description: The primary human readable identifier for this offering. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: offeringCode
+      code: INFOMQNM-20FS
+  offeringType:
     type: string
     description: The type of this offering
     enum:
@@ -18,19 +25,29 @@ properties:
   academicSession:
     $ref: './AcademicSession.yaml'
   name:
-    type: string
+    type: array
     description: The name of this offering
-    maxLength: 256
-    example: Final written test for INFOMQNM for fall semseter 2020
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: Final written test for INFOMQNM for fall semseter 2020
   abbreviation:
     type: string
     description: The abbreviation or internal code used to identify this offering
     maxLength: 256
     example: Test-INFOMQNM-20FS
   description:
-    type: string
-    description: The description of this offering
-    example: 'Prove in wirting knowledge of research methods, including:
+    type: array
+    description: The description of this offering.
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: |
+              'Prove in writing knowledge of research methods, including:
               Acquire knowledge of HCI research paradigms
               Able to design suitable research studies (e.g., choose between within and between subject designs)
               Define/apply/design metrics and scales
@@ -46,7 +63,7 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
-  mainLanguage:
+  teachingLanguage:
     type: string
     description: The main language in which the courses within this program are given, RFC3066
     example: nl-NL
@@ -74,5 +91,10 @@ properties:
     example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
   ext:
     $ref: './Ext.yaml'
