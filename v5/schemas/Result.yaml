@@ -7,11 +7,8 @@ properties:
   state:
     $ref: '../enumerations/resultState.yaml'
   comment:
-    type: array
+    type: string
     description: The comment on this result
-    minItems: 1
-    items:
-      $ref: './LanguageTypedString.yaml'
   score:
     type: string
     description: The score of this program/course/component association (based on resultValueType in offering)

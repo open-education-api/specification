@@ -4,7 +4,6 @@ get:
   tags:
     - buildings
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'

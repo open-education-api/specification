@@ -7,7 +7,6 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - $ref: '../parameters/acceptLanguage.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
     - name: programType
       in: query
