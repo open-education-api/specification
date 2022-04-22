@@ -75,9 +75,11 @@ properties:
             Perform parametric tests (e.g., repeated measures (M)ANOVA)
             Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
   requirements:
-    type: string
-    description: The requirements needed to enter this course (ECTS-prerequisites). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: None
+    type: array
+    description: The requirements needed to enter this course (ECTS-prerequisites).
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
   level:
     $ref: '../enumerations/level.yaml'
   modeOfDelivery:
