@@ -1,30 +1,33 @@
 get:
-  summary: GET /education-specifications
-  description: Get a list of all education specifications, ordered by name (ascending).
+  summary: GET /education-specifications/{educationSpecificationId}/courses
+  description: Get an ordered list of all courses given through this educationspecification.
   tags:
     - education specifications
   parameters:
+    - name: educationSpecificationId
+      in: path
+      description: Education Specification ID
+      required: true
+      schema:
+        type: string
+        format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - name: type
+    - $ref: '../parameters/acceptLanguage.yaml'
+    - $ref: '../parameters/teachingLanguage.yaml'
+    - name: level
       in: query
-      description: Filter by type of education specification
+      description: Filter by level
       required: false
       schema:
-        $ref: '../enumerations/educationSpecificationType.yaml'
-    - name: primaryCode
+        $ref: '../enumerations/level.yaml'
+    - name: modeOfDelivery
       in: query
-      description: Filter by primary code of education specification
+      description: Filter by modeOfDelivery
       required: false
       schema:
-        type: string
-    - name: controllingEntity
-      in: query
-      description: Filter by type of controlling entity for the education specification
-      required: false
-      schema:
-        $ref: '../enumerations/controllingEntity.yaml'
+        $ref: '../enumerations/modesOfDelivery.yaml'
     - name: sort
       in: query
       explode: false
@@ -35,15 +38,13 @@ get:
         items:
           type: string
           enum:
-            - type
+            - courseId
             - name
-            - primarycode
-            - controllingEntity
-            - -type
+            - ects
+            - -courseId
             - -name
-            - -primarycode
-            - -controllingEntity
-        default: name
+            - -ects
+        default: courseId
   responses:
     '200':
       description: OK
@@ -59,7 +60,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/EducationSpecification.yaml'
+                      $ref: '../schemas/Course.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

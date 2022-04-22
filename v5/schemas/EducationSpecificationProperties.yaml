@@ -7,12 +7,12 @@ required:
   - type
   - name
   - startDate
-  - controlingEntity
+  - controllingEntity
 properties:
   primaryCode:
       description: The primary human readable identifier for the entity
       type: string
-  otherCode:
+  otherCodes:
     $ref: './otherCode.yaml'    
   type:
     $ref: '../enumerations/educationSpecificationType.yaml'

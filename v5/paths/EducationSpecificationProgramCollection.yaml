@@ -1,30 +1,57 @@
 get:
-  summary: GET /education-specifications
-  description: Get a list of all education specifications, ordered by name (ascending).
+  summary: GET /education-specifications/{educationSpecificationId}/programs
+  description: Get an ordered list of all programs for a given education specification, ordered by name.
   tags:
     - education specifications
   parameters:
+    - name: educationSpecificationId
+      in: path
+      description: Education Specification ID
+      required: true
+      schema:
+        type: string
+        format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - name: type
+    - $ref: '../parameters/acceptLanguage.yaml'
+    - $ref: '../parameters/teachingLanguage.yaml'
+    - name: programType
       in: query
-      description: Filter by type of education specification
+      description: Filter by program type
       required: false
       schema:
-        $ref: '../enumerations/educationSpecificationType.yaml'
-    - name: primaryCode
+        $ref: '../enumerations/programType.yaml'
+    - name: qualificationAwarded
       in: query
-      description: Filter by primary code of education specification
+      description: Filter by qualificationAwarded
+      required: false
+      schema:
+        $ref: '../enumerations/qualificationAwarded.yaml'
+    - name: levelOfQualification
+      in: query
+      description: Filter by levelOfQualification
+      required: false
+      schema:
+        $ref: '../enumerations/levelOfQualification.yaml'
+    - name: sector
+      in: query
+      description: Filter by sector
+      required: false
+      schema:
+        $ref: '../enumerations/sector.yaml'
+    - name: fieldsOfStudy
+      in: query
+      description: Filter by fieldsOfStudy
       required: false
       schema:
         type: string
-    - name: controllingEntity
+    - name: croho-creboCode
       in: query
-      description: Filter by type of controlling entity for the education specification
+      description: Filter by croho-creboCode
       required: false
       schema:
-        $ref: '../enumerations/controllingEntity.yaml'
+        type: string
     - name: sort
       in: query
       explode: false
@@ -35,14 +62,12 @@ get:
         items:
           type: string
           enum:
-            - type
+            - programId
             - name
-            - primarycode
-            - controllingEntity
-            - -type
+            - ects
+            - -programId
             - -name
-            - -primarycode
-            - -controllingEntity
+            - -ects
         default: name
   responses:
     '200':
@@ -59,7 +84,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/EducationSpecification.yaml'
+                      $ref: '../schemas/Program.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

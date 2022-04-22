@@ -448,6 +448,10 @@ paths:
     $ref: paths/EducationSpecificationInstance.yaml
   /education-specifications:
     $ref: paths/EducationSpecificationCollection.yaml    
+  /education-specifications/{educationSpecificationID}/courses:
+    $ref: paths/EducationSpecificationCourseCollection.yaml
+  /education-specifications/{educationSpecificationID}/programs:
+    $ref: paths/EducationSpecificationProgramCollection.yaml
   /groups:
     $ref: paths/GroupCollection.yaml
   /groups/{groupId}:
