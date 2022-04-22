@@ -1,5 +1,5 @@
 type: object
-description: A description of a group of people working to gether to achieve a goal 
+description: A description of a group of people working together to achieve a goal 
 required:
   - organizationId
   - organizationType
@@ -21,19 +21,28 @@ properties:
   organizationType:
     $ref: '../enumerations/organizationType.yaml'
   name:
-    type: string
+    type: array
     description: The name of the organization
-    maxLength: 256
-    example: Coöperatie SURF U.A.
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: nl-NL
+      value: Coöperatie SURF U.A.
   shortName:
     type: string
     description: Short name of the organization
     maxLength: 256
     example: SURF
   description:
-    type: string
-    description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.
+    type: array
+    description: Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: nl-NL
+      value: SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.
   addresses:
     type: array
     description: Addresses of this organization

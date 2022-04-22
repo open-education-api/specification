@@ -4,7 +4,6 @@ get:
   tags:
     - groups
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: groupId
       in: path
       description: Group ID

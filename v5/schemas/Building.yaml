@@ -23,14 +23,23 @@ properties:
     maxLength: 256
     example: Bb
   name:
-    type: string
+    type: array
     description: The name of this building
-    maxLength: 256
-    example: Beatrix building
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: Beatrix building
   description:
-    type: string
-    description: The description of this building. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: external rooms location for exams
+    type: array
+    description: The description of this building. 
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: external rooms location for exams
   address:
     $ref: './Address.yaml'
   otherCodes:

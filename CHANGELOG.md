@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ext objects to all collection endpoints
 - #158 Improve error responses to make them more semantically correct
 - Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
+- #163 Multilingual responses for M2M requests
 - #157 Added `primaryCode` and `otherCodes`
 - Adds attribute `firstStartDate` to Program.
 - Adds the attribute `duration` to Course and Component.
@@ -31,9 +32,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed 404 responses for paths that return a collection.
 - #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
+- #163 Changed object types from string to array: `Name`, `Description`, `learningOutcomes`, `admissionrequirements` and `qualificationRequirements`(if present) in Program, Course, Component, Offering and Organization.
 
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
+- Removed the Accept-Language header from all requests. It is superseded by the new LanguageTypedStrings which always return text in all available languages.
 
 ## [4.0.0] - 2019-09-01
 ### Added

@@ -5,7 +5,6 @@ get:
     - organizations
   parameters:
     - $ref: '../parameters/primaryCode.yaml'
-    - $ref: '../parameters/acceptLanguage.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'

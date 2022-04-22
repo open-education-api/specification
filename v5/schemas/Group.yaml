@@ -20,14 +20,23 @@ properties:
   groupType:
     $ref: '../enumerations/groupType.yaml'
   name:
-    type: string
+    type: array
     description: The name of this group
-    maxLength: 256
-    example: statistics students
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: statistics students
   description:
-    type: string
+    type: array
     description: The description of this group
-    example: The group of students that follow statistics classes
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example: 
+    - language: en-GB
+      value: The group of students that follow statistics classes
   startDate:
     type: string
     description: The day on which this group starts being active, RFC3339 (full-date)

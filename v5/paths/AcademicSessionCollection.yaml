@@ -6,7 +6,6 @@ get:
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: academicSessionType
       in: query
       description: Filter by academic session type

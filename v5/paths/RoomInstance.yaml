@@ -4,7 +4,6 @@ get:
   tags:
     - rooms
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: roomId
       in: path
       description: Room ID

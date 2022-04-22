@@ -9,7 +9,6 @@ properties:
   comment:
     type: string
     description: The comment on this result
-    example: None
   score:
     type: string
     description: The score of this program/course/component association (based on resultValueType in offering)

@@ -4,7 +4,6 @@ get:
   tags:
     - programs
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: programId
       in: path
       description: Program ID
