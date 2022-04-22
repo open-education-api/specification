@@ -7,12 +7,16 @@ required:
   - description
   - mainLanguage
   - level
+  - primaryCode
 properties:
   courseId:
     type: string
     description: Unique id of this course
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+  primaryCode:
+    description: The primary human readable identifier for this course. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
   name:
     type: array
     description: The name of this course (ECTS-title)
@@ -105,5 +109,10 @@ properties:
     description: Addresses for this course
     items:
       $ref: './Address.yaml'
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
   ext:
     $ref: './Ext.yaml'
