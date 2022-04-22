@@ -8,7 +8,7 @@ allOf:
         description: The additional consumer elements that can be provided
         type: array
         items:
-          $ref: '../consumers/Program.yaml'
+          $ref: '../schemas/Consumer.yaml'
   - type: object 
     description: time override element
     properties:

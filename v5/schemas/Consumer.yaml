@@ -12,7 +12,7 @@ example:
 
 
 
-# proposed sollution to add consumers is by changing filling the propertieslist by other consumers for this object  
+# proposed sollution to add consumers is by changing the propertieslist by other consumers for this object (in this example the course) 
 # properties:
-#   RIO: { $ref: './RIO/program.yaml'}
-#   Test: { $ref: './Test/program.yaml'}
+#   RIO: { $ref: '../consumers/RIO/V1/course.yaml'}
+#   Test: { $ref: './consumers/Test/course.yaml'}

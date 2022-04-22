@@ -3,13 +3,13 @@ description: A time-line override of the program.
 properties:
   startDateTime:
     type: string
-    description: The moment on which this timelineOverride starts, RFC3339 (date-time)
-    format: date-time
+    description: The moment on which this timelineOverride starts, RFC3339 (date)
+    format: date
     example: 2021-09-01
   endDateTime:
     type: string
-    description: The moment on which this timelineOverride ends, RFC3339 (date-time)
-    format: date-time
+    description: The moment on which this timelineOverride ends, RFC3339 (date)
+    format: date
     example: 2022-08-31
   program:
     allOf:
@@ -21,4 +21,4 @@ properties:
           description: The additional consumer elements that can be provided
           type: array
           items:
-            $ref: '../consumers/Program.yaml'
+            $ref: '../schemas/Consumer.yaml'
