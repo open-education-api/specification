@@ -16,7 +16,6 @@ properties:
   primaryCode:
     description: The primary human readable identifier for the entity. This is often the source identifier defined by the institution
     type: string
-  type:
   componentType:
     $ref: '../enumerations/componentType.yaml'
   name:
