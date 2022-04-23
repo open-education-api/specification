@@ -1,6 +1,6 @@
 type: object
 description: |
-  The specification of an education object. This specification allows for other education objects to be derived from it.    
+  The specification of an education object. This specification allows for other education objects to be derived from it.
   It is used to aggregate education objects from a supplying institution.
   It clusters programs to a main educationSpecification that is used in registries such as RIO.
 required:
@@ -13,7 +13,7 @@ properties:
       description: The primary human readable identifier for the entity
       type: string
   otherCodes:
-    $ref: './otherCode.yaml'    
+    $ref: './otherCode.yaml'
   educationSpecificationType:
     $ref: '../enumerations/educationSpecificationType.yaml'
   educationSpecificationSubType:
@@ -72,6 +72,11 @@ properties:
     type: string
     description: UUID of the parent educationSpecification if it exists
     format: uuid
-    example: 123e4567-e89b-12d3-a456-426614174111    
+    example: 123e4567-e89b-12d3-a456-426614174111
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

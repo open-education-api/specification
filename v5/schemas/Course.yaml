@@ -2,18 +2,9 @@ allOf:
   - $ref: '../schemas/CourseId.yaml'
   - $ref: '../schemas/CourseProperties.yaml'
   - type: object
-    description: container for consumers
     properties:
-      consumers:
-        description: The additional consumer elements that can be provided
+      timelineOverrides:
+        description: Timline overrides allow an implementation to provide versions of entities that will be valid in the future or have been in the past.
         type: array
         items:
-          $ref: './Consumer.yaml'
-  - type: object
-    description: time override element
-    properties:
-      timeOverride:
-        description: time override element
-        type: array
-        items:
-        - $ref: '../schemas/TimeOverRideCourse.yaml'
+          $ref: './TimelineOverrideCourse.yaml'

@@ -1,5 +1,5 @@
 type: object
-description: A placeholder or collection of news items 
+description: A placeholder or collection of news items
 required:
   - newsFeedId
   - newsFeedType
@@ -29,7 +29,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: room Bb 4.35 news
   description:
@@ -38,8 +38,13 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: all information on what happens in room Bb 4.35
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

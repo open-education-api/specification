@@ -120,5 +120,10 @@ properties:
     description: Addresses for this program
     items:
       $ref: './Address.yaml'
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'
