@@ -70,6 +70,6 @@ properties:
       - codeType: brin
         code: 00AA
       - codeType: kvk 
-        code: 12345678
+        code: '12345678'
   ext:
     $ref: './Ext.yaml'

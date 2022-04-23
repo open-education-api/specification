@@ -1,4 +1,4 @@
-openapi: "3.0.3"
+openapi: "3.1.0"
 info:
   version: "5.0"
   title: Open Education API
@@ -24,6 +24,10 @@ info:
 
   x-logo:
     url: ../logo.png
+
+servers:
+  - url: http://demo01.eduapi.nl/v5
+    description: SURF demo implementation
 
 tags:
   - name: service metadata
@@ -355,7 +359,7 @@ components:
       scheme: bearer
     openId:
       type: openIdConnect
-      openIdConnectUrl: /.well-known/openid-configuration
+      openIdConnectUrl: https://example.nl/.well-known/openid-configuration
 
 
 

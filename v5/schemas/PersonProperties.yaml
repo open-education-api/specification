@@ -135,6 +135,6 @@ properties:
       $ref: './IdentifierEntry.yaml'
     example:
       - codeType: BSN
-        code: 00000
+        code: '00000'
   ext:
     $ref: './Ext.yaml'

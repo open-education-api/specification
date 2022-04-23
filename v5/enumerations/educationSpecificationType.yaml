@@ -1,4 +1,4 @@
-educationSpecificatonType: string
+type: string
 description: |
   The type of education specification
     - program: HOOPLEIDING
