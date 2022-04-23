@@ -4,7 +4,6 @@ get:
   tags:
     - persons
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: personId
       in: path
       description: User ID
@@ -34,31 +33,4 @@ get:
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
-post:
-  summary: POST /persons
-  description: POST a single person.
-  tags:
-    - persons
-  requestBody:
-    required: true
-    content:
-      application/json:
-          schema:
-            allOf:
-              - $ref: '../schemas/PersonProperties.yaml'
-  
 
-  responses:
-    '201':
-      description: OK
-      content:
-        application/json:
-          schema:
-            properties:
-              response:
-                allOf:
-                  - $ref: '../schemas/PersonId.yaml'
-                  - $ref: '../schemas/PostResponse.yaml'
-
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'

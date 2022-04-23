@@ -4,9 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2022-04-12
+## [Unreleased] - 2022-04-15
 
 ### Added
+- added group functionality to ooapi
 - CHANGELOG.md
 - Improved explanation on Markdown
 - ext objects to all collection endpoints
@@ -14,12 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - associations/me endpoint with OIDC security information
 - associations/external endpoint
 - associations/external/me endpoint
-- persons POST endpoint 
+- persons POST endpoint
 - explanation on associations
-- extra attribute on results 
+- extra attribute on results
 - Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
 - add education-specification endpoint and create a relation between education-specification and program and course
 - add three prefiltered education-specification endpoints for courses, programs and education-specifications search bu educationSpecificationID
+- #163 Multilingual responses for M2M requests
+- #157 Added `primaryCode` and `otherCodes`
 - Adds attribute `firstStartDate` to Program.
 - Adds the attribute `duration` to Course and Component.
 - Adds `enrollStartDate` and `enrollEndDate` to all Offerings.
@@ -36,10 +39,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed the enumeration for organizationTypes. Renamed `institution` to `institute` to prevent confusion with `root`. Added `branch`, `academy` and `school`.
 - Changed postalType enumeration. Added `billing` address type
 - Removed 404 responses for paths that return a collection.
+- #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
+- #163 Changed object types from string to array: `Name`, `Description`, `learningOutcomes`, `admissionrequirements` and `qualificationRequirements`(if present) in Program, Course, Component, Offering and Organization.
 
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
+- Removed the Accept-Language header from all requests. It is superseded by the new LanguageTypedStrings which always return text in all available languages.
 
 ## [4.0.0] - 2019-09-01
 ### Added

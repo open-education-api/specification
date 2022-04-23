@@ -4,10 +4,10 @@ get:
   tags:
     - groups
   parameters:
+    - $ref: '../parameters/primaryCode.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: groupType
       in: query
       description: Filter by group type

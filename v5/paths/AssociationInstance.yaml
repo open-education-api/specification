@@ -4,7 +4,6 @@ get:
   tags:
     - associations
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: associationId
       in: path
       description: Association ID
@@ -55,6 +54,15 @@ post:
       - associations.write
   tags:
     - associations
+
+  parameters:
+    - name: associationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
 
   requestBody:
     required: true

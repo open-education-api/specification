@@ -5,4 +5,5 @@ enum:
   - canceled
   - denied
   - associated
+  - queued
 example: associated

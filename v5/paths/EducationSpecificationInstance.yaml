@@ -4,7 +4,6 @@ get:
   tags:
     - education specifications
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: educationSpecificationId
       in: path
       description: Education specification ID

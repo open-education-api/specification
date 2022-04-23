@@ -1,4 +1,4 @@
-openapi: "3.1"
+openapi: "3.0.3"
 info:
   version: "5.0"
   title: Open Education API
@@ -34,8 +34,8 @@ tags:
     description: |
       The associations API provides information about the association between an offering and a person (e.g. students, lecturers, etc).
       Associations can be posted between institutions This requires information details on the offering and the persons.
-      To allow for this information a complete person object and offering object can be part of the API. 
-      The structure is explained in the following model: 
+      To allow for this information a complete person object and offering object can be part of the API.
+      The structure is explained in the following model:
       <table>
         <tr>
          <td></td>
@@ -54,7 +54,7 @@ tags:
         </tr>
         <tr>
          <td>external</td>
-         <td> 
+         <td>
           POST <a href="#tag/associations/paths/~1associations~1external/post">/associations/external/</a> requires full student details and offering details
           <br> or alternatively:
           <ul>
@@ -76,12 +76,12 @@ tags:
     description: The components API provides information about components being part of parent courses.
   - name: education specifications
     description: |
-      The education specification API provides information on the specification of an education object. 
-      This specification allows for other education objects to be derived from it.    
+      The education specification API provides information on the specification of an education object.
+      This specification allows for other education objects to be derived from it.
       It is used to aggregate education objects from a supplying institution.
       It clusters programs to a main educationSpecification that is used in registries such as RIO.
   - name: groups
-    description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees. 
+    description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees.
   - name: news
     description: The news API provides news feeds and items regarding a specific subject.
   - name: offerings
@@ -329,7 +329,7 @@ tags:
 
   - name: formatting and displaying results from API
     description: |
-      Most endpoints provide results with attributes that describe a result. These descriptions can be formatted to improve readability. 
+      Most endpoints provide results with attributes that describe a result. These descriptions can be formatted to improve readability.
       Where additional readability is expected the result can be provided in Markdown. For OOAPI we choose to use a subset of the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/). More information and guidelines can be read [here](https://guides.github.com/features/mastering-markdown/)
       The description SHOULD NOT use: Task list Items, The images element and Raw HTML for optimal interoperability. Git Hub Markdown is choosen as it provides some extra structure for data input on top of commonmark Markdown. This will alllow for better typed information.
 
@@ -353,7 +353,7 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
-    openId: 
+    openId:
       type: openIdConnect
       openIdConnectUrl: /.well-known/openid-configuration
 
@@ -396,6 +396,8 @@ paths:
     $ref: paths/ProgramCollection.yaml
   /programs/{programId}:
     $ref: paths/ProgramInstance.yaml
+  /programs/{programId}/programs:
+    $ref: paths/ProgramProgramCollection.yaml
   /programs/{programId}/courses:
     $ref: paths/ProgramCourseCollection.yaml
   /programs/{programId}/offerings:
@@ -423,7 +425,7 @@ paths:
   /associations/me:
     $ref: paths/AssociationInstanceMe.yaml
   /associations/external:
-    $ref: paths/AssociationInstanceExternal.yaml    
+    $ref: paths/AssociationInstanceExternal.yaml
   /associations/external/me:
     $ref: paths/AssociationInstanceExternalMe.yaml
   /buildings:
@@ -444,13 +446,13 @@ paths:
     $ref: paths/NewsFeedItemCollection.yaml
   /news-items/{newsItemId}:
     $ref: paths/NewsItemInstance.yaml
-  /education-specifications/{educationSpecificationID}:
+  /education-specifications/{educationSpecificationId}:
     $ref: paths/EducationSpecificationInstance.yaml
   /education-specifications:
-    $ref: paths/EducationSpecificationCollection.yaml    
-  /education-specifications/{educationSpecificationID}/courses:
+    $ref: paths/EducationSpecificationCollection.yaml
+  /education-specifications/{educationSpecificationId}/courses:
     $ref: paths/EducationSpecificationCourseCollection.yaml
-  /education-specifications/{educationSpecificationID}/programs:
+  /education-specifications/{educationSpecificationId}/programs:
     $ref: paths/EducationSpecificationProgramCollection.yaml
   /groups:
     $ref: paths/GroupCollection.yaml

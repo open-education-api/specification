@@ -1,40 +1,50 @@
 get:
-  summary: GET /components/{componentId}/offerings
-  description: Get a list of all offerings for this component, ordered chronologically.
+  summary: GET /programs/{programId}/programs
+  description: Get an ordered list of nested programs, ordered by name.
   tags:
-    - components
+    - programs
   parameters:
-    - name: componentId
-      in: path
-      description: Component ID
-      required: true
-      schema:
-        type: string
-        format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: isLineItem
+    - name: programId
+      in: path
+      description: the id of the program to find nested programs for
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: programType
       in: query
-      description: Filter by isLineItem
+      description: Filter by program type
       required: false
       schema:
-        type: boolean
-    - name: since
+        $ref: '../enumerations/programType.yaml'
+    - name: qualificationAwarded
       in: query
-      description: Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
+      description: Filter by qualificationAwarded
+      required: false
+      schema:
+        $ref: '../enumerations/qualificationAwarded.yaml'
+    - name: levelOfQualification
+      in: query
+      description: Filter by levelOfQualification
+      required: false
+      schema:
+        $ref: '../enumerations/levelOfQualification.yaml'
+    - name: sector
+      in: query
+      description: Filter by sector
+      required: false
+      schema:
+        $ref: '../enumerations/sector.yaml'
+    - name: fieldsOfStudy
+      in: query
+      description: Filter by fieldsOfStudy
       required: false
       schema:
         type: string
-        format: date
-    - name: until
-      in: query
-      description: Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).
-      required: false
-      schema:
-        type: string
-        format: date
     - name: sort
       in: query
       explode: false
@@ -45,15 +55,13 @@ get:
         items:
           type: string
           enum:
-            - offeringId
+            - programId
             - name
-            - startDateTime
-            - endDateTime
-            - -offeringId
+            - ects
+            - -programId
             - -name
-            - -startDateTime
-            - -endDateTime
-        default: startDateTime
+            - -ects
+        default: name
   responses:
     '200':
       description: OK
@@ -69,17 +77,15 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/ComponentOffering.yaml'
+                      $ref: '../schemas/Program.yaml'
                   ext:
-                      $ref: '../schemas/Ext.yaml'
+                    $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
-    '404':
-      $ref: '../schemas/ErrorNotFound.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
