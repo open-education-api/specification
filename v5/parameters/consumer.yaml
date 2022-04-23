@@ -1,0 +1,6 @@
+name: consumer
+in: query
+description: Request entities meant for a specific consumer
+required: false
+schema:
+  type: string

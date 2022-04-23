@@ -1,0 +1,15 @@
+type: object
+description: A timeline override of the course.
+properties:
+  startDateTime:
+    type: string
+    description: The moment on which this timelineOverride starts, RFC3339 (date)
+    format: date
+    example: 2021-09-01
+  endDateTime:
+    type: string
+    description: The moment on which this timelineOverride ends, RFC3339 (date)
+    format: date
+    example: 2022-08-31
+  course:
+    $ref: './CourseProperties.yaml'

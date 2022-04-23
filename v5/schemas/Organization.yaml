@@ -1,5 +1,5 @@
 type: object
-description: A description of a group of people working together to achieve a goal 
+description: A description of a group of people working together to achieve a goal
 required:
   - organizationId
   - organizationType
@@ -26,7 +26,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: nl-NL
       value: Coöperatie SURF U.A.
   shortName:
@@ -40,7 +40,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: nl-NL
       value: SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.
   addresses:
@@ -69,7 +69,12 @@ properties:
     example:
       - codeType: brin
         code: 00AA
-      - codeType: kvk 
+      - codeType: kvk
         code: '12345678'
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

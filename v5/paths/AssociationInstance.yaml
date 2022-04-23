@@ -68,7 +68,7 @@ post:
     required: true
     content:
       application/json:
-        schema:  
+        schema:
           type: object
           required:
             - associationItem
@@ -93,4 +93,3 @@ post:
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
-

@@ -19,7 +19,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: Fall semester 2020
   startDate:
@@ -32,5 +32,10 @@ properties:
     description: The day on which this academic session ends, RFC3339 (full-date)
     format: date
     example: '2020-12-18'
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

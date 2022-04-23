@@ -17,5 +17,10 @@ properties:
     $ref: '../enumerations/associationRole.yaml'
   state:
     $ref: '../enumerations/associationState.yaml'
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

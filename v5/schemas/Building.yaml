@@ -10,7 +10,7 @@ properties:
     type: string
     description: Unique id of this building
     format: uuid
-    example: 123e4567-e89b-12d3-a456-331214174000     
+    example: 123e4567-e89b-12d3-a456-331214174000
   primaryCode:
     description: The primary human readable identifier for this building. This is often the source identifier as defined by the institution.
     $ref: './IdentifierEntry.yaml'
@@ -28,16 +28,16 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: Beatrix building
   description:
     type: array
-    description: The description of this building. 
+    description: The description of this building.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: external rooms location for exams
   address:
@@ -50,5 +50,10 @@ properties:
     example:
       - codeType: BAG
         code: '0344100000139910'
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

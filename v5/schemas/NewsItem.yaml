@@ -1,5 +1,5 @@
 type: object
-description: A newsitem contains the message and metadata of that message 
+description: A newsitem contains the message and metadata of that message
 required:
   - newsItemId
   - name
@@ -17,7 +17,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: Room Bb 4.35 will be un available from 2020-09-29 until 2020-09-30
   authors:
@@ -45,7 +45,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: 'The room Bb 4.35 will be under maintenance'
   validFrom:
@@ -63,7 +63,10 @@ properties:
     description: The moment on which this news item was updated, RFC3339 (date-time)
     format: date-time
     example: 2020-09-28T00:00:00.000Z
-
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'
-
