@@ -16,7 +16,7 @@ properties:
     $ref: './IdentifierEntry.yaml'
     example:
       codeType: BAG
-      code: 0344100000139910
+      code: '0344100000139910'
   abbreviation:
     type: string
     description: The abbreviation of the name of this building
@@ -49,6 +49,6 @@ properties:
       $ref: './IdentifierEntry.yaml'
     example:
       - codeType: BAG
-        code: 0344100000139910
+        code: '0344100000139910'
   ext:
     $ref: './Ext.yaml'

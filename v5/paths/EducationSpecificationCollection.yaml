@@ -43,7 +43,8 @@ get:
             - -name
             - -primarycode
             - -controllingEntity
-        default: name
+        default: 
+          - name
   responses:
     '200':
       description: OK
