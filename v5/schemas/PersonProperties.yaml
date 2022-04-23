@@ -1,12 +1,19 @@
 type: object
-description: A person that has a relationship with this institution, this set is the minimal set 
+description: A person that has a relationship with this institution 
 required:
   - givenName
   - surname
   - displayName
   - affiliations
   - mail
+  - primaryCode
 properties:
+  primaryCode:
+    description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: studentNumber
+      code: 0000000
   givenName:
     type: string
     description: The first name of this person
@@ -53,15 +60,7 @@ properties:
     format: date
     example: '2003-09-30'
   affiliations:
-    type: array
-    description: The affiliations of this person, the relations a person has with the organization providing this endpoint
-    items:
-      type: string
-      enum:
-        - student
-        - employee
-        - guest
-      example: student
+    $ref: '../enumerations/personAffiliations.yaml'
   mail:
     type: string
     description: The primary e-mailaddress of this person
@@ -129,5 +128,13 @@ properties:
     items:
       type: string
       example: nl-NL
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+    example:
+      - codeType: BSN
+        code: 00000
   ext:
     $ref: './Ext.yaml'

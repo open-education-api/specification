@@ -1,10 +1,10 @@
 type: object
-description: A component is a part of a course 
+description: A component is a part of a course
 required:
   - componentId
   - componentType
   - name
-  - mainLanguage
+  - teachingLanguage
   - abbreviation
   - primaryCode
 properties:
@@ -27,7 +27,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: Written test for INFOMQNM
   abbreviation:
@@ -46,7 +46,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: >
               'Prove executable knowledge of research methods, including:

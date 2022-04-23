@@ -6,6 +6,9 @@ required:
 properties:
   state:
     $ref: '../enumerations/resultState.yaml'
+# added state based on request by CACI
+  pass:
+    $ref: '../enumerations/passState.yaml'
   comment:
     type: string
     description: The comment on this result

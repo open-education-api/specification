@@ -1,0 +1,12 @@
+type: object
+description: A system message as a response to a POST message 
+required:
+  - message
+properties:
+  message:
+    description: information displayed to user
+    type: string
+  redirect:
+    description: URL where additional information can be found e.g. by use of deeplink
+    type: string
+    format: uri

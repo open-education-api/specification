@@ -1,5 +1,5 @@
 type: object
-description: A collection of courses that lead to a certifiable learning outcome   
+description: A collection of courses that lead to a certifiable learning outcome
 required:
   - programId
   - programType
@@ -7,7 +7,7 @@ required:
   - abbreviation
   - description
   - primaryCode
-  - mainLanguage
+  - teachingLanguage
 properties:
   programId:
     type: string
@@ -28,7 +28,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: Biology
   abbreviation:
@@ -45,7 +45,7 @@ properties:
     example:
     - language: en-GB
       value: program that is a place holder for all courses that are made available for student mobility
-  mainLanguage:
+  teachingLanguage:
     type: string
     description: The main language in which this program is given. A string formatted according to RFC3066.
     example: nl-NL
@@ -63,7 +63,7 @@ properties:
     example: P1DT30H4S
   firstStartDate:
     type: string
-    description: The date when participants can follow this program for the first time. 
+    description: The date when participants can follow this program for the first time.
     format: date
   levelOfQualification:
     $ref: '../enumerations/levelOfQualification.yaml'
