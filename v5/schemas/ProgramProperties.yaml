@@ -1,29 +1,45 @@
 type: object
-description: A collection of courses that lead to a certifiable learning outcome   
+description: A collection of courses that lead to a certifiable learning outcome
 required:
   - programType
   - name
   - abbreviation
   - description
-  - mainLanguage
+  - primaryCode
+  - teachingLanguage
 properties:
+  primaryCode:
+    description: The primary human readable identifier for the program. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: programCode
+      code: BIO
   programType:
     $ref: '../enumerations/programType.yaml'
   name:
-    type: string
     description: The name of this program
-    maxLength: 256
-    example: Student Mobility
+    type: array
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: Biology
   abbreviation:
     type: string
     description: The abbreviation of this program
     maxLength: 256
-    example: studM
+    example: BIO
   description:
-    type: string
-    description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: program that is a place holder for all courses that are made available for student mobility
-  mainLanguage:
+    type: array
+    description: The description of this program
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: The study of life
+  teachingLanguage:
     type: string
     description: The main language in which this program is given. A string formatted according to RFC3066.
     example: nl-NL
@@ -41,7 +57,7 @@ properties:
     example: P1DT30H4S
   firstStartDate:
     type: string
-    description: The date when participants can follow this program for the first time. 
+    description: The date when participants can follow this program for the first time.
     format: date
   levelOfQualification:
     $ref: '../enumerations/levelOfQualification.yaml'
@@ -60,21 +76,45 @@ properties:
     type: array
     description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
     items:
-      type: string
+      type: array
+      minItems: 1
+      items:
+        $ref: './LanguageTypedString.yaml'
+      example:
+        - language: en-GB
+          value: 'Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms.'
   admissionRequirements:
-    type: string
-    description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    type: array
+    description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students.
     example: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
   qualificationRequirements:
-    type: string
+    type: array
     description: Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.
-    example: None
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
   link:
     type: string
     description: URL of the program's website
     format: uri
     maxLength: 2048
     example: https://bijvak.nl
+  educationSpecification:
+    type: string
+    description: UUID of educationSpecification if it exists
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174111
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+    example:
+    - codeType: CROHO
+      code: '59312'
   addresses:
     type: array
     description: Addresses for this program

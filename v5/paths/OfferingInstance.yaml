@@ -4,7 +4,6 @@ get:
   tags:
     - offerings
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: offeringId
       in: path
       description: Offering ID

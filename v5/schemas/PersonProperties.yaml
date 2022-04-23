@@ -1,6 +1,19 @@
 type: object
-description: A person that has a relationship with this institution 
+description: A person that has a relationship with this institution
+required:
+  - givenName
+  - surname
+  - displayName
+  - affiliations
+  - mail
+  - primaryCode
 properties:
+  primaryCode:
+    description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: studentNumber
+      code: 0000000
   givenName:
     type: string
     description: The first name of this person
@@ -115,5 +128,13 @@ properties:
     items:
       type: string
       example: nl-NL
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+    example:
+      - codeType: BSN
+        code: '00000'
   ext:
     $ref: './Ext.yaml'

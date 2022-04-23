@@ -1,0 +1,77 @@
+type: object
+description: |
+  The specification of an education object. This specification allows for other education objects to be derived from it.    
+  It is used to aggregate education objects from a supplying institution.
+  It clusters programs to a main educationSpecification that is used in registries such as RIO.
+required:
+  - educationSpecificationType
+  - name
+  - startDate
+  - controllingEntity
+properties:
+  primaryCode:
+      description: The primary human readable identifier for the entity
+      type: string
+  otherCodes:
+    $ref: './otherCode.yaml'    
+  educationSpecificationType:
+    $ref: '../enumerations/educationSpecificationType.yaml'
+  educationSpecificationSubType:
+    $ref: '../enumerations/educationSpecificationSubType.yaml'
+  name:
+    type: string
+    description: The name of this education specification
+    maxLength: 256
+    example: Bachelor Scheikundige Technologie
+  abbreviation:
+    type: string
+    description: The abbreviation of this program
+    maxLength: 256
+    example: B Scheikundige Technologie
+  description:
+    type: string
+    description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    example: program that is a place holder for all courses that are made available for student mobility
+  controllingEntity:
+    $ref: '../enumerations/controllingEntity.yaml'
+  formalDocument:
+    $ref: '../enumerations/formalDocument.yaml'
+  level:
+    $ref: '../enumerations/level.yaml'
+  sector:
+    $ref: '../enumerations/sector.yaml'
+  levelOfQualification:
+    $ref: '../enumerations/levelOfQualification.yaml'
+  fieldsOfStudy:
+    type: string
+    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
+    maxLength: 4
+    example: '0732'
+  owner:
+    type: string
+    description: The ID of the owner of this education specification (organzationID)
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174078
+  studyLoad:
+    type: array
+    description: The amount of effort needed to complete this education expressed in a specific metric type
+    items:
+      $ref: './studyLoadDescriptor.yaml'
+  learningOutcomes:
+    type: array
+    description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
+    items:
+      type: string
+  link:
+    type: string
+    description: URL of the program's website
+    format: uri
+    maxLength: 2048
+    example: https://bijvak.nl
+  educationSpecification:
+    type: string
+    description: UUID of the parent educationSpecification if it exists
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174111    
+  ext:
+    $ref: './Ext.yaml'

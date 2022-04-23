@@ -14,7 +14,6 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - $ref: '../parameters/acceptLanguage.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
     - name: programType
       in: query
@@ -43,12 +42,6 @@ get:
     - name: fieldsOfStudy
       in: query
       description: Filter by fieldsOfStudy
-      required: false
-      schema:
-        type: string
-    - name: croho-creboCode
-      in: query
-      description: Filter by croho-creboCode
       required: false
       schema:
         type: string

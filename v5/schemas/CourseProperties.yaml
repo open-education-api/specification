@@ -1,17 +1,25 @@
 type: object
-description: An object describing the metadata of a course 
+description: An object describing the metadata of a course
 required:
   - name
   - abbreviation
   - description
-  - mainLanguage
+  - teachingLanguage
   - level
+  - primaryCode
 properties:
+  primaryCode:
+    description: The primary human readable identifier for this course. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
   name:
-    type: string
+    type: array
     description: The name of this course (ECTS-title)
-    maxLength: 256
-    example: Academic and Professional Writing
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: Academic and Professional Writing
   abbreviation:
     type: string
     description: The abbreviation or internal code used to identify this course (ECTS-code)
@@ -28,45 +36,47 @@ properties:
     format: duration
     example: P1DT30H4S
   description:
-    type: string
-    description: The description of this course (ECTS-description). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
-  mainLanguage:
+    type: array
+    description: The description of this course (ECTS-description).
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
+  teachingLanguage:
     type: string
     description: The main language in which this course is given. A string formatted according to RFC3066.
     example: nl-NL
   learningOutcomes:
     type: array
-    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome).
     items:
-      type: string
-    example: ['Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms
-            Able to design suitable research studies (e.g., choose between within and between subject designs)
-            Define/apply/design metrics and scales
-            Define/produce materials (e.g., stimuli and questionnaires)
-            Define protocols for research studies
-            Understands and take in account concepts of reliability and validity
-            Analyze and improve methods and analysis of published scientific articles
-            Able to deliver scientific reports','
-            Executable knowledge of ­­­statistics, including:
-            Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
-            Data preparation (e.g., coding and feature selection)
-            Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
-            Select an appropriate sampling method (e.g., stratified)
-            Perform parametric tests (e.g., repeated measures (M)ANOVA)
-            Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)']
+      type: array
+      minItems: 1
+      items:
+        $ref: './LanguageTypedString.yaml'
+      example:
+      - language: en-GB
+        value: 'Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms.'
   requirements:
-    type: string
-    description: The requirements needed to enter this course (ECTS-prerequisites). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: None
+    type: array
+    description: The requirements needed to enter this course (ECTS-prerequisites).
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
   level:
     $ref: '../enumerations/level.yaml'
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   enrollment:
-    type: string
+    type: array
+    items:
+      $ref: './LanguageTypedString.yaml'
     description: The extra information that is provided for enrollment
-    example: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    example:
+      - langauge: en-GB
+        value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
     description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
@@ -74,19 +84,34 @@ properties:
       type: string
     example: ['book to be announced', 'on-line resource x']
   assessment:
-    type: string
-    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria). [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: Exam on campus
+    type: array
+    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria).
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: Exam on campus
   link:
     type: string
     description: URL of the course's website
     format: uri
     maxLength: 2048
     example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
+  educationSpecification:
+    type: string
+    description: UUID of educationSpecification if it exists
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174111
   addresses:
     type: array
     description: Addresses for this course
     items:
       $ref: './Address.yaml'
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
   ext:
     $ref: './Ext.yaml'

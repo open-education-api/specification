@@ -9,7 +9,7 @@ allOf:
         type: array
         items:
           $ref: '../schemas/Consumer.yaml'
-  - type: object 
+  - type: object
     description: time override element
     properties:
       timeOverride:

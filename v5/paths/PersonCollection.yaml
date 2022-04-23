@@ -4,10 +4,10 @@ get:
   tags:
     - persons
   parameters:
+    - $ref: '../parameters/primaryCode.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/personSearch.yaml'
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: affiliations
       in: query
       description: Filter by affiliations
@@ -63,3 +63,32 @@ get:
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
+
+post:
+  summary: POST /persons
+  description: POST a single person.
+  tags:
+    - persons
+  requestBody:
+    required: true
+    content:
+      application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/PersonProperties.yaml'
+  
+
+  responses:
+    '201':
+      description: OK
+      content:
+        application/json:
+          schema:
+            properties:
+              response:
+                allOf:
+                  - $ref: '../schemas/PersonId.yaml'
+                  - $ref: '../schemas/PostResponse.yaml'
+
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'

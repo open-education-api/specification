@@ -1,6 +1,5 @@
 get:
-  parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
+  parameters: []
   summary: GET /
   description: Get metadata for the service.
   tags:

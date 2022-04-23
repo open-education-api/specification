@@ -1,0 +1,3 @@
+allOf:
+  - $ref: '../schemas/EducationSpecificationId.yaml'
+  - $ref: '../schemas/EducationSpecificationProperties.yaml'

@@ -4,10 +4,16 @@ get:
   tags:
     - buildings
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
+    - name: buildingId
+      in: path
+      description:  The id of the building to find rooms for
+      required: true
+      schema:
+        type: string
+        format: uuid
     - name: roomType
       in: query
       description: Filter by room type

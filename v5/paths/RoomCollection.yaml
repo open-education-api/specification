@@ -4,10 +4,10 @@ get:
   tags:
     - rooms
   parameters:
+    - $ref: '../parameters/primaryCode.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: roomType
       in: query
       description: Filter by room type

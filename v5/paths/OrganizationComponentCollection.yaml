@@ -4,7 +4,6 @@ get:
   tags:
     - organizations
   parameters:
-    - $ref: '../parameters/acceptLanguage.yaml'
     - name: organizationId
       in: path
       description: Organization ID

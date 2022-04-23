@@ -1,24 +1,35 @@
 type: object
-description: A component is a part of a course 
+description: A component is a part of a course
 required:
   - componentId
   - componentType
   - name
-  - mainLanguage
+  - teachingLanguage
   - abbreviation
+  - primaryCode
 properties:
   componentId:
     type: string
     description: Unique id of this component
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+  primaryCode:
+    description: The primary human readable identifier for this component. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: componentCode
+      code: INFOMQNM-WRKCLG-1
   componentType:
     $ref: '../enumerations/componentType.yaml'
   name:
-    type: string
+    type: array
     description: The name of this component
-    maxLength: 256
-    example: Written test for INFOMQNM
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: Written test for INFOMQNM
   abbreviation:
     type: string
     description: The abbreviation of this component
@@ -30,9 +41,15 @@ properties:
     format: duration
     example: P1DT30H4S
   description:
-    type: string
-    description: The description of this component. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: 'Prove executable knowledge of research methods, including:
+    type: array
+    description: The description of this component.
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: >
+              'Prove executable knowledge of research methods, including:
               Acquire knowledge of HCI research paradigms
               Able to design suitable research studies (e.g., choose between within and between subject designs)
               Define/apply/design metrics and scales
@@ -58,5 +75,10 @@ properties:
     description: Addresses for this component
     items:
       $ref: './Address.yaml'
+  otherCodes:
+    type: array
+    description: An arry of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
   ext:
     $ref: './Ext.yaml'
