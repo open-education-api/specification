@@ -1,5 +1,5 @@
 type: object
-description: Either a program, course or component offering which descrbes the program, course or offering in time 
+description: Either a program, course or component offering which descrbes the program, course or offering in time
 required:
   - primaryCode
   - offeringType
@@ -30,7 +30,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: Final written test for INFOMQNM for fall semseter 2020
   abbreviation:
@@ -44,7 +44,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: |
               'Prove in writing knowledge of research methods, including:

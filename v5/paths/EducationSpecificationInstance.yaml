@@ -1,12 +1,12 @@
 get:
-  summary: GET /persons/{personId}
-  description: Get a single person.
+  summary: GET /education-specifications/{educationSpecificationId}
+  description: Get a single education specification.
   tags:
-    - persons
+    - education specifications
   parameters:
-    - name: personId
+    - name: educationSpecificationId
       in: path
-      description: User ID
+      description: Education specification ID
       required: true
       schema:
         type: string
@@ -17,7 +17,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Person.yaml'
+            $ref: '../schemas/EducationSpecification.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -32,5 +32,3 @@ get:
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
-
-

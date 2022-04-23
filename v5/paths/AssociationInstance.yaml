@@ -55,6 +55,15 @@ post:
   tags:
     - associations
 
+  parameters:
+    - name: associationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+
   requestBody:
     required: true
     content:

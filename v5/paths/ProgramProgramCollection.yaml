@@ -1,25 +1,50 @@
 get:
-  summary: GET /buildings/{buildingId}/rooms
-  description: Get a list of all rooms in a building.
+  summary: GET /programs/{programId}/programs
+  description: Get an ordered list of nested programs, ordered by name.
   tags:
-    - buildings
+    - programs
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - name: buildingId
+    - $ref: '../parameters/teachingLanguage.yaml'
+    - name: programId
       in: path
-      description:  The id of the building to find rooms for
+      description: the id of the program to find nested programs for
       required: true
       schema:
         type: string
         format: uuid
-    - name: roomType
+    - name: programType
       in: query
-      description: Filter by room type
+      description: Filter by program type
       required: false
       schema:
-        $ref: '../enumerations/roomType.yaml'
+        $ref: '../enumerations/programType.yaml'
+    - name: qualificationAwarded
+      in: query
+      description: Filter by qualificationAwarded
+      required: false
+      schema:
+        $ref: '../enumerations/qualificationAwarded.yaml'
+    - name: levelOfQualification
+      in: query
+      description: Filter by levelOfQualification
+      required: false
+      schema:
+        $ref: '../enumerations/levelOfQualification.yaml'
+    - name: sector
+      in: query
+      description: Filter by sector
+      required: false
+      schema:
+        $ref: '../enumerations/sector.yaml'
+    - name: fieldsOfStudy
+      in: query
+      description: Filter by fieldsOfStudy
+      required: false
+      schema:
+        type: string
     - name: sort
       in: query
       explode: false
@@ -30,14 +55,12 @@ get:
         items:
           type: string
           enum:
-            - roomId
+            - programId
             - name
-            - totalSeats
-            - availableSeats
-            - -roomId
+            - ects
+            - -programId
             - -name
-            - -totalSeats
-            - -availableSeats
+            - -ects
         default: name
   responses:
     '200':
@@ -54,17 +77,15 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Room.yaml'
+                      $ref: '../schemas/Program.yaml'
                   ext:
-                      $ref: '../schemas/Ext.yaml'
+                    $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
-    '404':
-      $ref: '../schemas/ErrorNotFound.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

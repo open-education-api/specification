@@ -1,25 +1,30 @@
 get:
-  summary: GET /buildings/{buildingId}/rooms
-  description: Get a list of all rooms in a building.
+  summary: GET /education-specifications
+  description: Get a list of all education specifications, ordered by name (ascending).
   tags:
-    - buildings
+    - education specifications
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/search.yaml'
-    - name: buildingId
-      in: path
-      description:  The id of the building to find rooms for
-      required: true
-      schema:
-        type: string
-        format: uuid
-    - name: roomType
+    - name: educationSpecificationType
       in: query
-      description: Filter by room type
+      description: Filter by type of education specification
       required: false
       schema:
-        $ref: '../enumerations/roomType.yaml'
+        $ref: '../enumerations/educationSpecificationType.yaml'
+    - name: primaryCode
+      in: query
+      description: Filter by primary code of education specification
+      required: false
+      schema:
+        type: string
+    - name: controllingEntity
+      in: query
+      description: Filter by type of controlling entity for the education specification
+      required: false
+      schema:
+        $ref: '../enumerations/controllingEntity.yaml'
     - name: sort
       in: query
       explode: false
@@ -30,14 +35,14 @@ get:
         items:
           type: string
           enum:
-            - roomId
+            - educationSpecificationType
             - name
-            - totalSeats
-            - availableSeats
-            - -roomId
+            - primarycode
+            - controllingEntity
+            - -educationSpecificationType
             - -name
-            - -totalSeats
-            - -availableSeats
+            - -primarycode
+            - -controllingEntity
         default: name
   responses:
     '200':
@@ -54,9 +59,9 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Room.yaml'
+                      $ref: '../schemas/EducationSpecification.yaml'
                   ext:
-                      $ref: '../schemas/Ext.yaml'
+                    $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

@@ -1,25 +1,31 @@
 get:
-  summary: GET /buildings/{buildingId}/rooms
-  description: Get a list of all rooms in a building.
+  summary: GET /education-specifications/{educationSpecificationId}/courses
+  description: Get an ordered list of all courses given through this educationspecification.
   tags:
-    - buildings
+    - education specifications
   parameters:
-    - $ref: '../parameters/pageSize.yaml'
-    - $ref: '../parameters/pageNumber.yaml'
-    - $ref: '../parameters/search.yaml'
-    - name: buildingId
+    - name: educationSpecificationId
       in: path
-      description:  The id of the building to find rooms for
+      description: Education Specification ID
       required: true
       schema:
         type: string
         format: uuid
-    - name: roomType
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/teachingLanguage.yaml'
+    - name: level
       in: query
-      description: Filter by room type
+      description: Filter by level
       required: false
       schema:
-        $ref: '../enumerations/roomType.yaml'
+        $ref: '../enumerations/level.yaml'
+    - name: modeOfDelivery
+      in: query
+      description: Filter by modeOfDelivery
+      required: false
+      schema:
+        $ref: '../enumerations/modesOfDelivery.yaml'
     - name: sort
       in: query
       explode: false
@@ -30,15 +36,13 @@ get:
         items:
           type: string
           enum:
-            - roomId
+            - courseId
             - name
-            - totalSeats
-            - availableSeats
-            - -roomId
+            - ects
+            - -courseId
             - -name
-            - -totalSeats
-            - -availableSeats
-        default: name
+            - -ects
+        default: courseId
   responses:
     '200':
       description: OK
@@ -54,9 +58,9 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Room.yaml'
+                      $ref: '../schemas/Course.yaml'
                   ext:
-                      $ref: '../schemas/Ext.yaml'
+                    $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

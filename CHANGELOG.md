@@ -15,10 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - associations/me endpoint with OIDC security information
 - associations/external endpoint
 - associations/external/me endpoint
-- persons POST endpoint 
+- persons POST endpoint
 - explanation on associations
-- extra attribute on results 
+- extra attribute on results
 - Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
+- add education-specification endpoint and create a relation between education-specification and program and course
+- add three prefiltered education-specification endpoints for courses, programs and education-specifications search bu educationSpecificationID
 - #163 Multilingual responses for M2M requests
 - #157 Added `primaryCode` and `otherCodes`
 - Adds attribute `firstStartDate` to Program.
@@ -26,6 +28,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds `enrollStartDate` and `enrollEndDate` to all Offerings.
 - Adds `flexibleEntryPeriodStart` and `flexibleEntryPeriodEnd` to ProgramOffering and CourseOffering. These two attributes can be used in addition to `startDate` to signify a Program or Course wherein a student can start at various moments with the offering, without missing anything. In that case `startDate` is usually the same as `flexibleEntryPeriodStart`.
 - #164 Add `addresses` to Program, Course, Offering and Component schema's
+- added group functionality to ooapi
+- Added `/programs/{programId}/programs` endpoint
+
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
