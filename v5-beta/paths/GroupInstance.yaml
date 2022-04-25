@@ -1,0 +1,36 @@
+get:
+  summary: GET /groups/{groupId}
+  description: Get a single group.
+  tags:
+    - groups
+  parameters:
+    - name: groupId
+      in: path
+      description: Group ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - organization
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/GroupExpanded.yaml'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

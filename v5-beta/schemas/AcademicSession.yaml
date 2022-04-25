@@ -1,0 +1,41 @@
+type: object
+description: A period in time during which an offering can take place. Academicsessions can be nested.
+required:
+  - academicSessionId
+  - name
+  - startDate
+  - endDate
+properties:
+  academicSessionId:
+    type: string
+    description: Unique id for this academic session
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174000
+  academicSessionType:
+    $ref: '../enumerations/academicSessionType.yaml'
+  name:
+    type: array
+    description: The name of this academic session
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: Fall semester 2020
+  startDate:
+    type: string
+    description: The day on which this academic session starts, RFC3339 (full-date)
+    format: date
+    example: '2020-08-17'
+  endDate:
+    type: string
+    description: The day on which this academic session ends, RFC3339 (full-date)
+    format: date
+    example: '2020-12-18'
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
+  ext:
+    $ref: './Ext.yaml'

@@ -100,3 +100,9 @@ get:
                     - $ref: '../schemas/ProgramOffering.yaml'
                     - $ref: '../schemas/CourseOffering.yaml'
                     - $ref: '../schemas/ComponentOffering.yaml'
+    '400':
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '../schemas/Problem.yaml'

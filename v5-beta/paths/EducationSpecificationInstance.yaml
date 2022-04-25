@@ -1,0 +1,34 @@
+get:
+  summary: GET /education-specifications/{educationSpecificationId}
+  description: Get a single education specification.
+  tags:
+    - education specifications
+  parameters:
+    - name: educationSpecificationId
+      in: path
+      description: Education specification ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/EducationSpecification.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

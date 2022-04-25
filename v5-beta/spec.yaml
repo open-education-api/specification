@@ -1,0 +1,466 @@
+openapi: "3.1.0"
+info:
+  version: "5.0 BETA"
+  title: Open Education API
+  description: |
+    OpenAPI (fka Swagger) specification for the Open Education API.
+
+    <figure>
+    	<a target="_blank" href="OOAPI_model_v4.png">
+      <img src="OOAPI_model_v4.png" alt="OOAPI information model that feeds OOAPI specification" width="70%" class="img-responsive">
+      </a>
+      <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>
+    </figure>
+
+    The model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.
+
+    The program relations object is not found as a separate endpoint but relations between programs can be found within the program endpoint by expanding that endpoint.
+
+    Information about earlier meetings and presentations can be found <a target="_blank" href="https://github.com/open-education-api/notulen">here</a>
+
+    Information on the EDU-API model that was also used for this api is shown <a target="_blank" href="eduapi.png">here</a>
+
+
+
+  x-logo:
+    url: ../logo.png
+
+servers:
+  - url: http://demo01.eduapi.nl/v5-beta
+    description: SURF demo implementation
+
+tags:
+  - name: service metadata
+    description: The service API provides additional metadata needed to make the OOAPI fit for this organization.
+  - name: academic sessions
+    description: The academic sessions API provides information about the different time periods a program can be offered.
+  - name: associations
+    description: |
+      The associations API provides information about the association between an offering and a person (e.g. students, lecturers, etc).
+      Associations can be posted between institutions This requires information details on the offering and the persons.
+      To allow for this information a complete person object and offering object can be part of the API.
+      The structure is explained in the following model:
+      <table>
+        <tr>
+         <td></td>
+         <td colspan=3 align=center>offering</td>
+        </tr>
+        <tr>
+         <td rowspan=3>student</td>
+         <td></td>
+         <td>internal</td>
+         <td>external</td>
+        </tr>
+        <tr>
+         <td>internal</td>
+         <td>POST <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a> local enrollment</td>
+         <td>POST <a href="#tag/associations/paths/~1associations~1external~1me/post">/associations/external/me</a> gets student details from .wellknown uses offering details (provided by external institution)</td>
+        </tr>
+        <tr>
+         <td>external</td>
+         <td>
+          POST <a href="#tag/associations/paths/~1associations~1external/post">/associations/external/</a> requires full student details and offering details
+          <br> or alternatively:
+          <ul>
+           <li>create student with POST <a href="#tag/persons/paths/~1persons~1{personId}/post">/persons</a></li>
+           <li>enroll this person using POST <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a></li>
+          </ul>
+          for the enrollment
+         </td>
+         <td>no support needed</td>
+        </tr>
+      </table>
+      direct: <a href="#tag/associations/paths/~1associations~1{associationId}/post"> POST /associations/{associationId}</a>
+
+  - name: buildings
+    description: The building API provides a building that is currently used by the organization. Including all location details.
+  - name: courses
+    description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
+  - name: components
+    description: The components API provides information about components being part of parent courses.
+  - name: education specifications
+    description: |
+      The education specification API provides information on the specification of an education object.
+      This specification allows for other education objects to be derived from it.
+      It is used to aggregate education objects from a supplying institution.
+      It clusters programs to a main educationSpecification that is used in registries such as RIO.
+  - name: groups
+    description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees.
+  - name: news
+    description: The news API provides news feeds and items regarding a specific subject.
+  - name: offerings
+    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: organizations
+    description: The organizations API provides the organizations that are responsible for the execution and recognition of education.
+  - name: persons
+    description: The persons API provides information about persons related to an organization.
+  - name: programs
+    description: The programs API provides a coherent set of educational components, aimed at the realization of competences or objectives in the field of knowledge, insight, attitudes and skills that the person who completes the program must have.
+  - name: rooms
+    description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
+  - name: about identifiers
+    description: |
+      All identifiers should be globally unique for the scope of an institute. This should be guaranteed automatically, when using UUID's as prescribed by this specification.
+  - name: query information (use of q)
+    description: |
+      Endpoints can be searched using the q parameter. This parameter acts as a filter for the endpoint it filters items having a:
+      * name,
+      * abbreviation or
+      * description
+
+      or for persons:
+      * givenName
+      * surNamePrefix
+      * surname
+      * displayName
+      * initials
+      * mail
+      * secondaryMail
+
+      containing the given search term (exact partial match, case insensitive)
+
+      # Examples
+      <pre lang="json"><code class="json">
+      GET /programs?q=stud
+
+      Result:
+      {
+        "programId": "123e4567-e89b-12d3-a456-426614174000",
+        "programType": "alliance",
+        <strong>"name": "Student Mobility",
+        "abbreviation": "studM",
+        "description": "program that is a place holder for all courses that are made available for student mobility",</strong>
+        "ects": 5,
+        "qualificationAwarded": "None",
+        "lengthOfProgram": 6,
+        "levelOfQualification": 6,
+        "sector": "university education",
+        "fieldsOfStudy": "0732",
+        "crohoCreboCode": "59312",
+        "learningOutcomes": [
+        "string"
+        ],
+        "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+        "qualificationRequirements": "None",
+        "link": "https://bijvak.nl",
+        "ext": { }
+      }
+      </code></pre>
+
+  - name: expand information
+    description: |
+      Most endpoints also provide additional information which is not provided by default. To obtain this information we use an expand mechanism
+
+      # Endpoints which are expandable
+      * academic-session
+      * association
+      * component
+      * component-offering
+      * course
+      * course-offering
+      * organization
+      * program
+      * program-offering
+      * room
+
+      # Examples
+      First expand the program only to show additional parent information:
+      ```
+      GET /programs/{programId}?expand=parent
+
+      Result:
+      {
+      "programId": "123e4567-e89b-12d3-a456-426614174000",
+      "programType": "alliance",
+      "name": "Student Mobility",
+      "abbreviation": "studM",
+      "description": "program that is a place holder for all courses that are made available for student mobility",
+      "ects": 5,
+      "qualificationAwarded": "None",
+      "lengthOfProgram": 6,
+      "levelOfQualification": 6,
+      "sector": "university education",
+      "fieldsOfStudy": "0732",
+      "crohoCreboCode": "59312",
+      "learningOutcomes": [
+      "string"
+      ],
+      "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+      "qualificationRequirements": "None",
+      "link": "https://bijvak.nl",
+      "ext": { },
+      "parent": {
+        "programId": "123e4567-e89b-12d3-a456-426614174000",
+        "programType": "alliance",
+        "name": "Student Mobility",
+        "abbreviation": "studM",
+        "description": "program that is a place holder for all courses that are made available for student mobility",
+        "ects": 5,
+        "qualificationAwarded": "None",
+        "lengthOfProgram": 6,
+        "levelOfQualification": 6,
+        "sector": "university education",
+        "fieldsOfStudy": "0732",
+        "crohoCreboCode": "59312",
+        "learningOutcomes": [
+        "string"
+        ],
+        "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+        "qualificationRequirements": "None",
+        "link": "https://bijvak.nl",
+        "ext": { }
+      }
+      }
+      ```
+
+      When additional information is needed on a program the program information can be expanded further by including additional parameters in an array style. If no values are provided for expand there will be no additional information provided. An empty expand parameter will be handled in the same manner as the normal GET function to the API.
+
+
+      ```
+      GET /programs/{programId}?expand=parent,children,organization
+
+      Result:
+      {
+      "programId": "123e4567-e89b-12d3-a456-426614174000",
+      "programType": "alliance",
+      "name": "Student Mobility",
+      "abbreviation": "studM",
+      "description": "program that is a place holder for all courses that are made available for student mobility",
+      "ects": 5,
+      "qualificationAwarded": "None",
+      "lengthOfProgram": 6,
+      "levelOfQualification": 6,
+      "sector": "university education",
+      "fieldsOfStudy": "0732",
+      "crohoCreboCode": "59312",
+      "learningOutcomes": [
+      "string"
+      ],
+      "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+      "qualificationRequirements": "None",
+      "link": "https://bijvak.nl",
+      "ext": { },
+      "parent": {
+        "programId": "123e4567-e89b-12d3-a456-426614174000",
+        "programType": "alliance",
+        "name": "Student Mobility",
+        "abbreviation": "studM",
+        "description": "program that is a place holder for all courses that are made available for student mobility",
+        "ects": 5,
+        "qualificationAwarded": "None",
+        "lengthOfProgram": 6,
+        "levelOfQualification": 6,
+        "sector": "university education",
+        "fieldsOfStudy": "0732",
+        "crohoCreboCode": "59312",
+        "learningOutcomes": [
+        "string"
+        ],
+        "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+        "qualificationRequirements": "None",
+        "link": "https://bijvak.nl",
+        "ext": { }
+      },
+      "children": [
+        {
+        "programId": "123e4567-e89b-12d3-a456-426614174000",
+        "programType": "alliance",
+        "name": "Student Mobility",
+        "abbreviation": "studM",
+        "description": "program that is a place holder for all courses that are made available for student mobility",
+        "ects": 5,
+        "qualificationAwarded": "None",
+        "lengthOfProgram": 6,
+        "levelOfQualification": 6,
+        "sector": "university education",
+        "fieldsOfStudy": "0732",
+        "crohoCreboCode": "59312",
+        "learningOutcomes": [
+        "string"
+        ],
+        "admissionRequirements": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance",
+        "qualificationRequirements": "None",
+        "link": "https://bijvak.nl",
+        "ext": { }
+        }
+      ],
+      "organization": {
+        "organizationId": "123e4567-e89b-12d3-a456-123514174000",
+        "name": "Coöperatie SURF U.A.",
+        "shortName": "SURF",
+        "description": "SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.",
+        "organizationType": "root",
+        "addresses": [
+        {
+        "addressType": "postal",
+        "street": "Moreelsepark",
+        "streetNumber": "48",
+        "additional": "On the other side of the road",
+        "postalCode": "3511 EP",
+        "city": "Utrecht",
+        "countryCode": "NL",
+        "geolocation": {
+        "latitude": 52.089123,
+        "longitude": 5.113337
+        },
+        "ext": { }
+        }
+        ],
+        "link": "https://surf.nl",
+        "logo": "https://www.surf.nl/themes/surf/logo.svg",
+        "brin": "00AA",
+        "ext": { }
+      }
+      }
+      ```
+  - name: sorting information
+    description: |
+      Most endpoints provide sorting. To sort you can sort on the elements that are specified per endpoint. All elements can be sorted ascending by default o descending,
+      by adding "-" in front of the element to be sorted. The sorting takes place based on comma separated values. e.g.:
+
+      ```
+      GET /programs?sort=programId
+      ```
+      provides a list of all programs sorted ascending based on programId
+      ```
+      GET /programs?sort=name,-ects
+      ```
+      provides a list of all programs first sorted on name ascending and ects descending
+
+  - name: extension information
+    description: |
+      Most endpoints can be extended. This can be done by providing the extended information in the designated "ext" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.
+
+  - name: formatting and displaying results from API
+    description: |
+      Most endpoints provide results with attributes that describe a result. These descriptions can be formatted to improve readability.
+      Where additional readability is expected the result can be provided in Markdown. For OOAPI we choose to use a subset of the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/). More information and guidelines can be read [here](https://guides.github.com/features/mastering-markdown/)
+      The description SHOULD NOT use: Task list Items, The images element and Raw HTML for optimal interoperability. Git Hub Markdown is choosen as it provides some extra structure for data input on top of commonmark Markdown. This will alllow for better typed information.
+
+  - name: Error responses
+    description: |
+      Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):
+      ```
+      {
+        "status": 404,
+        "title": "Resource not found",
+        "detail": "The resource with id 00000000-0000-0000-0000-000000000000 could not be found."
+      }
+      ```
+  - name: Multi-lingual support
+    description: |
+      The OOAPI specifcation relies on the HTTP content negotiation mechanism to specify how a client can request information in a specific (natural) language, and how a server should respond to that request. In short: a client adds an `Accept-Language` header to their request, which the server uses to determine in what language the requested content should be returned. More information about this mechanism can be found at [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language).
+
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    openId:
+      type: openIdConnect
+      openIdConnectUrl: https://example.nl/.well-known/openid-configuration
+
+
+
+paths:
+  /:
+    $ref: paths/Service.yaml
+  /persons:
+    $ref: paths/PersonCollection.yaml
+  /persons/me:
+    $ref: paths/PersonMe.yaml
+  /persons/{personId}:
+    $ref: paths/PersonInstance.yaml
+  /persons/{personId}/associations:
+    $ref: paths/PersonAssociationCollection.yaml
+  /persons/{personId}/groups:
+    $ref: paths/PersonGroupCollection.yaml
+  /organizations:
+    $ref: paths/OrganizationCollection.yaml
+  /organizations/{organizationId}:
+    $ref: paths/OrganizationInstance.yaml
+  /organizations/{organizationId}/programs:
+    $ref: paths/OrganizationProgramCollection.yaml
+  /organizations/{organizationId}/courses:
+    $ref: paths/OrganizationCourseCollection.yaml
+  /organizations/{organizationId}/components:
+    $ref: paths/OrganizationComponentCollection.yaml
+  /organizations/{organizationId}/offerings:
+    $ref: paths/OrganizationOfferingCollection.yaml
+  /organizations/{organizationId}/groups:
+    $ref: paths/OrganizationGroupCollection.yaml
+  /academic-sessions:
+    $ref: paths/AcademicSessionCollection.yaml
+  /academic-sessions/{academicSessionId}:
+    $ref: paths/AcademicSessionInstance.yaml
+  /academic-sessions/{academicSessionId}/offerings:
+    $ref: paths/AcademicSessionOfferingCollection.yaml
+  /programs:
+    $ref: paths/ProgramCollection.yaml
+  /programs/{programId}:
+    $ref: paths/ProgramInstance.yaml
+  /programs/{programId}/programs:
+    $ref: paths/ProgramProgramCollection.yaml
+  /programs/{programId}/courses:
+    $ref: paths/ProgramCourseCollection.yaml
+  /programs/{programId}/offerings:
+    $ref: paths/ProgramOfferingCollection.yaml
+  /courses:
+    $ref: paths/CourseCollection.yaml
+  /courses/{courseId}:
+    $ref: paths/CourseInstance.yaml
+  /courses/{courseId}/components:
+    $ref: paths/CourseComponentCollection.yaml
+  /courses/{courseId}/offerings:
+    $ref: paths/CourseOfferingCollection.yaml
+  /components/{componentId}:
+    $ref: paths/ComponentInstance.yaml
+  /components/{componentId}/offerings:
+    $ref: paths/ComponentOfferingCollection.yaml
+  /offerings/{offeringId}:
+    $ref: paths/OfferingInstance.yaml
+  /offerings/{offeringId}/associations:
+    $ref: paths/OfferingAssociationCollection.yaml
+  /offerings/{offeringId}/groups:
+    $ref: paths/OfferingGroupCollection.yaml
+  /associations/{associationId}:
+    $ref: paths/AssociationInstance.yaml
+  /associations/me:
+    $ref: paths/AssociationInstanceMe.yaml
+  /associations/external:
+    $ref: paths/AssociationInstanceExternal.yaml
+  /associations/external/me:
+    $ref: paths/AssociationInstanceExternalMe.yaml
+  /buildings:
+    $ref: paths/BuildingCollection.yaml
+  /buildings/{buildingId}:
+    $ref: paths/BuildingInstance.yaml
+  /buildings/{buildingId}/rooms:
+    $ref: paths/BuildingRoomCollection.yaml
+  /rooms:
+    $ref: paths/RoomCollection.yaml
+  /rooms/{roomId}:
+    $ref: paths/RoomInstance.yaml
+  /news-feeds:
+    $ref: paths/NewsFeedCollection.yaml
+  /news-feeds/{newsFeedId}:
+    $ref: paths/NewsFeedInstance.yaml
+  /news-feeds/{newsFeedId}/news-items:
+    $ref: paths/NewsFeedItemCollection.yaml
+  /news-items/{newsItemId}:
+    $ref: paths/NewsItemInstance.yaml
+  /education-specifications/{educationSpecificationId}:
+    $ref: paths/EducationSpecificationInstance.yaml
+  /education-specifications:
+    $ref: paths/EducationSpecificationCollection.yaml
+  /education-specifications/{educationSpecificationId}/courses:
+    $ref: paths/EducationSpecificationCourseCollection.yaml
+  /education-specifications/{educationSpecificationId}/programs:
+    $ref: paths/EducationSpecificationProgramCollection.yaml
+  /groups:
+    $ref: paths/GroupCollection.yaml
+  /groups/{groupId}:
+    $ref: paths/GroupInstance.yaml
+  /groups/{groupId}/persons:
+    $ref: paths/GroupPersonCollection.yaml

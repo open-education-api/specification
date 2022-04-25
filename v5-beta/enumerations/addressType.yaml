@@ -1,0 +1,12 @@
+type: string
+description: |
+  Address type
+  - postal: post
+  - visit: bezoek
+  - deliveries: bezorg
+  - billing: factuur
+enum:
+  - postal
+  - visit
+  - deliveries
+  - billing

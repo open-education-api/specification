@@ -1,0 +1,26 @@
+type: object
+description: A relationship between a person object and an offering
+required:
+  - associationType
+  - role
+  - state
+properties:
+  associationType:
+    type: string
+    description: The type of this association
+    enum:
+      - programOfferingAssociation
+      - courseOfferingAssociation
+      - componentOfferingAssociation
+    example: componentOfferingAssociation
+  role:
+    $ref: '../enumerations/associationRole.yaml'
+  state:
+    $ref: '../enumerations/associationState.yaml'
+  consumers:
+    description: The additional consumer elements that can be provided
+    type: array
+    items:
+      $ref: './Consumer.yaml'
+  ext:
+    $ref: './Ext.yaml'

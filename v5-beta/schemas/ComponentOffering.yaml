@@ -1,0 +1,38 @@
+allOf:
+  - $ref: './Offering.yaml'
+  - type: object
+    required:
+      - startDateTime
+      - endDateTime
+    properties:
+      startDateTime:
+        type: string
+        description: The moment on which this offering starts, RFC3339 (date-time)
+        format: date-time
+        example: 2020-12-15
+      endDateTime:
+        type: string
+        description: The moment on which this offering ends, RFC3339 (date-time)
+        format: date-time
+        example: 2020-12-16
+      startEnrollDate:
+        type: string
+        description: The first day on which a prospective student can enroll for this course.
+        format: date
+      endEnrollDate: 
+        type: string
+        description: The last day on which a prospective student can enroll for this course.
+        format: date
+      resultWeight:
+        type: integer
+        description: The result weight of this offering
+        minimum: 0
+        maximum: 100
+        example: 100
+      addresses:
+        type: array
+        description: Addresses for this offering
+        items:
+          $ref: './Address.yaml'
+      room:
+        $ref: './Room.yaml'

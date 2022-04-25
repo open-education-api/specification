@@ -60,8 +60,8 @@ get:
                 type: array
                 items:
                   $ref: '../schemas/Component.yaml'
-    '404':
-      description: Not Found
+    '400':
+      description: Bad request
       content:
         application/problem+json:
           schema:

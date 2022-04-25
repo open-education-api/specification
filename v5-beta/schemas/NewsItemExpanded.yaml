@@ -1,0 +1,10 @@
+allOf:
+  - $ref: './NewsItem.yaml'
+  - type: object
+    description: These properties are only present when explicitly included
+    properties:
+      newsFeeds:
+        type: array
+        description: The newsFeeds where this item can be found
+        items:
+          $ref: './NewsFeed.yaml'
