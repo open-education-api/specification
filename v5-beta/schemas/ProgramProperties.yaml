@@ -68,10 +68,6 @@ properties:
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
     maxLength: 4
     example: '0732'
-  crohoCreboCode:
-    type: string
-    description: CrohoCode in wo/hbo or creboCode in mbo
-    example: '59312'
   learningOutcomes:
     type: array
     description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
