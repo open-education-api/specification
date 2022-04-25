@@ -76,7 +76,7 @@ post:
             associationItem:
               $ref: '../schemas/AssociationProperties.yaml'
             result:
-              $ref: '../schemas/result.yaml'
+              $ref: '../schemas/Result.yaml'
 
 
   responses:
