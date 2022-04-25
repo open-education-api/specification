@@ -6,8 +6,8 @@ info:
     OpenAPI (fka Swagger) specification for the Open Education API.
 
     <figure>
-    	<a target="_blank" href="OOAPI_model_v4.png">
-      <img src="OOAPI_model_v4.png" alt="OOAPI information model that feeds OOAPI specification" width="70%" class="img-responsive">
+    	<a target="_blank" href="OOAPIv5_model.png">
+      <img src="OOAPIv5_model.png" alt="OOAPI information model that feeds OOAPI specification" width="70%" class="img-responsive">
       </a>
       <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>
     </figure>
