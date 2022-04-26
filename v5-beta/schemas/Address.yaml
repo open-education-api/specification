@@ -3,7 +3,7 @@ description: The full street address
 required:
   - addressType
 properties:
-  AddressType:
+  addressType:
     $ref: '../enumerations/addressType.yaml'
   street:
     type: string
@@ -19,7 +19,7 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
-    example: 
+    example:
     - language: en-GB
       value: On the other side of the road
   postalCode:
