@@ -70,6 +70,9 @@ properties:
     type: string
     description: The teaching language in which this component is given. A string formatted according to RFC3066.
     example: nl-NL
+  price:
+    $ref: './Price.yaml'
+    description: The price for following an offering of this component.
   addresses:
     type: array
     description: Addresses for this component
