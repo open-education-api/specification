@@ -92,9 +92,6 @@ properties:
     example:
     - language: en-GB
       value: Exam on campus
-  price:
-    $ref: './Price.yaml'
-    description: The price for following an offering of this course.
   link:
     type: string
     description: URL of the course's website
