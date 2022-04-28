@@ -34,8 +34,10 @@ allOf:
         description: Addresses for this offering
         items:
           $ref: './Address.yaml'
-      price:
-        $ref: './Price.yaml'
-        description: The price for following this offering.
+      priceInformation:
+        type: array
+        description: Price information for this offering.
+        items:
+          $ref: './Cost.yaml'
       room:
         $ref: './Room.yaml'
