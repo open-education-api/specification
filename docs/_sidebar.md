@@ -1,5 +1,5 @@
 * [Home](/)
-* [Historic and future data](historic-and-future-data.md)
+* [Historical and future data](historical-and-future-data.md)
 * [Specific consumers](consumers.md)
 ** [RIO](consumers/rio.md)
 ** [eduXchange](consumers/eduxchange.md)
