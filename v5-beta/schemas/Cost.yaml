@@ -33,4 +33,6 @@ properties:
     type: string
     description: An optional pre-formatted string. Clients can choose to use this string instead of rendering their own based on the current locale of the user.
     example: '€380,84'
+  ext:
+    $ref: './Ext.yaml'
 additionalProperties: false
