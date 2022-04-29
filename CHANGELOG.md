@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds consumer functionality to all entities, including a query parameter to request entities meant for a specific consumer
 - added time-override functionality to course and program
 - Added `/programs/{programId}/programs` endpoint
-
+- Adds `priceInformation` to all offerings.
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases

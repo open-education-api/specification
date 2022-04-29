@@ -23,7 +23,7 @@ allOf:
         description: The first day on which a prospective student can enroll for this program.
         format: date
         example: 2019-05-01
-      endEnrollDate: 
+      endEnrollDate:
         type: string
         description: The last day on which a prospective student can enroll for this program.
         format: date
@@ -41,3 +41,9 @@ allOf:
         description: Addresses for this offering
         items:
           $ref: './Address.yaml'
+      priceInformation:
+        type: array
+        description: Price information for this offering.
+        items:
+          $ref: './Cost.yaml'
+        minItems: 1

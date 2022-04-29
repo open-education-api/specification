@@ -19,7 +19,7 @@ allOf:
         type: string
         description: The first day on which a prospective student can enroll for this course.
         format: date
-      endEnrollDate: 
+      endEnrollDate:
         type: string
         description: The last day on which a prospective student can enroll for this course.
         format: date
@@ -34,5 +34,10 @@ allOf:
         description: Addresses for this offering
         items:
           $ref: './Address.yaml'
+      priceInformation:
+        type: array
+        description: Price information for this offering.
+        items:
+          $ref: './Cost.yaml'
       room:
         $ref: './Room.yaml'
