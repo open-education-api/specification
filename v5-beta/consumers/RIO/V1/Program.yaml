@@ -1,13 +1,17 @@
 type: object
-description: RIO add on attributes to a collection of courses that lead to a certifiable learning outcome   
+description: RIO add on attributes to a collection of courses that lead to a certifiable learning outcome
 properties:
   jointPartnerCode:
-    type: string
+    type: array
+    items: string
+    minItems: 1
     description: |
       samenwerkendeOnderwijsaanbiedercode
-      Code van de onderwijsaanbieder waarmee wordt samengewerkt OnderwijsaanbiederID-v01 
+      Code van de onderwijsaanbieder waarmee wordt samengewerkt OnderwijsaanbiederID-v01
   foreignPartner:
-    type: string
+    type: array
+    items: string
+    minItems: 1
     description: |
       buitenlandsePartner
       Beschrijving van de organisatie waarmee door een Nederlandse onderwijsbestuur wordt samengewerkt
@@ -31,18 +35,18 @@ properties:
     enum:
       - requirements
       - no_requirements
-  propaedeuticFase:
+  propaedeuticPhase:
     type: string
     description: |
-      propdeutischeFase
+      propadeutischeFase
       Geeft aan of de aangeboden opleiding een propedeutische fase kent en of deze wordt afgesloten met een propedeutisch examen.
-      - no_propaedeutic_fase: GEEN_PROPEDEUTISCHE_FASE			Geen propedeutische fase
-      - propaedeutic_fase_exam: PROPEDEUTISCHE_FASE_EXAMEN			Propedeutische fase met examen
-      - propaedeutic_fase_no_exam: PROPEDEUTISCHE_FASE_ZONDER_EXAMEN			Propedeutische fase zonder examen
+      - no_propaedeutic_phase: GEEN_PROPEDEUTISCHE_FASE			Geen propedeutische fase
+      - propaedeutic_phase_exam: PROPEDEUTISCHE_FASE_EXAMEN			Propedeutische fase met examen
+      - propaedeutic_phase_no_exam: PROPEDEUTISCHE_FASE_ZONDER_EXAMEN			Propedeutische fase zonder examen
     enum:
-      - no_propaedeutic_fase
-      - propaedeutic_fase_exam
-      - propaedeutic_fase_no_exam
+      - no_propaedeutic_phase
+      - propaedeutic_phase_exam
+      - propaedeutic_phase_no_exam
   studyChoiceCheck:
     type: string
     description: |
@@ -60,23 +64,8 @@ properties:
     description: |
       versneldTraject
       Geeft aan of een student een versneld programma volgt zodat het opleiding in minder tijd dan normaal doorlopen kan worden.
-      - acceleratied_route: VERSNELD_TRAJECT			Versneld traject
-      - no_acceleratied_route: GEEN_VERSNELD_TRAJECT			Geen versneld traject
+      - accelerated_route: VERSNELD_TRAJECT			Versneld traject
+      - no_accelerated_route: GEEN_VERSNELD_TRAJECT			Geen versneld traject
     enum:
-      - acceleratied_route
-      - no_acceleratied_route
-  explanationRequiredPermission:
-    type: string
-    description: |
-      toelichtingVereisteToestemming
-      Is een tekstuele toelichting op de voor aanmelding vereiste toestemming van de onderwijsaanbieder
-  requiredPermissionRegistration:
-    type: string
-    description: |
-      toestemmingVereistVoorAanmelding
-      Geeft aan of een aspirant-student voor een bepaald cohort van een aangeboden opleiding toestemming van de onderwijsaanbieder nodig heeft om zich aan te mogen melden.
-      - yes: JA
-      - no: NEE
-    enum:
-      - yes
-      - no
+      - accelerated_route
+      - no_accelerated_route

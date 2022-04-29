@@ -23,18 +23,18 @@ allOf:
         description: The first day on which a prospective student can enroll for this course.
         format: date
         example: 2019-05-01
-      endEnrollDate: 
+      endEnrollDate:
         type: string
         description: The last day on which a prospective student can enroll for this course.
         format: date
         example: 2019-08-01
       flexibleEntryPeriodStart:
         type: string
-        description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd` instead of `startDate`.
+        description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
         format: date
       flexibleEntryPeriodEnd:
         type: string
-        description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart` instead of `startDate`.
+        description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
         format: date
       addresses:
         type: array

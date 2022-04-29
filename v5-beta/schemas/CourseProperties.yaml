@@ -35,6 +35,10 @@ properties:
     description: The duration of this course. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     format: duration
     example: P1DT30H4S
+  firstStartDate:
+    type: string
+    description: The date when participants can follow this course for the first time.
+    format: date
   description:
     type: array
     description: The description of this course (ECTS-description).

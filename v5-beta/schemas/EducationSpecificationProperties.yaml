@@ -7,7 +7,6 @@ required:
   - educationSpecificationType
   - name
   - startDate
-  - controllingEntity
 properties:
   primaryCode:
       description: The primary human readable identifier for the entity
@@ -32,8 +31,6 @@ properties:
     type: string
     description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example: program that is a place holder for all courses that are made available for student mobility
-  controllingEntity:
-    $ref: '../enumerations/controllingEntity.yaml'
   formalDocument:
     $ref: '../enumerations/formalDocument.yaml'
   level:

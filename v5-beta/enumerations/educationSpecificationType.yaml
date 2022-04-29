@@ -11,5 +11,5 @@ enum:
   - programVariant
   - privateProgram
   - cluster
-  - educationUnit
+  - course
 example: program
