@@ -416,14 +416,6 @@ The following levels cannot be mapped from OOAPI to RIO:
 | 7                    | 7   |
 | 8                    | 8   |
 
-### Types
-
-| Entity                 | Attribute                     | Enumerations                                                                             | Usage                                                                                                                                         |
-| ---------------------- | ----------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| EducationSpecification | educationSpecificationType    | program, programVariant, privateProgram, cluster, course                                 | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
-| EducationSpecification | educationSpecificationSubType | module, variant                                                                          | Determines whether this is OPLEIDING or VARIANT? For program allowed types are: absent or variant                                             |
-| Program                | programType                   | program, minor, honours, specialization, elective, module, track, joint-degree, alliance |                                                                                                                                               |
-
 ### consentParticipationSTAP › toestemmingDeelnameSTAP
 
 | consentParticipationSTAP | toestemmingDeelnameSTAP   |
