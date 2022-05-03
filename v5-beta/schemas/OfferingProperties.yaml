@@ -87,7 +87,10 @@ properties:
     example: 50
   isLineItem:
     type: boolean
-    description: Whether the offering is a line item or not
+    description: |
+      isLineItems is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
+      Offerings do not always have to result in a grade or an other type of result. 
+      If there is a result expected from a programOffering/courseOffering/componentOffering the is isLineItem field should parse true
     example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
