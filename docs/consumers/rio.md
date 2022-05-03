@@ -185,7 +185,7 @@ Notes:
 | validTo                                    |                                            | einddatum [0..1]                                |                                                                                          |                                                                                                          |
 | educationSpecification                     |                                            | opleidingeenheidSleutel [1]                     |                                                                                          | The `opleidingeenheidSleutel` will be determined by the educationSpecification this program is based on. |
 | consumer › RIO › consentParticipationSTAP  | permission_granted, permission_not_granted | toestemmingDeelnameSTAP [1]                     | GEEN_TOESTEMMING_VERLEEND, TOESTEMMING_VERLEEND                                          |                                                                                                          |
-| teachingLanguage                           |                                            | voertaal [0..1]                                 | ARA, CHI, DEU, ENG, FRA, HRV, ITA, JPN, NLD, NOR, PAP, POL, POR, RON, RUS, SPA, SWE, TUR |                                                                                                          |
+| teachingLanguage                           | [mapping](#teachinglanguage-voertaal)      | voertaal [0..1]                                 | ARA, CHI, DEU, ENG, FRA, HRV, ITA, JPN, NLD, NOR, PAP, POL, POR, RON, RUS, SPA, SWE, TUR |                                                                                                          |
 | *studyLoad*                                |                                            | *AfwijkendeOpleidingsduur* [0..1]               |                                                                                          |                                                                                                          |
 | studyLoad › studyLoadUnit                  |                                            | » opleidingsduurEenheid [1]                     |                                                                                          |                                                                                                          |
 | studyLoad › value                          |                                            | » opleidingsduurOmvang [1]                      |                                                                                          |                                                                                                          |
@@ -402,19 +402,19 @@ The following levels cannot be mapped from OOAPI to RIO:
 | 7                    | 7   |
 | 8                    | 8   |
 
-### levelOfQualification › eqf
+### levelOfQualification › nlqf
 
-| levelOfQualification | eqf |
-| -------------------- | --- |
-| 1                    | 1   |
-| 2                    | 2   |
-| 3                    | 3   |
-| 4                    | 4   |
-| 4+                   | 4p  |
-| 5                    | 5   |
-| 6                    | 6   |
-| 7                    | 7   |
-| 8                    | 8   |
+| levelOfQualification | nlqf |
+| -------------------- | ---- |
+| 1                    | 1    |
+| 2                    | 2    |
+| 3                    | 3    |
+| 4                    | 4    |
+| 4+                   | 4p   |
+| 5                    | 5    |
+| 6                    | 6    |
+| 7                    | 7    |
+| 8                    | 8    |
 
 ### consentParticipationSTAP › toestemmingDeelnameSTAP
 
