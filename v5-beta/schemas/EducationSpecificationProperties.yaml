@@ -70,5 +70,13 @@ properties:
     type: array
     items:
       $ref: './Consumer.yaml'
+  validFrom:
+    description: The first day this EducationSpecification is valid.
+    type: string
+    format: date
+  validTo:
+    description: The day this EducationSpecification ceases to be valid.
+    type: string
+    format: date
   ext:
     $ref: './Ext.yaml'

@@ -123,5 +123,13 @@ properties:
     type: array
     items:
       $ref: './Consumer.yaml'
+  validFrom:
+    description: The first day this program is valid.
+    type: string
+    format: date
+  validTo:
+    description: The day this program ceases to be valid.
+    type: string
+    format: date
   ext:
     $ref: './Ext.yaml'
