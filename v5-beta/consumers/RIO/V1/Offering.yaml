@@ -1,5 +1,7 @@
 type: object
 description: RIO add to the offerings of either a collection of courses or courses that lead to a certifiable learning outcome
+required:
+  - cohortState
 properties:
   explanationRequiredPermission:
     type: string
@@ -16,3 +18,12 @@ properties:
     enum:
       - yes
       - no
+  cohortState:
+    type: string
+    description: |
+      cohortStatus
+      De toegestane waarden voor de status van een cohort van een aangeboden opleiding. Hiermee kan bijvoorbeeld worden aangegeven of een bepaald cohort open staat voor aanmelding, of dat het gesloten is.
+    enum:
+      - open
+      - closed
+

@@ -68,7 +68,7 @@ Explain how the mapping from multilanguage fields werkt
 |                               |                                                                        | beginDatum [1]                             |                                                                            |                                                                                                                                               |
 |                               |                                                                        | eindDatum [0..1]                           |                                                                            |                                                                                                                                               |
 | educationSpecificationId      |                                                                        | eigenOpleidingsEenheidSleutel [0..1]       |                                                                            |                                                                                                                                               |
-| educationSpecificationSubType |                                                                        | soort [1]                                  | HOEC                                                                       | If type is cluster, this will always be set to `HOEC`.                                                                                        |
+| educationSpecificationSubType |                                                                        | soort [1]                                  | HOEC                                                                       | If type is cluster, this will always be set to `HOEC` on the RIO side.                                                                        |
 | fieldsOfStudy                 |                                                                        | ISCED [0..1]                               |                                                                            |                                                                                                                                               |
 |                               |                                                                        | *HoOnderwijseenhedenclusterPeriode* [1..n] |                                                                            | See also [Historical and future data](historical-and-future-data.md).                                                                         |
 | timelineOverrides › startDate |                                                                        | » beginDatum [1]                           |                                                                            |                                                                                                                                               |
@@ -273,10 +273,10 @@ Notes:
 | ProgramOffering / CourseOffering                 | Enumeration                                            | AangebodenOpleidingCohort                | Enumeration                                                            | Remarks                                                                                                                                                           |
 | ------------------------------------------------ | ------------------------------------------------------ | ---------------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | offeringId                                       |                                                        | cohortCode [1]                           |                                                                        |                                                                                                                                                                   |
-| ?                                                |                                                        | cohortStatus [1]                         | G, O                                                                   | Hoe werkt dit?                                                                                                                                                    |
+| consumers › RIO › cohortState                    | open, closed                                           | cohortStatus [1]                         | G, O                                                                   |                                                                                                                                                                   |
 | startEnrollDate                                  |                                                        | beginAanmeldperiode [1]                  |                                                                        |                                                                                                                                                                   |
 | endEnrollDate                                    |                                                        | eindeAanmeldperiode [0..1]               |                                                                        |                                                                                                                                                                   |
-| consumers › RIO › requiredPermissionRegistration |                                                        | toestemmingVereistVoorAanmelding [0..1]  | JA, NEE                                                                |                                                                                                                                                                   |
+| consumers › RIO › requiredPermissionRegistration | yes, no                                                | toestemmingVereistVoorAanmelding [0..1]  | JA, NEE                                                                |                                                                                                                                                                   |
 | consumers › RIO › explanationRequiredPermission  |                                                        | toelichtingVereisteToestemming [0..1]    |                                                                        |                                                                                                                                                                   |
 |                                                  |                                                        | einddatum [0..1]                         |                                                                        |                                                                                                                                                                   |
 | maxNumberStudents                                |                                                        | deelnemersplaatsen [0..1]                |                                                                        |                                                                                                                                                                   |
@@ -320,7 +320,7 @@ Notes:
 #### RIO Consumer
 - [x] foreign partner hoort een array of strings te zijn.
 - [x] jointpartnercode moet ook een array zijn
-- [ ] iets voor cohort open / gesloten
+- [x] iets voor cohort open / gesloten
 
 #### Course
 - [x] Mist firstStartDate
@@ -335,24 +335,24 @@ Notes:
 
 ### modeOfDelivery › opleidingsvorm
 
-| modeOfDelivery    | opleidingsvorm       |
-| ----------------- | -------------------- |
-| distance-learning |                      |
-| on campus         |                      |
-| online            | ONLINE               |
-| hybrid            | KLASSIKAAL_EN_ONLINE |
-| situated          | KLASSIKAAL           |
-|                   | LEZING               |
-|                   | ZELFSTUDIE           |
-|                   | COACHING             |
+| modeOfDelivery    | opleidingsvorm       | remarks           |
+| ----------------- | -------------------- | ----------------- |
+| distance-learning |                      | Cannot map to RIO |
+| on campus         |                      | Cannot map to RIO |
+| online            | ONLINE               |                   |
+| hybrid            | KLASSIKAAL_EN_ONLINE |                   |
+| situated          | KLASSIKAAL           |                   |
+|                   | LEZING               | Cannot map to RIO |
+|                   | ZELFSTUDIE           | Cannot map to RIO |
+|                   | COACHING             | Cannot map to RIO |
 
 ### Types
 
-| Entity                 | Attribute                     | Enumerations                                                                                     | Usage                                                                                                                                         |
-| ---------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| EducationSpecification | educationSpecificationType    | program, ~~programVariant~~, privateProgram, cluster, course                                     | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
-| EducationSpecification | educationSpecificationSubType | ~~module~~, **variant**                                                                          | Determines whether this is OPLEIDING or VARIANT? For program allowed types are: absent or variant                                             |
-| Program                | programType                   | program, minor, honours, specialization, elective, module, track, ~~joint-degree~~, ~~alliance~~ |                                                                                                                                               |
+| Entity                 | Attribute                     | Enumerations                                                                             | Usage                                                                                                                                         |
+| ---------------------- | ----------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| EducationSpecification | educationSpecificationType    | program, programVariant, privateProgram, cluster, course                                 | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
+| EducationSpecification | educationSpecificationSubType | module, variant                                                                          | Determines whether this is OPLEIDING or VARIANT? For program allowed types are: absent or variant                                             |
+| Program                | programType                   | program, minor, honours, specialization, elective, module, track, joint-degree, alliance |                                                                                                                                               |
 
 ### Sector + level › niveau
 
@@ -367,10 +367,17 @@ Notes:
 | bachelor                         |                                | HBO-BA                        | WO-BA                |
 | master                           |                                | HBO-MA                        | WO-MA                |
 | doctoral                         |                                | HBO-PM                        | WO-PM                |
-| *undefined*                      | ONBEPAALD                      | ONBEPAALD                     | ONBEPAALD            |
-| *undivided*                      |                                | HBO-O                         | WO-O                 |
+| undefined                        | ONBEPAALD                      | ONBEPAALD                     | ONBEPAALD            |
+| undivided                        |                                | HBO-O                         | WO-O                 |
 
 The following levels cannot be mapped from OOAPI to RIO:
 - NT2-I
 - NT2-II
 - EDUCATIE
+
+### cohortState › cohortStatus
+
+| cohortState | cohortStatus |
+| ----------- | ------------ |
+| open        | O            |
+| closed      | G            |
