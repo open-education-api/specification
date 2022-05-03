@@ -32,7 +32,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds consumer functionality to all entities, including a query parameter to request entities meant for a specific consumer
 - added time-override functionality to course and program
 - Added `/programs/{programId}/programs` endpoint
-
+- Adds `modeOfStudy` to Program.
+- Adds `modeOfDelivery to all offerings.
+- Adds the following levels to the `level` enumeration: `secondary vocational education`, `secondary vocational education 1`, `secondary vocational education 2`, `undefined` and `undvided`.
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
@@ -45,6 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
 - #163 Changed object types from string to array: `Name`, `Description`, `learningOutcomes`, `admissionrequirements` and `qualificationRequirements`(if present) in Program, Course, Component, Offering and Organization.
+- Removed the enums `alliance` and `joint-degree` from `programTypes`. These values described properties of programs that are independent of the type of the program. Therefore they have been removed.
 
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.

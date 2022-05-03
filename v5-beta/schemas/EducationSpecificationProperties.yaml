@@ -44,11 +44,6 @@ properties:
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
     maxLength: 4
     example: '0732'
-  owner:
-    type: string
-    description: The ID of the owner of this education specification (organzationID)
-    format: uuid
-    example: 123e4567-e89b-12d3-a456-426614174078
   studyLoad:
     type: array
     description: The amount of effort needed to complete this education expressed in a specific metric type

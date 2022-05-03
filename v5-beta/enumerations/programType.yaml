@@ -8,8 +8,6 @@ description: |
   - elective: keuzevak
   - module: module
   - track: track
-  - joint-degree: joint-degree
-  - alliance: alliance
 enum:
   - program
   - minor
@@ -18,6 +16,4 @@ enum:
   - elective
   - module
   - track
-  - joint-degree
-  - alliance
-example: alliance
+example: program

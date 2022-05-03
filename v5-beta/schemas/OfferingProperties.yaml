@@ -66,7 +66,9 @@ properties:
   teachingLanguage:
     type: string
     description: The main language in which the courses within this program are given, RFC3066
-    example: nl-NL
+    example: nl-NL]
+  modeOfDelivery:
+    $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:
     type: number
     description: The maximum number of students allowed to enroll for this offering

@@ -390,6 +390,8 @@ paths:
     $ref: paths/OrganizationOfferingCollection.yaml
   /organizations/{organizationId}/groups:
     $ref: paths/OrganizationGroupCollection.yaml
+  /organizations/{organizationId}/education-specifications:
+    $ref: paths/OrganizationEducationSpecificationCollection.yaml
   /academic-sessions:
     $ref: paths/AcademicSessionCollection.yaml
   /academic-sessions/{academicSessionId}:
@@ -450,10 +452,10 @@ paths:
     $ref: paths/NewsFeedItemCollection.yaml
   /news-items/{newsItemId}:
     $ref: paths/NewsItemInstance.yaml
-  /education-specifications/{educationSpecificationId}:
-    $ref: paths/EducationSpecificationInstance.yaml
   /education-specifications:
     $ref: paths/EducationSpecificationCollection.yaml
+  /education-specifications/{educationSpecificationId}:
+    $ref: paths/EducationSpecificationInstance.yaml
   /education-specifications/{educationSpecificationId}/courses:
     $ref: paths/EducationSpecificationCourseCollection.yaml
   /education-specifications/{educationSpecificationId}/programs:
