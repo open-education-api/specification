@@ -45,10 +45,7 @@ properties:
     maxLength: 4
     example: '0732'
   studyLoad:
-    type: array
-    description: The amount of effort needed to complete this education expressed in a specific metric type
-    items:
-      $ref: './studyLoadDescriptor.yaml'
+    $ref: './studyLoadDescriptor.yaml'
   learningOutcomes:
     type: array
     description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.

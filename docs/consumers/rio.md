@@ -10,7 +10,7 @@
 
 ## Mapping
 
-- [] RELATIES
+- [ ] RELATIES
 
 ## Multilanguage fields
 
@@ -42,7 +42,7 @@ Explain how the mapping from multilanguage fields werkt
 | EducationSpecification                     | Enumeration                                                                                                                                                                                                                                 | HoOpleiding                          | Enumeration                                                                                                                                                                                                                                                                                      | Remarks                                                                                                                                                                          |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | *educationSpecificationType*               | program, privateProgram, cluster, course                                                                                                                                                                                                    |                                      |                                                                                                                                                                                                                                                                                                  | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding                                    |
-|                                            |                                                                                                                                                                                                                                             | opleidingseenheidcode [0..1]         |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                  |
+|                                            |                                                                                                                                                                                                                                             | opleidingseenheidcode [0..1]         |                                                                                                                                                                                                                                                                                                  | Will be determined during transit.                                                                                                                                               |
 | validFrom                                  |                                                                                                                                                                                                                                             | beginDatum [1]                       |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                  |
 | validTo                                    |                                                                                                                                                                                                                                             | eindDatum [0..1]                     |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                  |
 | educationSpecificationId                   |                                                                                                                                                                                                                                             | eigenOpleidingsEenheidSleutel [0..1] |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                  |
@@ -57,14 +57,14 @@ Explain how the mapping from multilanguage fields werkt
 | name › en_**                               |                                                                                                                                                                                                                                             | » internationaleNaam [0..1]          |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                  |
 | description › nl_NL                        |                                                                                                                                                                                                                                             | » omschrijving [0..1]                |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                  |
 | studyload › value                          |                                                                                                                                                                                                                                             | » studielast [0..1]                  |                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                  |
-| studyload › typeOfStudyLoad                | contacttime, ects, sbu, sp, hour                                                                                                                                                                                                            | » studielasteenheid [0..1]           | CONTACTUUR, ECTS_PUNT, SBU, STUDIEPUNT, UUR                                                                                                                                                                                                                                                      |                                                                                                                                                                                  |
+| studyload › studyLoadUnit                  | contacttime, ects, sbu, sp, hour                                                                                                                                                                                                            | » studielasteenheid [0..1]           | CONTACTUUR, ECTS_PUNT, SBU, STUDIEPUNT, UUR                                                                                                                                                                                                                                                      |                                                                                                                                                                                  |
 
 ### **HoOnderwijsEenhedenCluster**
 
 | EducationSpecification                     | Enumeration                                                            | HoOnderwijseenhedencluster                 | Enumeration                                                                | Remarks                                                                                                                                       |
 | ------------------------------------------ | ---------------------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | *educationSpecificationType*               | program, privateProgram, cluster, course                               |                                            |                                                                            | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
-|                                            |                                                                        | opleidingseenheidcode [0..1]               |                                                                            |                                                                                                                                               |
+|                                            |                                                                        | opleidingseenheidcode [0..1]               |                                                                            | Will be determined during transit.                                                                                                            |
 | validFrom                                  |                                                                        | beginDatum [1]                             |                                                                            |                                                                                                                                               |
 | validTo                                    |                                                                        | eindDatum [0..1]                           |                                                                            |                                                                                                                                               |
 | educationSpecificationId                   |                                                                        | eigenOpleidingsEenheidSleutel [0..1]       |                                                                            |                                                                                                                                               |
@@ -78,14 +78,14 @@ Explain how the mapping from multilanguage fields werkt
 | description › nl_NL                        |                                                                        | » omschrijving [0..1]                      |                                                                            |                                                                                                                                               |
 | formalDocument                             | diploma, certificate, no official document, testimonial, school advice | » waardedocumentsoort [0..1]               | CERTIFICAAT, DIPLOMA, GEEN_OFFICIEEL_DOCUMENT, GETUIGSCHRIFT, SCHOOLADVIES |                                                                                                                                               |
 | studyload › value                          |                                                                        | » studielast [0..1]                        |                                                                            |                                                                                                                                               |
-| studyload › typeOfStudyLoad                | contacttime, ects, sbu, sp, hour                                       | » studielasteenheid [0..1]                 | CONTACTUUR, ECTS_PUNT, SBU, STUDIEPUNT, UUR                                |                                                                                                                                               |
+| studyload › studyLoadUnit                  | contacttime, ects, sbu, sp, hour                                       | » studielasteenheid [0..1]                 | CONTACTUUR, ECTS_PUNT, SBU, STUDIEPUNT, UUR                                |                                                                                                                                               |
 
 ### **HoOnderwijsEenheid**
 
 | EducationSpecification                     | Enumeration                                                            | HoOnderwijseenheid                   | Enumeration                                                                | Remarks                                                                                                                                       |
 | ------------------------------------------ | ---------------------------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | *educationSpecificationType*               | program, privateProgram, cluster, course                               |                                      |                                                                            | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
-|                                            |                                                                        | opleidingseenheidcode [0..1]         |                                                                            |                                                                                                                                               |
+|                                            |                                                                        | opleidingseenheidcode [0..1]         |                                                                            | Will be determined during transit.                                                                                                            |
 | validFrom                                  |                                                                        | beginDatum [1]                       |                                                                            |                                                                                                                                               |
 | validTo                                    |                                                                        | eindDatum [0..1]                     |                                                                            |                                                                                                                                               |
 | educationSpecificationId                   |                                                                        | eigenOpleidingsEenheidSleutel [0..1] |                                                                            |                                                                                                                                               |
@@ -98,14 +98,14 @@ Explain how the mapping from multilanguage fields werkt
 | description › nl_NL                        |                                                                        | » omschrijving [0..1]                |                                                                            |                                                                                                                                               |
 | formalDocument                             | diploma, certificate, no official document, testimonial, school advice | » waardedocumentsoort [0..1]         | CERTIFICAAT, DIPLOMA, GEEN_OFFICIEEL_DOCUMENT, GETUIGSCHRIFT, SCHOOLADVIES |                                                                                                                                               |
 | studyload › value                          |                                                                        | » studielast [0..1]                  |                                                                            |                                                                                                                                               |
-| studyload › typeOfStudyLoad                | contacttime, ects, sbu, sp, hour                                       | » studielasteenheid [0..1]           | CONTACTUUR, ECTS_PUNT, SBU, STUDIEPUNT, UUR                                |                                                                                                                                               |
+| studyload › studyLoadUnit                  | contacttime, ects, sbu, sp, hour                                       | » studielasteenheid [0..1]           | CONTACTUUR, ECTS_PUNT, SBU, STUDIEPUNT, UUR                                |                                                                                                                                               |
 
 ### **ParticuliereOpleiding**
 
 | EducationSpecification                     | Enumeration                                                                                                                                                                                                                                 | ParticuliereOpleiding                 | Enumeration                                                                                                                                                                                                                                                                                      | Remarks                                                                                                                                       |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| *educationSpecificationType*               | program, programVariant, privateProgram, cluster, course                                                                                                                                                                                    |                                       |                                                                                                                                                                                                                                                                                                  | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
-|                                            |                                                                                                                                                                                                                                             | opleidingseenheidcode [0..1]          |                                                                                                                                                                                                                                                                                                  |                                                                                                                                               |
+| *educationSpecificationType*               | program, privateProgram, cluster, course                                                                                                                                                                                                    |                                       |                                                                                                                                                                                                                                                                                                  | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
+|                                            |                                                                                                                                                                                                                                             | opleidingseenheidcode [0..1]          |                                                                                                                                                                                                                                                                                                  | Will be determined during transit.                                                                                                            |
 | validFrom                                  |                                                                                                                                                                                                                                             | beginDatum [1]                        |                                                                                                                                                                                                                                                                                                  |                                                                                                                                               |
 | validTo                                    |                                                                                                                                                                                                                                             | eindDatum [0..1]                      |                                                                                                                                                                                                                                                                                                  |                                                                                                                                               |
 | educationSpecificationId                   |                                                                                                                                                                                                                                             | eigenOpleidingsEenheidSleutel [0..1]  |                                                                                                                                                                                                                                                                                                  |                                                                                                                                               |
@@ -120,7 +120,7 @@ Explain how the mapping from multilanguage fields werkt
 | name › en**                                |                                                                                                                                                                                                                                             | » internationaleNaam [0..1]           |                                                                                                                                                                                                                                                                                                  |                                                                                                                                               |
 | description › nl_NL                        |                                                                                                                                                                                                                                             | » omschrijving [0..1]                 |                                                                                                                                                                                                                                                                                                  |                                                                                                                                               |
 | studyload › value                          |                                                                                                                                                                                                                                             | » studielast [0..1]                   |                                                                                                                                                                                                                                                                                                  |                                                                                                                                               |
-| studyload › typeOfStudyLoad                | contacttime, ects, sbu, sp, hour                                                                                                                                                                                                            | » studielasteenheid [0..1]            | CONTACTUUR, ECTS_PUNT, SBU, STUDIEPUNT, UUR                                                                                                                                                                                                                                                      |                                                                                                                                               |
+| studyload › studyLoadUnit                  | contacttime, ects, sbu, sp, hour                                                                                                                                                                                                            | » studielasteenheid [0..1]            | CONTACTUUR, ECTS_PUNT, SBU, STUDIEPUNT, UUR                                                                                                                                                                                                                                                      |                                                                                                                                               |
 
 <!-- tabs:end -->
 
@@ -150,9 +150,9 @@ Notes:
 | consumer › RIO › consentParticipationSTAP  | permission_granted, permission_not_granted      | toestemmingDeelnameSTAP [1]                  | GEEN_TOESTEMMING_VERLEEND, TOESTEMMING_VERLEEND                                          |                                                                                                          |
 | modeOfStudy                                | full-time, part-time, dual training, self-paced | vorm [1]                                     | DEELTIJD, DUAAL, VOLTIJD                                                                 | Programs where `modeOfStudy` is `self-paced` cannot be mapped to AangebodenHoOpleiding                   |
 | teachingLanguage                           |                                                 | voertaal [0..1]                              | ARA, CHI, DEU, ENG, FRA, HRV, ITA, JPN, NLD, NOR, PAP, POL, POR, RON, RUS, SPA, SWE, TUR |                                                                                                          |
-|                                            |                                                 | *AfwijkendeOpleidingsduur* [0..1]            |                                                                                          |                                                                                                          |
-| ?                                          |                                                 | » opleidingsduurEenheid [1]                  |                                                                                          |                                                                                                          |
-| ects                                       |                                                 | » opleidingsduurOmvang [1]                   |                                                                                          |                                                                                                          |
+| *studyLoad*                                |                                                 | *AfwijkendeOpleidingsduur* [0..1]            |                                                                                          |                                                                                                          |
+| studyLoad › studyLoadUnit                  |                                                 | » opleidingsduurEenheid [1]                  |                                                                                          |                                                                                                          |
+| studyLoad › value                          |                                                 | » opleidingsduurOmvang [1]                   |                                                                                          |                                                                                                          |
 | *timelineOverrides*                        |                                                 | *AangebodenHoOpleidingPeriode* [1..n]        |                                                                                          |                                                                                                          |
 | validFrom or timelineOverrides › startDate |                                                 | » begindatum [1]                             |                                                                                          |                                                                                                          |
 | name › nl_NL                               |                                                 | » eigenNaamAangebodenOpleiding [0..1]        |                                                                                          |                                                                                                          |
@@ -162,7 +162,7 @@ Notes:
 | consumers › RIO › deficiency               |                                                 | » deficientie [0..1]                         | DEFICIENTIES, GEEN_DEFICIENTIES                                                          |                                                                                                          |
 | consumers › RIO › acceleratedRoute         |                                                 | » versneldTraject [0..1]                     | VERSNELD_TRAJECT, GEEN_VERSNELD_TRAJECT                                                  |                                                                                                          |
 | abbreviation                               |                                                 | » eigenNaamKort [0..1]                       |                                                                                          |                                                                                                          |
-| consumers › RIO › propaedeuticFase         |                                                 | » propedeutischeFase [1]                     | GEEN_PROPEDEUTISCHE_FASE, PROPEDEUTISCHE_FASE_EXAMEN, PROPEDEUTISCHE_FASE_ZONDER_EXAMEN  |                                                                                                          |
+| consumers › RIO › propaedeuticPhase         |                                                 | » propedeutischeFase [1]                     | GEEN_PROPEDEUTISCHE_FASE, PROPEDEUTISCHE_FASE_EXAMEN, PROPEDEUTISCHE_FASE_ZONDER_EXAMEN  |                                                                                                          |
 | consumers › RIO › requirementsActivities   |                                                 | » eisenWerkzaamheden [0..1]                  | EISEN, GEEN_EISEN                                                                        |                                                                                                          |
 | consumers › RIO › foreignPartner           |                                                 | » buitenlandsePartner [0..n]                 |                                                                                          |                                                                                                          |
 | consumers › RIO › studyChoiceCheck         |                                                 | » studiekeuzecheck [1]                       | GEEN_STUDIEKEUZE_CHECK, STUDIEKEUZE_CHECK_VAN_TOEPASSING, STUDIEKEUZE_CHECK_VERPLICHT    |                                                                                                          |
@@ -186,9 +186,9 @@ Notes:
 | educationSpecification                     |                                            | opleidingeenheidSleutel [1]                     |                                                                                          | The `opleidingeenheidSleutel` will be determined by the educationSpecification this program is based on. |
 | consumer › RIO › consentParticipationSTAP  | permission_granted, permission_not_granted | toestemmingDeelnameSTAP [1]                     | GEEN_TOESTEMMING_VERLEEND, TOESTEMMING_VERLEEND                                          |                                                                                                          |
 | teachingLanguage                           |                                            | voertaal [0..1]                                 | ARA, CHI, DEU, ENG, FRA, HRV, ITA, JPN, NLD, NOR, PAP, POL, POR, RON, RUS, SPA, SWE, TUR |                                                                                                          |
-|                                            |                                            | *AfwijkendeOpleidingsduur* [0..1]               |                                                                                          |                                                                                                          |
-| ?                                          |                                            | » opleidingsduurEenheid [1]                     |                                                                                          |                                                                                                          |
-| ects                                       |                                            | » opleidingsduurOmvang [1]                      |                                                                                          |                                                                                                          |
+| *studyLoad*                                |                                            | *AfwijkendeOpleidingsduur* [0..1]               |                                                                                          |                                                                                                          |
+| studyLoad › studyLoadUnit                  |                                            | » opleidingsduurEenheid [1]                     |                                                                                          |                                                                                                          |
+| studyLoad › value                          |                                            | » opleidingsduurOmvang [1]                      |                                                                                          |                                                                                                          |
 | *timelineOverrides*                        |                                            | *AangebodenHoOpleidingsonderdeelPeriode* [1..n] |                                                                                          |                                                                                                          |
 | validFrom or timelineOverrides › startDate |                                            | » begindatum [1]                                |                                                                                          |                                                                                                          |
 | name › nl_NL                               |                                            | » eigenNaamAangebodenOpleiding [0..1]           |                                                                                          |                                                                                                          |
@@ -217,9 +217,9 @@ Notes:
 | level + sector                             | secondary vocational education, secondary vocational education 1,  secondary vocational education 2, secondary vocational education 3, secondary vocational education 4, associate degree, bachelor, master, doctoral, undefined, undivided | niveau [0..1]                                   | PO-VVE, PO-BAO, PO-SBAO, PO-SO, PO-VSO, PO-ARBEIDSMARKT, PO-DAGBESTEDING, VO-PRO, VO-VMBO-BB, VO-VMBO-KB, VO-VMBO-GL, VO-VMBO-TL, VO-HAVO, VO-VWO, VO-VBO, MBO, MBO-1, MBO-2, MBO-3, MBO-4, NT2-I, NT2-II, EDUCATIE, HBO-AD, HBO-BA, HBO-MA, HBO-PM, HBO-O, WO-BA, WO-MA, WO-PM, WO-O, ONBEPAALD |                                                                                                          |
 | consumer › RIO › consentParticipationSTAP  | permission_granted, permission_not_granted                                                                                                                                                                                                  | toestemmingDeelnameSTAP [1]                     | GEEN_TOESTEMMING_VERLEEND, TOESTEMMING_VERLEEND                                                                                                                                                                                                                                                  |                                                                                                          |
 | teachingLanguage                           |                                                                                                                                                                                                                                             | voertaal [0..1]                                 | ARA, CHI, DEU, ENG, FRA, HRV, ITA, JPN, NLD, NOR, PAP, POL, POR, RON, RUS, SPA, SWE, TUR                                                                                                                                                                                                         |                                                                                                          |
-|                                            |                                                                                                                                                                                                                                             | *AfwijkendeOpleidingsduur* [0..1]               |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
-| ?                                          |                                                                                                                                                                                                                                             | » opleidingsduurEenheid [1]                     |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
-| ects                                       |                                                                                                                                                                                                                                             | » opleidingsduurOmvang [1]                      |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
+| *studyLoad*                                |                                                                                                                                                                                                                                             | *AfwijkendeOpleidingsduur* [0..1]               |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
+| studyLoad › studyLoadUnit                  |                                                                                                                                                                                                                                             | » opleidingsduurEenheid [1]                     |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
+| studyLoad › value                          |                                                                                                                                                                                                                                             | » opleidingsduurOmvang [1]                      |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
 | *timelineOverrides*                        |                                                                                                                                                                                                                                             | *AangebodenParticuliereOpleidingPeriode* [1..n] |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
 | validFrom or timelineOverrides › startDate |                                                                                                                                                                                                                                             | » begindatum [1]                                |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
 | name › nl_NL                               |                                                                                                                                                                                                                                             | » eigenNaamAangebodenOpleiding [0..1]           |                                                                                                                                                                                                                                                                                                  |                                                                                                          |
@@ -249,9 +249,9 @@ Notes:
 | educationSpecification                     |                                            | opleidingeenheidSleutel [1]                     |                                                                                          | The `opleidingeenheidSleutel` will be determined by the educationSpecification this program is based on. |
 | consumer › RIO › consentParticipationSTAP  | permission_granted, permission_not_granted | toestemmingDeelnameSTAP [1]                     | GEEN_TOESTEMMING_VERLEEND, TOESTEMMING_VERLEEND                                          |                                                                                                          |
 | teachingLanguage                           |                                            | voertaal [0..1]                                 | ARA, CHI, DEU, ENG, FRA, HRV, ITA, JPN, NLD, NOR, PAP, POL, POR, RON, RUS, SPA, SWE, TUR |                                                                                                          |
-|                                            |                                            | *AfwijkendeOpleidingsduur* [0..1]               |                                                                                          |                                                                                                          |
-| ?                                          |                                            | » opleidingsduurEenheid [1]                     |                                                                                          |                                                                                                          |
-| ects                                       |                                            | » opleidingsduurOmvang [1]                      |                                                                                          |                                                                                                          |
+| *studyLoad*                                |                                            | *AfwijkendeOpleidingsduur* [0..1]               |                                                                                          |                                                                                                          |
+| studyLoad › studyLoadUnit                  |                                            | » opleidingsduurEenheid [1]                     |                                                                                          |                                                                                                          |
+| studyLoad › value                          |                                            | » opleidingsduurOmvang [1]                      |                                                                                          |                                                                                                          |
 | *timelineOverrides*                        |                                            | *AangebodenHoOpleidingsonderdeelPeriode* [1..n] |                                                                                          |                                                                                                          |
 | validFrom or timelineOverrides › startDate |                                            | » begindatum [1]                                |                                                                                          |                                                                                                          |
 | name › nl_NL                               |                                            | » eigenNaamAangebodenOpleiding [0..1]           |                                                                                          |                                                                                                          |
@@ -278,7 +278,7 @@ Notes:
 | endEnrollDate                                    |                                                        | eindeAanmeldperiode [0..1]               |                                                                        |                                                                                                                                                                   |
 | consumers › RIO › requiredPermissionRegistration | yes, no                                                | toestemmingVereistVoorAanmelding [0..1]  | JA, NEE                                                                |                                                                                                                                                                   |
 | consumers › RIO › explanationRequiredPermission  |                                                        | toelichtingVereisteToestemming [0..1]    |                                                                        |                                                                                                                                                                   |
-|                                                  |                                                        | einddatum [0..1]                         |                                                                        |                                                                                                                                                                   |
+| validTo                                          |                                                        | einddatum [0..1]                         |                                                                        |                                                                                                                                                                   |
 | maxNumberStudents                                |                                                        | deelnemersplaatsen [0..1]                |                                                                        |                                                                                                                                                                   |
 | modeOfDelivery                                   | distance-learning, on campus, online, hybrid, situated | opleidingsvorm [1]                       | COACHING, KLASSIKAAL, KLASSIKAAL_EN_ONLINE, LEZING, ONLINE, ZELFSTUDIE | Only offerings with `modeOfDelivery` set to `online`, `hybrid` or `situated` can be mapped to Cohorten.                                                           |
 | *priceInformation*                               |                                                        | *prijs* [0..n]                           |                                                                        |                                                                                                                                                                   |
@@ -310,7 +310,7 @@ Notes:
 - [x] Mist iets voor onderwijsaanbiederCode, onderwijslocatieCode en toestemmingDeelnameSTAP (opnemen in RIO consumer?)
 - [x] Missing vorm, maybe move `modeOfStudy` from offering?
 - [x] propaedeuticFase --> Phase?
-- [ ] We kunnen geen afwijkendeOpleidingsduurEenheid opgeven. Of we moeten altijd ectsen doen...
+- [x] We kunnen geen afwijkendeOpleidingsduurEenheid opgeven. Of we moeten altijd ectsen doen...
 
 #### Offering
 - [x] Omschrijving flexibleEntryPeriodEnd en start klopt niet meer
@@ -330,29 +330,19 @@ Notes:
 
 #### Ander dingen
 - [ ] Hoe werkt tijd / periodes nu precies. Uitwerken en opschrijven in documentatie
+  [ ] Enumeraties uitschrijven
 
-## Apart hoofdstukje met alle enumeratie mappings uitgelegd.
+## Enumeration mappings
 
-### modeOfDelivery › opleidingsvorm
+### formalDocument › waardedocumentsoort   	
 
-| modeOfDelivery    | opleidingsvorm       | remarks           |
-| ----------------- | -------------------- | ----------------- |
-| distance-learning |                      | Cannot map to RIO |
-| on campus         |                      | Cannot map to RIO |
-| online            | ONLINE               |                   |
-| hybrid            | KLASSIKAAL_EN_ONLINE |                   |
-| situated          | KLASSIKAAL           |                   |
-|                   | LEZING               | Cannot map to RIO |
-|                   | ZELFSTUDIE           | Cannot map to RIO |
-|                   | COACHING             | Cannot map to RIO |
-
-### Types
-
-| Entity                 | Attribute                     | Enumerations                                                                             | Usage                                                                                                                                         |
-| ---------------------- | ----------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| EducationSpecification | educationSpecificationType    | program, programVariant, privateProgram, cluster, course                                 | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
-| EducationSpecification | educationSpecificationSubType | module, variant                                                                          | Determines whether this is OPLEIDING or VARIANT? For program allowed types are: absent or variant                                             |
-| Program                | programType                   | program, minor, honours, specialization, elective, module, track, joint-degree, alliance |                                                                                                                                               |
+| formalDocument       | waardedocumentsoort     |
+| -------------------- | ----------------------- |
+| diploma              | DIPLOMA                 |
+| certificate          | CERTIFICAAT             |
+| no official document | GEEN_OFFICIEEL_DOCUMENT |
+| school advice        | SCHOOLADVIES            |
+| testimonial          | GETUIGSCHRIFT           |
 
 ### Sector + level › niveau
 
@@ -375,9 +365,161 @@ The following levels cannot be mapped from OOAPI to RIO:
 - NT2-II
 - EDUCATIE
 
+### modeOfDelivery › opleidingsvorm
+
+| modeOfDelivery    | opleidingsvorm       | remarks           |
+| ----------------- | -------------------- | ----------------- |
+| distance-learning |                      | Cannot map to RIO |
+| on campus         |                      | Cannot map to RIO |
+| online            | ONLINE               |                   |
+| hybrid            | KLASSIKAAL_EN_ONLINE |                   |
+| situated          | KLASSIKAAL           |                   |
+|                   | LEZING               | Cannot map to RIO |
+|                   | ZELFSTUDIE           | Cannot map to RIO |
+|                   | COACHING             | Cannot map to RIO |
+
+### studyLoadUnit › studielasteenheid/opleidingsduurEenheid
+
+| studyLoadUnit | studielasteenheid |
+| ------------- | ----------------- |
+| contacttime   | CONTACTUUR        |
+| ects          | ECTS_PUNT         |
+| sbu           | SBU               |
+| sp            | STUDIEPUNT        |
+| hour          | UUR               |
+
+### levelOfQualification › eqf
+
+| levelOfQualification | eqf |
+| -------------------- | --- |
+| 1                    | 1   |
+| 2                    | 2   |
+| 3                    | 3   |
+| 4                    | 4   |
+| 4+                   | 4   |
+| 5                    | 5   |
+| 6                    | 6   |
+| 7                    | 7   |
+| 8                    | 8   |
+
+### levelOfQualification › eqf
+
+| levelOfQualification | eqf |
+| -------------------- | --- |
+| 1                    | 1   |
+| 2                    | 2   |
+| 3                    | 3   |
+| 4                    | 4   |
+| 4+                   | 4p  |
+| 5                    | 5   |
+| 6                    | 6   |
+| 7                    | 7   |
+| 8                    | 8   |
+
+### Types
+
+| Entity                 | Attribute                     | Enumerations                                                                             | Usage                                                                                                                                         |
+| ---------------------- | ----------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| EducationSpecification | educationSpecificationType    | program, programVariant, privateProgram, cluster, course                                 | Determines whether this EducationSpecification maps to a HoOpleiding, HoOnderwijsEenhedenCluster, HoOnderwijsEenheid or ParticuliereOpleiding |
+| EducationSpecification | educationSpecificationSubType | module, variant                                                                          | Determines whether this is OPLEIDING or VARIANT? For program allowed types are: absent or variant                                             |
+| Program                | programType                   | program, minor, honours, specialization, elective, module, track, joint-degree, alliance |                                                                                                                                               |
+
+### consentParticipationSTAP › toestemmingDeelnameSTAP
+
+| consentParticipationSTAP | toestemmingDeelnameSTAP   |
+| ------------------------ | ------------------------- |
+| permission_granted       | GEEN_TOESTEMMING_VERLEEND |
+| permission_not_granted   | TOESTEMMING_VERLEEND      |
+
+### modeOfStudy › vorm
+
+| modeOfStudy   | vorm     | Remarks                  |
+| ------------- | -------- | ------------------------ |
+| full-time     | VOLTIJD  |                          |
+| part-time     | DEELTIJD |                          |
+| dual training | DUAAL    |                          |
+| self-paced    |          | Cannot be mapped to RIO. |
+
+### teachingLanguage › voertaal
+
+See also [this overview of language tags](https://www.loc.gov/standards/iso639-2/php/English_list.php).
+
+| teachingLanguage                       | voertaal |
+| -------------------------------------- | -------- |
+| ar*                                    | ARA      |
+| chi*, zho*, zh*                        | CHI      |
+| gsw*, ger* de*, nds*, gmh*, goh*, gem* | DEU      |
+| cpe* en*, enm*, ang*                   | ENG      |
+| fr*, frm*, fro*, cpf*                  | FRA      |
+| hr*                                    | HRV      |
+| it*                                    | ITA      |
+| jpn*, ja*, jav*, jv*                   | JPN      |
+| dut*, nl*, dum*                        | NLD      |
+| no*, nb*, nn*                          | NOR      |
+| pap*                                   | PAP      |
+| pol*, pl*                              | POL      |
+| por*, pt*                              | POR      |
+| rum*, ro*                              | RON      |
+| ru*                                    | RUS      |
+| spa*, es*                              | SPA      |
+| swe*, sv*                              | SWE      |
+| tur*, tr*, ota*, tuk*, tk*             | TUR      |
+
+### deficiency › deficientie
+
+| deficiency      | deficientie       |
+| --------------- | ----------------- |
+| deficiencies    | DEFICIENTIES      |
+| no_deficiencies | GEEN_DEFICIENTIES |
+
+### acceleratedRoute › versneldTraject
+
+| acceleratedRoute     | versneldTraject       |
+| -------------------- | --------------------- |
+| accelerated_route    | VERSNELD_TRAJECT      |
+| no_accelerated_route | GEEN_VERSNELD_TRAJECT |
+
+### propaedeuticPhase › propedeutischeFase
+
+| propaedeuticPhase          | propedeutischeFase                |
+| -------------------------- | --------------------------------- |
+| no_propaedeutic_phase      | GEEN_PROPEDEUTISCHE_FASE          |
+| propaedeutic_phase_exam    | PROPEDEUTISCHE_FASE_EXAMEN        |
+| propaedeutic_phase_no_exam | PROPEDEUTISCHE_FASE_ZONDER_EXAMEN |
+
+### requirementsActivities › eisenWerkzaamheden
+
+| requirementsActivities | eisenWerkzaamheden |
+| ---------------------- | ------------------ |
+| requirements           | EISEN              |
+| no_requirements        | GEEN_EISEN         |
+
+### studyChoiceCheck › studiekeuzecheck
+
+| studyChoiceCheck             | studiekeuzecheck                 |
+| ---------------------------- | -------------------------------- |
+| no_study_choice_check        | GEEN_STUDIEKEUZE_CHECK           |
+| study_choice_check_available | STUDIEKEUZE_CHECK_VAN_TOEPASSING |
+| study_choice_check_mandatory | STUDIEKEUZE_CHECK_VERPLICHT      |
+
 ### cohortState › cohortStatus
 
 | cohortState | cohortStatus |
 | ----------- | ------------ |
 | open        | O            |
 | closed      | G            |
+
+### requiredPermissionRegistration › toestemmingVereistVoorAanmelding
+
+| requiredPermissionRegistration | toestemmingVereistVoorAanmelding |
+| ------------------------------ | -------------------------------- |
+| yes                            | JA                               |
+| no                             | NEE                              |
+
+### costType › soort
+
+| costType      | soort                      |
+| ------------- | -------------------------- |
+| STAP eligible | TOTAAL_STAP_SUBSIDIEERBAAR |
+| total costs   | TOTALE_VERPLICHTE_KOSTEN   |
+

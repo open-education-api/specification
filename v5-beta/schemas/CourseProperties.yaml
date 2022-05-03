@@ -25,11 +25,8 @@ properties:
     description: The abbreviation or internal code used to identify this course (ECTS-code)
     maxLength: 256
     example: INFOMQNM
-  ects:
-    type: number
-    description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
-    minimum: 0
-    example: 7.5
+  studyLoad:
+    $ref: './studyLoadDescriptor.yaml'
   duration:
     type: string
     description: The duration of this course. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.

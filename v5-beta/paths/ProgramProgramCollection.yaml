@@ -58,10 +58,8 @@ get:
           enum:
             - programId
             - name
-            - ects
             - -programId
             - -name
-            - -ects
         default: name
   responses:
     '200':
