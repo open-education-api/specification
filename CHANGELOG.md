@@ -23,9 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - add three prefiltered education-specification endpoints for courses, programs and education-specifications search bu educationSpecificationID
 - #163 Multilingual responses for M2M requests
 - #157 Added `primaryCode` and `otherCodes`
-- Adds attribute `firstStartDate` to Program.
+- Adds attribute `firstStartDate` to Program and Course.
 - Adds the attribute `duration` to Course and Component.
-- Adds `enrollStartDate` and `enrollEndDate` to all Offerings.
+- Adds `startEnrollDate` and `endEnrollDate` to all Offerings.
 - Adds `flexibleEntryPeriodStart` and `flexibleEntryPeriodEnd` to ProgramOffering and CourseOffering. These two attributes can be used in addition to `startDate` to signify a Program or Course wherein a student can start at various moments with the offering, without missing anything. In that case `startDate` is usually the same as `flexibleEntryPeriodStart`.
 - #164 Add `addresses` to Program, Course, Offering and Component schema's
 - added group functionality to ooapi
@@ -36,7 +36,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds `modeOfDelivery to all offerings.
 - Adds the following levels to the `level` enumeration: `secondary vocational education`, `secondary vocational education 1`, `secondary vocational education 2`, `undefined` and `undvided`.
 - Adds `validFrom` and `validTo` attributes to EducationSpecification, Program and Course.
-- Adds `priceInformation` to all offerings.
+- Adds `priceInformation` to all Offerings.
+- Adds `coordinators` to Program
+- Adds `minNumberStudents` to Offerings
+- Adds the attributes `assessment`, `resources` and `enrollment` to Program and Component
+- Adds the attribute `link` to Offerings
+- Adds the attribute `learningOutcomes` to component
+- Adds the attribute `fieldsOfStudy` to Course
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
@@ -50,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
 - #163 Changed object types from string to array: `Name`, `Description`, `learningOutcomes`, `admissionrequirements` and `qualificationRequirements`(if present) in Program, Course, Component, Offering and Organization.
 - Removed the enums `alliance` and `joint-degree` from `programTypes`. These values described properties of programs that are independent of the type of the program. Therefore they have been removed.
+- Split course requirements into admissionRequirements and qualificationRequirements
 
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
