@@ -87,6 +87,12 @@ properties:
     format: int32
     minimum: 0
     example: 50
+  minNumberStudents:
+    type: number
+    description: The minimum number of students needed for this offering to proceed
+    format: int32
+    minimum: 0
+    example: 15
   isLineItem:
     type: boolean
     description: |
