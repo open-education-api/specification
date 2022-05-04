@@ -1,7 +1,7 @@
 type: object
 description: RIO add to the offerings of either a collection of courses or courses that lead to a certifiable learning outcome
 required:
-  - cohortState
+  - registrationStatus
 properties:
   explanationRequiredPermission:
     type: string
@@ -18,7 +18,7 @@ properties:
     enum:
       - yes
       - no
-  cohortState:
+  registrationStatus:
     type: string
     description: |
       cohortStatus

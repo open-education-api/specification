@@ -326,7 +326,7 @@ Notes:
 | ProgramOffering / CourseOffering                 | AangebodenOpleidingCohort                | Enumeration                                                                 | Remarks                                                                                                                                                           |
 | ------------------------------------------------ | ---------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | offeringId                                       | cohortCode [1]                           |                                                                             |                                                                                                                                                                   |
-| consumers › RIO › cohortState                    | cohortStatus [1]                         | [mapping](#cohortstate-cohortstatus)                                        |                                                                                                                                                                   |
+| consumers › RIO › registrationStatus             | cohortStatus [1]                         | [mapping](#registrationStatus-cohortstatus)                                 |                                                                                                                                                                   |
 | startEnrollDate                                  | beginAanmeldperiode [1]                  |                                                                             |                                                                                                                                                                   |
 | endEnrollDate                                    | eindeAanmeldperiode [0..1]               |                                                                             |                                                                                                                                                                   |
 | consumers › RIO › requiredPermissionRegistration | toestemmingVereistVoorAanmelding [0..1]  | [mapping](#requiredpermissionregistration-toestemmingvereistvooraanmelding) |                                                                                                                                                                   |
@@ -506,12 +506,12 @@ See also [this overview of language tags](https://www.loc.gov/standards/iso639-2
 | study_choice_check_available | STUDIEKEUZE_CHECK_VAN_TOEPASSING |
 | study_choice_check_mandatory | STUDIEKEUZE_CHECK_VERPLICHT      |
 
-### cohortState › cohortStatus
+### registrationStatus › cohortStatus
 
-| cohortState | cohortStatus |
-| ----------- | ------------ |
-| open        | O            |
-| closed      | G            |
+| registrationStatus | cohortStatus |
+| ------------------ | ------------ |
+| open               | O            |
+| closed             | G            |
 
 ### requiredPermissionRegistration › toestemmingVereistVoorAanmelding
 
