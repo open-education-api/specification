@@ -89,6 +89,12 @@ properties:
     example:
       - langauge: en-GB
         value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+  resources:
+    type: array
+    description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
+    items:
+      type: string
+    example: ['book to be announced', 'on-line resource x']
   addresses:
     type: array
     description: Addresses for this component
