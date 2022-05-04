@@ -18,12 +18,12 @@ allOf:
         description: The moment on which this offering ends, RFC3339 (full-date)
         format: date
         example: 2019-10-23
-      startEnrollDate:
+      enrollStartDate:
         type: string
         description: The first day on which a prospective student can enroll for this course.
         format: date
         example: 2019-05-01
-      endEnrollDate:
+      enrollEndDate:
         type: string
         description: The last day on which a prospective student can enroll for this course.
         format: date
