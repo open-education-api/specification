@@ -25,7 +25,7 @@ This sequence of changes can be specified in OOAPI as follows:
 {
     "name": "Example entity",
     "website: "https://www.example-entity.com",
-    "availableSpots": 23
+    "availableSpots": 23,
     "timelineOverrides": [
         {
             "startDate": "23-01-1980",
