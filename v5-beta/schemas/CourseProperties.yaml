@@ -65,9 +65,16 @@ properties:
       example:
       - language: en-GB
         value: 'Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms.'
-  requirements:
+  admissionRequirements:
     type: array
-    description: The requirements needed to enter this course (ECTS-prerequisites).
+    description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students.
+    example: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+  qualificationRequirements:
+    type: array
+    description: Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
