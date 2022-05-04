@@ -67,6 +67,14 @@ properties:
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
     maxLength: 4
     example: '0732'
+  enrollment:
+    type: array
+    items:
+      $ref: './LanguageTypedString.yaml'
+    description: The extra information that is provided for enrollment
+    example:
+      - langauge: en-GB
+        value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   learningOutcomes:
     type: array
     description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
