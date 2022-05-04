@@ -70,6 +70,17 @@ properties:
     type: string
     description: The teaching language in which this component is given. A string formatted according to RFC3066.
     example: nl-NL
+  learningOutcomes:
+    type: array
+    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome).
+    items:
+      type: array
+      minItems: 1
+      items:
+        $ref: './LanguageTypedString.yaml'
+      example:
+      - language: en-GB
+        value: 'Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms.'
   addresses:
     type: array
     description: Addresses for this component
