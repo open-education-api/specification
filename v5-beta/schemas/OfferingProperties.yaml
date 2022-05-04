@@ -96,6 +96,12 @@ properties:
     example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
+  link:
+    type: string
+    description: URL of this offering's webpage.
+    format: uri
+    maxLength: 2048
+    example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
   otherCodes:
     type: array
     description: An arry of additional human readable codes/identifiers for the entity being described.
