@@ -49,6 +49,11 @@ properties:
     type: string
     description: The main language in which this course is given. A string formatted according to RFC3066.
     example: nl-NL
+  fieldsOfStudy:
+    type: string
+    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
+    maxLength: 4
+    example: '0732'
   learningOutcomes:
     type: array
     description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome).
