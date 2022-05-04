@@ -9,28 +9,43 @@ required:
   - startDate
 properties:
   primaryCode:
-      description: The primary human readable identifier for the entity
-      type: string
+    description: |
+      The primary human readable identifier for the entity. 
+      This will often take the form of a human readable code as defined by the institution or region
+    $ref: './IdentifierEntry.yaml'
   otherCodes:
-    $ref: './otherCode.yaml'
+    type: array
+    description: An array of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+    example:
+      - codeType: Crebo
+        code: '1234123'
   educationSpecificationType:
     $ref: '../enumerations/educationSpecificationType.yaml'
   educationSpecificationSubType:
     $ref: '../enumerations/educationSpecificationSubType.yaml'
   name:
-    type: string
+    type: array
+    items:
+      $ref: './LanguageTypedString.yaml'
     description: The name of this education specification
-    maxLength: 256
-    example: Bachelor Scheikundige Technologie
+    example:
+      - language: en-GB
+        value: Bachelor Chemical technology
   abbreviation:
     type: string
     description: The abbreviation of this program
     maxLength: 256
     example: B Scheikundige Technologie
   description:
-    type: string
+    type: array
+    items:
+      $ref: './LanguageTypedString.yaml'
     description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
-    example: program that is a place holder for all courses that are made available for student mobility
+    example:
+      - language: en-GB
+        value: program that is a place holder for all courses that are made available for student mobility
   formalDocument:
     $ref: '../enumerations/formalDocument.yaml'
   level:
@@ -48,9 +63,15 @@ properties:
     $ref: './studyLoadDescriptor.yaml'
   learningOutcomes:
     type: array
-    description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
+    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course or program (ECTS-learningoutcome).
     items:
-      type: string
+      type: array
+      minItems: 1
+      items:
+        $ref: './LanguageTypedString.yaml'
+      example:
+      - language: en-GB
+        value: 'Executable knowledge of Chemical technology, including: Acquire knowledge of research paradigms.'
   link:
     type: string
     description: URL of the program's website

@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds `modeOfDelivery to all offerings.
 - Adds the following levels to the `level` enumeration: `secondary vocational education`, `secondary vocational education 1`, `secondary vocational education 2`, `undefined` and `undvided`.
 - Adds `validFrom` and `validTo` attributes to EducationSpecification, Program and Course.
+- Adds `priceInformation` to all offerings.
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
