@@ -17,7 +17,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/EducationSpecification.yaml'
+            $ref: '../schemas/EducationSpecificationExpanded.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
