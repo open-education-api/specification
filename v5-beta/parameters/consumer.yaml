@@ -1,6 +1,6 @@
 name: consumer
 in: query
-description: Request entities meant for a specific consumer
+description: Request entities meant for a specific consumer. This query parameter is independent from the `consumers` attribute.
 required: false
 schema:
   type: string
