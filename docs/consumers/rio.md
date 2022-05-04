@@ -1,20 +1,71 @@
 # RIO
 
-<verwijzen naar RIO mapper>
+RIO stands for [Register Instellingen en Opleidingen](https://www.rio-onderwijs.nl/). It is a Dutch national register provided by [DUO](https://www.duo.nl) in which educational institutions record three things: their educational offerings, how they are organized, and how to get in touch with them. DUO and other accrediting organizations record accreditations and licenses in RIO.
 
-## Entrypoints for delevering to RIO
-- Plaatjes
+To support Dutch educational institutions with filling and maintaining their information in RIO, [SURF](https://www.surf.nl) provides SURFeduhub. [SURFeduhub](https://www.surf.nl/surfeduhub) is a platform for sharing educational data (using the OOAPI specification) between Dutch educational institutions (providers) and various consumers. RIO is one of the consumers supported by SURFeduhub.
 
+To make the RIO functionality of SURFeduhub work an OOAPI implementation needs to implement the specific extensions as described on this page. When correctly implemented, the OOAPI base and the RIO extension provide a 1-to-1 mapping from the OOAPI model to the RIO model.
 
-## Periodes / valid times
+An educational institution needs to implement the following calls to be compatible with RIO:
+- `GET /education-specifications`
+- `GET /education-specifications/{educationSpecificationId}`
+- `GET /education-specifications/{educationSpecificationId}/education-specifications`
+- `GET /education-specifications/{educationSpecificationId}/programs`
+- `GET /education-specifications/{educationSpecificationId}/courses`
+- `GET /programs`
+- `GET /programs/{programId}`
+- `GET /programs/{programId}/offerings`
+- `GET /courses`
+- `GET /courses{courseId}`
+- `GET /courses{courseId}/offerings`
 
-## Mapping
+!> All calls need to support at least the `consumer` query parameter and should only return entities meant for RIO when this parameter is set to `rio`, e.g. `?consumer=rio`.
 
-- [ ] RELATIES
+Furthermore, the returned entities should implement the attributes as described on this page. Some of this attributes are part of the additional "RIO Consumer object". See the general information about [specific consumers](consumers) for more information.
 
-## Multilanguage fields
+## Mapping OOAPI to RIO
 
-Explain how the mapping from multilanguage fields werkt
+### RIO Model
+
+![Simplified version of the RIO model](../_media/simple_rio.png "Simplified version of the RIO model")
+
+This is a simplified version of the RIO model. It leaves out a lot of details and only describes the parts that are relevant for the mapping from OOAPI to RIO. The following entities are in scope:
+- OpleidingsEenheid, and the following specializations:
+  - HoOpleiding
+  - HoOnderwijseenhedenCluster
+  - HoOnderwijseenheid
+  - ParticuliereOpleiding
+- OpleidingsEenheidPeriode, and the following specializations:
+  - HoOpleidingPeriode
+  - HoOnderwijseenhedenClusterPeriode
+  - HoOnderwijseenheidPeriode
+  - ParticuliereOpleidingPeriode
+- AangebodenOpleiding, and the following specializations:
+  - AangebodenHoOpleiding
+  - AangebodenHoOpleidingsOnderdeel
+  - AangebodenHoParticuliereOpleiding
+- AangebodenOpleidingPeriode, and the following specializations:
+  - AangebodenHoOpleidingPeriode
+  - AangebodenHoOpleidingsOnderdeelPeriode
+  - AangebodenHoParticuliereOpleidingPeriode
+- AangebodenOpleiding, and the following specializations:
+  - AangebodenHoOpleidingCohort
+  - AangebodenHoOpleidingsonderdeelCohort
+  - AangebodenParticuliereOpleidingCohort
+
+!> Out of scope are OnderwijsAanbieder and Onderwijslocatie. However at least an OnderwijsAanbider entity must exist in RIO before an AangebodenOpleiding can be created. Institution are responsible themselves to create OnderwijsAanbieder and Onderwijslocatie entities beforehand using the RIO web interface.
+
+## Perioden and `timelineOverrides`
+
+To be able to fill RIO it is necessary to be able to communicate about historic or future information regarding entities. RIO differentiates between attributes of an entity that remain stable for the lifetime of the entity and attributes whose values may change over time. The attributes that may change over time are grouped together in entities called "Perioden". Entities such as an OpleidingsEenheid and an AangebodenOpleiding must have *at least one* Periode. OOAPI however, is primarily meant to describe entities *as they are now*. Since v5.0 OOAPI has a mechanism to also specify historic and future versions of entities.
+
+For RIO [this mechanism](historical-and-future-data) can be leveraged as follows:
+- An OOAPI implementation is expected to always return the current values of attributes.
+  - The subset of these *current* attributes that RIO considers *changeable over time* will constitute one Periode.
+  - With start and end dates as specified by the attributes `validFrom` and `validTo`.
+- For each historic or future Periode that an implementation wishes to communicate, a`timelineOverride` object must be added to the array of `timelineOverrides`.
+  - Each `timelineOverride` will be translated to a Periode.
+  - With start and end dates as specified by the attributes `startDate` and `endDate` from the `timelineOverride`.
 
 <style>
   .colored-table tr:nth-child(odd) > td:nth-child(1) { background: #eef7f9 }
@@ -32,6 +83,10 @@ Explain how the mapping from multilanguage fields werkt
 </style>
 
 ## Mapping EducationSpecification to RIO Opleidingseenheden
+
+![Mapping of OOAPI EducationSpecifications to RIO Opleidingseenheden](../_media/simple_rio_opleidingseenheid_mapping.png "Mapping of OOAPI EducationSpecifications to RIO Opleidingseenheden")
+
+EducationSpecifications can have relations to other EducationSpecifications which will be translated to RIO as relations between OpleidingsEenheden.
 
 <div class="colored-table yellow">
 
@@ -126,7 +181,11 @@ Explain how the mapping from multilanguage fields werkt
 
 </div>
 
-## Mapping Program to RIO AangebodenOpleidingen
+## Mapping Educations to RIO AangebodenOpleidingen
+
+![Mapping of OOAPI Educations to RIO AangebodenOpleidingen](../_media/simple_rio_aangebodenopleiding_mapping.png "Mapping of OOAPI Educations to RIO AangebodenOpleidingen")
+
+### Mapping Program to RIO AangebodenOpleidingen
 
 <div class="colored-table purple">
 
@@ -232,7 +291,7 @@ Notes:
 
 </div>
 
-## Mapping Course to RIO AangebodenHoOpleidingsonderdeel
+### Mapping Course to RIO AangebodenHoOpleidingsonderdeel
 
 *Note: Cohorten will be mapped from the offerings belonging to the Course in question.*
 
@@ -264,7 +323,7 @@ Notes:
 
 </div>
 
-## Mapping ProgramOffering and CourseOffering to RIO AangebodenHoOpleidingCohort, AangebodenHoOpleidingsonderdeelCohort and AangebodenParticuliereOpleidingCohort
+### Mapping ProgramOffering and CourseOffering to RIO AangebodenHoOpleidingCohort, AangebodenHoOpleidingsonderdeelCohort and AangebodenParticuliereOpleidingCohort
 
 *Note: Offerings will be mapped to Cohorten when the Programs or Courses they are part of are send to RIO.*
 
@@ -290,47 +349,6 @@ Notes:
 | flexibleEntryPeriodEnd                           |                                                        | » (flexibel) eindeInstroomperiode [0..1] |                                                                        |                                                                                                                                                                   |
 
 </div>
-
-### Aparte lijst met alle attributen en specifieke transformaties?
-
-### Opvallendheden
-
-#### EducationSpecification
-- [x] educationSpecificationType --> de soorten van een HoOpleiding (Opleiding of Variant) zijn opgelost in Type. Maar de soorten van een cluster zijn opgelost in educationSpecificationSubType.
-- [x] educationSpecificationType --> rename educationUnit naar course
-- [x] controllingEntity is niet nodig in de aanlevering? (zie informatiemodel pagina 163.)
-- [x] educationSpecificationSubType, model in RIO veranderd.
-- [x] formalDocument: school advise moet zijn school advice
-- [x] level, enumeraties matchen niet met niveau in RIO, werkt het wel samen met sector? Ook niet, oplossen...
-- [x] timelineOverrides-> startDateTime moet startDate zijn
-- [x] levelOfQualification: voor RIO niet strikt noodzakelijk, wordt afgeleid van niveau
-- [x] owner --> waar dient deze voor? In het aanleveren is er alleen sprake van een verzendendeInstantie. Vervangen door /organizations/id/education-specifications?
-
-#### Program
-- [x] Mist iets voor onderwijsaanbiederCode, onderwijslocatieCode en toestemmingDeelnameSTAP (opnemen in RIO consumer?)
-- [x] Missing vorm, maybe move `modeOfStudy` from offering?
-- [x] propaedeuticFase --> Phase?
-- [x] We kunnen geen afwijkendeOpleidingsduurEenheid opgeven. Of we moeten altijd ectsen doen...
-
-#### Offering
-- [x] Omschrijving flexibleEntryPeriodEnd en start klopt niet meer
-- [x] Mist opleidingsvorm, modeOfDelivery verplaatsen/dupliceren?
-- [x] Mapping modeOfDelivery naar opleidingsvorm
-
-#### RIO Consumer
-- [x] foreign partner hoort een array of strings te zijn.
-- [x] jointpartnercode moet ook een array zijn
-- [x] iets voor cohort open / gesloten
-
-#### Course
-- [x] Mist firstStartDate
-
-#### RIO example
-- [x] spelfout `acceleratied_route`
-
-#### Ander dingen
-- [ ] Hoe werkt tijd / periodes nu precies. Uitwerken en opschrijven in documentatie
-  [ ] Enumeraties uitschrijven
 
 ## Enumeration mappings
 
@@ -514,4 +532,3 @@ See also [this overview of language tags](https://www.loc.gov/standards/iso639-2
 | ------------- | -------------------------- |
 | STAP eligible | TOTAAL_STAP_SUBSIDIEERBAAR |
 | total costs   | TOTALE_VERPLICHTE_KOSTEN   |
-
