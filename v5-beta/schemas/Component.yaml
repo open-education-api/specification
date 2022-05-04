@@ -95,6 +95,15 @@ properties:
     items:
       type: string
     example: ['book to be announced', 'on-line resource x']
+  assessment:
+    type: array
+    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria).
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: Exam on campus
   addresses:
     type: array
     description: Addresses for this component
