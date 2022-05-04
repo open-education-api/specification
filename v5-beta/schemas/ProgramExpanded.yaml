@@ -11,6 +11,11 @@ allOf:
         description: Programs which are a part of this program (e.g specializations)
         items:
           $ref: './Program.yaml'
+      coordinators:
+        type: array
+        description: The person(s) responsible for this program
+        items:
+          $ref: './Person.yaml'
       organization:
         description: The organization providing the current course
         $ref: './Organization.yaml'

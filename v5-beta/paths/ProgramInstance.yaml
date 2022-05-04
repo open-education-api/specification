@@ -22,6 +22,7 @@ get:
           enum:
             - parent
             - children
+            - coordinators
             - organization
   responses:
     '200':
