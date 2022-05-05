@@ -16,8 +16,8 @@ An educational institution needs to implement the following calls to be compatib
 - `GET /programs/{programId}`
 - `GET /programs/{programId}/offerings`
 - `GET /courses`
-- `GET /courses{courseId}`
-- `GET /courses{courseId}/offerings`
+- `GET /courses/{courseId}`
+- `GET /courses/{courseId}/offerings`
 
 !> All calls returning collections need to support at least the `consumer` query parameter and should only return entities meant for RIO when this parameter is set to `rio`, e.g. `?consumer=rio`.
 
