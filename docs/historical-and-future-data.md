@@ -26,9 +26,11 @@ This sequence of changes can be specified in OOAPI as follows:
     "name": "Example entity",
     "website: "https://www.example-entity.com",
     "availableSpots": 23,
+    "validFrom": "01-01-2005",
+    "validTo": "01-01-2022"
     "timelineOverrides": [
         {
-            "startDate": "23-01-1980",
+            "startDate": "23-01-1990",
             "endDate": "01-01-2005",
             "entity": {
                 "name": "Example entity",
