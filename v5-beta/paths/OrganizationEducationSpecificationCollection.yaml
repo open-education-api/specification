@@ -1,45 +1,26 @@
 get:
-  summary: GET /programs
-  description: Get an ordered list of all programs, ordered by name.
+  summary: GET /organizations/{organizationId}/education-specifications
+  description: Get an ordered list of all EducationSpecifications for a given organization, ordered by name.
   tags:
-    - programs
+    - organizations
   parameters:
-    - $ref: '../parameters/primaryCode.yaml'
+    - name: organizationId
+      in: path
+      description: Organization ID
+      required: true
+      schema:
+        type: string
+        format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
-    - $ref: '../parameters/teachingLanguage.yaml'
-    - name: programType
+    - name: educationSpecificationType
       in: query
-      description: Filter by program type
+      description: Filter by type of education specification
       required: false
       schema:
-        $ref: '../enumerations/programType.yaml'
-    - name: qualificationAwarded
-      in: query
-      description: Filter by qualificationAwarded
-      required: false
-      schema:
-        $ref: '../enumerations/qualificationAwarded.yaml'
-    - name: levelOfQualification
-      in: query
-      description: Filter by levelOfQualification
-      required: false
-      schema:
-        $ref: '../enumerations/levelOfQualification.yaml'
-    - name: sector
-      in: query
-      description: Filter by sector
-      required: false
-      schema:
-        $ref: '../enumerations/sector.yaml'
-    - name: fieldsOfStudy
-      in: query
-      description: Filter by fieldsOfStudy
-      required: false
-      schema:
-        type: string
+        $ref: '../enumerations/educationSpecificationType.yaml'
     - name: sort
       in: query
       explode: false
@@ -50,10 +31,12 @@ get:
         items:
           type: string
           enum:
-            - programId
+            - educationSpecificationType
             - name
-            - -programId
+            - primarycode
+            - -educationSpecificationType
             - -name
+            - -primarycode
         default: name
   responses:
     '200':
@@ -70,7 +53,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Program.yaml'
+                      $ref: '../schemas/EducationSpecification.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':
@@ -79,6 +62,8 @@ get:
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

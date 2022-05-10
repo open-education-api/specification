@@ -20,12 +20,6 @@ get:
       required: false
       schema:
         type: string
-    - name: controllingEntity
-      in: query
-      description: Filter by type of controlling entity for the education specification
-      required: false
-      schema:
-        $ref: '../enumerations/controllingEntity.yaml'
     - name: sort
       in: query
       explode: false
@@ -39,12 +33,10 @@ get:
             - educationSpecificationType
             - name
             - primarycode
-            - controllingEntity
             - -educationSpecificationType
             - -name
             - -primarycode
-            - -controllingEntity
-        default: 
+        default:
           - name
   responses:
     '200':

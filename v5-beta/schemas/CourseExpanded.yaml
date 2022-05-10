@@ -16,3 +16,8 @@ allOf:
       organization:
         description: The organization providing the current course
         $ref: './Organization.yaml'
+      timelineOverrides:
+        description: Timeline overrides allow an implementation to provide versions of entities that will be valid in the future or have been in the past.
+        type: array
+        items:
+          $ref: './TimelineOverrideCourse.yaml'

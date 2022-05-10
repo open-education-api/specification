@@ -1,5 +1,5 @@
 type: object
-description: Object for aggregating different consumer additions
+description: Object for aggregating different consumer additions. This attribute is independent from the `consumer` query parameter.
 properties:
   consumerName:
     description: the name of the array of additional consumer attributes

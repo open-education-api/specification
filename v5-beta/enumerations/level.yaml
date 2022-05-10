@@ -1,17 +1,27 @@
 type: string
 description: |
   The level of this course (ECTS-year of study if applicable)
+  - secondary vocational education: mbo
+  - secondary vocational education 1: mbo 1
+  - secondary vocational education 2: mbo 2
   - secondary vocational education 3: mbo 3
   - secondary vocational education 4: mbo 4
   - associate degree: associate degree
   - bachelor: bachelor
   - master: master
   - doctoral: doctoraal
+  - undefined: onbepaald
+  - undivided: ongedeeld
 enum:
+  - secondary vocational education  
+  - secondary vocational education 1  
+  - secondary vocational education 2
   - secondary vocational education 3
   - secondary vocational education 4
   - associate degree
   - bachelor
   - master
   - doctoral
+  - undefined
+  - undivided
 example: master

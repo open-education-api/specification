@@ -5,11 +5,11 @@ description: |
     - certificate: CERTIFICAAT
     - no official document: GEEN OFFICIEEL DOCUMENT
     - testimonial: GETUIGSCHRIFT
-    - school advise: SCHOOLADVIES
+    - school advice: SCHOOLADVIES
 enum:
   - diploma
   - certificate
   - no official document
   - testimonial
-  - school advise
+  - school advice
 example: degree

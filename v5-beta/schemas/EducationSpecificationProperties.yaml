@@ -7,7 +7,6 @@ required:
   - educationSpecificationType
   - name
   - startDate
-  - controllingEntity
 properties:
   primaryCode:
     description: |
@@ -16,7 +15,7 @@ properties:
     $ref: './IdentifierEntry.yaml'
   otherCodes:
     type: array
-    description: An arry of additional human readable codes/identifiers for the entity being described.
+    description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
     example:
@@ -32,7 +31,7 @@ properties:
       $ref: './LanguageTypedString.yaml'
     description: The name of this education specification
     example:
-      - langauge: en-GB
+      - language: en-GB
         value: Bachelor Chemical technology
   abbreviation:
     type: string
@@ -45,10 +44,8 @@ properties:
       $ref: './LanguageTypedString.yaml'
     description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example:
-      - langauge: en-GB
+      - language: en-GB
         value: program that is a place holder for all courses that are made available for student mobility
-  controllingEntity:
-    $ref: '../enumerations/controllingEntity.yaml'
   formalDocument:
     $ref: '../enumerations/formalDocument.yaml'
   level:
@@ -62,16 +59,8 @@ properties:
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
     maxLength: 4
     example: '0732'
-  owner:
-    type: string
-    description: The ID of the owner of this education specification (organzationID)
-    format: uuid
-    example: 123e4567-e89b-12d3-a456-426614174078
   studyLoad:
-    type: array
-    description: The amount of effort needed to complete this education expressed in a specific metric type
-    items:
-      $ref: './studyLoadDescriptor.yaml'
+    $ref: './studyLoadDescriptor.yaml'
   learningOutcomes:
     type: array
     description: Statements that describe the knowledge or skills students should acquire by the end of a particular course or program (ECTS-learningoutcome).
@@ -99,5 +88,13 @@ properties:
     type: array
     items:
       $ref: './Consumer.yaml'
+  validFrom:
+    description: The first day this EducationSpecification is valid.
+    type: string
+    format: date
+  validTo:
+    description: The day this EducationSpecification ceases to be valid.
+    type: string
+    format: date
   ext:
     $ref: './Ext.yaml'
