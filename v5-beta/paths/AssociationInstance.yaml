@@ -45,10 +45,9 @@ get:
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
 
-
-post:
-  summary: POST /associations/{associationId}
-  description: POST an update on a local enrollment to pass a grade or status.
+put:
+  summary: PUT /associations/{associationId}
+  description: Update on a local enrollment to pass a grade or status.
   security:
     - openId:
       - associations.write
@@ -71,9 +70,9 @@ post:
         schema:
           type: object
           required:
-            - associationItem
+            - association
           properties:
-            associationItem:
+            association:
               $ref: '../schemas/AssociationProperties.yaml'
             result:
               $ref: '../schemas/Result.yaml'

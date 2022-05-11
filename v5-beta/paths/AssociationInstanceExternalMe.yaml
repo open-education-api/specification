@@ -18,7 +18,7 @@ post:
           properties:
             issuer:
               $ref: '../schemas/Organization.yaml'            
-            associationItem:
+            association:
               $ref: '../schemas/AssociationProperties.yaml'
             offering:
               oneOf:

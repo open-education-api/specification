@@ -66,24 +66,33 @@ get:
               - $ref: '../schemas/Pagination.yaml'
               - type: object
                 required:
-                  - items
+                  - associations
                 properties:
-                  items:
+                  associations:
                     type: array
                     items:
-                      allOf:
-                        - oneOf:
-                            - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-                            - $ref: '../schemas/CourseOfferingAssociation.yaml'
-                            - $ref: '../schemas/ComponentOfferingAssociation.yaml'
-                        - type: object
-                          required:
-                            - person
-                          properties:
-                            person:
-                              $ref: '../schemas/Person.yaml'
-                            academicSession:
-                              $ref: '../schemas/AcademicSession.yaml'
+                      oneOf:
+                        - $ref: '../schemas/ProgramOfferingAssociationExpandable.yaml'
+                        - $ref: '../schemas/CourseOfferingAssociationExpandable.yaml'
+                        - $ref: '../schemas/ComponentOfferingAssociationExpandable.yaml'
+                #   - items
+                # properties:
+                  # items:
+                  #   type: array
+                  #   items:
+                  #     allOf:
+                  #       - oneOf:
+                  #           - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+                  #           - $ref: '../schemas/CourseOfferingAssociation.yaml'
+                  #           - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+                  #       - type: object
+                  #         required:
+                  #           - person
+                  #         properties:
+                  #           person:
+                  #             $ref: '../schemas/Person.yaml'
+                  #           academicSession:
+                  #             $ref: '../schemas/AcademicSession.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

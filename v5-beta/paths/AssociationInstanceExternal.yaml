@@ -19,7 +19,7 @@ post:
               $ref: '../schemas/Organization.yaml'   
             person:
               $ref: '../schemas/PersonProperties.yaml'           
-            associationItem:
+            association:
               $ref: '../schemas/AssociationProperties.yaml'
             offering:
               oneOf:

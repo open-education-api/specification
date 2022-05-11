@@ -16,7 +16,7 @@ post:
           required:
             - offering
           properties:
-            associationItem:
+            association:
               $ref: '../schemas/AssociationProperties.yaml'
             offering:
               $ref: '../schemas/OfferingIdAndType.yaml'

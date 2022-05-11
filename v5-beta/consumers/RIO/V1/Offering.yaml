@@ -1,5 +1,5 @@
 type: object
-description: RIO add to the offerings of either a collection of courses or courses that lead to a certifiable learning outcome
+description: RIO add-on attributes to the offerings of either a collection of courses or courses that lead to a certifiable learning outcome
 required:
   - registrationStatus
 properties:

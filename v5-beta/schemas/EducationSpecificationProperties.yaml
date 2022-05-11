@@ -23,8 +23,6 @@ properties:
         code: '1234123'
   educationSpecificationType:
     $ref: '../enumerations/educationSpecificationType.yaml'
-  educationSpecificationSubType:
-    $ref: '../enumerations/educationSpecificationSubType.yaml'
   name:
     type: array
     items:

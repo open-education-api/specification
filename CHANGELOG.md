@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - associations/me endpoint with OIDC security information
 - associations/external endpoint
 - associations/external/me endpoint
+- PUT associations/{id} endpoint
 - persons POST endpoint
 - explanation on associations
 - extra attribute on results
@@ -30,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #164 Add `addresses` to Program, Course, Offering and Component schema's
 - added group functionality to ooapi
 - Adds consumer functionality to all entities, including a query parameter to request entities meant for a specific consumer
+- added implementation for RIO consumer in EducationSpecification
 - added time-override functionality to course and program
 - Added `/programs/{programId}/programs` endpoint
 - Adds `modeOfStudy` to Program.
@@ -43,6 +45,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds the attribute `link` to Offerings
 - Adds the attribute `learningOutcomes` to component
 - Adds the attribute `fieldsOfStudy` to Course
+- include README.md into documentation webiste
+
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
@@ -51,15 +55,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renames the offering attribute `mainLanguage` to `teachingLanguage` and also adds it to all Programs, Courses and Components.
 - Changed the enumeration for organizationTypes. Renamed `institution` to `institute` to prevent confusion with `root`. Added `branch`, `academy` and `school`.
 - Changed postalType enumeration. Added `billing` address type
-- Removed 404 responses for paths that return a collection.
-- #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
 - #163 Changed object types from string to array: `Name`, `Description`, `learningOutcomes`, `admissionrequirements` and `qualificationRequirements`(if present) in Program, Course, Component, Offering and Organization.
-- Removed the enums `alliance` and `joint-degree` from `programTypes`. These values described properties of programs that are independent of the type of the program. Therefore they have been removed.
 - Split course requirements into admissionRequirements and qualificationRequirements
+- update offerings/{id}/associations to improve readability
+- 
 
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
+- Removed 404 responses for paths that return a collection.
+- #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
+- Removed the enums `alliance` and `joint-degree` from `programTypes`. These values described properties of programs that are independent of the type of the program. Therefore they have been removed.
 - Removed the Accept-Language header from all requests. It is superseded by the new LanguageTypedStrings which always return text in all available languages.
 
 ## [4.0.0] - 2019-09-01
