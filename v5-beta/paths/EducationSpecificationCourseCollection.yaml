@@ -39,10 +39,8 @@ get:
           enum:
             - courseId
             - name
-            - ects
             - -courseId
             - -name
-            - -ects
         default: courseId
   responses:
     '200':

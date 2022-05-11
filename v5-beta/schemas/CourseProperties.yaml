@@ -25,16 +25,17 @@ properties:
     description: The abbreviation or internal code used to identify this course (ECTS-code)
     maxLength: 256
     example: INFOMQNM
-  ects:
-    type: number
-    description: The number of EC's that is earned when the course is completed successfully (ECTS-ects)
-    minimum: 0
-    example: 7.5
+  studyLoad:
+    $ref: './studyLoadDescriptor.yaml'
   duration:
     type: string
     description: The duration of this course. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     format: duration
     example: P1DT30H4S
+  firstStartDate:
+    type: string
+    description: The date when participants can follow this course for the first time.
+    format: date
   description:
     type: array
     description: The description of this course (ECTS-description).
@@ -48,6 +49,11 @@ properties:
     type: string
     description: The main language in which this course is given. A string formatted according to RFC3066.
     example: nl-NL
+  fieldsOfStudy:
+    type: string
+    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
+    maxLength: 4
+    example: '0732'
   learningOutcomes:
     type: array
     description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome).
@@ -59,9 +65,16 @@ properties:
       example:
       - language: en-GB
         value: 'Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms.'
-  requirements:
+  admissionRequirements:
     type: array
-    description: The requirements needed to enter this course (ECTS-prerequisites).
+    description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students.
+    example: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+  qualificationRequirements:
+    type: array
+    description: Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
@@ -118,5 +131,13 @@ properties:
     type: array
     items:
       $ref: './Consumer.yaml'
+  validFrom:
+    description: The first day this course is valid.
+    type: string
+    format: date
+  validTo:
+    description: The day this course ceases to be valid.
+    type: string
+    format: date
   ext:
     $ref: './Ext.yaml'

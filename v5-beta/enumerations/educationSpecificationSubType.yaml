@@ -1,7 +1,9 @@
 type: string
 description: |
-  The Sub type of education specification
-    - module: MODULE
+  The subtype of the EducationSpecification. At the moment only used for EducationSpecification's of the type `program`:
+  Allowed subtypes when type = `program`:
+    - variant:  if the subtype attribute is set to `variant`, the program maps to a HoOpleiding of 'soort' `VARIANT`
+    - *...*: if the subtype attribute is absent, the program maps to a HoOpleiding of 'soort' `OPLEIDING`
 enum:
-  - module
-example: module
+  - variant
+example: variant

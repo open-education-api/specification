@@ -1,14 +1,14 @@
 type: object
 description: A timeline override of the course.
 properties:
-  startDateTime:
+  startDate:
     type: string
-    description: The moment on which this timelineOverride starts, RFC3339 (date)
+    description: The day on which this timelineOverride starts, RFC3339 (date)
     format: date
     example: 2021-09-01
-  endDateTime:
+  endDate:
     type: string
-    description: The moment on which this timelineOverride ends, RFC3339 (date)
+    description: The day on which this timelineOverride ends, RFC3339 (date)
     format: date
     example: 2022-08-31
   course:

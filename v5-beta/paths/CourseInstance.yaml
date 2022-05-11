@@ -21,7 +21,7 @@ get:
           type: string
           enum:
             - programs
-            - coordinator
+            - coordinators
             - organization
   responses:
     '200':

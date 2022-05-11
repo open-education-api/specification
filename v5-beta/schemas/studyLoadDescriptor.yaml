@@ -1,9 +1,9 @@
 type: object
-description: An amount of effort to complete this education with the measuring method code.
+description: The amount of effort to complete this education in the specified unit.
 properties:
-  typeOfStudyLoad:
+  studyLoadUnit:
     description: |
-      The type in which the studyload is measured
+      The unit in which the studyload is specfied
       - contacttime: CONTACTUUR	amount of time spent in classes
       - ects: ECTS_PUNT	European Credit Transfer System
       - sbu: SBU	studentloadhours
@@ -22,5 +22,5 @@ properties:
     type: number
     example: 3
 example:
-  typeOfStudyLoad: ects
+  studyLoadUnit: ects
   value: 3
