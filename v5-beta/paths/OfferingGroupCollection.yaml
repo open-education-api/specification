@@ -1,6 +1,6 @@
 get:
   summary: GET /offerings/{offeringId}/groups
-  description: Get an ordered list of all groups associated to an offering, ordered by name.
+  description: Get an ordered list of all groups related to an offering, ordered by name.
   tags:
     - offerings
   parameters:
