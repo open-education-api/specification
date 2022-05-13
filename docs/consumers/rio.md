@@ -371,10 +371,10 @@ Notes:
 | doctoral                         |                                | HBO-PM                        | WO-PM                |
 | undefined                        | ONBEPAALD                      | ONBEPAALD                     | ONBEPAALD            |
 | undivided                        |                                | HBO-O                         | WO-O                 |
+| nt2-1                            | NT2-I                          | NT2-I                         | NT2-I                |
+| nt2-2                            | NT2-II                         | NT2-II                        | NT2-II               |
 
-The following levels cannot be mapped from OOAPI to RIO:
-- NT2-I
-- NT2-II
+The following level cannot be mapped from OOAPI to RIO:
 - EDUCATIE
 
 ### modeOfDelivery › opleidingsvorm
