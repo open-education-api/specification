@@ -62,7 +62,7 @@ properties:
     example: https://www.surf.nl/themes/surf/logo.svg
   otherCodes:
     type: array
-    description: An arry of additional human readable codes/identifiers for the entity being described.
+    description: An array of additional human readable codes/identifiers for the entity being described.
     minItems: 1
     items:
       $ref: './IdentifierEntry.yaml'
