@@ -5,11 +5,7 @@ required:
   - currency
 properties:
   costType:
-    type: string
-    description: The type of cost
-    enum:
-      - STAP eligible
-      - total costs
+    $ref: '../enumerations/costType.yaml'
   amount:
     type: string
     pattern: '^\d+(?:\.\d+)?$'
