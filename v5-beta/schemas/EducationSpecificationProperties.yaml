@@ -88,6 +88,8 @@ properties:
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      - $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   validFrom:
     description: The first day this EducationSpecification is valid.
     type: string

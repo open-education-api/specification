@@ -10,7 +10,9 @@ This consumer mechanism consists of the following:
     "...": "...",
     "consumers": [
         {
-            "rio": {"custom" "attribute"}
+            "consumerKey": "<the consumer key>"
+            "additional": "custom",
+            "attributes": "here"
         }
     ]
 }
@@ -18,7 +20,7 @@ This consumer mechanism consists of the following:
 3. A registry listing which keys are in use by which consumers. Users that want to use this mechanism without registering a key, should prefix their key with `x-`.
 
 ## Consumer registry
-| Key | Description |
-| --- | ----------- |
-| `rio` | RIO is a central registry, maintained by the Dutch Government that lists all educational institutions and the education they offer. |
-| `eduxchange` | eduXchange is a website that allows students to easily enroll in education from other institutions. |
+| Key          | Description                                                                                                                         |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `rio`        | RIO is a central registry, maintained by the Dutch Government that lists all educational institutions and the education they offer. |
+| `eduxchange` | eduXchange is a website that allows students to easily enroll in education from other institutions.                                 |

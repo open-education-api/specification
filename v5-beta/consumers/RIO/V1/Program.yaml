@@ -8,7 +8,7 @@ properties:
     description: |
       onderwijsaanbiedercode
       Een betekenisloze identifier voor een onderwijsaanbieder in de Registratie Instellingen en Opleidingen.
-      pattern: ^(?:\d{3}A\d{3})$
+    pattern: ^(?:\d{3}A\d{3})$
   educationLocationCode:
     type: string
     description: |
@@ -23,9 +23,11 @@ properties:
     enum:
       - permission_granted
       - permission_not_granted
-  jointPartnerCode:
+  jointPartnerCodes:
     type: array
-    items: string
+    items:
+      type: string
+      pattern: ^(?:\d{3}A\d{3})$
     minItems: 1
     description: |
       samenwerkendeOnderwijsaanbiedercode

@@ -123,7 +123,7 @@ properties:
       $ref: './Address.yaml'
   otherCodes:
     type: array
-    description: An arry of additional human readable codes/identifiers for the entity being described.
+    description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   consumers:
@@ -131,6 +131,8 @@ properties:
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      - $ref: '../consumers/RIO/V1/examples/Course.yaml'
   validFrom:
     description: The first day this course is valid.
     type: string

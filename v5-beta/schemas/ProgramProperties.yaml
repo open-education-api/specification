@@ -127,7 +127,7 @@ properties:
     example: 123e4567-e89b-12d3-a456-426614174111
   otherCodes:
     type: array
-    description: An arry of additional human readable codes/identifiers for the entity being described.
+    description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
     example:
@@ -143,6 +143,8 @@ properties:
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      - $ref: '../consumers/RIO/V1/examples/Program.yaml'
   validFrom:
     description: The first day this program is valid.
     type: string

@@ -118,5 +118,7 @@ properties:
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      - $ref: '../consumers/RIO/V1/examples/Offering.yaml'
   ext:
     $ref: './Ext.yaml'

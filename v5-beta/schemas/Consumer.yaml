@@ -1,18 +1,9 @@
 type: object
-description: Object for aggregating different consumer additions. This attribute is independent from the `consumer` query parameter.
+description: Object for communicating attributes meant for a specific consumer. This attribute is independent from the `consumer` query parameter.
+required:
+  - consumerKey
 properties:
-  consumerName:
-    description: the name of the array of additional consumer attributes
+  consumerKey:
+    description: The key of the specific consumer these attributes are meant for. See the [consumer registry](https://open-education-api.github.io/specification/#/consumers) for more information.
     type: string
-  consumerObject:
-    description: object with key value pairs describing the element and type
-    type: object
-example:
-  RIO : { "jointPartnerCode": "string", "foreignPartner": "string", "deficiency": "deficiencies", "requirementsActivities": "requirements", "propaedeuticFase": "no_propaedeutic_fase", "studyChoiceCheck": "no_study_choice_check", "acceleratedRoute": "acceleratied_route", "explanationRequiredPermission": "string", "requiredPermissionRegistration": "yes"}
-
-
-
-# proposed sollution to add consumers is by changing the propertieslist by other consumers for this object (in this example the course) 
-# properties:
-#   RIO: { $ref: '../consumers/RIO/V1/course.yaml'}
-#   Test: { $ref: './consumers/Test/course.yaml'}
+additionalProperties: true
