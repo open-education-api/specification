@@ -44,7 +44,7 @@ properties:
     description: The main language in which this program is given. A string formatted according to RFC3066.
     example: nl-NL
   studyLoad:
-    $ref: './studyLoadDescriptor.yaml'
+    $ref: './StudyLoadDescriptor.yaml'
   qualificationAwarded:
     $ref: '../enumerations/qualificationAwarded.yaml'
   modeOfStudy:

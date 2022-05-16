@@ -58,7 +58,7 @@ properties:
     maxLength: 4
     example: '0732'
   studyLoad:
-    $ref: './studyLoadDescriptor.yaml'
+    $ref: './StudyLoadDescriptor.yaml'
   learningOutcomes:
     type: array
     description: Statements that describe the knowledge or skills students should acquire by the end of a particular course or program (ECTS-learningoutcome).
