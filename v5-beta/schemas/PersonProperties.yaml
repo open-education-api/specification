@@ -134,7 +134,7 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-      - codeType: BSN
+      - codeType: nationalIdentityNumber
         code: '00000'
   consumers:
     description: The additional consumer elements that can be provided
