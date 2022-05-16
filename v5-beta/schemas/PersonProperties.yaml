@@ -14,6 +14,8 @@ properties:
     example:
       codeType: studentNumber
       code: 0000000
+    # Returned by GET, not used in POST/PUT/PATCH
+    readOnly: true
   givenName:
     type: string
     description: The first name of this person
