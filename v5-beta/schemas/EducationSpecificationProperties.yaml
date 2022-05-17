@@ -84,12 +84,14 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174111
   consumers:
-    description: The additional consumer elements that can be provided
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'
     example:
-      - $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+      - consumerKey: x-test-consumer
+        additional: custom
+        attributes: here
   validFrom:
     description: The first day this EducationSpecification is valid.
     type: string

@@ -64,11 +64,13 @@ properties:
     format: date-time
     example: 2020-09-28T00:00:00.000Z
   consumers:
-    description: The additional consumer elements that can be provided
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'
     example:
-      - $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+      - consumerKey: x-test-consumer
+        additional: custom
+        attributes: here
   ext:
     $ref: './Ext.yaml'
