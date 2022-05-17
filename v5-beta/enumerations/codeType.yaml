@@ -20,7 +20,7 @@ description: |
   - emailAdress: An email address
   - groupCode: The identifier for a group (of persons)
   - isbn: International Standard Book Number that serve as product identifiers for Books
-  - issn:	International Standard Book Number that serve as product identifiers for periodicals
+  - issn: International Standard Book Number that serve as product identifiers for periodicals
   - orcId: Open Researcher and Contributor ID
   - uuid: A universally unique identifier
   - identifier: Generic Identifier
