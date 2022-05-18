@@ -10,6 +10,6 @@ properties:
         - variant:  if the subtype attribute is set to `variant`, the program maps to a HoOpleiding of 'soort' `VARIANT`
         - *...*: if the subtype attribute is absent, the program maps to a HoOpleiding of 'soort' `OPLEIDING`
     enum:
-      - VARIANT
-      - OPLEIDING
-    example: VARIANT
+      - variant
+      - program
+    example: program

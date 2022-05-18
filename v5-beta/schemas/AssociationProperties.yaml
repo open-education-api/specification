@@ -17,6 +17,22 @@ properties:
     $ref: '../enumerations/associationRole.yaml'
   state:
     $ref: '../enumerations/associationState.yaml'
+  person:
+    oneOf:
+      - $ref: '../schemas/Identifier.yaml'
+        title: PersonId
+      - $ref: '../schemas/Person.yaml'
+        title: Person
+  offering:
+    oneOf:
+      - $ref: '../schemas/Identifier.yaml'
+        title: OfferingId
+      - $ref: '../schemas/ComponentOffering.yaml'
+        title: ComponentOffering
+      - $ref: '../schemas/CourseOffering.yaml'
+        title: CourseOffering
+      - $ref: '../schemas/ProgramOffering.yaml'
+        title: ProgramOffering 
   consumers:
     description: The additional consumer elements that can be provided
     type: array

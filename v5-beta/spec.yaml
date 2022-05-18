@@ -55,7 +55,7 @@ tags:
         </tr>
         <tr>
          <td>internal</td>
-         <td>POST <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a> local enrollment</td>
+         <td>POST <a href="#tag/offerings/paths/~1offerings~1{offeringId}~1associations~1external/post">/offerings/{offeringId}/associations/me</a> local enrollment based on selected offering</td>
          <td>POST <a href="#tag/associations/paths/~1associations~1external~1me/post">/associations/external/me</a> gets student details from .wellknown uses offering details (provided by external institution)</td>
         </tr>
         <tr>
@@ -65,14 +65,14 @@ tags:
           <br> or alternatively:
           <ul>
            <li>create student with POST <a href="#tag/persons/paths/~1persons~1{personId}/post">/persons</a></li>
-           <li>enroll this person using POST <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a></li>
+           <li><a href="#tag/offerings/paths/~1offerings~1{offeringId}~1associations~1external/post">/offerings/{offeringId}/associations/me</a></li>
           </ul>
           for the enrollment
          </td>
          <td>no support needed</td>
         </tr>
       </table>
-      direct: <a href="#tag/associations/paths/~1associations~1{associationId}/post"> POST /associations/{associationId}</a>
+      direct update of current information: <a href="#tag/associations/paths/~1associations~1{associationId}/put"> PUT /associations/{associationId}</a>
 
   - name: buildings
     description: The building API provides a building that is currently used by the organization. Including all location details.
@@ -422,6 +422,8 @@ paths:
     $ref: paths/OfferingInstance.yaml
   /offerings/{offeringId}/associations:
     $ref: paths/OfferingAssociationCollection.yaml
+  /offerings/{offeringId}/associations/external:
+    $ref: paths/OfferingAssociationInstanceExternal.yaml
   /offerings/{offeringId}/groups:
     $ref: paths/OfferingGroupCollection.yaml
   /associations/{associationId}:

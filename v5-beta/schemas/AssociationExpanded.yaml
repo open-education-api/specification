@@ -1,4 +1,0 @@
-oneOf:
-- $ref: '../schemas/ProgramOfferingAssociationExpanded.yaml'
-- $ref: '../schemas/CourseOfferingAssociationExpanded.yaml'
-- $ref: '../schemas/ComponentOfferingAssociationExpanded.yaml'

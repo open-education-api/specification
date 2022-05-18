@@ -1,0 +1,114 @@
+schema:
+  oneOf:
+    - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+    - $ref: '../schemas/CourseOfferingAssociation.yaml'
+    - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+examples:
+  default (not expanded):
+    value:
+      associationId: "123e4567-e89b-12d3-a456-426614174000"
+      associationType: "componentOfferingAssociation"
+      role: "student"
+      state: "associated"
+      person: 05035972-0619-4d0b-8a09-7bdb6eee5e6d
+      offering: "811aede5-3f86-4ee8-bd58-925df0b0509d"
+      consumers: 
+      - RIO: 
+          jointPartnerCode: "string"
+          foreignPartner: "string"
+          deficiency: "deficiencies"
+          requirementsActivities: "requirements"
+          propaedeuticFase: "no_propaedeutic_fase"
+          studyChoiceCheck: "no_study_choice_check"
+          acceleratedRoute: "acceleratied_route"
+          explanationRequiredPermission: "string"
+          requiredPermissionRegistration: "yes" 
+      ext: {}
+      result: 
+        state: "inprogress"
+        pass: "unknown"
+        comment: "string"
+        score: "string"
+        resultDate: "2022-05-19"
+        ext: {}
+        weight: 80
+  expand=person:
+    value:
+      associationId: "123e4567-e89b-12d3-a456-426614174000"
+      associationType: "componentOfferingAssociation"
+      role: "student"
+      state: "associated"
+      person: 
+        personId: "05035972-0619-4d0b-8a09-7bdb6eee5e6d"
+        primaryCode: 
+          codeType: "studentNumber"
+          code: "12344"
+        givenName: "Maartje"
+        surnamePrefix: "van"
+        surname: "Damme"
+        displayName: "Maartje van Damme"
+        initials: "MCW"
+        dateOfBirth: "2003-09-30"
+        cityOfBirth: "Utrecht"
+        countryOfBirth: "NL"
+        nationality: "Dutch"
+        dateOfNationality: "2003-09-30"
+        affiliations:
+          - "student"
+        mail: "vandamme.mcw@universiteitvanharderwijk.nl"
+        secondaryMail: "poekie@xyz.nl"
+        telephoneNumber: "+31 123 456 789"
+        mobileNumber: "+31 612 345 678"
+        photoSocial: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Placeholder_female_superhero_c.png/203px-Placeholder_female_superhero_c.png"
+        photoOfficial: "https://upload.wikimedia.org/wikipedia/commons/6/66/Johannes_Vermeer_%281632-1675%29_-_The_Girl_With_The_Pearl_Earring_%281665%29.jpg"
+        gender: "F"
+        titlePrefix: "drs"
+        titleSuffix: "BSc"
+        office: "string"
+        address: 
+          addressType: "postal"
+          street: "Moreelsepark"
+          streetNumber: "48"
+          additional: 
+            - language: "en-GB"
+              value: "On the other side of the road"
+          postalCode: "3511 EP"
+          city: "Utrecht"
+          countryCode: "NL"
+          geolocation: 
+            latitude: 52.089123
+            longitude: 5.113337
+          ext: { }
+        ICEName: "Janne"
+        ICEPhoneNumber: "+31 623 456 789"
+        ICERelation: "partner"
+        languageOfChoice: 
+        - "nl-NL"
+        otherCodes: 
+          - codeType: "ESI"
+            code: "00000"
+        consumers: 
+          - RIO: 
+              explanationRequiredPermission: "string"
+        ext: { }
+      offering: "811aede5-3f86-4ee8-bd58-925df0b0509d"
+      consumers: 
+      - RIO: 
+          jointPartnerCode: "string"
+          foreignPartner: "string"
+          deficiency: "deficiencies"
+          requirementsActivities: "requirements"
+          propaedeuticFase: "no_propaedeutic_fase"
+          studyChoiceCheck: "no_study_choice_check"
+          acceleratedRoute: "acceleratied_route"
+          explanationRequiredPermission: "string"
+          requiredPermissionRegistration: "yes" 
+      ext: {}
+      result: 
+        state: "inprogress"
+        pass: "unknown"
+        comment: "string"
+        score: "string"
+        resultDate: "2022-05-19"
+        ext: {}
+        weight: 80              

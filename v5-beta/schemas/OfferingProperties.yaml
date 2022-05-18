@@ -1,5 +1,11 @@
 type: object
 description: Either a program, course or component offering which descrbes the program, course or offering in time
+discriminator:
+  propertyName: offeringType
+  mapping:
+    component: ./ComponentOffering.yaml
+    course: ./CourseOffering.yaml
+    program: ./ProgramOffering.yaml
 required:
   - primaryCode
   - offeringType
