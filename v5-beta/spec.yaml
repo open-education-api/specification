@@ -318,7 +318,7 @@ tags:
       ```
   - name: sorting information
     description: |
-      Most endpoints provide sorting. To sort you can sort on the elements that are specified per endpoint. All elements can be sorted ascending by default o descending,
+      Most endpoints provide sorting. To sort you can sort on the elements that are specified per endpoint. All elements can be sorted ascending by default or descending,
       by adding "-" in front of the element to be sorted. The sorting takes place based on comma separated values. e.g.:
 
       ```
