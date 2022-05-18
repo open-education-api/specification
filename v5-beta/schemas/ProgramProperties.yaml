@@ -60,6 +60,8 @@ properties:
     format: date
   levelOfQualification:
     $ref: '../enumerations/levelOfQualification.yaml'
+  level:
+    $ref: '../enumerations/level.yaml'
   sector:
     $ref: '../enumerations/sector.yaml'
   fieldsOfStudy:

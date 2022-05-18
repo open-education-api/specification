@@ -43,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds the attribute `link` to Offerings
 - Adds the attribute `learningOutcomes` to component
 - Adds the attribute `fieldsOfStudy` to Course
+- Adds the attribute `level` to Program.
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
@@ -61,6 +62,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
 - Removed the Accept-Language header from all requests. It is superseded by the new LanguageTypedStrings which always return text in all available languages.
+- Removed the attribute `modeOfStudy` from ProgramOffering and CourseOffering.
+- Removed the attribute `modeOfDelivery` from Course.
 
 ## [4.0.0] - 2019-09-01
 ### Added
@@ -72,7 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Endpoint Courses
 - Endpoints on courseGroups and educationalPrograms are merged to Program endpoint
 - Endpoints on EducationalPlans, CourseResults, TestResults, Schedules are merged to Associations
-- Endpoints on Institution, Faculties, EducationalDeparments are merged to Organizations
+- Endpoints on Institution, Faculties, EducationalDepartments are merged to Organizations
 - Endpoint Tests is moved to Components
 
 ### Removed

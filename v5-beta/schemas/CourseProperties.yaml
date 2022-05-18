@@ -80,8 +80,6 @@ properties:
       $ref: './LanguageTypedString.yaml'
   level:
     $ref: '../enumerations/level.yaml'
-  modeOfDelivery:
-    $ref: '../enumerations/modesOfDelivery.yaml'
   enrollment:
     type: array
     items:
