@@ -134,11 +134,11 @@ properties:
     example:
       - $ref: '../consumers/RIO/V1/examples/Course.yaml'
   validFrom:
-    description: The first day this course is valid.
+    description: The first day this course is valid (inclusive).
     type: string
     format: date
   validTo:
-    description: The day this course ceases to be valid.
+    description: The day this course ceases to be valid (e.g. exclusive).
     type: string
     format: date
   ext:
