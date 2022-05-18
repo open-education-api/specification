@@ -88,7 +88,7 @@ properties:
       $ref: './LanguageTypedString.yaml'
     description: The extra information that is provided for enrollment
     example:
-      - langauge: en-GB
+      - language: en-GB
         value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
