@@ -150,7 +150,7 @@ tags:
       }
       </code></pre>
 
-  - name: expand information
+  - name: requesting related objects (expanding responses)
     description: |
       Most endpoints also provide additional information which is not provided by default. To obtain this information we use an expand mechanism
 
@@ -455,7 +455,7 @@ x-tagGroups:
     tags:
       - about identifiers
       - query information (use of q)
-      - expand information
+      - requesting related objects (expanding responses)
       - sorting information
       - extension information
       - formatting and displaying results from API
