@@ -58,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
 - #163 Changed object types from string to array: `Name`, `Description`, `learningOutcomes`, `admissionRequirements` and `qualificationRequirements`(if present) in Program, Course, Component, Offering and Organization.
-- Removed the enums `alliance` and `joint-degree` from `programTypes`. These values described properties of programs that are independent of the type of the program. Therefore they have been removed.
+- Removed the enums `alliance`, `elective`, `module` and `joint-degree` from `programTypes`. These values described properties of programs (or courses) that are independent of the type of the program. Therefore they have been removed.
 - Split course requirements into admissionRequirements and qualificationRequirements
 - Renamed option `year` of the AcademicSession `type` enumeration to `academicYear` to clarify what is meant.
 
