@@ -89,9 +89,7 @@ properties:
     items:
       $ref: './Consumer.yaml'
     example:
-      - consumerKey: x-test-consumer
-        additional: custom
-        attributes: here
+      - $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   validFrom:
     description: The first day this EducationSpecification is valid.
     type: string

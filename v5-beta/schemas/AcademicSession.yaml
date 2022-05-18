@@ -38,8 +38,6 @@ properties:
     items:
       $ref: './Consumer.yaml'
     example:
-      - consumerKey: x-test-consumer
-        additional: custom
-        attributes: here
+      - $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   ext:
     $ref: './Ext.yaml'
