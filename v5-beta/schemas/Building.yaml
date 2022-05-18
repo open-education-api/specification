@@ -15,8 +15,8 @@ properties:
     description: The primary human readable identifier for this building. This is often the source identifier as defined by the institution.
     $ref: './IdentifierEntry.yaml'
     example:
-      codeType: BAG
-      code: '0344100000139910'
+      codeType: buildingId
+      code: '45'
   abbreviation:
     type: string
     description: The abbreviation of the name of this building
@@ -48,7 +48,7 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-      - codeType: BAG
+      - codeType: bagId
         code: '0344100000139910'
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.

@@ -1,8 +1,7 @@
 type: object
 properties:
   codeType:
-    description: The type of the code/identifier
-    type: string
+    $ref: '../enumerations/codeType.yaml'
   code:
     description: Human readable value for the code/identifier
     type: string

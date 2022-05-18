@@ -4,6 +4,7 @@ description: |
   It is used to aggregate education objects from a supplying institution.
   It clusters programs to a main educationSpecification that is used in registries such as RIO.
 required:
+  - primaryCode
   - educationSpecificationType
   - name
   - startDate
@@ -19,7 +20,7 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-      - codeType: Crebo
+      - codeType: crohoCreboCode
         code: '1234123'
   educationSpecificationType:
     $ref: '../enumerations/educationSpecificationType.yaml'
