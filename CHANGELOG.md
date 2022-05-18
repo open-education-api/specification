@@ -53,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - split person and associations into properties - ID and a aggregated person association object this allows for better reuse e.g. in POST where ID is not mandatory and in typed responses
 - Renames the offering attribute `mainLanguage` to `teachingLanguage` and also adds it to all Programs, Courses and Components.
 - Changed the enumeration for organizationTypes. Renamed `institution` to `institute` to prevent confusion with `root`. Added `branch`, `academy` and `school`.
-- Changed postalType enumeration. Added `billing` address type
+- Changed postalType enumeration. Added `billing` and `teaching` address type
 - Removed 404 responses for paths that return a collection.
 - #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
 - Rename the `lengthOfProgram` attribute to `duration` and change the format to duration as described in RFC 3339.
