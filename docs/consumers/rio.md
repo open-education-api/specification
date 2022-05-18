@@ -211,7 +211,7 @@ Notes:
 | name › nl_NL                               | » eigenNaamAangebodenOpleiding [0..1]        |                                                              |                                                                                                          |
 | name › en_**                               | » eigenNaamInternationaal [0..1]             |                                                              |                                                                                                          |
 | description › nl_NL                        | » eigenOmschrijving [0..1]                   |                                                              |                                                                                                          |
-| consumers › RIO › jointPartnerCode         | » samenwerkendeOnderwijsaanbiedercode [0..n] |                                                              |                                                                                                          |
+| consumers › RIO › jointPartnerCodes        | » samenwerkendeOnderwijsaanbiedercode [0..n] |                                                              |                                                                                                          |
 | consumers › RIO › deficiency               | » deficientie [0..1]                         | [mapping](#deficiency-deficientie)                           |                                                                                                          |
 | consumers › RIO › acceleratedRoute         | » versneldTraject [0..1]                     | [mapping](#acceleratedroute-versneldtraject)                 |                                                                                                          |
 | abbreviation                               | » eigenNaamKort [0..1]                       |                                                              |                                                                                                          |
@@ -247,7 +247,7 @@ Notes:
 | name › nl_NL                               | » eigenNaamAangebodenOpleiding [0..1]           |                                                              |                                                                                                          |
 | name › en_**                               | » eigenNaamInternationaal [0..1]                |                                                              |                                                                                                          |
 | description › nl_NL                        | » eigenOmschrijving [0..1]                      |                                                              |                                                                                                          |
-| consumers › RIO › jointPartnerCode         | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                          |
+| consumers › RIO › jointPartnerCodes        | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                          |
 | abbreviation                               | » eigenNaamKort [0..1]                          |                                                              |                                                                                                          |
 | consumers › RIO › foreignPartner           | » buitenlandsePartner [0..n]                    |                                                              |                                                                                                          |
 | link                                       | » website [0..1]                                |                                                              |                                                                                                          |
@@ -278,7 +278,7 @@ Notes:
 | name › nl_NL                               | » eigenNaamAangebodenOpleiding [0..1]           |                                                              |                                                                                                          |
 | name › en_**                               | » eigenNaamInternationaal [0..1]                |                                                              |                                                                                                          |
 | description › nl_NL                        | » eigenOmschrijving [0..1]                      |                                                              |                                                                                                          |
-| consumers › RIO › jointPartnerCode         | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                          |
+| consumers › RIO › jointPartnerCodes        | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                          |
 | link                                       | » website [0..1]                                |                                                              |                                                                                                          |
 
 <!-- tabs:end -->
@@ -310,7 +310,7 @@ Notes:
 | name › nl_NL                               | » eigenNaamAangebodenOpleiding [0..1]           |                                                              |                                                                                                          |
 | name › en_**                               | » eigenNaamInternationaal [0..1]                |                                                              |                                                                                                          |
 | description › nl_NL                        | » eigenOmschrijving [0..1]                      |                                                              |                                                                                                          |
-| consumers › RIO › jointPartnerCode         | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                          |
+| consumers › RIO › jointPartnerCodes        | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                          |
 | abbreviation                               | » eigenNaamKort [0..1]                          |                                                              |                                                                                                          |
 | consumers › RIO › foreignPartner           | » buitenlandsePartner [0..n]                    |                                                              |                                                                                                          |
 | link                                       | » website [0..1]                                |                                                              |                                                                                                          |
@@ -371,10 +371,10 @@ Notes:
 | doctoral                         |                                | HBO-PM                        | WO-PM                |
 | undefined                        | ONBEPAALD                      | ONBEPAALD                     | ONBEPAALD            |
 | undivided                        |                                | HBO-O                         | WO-O                 |
+| nt2-1                            | NT2-I                          | NT2-I                         | NT2-I                |
+| nt2-2                            | NT2-II                         | NT2-II                        | NT2-II               |
 
-The following levels cannot be mapped from OOAPI to RIO:
-- NT2-I
-- NT2-II
+The following level cannot be mapped from OOAPI to RIO:
 - EDUCATIE
 
 ### modeOfDelivery › opleidingsvorm

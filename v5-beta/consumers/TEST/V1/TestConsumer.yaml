@@ -1,7 +1,7 @@
 type: object
 description: extra elements   
 properties:
-  element:
+  additional:
     type: string
-    description: |
-      properties 
+  attributes:
+    type: string
