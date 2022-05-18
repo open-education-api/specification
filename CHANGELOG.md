@@ -33,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - added time-override functionality to course and program
 - Added `/programs/{programId}/programs` endpoint
 - Adds `modeOfStudy` to Program.
+- Adds `modeOfDelivery` to Program.
 - Adds `modeOfDelivery to all offerings.
 - Adds the following levels to the `level` enumeration: `secondary vocational education`, `secondary vocational education 1`, `secondary vocational education 2`, `nt2-1`, `nt2-2`, `undefined` and `undvided`.
 - Adds `validFrom` and `validTo` attributes to EducationSpecification, Program and Course.
@@ -63,7 +64,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
 - Removed the Accept-Language header from all requests. It is superseded by the new LanguageTypedStrings which always return text in all available languages.
 - Removed the attribute `modeOfStudy` from ProgramOffering and CourseOffering.
-- Removed the attribute `modeOfDelivery` from Course.
 
 ## [4.0.0] - 2019-09-01
 ### Added
