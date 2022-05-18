@@ -1,5 +1,8 @@
 type: object
 description: A timeline override of the EducationSpecification.
+required:
+  - validFrom
+  - educationSpecification
 properties:
   validFrom:
     type: string

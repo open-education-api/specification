@@ -1,4 +1,7 @@
 type: object
+required:
+  - validFrom
+  - course
 description: A timeline override of the course.
 properties:
   validFrom:

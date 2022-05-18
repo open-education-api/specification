@@ -1,5 +1,8 @@
 type: object
 description: A time-line override of the program.
+required:
+  - validFrom
+  - program
 properties:
   validFrom:
     type: string
