@@ -64,8 +64,16 @@ properties:
     items:
       $ref: './Consumer.yaml'
     example:
-      - consumerKey: x-test-consumer
-        additional: custom
-        attributes: here
+      - $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+  organization:
+    description: |
+      The organization that manages this group.
+      
+      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: organizationId
+      - $ref: './Organization.yaml'
+        title: Expanded organization
   ext:
     $ref: './Ext.yaml'
