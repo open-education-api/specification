@@ -11,13 +11,17 @@ get:
       schema:
         type: string
         format: uuid
+    - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/EducationSpecificationExpanded.yaml'
+            oneOf:
+              - title: Without timelineOverrides (default)
+                $ref: '../schemas/EducationSpecification.yaml'
+              - $ref: '../schemas/EducationSpecificationExpanded.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
