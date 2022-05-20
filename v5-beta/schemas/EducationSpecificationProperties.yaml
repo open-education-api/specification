@@ -90,15 +90,13 @@ properties:
     items:
       $ref: './Consumer.yaml'
     example:
-      - consumerKey: x-test-consumer
-        additional: custom
-        attributes: here
+      - $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   validFrom:
-    description: The first day this EducationSpecification is valid.
+    description: The first day this EducationSpecification is valid (inclusive).
     type: string
     format: date
   validTo:
-    description: The day this EducationSpecification ceases to be valid.
+    description: The day this EducationSpecification ceases to be valid (e.g. exclusive).
     type: string
     format: date
   ext:

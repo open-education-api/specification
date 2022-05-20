@@ -27,6 +27,8 @@ properties:
     example: INFOMQNM
   studyLoad:
     $ref: './studyLoadDescriptor.yaml'
+  modeOfDelivery:
+    $ref: '../enumerations/modesOfDelivery.yaml'
   duration:
     type: string
     description: The duration of this course. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
@@ -80,15 +82,13 @@ properties:
       $ref: './LanguageTypedString.yaml'
   level:
     $ref: '../enumerations/level.yaml'
-  modeOfDelivery:
-    $ref: '../enumerations/modesOfDelivery.yaml'
   enrollment:
     type: array
     items:
       $ref: './LanguageTypedString.yaml'
     description: The extra information that is provided for enrollment
     example:
-      - langauge: en-GB
+      - language: en-GB
         value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
@@ -134,11 +134,11 @@ properties:
     example:
       - $ref: '../consumers/RIO/V1/examples/Course.yaml'
   validFrom:
-    description: The first day this course is valid.
+    description: The first day this course is valid (inclusive).
     type: string
     format: date
   validTo:
-    description: The day this course ceases to be valid.
+    description: The day this course ceases to be valid (e.g. exclusive).
     type: string
     format: date
   ext:

@@ -6,8 +6,6 @@ allOf:
       - startDate
       - endDate
     properties:
-      modeOfStudy:
-        $ref: '../enumerations/modeOfStudy.yaml'
       startDate:
         type: string
         description: The moment on which this offering starts, RFC3339 (full-date)
