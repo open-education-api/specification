@@ -7,6 +7,7 @@ required:
   - affiliations
   - mail
   - primaryCode
+  - activeEnrollment
 properties:
   primaryCode:
     description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
@@ -39,6 +40,10 @@ properties:
     type: string
     description: The initials of this person
     example: MCW
+  activeEnrollment:
+    type: boolean
+    description: Whether this person has an active enrollment.
+    example: false
   dateOfBirth:
     type: string
     description: The date of birth of this person, RFC3339 (full-date)
