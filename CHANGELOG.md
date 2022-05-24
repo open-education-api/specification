@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #164 Add `addresses` to Program, Course, Offering and Component schema's
 - added group functionality to OOAPI
 - Adds consumer functionality to all entities, including a query parameter to request entities meant for a specific consumer
-- added time-override functionality to course and program
+- Adds timelineOverride functionality to EducationSpecification, Course and Program. This mechanism allows implementations to communicate about historic and future versions of entities.
 - Added `/programs/{programId}/programs` endpoint
 - Adds `modeOfStudy` to Program.
 - Adds `modeOfDelivery` to Program and Component.
