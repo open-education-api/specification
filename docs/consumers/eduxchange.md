@@ -20,8 +20,8 @@ To be compatible with eduXchange and the Project 'Studentmobiliteit' an institut
 - `GET /academic-sessions/{academicSessionId}/offerings`
 - `GET /persons/me`
 - `GET /persons/{personId}`
-- `POST ????`
-- alles met intekenen, persons en associations
+- `POST /associations/external/me`
+- `PATCH /associations/{associationId}`
 
 !> For `/organizations` the `type=root` parameter must be supported and for all calls returning programs the `type=minor` parameter will be set and must be supported.
 
@@ -59,7 +59,7 @@ In OOAPI version 5.0 the following changes were made that are relevant for eduXc
 3. Some attributes were added to the Association object or updated. For example: `state` has been expanded with a `queued` value and the `result` object has been expanded with a new attribute `pass`.
 4. Some of the attributes we specified in the `ext` object or the nested `targetGroup` object have been moved to the consumer object.
 5. Some of the attributes we specified in the `ext` object or the nested `targetGroup` object have been moved to the regular top level objects. For example `enrollmentStartDate` in the `ext` object of an offering has been moved to the regular offering object and been renamed to `enrollStartDate`.
-6. New calls for enrolling students have been added.
+6. New calls for enrolling students and updating enrollment status have been added (- `POST /associations/external/me` and `PATCH /associations/{associationId}`).
 7. AcademicSessions now have a type `academicSessionType`.
 
 See the CHANGELOG for more information.
