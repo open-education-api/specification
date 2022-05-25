@@ -18,6 +18,7 @@ description: |
     - `productId`: Identifier assigned to a specific product
     - `nationalIdentityNumber`: Identifier assigned by the governement of the person. e.g. a social security number in the USA
     - `studentNumber`: Identifier for the person
+    - `studielinkNumber`: Identifier for the person as determined by Studielink
     - `esi`: European Student Identifier
     - `userName`: The name of a user
     - `accountId`: Identifier assigned to a specific account
@@ -43,6 +44,7 @@ x-ooapi-extensible-enum:
   - productId
   - nationalIdentityNumber
   - studentNumber
+  - studielinkNumber
   - esi
   - userName
   - accountId
