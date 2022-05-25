@@ -122,6 +122,6 @@ properties:
     items:
       $ref: './Consumer.yaml'
     example:
-      - $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   ext:
     $ref: './Ext.yaml'

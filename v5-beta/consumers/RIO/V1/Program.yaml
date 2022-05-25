@@ -32,7 +32,7 @@ properties:
     description: |
       samenwerkendeOnderwijsaanbiedercode
       Code van de onderwijsaanbieder waarmee wordt samengewerkt OnderwijsaanbiederID-v01
-  foreignPartner:
+  foreignPartners:
     type: array
     items: string
     minItems: 1

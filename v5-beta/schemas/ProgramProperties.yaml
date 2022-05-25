@@ -148,7 +148,7 @@ properties:
     items:
       $ref: './Consumer.yaml'
     example:
-      - $ref: '../consumers/RIO/V1/examples/Program.yaml'
+      $ref: '../consumers/RIO/V1/examples/Program.yaml'
   validFrom:
     description: The first day this program is valid (inclusive).
     type: string
