@@ -46,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds the attribute `fieldsOfStudy` to Course
 - Adds the attribute `level` to Program.
 - Make the enumeration of AcademicSession `type` extensible and add the following options: `trimester`, `quarter` and `testing period`.
+- Adds the attribute `activeEnrollment` to Person.
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases
