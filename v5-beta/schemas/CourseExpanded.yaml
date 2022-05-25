@@ -14,8 +14,9 @@ allOf:
         items:
           $ref: './Person.yaml'
       organization:
-        description: The organization providing the current course
-        $ref: './Organization.yaml'
+        allOf: # Use allOf to make sure description renders
+        - $ref: './Organization.yaml'
+        - description: The organization providing this course
       timelineOverrides:
         description: Timeline overrides allow an implementation to provide versions of entities that will be valid in the future or have been in the past.
         type: array

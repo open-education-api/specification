@@ -4,5 +4,6 @@ allOf:
     description: These properties are only present when explicitly included.
     properties:
       building:
-        description: The building in which the room is located
-        $ref: './Building.yaml'
+        allOf: # Use allOf to make sure description renders
+          - $ref: './Building.yaml'
+          - description: The building in which the room is located
