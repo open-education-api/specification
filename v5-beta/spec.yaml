@@ -371,10 +371,18 @@ tags:
     x-displayName: Component
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Component" />
-  - name: offering_model
-    x-displayName: Offering
+  - name: program_offering_model
+    x-displayName: ProgramOffering
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/Offering" />
+      <SchemaDefinition schemaRef="#/components/schemas/ProgramOffering" />
+  - name: course_offering_model
+    x-displayName: CourseOffering
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/CourseOffering" />
+  - name: component_offering_model
+    x-displayName: ComponentOffering
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/ComponentOffering" />
   - name: association_model
     x-displayName: Association
     description: |
@@ -440,7 +448,9 @@ x-tagGroups:
       - program_model
       - course_model
       - component_model
-      - offering_model
+      - program_offering_model
+      - course_offering_model
+      - component_offering_model
       - association_model
       - person_model
       - group_model
@@ -480,8 +490,12 @@ components:
       $ref: schemas/Course.yaml
     Component: 
       $ref: schemas/Component.yaml
-    Offering:
-      $ref: schemas/Offering.yaml
+    ProgramOffering:
+      $ref: schemas/ProgramOffering.yaml
+    CourseOffering:
+      $ref: schemas/CourseOffering.yaml
+    ComponentOffering:
+      $ref: schemas/ComponentOffering.yaml
     Association:
       $ref: schemas/Association.yaml
     Person:
