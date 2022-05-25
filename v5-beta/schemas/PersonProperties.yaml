@@ -7,6 +7,7 @@ required:
   - affiliations
   - mail
   - primaryCode
+  - activeEnrollment
 properties:
   primaryCode:
     description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
@@ -14,6 +15,8 @@ properties:
     example:
       codeType: studentNumber
       code: 0000000
+    # Returned by GET, not used in POST/PUT/PATCH
+    readOnly: true
   givenName:
     type: string
     description: The first name of this person
@@ -37,6 +40,10 @@ properties:
     type: string
     description: The initials of this person
     example: MCW
+  activeEnrollment:
+    type: boolean
+    description: Whether this person has an active enrollment.
+    example: false
   dateOfBirth:
     type: string
     description: The date of birth of this person, RFC3339 (full-date)
@@ -130,16 +137,18 @@ properties:
       example: nl-NL
   otherCodes:
     type: array
-    description: An arry of additional human readable codes/identifiers for the entity being described.
+    description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-      - codeType: BSN
+      - codeType: nationalIdentityNumber
         code: '00000'
   consumers:
-    description: The additional consumer elements that can be provided
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   ext:
     $ref: './Ext.yaml'

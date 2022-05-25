@@ -24,6 +24,7 @@ get:
             - children
             - coordinators
             - organization
+    - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
     '200':
       description: OK

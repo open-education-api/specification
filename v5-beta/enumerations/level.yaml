@@ -12,6 +12,8 @@ description: |
   - doctoral: doctoraal
   - undefined: onbepaald
   - undivided: ongedeeld
+  - nt2-1: NT2 niveau 1
+  - nt2-2: NT2 niveau 2
 enum:
   - secondary vocational education  
   - secondary vocational education 1  
@@ -24,4 +26,6 @@ enum:
   - doctoral
   - undefined
   - undivided
+  - nt2-1
+  - nt2-2
 example: master

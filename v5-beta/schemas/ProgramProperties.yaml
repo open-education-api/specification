@@ -49,6 +49,8 @@ properties:
     $ref: '../enumerations/qualificationAwarded.yaml'
   modeOfStudy:
     $ref: '../enumerations/modeOfStudy.yaml'
+  modeOfDelivery:
+    $ref: '../enumerations/modesOfDelivery.yaml'
   duration:
     type: string
     description: The duration of this program. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
@@ -60,6 +62,8 @@ properties:
     format: date
   levelOfQualification:
     $ref: '../enumerations/levelOfQualification.yaml'
+  level:
+    $ref: '../enumerations/level.yaml'
   sector:
     $ref: '../enumerations/sector.yaml'
   fieldsOfStudy:
@@ -73,7 +77,7 @@ properties:
       $ref: './LanguageTypedString.yaml'
     description: The extra information that is provided for enrollment
     example:
-      - langauge: en-GB
+      - language: en-GB
         value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
@@ -127,7 +131,7 @@ properties:
     example: 123e4567-e89b-12d3-a456-426614174111
   otherCodes:
     type: array
-    description: An arry of additional human readable codes/identifiers for the entity being described.
+    description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
     example:
@@ -139,16 +143,18 @@ properties:
     items:
       $ref: './Address.yaml'
   consumers:
-    description: The additional consumer elements that can be provided
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/RIO/V1/examples/Program.yaml'
   validFrom:
-    description: The first day this program is valid.
+    description: The first day this program is valid (inclusive).
     type: string
     format: date
   validTo:
-    description: The day this program ceases to be valid.
+    description: The day this program ceases to be valid (e.g. exclusive).
     type: string
     format: date
   ext:
