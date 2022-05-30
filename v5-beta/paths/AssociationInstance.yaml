@@ -27,7 +27,8 @@ get:
       description: OK
       content:
         application/json:
-          $ref: '../schemas/AssociationFull.yaml'          
+          schema:
+            $ref: '../schemas/AssociationFull.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -66,7 +67,9 @@ put:
     required: true
     content:
       application/json:
-        $ref: '../schemas/AssociationFull.yaml'
+        schema:
+          $ref: '../schemas/AssociationWrite.yaml'
+
 
   responses:
     '201':

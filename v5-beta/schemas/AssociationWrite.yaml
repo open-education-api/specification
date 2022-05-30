@@ -2,22 +2,18 @@
 #   - $ref: '../schemas/ComponentOfferingAssociation.yaml'
 #   - $ref: '../schemas/CourseOfferingAssociation.yaml'
 #   - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+
+
+
+
 oneOf:
   - $ref: '../schemas/ProgramOfferingAssociation.yaml'
   - $ref: '../schemas/CourseOfferingAssociation.yaml'
   - $ref: '../schemas/ComponentOfferingAssociation.yaml'
 properties:
-  person:
-    readOnly: true
-    oneOf:
-      - $ref: '../schemas/Identifier.yaml'
-        title: PersonId
-      - $ref: '../schemas/Person.yaml'
-        title: Person
   offering:
+    description: The offering this association is for
     oneOf:
-      - $ref: '../schemas/Identifier.yaml'
-        title: OfferingId
       - $ref: '../schemas/ComponentOffering.yaml'
         title: ComponentOffering
       - $ref: '../schemas/CourseOffering.yaml'
