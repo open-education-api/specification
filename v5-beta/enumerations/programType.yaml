@@ -5,15 +5,11 @@ description: |
   - minor: minor
   - honours: honours
   - specialization: specialisatie
-  - elective: keuzevak
-  - module: module
   - track: track
 enum:
   - program
   - minor
   - honours
   - specialization
-  - elective
-  - module
   - track
 example: program

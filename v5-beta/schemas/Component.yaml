@@ -35,6 +35,8 @@ properties:
     description: The abbreviation of this component
     maxLength: 256
     example: Test-INFOMQNM
+  modeOfDelivery:
+    $ref: '../enumerations/modesOfDelivery.yaml'
   duration:
     type: string
     description: The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
@@ -87,7 +89,7 @@ properties:
       $ref: './LanguageTypedString.yaml'
     description: The extra information that is provided for enrollment
     example:
-      - langauge: en-GB
+      - language: en-GB
         value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
@@ -111,13 +113,15 @@ properties:
       $ref: './Address.yaml'
   otherCodes:
     type: array
-    description: An arry of additional human readable codes/identifiers for the entity being described.
+    description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   consumers:
-    description: The additional consumer elements that can be provided
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   ext:
     $ref: './Ext.yaml'

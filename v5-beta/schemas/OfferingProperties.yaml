@@ -116,13 +116,15 @@ properties:
     example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
   otherCodes:
     type: array
-    description: An arry of additional human readable codes/identifiers for the entity being described.
+    description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   consumers:
-    description: The additional consumer elements that can be provided
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/RIO/V1/examples/Offering.yaml'
   ext:
     $ref: './Ext.yaml'

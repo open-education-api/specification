@@ -4,6 +4,7 @@ description: |
   It is used to aggregate education objects from a supplying institution.
   It clusters programs to a main educationSpecification that is used in registries such as RIO.
 required:
+  - primaryCode
   - educationSpecificationType
   - name
   - startDate
@@ -19,7 +20,7 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-      - codeType: Crebo
+      - codeType: crohoCreboCode
         code: '1234123'
   educationSpecificationType:
     $ref: '../enumerations/educationSpecificationType.yaml'
@@ -82,16 +83,18 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174111
   consumers:
-    description: The additional consumer elements that can be provided
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   validFrom:
-    description: The first day this EducationSpecification is valid.
+    description: The first day this EducationSpecification is valid (inclusive).
     type: string
     format: date
   validTo:
-    description: The day this EducationSpecification ceases to be valid.
+    description: The day this EducationSpecification ceases to be valid (e.g. exclusive).
     type: string
     format: date
   ext:
