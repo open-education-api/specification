@@ -11,15 +11,8 @@ post:
     required: true
     content:
       application/json:
-        schema:  
-          type: object
-          required:
-            - offering
-          properties:
-            association:
-              $ref: '../schemas/AssociationProperties.yaml'
-            offering:
-              $ref: '../schemas/OfferingIdAndType.yaml'
+        schema:
+          $ref: '../schemas/AssociationFull.yaml'
 
 
   responses:

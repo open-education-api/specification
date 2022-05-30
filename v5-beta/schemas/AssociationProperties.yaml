@@ -17,6 +17,8 @@ properties:
     $ref: '../enumerations/associationRole.yaml'
   state:
     $ref: '../enumerations/associationState.yaml'
+  remoteState:
+    $ref: '../enumerations/associationState.yaml'
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array

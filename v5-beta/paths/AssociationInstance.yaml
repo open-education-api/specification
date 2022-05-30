@@ -85,3 +85,59 @@ put:
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
+
+
+patch:
+  summary: PATCH /associations/{associationId}
+  description: Update the status or result of an enrollment.
+  security:
+    - openId:
+      - associations.write
+  tags:
+    - associations
+
+  parameters:
+    - name: associationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          properties:
+            association:
+              type: object
+              description: A relationship between a person object and an offering
+              properties:
+                state:
+                  $ref: '../enumerations/associationState.yaml'
+                result:
+                  oneOf:
+                    - $ref: '../schemas/componentResult.yaml'
+                    - $ref: '../schemas/courseResult.yaml'
+                    - $ref: '../schemas/programResult.yaml'  
+
+
+  responses:
+    '201':
+      description: OK
+      content:
+        application/json:
+          schema:
+            properties:
+              response:
+                allOf:
+                  - $ref: '../schemas/AssociationId.yaml'
+                  - $ref: '../schemas/PostResponse.yaml'
+                  - properties:
+                      state:
+                        $ref: '../enumerations/associationState.yaml' 
+
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'

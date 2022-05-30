@@ -32,6 +32,10 @@ post:
                 allOf:
                   - $ref: '../schemas/AssociationId.yaml'
                   - $ref: '../schemas/PostResponse.yaml'
+                  - properties:
+                      state:
+                        $ref: '../enumerations/associationState.yaml' 
+
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
