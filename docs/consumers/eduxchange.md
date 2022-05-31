@@ -50,6 +50,36 @@ Also the eduxchange consumer object should be added to the array of consumer obj
     - `enrollmentForOwnStudents`: a string indicating which enrollments process should be followed for students of the offering institution. Allowed values are `"broker"` or `"url"`. This attribute is only used if `visibleForOwnStudents` is set to `true`. If `"url"` is chosen the attribute `enrollmentUrl` is mandatory.
     - `enrollmentUrl`: a string formatted as an url to which students will be redirected if `enrollmentForOwnStudents` is set to `"url"`.
 
+### Example
+This is an example of the consumer object for eduXchange. The example reflects the default behaviour for visibility of the `ewuu` and `lde` alliances. The `ewuu` courses are not visible for students from the offering institution. The `lde` minors are visible for student from the offering institution. These students can enroll through the `broker`. 
+
+```
+{
+  "consumer": [
+    {
+      "consumerKey": "eduxchange",
+      "alliances": [
+        {
+          "name": "ewuu",
+          "theme": "Information and Communication Technologies",
+          "selection": false,
+          "type": "broadening",
+          "visibleForOwnStudents": false
+        },
+        {
+          "name": "lde",
+          "theme": "Information and Communication Technologies",
+          "selection": false,
+          "type": "deepening",
+          "visibleForOwnStudents": true,
+          "enrollmentForOwnStudents": "broker"
+        }
+      ]
+    }
+  ]
+}
+```
+
 ## Changes since OOAPI v4
 
 In OOAPI version 5.0 the following changes were made that are relevant for eduXchange and Project Studentmobiliteit. Some of the highlights:
