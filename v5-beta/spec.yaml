@@ -570,8 +570,6 @@ paths:
     $ref: paths/AssociationInstance.yaml
   /associations/me:
     $ref: paths/AssociationInstanceMe.yaml
-  /associations/external:
-    $ref: paths/AssociationInstanceExternal.yaml
   /associations/external/me:
     $ref: paths/AssociationInstanceExternalMe.yaml
   /buildings:

@@ -41,7 +41,7 @@ properties:
     type: array
     items:
       $ref: './LanguageTypedString.yaml'
-    description: The description of this program. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    description: The description of this program. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     example:
       - language: en-GB
         value: program that is a place holder for all courses that are made available for student mobility
