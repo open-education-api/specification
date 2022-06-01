@@ -1,4 +1,5 @@
 * [Introduction](/)
+* [Major changes](major-changes.md)
 * [Historical and future data](historical-and-future-data.md)
 * [Specific consumers](consumers.md)
 ** [RIO](consumers/rio.md)
