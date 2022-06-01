@@ -2,7 +2,7 @@ type: object
 description: |
   The specification of an education object. This specification allows for other education objects to be derived from it.
   It is used to aggregate education objects from a supplying institution.
-  It clusters programs to a main educationSpecification that is used in registries such as RIO.
+  It clusters programs to a main educationSpecification that is used in registries such as RIO. 
 required:
   - primaryCode
   - educationSpecificationType
