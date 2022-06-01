@@ -45,7 +45,7 @@ properties:
     minLength: 3
     maxLength: 3
     pattern: "^[a-z]{3}$"
-    example: dut
+    example: nld
   studyLoad:
     $ref: './studyLoadDescriptor.yaml'
   qualificationAwarded:

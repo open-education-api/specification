@@ -74,7 +74,7 @@ properties:
     minLength: 3
     maxLength: 3
     pattern: "^[a-z]{3}$"
-    example: dut
+    example: nld
   learningOutcomes:
     type: array
     description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome).

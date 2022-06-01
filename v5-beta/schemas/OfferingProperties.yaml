@@ -69,7 +69,7 @@ properties:
     minLength: 3
     maxLength: 3
     pattern: "^[a-z]{3}$"
-    example: dut
+    example: nld
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:

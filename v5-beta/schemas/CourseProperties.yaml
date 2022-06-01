@@ -53,7 +53,7 @@ properties:
     minLength: 3
     maxLength: 3
     pattern: "^[a-z]{3}$"
-    example: dut
+    example: nld
   fieldsOfStudy:
     type: string
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.

@@ -48,7 +48,7 @@ This is a simplified version of the RIO model. It leaves out a lot of details an
   - AangebodenHoOpleidingPeriode
   - AangebodenHoOpleidingsOnderdeelPeriode
   - AangebodenHoParticuliereOpleidingPeriode
-- AangebodenOpleiding, and the following specializations:
+- AangebodenOpleidingCohort, and the following specializations:
   - AangebodenHoOpleidingCohort
   - AangebodenHoOpleidingsonderdeelCohort
   - AangebodenParticuliereOpleidingCohort
@@ -104,7 +104,7 @@ EducationSpecifications can have relations to other EducationSpecifications whic
 | name › nl_NL                                    | » naamLang [1]                       |                                                                  |                                                                                                                                                                                             |
 | abbreviation                                    | » naamKort [0..1]                    |                                                                  |                                                                                                                                                                                             |
 | name › en_**                                    | » internationaleNaam [0..1]          |                                                                  |                                                                                                                                                                                             |
-| description › nl_NL                             | » omschrijving [0..1]                |                                                                  |                                                                                                                                                                                             |
+| description › nl_NL                             | » omschrijving [0..1]                |                                                                  | RIO only allows plain text. OOAPI allows plain text and Markdown. NOTE: if for some reason HTML tags are present, RIO will reject the data.                                                 |
 | studyload › value                               | » studielast [0..1]                  |                                                                  |                                                                                                                                                                                             |
 | studyload › studyLoadUnit                       | » studielasteenheid [0..1]           | [mapping](#studyloadunit-studielasteenheidopleidingsduureenheid) |                                                                                                                                                                                             |
 
@@ -117,14 +117,14 @@ EducationSpecifications can have relations to other EducationSpecifications whic
 | validFrom                                       | beginDatum [1]                             |                                                                  |                                                                                                                                                                                             |
 | validTo                                         | eindDatum [0..1]                           |                                                                  |                                                                                                                                                                                             |
 | educationSpecificationId                        | eigenOpleidingsEenheidSleutel [0..1]       |                                                                  |                                                                                                                                                                                             |
-| consumers › RIO › educationSpecificationSubType | soort [1]                                  |                                                                  | If type is cluster, this will always be set to `HOEC` on the RIO side.                                                                                                                      |
+| consumers › RIO › educationSpecificationSubType | soort [1]                                  |                                                                  | If type is `cluster`, this will always be set to `HOEC`.                                                                                                                                    |
 | fieldsOfStudy                                   | ISCED [0..1]                               |                                                                  |                                                                                                                                                                                             |
 | *timelineOverrides*                             | *HoOnderwijseenhedenclusterPeriode* [1..n] |                                                                  | See also [Historical and future data](historical-and-future-data.md).                                                                                                                       |
 | validFrom or timelineOverrides › startDate      | » beginDatum [1]                           |                                                                  |                                                                                                                                                                                             |
 | name › nl_NL                                    | » naamLang [1]                             |                                                                  |                                                                                                                                                                                             |
 | abbreviation                                    | » naamKort [0..1]                          |                                                                  |                                                                                                                                                                                             |
 | name › en_**                                    | » internationaleNaam [0..1]                |                                                                  |                                                                                                                                                                                             |
-| description › nl_NL                             | » omschrijving [0..1]                      |                                                                  |                                                                                                                                                                                             |
+| description › nl_NL                             | » omschrijving [0..1]                      |                                                                  | RIO only allows plain text. OOAPI allows plain text and Markdown. NOTE: if for some reason HTML tags are present, RIO will reject the data.                                                 |
 | formalDocument                                  | » waardedocumentsoort [0..1]               | [mapping](#formaldocument-waardedocumentsoort)                   |                                                                                                                                                                                             |
 | studyload › value                               | » studielast [0..1]                        |                                                                  |                                                                                                                                                                                             |
 | studyload › studyLoadUnit                       | » studielasteenheid [0..1]                 | [mapping](#studyloadunit-studielasteenheidopleidingsduureenheid) |                                                                                                                                                                                             |
@@ -144,7 +144,7 @@ EducationSpecifications can have relations to other EducationSpecifications whic
 | name › nl_NL                               | » naamLang [1]                       |                                                                  |                                                                                                                                                                                             |
 | abbreviation                               | » naamKort [0..1]                    |                                                                  |                                                                                                                                                                                             |
 | name › en_**                               | » internationaleNaam [0..1]          |                                                                  |                                                                                                                                                                                             |
-| description › nl_NL                        | » omschrijving [0..1]                |                                                                  |                                                                                                                                                                                             |
+| description › nl_NL                        | » omschrijving [0..1]                |                                                                  | RIO only allows plain text. OOAPI allows plain text and Markdown. NOTE: if for some reason HTML tags are present, RIO will reject the data.                                                 |
 | formalDocument                             | » waardedocumentsoort [0..1]         | [mapping](#formaldocument-waardedocumentsoort)                   |                                                                                                                                                                                             |
 | studyload › value                          | » studielast [0..1]                  |                                                                  |                                                                                                                                                                                             |
 | studyload › studyLoadUnit                  | » studielasteenheid [0..1]           | [mapping](#studyloadunit-studielasteenheidopleidingsduureenheid) |                                                                                                                                                                                             |
@@ -167,7 +167,7 @@ EducationSpecifications can have relations to other EducationSpecifications whic
 | name › nl_NL                               | » naamLang [1]                        |                                                                  |                                                                                                                                                                                             |
 | abbreviation                               | » naamKort [0..1]                     |                                                                  |                                                                                                                                                                                             |
 | name › en**                                | » internationaleNaam [0..1]           |                                                                  |                                                                                                                                                                                             |
-| description › nl_NL                        | » omschrijving [0..1]                 |                                                                  |                                                                                                                                                                                             |
+| description › nl_NL                        | » omschrijving [0..1]                 |                                                                  | RIO only allows plain text. OOAPI allows plain text and Markdown. NOTE: if for some reason HTML tags are present, RIO will reject the data.                                                 |
 | studyload › value                          | » studielast [0..1]                   |                                                                  |                                                                                                                                                                                             |
 | studyload › studyLoadUnit                  | » studielasteenheid [0..1]            | [mapping](#studyloadunit-studielasteenheidopleidingsduureenheid) |                                                                                                                                                                                             |
 
@@ -210,7 +210,7 @@ Notes:
 | validFrom or timelineOverrides › startDate          | » begindatum [1]                             |                                                              |                                                                                                                                                                |
 | name › nl_NL                                        | » eigenNaamAangebodenOpleiding [0..1]        |                                                              |                                                                                                                                                                |
 | name › en_**                                        | » eigenNaamInternationaal [0..1]             |                                                              |                                                                                                                                                                |
-| description › nl_NL                                 | » eigenOmschrijving [0..1]                   |                                                              |                                                                                                                                                                |
+| description › nl_NL                                 | » eigenOmschrijving [0..1]                   |                                                              | RIO only allows plain text. OOAPI allows plain text and Markdown. NOTE: if for some reason HTML tags are present, RIO will reject the data.                    |
 | consumers › RIO › jointPartnerCodes                 | » samenwerkendeOnderwijsaanbiedercode [0..n] |                                                              |                                                                                                                                                                |
 | consumers › RIO › deficiency                        | » deficientie [0..1]                         | [mapping](#deficiency-deficientie)                           |                                                                                                                                                                |
 | consumers › RIO › acceleratedRoute                  | » versneldTraject [0..1]                     | [mapping](#acceleratedroute-versneldtraject)                 |                                                                                                                                                                |
@@ -246,7 +246,7 @@ Notes:
 | validFrom or timelineOverrides › startDate          | » begindatum [1]                                |                                                              |                                                                                                                                                                |
 | name › nl_NL                                        | » eigenNaamAangebodenOpleiding [0..1]           |                                                              |                                                                                                                                                                |
 | name › en_**                                        | » eigenNaamInternationaal [0..1]                |                                                              |                                                                                                                                                                |
-| description › nl_NL                                 | » eigenOmschrijving [0..1]                      |                                                              |                                                                                                                                                                |
+| description › nl_NL                                 | » eigenOmschrijving [0..1]                      |                                                              | RIO only allows plain text. OOAPI allows plain text and Markdown. NOTE: if for some reason HTML tags are present, RIO will reject the data.                    |
 | consumers › RIO › jointPartnerCodes                 | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                                                                                |
 | abbreviation                                        | » eigenNaamKort [0..1]                          |                                                              |                                                                                                                                                                |
 | consumers › RIO › foreignPartners                   | » buitenlandsePartner [0..n]                    |                                                              |                                                                                                                                                                |
@@ -277,7 +277,7 @@ Notes:
 | validFrom or timelineOverrides › startDate          | » begindatum [1]                                |                                                              |                                                                                                                                                                |
 | name › nl_NL                                        | » eigenNaamAangebodenOpleiding [0..1]           |                                                              |                                                                                                                                                                |
 | name › en_**                                        | » eigenNaamInternationaal [0..1]                |                                                              |                                                                                                                                                                |
-| description › nl_NL                                 | » eigenOmschrijving [0..1]                      |                                                              |                                                                                                                                                                |
+| description › nl_NL                                 | » eigenOmschrijving [0..1]                      |                                                              | RIO only allows plain text. OOAPI allows plain text and Markdown. NOTE: if for some reason HTML tags are present, RIO will reject the data.                    |
 | consumers › RIO › jointPartnerCodes                 | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                                                                                |
 | link                                                | » website [0..1]                                |                                                              |                                                                                                                                                                |
 
@@ -309,7 +309,7 @@ Notes:
 | validFrom or timelineOverrides › startDate          | » begindatum [1]                                |                                                              |                                                                                                                                                                |
 | name › nl_NL                                        | » eigenNaamAangebodenOpleiding [0..1]           |                                                              |                                                                                                                                                                |
 | name › en_**                                        | » eigenNaamInternationaal [0..1]                |                                                              |                                                                                                                                                                |
-| description › nl_NL                                 | » eigenOmschrijving [0..1]                      |                                                              |                                                                                                                                                                |
+| description › nl_NL                                 | » eigenOmschrijving [0..1]                      |                                                              | RIO only allows plain text. OOAPI allows plain text and Markdown. NOTE: if for some reason HTML tags are present, RIO will reject the data.                    |
 | consumers › RIO › jointPartnerCodes                 | » samenwerkendeOnderwijsaanbiedercode [0..n]    |                                                              |                                                                                                                                                                |
 | abbreviation                                        | » eigenNaamKort [0..1]                          |                                                              |                                                                                                                                                                |
 | consumers › RIO › foreignPartners                   | » buitenlandsePartner [0..n]                    |                                                              |                                                                                                                                                                |
@@ -448,26 +448,26 @@ The following level cannot be mapped from OOAPI to RIO:
 
 See also [this overview of language tags](https://www.loc.gov/standards/iso639-2/php/English_list.php).
 
-| teachingLanguage                 | voertaal |
-| -------------------------------- | -------- |
-| ara                              | ARA      |
-| chi, zho                         | CHI      |
-| gsw, ger deu, nds, gmh, goh, gem | DEU      |
-| cpe, eng, enm, ang               | ENG      |
-| fre, fra, frm, fro, cpf          | FRA      |
-| hrv                              | HRV      |
-| ita                              | ITA      |
-| jpn                              | JPN      |
-| dut, nld, dum                    | NLD      |
-| nor, nno, nob, nog, non          | NOR      |
-| pap                              | PAP      |
-| pol                              | POL      |
-| por                              | POR      |
-| rum, ron                         | RON      |
-| rus                              | RUS      |
-| spa                              | SPA      |
-| swe                              | SWE      |
-| tur, ota                         | TUR      |
+| teachingLanguage | voertaal |
+| ---------------- | -------- |
+| ara              | ARA      |
+| chi              | CHI      |
+| deu              | DEU      |
+| eng              | ENG      |
+| fra              | FRA      |
+| hrv              | HRV      |
+| ita              | ITA      |
+| jpn              | JPN      |
+| nld              | NLD      |
+| nor              | NOR      |
+| pap              | PAP      |
+| pol              | POL      |
+| por              | POR      |
+| ron              | RON      |
+| rus              | RUS      |
+| spa              | SPA      |
+| swe              | SWE      |
+| tur              | TUR      |
 
 ### deficiency › deficientie
 
