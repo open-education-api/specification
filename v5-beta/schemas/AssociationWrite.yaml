@@ -1,11 +1,3 @@
-# oneOf:
-#   - $ref: '../schemas/ComponentOfferingAssociation.yaml'
-#   - $ref: '../schemas/CourseOfferingAssociation.yaml'
-#   - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-
-
-
-
 oneOf:
   - $ref: '../schemas/ProgramOfferingAssociation.yaml'
   - $ref: '../schemas/CourseOfferingAssociation.yaml'

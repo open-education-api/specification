@@ -571,8 +571,8 @@ paths:
     $ref: paths/OfferingInstance.yaml
   /offerings/{offeringId}/associations:
     $ref: paths/OfferingAssociationCollection.yaml
-  /offerings/{offeringId}/associations/external:
-    $ref: paths/OfferingAssociationInstanceExternal.yaml
+  /offerings/{offeringId}/associations/me:
+    $ref: paths/OfferingAssociationInstanceMe.yaml
   /offerings/{offeringId}/groups:
     $ref: paths/OfferingGroupCollection.yaml
   /associations/{associationId}:

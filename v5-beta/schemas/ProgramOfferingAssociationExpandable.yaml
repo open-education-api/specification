@@ -1,8 +1,6 @@
 allOf:
   - $ref: './Association.yaml'
   - type: object
-    required:
-      - person 
     properties:
       result:
         $ref: './ProgramResult.yaml'
