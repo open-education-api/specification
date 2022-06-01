@@ -22,9 +22,9 @@ get:
       required: false
       schema:
         $ref: '../enumerations/modeOfStudy.yaml'
-    - name: isLineItem
+    - name: resultExpected
       in: query
-      description: Filter by isLineItem
+      description: Filter by resultExpected
       required: false
       schema:
         type: boolean

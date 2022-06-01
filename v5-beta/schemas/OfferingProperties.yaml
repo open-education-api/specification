@@ -6,7 +6,7 @@ required:
   - name
   - description
   - teachingLanguage
-  - isLineItem
+  - resultExpected
 properties:
   primaryCode:
     description: The primary human readable identifier for this offering. This is often the source identifier as defined by the institution.
@@ -93,12 +93,12 @@ properties:
     format: int32
     minimum: 0
     example: 15
-  isLineItem:
+  resultExpected:
     type: boolean
     description: |
-      isLineItems is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
+      resultExpected, previously knwon as isLineItem is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
       Offerings do not always have to result in a grade or an other type of result. 
-      If there is a result expected from a programOffering/courseOffering/componentOffering the is isLineItem field should parse true
+      If there is a result expected from a programOffering/courseOffering/componentOffering the is resultExpected field should parse true
     example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
