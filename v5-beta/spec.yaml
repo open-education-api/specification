@@ -55,14 +55,20 @@ tags:
         </tr>
         <tr>
          <td>internal</td>
-         <td>POST <a href="#tag/offerings/paths/~1offerings~1{offeringId}~1associations~1external/post">/offerings/{offeringId}/associations/me</a> local enrollment based on selected offering</td>
-         <td>POST <a href="#tag/associations/paths/~1associations~1external~1me/post">/associations/external/me</a> gets student details from .wellknown uses offering details (provided by external institution)</td>
+         <td>POST <a href="#tag/offerings/paths/~1offerings~1{offeringId}~1associations~1external/post">/offerings/{offeringId}/associations/me</a> local enrollment based on selected offering
+          This call will allow for a local student using his .wellknown credentials to enroll for the offering identified by the offeringId
+          <br>Alternatively the association can also be created through POST <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a>
+         </td>
+         <td>POST <a href="#tag/associations/paths/~1associations~1external~1me/post">/associations/external/me</a> gets student details from .wellknown at home institution. It passes offering details (provided by external institution) to the home institution so the home institution can create a placeholder for the offering and its results. 
+         </td>
         </tr>
         <tr>
          <td>external</td>
          <td>
-          POST <a href="#tag/associations/paths/~1associations~1external/post">/associations/external/</a> requires full student details and offering details
-          <br> or alternatively:
+          This method is not yet implemented it requires full student details and offering details. This would mean the 
+          OOAPI message would contain more than one resource in the message. At the moment the student mobility project is looking into
+          a sollution.
+          <br> Alternatively it could be achieved through using two calls:
           <ul>
            <li>create student with POST <a href="#tag/persons/paths/~1persons~1{personId}/post">/persons</a></li>
            <li><a href="#tag/offerings/paths/~1offerings~1{offeringId}~1associations~1external/post">/offerings/{offeringId}/associations/me</a></li>
@@ -72,7 +78,10 @@ tags:
          <td>no support needed</td>
         </tr>
       </table>
-      direct update of current information: <a href="#tag/associations/paths/~1associations~1{associationId}/put"> PUT /associations/{associationId}</a>
+      Direct update of current information: <a href="#tag/associations/paths/~1associations~1{associationId}/patch"> PATCH /associations/{associationId}</a>
+      This call is currently limited to passing results and a remote state. For future use other association resource information could be passed. 
+      More information on the support for student mobility can be found 
+      <a href="https://swimlanes.io/d/s5mfpj7Si">here</a>
 
   - name: buildings
     description: The building API provides a building that is currently used by the organization. Including all location details.
