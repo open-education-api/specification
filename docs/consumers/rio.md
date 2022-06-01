@@ -448,26 +448,26 @@ The following level cannot be mapped from OOAPI to RIO:
 
 See also [this overview of language tags](https://www.loc.gov/standards/iso639-2/php/English_list.php).
 
-| teachingLanguage                       | voertaal |
-| -------------------------------------- | -------- |
-| ar*                                    | ARA      |
-| chi*, zho*, zh*                        | CHI      |
-| gsw*, ger* de*, nds*, gmh*, goh*, gem* | DEU      |
-| cpe* en*, enm*, ang*                   | ENG      |
-| fr*, frm*, fro*, cpf*                  | FRA      |
-| hr*                                    | HRV      |
-| it*                                    | ITA      |
-| jpn*, ja*, jav*, jv*                   | JPN      |
-| dut*, nl*, dum*                        | NLD      |
-| no*, nb*, nn*                          | NOR      |
-| pap*                                   | PAP      |
-| pol*, pl*                              | POL      |
-| por*, pt*                              | POR      |
-| rum*, ro*                              | RON      |
-| ru*                                    | RUS      |
-| spa*, es*                              | SPA      |
-| swe*, sv*                              | SWE      |
-| tur*, tr*, ota*, tuk*, tk*             | TUR      |
+| teachingLanguage                 | voertaal |
+| -------------------------------- | -------- |
+| ara                              | ARA      |
+| chi, zho                         | CHI      |
+| gsw, ger deu, nds, gmh, goh, gem | DEU      |
+| cpe, eng, enm, ang               | ENG      |
+| fre, fra, frm, fro, cpf          | FRA      |
+| hrv                              | HRV      |
+| ita                              | ITA      |
+| jpn                              | JPN      |
+| dut, nld, dum                    | NLD      |
+| nor, nno, nob, nog, non          | NOR      |
+| pap                              | PAP      |
+| pol                              | POL      |
+| por                              | POR      |
+| rum, ron                         | RON      |
+| rus                              | RUS      |
+| spa                              | SPA      |
+| swe                              | SWE      |
+| tur, ota                         | TUR      |
 
 ### deficiency › deficientie
 
