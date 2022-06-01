@@ -6,7 +6,7 @@ post:
     The offering can either be identified by an offeringId if known or the full offering details. 
   security:
     - openId:
-      - associations.write
+      - associations:external:me.write
   tags:
     - associations
 

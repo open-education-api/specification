@@ -13,9 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ext objects to all collection endpoints
 - #158 Improve error responses to make them more semantically correct
 - associations/me endpoint with OIDC security information
-- associations/external endpoint
 - associations/external/me endpoint
-- PUT associations/{id} endpoint
+- PATCH associations/{id} endpoint
 - persons POST endpoint
 - explanation on associations
 - extra attribute on results

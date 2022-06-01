@@ -45,51 +45,16 @@ get:
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
 
-put:
-  summary: PUT /associations/{associationId}
-  description: Update on a local enrollment to pass a grade or status.
-  security:
-    - openId:
-      - associations.write
-  tags:
-    - associations
-
-  parameters:
-    - name: associationId
-      in: path
-      description: The id of the association to update
-      required: true
-      schema:
-        type: string
-        format: uuid
-
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '../schemas/AssociationWrite.yaml'
-
-
-  responses:
-    '201':
-      description: OK
-      content:
-        application/json:
-          schema:
-            properties:
-              response:
-                allOf:
-                  - $ref: '../schemas/AssociationId.yaml'
-                  - $ref: '../schemas/PostResponse.yaml'
-
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
 
 
 patch:
   summary: PATCH /associations/{associationId}
-  description: Update the status or result of an enrollment.
+  description: |
+    Update the status or result of an enrollment. Other elements of the association object COULD 
+    also be PATCHED. But are not likely and have therefor not been included in this endpoint.
+    Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
+    a specialized media type `application/merge-patch+json` for partial resource representation 
+    to update parts of resource objects.
   security:
     - openId:
       - associations.write
@@ -115,7 +80,7 @@ patch:
               type: object
               description: A relationship between a person object and an offering
               properties:
-                state:
+                remoteState:
                   $ref: '../enumerations/associationState.yaml'
                 result:
                   oneOf:
