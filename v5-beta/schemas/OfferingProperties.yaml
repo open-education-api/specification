@@ -14,6 +14,7 @@ properties:
     example:
       codeType: offeringCode
       code: INFOMQNM-20FS
+    readOnly: true
   offeringType:
     type: string
     description: The type of this offering

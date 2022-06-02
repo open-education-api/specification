@@ -1,7 +1,7 @@
 post:
   summary: POST offerings/{offeringId}/associations/me
   description: |
-    POST a single association enroll a person based on hte .wellknown information of the person at the institution. The offingId is provided through in path information. 
+    POST a single association to enroll a person based on hte .wellknown information of the person at the institution. The offeringId is provided in the path. 
   security:
     - openId:
       - associations:me.write

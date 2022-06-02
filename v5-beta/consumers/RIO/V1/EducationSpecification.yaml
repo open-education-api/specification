@@ -11,5 +11,4 @@ properties:
         - *...*: if the subtype attribute is absent, the program maps to a HoOpleiding of 'soort' `OPLEIDING`
     enum:
       - variant
-      - program
     example: program

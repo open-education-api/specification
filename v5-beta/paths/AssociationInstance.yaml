@@ -73,36 +73,29 @@ patch:
   requestBody:
     required: true
     content:
-      application/json:
+      application/merge-patch+json:
         schema:
           properties:
-            association:
-              type: object
-              description: A relationship between a person object and an offering
-              properties:
-                remoteState:
-                  $ref: '../enumerations/associationState.yaml'
-                result:
-                  oneOf:
-                    - $ref: '../schemas/componentResult.yaml'
-                    - $ref: '../schemas/courseResult.yaml'
-                    - $ref: '../schemas/programResult.yaml'  
-
+            remoteState:
+              $ref: '../enumerations/remoteAssociationState.yaml'
+            result:
+              oneOf:
+                - $ref: '../schemas/componentResult.yaml'
+                - $ref: '../schemas/courseResult.yaml'
+                - $ref: '../schemas/programResult.yaml'  
 
   responses:
-    '201':
+    '200':
       description: OK
       content:
         application/json:
           schema:
-            properties:
-              response:
-                allOf:
-                  - $ref: '../schemas/AssociationId.yaml'
-                  - $ref: '../schemas/PostResponse.yaml'
-                  - properties:
-                      state:
-                        $ref: '../enumerations/associationState.yaml' 
+            allOf:
+              - $ref: '../schemas/AssociationId.yaml'
+              - $ref: '../schemas/PostResponse.yaml'
+              - properties:
+                  state:
+                    $ref: '../enumerations/associationState.yaml' 
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'

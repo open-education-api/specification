@@ -11,6 +11,7 @@ properties:
   primaryCode:
     description: The primary human readable identifier for this course. This is often the source identifier as defined by the institution.
     $ref: './IdentifierEntry.yaml'
+    readOnly: true
   name:
     type: array
     description: The name of this course (ECTS-title)

@@ -41,3 +41,6 @@ allOf:
           $ref: './Cost.yaml'
       room:
         $ref: './Room.yaml'
+      component:
+        $ref: './Component.yaml'
+        writeOnly: true

@@ -44,3 +44,6 @@ allOf:
         description: Price information for this offering.
         items:
           $ref: './Cost.yaml'
+      course:
+        $ref: './Course.yaml'
+        writeOnly: true

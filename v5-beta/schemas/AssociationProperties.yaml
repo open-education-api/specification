@@ -13,12 +13,15 @@ properties:
       - courseOfferingAssociation
       - componentOfferingAssociation
     example: componentOfferingAssociation
+    readOnly: true
   role:
     $ref: '../enumerations/associationRole.yaml'
   state:
     $ref: '../enumerations/associationState.yaml'
+    readOnly: true
   remoteState:
-    $ref: '../enumerations/associationState.yaml'
+    $ref: '../enumerations/remoteAssociationState.yaml'
+    writeOnly: true
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array

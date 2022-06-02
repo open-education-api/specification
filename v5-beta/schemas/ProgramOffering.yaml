@@ -45,3 +45,6 @@ allOf:
         items:
           $ref: './Cost.yaml'
         minItems: 1
+      program:
+        $ref: './Program.yaml'
+        writeOnly: true

@@ -8,3 +8,4 @@ properties:
     description: Unique id of this course
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+    readOnly: true
