@@ -71,19 +71,10 @@ get:
                   items:
                     type: array
                     items:
-                      allOf:
-                        - oneOf:
-                            - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-                            - $ref: '../schemas/CourseOfferingAssociation.yaml'
-                            - $ref: '../schemas/ComponentOfferingAssociation.yaml'
-                        - type: object
-                          required:
-                            - person
-                          properties:
-                            person:
-                              $ref: '../schemas/Person.yaml'
-                            academicSession:
-                              $ref: '../schemas/AcademicSession.yaml'
+                      oneOf:
+                        - $ref: '../schemas/ProgramOfferingAssociationExpandable.yaml'
+                        - $ref: '../schemas/CourseOfferingAssociationExpandable.yaml'
+                        - $ref: '../schemas/ComponentOfferingAssociationExpandable.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

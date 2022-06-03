@@ -1,7 +1,5 @@
 # Open Education API Specification
 
-![Open Education API](logo.png)
-
 This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (fka Swagger) specification for the [Open Education API](https://openonderwijsapi.nl/en/).
 
 * [Versions](#versions)

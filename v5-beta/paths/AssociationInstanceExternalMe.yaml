@@ -1,7 +1,8 @@
 post:
   summary: POST /associations/external/me
   description: |
-    POST a single association enroll a person based on person information obtained from .wellknown endpoint and an offering. 
+    POST a single association enroll a person based on person information obtained from .wellknown endpoint, an offering, 
+    and the organization/type=root information form the organization that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
   security:
     - openId:
@@ -13,34 +14,28 @@ post:
     required: true
     content:
       application/json:
-        schema:  
-          type: object
-          properties:
-            issuer:
-              $ref: '../schemas/Organization.yaml'            
-            associationItem:
-              $ref: '../schemas/AssociationProperties.yaml'
-            offering:
-              oneOf:
-                - $ref: '../schemas/ComponentOfferingExpanded.yaml'
-                - $ref: '../schemas/CourseOfferingExpanded.yaml'
-                - $ref: '../schemas/ProgramOfferingExpanded.yaml'
+        schema:
+          required:
+            - remoteState
+          allOf:
+          - $ref: '../schemas/AssociationWrite.yaml'
+          - properties:
+              issuer:
+                $ref: '../schemas/Organization.yaml'
 
   responses:
     '201':
-      description: OK
+      description: CREATED
       content:
         application/json:
           schema:
-            properties:
-              response:
-                allOf:
-                  - $ref: '../schemas/AssociationId.yaml'
-                  - $ref: '../schemas/PostResponse.yaml'
+            allOf:
+              - $ref: '../schemas/AssociationId.yaml'
+              - $ref: '../schemas/PostResponse.yaml'
+              - properties:
+                  state:
+                    $ref: '../enumerations/associationState.yaml' 
+
 
     '400':
-      description: Bad Request
-      content:
-        application/problem+json:
-          schema:
-            $ref: '../schemas/Problem.yaml'
+      $ref: '../schemas/ErrorBadRequest.yaml'

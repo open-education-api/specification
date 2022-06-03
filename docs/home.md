@@ -1,3 +1,5 @@
-# Open Onderwijs API
+[comment]: <> (# Open Education API Specification information rendered from README.md)
 
-## API reference
+![Open Education API](./_media/ooapi-logo.png)
+
+[filename](../README.md ':include')

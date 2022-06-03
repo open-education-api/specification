@@ -26,9 +26,9 @@ get:
           - program
           - course
           - component
-    - name: isLineItem
+    - name: resultExpected
       in: query
-      description: Filter by isLineItem
+      description: Filter by resultExpected
       required: false
       schema:
         type: boolean

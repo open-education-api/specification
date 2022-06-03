@@ -11,6 +11,7 @@ properties:
   primaryCode:
     description: The primary human readable identifier for this course. This is often the source identifier as defined by the institution.
     $ref: './IdentifierEntry.yaml'
+    readOnly: true
   name:
     type: array
     description: The name of this course (ECTS-title)
@@ -89,7 +90,7 @@ properties:
     description: The extra information that is provided for enrollment
     example:
       - language: en-GB
-        value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+        value: enrollment through SIS. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
     description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
