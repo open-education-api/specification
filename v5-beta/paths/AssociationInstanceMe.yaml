@@ -17,15 +17,13 @@ post:
 
   responses:
     '201':
-      description: OK
+      description: CREATED
       content:
         application/json:
           schema:
-            properties:
-              response:
-                allOf:
-                  - $ref: '../schemas/AssociationId.yaml'
-                  - $ref: '../schemas/PostResponse.yaml'
+            allOf:
+              - $ref: '../schemas/AssociationId.yaml'
+              - $ref: '../schemas/PostResponse.yaml'
 
     '400':
       description: Bad Request
