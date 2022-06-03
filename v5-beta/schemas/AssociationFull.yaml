@@ -11,13 +11,13 @@ properties:
     readOnly: true
     oneOf:
       - $ref: '../schemas/Identifier.yaml'
-        title: PersonId
+        title: personId
       - $ref: '../schemas/Person.yaml'
         title: Person
   offering:
     oneOf:
       - $ref: '../schemas/Identifier.yaml'
-        title: OfferingId
+        title: offeringId
       - $ref: '../schemas/ComponentOffering.yaml'
         title: ComponentOffering
       - $ref: '../schemas/CourseOffering.yaml'
