@@ -27,7 +27,7 @@ properties:
     maxLength: 256
     example: INFOMQNM
   studyLoad:
-    $ref: './studyLoadDescriptor.yaml'
+    $ref: './StudyLoadDescriptor.yaml'
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   duration:
