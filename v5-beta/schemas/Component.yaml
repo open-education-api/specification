@@ -72,8 +72,11 @@ properties:
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
   teachingLanguage:
     type: string
-    description: The teaching language in which this component is given. A string formatted according to RFC3066.
-    example: nl-NL
+    description: The (primary) teaching language in which this component is given, should be a three-letter language code as specified by ISO 639-2.
+    minLength: 3
+    maxLength: 3
+    pattern: "^[a-z]{3}$"
+    example: nld
   learningOutcomes:
     type: array
     description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome).

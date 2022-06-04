@@ -42,8 +42,11 @@ properties:
       value: The study of life
   teachingLanguage:
     type: string
-    description: The main language in which this program is given. A string formatted according to RFC3066.
-    example: nl-NL
+    description: The (primary) teaching language in which this program is given, should be a three-letter language code as specified by ISO 639-2.
+    minLength: 3
+    maxLength: 3
+    pattern: "^[a-z]{3}$"
+    example: nld
   studyLoad:
     $ref: './StudyLoadDescriptor.yaml'
   qualificationAwarded:

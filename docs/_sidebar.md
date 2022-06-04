@@ -1,4 +1,5 @@
 * [Introduction](/)
+* [Major changes](major-changes.md)
 * [About identifiers](identifiers.md)
 * [Expanding responses](expanding-responses.md)
 * [Filtering responses](filtering-responses.md)

@@ -66,8 +66,11 @@ properties:
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
   teachingLanguage:
     type: string
-    description: The main language in which the courses within this program are given, RFC3066
-    example: nl-NL
+    description: The (primary) teaching language in which this offering is given, should be a three-letter language code as specified by ISO 639-2.
+    minLength: 3
+    maxLength: 3
+    pattern: "^[a-z]{3}$"
+    example: nld
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:
