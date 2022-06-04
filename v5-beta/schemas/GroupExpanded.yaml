@@ -4,5 +4,6 @@ allOf:
     description: These properties are only present when explicitly included. This allows for categorizing of groups
     properties:
       organization:
-        description: The organization providing the current group
-        $ref: './Organization.yaml'
+        allOf: # Use allOf to make sure description renders
+          - $ref: './Organization.yaml'
+          - description: The organization providing this group

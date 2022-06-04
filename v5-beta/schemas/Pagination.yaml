@@ -16,6 +16,7 @@ properties:
     format: int32
     description: The current page number
     example: 1
+    minimum: 1
   hasPreviousPage:
     type: boolean
     description: Whether there is a previous page

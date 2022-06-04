@@ -4,8 +4,10 @@ allOf:
     description: These properties are only present when explicitly included
     properties:
       course:
-        description: The course of which this component is a part
-        $ref: './Course.yaml'
+        allOf: # Use allOf to make sure description renders
+          - $ref: './Course.yaml'
+          - description: The course of which this component is a part
       organization:
-        description: Organization which provides this component
-        $ref: './Organization.yaml'
+        allOf: # Use allOf to make sure description renders
+          - $ref: './Organization.yaml'
+          - description: Organization which provides this component
