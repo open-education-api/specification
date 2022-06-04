@@ -13,12 +13,14 @@ properties:
     description: Unique id of this component
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+    readOnly: true
   primaryCode:
     description: The primary human readable identifier for this component. This is often the source identifier as defined by the institution.
     $ref: './IdentifierEntry.yaml'
     example:
       codeType: componentCode
       code: INFOMQNM-WRKCLG-1
+    readOnly: true
   componentType:
     $ref: '../enumerations/componentType.yaml'
   name:
@@ -93,7 +95,7 @@ properties:
     description: The extra information that is provided for enrollment
     example:
       - language: en-GB
-        value: enrollment through SIS. [Our internal Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+        value: enrollment through SIS. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
     description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)

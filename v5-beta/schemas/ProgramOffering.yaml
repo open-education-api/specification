@@ -18,12 +18,12 @@ allOf:
         example: 2023-06-15
       enrollStartDate:
         type: string
-        description: The first day on which a prospective student can enroll for this program.
+        description: The first day on which a student can enroll for this program.
         format: date
         example: 2019-05-01
       enrollEndDate:
         type: string
-        description: The last day on which a prospective student can enroll for this program.
+        description: The last day on which a student can enroll for this program.
         format: date
         example: 2019-08-01
       flexibleEntryPeriodStart:
@@ -45,3 +45,6 @@ allOf:
         items:
           $ref: './Cost.yaml'
         minItems: 1
+      program:
+        $ref: './Program.yaml'
+        writeOnly: true

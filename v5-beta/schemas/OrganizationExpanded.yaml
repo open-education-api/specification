@@ -4,8 +4,11 @@ allOf:
     description: These properties are only present when explicitly included
     properties:
       parent:
-        $ref: './Organization.yaml'
+        allOf: # Use allOf to make sure description renders
+          - $ref: './Organization.yaml'
+          - description: "The organizational unit which is the parent of this organization"
       children:
         type: array
+        description: "All the organizational units for which this organization is the parent"
         items:
           $ref: './Organization.yaml'

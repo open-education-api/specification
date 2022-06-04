@@ -12,9 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved explanation on Markdown
 - ext objects to all collection endpoints
 - #158 Improve error responses to make them more semantically correct
-- associations/me endpoint with OIDC security information
-- associations/external endpoint
-- associations/external/me endpoint
+- associations/external/me endpoint endpoint with OIDC security information
+- PATCH associations/{id} endpoint
 - persons POST endpoint
 - explanation on associations
 - extra attribute on results
@@ -30,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - #164 Add `addresses` to Program, Course, Offering and Component schema's
 - added group functionality to OOAPI
 - Adds consumer functionality to all entities, including a query parameter to request entities meant for a specific consumer
+- added implementation for RIO consumer in EducationSpecification
 - Adds timelineOverride functionality to EducationSpecification, Course and Program. This mechanism allows implementations to communicate about historic and future versions of entities.
 - Added `/programs/{programId}/programs` endpoint
 - Adds `modeOfStudy` to Program.
@@ -44,6 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds the attribute `link` to Offerings
 - Adds the attribute `learningOutcomes` to component
 - Adds the attribute `fieldsOfStudy` to Course
+- include README.md into documentation webiste
 - Adds the attribute `level` to Program.
 - Make the enumeration of AcademicSession `type` extensible and add the following options: `trimester`, `quarter` and `testing period`.
 - Adds the attribute `activeEnrollment` to Person.
@@ -62,9 +63,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed the enums `alliance`, `elective`, `module` and `joint-degree` from `programTypes`. These values described properties of programs (or courses) that are independent of the type of the program. Therefore they have been removed.
 - Split course requirements into admissionRequirements and qualificationRequirements
 - Renamed option `year` of the AcademicSession `type` enumeration to `academicYear` to clarify what is meant.
+- renamed isLineItem to resultExpected to improve understandability of the specification
 
 ### Removed
 - Removed the attribute `profileOfProgram` from Program, because it was effectively a duplicate of `description`.
+- Removed 404 responses for paths that return a collection.
+- #157 removed `crohoCreboCode` from Program and `brin` from Organization. Use the new otherCode schema for this.
+- Removed the enums `alliance` and `joint-degree` from `programTypes`. These values described properties of programs that are independent of the type of the program. Therefore they have been removed.
 - Removed the Accept-Language header from all requests. It is superseded by the new LanguageTypedStrings which always return text in all available languages.
 - Removed the attribute `modeOfStudy` from ProgramOffering and CourseOffering.
 - Removed option `term` of the AcademicSession `type` enumeration because term is a synonym for Academic session, so all sessions are terms.

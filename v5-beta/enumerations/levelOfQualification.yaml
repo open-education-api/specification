@@ -1,5 +1,5 @@
 type: string
-description: Level of qualification according to the National Qualification Framework and the European Qualifications Framework
+description: Level of qualification according to the Dutch National Qualification Framework and the European Qualifications Framework, see [this overview](https://nlqf.nl/images/downloads/English2018/Schematic_overview_NLQF_2020.pdf) for more information.
 enum:
   - '1'
   - '2'

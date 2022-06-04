@@ -16,9 +16,9 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: isLineItem
+    - name: resultExpected
       in: query
-      description: Filter by isLineItem
+      description: Filter by resultExpected
       required: false
       schema:
         type: boolean

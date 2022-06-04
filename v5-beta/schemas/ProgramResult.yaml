@@ -2,10 +2,7 @@ allOf:
   - $ref: './Result.yaml'
   - type: object
     required:
-      - ects
+      - studyLoad
     properties:
-      ects:
-        type: number
-        description: The number of EC's that have been earned to the current moment
-        minimum: 0
-        example: 15
+      studyLoad:
+        $ref: './StudyLoadDescriptor.yaml'
