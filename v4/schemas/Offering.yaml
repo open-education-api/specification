@@ -6,7 +6,7 @@ required:
   - name
   - description
   - mainLanguage
-  - isLineItem
+  - resultExpected
 properties:
   offeringId:
     type: string
@@ -74,9 +74,9 @@ properties:
     format: int32
     minimum: 0
     example: 50
-  isLineItem:
+  resultExpected:
     type: boolean
-    description: Whether the offering is a line item or not
+    description: Whether the offering will summarized in a result previously known as a line-item
     example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'

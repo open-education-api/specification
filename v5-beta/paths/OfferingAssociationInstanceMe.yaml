@@ -1,19 +1,27 @@
 post:
-  summary: POST /associations/me
-  description: POST a single association to enroll a person based on person information obtained from .wellknown endpoint and an offering. The offering can either be identified by an offeringId if known or the full offering details.
+  summary: POST offerings/{offeringId}/associations/me
+  description: |
+    POST a single association to enroll a person based on hte .wellknown information of the person at the institution. The offeringId is provided in the path. 
   security:
     - openId:
       - associations:me.write
   tags:
-    - associations
+    - offerings
+  parameters:
+    - name: offeringId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
 
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../schemas/AssociationFull.yaml'
-
+          $ref: '../schemas/AssociationProperties.yaml'
 
   responses:
     '201':

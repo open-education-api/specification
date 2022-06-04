@@ -1,0 +1,3 @@
+  - oneOf:
+      - $ref: '../schemas/ComponentOffering.yaml'
+      - $ref: '../schemas/ComponentOfferingExpanded.yaml'

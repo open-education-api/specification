@@ -34,9 +34,14 @@ get:
         application/json:
           schema:
             oneOf:
-              - $ref: '../schemas/ProgramOfferingExpanded.yaml'
               - $ref: '../schemas/CourseOfferingExpanded.yaml'
+                title: courseOffering
               - $ref: '../schemas/ComponentOfferingExpanded.yaml'
+                title: componentOffering
+              - $ref: '../schemas/ProgramOfferingExpanded.yaml'
+                title: programOffering
+
+              
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

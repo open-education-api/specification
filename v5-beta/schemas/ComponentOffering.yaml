@@ -17,11 +17,11 @@ allOf:
         example: 2020-12-16
       enrollStartDate:
         type: string
-        description: The first day on which a prospective student can enroll for this course.
+        description: The first day on which a student can enroll for this course.
         format: date
       enrollEndDate:
         type: string
-        description: The last day on which a prospective student can enroll for this course.
+        description: The last day on which a student can enroll for this course.
         format: date
       resultWeight:
         type: integer
@@ -41,3 +41,6 @@ allOf:
           $ref: './Cost.yaml'
       room:
         $ref: './Room.yaml'
+      component:
+        $ref: './Component.yaml'
+        writeOnly: true

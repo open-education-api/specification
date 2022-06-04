@@ -1,5 +1,3 @@
-# Open Onderwijs API
+[comment]: <> (# Open Education API Specification information rendered from README.md)
 
-## REST
-
-## API reference
+[filename](../README.md ':include')

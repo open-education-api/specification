@@ -28,7 +28,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/AssociationExpanded.yaml'
+            $ref: '../schemas/AssociationFull.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -46,9 +46,15 @@ get:
 
 
 
-post:
-  summary: POST /associations/{associationId}
-  description: POST an update on a local enrollment to pass a grade or status.
+
+patch:
+  summary: PATCH /associations/{associationId}
+  description: |
+    Update the status or result of an enrollment. Other elements of the association object COULD 
+    also be PATCHED. But are not likely and have therefor not been included in this endpoint.
+    Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
+    a specialized media type `application/merge-patch+json` for partial resource representation 
+    to update parts of resource objects.
   security:
     - openId:
       - associations.write
@@ -67,29 +73,29 @@ post:
   requestBody:
     required: true
     content:
-      application/json:
+      application/merge-patch+json:
         schema:
-          type: object
-          required:
-            - associationItem
           properties:
-            associationItem:
-              $ref: '../schemas/AssociationProperties.yaml'
+            remoteState:
+              $ref: '../enumerations/remoteAssociationState.yaml'
             result:
-              $ref: '../schemas/Result.yaml'
-
+              oneOf:
+                - $ref: '../schemas/ComponentResult.yaml'
+                - $ref: '../schemas/CourseResult.yaml'
+                - $ref: '../schemas/ProgramResult.yaml'  
 
   responses:
-    '201':
+    '200':
       description: OK
       content:
         application/json:
           schema:
-            properties:
-              response:
-                allOf:
-                  - $ref: '../schemas/AssociationId.yaml'
-                  - $ref: '../schemas/PostResponse.yaml'
+            allOf:
+              - $ref: '../schemas/AssociationId.yaml'
+              - $ref: '../schemas/PostResponse.yaml'
+              - properties:
+                  state:
+                    $ref: '../enumerations/associationState.yaml' 
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'

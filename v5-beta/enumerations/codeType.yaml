@@ -28,7 +28,7 @@ description: |
     - `issn`: International Standard Book Number that serve as product identifiers for periodicals
     - `orcId`: Open Researcher and Contributor ID
     - `uuid`: A universally unique identifier
-    - `schacHome`: An identifier identifying an institution.
+    - `schacHome`: Home organization using the domain name of the organization
     - `identifier`: Generic Identifier
 x-ooapi-extensible-enum:
   - brin
