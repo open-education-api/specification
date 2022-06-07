@@ -191,39 +191,38 @@ x-tagGroups:
   - name: Requests and respones
     tags: 
       - service metadata
-      - education specifications
-      - programs
+      - academic sessions
+      - associations
+      - buildings
       - courses
       - components
-      - offerings
-      - associations
+      - education specifications
       - groups
-      - persons
-      - academic sessions
-      - organizations
-      - buildings
-      - rooms
       - news
+      - offerings
+      - organizations
+      - persons
+      - programs
+      - rooms
   - name: Models
     tags:
       - service_model
-      - education_specification_model
-      - program_model
-      - course_model
-      - component_model
-      - program_offering_model
-      - course_offering_model
-      - component_offering_model
-      - association_model
-      - person_model
-      - group_model
-      - person_model
       - academic_session_model
-      - organization_model
+      - association_model
       - building_model
-      - room_model
+      - component_model
+      - component_offering_model
+      - course_model
+      - course_offering_model
+      - education_specification_model
+      - group_model
       - news_feed_model
       - news_item_model
+      - organization_model
+      - person_model
+      - program_model
+      - program_offering_model
+      - room_model
 
 components:
   securitySchemes:
@@ -235,39 +234,56 @@ components:
       openIdConnectUrl: https://example.nl/.well-known/openid-configuration
   schemas:
     Service:
-      $ref: schemas/Service.yaml
-    EducationSpecification:
-      $ref: schemas/EducationSpecification.yaml
-    Program:
-      $ref: schemas/Program.yaml
-    Course:
-      $ref: schemas/Course.yaml
-    Component: 
-      $ref: schemas/Component.yaml
-    ProgramOffering:
-      $ref: schemas/ProgramOffering.yaml
-    CourseOffering:
-      $ref: schemas/CourseOffering.yaml
-    ComponentOffering:
-      $ref: schemas/ComponentOffering.yaml
-    Association:
-      $ref: schemas/Association.yaml
-    Person:
-      $ref: schemas/Person.yaml
-    Group:
-      $ref: schemas/Group.yaml
+      allOf:
+        - $ref: schemas/Service.yaml
     AcademicSession:
-      $ref: schemas/AcademicSession.yaml
-    Organization:
-      $ref: schemas/Organization.yaml
+      allOf:
+        - $ref: schemas/AcademicSession.yaml
+    Association:
+      allOf:
+        - $ref: schemas/AssociationFull.yaml
     Building:
-      $ref: schemas/Building.yaml
-    Room:
-      $ref: schemas/Room.yaml
+      allOf:
+        - $ref: schemas/Building.yaml
+    Component: 
+      allOf:
+        - $ref: schemas/Component.yaml
+    ComponentOffering:
+      allOf:
+        - $ref: schemas/ComponentOffering.yaml
+    Course:
+      allOf:
+        - $ref: schemas/Course.yaml
+    CourseOffering:
+      allOf:
+        - $ref: schemas/CourseOffering.yaml
+    EducationSpecification:
+      allOf:
+        - $ref: schemas/EducationSpecification.yaml
+    Group:
+      allOf:
+        - $ref: schemas/Group.yaml
     NewsFeed:
-      $ref: schemas/NewsFeed.yaml
+      allOf:
+        - $ref: schemas/NewsFeed.yaml
     NewsItem:
-      $ref: schemas/NewsItem.yaml
+      allOf:
+        - $ref: schemas/NewsItem.yaml
+    Organization:
+      allOf:
+        - $ref: schemas/Organization.yaml
+    Person:
+      allOf:
+        - $ref: schemas/Person.yaml
+    Program:
+      allOf:
+        - $ref: schemas/Program.yaml
+    ProgramOffering:
+      allOf:
+        - $ref: schemas/ProgramOffering.yaml
+    Room:
+      allOf:
+        - $ref: schemas/Room.yaml
 
 paths:
   /:
