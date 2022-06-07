@@ -139,3 +139,24 @@ properties:
       $ref: '../consumers/RIO/V1/examples/Course.yaml'
   ext:
     $ref: './Ext.yaml'
+  programs:
+    description: The program of which this course is a part of. This object is [`expandable`](#tag/program_model)
+    type: array   # array is used because of implementation of alliances in program where courses can be part of regular education and alliances
+    items:  
+      type: string
+      description: UUID of the program of which this course is part of. This object is [`expandable`](#tag/program_model)
+      format: uuid
+      example: 123e4567-e89b-12d3-a456-426614174111
+  coordinators:
+    type: array
+    description: The person(s) responsible for this course. This object is [`expandable`](#tag/person_model)
+    items:
+      type: string
+      description: UUID of coordinator if it exists. This object is [`expandable`](#tag/person_model)
+      format: uuid
+      example: 123e4567-e89b-12d3-a456-426614174111
+  organization:
+    type: string
+    description: UUID of organization providing this course. This object is [`expandable`](#tag/organization_model)
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174111
