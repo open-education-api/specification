@@ -49,6 +49,10 @@ Also the eduxchange consumer object should be added to the array of consumer obj
     - `visibleForOwnStudents`: a boolean value (`true` or `false`) indicating whether this Program or Course should be visible for students of the offering institution. The default values for this attribute is specified outside of this specification on the alliance level. By default students who are not enrolled in one of the participating alliances can see all Programs and Courses but not enroll.
     - `enrollmentForOwnStudents`: a string indicating which enrollments process should be followed for students of the offering institution. Allowed values are `"broker"` or `"url"`. This attribute is only used if `visibleForOwnStudents` is set to `true`. If `"url"` is chosen the attribute `enrollmentUrl` is mandatory.
     - `enrollmentUrl`: a string formatted as an url to which students will be redirected if `enrollmentForOwnStudents` is set to `"url"`.
+    - `source`: an optional object with a reference to the source of a Course or Program. In an alliance one of the institutions could act as overall coordinator and specifies the program and underlying courses. Underlying courses could be given at one of the other institutions. In this source object the course at the other institution can be specified. Use these attributes:
+      - `shortName`: the shortName of the institution to identify the source institution. Possible values for ewuu are `"tue"`, `"wur"` and `"uu"`, for lde these are `"ul"`, `"tud"` and `"eur"`
+      - `primaryCode`: a string value with the primaryCode of the course to identify the source course.
+      - `uuid`: the uuid of the course to reference the OOAPI endpoint of the source course.
 
 ### Example
 This is an example of the consumer object for eduXchange. The example reflects the default behaviour for visibility of the `ewuu` and `lde` alliances. The `ewuu` courses are not visible for students from the offering institution. The `lde` minors are visible for student from the offering institution. These students can enroll through the `broker`. 
@@ -73,6 +77,11 @@ This is an example of the consumer object for eduXchange. The example reflects t
           "type": "deepening",
           "visibleForOwnStudents": true,
           "enrollmentForOwnStudents": "broker"
+          "source": {
+            "shortName": "TUD",
+            "primaryCode": "WB-MI-168",
+            "uuid": "123e4567-e89b-12d3-a456-123514174000"
+          }
         }
       ]
     }
