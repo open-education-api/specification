@@ -13,7 +13,7 @@ get:
         format: uuid
     - name: expand
       in: query
-      description: Optional properties to include, separated by a comma
+      description: Optional properties to expand, separated by a comma
       required: false
       schema:
         type: array
@@ -28,7 +28,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/OrganizationExpanded.yaml'
+            $ref: '../schemas/Organization.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

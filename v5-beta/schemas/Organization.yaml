@@ -73,6 +73,26 @@ properties:
         code: 00AA
       - codeType: kvk
         code: '12345678'
+  parent:
+    description: |
+      The organizational unit which is the parent of this organization. [`expandable`](#tag/organization_model)
+      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: organizationId
+      - $ref: './Organization.yaml'
+        title: Organization object     
+  children:
+      type: array
+      description: |
+        All the organizational units for which this organization is the parent. [`expandable`](#tag/organization_model)
+        By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+      items:
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: organizationId
+          - $ref: './Organization.yaml'
+            title: Organization object     
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array

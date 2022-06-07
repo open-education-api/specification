@@ -10,19 +10,23 @@ This is why the expand mechanism is introduced. This mechanism allows you to ret
 The expand mechanism works by adding an expand parameter and the name of the linked object you would like to expand. For example if you would like to see the details of the person in an association this is done by 
 `GET association/{associationID}?expand=person`
 
-Most endpoints also allow for provide additional information which is not provided by default. To obtain this information we use an expand mechanism. 
-
 # Endpoints which are expandable
+The current list of objects that allow for expansion of the related objects are:
 * academic-session
 * association
 * component
 * component-offering
 * course
 * course-offering
+* group
 * organization
 * program
 * program-offering
 * room
+
+to do 
+changelog
+write examples
 
       # Examples
       First expand the program only to show additional parent information:

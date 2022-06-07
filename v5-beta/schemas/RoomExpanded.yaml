@@ -1,9 +1,0 @@
-allOf:
-  - $ref: './Room.yaml'
-  - type: object
-    description: These properties are only present when explicitly included.
-    properties:
-      building:
-        allOf: # Use allOf to make sure description renders
-          - $ref: './Building.yaml'
-          - description: The building in which the room is located

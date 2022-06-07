@@ -146,6 +146,40 @@ properties:
     description: Addresses for this program
     items:
       $ref: './Address.yaml'
+  parent:
+    description: Parent program of which the current program is a child. This object is [`expandable`](#tag/program_model) 
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: programId
+      - $ref: './Program.yaml'
+        title: Expanded Program    
+  children:
+    type: array
+    description: Programs which are a part of this program (e.g specializations). This object is [`expandable`](#tag/program_model)
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: programId
+        - $ref: './Program.yaml'
+          title: Expanded Program    
+  coordinators:
+    description: The person(s) responsible for this program. This object is [`expandable`](#tag/person_model)
+    type: array
+    items:
+      oneOf:
+      - $ref: './Identifier.yaml'
+        title: personId
+      - $ref: './Person.yaml'
+        title: Person object         
+  organization:
+    description: |
+      The organization providing this program. [`expandable`](#tag/organization_model)
+      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: organizationId
+      - $ref: './Organization.yaml'
+        title: Organization object     
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array

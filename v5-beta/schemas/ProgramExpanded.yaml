@@ -3,24 +3,6 @@ allOf:
   - type: object
     description: These properties are only present when explicitly included. This allows for creating and displaying structures of programs
     properties:
-      parent:
-        allOf: # Use allOf to make sure description renders
-          - $ref: './Program.yaml'
-          - description: Parent program of which the current program is a child.  
-      children:
-        type: array
-        description: Programs which are a part of this program (e.g specializations)
-        items:
-          $ref: './Program.yaml'
-      coordinators:
-        type: array
-        description: The person(s) responsible for this program
-        items:
-          $ref: './Person.yaml'
-      organization:
-        allOf:  # Use allOf to make sure description renders
-          - $ref: './Organization.yaml'
-          - description: The organization providing this program
       timelineOverrides:
         description: Timeline overrides allow an implementation to provide versions of entities that will be valid in the future or have been in the past.
         type: array

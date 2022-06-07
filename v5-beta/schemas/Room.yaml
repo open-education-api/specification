@@ -80,6 +80,15 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
+  building:
+    description: |
+      The building in which the room is located. [`expandable`](#tag/building_model)
+      By default only the `buildingId` (a string) is returned. If the client requested an expansion of `building` the full building object should be returned.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: buildingId
+      - $ref: './Building.yaml'
+        title: Building object    
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
