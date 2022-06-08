@@ -48,6 +48,15 @@ properties:
     example:
     - language: en-GB
       value: 'The room Bb 4.35 will be under maintenance'
+  newsFeeds:
+    description: The newsFeeds where this item can be found. [`expandable`](#tag/news_feed_model)
+    type: array
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: newsFeedId
+        - $ref: './NewsFeed.yaml'
+          title: NewsFeed
   validFrom:
     type: string
     description: The moment from which this news item is valid, RFC3339 (date-time)

@@ -46,7 +46,6 @@ allOf:
           $ref: './Cost.yaml'
         minItems: 1
       program:
-        writeOnly: true
         description: |
           The Program that is offered in this programoffering. [`expandable`](#tag/program_model)
           By default only the `programId` (a string) is returned. If the client requested an expansion of `program` the full program object should be returned.

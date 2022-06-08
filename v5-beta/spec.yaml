@@ -378,6 +378,8 @@ paths:
     $ref: paths/EducationSpecificationCollection.yaml
   /education-specifications/{educationSpecificationId}:
     $ref: paths/EducationSpecificationInstance.yaml
+  /education-specifications/{educationSpecificationId}/education-specifications:
+    $ref: paths/EducationSpecificationEducationSpecificationCollection.yaml
   /education-specifications/{educationSpecificationId}/courses:
     $ref: paths/EducationSpecificationCourseCollection.yaml
   /education-specifications/{educationSpecificationId}/programs:

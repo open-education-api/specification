@@ -49,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Make the enumeration of AcademicSession `type` extensible and add the following options: `trimester`, `quarter` and `testing period`.
 - Adds the attribute `activeEnrollment` to Person.
 - Adds the expand functionality and add linking attributes to show linking UUID's between objects
+- Adds the option to expand NewsFeeds when requesting a single NewsItem.
 
 
 ### Changed

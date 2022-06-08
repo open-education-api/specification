@@ -42,7 +42,6 @@ allOf:
       room:
         $ref: './Room.yaml'
       component:
-        writeOnly: true
         description: |
           The component that is offered in this componentoffering. [`expandable`](#tag/component_model)
           By default only the `componentId` (a string) is returned. If the client requested an expansion of `component` the full component object should be returned.

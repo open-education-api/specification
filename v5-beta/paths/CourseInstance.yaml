@@ -23,6 +23,7 @@ get:
             - programs
             - coordinators
             - organization
+            - educationSpecification
     - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
     '200':

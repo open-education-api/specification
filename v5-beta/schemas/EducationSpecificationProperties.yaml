@@ -77,11 +77,22 @@ properties:
     format: uri
     maxLength: 2048
     example: https://bijvak.nl
-  educationSpecification:
-    type: string
-    description: UUID of the parent educationSpecification if it exists
-    format: uuid
-    example: 123e4567-e89b-12d3-a456-426614174111
+  parent:
+    description: The educationSpecification that is the parent of this educationSpecification if it exists. [`expandable`](#tag/education_specification_model)
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: educationSpecificationId
+      - $ref: './EducationSpecification.yaml'
+        title: EducationSpecification
+  organization:
+    description: |
+      The organization that manages this group. [`expandable`](#tag/organization_model)
+      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: organizationId
+      - $ref: './Organization.yaml'
+        title: Organization object
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
