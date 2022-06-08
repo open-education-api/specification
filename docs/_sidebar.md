@@ -1,5 +1,6 @@
-* [Introduction](/)
-* [Major changes](major-changes.md)
+* [Home](/)
+* [Introduction](introduction.md)
+* [Major changes since v4](major-changes.md)
 * [About identifiers](identifiers.md)
 * [Expanding responses](expanding-responses.md)
 * [Filtering responses](filtering-responses.md)
