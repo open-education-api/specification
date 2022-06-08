@@ -1,6 +1,6 @@
 openapi: "3.1.0"
 info:
-  version: "5.0 BETA"
+  version: "5.0.0 RC1"
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API.
@@ -28,7 +28,7 @@ info:
     url: ../logo.png
 
 servers:
-  - url: http://demo01.eduapi.nl/v5-beta
+  - url: http://demo01.eduapi.nl/v5
     description: SURF demo implementation
 
 tags:

@@ -17,9 +17,9 @@ This is the current version:
 
 * [v4](./v4/docs.html) (Current version - v4)
 
-The future v5 versions is available to preview in beta. This version is still under active development and will change. It is not yet suitable for implementation.
+The future v5 versions is available as a Release Candidate. This version is still under active development and will change. It is not yet suitable for implementation.
 
-* [v5](./v5-beta/docs.html) (Next version - v5)
+* [v5](./v5-rc/docs.html) (Next version - v5)
 
 These are the previous versions:
 
