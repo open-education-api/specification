@@ -46,5 +46,29 @@ allOf:
           $ref: './Cost.yaml'
         minItems: 1
       program:
-        $ref: './Program.yaml'
-        writeOnly: true
+        description: |
+          The Program that is offered in this programoffering. [`expandable`](#tag/program_model)
+          By default only the `programId` (a string) is returned. If the client requested an expansion of `program` the full program object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: programId
+          - $ref: './Program.yaml'
+            title: Program object      
+      organization:
+        description: |
+          The organization that manages this programeoffering. [`expandable`](#tag/organization_model)
+          By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: organizationId
+          - $ref: './Organization.yaml'
+            title: Organization object     
+      academicSession:
+        description: |
+          The academicsession during which this programoffering takes place. [`expandable`](#tag/academic_session_model)
+          By default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: academicSessionId
+          - $ref: './AcademicSession.yaml'
+            title: AcademicSession object

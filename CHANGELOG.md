@@ -44,10 +44,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds the attribute `link` to Offerings
 - Adds the attribute `learningOutcomes` to component
 - Adds the attribute `fieldsOfStudy` to Course
-- include README.md into documentation webiste
+- include README.md into documentation webiste update readme to allow for relative linking of version 5 in to ease testing in development
 - Adds the attribute `level` to Program.
 - Make the enumeration of AcademicSession `type` extensible and add the following options: `trimester`, `quarter` and `testing period`.
 - Adds the attribute `activeEnrollment` to Person.
+- Adds the expand functionality and add linking attributes to show linking UUID's between objects
+- Adds the option to expand NewsFeeds when requesting a single NewsItem.
+
 
 ### Changed
 - rename of changed.md file on version level to release file on version level to provide for additional release information fo future releases

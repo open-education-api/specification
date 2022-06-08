@@ -12,6 +12,17 @@ get:
         type: string
         format: uuid
     - $ref: '../parameters/returnTimelineOverrides.yaml'
+    - name: expand
+      in: query
+      description: Optional properties to include, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - parent
+            - organization
   responses:
     '200':
       description: OK

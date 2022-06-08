@@ -3,20 +3,6 @@ allOf:
   - type: object
     description: These properties are only present when explicitly included
     properties:
-      programs:
-        description: The program of which this course is a part of
-        type: array   # array is used because of implementation of alliances in program where courses can be part of regular education and alliances
-        items:  
-          $ref: './Program.yaml'
-      coordinators:
-        type: array
-        description: The person(s) responsible for this course
-        items:
-          $ref: './Person.yaml'
-      organization:
-        allOf: # Use allOf to make sure description renders
-        - $ref: './Organization.yaml'
-        - description: The organization providing this course
       timelineOverrides:
         description: Timeline overrides allow an implementation to provide versions of entities that will be valid in the future or have been in the past.
         type: array

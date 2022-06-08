@@ -116,10 +116,12 @@ properties:
     maxLength: 2048
     example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
   educationSpecification:
-    type: string
-    description: UUID of educationSpecification if it exists
-    format: uuid
-    example: 123e4567-e89b-12d3-a456-426614174111
+    description: The educationSpecification of which this course is a more concrete implementation. [`expandable`](#tag/education_specification_model)
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: educationSpecificationId
+      - $ref: './EducationSpecification.yaml'
+        title: EducationSpecification
   addresses:
     type: array
     description: Addresses for this course
@@ -139,3 +141,30 @@ properties:
       $ref: '../consumers/RIO/V1/examples/Course.yaml'
   ext:
     $ref: './Ext.yaml'
+  programs:
+    description: The program of which this course is a part of. This object is [`expandable`](#tag/program_model)
+    type: array   # array is used because of implementation of alliances in program where courses can be part of regular education and alliances
+    items:
+      oneOf:
+      - $ref: './Identifier.yaml'
+        title: programId
+      - $ref: './Program.yaml'
+        title: Program object        
+  coordinators:
+    description: The person(s) responsible for this course. This object is [`expandable`](#tag/person_model)
+    type: array
+    items:
+      oneOf:
+      - $ref: './Identifier.yaml'
+        title: personId
+      - $ref: './Person.yaml'
+        title: Person object         
+  organization:
+    description: |
+      The organization that manages this group. [`expandable`](#tag/organization_model)
+      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: organizationId
+      - $ref: './Organization.yaml'
+        title: Organization object     

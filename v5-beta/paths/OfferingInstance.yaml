@@ -13,7 +13,7 @@ get:
         format: uuid
     - name: expand
       in: query
-      description: Optional properties to include, separated by a comma
+      description: Optional properties to expand, separated by a comma
       required: false
       schema:
         type: array
@@ -34,11 +34,11 @@ get:
         application/json:
           schema:
             oneOf:
-              - $ref: '../schemas/CourseOfferingExpanded.yaml'
+              - $ref: '../schemas/CourseOffering.yaml'
                 title: courseOffering
-              - $ref: '../schemas/ComponentOfferingExpanded.yaml'
+              - $ref: '../schemas/ComponentOffering.yaml'
                 title: componentOffering
-              - $ref: '../schemas/ProgramOfferingExpanded.yaml'
+              - $ref: '../schemas/ProgramOffering.yaml'
                 title: programOffering
 
               

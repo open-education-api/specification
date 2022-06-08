@@ -42,5 +42,39 @@ allOf:
       room:
         $ref: './Room.yaml'
       component:
-        $ref: './Component.yaml'
-        writeOnly: true
+        description: |
+          The component that is offered in this componentoffering. [`expandable`](#tag/component_model)
+          By default only the `componentId` (a string) is returned. If the client requested an expansion of `component` the full component object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: componentId
+          - $ref: './Component.yaml'
+            title: Component object      
+      courseOffering:
+        description: |
+          The courseoffering where this componentoffering is related to. [`expandable`](#tag/course_offering_model)
+          By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: courseOfferingId
+          - $ref: './CourseOffering.yaml'
+            title: CourseOffering object     
+      organization:
+        description: |
+          The organization that manages this componentoffering. [`expandable`](#tag/organization_model)
+          By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: organizationId
+          - $ref: './Organization.yaml'
+            title: Organization object     
+      academicSession:
+        description: |
+          The academicsession during which this componentoffering takes place. [`expandable`](#tag/academic_session_model)
+          By default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: academicSessionId
+          - $ref: './AcademicSession.yaml'
+            title: AcademicSession object
+
