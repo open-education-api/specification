@@ -20,6 +20,7 @@ To be compatible with eduXchange and the Project 'Studentmobiliteit' an institut
 - `GET /academic-sessions/{academicSessionId}/offerings`
 - `GET /persons/me`
 - `GET /persons/{personId}`
+- `GET /associations/{associationId}`
 - `POST /associations/external/me`
 - `PATCH /associations/{associationId}`
 
@@ -32,11 +33,11 @@ To be compatible with the [eduXchange catalogue website](https://www.eduxchange.
 - `expand=coordinator` on all calls returning a single instance of a Program and Course should include the coordinators for the specified Program or Course.
 - `expand=academicSession` on all calls returning a single instance of an Offering should include the AcademicSession the offering is related to.
 
-## Eduxchange consumer object and query parameter
+## Eduxchange consumer object and query parameter for Programs and Courses
 
 To be compatible with the [eduXchange catalogue website](https://www.eduxchange.nl), an implementation needs to implement the eduXchange consumer object and query parameter. See [specific consumers](consumers.md) for more information:
 
-When a client requests programs or courses and the query parameter `consumer` is set to `eduxchange`, only Programs and Courses meant for eduxchange should be returned.
+!> When a client requests programs or courses and the query parameter `consumer` is set to `eduxchange`, only Programs and Courses meant for eduxchange should be returned.
 
 Also the eduxchange consumer object should be added to the array of consumer objects when returning Programs and Courses. The consumer object for eduXchange has the following attributes:
 
@@ -57,7 +58,7 @@ Also the eduxchange consumer object should be added to the array of consumer obj
 ### Example
 This is an example of the consumer object for eduXchange. The example reflects the default behaviour for visibility of the `ewuu` and `lde` alliances. The `ewuu` courses are not visible for students from the offering institution. The `lde` minors are visible for student from the offering institution. These students can enroll through the `broker`. 
 
-```
+```json
 {
   "consumer": [
     {
@@ -82,6 +83,41 @@ This is an example of the consumer object for eduXchange. The example reflects t
             "primaryCode": "WB-MI-168",
             "uuid": "123e4567-e89b-12d3-a456-123514174000"
           }
+        }
+      ]
+    }
+  ]
+}
+```
+
+## Eduxchange consumer object and query parameter for Persons
+
+To be compatible with the [eduXchange catalogue website](https://www.eduxchange.nl), an implementation needs to implement the following consumer object on the Persons object. The consumer object for eduXchange has the following attributes:
+
+- `consumerKey`, should always have the value `"eduxchange"`
+- `enrollments`, an array with all the CROHO enrollments for this person. Each enrollment is an object with the following attributes:
+    - `crohoCreboCode`: (required) the crohoCreboCode for this program. This should be a five character string, e.g. "34401".
+    - `name`: (required) the name of the program this enrollment is for.
+    - `phase`: the phase of the program for this enrollment. Allowed values are `"bachelor"` or `"master"`.
+    - `modeOfStudy`: the modeOfStudy of the program for this enrollment. Allowed values are `"full-time"`, `"part-time"`, `"dual training"` or `"self-paced"`.
+    - `startDate`: the start date for this enrollment. Should be a string formatted as an RFC3099 full-date.
+    - `endDate`: end start date for this enrollment. Should be a string formatted as an RFC3099 full-date.
+
+### Example
+
+```json
+{
+  "consumer": [
+    {
+      "consumerKey": "eduxchange",
+      "enrollments": [
+        {
+          "crohoCreboCode": "34401",
+          "name": "B Bedrijfseconomie",
+          "phase": "bachelor",
+          "modeOfStudy": "full-time",
+          "startDate": "2020-09-01",
+          "endDate": "2021-08-31"
         }
       ]
     }
