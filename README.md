@@ -15,7 +15,7 @@ If you have a question, a Slack channel is available at: [openonderwijsapi.slack
 
 This is the current version:
 
-* [v4](https://open-education-api.github.io/specification/v4/docs.html) (Current version - v4)
+* [v4](./v4/docs.html) (Current version - v4)
 
 The future v5 versions is available to preview in beta. This version is still under active development and will change. It is not yet suitable for implementation.
 
@@ -23,9 +23,9 @@ The future v5 versions is available to preview in beta. This version is still un
 
 These are the previous versions:
 
-* [v3](https://open-education-api.github.io/specification/v3/docs.html) (Previous version - v3)
-* [v2](https://open-education-api.github.io/specification/v2/docs.html) (Previous version - v2)
-* [v1](https://open-education-api.github.io/specification/v1/docs.html) (Previous version - v1)
+* [v3](./v3/docs.html) (Previous version - v3)
+* [v2](./v2/docs.html) (Previous version - v2)
+* [v1](./v1/docs.html) (Previous version - v1)
 
 ## Operating area and Application
 
