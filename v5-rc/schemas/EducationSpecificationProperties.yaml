@@ -84,6 +84,15 @@ properties:
         title: educationSpecificationId
       - $ref: './EducationSpecification.yaml'
         title: EducationSpecification
+  children:
+    type: array
+    description: The EducationSpecifications that have this EducationSpecification as their parent. [`expandable`](#tag/education_specification_model)
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: educationSpecificationId
+        - $ref: './EducationSpecification.yaml'
+          title: EducationSpecification
   organization:
     description: |
       The organization that manages this group. [`expandable`](#tag/organization_model)
