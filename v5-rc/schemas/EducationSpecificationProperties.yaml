@@ -7,7 +7,6 @@ required:
   - primaryCode
   - educationSpecificationType
   - name
-  - startDate
 properties:
   primaryCode:
     description: |
