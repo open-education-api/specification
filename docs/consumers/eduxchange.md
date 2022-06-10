@@ -102,6 +102,7 @@ To be compatible with the [eduXchange catalogue website](https://www.eduxchange.
     - `modeOfStudy`: the modeOfStudy of the program for this enrollment. Allowed values are `"full-time"`, `"part-time"`, `"dual training"` or `"self-paced"`.
     - `startDate`: the start date for this enrollment. Should be a string formatted as an RFC3099 full-date.
     - `endDate`: end start date for this enrollment. Should be a string formatted as an RFC3099 full-date.
+- `institutionBRINCode`, the BRIN code of the institution. Should consist of two digits and two capital letters.
 
 ### Example
 
@@ -119,7 +120,8 @@ To be compatible with the [eduXchange catalogue website](https://www.eduxchange.
           "startDate": "2020-09-01",
           "endDate": "2021-08-31"
         }
-      ]
+      ],
+      "institutionBRINCode": "11AA"
     }
   ]
 }

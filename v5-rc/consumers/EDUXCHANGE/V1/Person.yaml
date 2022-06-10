@@ -2,6 +2,7 @@ type: object
 required:
  - consumerKey
  - enrollments
+ - institutionBRINCode
 properties:
   consumerKey:
     type: string
@@ -41,3 +42,6 @@ properties:
           type: string
           description: The end date for this enrollment. Should be a string formatted as an RFC3099 full-date.
           format: date
+  institutionBRINCode:
+    type: string
+    pattern: ^\d{2}[A-Z]{2}$
