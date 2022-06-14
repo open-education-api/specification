@@ -1,6 +1,6 @@
 allOf:
-  - $ref: '../schemas/EducationSpecificationId.yaml'
-  - $ref: '../schemas/EducationSpecificationProperties.yaml'
+  - $ref: '#/components/schemas/EducationSpecificationId'
+  - $ref: '#/components/schemas/EducationSpecificationProperties'
   - properties:
       validFrom:
         description: The first day this EducationSpecification is valid (inclusive).

@@ -1,5 +1,5 @@
 allOf:
-  - $ref: '../schemas/EducationSpecification.yaml'
+  - $ref: '#/components/schemas/EducationSpecification'
   - type: object
     title: With timelineOverrides
     properties:

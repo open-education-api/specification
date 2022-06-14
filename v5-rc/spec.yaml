@@ -257,9 +257,14 @@ components:
     CourseOffering:
       allOf:
         - $ref: schemas/CourseOffering.yaml
+    EducationSpecificationId:
+      $ref: schemas/EducationSpecificationId.yaml
+    EducationSpecificationProperties:
+      $ref: schemas/EducationSpecificationProperties.yaml
     EducationSpecification:
-      allOf:
-        - $ref: schemas/EducationSpecification.yaml
+      $ref: schemas/EducationSpecification.yaml
+    EducationSpecificationExpanded:
+      $ref: schemas/EducationSpecificationExpanded.yaml
     Group:
       allOf:
         - $ref: schemas/Group.yaml

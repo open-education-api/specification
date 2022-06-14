@@ -31,9 +31,9 @@ get:
           schema:
             oneOf:
               - title: Without timelineOverrides (default)
-                $ref: '../schemas/EducationSpecification.yaml'
+                $ref: '#/components/schemas/EducationSpecification'
               - title: With timelineOverrides
-                $ref: '../schemas/EducationSpecificationExpanded.yaml'
+                $ref: '#/components/schemas/EducationSpecificationExpanded'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

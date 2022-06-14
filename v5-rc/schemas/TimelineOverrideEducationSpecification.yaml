@@ -15,4 +15,4 @@ properties:
     format: date
     example: 2022-08-31
   educationSpecification:
-    $ref: './EducationSpecificationProperties.yaml'
+    $ref: '#/components/schemas/EducationSpecificationProperties'

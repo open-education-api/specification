@@ -118,9 +118,13 @@ properties:
   educationSpecification:
     description: The educationSpecification of which this course is a more concrete implementation. [`expandable`](#tag/education_specification_model)
     oneOf:
-      - $ref: './Identifier.yaml'
-        title: educationSpecificationId
-      - $ref: './EducationSpecification.yaml'
+      - $ref: '#/components/schemas/EducationSpecificationId'
+        title: educationSpecificationId # NOTE: According to the
+                                        # openapi spec, $refs
+                                        # completely replace their
+                                        # sibling attributes, so
+                                        # `title` here will be lost
+      - $ref: '#/components/schemas/EducationSpecification'
         title: EducationSpecification
   addresses:
     type: array

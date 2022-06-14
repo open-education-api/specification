@@ -131,9 +131,9 @@ properties:
   educationSpecification:
     description: The educationSpecification of which this program is a more concrete implementation. [`expandable`](#tag/education_specification_model)
     oneOf:
-      - $ref: './Identifier.yaml'
+      - $ref: '#/components/schemas/EducationSpecificationId'
         title: educationSpecificationId
-      - $ref: './EducationSpecification.yaml'
+      - $ref: '#/components/schemas/EducationSpecification'
         title: EducationSpecification
   otherCodes:
     type: array

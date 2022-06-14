@@ -80,9 +80,9 @@ properties:
   parent:
     description: The educationSpecification that is the parent of this educationSpecification if it exists. [`expandable`](#tag/education_specification_model)
     oneOf:
-      - $ref: './Identifier.yaml'
+      - $ref: '#/components/schemas/EducationSpecificationId'
         title: educationSpecificationId
-      - $ref: './EducationSpecification.yaml'
+      - $ref: '#/components/schemas/EducationSpecification'
         title: EducationSpecification
   organization:
     description: |

@@ -48,7 +48,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Course.yaml'
+                      $ref: '../schemas/Course.yaml'  # TODO: This should probably be an EducationSpecification!
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':
