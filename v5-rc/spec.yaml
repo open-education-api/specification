@@ -233,57 +233,24 @@ components:
       type: openIdConnect
       openIdConnectUrl: https://example.nl/.well-known/openid-configuration
   schemas:
-    Service:
-      allOf:
-        - $ref: schemas/Service.yaml
-    AcademicSession:
-      allOf:
-        - $ref: schemas/AcademicSession.yaml
-    Association:
-      allOf:
-        - $ref: schemas/AssociationFull.yaml
-    Building:
-      allOf:
-        - $ref: schemas/Building.yaml
-    Component: 
-      allOf:
-        - $ref: schemas/Component.yaml
-    ComponentOffering:
-      allOf:
-        - $ref: schemas/ComponentOffering.yaml
-    Course:
-      allOf:
-        - $ref: schemas/Course.yaml
-    CourseOffering:
-      allOf:
-        - $ref: schemas/CourseOffering.yaml
-    EducationSpecification:
-      allOf:
-        - $ref: schemas/EducationSpecification.yaml
-    Group:
-      allOf:
-        - $ref: schemas/Group.yaml
-    NewsFeed:
-      allOf:
-        - $ref: schemas/NewsFeed.yaml
-    NewsItem:
-      allOf:
-        - $ref: schemas/NewsItem.yaml
-    Organization:
-      allOf:
-        - $ref: schemas/Organization.yaml
-    Person:
-      allOf:
-        - $ref: schemas/Person.yaml
-    Program:
-      allOf:
-        - $ref: schemas/Program.yaml
-    ProgramOffering:
-      allOf:
-        - $ref: schemas/ProgramOffering.yaml
-    Room:
-      allOf:
-        - $ref: schemas/Room.yaml
+    allOf: 
+      - $ref: 'schemas/Service.yaml'
+      - $ref: schemas/AcademicSession.yaml
+      - $ref: schemas/Building.yaml
+      - $ref: schemas/Component.yaml
+      - $ref: schemas/ComponentOffering.yaml
+      - $ref: schemas/Course.yaml
+      - $ref: schemas/CourseOffering.yaml
+      - $ref: schemas/EducationSpecification.yaml
+      - $ref: schemas/Group.yaml
+      - $ref: schemas/NewsFeed.yaml
+      - $ref: schemas/NewsItem.yaml
+      - $ref: schemas/Organization.yaml
+      - $ref: schemas/Person.yaml
+      - $ref: schemas/Program.yaml
+      - $ref: schemas/ProgramOffering.yaml
+      - $ref: schemas/Room.yaml
+      - $ref: schemas/AssociationFull.yaml
 
 paths:
   /:
