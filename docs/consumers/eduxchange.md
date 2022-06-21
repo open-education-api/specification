@@ -60,7 +60,7 @@ This is an example of the consumer object for eduXchange. The example reflects t
 
 ```json
 {
-  "consumer": [
+  "consumers": [
     {
       "consumerKey": "eduxchange",
       "alliances": [
@@ -108,7 +108,7 @@ To be compatible with the [eduXchange catalogue website](https://www.eduxchange.
 
 ```json
 {
-  "consumer": [
+  "consumers": [
     {
       "consumerKey": "eduxchange",
       "enrollments": [
