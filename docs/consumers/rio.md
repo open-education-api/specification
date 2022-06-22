@@ -536,7 +536,7 @@ See also [this overview of language tags](https://www.loc.gov/standards/iso639-2
 | business_and_project_support             | BEDRIJFS_EN_PROJECTONDERSTEUNING         |
 | economy                                  | ECONOMIE                                 |
 | behavior_and_society                     | GEDRAG_EN_MAATSCHAPPIJ                   |
-| health_care_and_sport                    | GEZONDHEID_ZORG_EN_SPORT                 |
+| healthcare_and_sport                     | GEZONDHEID_ZORG_EN_SPORT                 |
 | hobby_and_leisure_time                   | HOBBY_EN_VRIJE_TIJD                      |
 | agriculture_food_and_natural_environment | LANDBOUW_VOEDSEL_EN_NATUURLIJKE_OMGEVING |
 | management_and_project_management        | MANAGEMENT_EN_PROJECTMANAGEMENT          |
