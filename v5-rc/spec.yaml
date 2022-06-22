@@ -158,10 +158,6 @@ tags:
     x-displayName: Group
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Group" />
-  - name: person_model
-    x-displayName: Person
-    description: |
-      <SchemaDefinition schemaRef="#/components/schemas/Person" />
   - name: academic_session_model
     x-displayName: AcademicSession
     description: |
