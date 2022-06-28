@@ -15,6 +15,7 @@ To be compatible with eduXchange and the Project 'Studentmobiliteit' an institut
 - `GET /courses`
 - `GET /courses/{courseId}`
 - `GET /courses/{courseId}/offerings`
+- `GET /offerings/{offeringId}`
 - `GET /academic-sessions`
 - `GET /academic-sessions/{academicSessionId}`
 - `GET /academic-sessions/{academicSessionId}/offerings`
@@ -32,6 +33,7 @@ To be compatible with the [eduXchange catalogue website](https://www.eduxchange.
 
 - `expand=coordinator` on all calls returning a single instance of a Program and Course should include the coordinators for the specified Program or Course.
 - `expand=academicSession` on all calls returning a single instance of an Offering should include the AcademicSession the offering is related to.
+- `expand=program` and `expand=course` on all calls returning a single instance of an Offering should include the relevant Program or Course.
 
 ## Eduxchange consumer object and query parameter for Programs and Courses
 
@@ -60,7 +62,7 @@ This is an example of the consumer object for eduXchange. The example reflects t
 
 ```json
 {
-  "consumer": [
+  "consumers": [
     {
       "consumerKey": "eduxchange",
       "alliances": [
@@ -108,7 +110,7 @@ To be compatible with the [eduXchange catalogue website](https://www.eduxchange.
 
 ```json
 {
-  "consumer": [
+  "consumers": [
     {
       "consumerKey": "eduxchange",
       "enrollments": [

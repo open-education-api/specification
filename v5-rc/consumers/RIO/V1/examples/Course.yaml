@@ -3,4 +3,4 @@
   educationLocationCode: 334X123
   consentParticipationSTAP: permission_granted
   jointPartnerCodes: [123A123]
-  foreignPartners: Harvard University
+  foreignPartners: ["Harvard University"]
