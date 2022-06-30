@@ -141,7 +141,7 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-    - codeType: CROHO
+    - codeType: crohoCreboCode
       code: '59312'
   addresses:
     type: array
