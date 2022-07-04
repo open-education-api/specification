@@ -74,7 +74,9 @@ properties:
   admissionRequirements:
     type: array
     description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students.
-    example: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
+    example: 
+      - language: en-GB
+        value: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
