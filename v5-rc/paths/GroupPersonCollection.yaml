@@ -39,7 +39,7 @@ get:
             - -givenName
             - -surName
             - -displayName
-        default: personId
+        default: [ personId ]
   responses:
     '200':
       description: OK

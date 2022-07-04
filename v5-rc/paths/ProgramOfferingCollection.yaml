@@ -61,7 +61,7 @@ get:
             - -startDate
             - -endDate
         default:
-          - startDate
+          - [ startDate ]
   responses:
     '200':
       description: OK

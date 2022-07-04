@@ -54,7 +54,7 @@ get:
             - -name
             - -startDateTime
             - -endDateTime
-        default: startDateTime
+        default: [ startDateTime ]
   responses:
     '200':
       description: OK

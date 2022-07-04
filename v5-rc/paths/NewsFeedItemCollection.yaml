@@ -41,7 +41,7 @@ get:
             - -validFrom
             - -validUntil
             - -lastModified
-        default: newsItemId
+        default: [ newsItemId ]
   responses:
     '200':
       description: OK

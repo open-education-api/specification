@@ -32,7 +32,7 @@ get:
             - -educationSpecificationId
             - -name
             - -educationSpecificationType
-        default: educationSpecificationId
+        default: [ educationSpecificationId ]
   responses:
     '200':
       description: OK

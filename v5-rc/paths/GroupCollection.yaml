@@ -31,7 +31,7 @@ get:
             - -groupId
             - -name
             - -startDate
-        default: name
+        default: [ name ]
   responses:
     '200':
       description: OK

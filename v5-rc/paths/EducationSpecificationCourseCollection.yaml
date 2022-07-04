@@ -41,7 +41,7 @@ get:
             - name
             - -courseId
             - -name
-        default: courseId
+        default: [ courseId ]
   responses:
     '200':
       description: OK

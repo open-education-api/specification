@@ -37,7 +37,7 @@ get:
             - -name
             - -primarycode
         default:
-          - name
+          - [ name ]
   responses:
     '200':
       description: OK
