@@ -54,7 +54,9 @@ get:
           enum:
             - associationId
             - -associationId
-        default: associationId
+        default: [ associationId ]
+        example:
+          - associationId
   responses:
     '200':
       description: OK

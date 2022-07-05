@@ -36,7 +36,10 @@ get:
             - name
             - -newsFeedId
             - -name
-        default: name
+        default: [ name ]
+        example:
+          - name
+          - -newsFeedId
   responses:
     '200':
       description: OK

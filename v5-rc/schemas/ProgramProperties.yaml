@@ -58,7 +58,7 @@ properties:
   duration:
     type: string
     description: The duration of this program. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
-    format: duration
+    pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
     example: P1DT30H4S
   firstStartDate:
     type: string
@@ -112,7 +112,9 @@ properties:
   admissionRequirements:
     type: array
     description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students.
-    example: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
+    example: 
+      - language: en-GB
+        value: Students need to be enrolled at qualifying institutions of higher education that participate in this alliance
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
@@ -141,7 +143,7 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
     example:
-    - codeType: CROHO
+    - codeType: crohoCreboCode
       code: '59312'
   addresses:
     type: array

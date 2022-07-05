@@ -29,7 +29,10 @@ get:
             - name
             - -organizationId
             - -name
-        default: name
+        default: [ name ]
+        example:
+          - name
+          - -organizationId
   responses:
     '200':
       description: OK

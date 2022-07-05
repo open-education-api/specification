@@ -54,7 +54,10 @@ get:
             - name
             - -programId
             - -name
-        default: name
+        default: [ name ]
+        sort:
+          - name
+          - programId
   responses:
     '200':
       description: OK

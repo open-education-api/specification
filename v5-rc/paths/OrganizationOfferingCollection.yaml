@@ -64,7 +64,10 @@ get:
             - -name
             - -startDate
             - -endDate
-        default: startDate
+        default: [ startDate ]
+        example:
+          - name
+          - -startDate
   responses:
     '200':
       description: OK

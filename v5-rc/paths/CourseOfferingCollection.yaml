@@ -60,7 +60,10 @@ get:
             - -name
             - -startDate
             - -endDate
-        default: startDate
+        default: [ startDate ]
+        example:
+           - offeringId
+           - -endDate
   responses:
     '200':
       description: OK
