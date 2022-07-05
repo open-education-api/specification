@@ -33,6 +33,9 @@ get:
             - -name
             - -educationSpecificationType
         default: [ educationSpecificationId ]
+        example:
+          - educationSpecificationId
+          - -name
   responses:
     '200':
       description: OK

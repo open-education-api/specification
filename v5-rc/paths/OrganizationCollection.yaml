@@ -30,6 +30,9 @@ get:
             - -organizationId
             - -name
         default: [ name ]
+        example:
+          - name
+          - -organizationId
   responses:
     '200':
       description: OK

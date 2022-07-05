@@ -24,6 +24,9 @@ get:
           - -buildingId
           - -name
         default: [ name ]
+        example:
+          - name
+          - -buildingId
   responses:
     '200':
       description: OK

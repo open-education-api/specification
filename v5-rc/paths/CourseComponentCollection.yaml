@@ -37,6 +37,9 @@ get:
             - -componentId
             - -name
         default: [ componentId ]
+        example:
+          - name
+          - -componentId
   responses:
     '200':
       description: OK

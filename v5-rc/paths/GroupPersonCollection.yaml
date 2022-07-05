@@ -40,6 +40,9 @@ get:
             - -surName
             - -displayName
         default: [ personId ]
+        example:
+          - personId
+          - -givenName
   responses:
     '200':
       description: OK

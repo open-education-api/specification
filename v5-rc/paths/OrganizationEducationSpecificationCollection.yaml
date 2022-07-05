@@ -38,6 +38,9 @@ get:
             - -name
             - -primarycode
         default: [ name ]
+        example:
+          - name
+          - -educationSpecificationType
   responses:
     '200':
       description: OK

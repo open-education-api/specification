@@ -38,6 +38,9 @@ get:
             - -name
             - -startDate
         default: [ name ]
+        example:
+          - name
+          - -startDate
   responses:
     '200':
       description: OK

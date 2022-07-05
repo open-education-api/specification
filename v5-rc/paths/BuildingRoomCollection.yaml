@@ -40,6 +40,9 @@ get:
             - -totalSeats
             - -availableSeats
         default: [ name ]
+        example:
+          - name
+          - -availableSeats
   responses:
     '200':
       description: OK

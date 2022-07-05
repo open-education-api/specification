@@ -44,6 +44,9 @@ get:
           - -name
           - -startDate
         default: [ startDate ]
+        example: 
+          - startDate
+          - -academicSessionId
   responses:
     '200':
       description: OK
