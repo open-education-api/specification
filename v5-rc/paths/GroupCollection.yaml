@@ -31,7 +31,10 @@ get:
             - -groupId
             - -name
             - -startDate
-        default: name
+        default: [ name ]
+        example:
+          - groupId
+          - -startDate
   responses:
     '200':
       description: OK

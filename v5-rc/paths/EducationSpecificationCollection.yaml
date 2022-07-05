@@ -32,12 +32,15 @@ get:
           enum:
             - educationSpecificationType
             - name
-            - primarycode
+            - primaryCode
             - -educationSpecificationType
             - -name
-            - -primarycode
+            - -primaryCode
         default:
-          - name
+          - [ name ]
+        example:
+          - educationSpecificationType
+          - -primaryCode
   responses:
     '200':
       description: OK

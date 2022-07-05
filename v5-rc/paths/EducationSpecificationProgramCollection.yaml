@@ -66,7 +66,10 @@ get:
             - name
             - -programId
             - -name
-        default: name
+        default: [ name ]
+        example:
+          - programId
+          - -name
   responses:
     '200':
       description: OK

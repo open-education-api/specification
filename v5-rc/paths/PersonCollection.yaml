@@ -33,7 +33,10 @@ get:
             - -givenName
             - -surName
             - -displayName
-        default: personId
+        default: [ personId ]
+        example:
+          - surName
+          - -personId
   responses:
     '200':
       description: OK

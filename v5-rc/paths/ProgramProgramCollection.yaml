@@ -60,7 +60,10 @@ get:
             - name
             - -programId
             - -name
-        default: name
+        default: [ name ]
+        example:
+          - name
+          - -programId
   responses:
     '200':
       description: OK

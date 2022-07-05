@@ -54,7 +54,10 @@ get:
             - -name
             - -startDateTime
             - -endDateTime
-        default: startDateTime
+        default: [ startDateTime ]
+        example:
+          - offeringId
+          - -startDateTime
   responses:
     '200':
       description: OK

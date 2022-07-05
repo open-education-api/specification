@@ -37,7 +37,10 @@ get:
             - -educationSpecificationType
             - -name
             - -primarycode
-        default: name
+        default: [ name ]
+        example:
+          - name
+          - -educationSpecificationType
   responses:
     '200':
       description: OK
