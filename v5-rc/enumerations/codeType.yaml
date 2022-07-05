@@ -56,4 +56,4 @@ x-ooapi-extensible-enum:
   - uuid
   - schacHome
   - identifier
-example: crohoCreboCode
+example: identifier
