@@ -9,3 +9,6 @@ required:
   - codeType
   - code
 additionalProperties: false
+example:
+  codeType: 'identifier'
+  code: '1234qwe12'
