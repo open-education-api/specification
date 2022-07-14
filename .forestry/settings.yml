@@ -9,8 +9,8 @@ sections:
   label: docs
   create: all
   match: "**/*.md"
-upload_dir: uploads
-public_path: "/uploads"
+upload_dir: docs/_media
+public_path: _media
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
