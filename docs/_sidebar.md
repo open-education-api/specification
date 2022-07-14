@@ -13,5 +13,5 @@
 * [Historical and future data](historical-and-future-data.md)
 * [Extending OOAPI](extending-ooapi.md)
 * [Specific consumers](consumers.md)
-  \** [RIO](consumers/rio.md)
-  \** [eduXchange](consumers/eduxchange.md)
+  * [RIO](consumers/rio.md) 
+  * [eduXchange](consumers/eduxchange.md)
