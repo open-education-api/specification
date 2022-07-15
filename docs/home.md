@@ -9,8 +9,6 @@ Not only does the Open Education API enhance the digital, online experience of s
 
 Let’s take a closer look...
 
-Hello Jim!
-
 ## What is the Open Education API?
 
 Educational institutes are increasingly using apps to share education data with their students. However, the underlying data for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. For existing and new apps to communicate with these various systems, a set of software definitions known as an API is required.
