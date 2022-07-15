@@ -5,6 +5,6 @@ The OOAPI specification is based on the REST architectural style to design API's
 
 A resource describing a single thing is called a singular resource. Resources can also be grouped into collections, which are resources in their own right and can typically be paged, sorted and filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource describing multiple things is called a collection resource. Collection resources typically contain references to the underlying singular resources.
 
-![Conceptual Model](_media/conceptual-model.png)
+![Conceptual Model](../_media/conceptual-model.png)
 
 Since OOAPI describes the information of an institution as resources, each institution that wants to create an OOAPI implementation has to define their own mapping/translation between the OOAPI resources and their own internal data model.

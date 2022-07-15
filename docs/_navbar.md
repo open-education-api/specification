@@ -1,3 +1,6 @@
 * [Home](/)
-* [Filtering](filtering-responses.md)
-* [Documentation  todo](todos.md)
+* [Community](community/community.md)
+* [Governance](governance/governance.md)
+* [Technical information](technical/introduction.md)
+* [Sitemap](/)
+* [Contact](/)

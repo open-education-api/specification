@@ -27,7 +27,7 @@ Furthermore, the returned entities should implement the attributes as described 
 
 ### RIO Model
 
-![Simplified version of the RIO model](../_media/simple_rio.png "Simplified version of the RIO model")
+![Simplified version of the RIO model](../../_media/simple_rio.png "Simplified version of the RIO model")
 
 This is a simplified version of the RIO model. It leaves out a lot of details and only describes the parts that are relevant for the mapping from OOAPI to RIO. The following entities are in scope:
 - OpleidingsEenheid, and the following specializations:
@@ -78,7 +78,7 @@ For RIO [this mechanism](historical-and-future-data) can be leveraged as follows
 
 ## Mapping EducationSpecification to RIO Opleidingseenheden
 
-![Mapping of OOAPI EducationSpecifications to RIO Opleidingseenheden](../_media/simple_rio_opleidingseenheid_mapping.png "Mapping of OOAPI EducationSpecifications to RIO Opleidingseenheden")
+![Mapping of OOAPI EducationSpecifications to RIO Opleidingseenheden](../../_media/simple_rio_opleidingseenheid_mapping.png "Mapping of OOAPI EducationSpecifications to RIO Opleidingseenheden")
 
 EducationSpecifications can have relations to other EducationSpecifications which will be translated to RIO as relations between OpleidingsEenheden.
 
@@ -179,7 +179,7 @@ EducationSpecifications can have relations to other EducationSpecifications whic
 
 ## Mapping Educations to RIO AangebodenOpleidingen
 
-![Mapping of OOAPI Educations to RIO AangebodenOpleidingen](../_media/simple_rio_aangebodenopleiding_mapping.png "Mapping of OOAPI Educations to RIO AangebodenOpleidingen")
+![Mapping of OOAPI Educations to RIO AangebodenOpleidingen](../../_media/simple_rio_aangebodenopleiding_mapping.png "Mapping of OOAPI Educations to RIO AangebodenOpleidingen")
 
 ### Mapping Program to RIO AangebodenOpleidingen
 

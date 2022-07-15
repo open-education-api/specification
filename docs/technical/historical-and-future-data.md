@@ -15,7 +15,7 @@ The timelineOverride mechanism consists of the following:
 ## Example
 In the following example `name` is a required field and so must be repeated in the timelineOverrides.
 
-![Example timelineOverride](_media/example-timeline-override.png "Example timelineOverride")
+![Example timelineOverride](../_media/example-timeline-override.png "Example timelineOverride")
 
 1. The first known state of events starts at 23-01-1990. The example entity has the following attributes:
     - name: Example entity
