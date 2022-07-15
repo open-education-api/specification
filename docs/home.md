@@ -3,14 +3,6 @@
 ---
 # Open Education API
 
-Have you considered using a standard API (Application Programming Interface), such as the Open Education API, to improve the IT infrastructure of your school, college, or university? There are some very good reasons for doing this…
-
-Not only does the Open Education API enhance the digital, online experience of students participating in your study programs, but it offers a significant number of advantages for your software development team as well.
-
-Let’s take a closer look...
-
-## What is the Open Education API?
-
 Educational institutes are increasingly using apps to share education data with their students. However, the underlying data for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. For existing and new apps to communicate with these various systems, a set of software definitions known as an API is required.
 
 Of course, each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why SURF are collaborating with several education institutes and suppliers in the Netherlands (collectively known as the Community) to create the Open Education API, known in Dutch as the ‘Open Onderwijs API’ or in short, the OOAPI.
