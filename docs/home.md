@@ -41,7 +41,7 @@ It is our goal at SURF to continually define and further develop the OOAPI, in c
 
 Furthermore, educational institutes that want to publish education data in a standardized way can implement their own API, based on the OOAPI standard.
 
-## Working together to create a standard
+## Creating a joint standard
 
 Apps are constantly evolving…
 
