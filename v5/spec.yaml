@@ -1,6 +1,6 @@
 openapi: "3.0.3"
 info:
-  version: "5.0.0 RC2"
+  version: "5.0.0"
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API.
