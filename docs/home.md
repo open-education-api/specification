@@ -35,7 +35,7 @@ By incorporating the OOAPI into your IT infrastructure, students can easily:
 * Safe sharing of information in a trusted environment.
 * Continuous knowledge sharing thanks to collaboration with other educational institutes.
 
-## Our mission
+## Our vision
 
 It is our goal at SURF to continually define and further develop the OOAPI, in close cooperation with the Community, and in accordance with the guidelines set out in the Governance model, so that it can be used by as many schools, colleges, and universities in the Netherlands as possible.
 
@@ -60,6 +60,6 @@ Both the University of Amsterdam (UvA) and the Zuyd Hogeschool use the OOAPI on 
 
 When the Zuyd Hogeschool decided to develop a new intranet for their students, to save time and money, the OOAPI was the obvious choice as a major building block for their IT infrastructure.
 
-## Interview with Johannes Maas (involved with implementing the OOAPI at Zuyd Hogeschool)
+_Interview with Johannes Maas (involved with implementing the OOAPI at Zuyd Hogeschool):_
 
-“The OOAPI translates information from existing source systems and makes it available for educational apps. Take for example a new app that allows you to view the class timetable on your smartphone or reserve a workspace while heading into work on the train. The existing systems supply the underlying information, but the functionality and display are new. By using the OOAPI to unlock the existing systems, a comprehensive range of new apps can be developed. And moreover, this can be achieved without having to adapt the source systems themselves.”
+“_The OOAPI translates information from existing source systems and makes it available for educational apps. Take for example a new app that allows you to view the class timetable on your smartphone or reserve a workspace while heading into work on the train. The existing systems supply the underlying information, but the functionality and display are new. By using the OOAPI to unlock the existing systems, a comprehensive range of new apps can be developed. And moreover, this can be achieved without having to adapt the source systems themselves_.”
