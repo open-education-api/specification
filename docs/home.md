@@ -46,7 +46,7 @@ Furthermore, educational institutes that want to publish education data in a sta
 
 ## Interested in joining us?
 
-Are you an educational institute, and interested in joining this initiative? Then please access the **Community** link at the top of this page.
+Are you an educational institute and interested in having the OOAPI developed to suit your needs? Then why not join us. For more information, access the **Community** link at the top of this page.
 
 ## Case study
 
