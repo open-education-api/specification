@@ -3,11 +3,11 @@
 ---
 # Open Education API
 
-Educational institutes are increasingly using apps to share education data with their students. However, the underlying data for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. For existing and new apps to communicate with these various systems, a set of software definitions known as an API is required.
+Educational institutes are increasingly using apps to share education data with their students. However, the underlying data for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. For new and existing apps to communicate with these various systems, a set of software definitions known as an API is required.
 
 Of course, each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI) was created.
 
-This open API (or public API as it is sometimes referred to) is constantly being defined and developed so that existing and new apps can efficiently process education data, such as registering for a course online, viewing a timetable on a mobile device, or securely checking exam results.
+This open API (or public API as it is sometimes referred to) is constantly being defined and developed so that apps can efficiently process education data, such as registering for a course online, viewing a timetable on a mobile device, or securely checking exam results.
 
 The OOAPI is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by SURF (known collectively as the Community).
 
@@ -35,17 +35,13 @@ By incorporating the OOAPI into your IT infrastructure, students can easily:
 * Safe sharing of information in a trusted environment.
 * Continuous knowledge sharing thanks to collaboration with other educational institutes.
 
-## Our vision
-
-It is our goal at SURF to continually define and further develop the OOAPI, in close cooperation with the Community, and in accordance with the guidelines set out in the Governance model, so that it can be used by as many schools, colleges, and universities in the Netherlands as possible.
-
-Furthermore, educational institutes that want to publish education data in a standardized way can implement their own API, based on the OOAPI standard.
-
 ## Creating a standard together
 
 Apps are constantly evolving…
 
-To create an all-encompassing, standard API, it is essential to understand the ever-changing needs of the various educational institutes. That is why we place great value on the role of the community. We believe that by working together, we can create a standard API (the OOAPI) that best serves all students in the Netherlands.
+To create an all-encompassing, standard API, it is essential to understand the ever-changing needs of the various educational institutes. Therefore, he community places great value on working in close cooperation to create a standard API (the OOAPI) that best serves as many educational institutes in the Netherlands as possible.
+
+Furthermore, educational institutes that want to publish education data in a standardized way can implement their own API, based on the OOAPI standard.
 
 ## Interested in joining us?
 
