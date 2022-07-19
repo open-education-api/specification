@@ -27,7 +27,7 @@ By incorporating the OOAPI into your IT infrastructure, students can easily:
 
 ## Benefits for web-development team
 
-* Fast development times due to standardisation.
+* Fast development times due to standardization.
 * No major cost/investment required.
 * Easier to exchange data with other educational institutes.
 * No need to develop individual, bespoke APIs.
@@ -39,7 +39,7 @@ By incorporating the OOAPI into your IT infrastructure, students can easily:
 
 It is our goal at SURF to continually define and further develop the OOAPI, in close cooperation with the Community, and in accordance with the guidelines set out in the Governance model, so that it can be used by as many schools, colleges, and universities in the Netherlands as possible.
 
-Furthermore, educational institutes that want to publish education data in a standardised way can implement their own API, based on the OOAPI standard.
+Furthermore, educational institutes that want to publish education data in a standardized way can implement their own API, based on the OOAPI standard.
 
 ## Working together to create a standard
 
@@ -47,17 +47,19 @@ Apps are constantly evolving…
 
 To create an all-encompassing, standard API, it is essential to understand the ever-changing needs of the various educational institutes. That is why we place great value on the role of the community. We believe that by working together, we can create a standard API (the OOAPI) that best serves all students in the Netherlands.
 
-## Educational institute? Interested in joining us?
+## Interested in joining us?
 
-Are you are interested in joining this initiative and becoming part of the community? Then please access the Community link at the top of this page.
+As an educational institute, are you interested in joining this initiative and becoming part of the community?   
+For more information, please access the Community link at the top of this page.
 
-## An example of how the OOAPI can benefit the community
+## Case study
 
-Both the University of Amsterdam (UvA) and the Zuyd Hogeschool use the OOAPI on a daily basis as part of their IT infrastructure.
-The MijnUvA app, as used by students at the UvA, combines data from the electronic learning environment, the student information system, the timetable system, and the UvA website. By using the OOAPI, these data can be accessed and presented in a clear and organised way.
+How the OOAPI can benefit the community...
+
+Both the University of Amsterdam (UvA) and the Zuyd Hogeschool use the OOAPI on a daily basis as part of their IT infrastructure. The MijnUvA app, as used by students at the UvA, combines data from the electronic learning environment, the student information system, the timetable system, and the UvA website. By using the OOAPI, these data can be accessed and presented in a clear and organized way.
 
 When the Zuyd Hogeschool decided to develop a new intranet for their students, to save time and money, the OOAPI was the obvious choice as a major building block for their IT infrastructure.
 
-## Interview with Johannes Maas (Director of innovation at Finalist, and involved with the implementation of the OOAPI at Zuyd Hogeschool)
+## Interview with Johannes Maas (involved with implementing the OOAPI at Zuyd Hogeschool)
 
 “The OOAPI translates information from existing source systems and makes it available for educational apps. Take for example a new app that allows you to view the class timetable on your smartphone or reserve a workspace while heading into work on the train. The existing systems supply the underlying information, but the functionality and display are new. By using the OOAPI to unlock the existing systems, a comprehensive range of new apps can be developed. And moreover, this can be achieved without having to adapt the source systems themselves.”
