@@ -16,6 +16,12 @@ properties:
     readOnly: true
   academicSessionType:
     $ref: '../enumerations/academicSessionType.yaml'
+  primaryCode:
+    description: The primary human readable identifier for this academic session. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: identifier
+      code: '2012-Q1'
   name:
     type: array
     description: The name of this academic session
@@ -57,7 +63,12 @@ properties:
       - $ref: './Identifier.yaml'
         title: academicSessionId
       - $ref: './AcademicSession.yaml'
-        title: Expanded AcademicSession    
+        title: Expanded AcademicSession
+  otherCodes:
+    type: array
+    description: An array of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array
