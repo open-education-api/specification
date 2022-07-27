@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/buble.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <link rel="stylesheet" href="/theme.css">
   <style>
     :root {
       --docsifytabs-border-color: #ededed;
@@ -18,13 +19,13 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      //repo: 'open-education-api/specification',
+      repo: 'https://github.com/open-education-api/specification',
       homepage: 'home.md',
       basePath: 'docs',
       name: 'Open Onderwijs API',
       externalLinkTarget: '_self',
       maxLevel: 3,
-      loadNavbar: true,
+      //loadNavbar: true,
       loadSidebar: true,
       logo: '_media/ooapi-logo.png',
       tabs: {
@@ -38,7 +39,8 @@
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/front-matter.min.js"></script>
 </body>
 </html>

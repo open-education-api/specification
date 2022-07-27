@@ -1,6 +1,0 @@
-* [Home](/)
-* [Community](community/community.md)
-* [Governance](governance/governance.md)
-* [Technical information](technical/introduction.md)
-* [Sitemap](/)
-* [Contact](/)
