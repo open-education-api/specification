@@ -4,6 +4,7 @@ get:
   tags:
     - academic sessions
   parameters:
+    - $ref: '../parameters/primaryCode.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
