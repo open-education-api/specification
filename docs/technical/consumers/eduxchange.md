@@ -27,6 +27,8 @@ To be compatible with eduXchange and the Project 'Studentmobiliteit' an institut
 
 !> For `/organizations` the `type=root` parameter must be supported and for all calls returning programs the `type=minor` parameter will be set and must be supported.
 
+!> To select educational information meant for eduXchange, eduXchange will always append the query parameter `consumer=eduxchange` to every call.
+
 ## Specific expands that have to be implemented
 
 To be compatible with the [eduXchange catalogue website](https://www.eduxchange.nl), an implementation needs to support the following [expands]: 
@@ -49,9 +51,9 @@ Also the eduxchange consumer object should be added to the array of consumer obj
     - `theme`: the theme of the Program or Course within the alliance
     - `selection`: boolean value (`true` or `false`) indicating whether this Program or Course is selective, e.g. whether student need to pass extra requirements before being allowed to enroll.
     - `type`: a string indicating whether a Program or Course is broadening or deepening. Allowed values are: `"broadening"` and `"deepening"`.
-    - `visibleForOwnStudents`: a boolean value (`true` or `false`) indicating whether this Program or Course should be visible for students of the offering institution. The default values for this attribute is specified outside of this specification on the alliance level. By default students who are not enrolled in one of the participating alliances can see all Programs and Courses but not enroll.
+    - `visibleForOwnStudents`: a boolean value (`true` or `false`) indicating whether this Program or Course should be visible for students of the offering institution. The default values for this attribute is specified outside of this specification on the alliance level. By default, students who are not enrolled in one of the participating alliances can see all Programs and Courses but not enroll.
     - `enrollmentForOwnStudents`: a string indicating which enrollments process should be followed for students of the offering institution. Allowed values are `"broker"` or `"url"`. This attribute is only used if `visibleForOwnStudents` is set to `true`. If `"url"` is chosen the attribute `enrollmentUrl` is mandatory.
-    - `enrollmentUrl`: a string formatted as an url to which students will be redirected if `enrollmentForOwnStudents` is set to `"url"`.
+    - `enrollmentUrl`: a string formatted as an URL to which students will be redirected if `enrollmentForOwnStudents` is set to `"url"`.
     - `source`: an optional object with a reference to the source of a Course or Program. In an alliance one of the institutions could act as overall coordinator and specifies the program and underlying courses. Underlying courses could be given at one of the other institutions. In this source object the course at the other institution can be specified. Use these attributes:
       - `shortName`: the shortName of the institution to identify the source institution. Possible values for ewuu are `"tue"`, `"wur"` and `"uu"`, for lde these are `"ul"`, `"tud"` and `"eur"`
       - `primaryCode`: a string value with the primaryCode of the course to identify the source course.
