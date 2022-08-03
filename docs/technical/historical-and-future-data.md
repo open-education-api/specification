@@ -56,3 +56,35 @@ This sequence of changes can be specified in OOAPI as follows:
     ]
 }
 ```
+
+### Later in time...
+Without changing the underlying data, let's look at the result later in time:
+
+![Example timelineOverride later in time](../_media/example-timeline-override-later.png "Example timelineOverride later in time")
+
+```json
+{
+    "name": "Example entity",
+    "website": "https://the-new-website.com"
+    "validFrom": "01-01-2022",
+    "timelineOverrides": [
+        {
+            "validFrom": "23-01-1990",
+            "validTo": "01-01-2005",
+            "entity": {
+                "name": "Example entity",
+                "availableSpots": 10
+            }
+        },
+        {
+            "validFrom": "01-01-2005",
+            "validTo": "01-01-2022",
+            "entity": {
+                "name": "Example entity",
+                "website: "https://www.example-entity.com",
+                "availableSpots": 23
+            }
+        }
+    ]
+}
+```
