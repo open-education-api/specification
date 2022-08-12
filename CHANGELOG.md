@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.0.0] - 2022-07-19
+The v5.0.0 release is the same as 5.0.0 RC2.
+
 ## [5.0.0 RC2] - 2022-06-10
 ### Added
 - Adds an expandable `children` attribute to EducationSpecification.

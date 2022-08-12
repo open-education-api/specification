@@ -1,6 +1,6 @@
 get:
   summary: GET /education-specifications/{educationSpecificationId}/courses
-  description: Get an ordered list of all courses given through this educationspecification.
+  description: Get an ordered list of all courses given through this EducationSpecification.
   tags:
     - education specifications
   parameters:
@@ -14,6 +14,7 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
     - name: level
       in: query
