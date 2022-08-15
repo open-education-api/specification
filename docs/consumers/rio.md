@@ -434,8 +434,8 @@ The following level cannot be mapped from OOAPI to RIO:
 
 | consentParticipationSTAP | toestemmingDeelnameSTAP   |
 | ------------------------ | ------------------------- |
-| permission_granted       | GEEN_TOESTEMMING_VERLEEND |
-| permission_not_granted   | TOESTEMMING_VERLEEND      |
+| permission_granted       | TOESTEMMING_VERLEEND      |
+| permission_not_granted   | GEEN_TOESTEMMING_VERLEEND |
 
 ### modeOfStudy › vorm
 
