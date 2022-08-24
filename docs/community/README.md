@@ -11,7 +11,7 @@ If you wish to join the Community and stay informed of the latest developments, 
 
 ## Working group
 
-The working group within the Community meet on a regular basis to discuss topics such as: 
+The working group within the Community meet on a regular basis to discuss topics such as:
 
 * Possible future developments for the Open Education API.
 * The implementation of new data.
@@ -25,4 +25,4 @@ The way of working is defined in the Governance model, which includes detailed i
 * How to terminate membership of the working group.
 * Rights and obligations of a working group member.
 
-For more information on governance, please access the **Governance model** link at the top of this page.
+For more information on governance, please access the **Governance model** link at the side of this page.
