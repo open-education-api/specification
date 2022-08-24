@@ -2,8 +2,7 @@
 
 ---
 # Community members
-
-###### Avans University
+# Avans University
 
 Piet Brekelmans
 
