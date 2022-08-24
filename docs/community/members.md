@@ -2,13 +2,12 @@
 
 ---
 # Community members
-# Avans University
+
+Avans University
 
 Piet Brekelmans
 
-###### InHolland University of Applied Sciences |
-
-* Arthur van Alten
+InHolland University of Applied Sciences | Arthur van Alten
 
 | Leiden University of Applied Sciences | Mark de Jong Frank Schimmel |
 
