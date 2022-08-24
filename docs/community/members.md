@@ -5,9 +5,9 @@
 
 ###### Avans University
 
-* Piet Brekelmans 
+Piet Brekelmans
 
-###### InHolland University of Applied Sciences | 
+###### InHolland University of Applied Sciences |
 
 * Arthur van Alten
 
@@ -17,11 +17,9 @@
 
 | Finalist | Stanley Portiers |
 
-| University of Amsterdam | Tom Kuipers |
-
-| Arnhem Nijmegen University of Applied Sciences | Niels Kregting |
-
-| The Hague University of Applied Sciences | Henk Schouten, Danny Klootwijk |
+* University of Amsterdam | Tom Kuipers
+* Arnhem Nijmegen University of Applied Sciences | Niels Kregting
+* The Hague University of Applied Sciences | Henk Schouten, Danny Klootwijk
 
 | Utrecht University of Applied Sciences | Joost Veerman, Xiaojie Bormans |
 
