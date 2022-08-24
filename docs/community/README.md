@@ -25,4 +25,4 @@ The way of working is defined in the Governance model, which includes detailed i
 * How to terminate membership of the working group.
 * Rights and obligations of a working group member.
 
-For more information on governance, please access the **Governance model** link at the left side of this page.
+For more information on the Governance model, please access the **Governance** link at the left side of this page.
