@@ -5,7 +5,7 @@
 
 Educational institutes are increasingly using **apps** to share education data with their students. However, the underlying data for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. For new and existing apps to communicate with these various systems, a set of software definitions known as an [API (Application Programming Interface)](https://en.wikipedia.org/wiki/API) is required.
 
-Of course, each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI) was created.
+Of course, each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI) was created. 
 
 The OOAPI is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by SURF (collectively known as the [Community](community/)).
 
