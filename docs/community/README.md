@@ -26,3 +26,5 @@ The way of working is defined in the Governance model, which includes detailed i
 * Rights and obligations of a working group member.
 
 For more information on the Governance model, please access the **Governance** link at the left side of this page.
+
+To register for the working group and become an active part of the Community, please click **here**.
