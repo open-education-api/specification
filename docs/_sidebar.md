@@ -27,5 +27,5 @@
     * [eduXchange](technical/consumers/eduxchange.md)
   * [Project profiles for OOAPI](technical/profiles)
     * [RIO](technical/profiles/rio.md)
-    * [eduXchange](technical/profiles/eduxchange.md)	
+    * [eduXchange](technical/profiles/eduxchange.md)
 * [Contact](contact.md)
