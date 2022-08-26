@@ -28,3 +28,13 @@ The way of working is defined in the Governance model, which includes detailed i
 For more information on the Governance model, please access the **Governance** link at the left side of this page.
 
 To register for the working group and become an active part of the Community, please click **here**.
+
+## Decisions within GitHub
+
+For issues that affects the GitHub environment ([https://github.com/open-education-api](https://github.com/open-education-api "https://github.com/open-education-api")), the following applies:
+
+* The issue should be submitted to the master committer.
+* The master committer then has 5 days to reach a decision.
+* The decision is recorded within the GitHub environment.
+* The voting procedure is started within these 5 days so that the decision can be voted on.
+* The outcome of the vote determines any action required.
