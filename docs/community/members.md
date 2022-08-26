@@ -13,7 +13,7 @@ TBD: To do:
 
 Currently the Community/Working group consists of the following members:
 
-* Avans University: Piet Brekelmans
+* [Avans University](https://www.avans.nl/international): Piet Brekelmans
 * InHolland University of Applied Sciences: Arthur van Alten
 * Leiden University of Applied Sciences: Mark de Jong, Frank Schimmel
 * SURF: Jelmer de Ronde, Frans Ward
@@ -26,6 +26,7 @@ Currently the Community/Working group consists of the following members:
 * Leiden University: Maarten van Schie
 
 TDB This is a test JH
-| Member                 | Contact person                                                                                                                        |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-|  Avans University        | Piet Brekelmans |
+
+| Member | Contact person |
+| --- | --- |
+| Avans University | Piet Brekelmans |
