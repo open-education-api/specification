@@ -5,15 +5,15 @@
 
 TBD: In the list below, are these Community members or Working group members? Affects title above and sentence below. JH
 
-TBD: To do: 
+TBD: To do:
 
-* Check if members, including contact names are up-to-date. 
-* Add links (email addresses) to contact names as well as links to members (websites), if required. For example, add a link to the "Avans University" website. 
+* Check if members, including contact names are up-to-date.
+* Add links (email addresses) to contact names as well as links to members (websites), if required. For example, add a link to the "Avans University" website.
 * I can experiment putting this data into a table if you prefer that. JH
 
 Currently the Community/Working group consists of the following members:
 
-* Avans University: Piet Brekelmans
+| Avans University Piet Brekelmans
 * InHolland University of Applied Sciences: Arthur van Alten
 * Leiden University of Applied Sciences: Mark de Jong, Frank Schimmel
 * SURF: Jelmer de Ronde, Frans Ward
@@ -24,3 +24,17 @@ Currently the Community/Working group consists of the following members:
 * Utrecht University of Applied Sciences: Joost Veerman, Xiaojie Bormans
 * inQdo: Pieter Smit
 * Leiden University: Maarten van Schie
+
+codeType                 | Description                                                                                                                        |
+
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+
+| \`brin\`                   | The registration number for a Dutch educational institution that is issued by the Dutch Ministry of Education, Culture and Science |
+
+| \`crohoCreboCode\`         | programs with a CREBO and CROHO number are accredited by the Dutch Ministry of Education, Culture and Science (OCW)                |
+
+| \`programCode\`            | Identifier for the program (collection of courses)                                                                                 |
+
+| \`componentCode\`          | The code for a component (part of a course)                                                                                        |
+
+| \`offeringCode\`           | The code to identify a specific offering (program, cours
