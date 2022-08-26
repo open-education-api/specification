@@ -3,7 +3,7 @@
 ---
 # Open Education API
 
-TBD: Please review this entire section. The word "apps" below should either be a link or not **bold.** JH
+TBD: Please review this entire section. JH
 
 Educational institutes are increasingly using [apps](https://en.wikipedia.org/wiki/Mobile_app) to share education data with their students. However, the underlying data for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. For new and existing apps to communicate with these various systems, a set of software definitions known as an [API (Application Programming Interface)](https://en.wikipedia.org/wiki/API) is required.
 
