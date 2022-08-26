@@ -28,5 +28,5 @@ Currently the Community/Working group consists of the following members:
 TDB This is a test JH
 
 | Member | Contact person |
-| ------------------------ | -----------------------------------------------------|
-| [Avans University](https://www.avans.nl/international) | Piet Brekelmans |
+| --- | --- |
+| Avans University | Piet Brekelmans |
