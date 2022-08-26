@@ -3,7 +3,7 @@
 ---
 # Community members
 
-TBD: To do: Check if members, including contact names are up-to-date. Add links (email addresses) to contact names. I can experiment putting this data into a table if you prefer that. JH
+TBD: To do: Check if members, including contact names are up-to-date. Add links (email addresses) to contact names + links to members (websites) if required. For example, add a link for the "Avans University" website. I can experiment putting this data into a table if you prefer that. JH
 
 Currently the Community consists of the following members:
 
