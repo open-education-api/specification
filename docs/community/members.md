@@ -26,5 +26,7 @@ Currently the Community/Working group consists of the following members:
 * Leiden University: Maarten van Schie
 
 TDB This is a test JH
+
 | Member | Contact person |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Avans University | Piet Brekelmans |
