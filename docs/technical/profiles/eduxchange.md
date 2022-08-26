@@ -32,6 +32,24 @@ To be compatible with eduXchange and the Project 'Studentmobiliteit' an institut
 
 !> To select educational information meant for eduXchange, eduXchange will always append the query parameter `consumer=eduxchange` to every call.
 
+## Specific attributes that are required in the project
+
+Person otherCodes > studielinkNummer
+
+post association offering course expanded ipv ID
+post association offering program expanded ipv ID
+
+
+## explanation of rules governing the association state
+pending (proces is waiting on the status of the students home institution)
+associated (the student is enrolled in the learning activity)
+canceled (by student)
+denied (either learning activity is stopped or student is not allowed)
+queued (student is put on a waiting list)
+
+## explanation of rules governing the association remoteState
+
+
 ## Specific expands that have to be implemented
 
 To be compatible with the [eduXchange catalogue website](https://www.eduxchange.nl), an implementation needs to support the following \[expands\]:
