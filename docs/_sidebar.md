@@ -1,3 +1,6 @@
+---
+
+---
 * [Home](/)
 * [Community](community/)
   * [Members](community/members.md)
@@ -20,6 +23,9 @@
   * [Historical and future data](technical/historical-and-future-data.md)
   * [Extending OOAPI](technical/extending-ooapi.md)
   * [Specific consumers](technical/consumers/)
-    * [RIO](technical/consumers/rio.md) 
+    * [RIO](technical/consumers/rio.md)
     * [eduXchange](technical/consumers/eduxchange.md)
+  * [Project profiles for OOAPI](technical/profiles)
+    * [RIO](technical/profiles/rio.md)
+    * [eduXchange](technical/profiles/eduxchange.md)	
 * [Contact](contact.md)
