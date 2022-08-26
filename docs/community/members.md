@@ -13,7 +13,7 @@ TBD: To do:
 
 Currently the Community/Working group consists of the following members:
 
-| Avans University Piet Brekelmans
+* Avans University: Piet Brekelmans
 * InHolland University of Applied Sciences: Arthur van Alten
 * Leiden University of Applied Sciences: Mark de Jong, Frank Schimmel
 * SURF: Jelmer de Ronde, Frans Ward
@@ -25,16 +25,6 @@ Currently the Community/Working group consists of the following members:
 * inQdo: Pieter Smit
 * Leiden University: Maarten van Schie
 
-codeType                 | Description                                                                                                                        |
-
+| codeType                 | Description                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-
-| \`brin\`                   | The registration number for a Dutch educational institution that is issued by the Dutch Ministry of Education, Culture and Science |
-
-| \`crohoCreboCode\`         | programs with a CREBO and CROHO number are accredited by the Dutch Ministry of Education, Culture and Science (OCW)                |
-
-| \`programCode\`            | Identifier for the program (collection of courses)                                                                                 |
-
-| \`componentCode\`          | The code for a component (part of a course)                                                                                        |
-
-| \`offeringCode\`           | The code to identify a specific offering (program, cours
+| `brin`                   | The registration number for a Dutch educational institution that is issued by the Dutch Ministry of Education, Culture and Science |
