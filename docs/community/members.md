@@ -29,4 +29,4 @@ TDB This is a test JH
 
 | Member | Contact person |
 | ------------------------ | -----------------------------------------------------|
-| Avans University | Piet Brekelmans |
+| [Avans University](https://www.avans.nl/international) | Piet Brekelmans |
