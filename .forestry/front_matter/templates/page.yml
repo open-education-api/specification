@@ -4,3 +4,4 @@ hide_body: false
 fields: []
 pages:
 - docs/technical/profiles/README.md
+- docs/technical/profiles/eduxchange.md
