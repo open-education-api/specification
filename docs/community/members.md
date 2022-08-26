@@ -30,4 +30,4 @@ TDB This is a test JH
 | Member | Contact person |
 | --- | --- |
 | [Avans University](https://www.avans.nl/international) | Piet Brekelmans |
-| InHolland University of Applied Sciences | Arthur van Alten |
+| [InHolland University of Applied Sciences](https://www.inholland.nl/INHOLLANDCOM) | Arthur van Alten |
