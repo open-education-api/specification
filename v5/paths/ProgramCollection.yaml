@@ -55,7 +55,7 @@ get:
             - -programId
             - -name
         default: [ name ]
-        sort:
+        example:
           - name
           - programId
   responses:
