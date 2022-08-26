@@ -3,9 +3,15 @@
 ---
 # Community members
 
-TBD: To do: Check if members, including contact names are up-to-date. Add links (email addresses) to contact names + links to members (websites) if required. For example, add a link for the "Avans University" website. I can experiment putting this data into a table if you prefer that. JH
+TBD: In the list below, are these Community members or Working group members? Affects title above and sentence below. JH
 
-Currently the Community consists of the following members:
+TBD: To do: 
+
+* Check if members, including contact names are up-to-date. 
+* Add links (email addresses) to contact names as well as links to members (websites), if required. For example, add a link to the "Avans University" website. 
+* I can experiment putting this data into a table if you prefer that. JH
+
+Currently the Community/Working group consists of the following members:
 
 * Avans University: Piet Brekelmans
 * InHolland University of Applied Sciences: Arthur van Alten
