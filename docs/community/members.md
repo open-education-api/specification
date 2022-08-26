@@ -26,6 +26,6 @@ Currently the Community/Working group consists of the following members:
 * Leiden University: Maarten van Schie
 
 TDB This is a test JH
-| codeType                 | Description                                                                                                                        |
+| Member                 | Contact person                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `brin`                   | The registration number for a Dutch educational institution that is issued by the Dutch Ministry of Education, Culture and Science |
+|  Avans University        | Piet Brekelmans |
