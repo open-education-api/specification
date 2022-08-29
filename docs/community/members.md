@@ -31,3 +31,4 @@ TDB This is a test JH
 | --- | --- |
 | [Avans University](https://www.avans.nl/international) | Piet Brekelmans |
 | [InHolland University of Applied Sciences](https://www.inholland.nl/INHOLLANDCOM) | Arthur van Alten |
+| Leiden University of Applied Sciences](https://www.hsleiden.nl/) | Mark de Jong, Frank Schimmel |
