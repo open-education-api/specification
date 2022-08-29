@@ -6,9 +6,10 @@
 TBD: In the list below, are these Community members or Working group members? Affects title above and sentence below.
 
 To do:
-
 * Check if members, including contact names are up-to-date.
 * Add following bullet points to table and create links. JH
+
+
 
 Currently the Community/Working group consists of the following members:
 
@@ -28,7 +29,7 @@ TDB: This is work in progress. JH
 
 | Member | Contact person |
 | --- | --- |
-| Avans University | Piet Brekelmans |
-| InHolland University of Applied Sciences | Arthur van Alten |
-| Leiden University of Applied Sciences | Mark de Jong, Frank Schimmel |
-| SURF | Jelmer de Ronde, Frans Ward |
+| [Avans University](https://www.avans.nl/international) | Piet Brekelmans |
+| [InHolland University of Applied Sciences](https://www.inholland.nl/INHOLLANDCOM) | Arthur van Alten |
+| [Leiden University of Applied Sciences](https://www.hsleiden.nl/) | Mark de Jong, Frank Schimmel |
+| [SURF](https://www.surf.nl/) | Jelmer de Ronde, Frans Ward |
