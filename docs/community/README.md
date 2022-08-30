@@ -3,7 +3,7 @@
 ---
 # Community
 
-TBD: Please review this entire section. **Bold** text indicates suggestions for links (to be added). JH
+TBD: **Bold** text indicates suggestions for links (to be added). JH
 
 The Community consists of several education institutions and suppliers that are working closely with SURF to further define and develop the Open Education API.
 
@@ -13,19 +13,15 @@ If you wish to join the Community and stay informed of the latest developments, 
 
 ## Working group
 
-The Working group is a subgroup of the Community and consists of a number of members. The **Working group members** are responsible for (and meet on a regular basis to discuss) topics such as:
+The Working group is a subgroup of the Community and consists of a number of members that meet on a regular basis. The **Working group members** are responsible for topics such as:
 
 * the project roadmap.
-* design and future development of the Open Education API specification (the development has an annual cycle consisting of a minor and a major release).
+* the design and future development of the Open Education API specification (the development has an annual cycle consisting of a minor and a major release).
 * project management.
-* The implementation of new data.
+* the implementation of new data.
 * evaluation of work done (new information implemented by SURF).
 * the Community.
 * promotion of the OOAPI.
-
-* 
-* 
-* 
 
 The working group "way of working" is defined in the Governance model, which includes detailed information such as:
 
