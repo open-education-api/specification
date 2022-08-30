@@ -43,4 +43,4 @@ For issues that affect the GitHub environment ([https://github.com/open-educatio
 * The decision is recorded within the GitHub environment.
 * The voting procedure is started within these 5 days so that the decision can be voted on.
 * The outcome of the vote is recorded.
-* Any follow-up action is taken up depending on the outcome of the vote.
+* Any follow-up action is taken depending on the outcome of the vote.
