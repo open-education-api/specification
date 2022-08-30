@@ -9,11 +9,11 @@ The Community consists of **members** (representatives) of education institution
 
 Community members participate actively in the project and are encouraged to:
 
-* share education data so that it can be implemented in the Open Education API. 
+* share education data so that it can be implemented in the Open Education API.
 * ask questions.
 * propose potential modifications to the specification.
 * provide feedback.
-* Contribute towards an active Community site.
+* contribute towards an active Community site.
 
 This enables for fast, efficient development of education apps, which benefits the members of the Community as well as their end-users.
 
