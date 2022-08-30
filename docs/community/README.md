@@ -13,11 +13,19 @@ If you wish to join the Community and stay informed of the latest developments, 
 
 ## Working group
 
-The **working group members** within the Community meet on a regular basis to discuss topics such as:
+The Working group is a subgroup of the Community and consists of a number of members. The **Working group members** are responsible for (and meet on a regular basis to discuss) topics such as:
 
-* Possible future developments for the Open Education API.
+* the project roadmap.
+* design and future development of the Open Education API specification (the development has an annual cycle consisting of a minor and a major release).
+* project management.
 * The implementation of new data.
-* Evaluation of work done (new information implemented by SURF).
+* evaluation of work done (new information implemented by SURF).
+* the Community.
+* promotion of the OOAPI.
+
+* 
+* 
+* 
 
 The working group "way of working" is defined in the Governance model, which includes detailed information such as:
 
