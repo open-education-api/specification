@@ -9,7 +9,7 @@ In the table below:
 * Check if members, including contact names, are up-to-date.
 * Check if the links are correct (okay I think).
 * Should list below be in a certain sequence (alphabetical for example)?
-* Are these Community members or Working group members (affects title above and sentence below)? JH
+* Are these Community members or Working group members (affects title above and sentence below)? WE could have one combined table showing Community and Working group members. JH
 
 The Community/Working group consists of the following members:
 
