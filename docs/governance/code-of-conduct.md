@@ -1,1 +1,4 @@
-[filename](../../code-of-conduct.md ':include')
+---
+
+---
+[filename](../../code-of-conduct.md ":include")
