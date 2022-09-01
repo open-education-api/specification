@@ -17,6 +17,8 @@ For a brief introduction to the OOAPI, please take a look at the short video bel
 <iframe class="embed-responsive-item" src="../_media/animation_open_onderwijs_api_uk_v2.mp4" allowfullscreen></iframe>
 </div>
 
+[animation_open_onderwijs_api_uk_v2.mp4](_media/animation_open_onderwijs_api_uk_v2.mp4 "animation_open_onderwijs_api_uk_v2.mp4")
+
 <div class="video_frame" style="width:630px;" data-ratio="1.77">
 <video id="html5_video_872" style="width: 100%; height: 100%;" controls="controls" preload="auto" width="630" height="355">
 <source type="video/mp4" src="../_media/animation_open_onderwijs_api_uk_v2.mp4" />			<source type="video/webm" src="../_media/animation_open_onderwijs_api_uk_v2.webm" />
