@@ -13,6 +13,9 @@ The OOAPI conforms to the design principles of [REST](https://app.forestry.io/si
 
 For a brief introduction to the OOAPI, please take a look at the short video below:
 
+<video controls loop autoplay src="_media/animation_open_onderwijs_api_uk_v2.mp4">
+</video>
+
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="../_media/animation_open_onderwijs_api_uk_v2.mp4" allowfullscreen></iframe>
 </div>
