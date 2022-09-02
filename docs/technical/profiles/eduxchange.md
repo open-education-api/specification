@@ -36,9 +36,6 @@ To be compatible with eduXchange and the Project 'Studentmobiliteit' an institut
 
 !> For the person object that is requested either through  `GET /persons/me`
 or `GET /persons/{personId}`. The object also needt to enclude a studielinkNumber to facilitate deduplication. This is achieved by adding an extra object in the otherCodes array of Person:
-* otherCodes > studielinkNummer
-
-!> For the home institutions to get a full oveview of the course a student is trying to enroll the `POST /associations/external/me` needs to have the courseoffering or program offering expanded an example of such a message:
 
 ```
 {
@@ -75,6 +72,10 @@ or `GET /persons/{personId}`. The object also needt to enclude a studielinkNumbe
 }
 
 ```
+
+
+!> For the home institutions to get a full oveview of the course a student is trying to enroll the `POST /associations/external/me` needs to have the courseoffering or program offering expanded an example of such a message:
+
 
 
 ## Explanation of rules governing the association state
