@@ -3,7 +3,7 @@
 ---
 # Specific consumers
 
-Since version 5.0, OOAPI has a mechanism to support extending the specification for specific consumers. This mechanism allows (a group of) users implementing and using OOAPI implementations to agree on a set of extensions that is necessary to fulfill a specific usecase. Such a mechanism also negates the necessity of providing for each and every usecase in the general OOAPI specification.
+Since version 5.0, OOAPI has a mechanism to support extending the specification for specific consumers. This mechanism allows (a group of) users implementing and using OOAPI implementations to agree on a set of extensions that is necessary to fulfill a specific usecase. Such a mechanism also negates the necessity of providing for each and every use case in the general OOAPI specification.
 
 This consumer mechanism consists of the following:
 
@@ -23,7 +23,7 @@ This consumer mechanism consists of the following:
 }
 ```
 
-1. A registry listing which keys are in use by which consumers. Users that want to use this mechanism without registering a key, should prefix their key with `x-`.
+3. A registry listing which keys are in use by which consumers. Users that want to use this mechanism without registering a key, should prefix their key with `x-`.
 
 ## Consumer registry
 
