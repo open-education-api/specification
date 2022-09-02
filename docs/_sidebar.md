@@ -25,7 +25,7 @@
   * [Specific consumers](technical/consumers/)
     * [RIO](technical/consumers/rio.md)
     * [eduXchange](technical/consumers/eduxchange.md)
-  * [Project profiles for OOAPI](technical/profiles)
+  * [Project profiles for OOAPI](technical/profiles/)
     * [RIO](technical/profiles/rio.md)
     * [eduXchange](technical/profiles/eduxchange.md)
 * [Contact](contact.md)
