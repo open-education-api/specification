@@ -9,7 +9,7 @@ Educational institutes are increasingly using [apps](https://en.wikipedia.org/wi
 
 Of course, each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI) was created. This [open API](technical/), (or public API) is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by [SURF](https://www.surf.nl/) (collectively known as the [Community](community/)).
 
-The OOAPI conforms to the design principles of [REST](https://app.forestry.io/sites/s8lgqhmtjiapha/#/pages/docs-technical-readme-md/) (Representational State Transfer) - a flexible, lightweight way of integrating applications. Within the Community, the OOAPI is constantly being defined and developed so that new and existing apps can efficiently process education data as required.
+The OOAPI conforms to the design principles of [REST](technical/) (Representational State Transfer) - a flexible, lightweight way of integrating applications. Within the Community, the OOAPI is constantly being defined and developed so that new and existing apps can efficiently process education data as required.
 
 For a brief introduction to the OOAPI, please take a look at the short video below:
 
