@@ -40,8 +40,41 @@ or `GET /persons/{personId}`. The object also needt to enclude a studielinkNumbe
 
 !> For the home institutions to get a full oveview of the course a student is trying to enroll the `POST /associations/external/me` needs to have the courseoffering or program offering expanded an example of such a message:
 
+```
+{
+  "personId": "123e4567-e89b-12d3-a456-426614174000",
+  "primaryCode": {
+  "codeType": "identifier",
+  "code": "s123456"
+},
+...
+...
+"otherCodes": [
+	{
+      "codeType": "studielinkNummer",
+      "code": "12345678"
+	}
+],
+"consumers": [
+  {
+    "consumerKey": "eduxchange",
+    "enrollments": [
+      {
+        "crohoCreboCode": "34401",
+        "name": "B Bedrijfseconomie",
+        "phase": "bachelor",
+        "modeOfStudy": "full-time",
+        "startDate": "2020-09-01",
+        "endDate": "2021-08-31"
+      }
+    ],
+    "institutionBRINCode": "11AA"
+  }
+],
+"ext": { }
+}
 
-
+```
 
 
 ## Explanation of rules governing the association state
