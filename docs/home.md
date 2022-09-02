@@ -24,7 +24,7 @@ For a brief introduction to the OOAPI, please take a look at the short video bel
 
 <div class="video_frame" style="width:630px;" data-ratio="1.77">
 <video id="html5_video_872" style="width: 100%; height: 100%;" controls="controls" preload="auto" width="630" height="355">
-<source type="video/mp4" src="./_media/animation_open_onderwijs_api_uk_v2.mp4" />
+<source type="video/mp4" src="https://github.com/jelmerderonde/ooapi-specification/blob/docs/docs/_media/animation_open_onderwijs_api_uk_v2.mp4?raw=true" />
 </video>
 </div>
 
