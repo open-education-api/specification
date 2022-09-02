@@ -15,7 +15,7 @@ The Community/Working group consists of the following members:
 
 | Member | Contact person(s) |
 | --- | --- |
-| Avans University | Piet Brekelmans |
+| Avans University of Applied Sciences | Piet Brekelmans |
 | InHolland University of Applied Sciences | Arthur van Alten |
 | Leiden University of Applied Sciences | Mark de Jong, Frank Schimmel |
 | SURF | Jelmer de Ronde, Frans Ward |
