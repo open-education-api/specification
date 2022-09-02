@@ -1,7 +1,7 @@
 ---
 
 ---
-# Community/Working group members
+# Working group members
 
 TBD:
 In the table below:
