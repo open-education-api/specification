@@ -1,7 +1,7 @@
 ---
 
 ---
-# eduXchange and Project Studentmobiliteit
+# eduXchange and Project Studentmobiliteit (Version 2.0)
 
 ## Required requests
 
@@ -39,16 +39,21 @@ Person otherCodes > studielinkNummer
 post association offering course expanded ipv ID
 post association offering program expanded ipv ID
 
+## Explanation of rules governing the association state
 
-## explanation of rules governing the association state
-pending (proces is waiting on the status of the students home institution)
-associated (the student is enrolled in the learning activity)
-canceled (by student)
-denied (either learning activity is stopped or student is not allowed)
-queued (student is put on a waiting list)
+* pending (proces is waiting on the status of the students home institution)
+* associated (the student is enrolled in the learning activity) 
+* canceled (by student) 
+* denied (either learning activity is stopped or student is not allowed)
+* queued (student is put on a waiting list)
 
-## explanation of rules governing the association remoteState
+## Explanation of rules governing the association remoteState
 
+* pending (proces is waiting on the status of the students home institution)
+* associated (the student is enrolled in the learning activity) 
+* canceled (by student)
+* denied (student is not allowed)
+* queued (student is put on a waiting list)
 
 ## Specific expands that have to be implemented
 
