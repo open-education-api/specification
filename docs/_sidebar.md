@@ -3,7 +3,7 @@
 ---
 * [Home](/)
 * [Community](community/)
-  * [Members](community/members.md "Working group")
+  * [Working group](community/workinggroup.md)
 * [Governance](governance/)
   * [Bylaws](governance/bylaws.md)
   * [Code of conduct](governance/code-of-conduct.md)
