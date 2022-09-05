@@ -40,17 +40,3 @@ The working group "way of working" is defined in the Governance model, which inc
 For more information on the Governance model, please access the [Governance](https://app.forestry.io/sites/s8lgqhmtjiapha/#/sections/docs/docs/governance/) link.
 
 To register for the working group and become an active part of the Community, please e-mail us at: info@openonderwijsapi.nl
-
-## Decisions within GitHub
-
-TBD: The following text is based on source text from: [https://openonderwijsapi.nl/community/](https://openonderwijsapi.nl/community/ "https://openonderwijsapi.nl/community/")  
-Please check if the assumptions below are correct. I think, by the way, that this information belongs under the heading Governance. JH
-
-For issues that affect the GitHub environment ([https://github.com/open-education-api](https://github.com/open-education-api "https://github.com/open-education-api")), the following applies:
-
-* The issue should be submitted to the master committer.
-* The master committer then has 5 days to reach a decision.
-* The decision is recorded within the GitHub environment.
-* The voting procedure is started within these 5 days so that the decision can be voted on.
-* The outcome of the vote is recorded.
-* Any follow-up action is taken depending on the outcome of the vote.
