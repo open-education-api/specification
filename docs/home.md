@@ -30,7 +30,7 @@ By incorporating the OOAPI into your IT infrastructure, students can easily:
 * Securely check exam results.*
 * And more…
 
-\* To protect personal data such as exam results and timetables, it is advisable to use an authorization server that supports OAuth 2.0 in combination with SURFconext. These security measurements are not included in the OOAPI, but their use is supported.
+\* To protect personal data such as exam results and timetables, it is advisable to use an authorization server that supports OAuth 2.0 in combination with SURFconext. These security measurements are not included in the OOAPI, but their use is advised.
 
 ## Benefits for web-development team
 
