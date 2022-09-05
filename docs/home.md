@@ -3,8 +3,6 @@
 ---
 # Open Education API
 
-TBD: Please review this entire section (updated on 29/08/2022). JH
-
 Educational institutes are increasingly using [apps](https://en.wikipedia.org/wiki/Mobile_app) to share education data with their students, such as registering for a course online, viewing a timetable on a mobile device, or securely checking exam results. The underlying data, however, for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. And for apps to communicate with these various systems, a set of definitions known as an [API (Application Programming Interface)](https://en.wikipedia.org/wiki/API) is required.
 
 Of course, each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI) was created. This [open API](technical/), (or public API) is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by [SURF](https://www.surf.nl/) (collectively known as the [Community](community/)).
