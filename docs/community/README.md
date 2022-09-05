@@ -5,7 +5,7 @@
 
 TBD: **Bold** text indicates suggestions for links (to be added). JH
 
-The Community consists of **members** (representatives) of education institutions and suppliers that are working closely with SURF to further define and develop the Open Education API.
+The Community consists of members (representatives) of education institutions and suppliers that are working closely with SURF to further define and develop the Open Education API.
 
 Community members participate actively in the project and are encouraged to:
 
@@ -17,7 +17,7 @@ Community members participate actively in the project and are encouraged to:
 
 This enables for fast, efficient development of education apps, which benefits the members of the Community as well as their end-users.
 
-If you wish to join the Community and stay informed of the latest developments, please click **here**.
+If you wish to join the Community and stay informed of the latest developments, please click [here](https://list.surfnet.nl/mailman/listinfo/openonderwijsapi).
 
 ## Working group
 
