@@ -3,6 +3,7 @@ label: Page
 hide_body: false
 fields: []
 pages:
+- docs/background and architecture/scope.md
 - docs/scope.md
 - docs/technical/profiles/README.md
 - docs/technical/profiles/eduxchange.md
