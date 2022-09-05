@@ -3,6 +3,7 @@ label: Page
 hide_body: false
 fields: []
 pages:
+- docs/architecture/scope.md
 - docs/background and architecture/README.md
 - docs/background and architecture/audience.md
 - docs/background and architecture/scope.md
