@@ -8,8 +8,8 @@ To facilitate future ROSA scans additional information is provided on the OOAPI 
 A general overview of the rationale behind the specification and how the specification relates to other elements is provided using the ROSA scan structure:
 
 * Doel / Purpose
-* Werkingsgebied / Implementations
-* Toepassingsgebied / Scope
+* Implementations / Werkingsgebied
+* Scope / Toepassingsgebied 
 * Bovensectorale samenwerking / Cross-sectoral cooperation
 * IBP (inclusief mapping OOAPI op HORA voor BIV) / Confidentiality, Integrity and Availability
 * IAA / Identification, Authentication and Authorization
