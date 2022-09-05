@@ -17,11 +17,13 @@ Specifically for the RIO implementation historical data is now also being made a
 
 The current scope of the OOAPI plotted on the HORA information objects is shown in the figure below:
 
-
+![](_media/ooapi_v5_rosa_hora_information_model.png)
 
 ## OOAPI domains
 
-The focus of the OOAPI specification is on providing information in the following HORA domains:
+The focus of the OOAPI specification is on providing 
+
+information in the following HORA domains:
 
 * Education
 * Education support
