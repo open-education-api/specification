@@ -3,8 +3,6 @@
 ---
 # Community
 
-TBD: **Bold** text indicates suggestions for links (to be added). JH
-
 The Community consists of members (representatives) of education institutions and suppliers that are working closely with SURF to further define and develop the Open Education API.
 
 Community members participate actively in the project and are encouraged to:
@@ -41,7 +39,7 @@ The working group "way of working" is defined in the Governance model, which inc
 
 For more information on the Governance model, please access the [Governance](https://app.forestry.io/sites/s8lgqhmtjiapha/#/sections/docs/docs/governance/) link.
 
-To register for the working group and become an active part of the Community, please click **here**.
+To register for the working group and become an active part of the Community, please e-mail us at: info@openonderwijsapi.nl
 
 ## Decisions within GitHub
 
