@@ -2,7 +2,7 @@
 
 ---
 * [Home](/)
-  * [Scope](background-and-architecture/scope.md)
+  * [Scope](background-and-architecture/scope.md "Scope")
 * [Community](community/)
   * [Working group](community/workinggroup.md)
 * [Governance](governance/)
