@@ -15,4 +15,4 @@ The current implementation of OOAPI is aimed at data in transit. It provides inf
 
 The current scope of the OOAPI plotted on the HORA information objects is shown in the figure below:
 
-![HORA information objects related to information domains.](https://github.com/open-education-api/specification/wiki/OOAPIv40_HORA_mapping.png)
+![HORA information objects related to information domains.](_media/ooapi_v5_rosa_hora_information_model.png)
