@@ -3,16 +3,16 @@
 ---
 #Audience and implementations
 
-OOAPI scope
-The OOAPI specification is aimed at providing information related to student activities and the information need of students in general.
+The OOAPI workgroup is comprised of members of institutions for higer education, software suppliers of these members, as well as supra-sectoral (e.g. [VH](https://www.vereniginghogescholen.nl/) / [Universities of the Netherlands](https://www.universiteitenvannederland.nl/en_GB)).
 
-Examples of use of the OOAPI are:
+\#implementations
+Currently the OOAPI is implemented at: universities for applied sciences, universities and super sectoral. An example of the latter is a tool implemented for the acceleration [zone flexible education](https://versnellingsplan.nl/english/zones/flexibilisation/). An other example of such super-sectoral implementations is the current development of the RIO adaptor and the eduHUB.
+![OOAPI gateway](_media/surfeduhub-architectuur-v5_0.png)
 
-Detailed information on courses that are available at an institution on a shared website;
-Rostering information for a student on a student app;
-Results on courses on a student app;
-The current implementation of OOAPI is aimed at data in transit. It provides information that is currently available and can be aggregated from within an educational institution. In the current iteration of the OOAPI we are not focussing on historical data nor versioning of a given data element.
+#Target audience
+The working group is open for other members of other educational sectors.
 
-The current scope of the OOAPI plotted on the HORA information objects is shown in the figure below:
+![OOAPI positioning in supra-sectoral domains](_media/ooapi_sector_mapping.png)
 
-HORA information objects related to information domains.
+Due to the scope of SURF these sectors are now limited to intermediate vocational education and Higher education (MBO/HBO, WO en UMC's). For other sectors to join the governance of the workgroup would need to be updated.
+Currently there is interest from intermediate vocational education institutions to use the specification (program OKE)[https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI]
