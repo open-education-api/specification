@@ -17,7 +17,7 @@ Specifically for the RIO implementation historical data is now also being made a
 
 The current scope of the OOAPI plotted on the HORA information objects is shown in the figure below:
 
-![OOAPI mapping to HORA informaiton model](_media/ooapi_v5_rosa_hora_information_model.png)
+![OOAPI mapping to HORA informaiton model](../_media/ooapi_v5_rosa_hora_information_model.png)
 
 ## OOAPI domains
 
