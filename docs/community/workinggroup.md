@@ -13,16 +13,16 @@ The Working group is a subgroup of the Community and consists of a number of mem
 * promotion of the OOAPI.
 * the Community.
 
-The working group "way of working" is defined in the Governance model, which includes detailed information such as:
+The working group "way of working" is defined in the [Governance](governance/) model, which includes detailed information such as:
 
-* Who can join the working group.
-* A list of affiliated institutions.
-* How to become a member of the working group.
-* How to terminate membership of the working group.
-* Rights and obligations of a working group member.
+* who can join the working group.
+* a list of affiliated institutions.
+* how to become a member of the working group.
+* how to terminate membership of the working group.
+* rights and obligations of a working group member.
 
 For more information on the Governance model, please access the [Governance](governance/) link.
-
+Avans University of Applied Sciences
 To register for the working group and become an active part of the Community, please e-mail us at: info@openonderwijsapi.nl
 
 ## Working group members
