@@ -549,21 +549,21 @@ See also [this overview of language tags](https://www.loc.gov/standards/iso639-2
 
 ### category › categorie
 
-| category                                 | categorie                                |
-| ---------------------------------------- | ---------------------------------------- |
-| business_and_project_support             | BEDRIJFS_EN_PROJECTONDERSTEUNING         |
-| economy                                  | ECONOMIE                                 |
-| behavior_and_society                     | GEDRAG_EN_MAATSCHAPPIJ                   |
-| healthcare_and_sport                     | GEZONDHEID_ZORG_EN_SPORT                 |
-| hobby_and_leisure_time                   | HOBBY_EN_VRIJE_TIJD                      |
-| agriculture_food_and_natural_environment | LANDBOUW_VOEDSEL_EN_NATUURLIJKE_OMGEVING |
-| management_and_project_management        | MANAGEMENT_EN_PROJECTMANAGEMENT          |
-| nature                                   | NATUUR                                   |
-| education                                | ONDERWIJS                                |
-| law                                      | RECHT                                    |
-| cross_sectoral                           | SECTOROVERSTIJGEND                       |
-| language_and_culture                     | TAAL_EN_CULTUUR                          |
-| technology_and_ict                       | TECHNIEK_EN_ICT                          |
-| tourism_hospitality_and_recreation       | TOERISME_HORECA_EN_RECREATIE             |
-| transport_and_logistics                  | TRANSPORT_EN_LOGISTIEK                   |
-| security_and_defense                     | VEILIGHEID_EN_DEFENSIE                   |
+| category                                 | categorie                      |
+| ---------------------------------------- | ------------------------------ |
+| business_and_project_support             | BEDRIJFS_PROJECTONDERSTEUNING  |
+| economy                                  | ECONOMIE                       |
+| behavior_and_society                     | GEDRAG_EN_MAATSCHAPPIJ         |
+| healthcare_and_sport                     | GEZONDHEID_ZORG_EN_SPORT       |
+| hobby_and_leisure_time                   | HOBBY_EN_VRIJE_TIJD            |
+| agriculture_food_and_natural_environment | LANDBW_VOEDSEL_EN_NAT_OMGEVING |
+| management_and_project_management        | MANAGEMENT_EN_PROJECTMNGT      |
+| nature                                   | NATUUR                         |
+| education                                | ONDERWIJS                      |
+| law                                      | RECHT                          |
+| cross_sectoral                           | SECTOROVERSTIJGEND             |
+| language_and_culture                     | TAAL_EN_CULTUUR                |
+| technology_and_ict                       | TECHNIEK_EN_ICT                |
+| tourism_hospitality_and_recreation       | TOERISME_HORECA_EN_RECREATIE   |
+| transport_and_logistics                  | TRANSPORT_EN_LOGISTIEK         |
+| security_and_defense                     | VEILIGHEID_EN_DEFENSIE         |
