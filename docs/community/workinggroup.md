@@ -22,7 +22,7 @@ The working group "way of working" is defined in the [Governance](governance/) m
 * rights and obligations of a working group member.
 
 For more information on the Governance model, please access the [Governance](governance/) link.
-[Avans University](https://www.avans.nl/international) of Applied Sciences
+
 To register for the working group and become an active part of the Community, please e-mail us at: info@openonderwijsapi.nl
 
 ## Working group members
@@ -31,21 +31,21 @@ TBD:
 In the table below:
 
 * Check if members, including contact names, are up-to-date.
-* Create links (I already did this, but they disappeared).
+* Check if links are okay now (I already created them, but they disappeared).
 * Should list below be in a certain sequence (alphabetical for example)? JH
 
 The Working group consists of the following members:
 
 | Member | Contact person(s) |
 | --- | --- |
-| [Avans University of Applied Sciences](https://www.avans.nl) | Piet Brekelmans |
-| [InHolland University of Applied Sciences](https://www.inholland.nl) | Arthur van Alten |
-| [Leiden University of Applied Sciences](https://www.hsleiden.nl/) | Mark de Jong, Frank Schimmel |
-| [SURF](https://www.surf.nl) | Jelmer de Ronde, Frans Ward] |
-| [Finalist](https://www.finalist.nl) | Stanley Portiers] |
-| [University of Amsterdam](https://www.uva.nl) | Tom Kuipers] |
-| [Arnhem Nijmegen University of Applied Sciences](https://www.han.nl) | Niels Kregting |
-| [The Hague University of Applied Science](https://www.dehaagsehogeschool.nl) | Henk Schouten, Danny Klootwijk |
-| [Utrecht University of Applied Sciences](https://www.hu.nl) | Joost Veerman, Xiaojie Bormans |
-| [inQdo](https://www.inqdo.com) | Pieter Smit |
-| [Leiden University](https://www.universiteitleiden.nl) | Maarten van Schie |
+| Avans University of Applied Sciences | Piet Brekelmans |
+| InHolland University of Applied Sciences | Arthur van Alten |
+| Leiden University of Applied Sciences | Mark de Jong, Frank Schimmel |
+| SURF | Jelmer de Ronde, Frans Ward\] |
+| Finalist | Stanley Portiers\] |
+| University of Amsterdam | Tom Kuipers\] |
+| Arnhem Nijmegen University of Applied Sciences | Niels Kregting |
+| The Hague University of Applied Science | Henk Schouten, Danny Klootwijk |
+| Utrecht University of Applied Sciences | Joost Veerman, Xiaojie Bormans |
+| inQdo | Pieter Smit |
+| Leiden University | Maarten van Schie |
