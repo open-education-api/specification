@@ -27,3 +27,15 @@ information in the following HORA domains:
 
 * Education
 * Education support
+
+For future use the OOAPI has also been mapped on the MORA information model:
+
+![](_media/ooapi_v5_rosa_mora_information_model.png)
+
+Where OOAPI maps to:
+
+* Education offering
+* Course catalog
+* Education 
+* Education demand
+* Exams/Testing
