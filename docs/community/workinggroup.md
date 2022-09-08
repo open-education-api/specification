@@ -10,8 +10,8 @@ The Working group is a subgroup of the Community and consists of a number of mem
 * project management.
 * the implementation of new data.
 * evaluation of work done (new information implemented by SURF).
-* the Community.
 * promotion of the OOAPI.
+* the Community.
 
 The working group "way of working" is defined in the Governance model, which includes detailed information such as:
 
@@ -21,11 +21,11 @@ The working group "way of working" is defined in the Governance model, which inc
 * How to terminate membership of the working group.
 * Rights and obligations of a working group member.
 
-For more information on the Governance model, please access the [Governance](https://app.forestry.io/sites/s8lgqhmtjiapha/#/sections/docs/docs/governance/) link.
+For more information on the Governance model, please access the [Governance](governance/) link.
 
 To register for the working group and become an active part of the Community, please e-mail us at: info@openonderwijsapi.nl
 
-# Working group members
+## Working group members
 
 TBD:
 In the table below:
