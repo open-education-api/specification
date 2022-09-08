@@ -22,7 +22,7 @@ The working group "way of working" is defined in the [Governance](governance/) m
 * rights and obligations of a working group member.
 
 For more information on the Governance model, please access the [Governance](governance/) link.
-Avans University of Applied Sciences
+[Avans University](https://www.avans.nl/international) of Applied Sciences
 To register for the working group and become an active part of the Community, please e-mail us at: info@openonderwijsapi.nl
 
 ## Working group members
