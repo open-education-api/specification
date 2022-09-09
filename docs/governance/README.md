@@ -17,11 +17,11 @@ The shared goals of the governance model are:
 
 ## Community
 
-Add link or inserted text outlining the role of the Community.
+TBD: Add link or inserted text outlining the role of the Community. JH
 
 ## Working group
 
-Add link or inserted text outlining the role of the Working group.
+TBD: Add link or inserted text outlining the role of the Working group. JH
 
 ## Bureau Edustandaard
 
@@ -67,4 +67,4 @@ For issues that affect the GitHub environment ([https://github.com/open-educatio
 * The outcome of the vote is recorded.
 * Any follow-up action is taken depending on the outcome of the vote.
 
-#### TBD: Add reference to the Bylaws and Code of Conduct. JH
+TBD: Add reference to the Bylaws and Code of Conduct. JH
