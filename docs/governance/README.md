@@ -5,7 +5,7 @@
 
 TBD: This entire section has been updated on 09/09/2022, JH.
 
-The governance model describes the decision-making process and the role of various members of the [Community](community), [Working group](working group/), and [Bureau Edustandaard](https://www.edustandaard.nl/). It also outlines the strategic goals and procedures within the project, and provides an understanding of how the Open Education API is governed.
+The governance model describes the decision-making process and the role of various members of the [Community](community/), [Working group](working group/), and [Bureau Edustandaard](https://www.edustandaard.nl/). It also outlines the strategic goals and procedures within the project, and provides an understanding of how the Open Education API is governed.
 
 The shared goals of the governance model are:
 
@@ -17,7 +17,11 @@ The shared goals of the governance model are:
 
 ## Community
 
-Add link or inserted text 
+Add link or inserted text outlining the role of the Community.
+
+## Working group
+
+Add link or inserted text outlining the role of the Working group.
 
 ## Bureau Edustandaard
 
@@ -35,7 +39,7 @@ Amongst others, Bureau Edustandaard:
 Collaboration within Bureau Edustandaard takes place within:
 
 * the **Standardization council** (a council consisting of directors of educational institutions, public and private organizations),
-* the **Architecture council**, and 
+* the **Architecture council**, and
 * the **Edustandaard working groups**.
 
 To achieve their goals the bureau also maintains contact with other (national and international) standards organizations.
