@@ -3,7 +3,7 @@
 ---
 # Open Education API
 
-Educational institutes are increasingly using [apps](https://en.wikipedia.org/wiki/Mobile_app) to share education data with their students, such as registering for a course online, viewing a timetable on a mobile device, or securely checking exam results. The underlying data, however, for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. And for apps to communicate with these various systems, a set of definitions known as an [API (Application Programming Interface)](https://en.wikipedia.org/wiki/API) is required.
+Educational institutes are increasingly sharing educational data: with their students using apps, within the institution between different systems, or with other institutions. The underlying data, however, for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. And for apps to communicate with these various systems, a set of definitions known as an [API (Application Programming Interface)](https://en.wikipedia.org/wiki/API) is required.
 
 Of course, each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI) was created. This [open API](technical/), (or public API) is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by [SURF](https://www.surf.nl/) (collectively known as the [Community](community/)).
 
@@ -56,12 +56,7 @@ Are you an educational institute and interested in having the OOAPI developed to
 
 TBD: A better example of a cases study is required, for example RIO. JH
 
-How the OOAPI can benefit the community...
+For better examples see:
 
-Both the University of Amsterdam (UvA) and the Zuyd Hogeschool use the OOAPI on a daily basis as part of their IT infrastructure. The MijnUvA app, as used by students at the UvA, combines data from the electronic learning environment, the student information system, the timetable system, and the UvA website. By using the OOAPI, these data can be accessed and presented in a clear and organized way.
-
-When the Zuyd Hogeschool decided to develop a new intranet for their students, to save time and money, the OOAPI was the obvious choice as a major building block for their IT infrastructure.
-
-_Interview with Johannes Maas (involved with implementing the OOAPI at Zuyd Hogeschool):_
-
-“_The OOAPI translates information from existing source systems and makes it available for educational apps. Take for example a new app that allows you to view the class timetable on your smartphone or reserve a workspace while heading into work on the train. The existing systems supply the underlying information, but the functionality and display are new. By using the OOAPI to unlock the existing systems, a comprehensive range of new apps can be developed. And moreover, this can be achieved without having to adapt the source systems themselves_.”
+https://www.surf.nl/surfeduhub-en-registratie-instellingen-en-opleidingen-rio?dst=n7908
+https://communities.surf.nl/artikel/vakken-volgen-bij-andere-instellingen-wordt-de-norm
