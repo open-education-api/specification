@@ -3,7 +3,7 @@
 ---
 # Governance
 
-TBD: This entire section updated on 09/09/2022, JH.
+TBD: This entire section has been updated on 09/09/2022, JH.
 
 The governance model describes the decision-making process and the role of various members of the [Working group](working group/), [Community](community) and [Bureau Edustandaard](https://www.edustandaard.nl/). It also outlines the strategic goals and procedures within the project, and provides an understanding of how the Open Education API is governed.
 
