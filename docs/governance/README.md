@@ -45,12 +45,10 @@ For the Open Education API, Bureau Edustandaard:
 * inform the Community about updates and changes to the OOAPI.
 * publish all relevant information concerning the OOAPI on the [Bureau Edustandaard website](https://www.edustandaard.nl/), including the OOAPI specification, updates and changes to the OOAPI, and formal documentation.
 
-Does this heading belong under Governance?
+TBD: The following text is based on source text taken from: [https://openonderwijsapi.nl/community/](https://openonderwijsapi.nl/community/ "https://openonderwijsapi.nl/community/")  
+Please check if the assumptions below are correct. I think that this information belongs under Governance (please check)? JH
 
 ## Decisions within GitHub
-
-TBD: The following text is based on source text from: [https://openonderwijsapi.nl/community/](https://openonderwijsapi.nl/community/ "https://openonderwijsapi.nl/community/")  
-Please check if the assumptions below are correct. I think, by the way, that this information belongs under the heading Governance. JH
 
 For issues that affect the GitHub environment ([https://github.com/open-education-api](https://github.com/open-education-api "https://github.com/open-education-api")), the following applies:
 
@@ -61,4 +59,4 @@ For issues that affect the GitHub environment ([https://github.com/open-educatio
 * The outcome of the vote is recorded.
 * Any follow-up action is taken depending on the outcome of the vote.
 
-TBD: Add reference to the Bylaws and Code of Conduct. JH
+#### TBD: Add reference to the Bylaws and Code of Conduct. JH
