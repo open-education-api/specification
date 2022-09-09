@@ -1,0 +1,10 @@
+:root {
+    --base-font-size: 16px;
+    --theme-color: #03818d;
+
+    --content-max-width: 65em;
+
+    // --sidebar-nav-link-padding: 0.40em 0;
+
+    --zoomimage-overlay-background: rgba(255, 255, 255, 0.875);
+  }

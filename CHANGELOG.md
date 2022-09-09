@@ -21,7 +21,6 @@ The v5.0.0 release is the same as 5.0.0 RC2.
 
 ### Added
 - Added group functionality to OOAPI
-
 - An `ext` objects to all collection endpoints
 - Adds consumer functionality to all entities, including a query parameter to request entities meant for a specific consumer
 - Added descriptions for HTTP error responses: 400, 401, 403, 404, 405, 429 and 500. Fixes #125 and #144.
