@@ -15,15 +15,46 @@ The shared goals of the governance model are:
 * **Growth**: provide a structure that can develop according to the needs of new adopters and developers, and that can support the Community.
 * **Development**: support effective development and maintenance of the Open Education API.
 
-## Community
+## Community (governance)
 
 TBD: Add link or inserted text outlining the role of the Community. JH
 
-## Working group
+## Working group (governance)
 
 TBD: Add link or inserted text outlining the role of the Working group. JH
 
-## Bureau Edustandaard
+### Who can join the working group?
+
+* Participation is not limited to higher education institutions, and is open to anyone who can represent the interests of the OOAPI. Suppliers can therefore also join the working group.
+* The ratio between institutions affiliated with SURF and organizations not affiliated with SURF must be at least 3:1.
+
+### List of affiliated institutions
+
+* A member of the working group may represent up to one higher education institution or organization.
+* The working group may have more than one member from the same institution, but if there are more than 20 members in the working group, the maximum number of members per institution is limited to one. If a member of the working group is unable to attend a meeting, an alternate member may be appointed.
+
+### Becoming a member of the working group
+
+* Prospective members can enlist by posting a motivation message on the community site or sending an email to info@openonderwijsapi.nl, with a brief motivation.
+* A prospective member may also be nominated by a member of the working group.
+* The working group votes on membership of organization not affiliated with SURF.
+* Any new member of the working group must have an authorized signatory of the institution or organization they work for to sign a letter of intent in which they agree to the rights and obligations of the working group member.
+
+### Terminating membership of the working group
+
+* A working group member can terminate their membership through the mailing list.
+* The working group may terminate the membership of a member who fails to meet their obligations.
+* Former working group members can be kept informed of developments, if desired, but lose their voting rights.
+
+### Rights and obligations The working group member
+
+•	represents their employer, an organisation that promotes the interests of the Open Education API. This organisation has the intention to implement the OOAPI within 2 years;
+
+•	actively contributes to developing the Open Education API and promotes its use. He or she must invest at least 60 hours a year to achieve the working group's objectives;
+
+•	must visit at least 3 working group meetings a year. Only institutions affiliated with SURFnet and 1 representative for each institution affiliated with SURFnet have voting rights.
+
+## Bureau Edustandaard (governance)
 
 [Bureau Edustandaard](https://www.edustandaard.nl/) is a platform where public and private parties in the research and educational fields in the Netherlands collaborate to make agreements on important matters. These agreements, for example, include how to use recognized concepts to find digital learning material, or transfer education data from one system to another.
 
