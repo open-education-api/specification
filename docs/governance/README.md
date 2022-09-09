@@ -5,7 +5,11 @@
 
 TBD: This entire section has been updated on 09/09/2022, JH.
 
-The governance model describes the decision-making process and the role of various members of the [Community](community/), [Working group](working group/), and [Bureau Edustandaard](https://www.edustandaard.nl/). It also outlines the strategic goals and procedures within the project, and provides an understanding of how the Open Education API is governed.
+TBD: Should this page have a date and version number (see below). I can imagine that is required due to regulations? JH
+
+TBD: API specification 1 January 2019, Version: 2
+
+The governance model describes the decision-making process and the role of various members of the [Community](community (governance)/), [Working group](working group (governance)/), and [Bureau Edustandaard](bureau edustandaard (governance)). It also outlines the strategic goals and procedures within the project, and provides an understanding of how the Open Education API is governed.
 
 The shared goals of the governance model are:
 
@@ -46,13 +50,13 @@ TBD: Add link or inserted text outlining the role of the Working group. JH
 * The working group may terminate the membership of a member who fails to meet their obligations.
 * Former working group members can be kept informed of developments, if desired, but lose their voting rights.
 
-### Rights and obligations The working group member
+### Rights and obligations 
 
-•	represents their employer, an organisation that promotes the interests of the Open Education API. This organisation has the intention to implement the OOAPI within 2 years;
+The working group member:
 
-•	actively contributes to developing the Open Education API and promotes its use. He or she must invest at least 60 hours a year to achieve the working group's objectives;
-
-•	must visit at least 3 working group meetings a year. Only institutions affiliated with SURFnet and 1 representative for each institution affiliated with SURFnet have voting rights.
+* represents their employer, an organization that promotes the interests of the Open Education API. This organization has the intention to implement the OOAPI within 2 years.
+* actively contributes to developing the Open Education API and promotes its use. He or she must invest at least 60 hours a year to achieve the working group's objectives.
+* must visit at least 3 working group meetings a year. Only institutions affiliated with SURF and 1 representative for each institution affiliated with SURF have voting rights.
 
 ## Bureau Edustandaard (governance)
 
@@ -75,7 +79,7 @@ Collaboration within Bureau Edustandaard takes place within:
 
 To achieve their goals the bureau also maintains contact with other (national and international) standards organizations.
 
-## Bureau Edustandaard and the OOAPI
+### Bureau Edustandaard and the OOAPI
 
 For the Open Education API, Bureau Edustandaard:
 
