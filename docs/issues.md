@@ -19,7 +19,7 @@
 * \[x\] Jim: change contact persons in table of working groups to something like "representative(s)"
 * \[ \] Jim: Check for duplications in governance and bylaws
 * \[ \] Jim: rewrite the REST section of the Technical Information page
-* \[x \] Jim: update governance version and date
+* \[ \] Jim: update governance version and date (version info. etc. needed to complete this task JH)
 * \[ \] Ronald: add missing image to the scope page
 * \[ \] Ronald: fix video link once we clean up the fork
 * \[ \] Ronald: restructure profiles and consumers so the consumer object and their profiles would be together
