@@ -50,7 +50,7 @@ TBD: Add link or inserted text outlining the role of the Working group. JH
 * The working group may terminate the membership of a member who fails to meet their obligations.
 * Former working group members can be kept informed of developments, if desired, but lose their voting rights.
 
-### Rights and obligations 
+### Rights and obligations
 
 The working group member:
 
