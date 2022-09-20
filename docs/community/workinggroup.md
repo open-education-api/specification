@@ -3,7 +3,7 @@
 ---
 # Working group
 
-The Working group is a subgroup of the Community and consists of a number of members that meet on a regular basis. The [Working group members](working group members/) are responsible for topics such as:
+The Working group is a subgroup of the Community and consists of a number of members that meet on a regular basis. The [Working group members](https://jelmerderonde.github.io/ooapi-specification/#/community/workinggroup?id=working-group-members) are responsible for topics such as:
 
 * the project roadmap.
 * the design and future development of the Open Education API specification (the development has an annual cycle consisting of a minor and a major release).
