@@ -3,11 +3,13 @@
 ---
 # Open Education API
 
-Educational institutes are increasingly sharing educational data: with their students using apps, within the institution between different systems, or with other institutions. The underlying data, however, for these apps are stored in different systems (i.e. databases), both within and outside the educational institutes. And for apps to communicate with these various systems, a set of definitions known as an [API (Application Programming Interface)](https://en.wikipedia.org/wiki/API) is required.
+Educational institutes are increasingly sharing educational data: with their students via apps, between different systems within the institution, and with other institutions.
+
+The underlying data, however, are stored in various systems (i.e. databases), both within and outside the educational institutes. And to be able to  communicate with these systems, a set of definitions known as an [API (Application Programming Interface)](https://en.wikipedia.org/wiki/API) is required.
 
 Of course, each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI) was created. This [open API](technical/), (or public API) is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by [SURF](https://www.surf.nl/) (collectively known as the [Community](community/)).
 
-The OOAPI conforms to the design principles of [REST](technical/) (Representational State Transfer) - a flexible, lightweight way of integrating applications. Within the Community, the OOAPI is constantly being defined and developed so that new and existing apps can efficiently process education data as required.
+The OOAPI conforms to the design principles of [REST](technical/) (Representational State Transfer) - a flexible, lightweight way of integrating applications. Within the Community, the OOAPI is constantly being defined and developed so that new and existing education data can be efficiently processed.
 
 For a brief introduction to the OOAPI, please take a look at the short video below:
 
