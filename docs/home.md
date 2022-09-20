@@ -3,7 +3,7 @@
 ---
 # Open Education API
 
-Educational institutes are increasingly sharing education data: with their students via apps, between different systems within the institution, and with other institutions.
+Educational institutes are increasingly sharing education data: with their students via apps, between different systems within an institution, and with other institutions.
 
 The underlying data, however, are stored in various systems (i.e. databases) both within and outside the educational institutes. And to be able to communicate with these systems a set of definitions known as an [API (Application Programming Interface)](https://en.wikipedia.org/wiki/API) is required.
 
