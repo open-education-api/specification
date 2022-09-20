@@ -9,7 +9,7 @@ The underlying data, however, are stored in various systems (i.e. databases) bot
 
 Of course each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI), was created. The OOAPI conforms to the design principles of [REST](technical/) (Representational State Transfer) - a flexible, lightweight way of integrating applications.
 
-This [open API](technical/), is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by [SURF](https://www.surf.nl/) (known collectively as the [Community](community/)). Within the Community, the OOAPI is being  constantly defined and developed so that new and existing education data can be efficiently processed.
+This [open API](technical/), is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by [SURF](https://www.surf.nl/) (known collectively as the [Community](community/)). Within the [Working Group](working group/) of the Community, the OOAPI is being  constantly defined and developed so that new and existing education data can be efficiently processed.
 
 For a brief introduction to the OOAPI, please take a look at the short video below:
 
