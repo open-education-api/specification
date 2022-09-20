@@ -10,8 +10,6 @@ The Community consists of members (representatives) of education institutions an
 * ask questions and provide feedback.
 * contribute towards an active Community site.
 
-This enables for fast, efficient development of education apps, which benefits the members of the Community as well as their end-users.
-
-Community members can also be part of the [Working group](working group/).
+This enables for fast, efficient development of education apps, which benefits the members of the Community as well as their end-users. Community members can also be part of the [Working Group](https://jelmerderonde.github.io/ooapi-specification/#/community/workinggroup).
 
 If you wish to join the Community and stay informed of the latest developments, please click [here](https://list.surfnet.nl/mailman/listinfo/openonderwijsapi).
