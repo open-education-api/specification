@@ -185,6 +185,16 @@ EducationSpecifications can have relations to other EducationSpecifications whic
 
 </div>
 
+### Relations between RIO Opleidingseenheden
+In RIO, there can exist relations between Opleidingseenheden. Two types of relations are possible:
+
+- Hierarchical
+  - From a HoOpleiding (regular) to a HoOnderwijsEenhedenCluster or HoOnderwijsEenheid
+  - From a HoOpleiding (variant) to a HoOnderwijsEenhedenCluster or HoOnderwijsEenheid
+  - From a HoOnderwijsEenhedenCluster to a HoOnderwijsEenheid
+- Variant
+  - From a HoOpleiding (regular) to a HoOpleiding (variant)
+
 ## Mapping Educations to RIO AangebodenOpleidingen
 
 ![Mapping of OOAPI Educations to RIO AangebodenOpleidingen](../../_media/simple_rio_aangebodenopleiding_mapping.png "Mapping of OOAPI Educations to RIO AangebodenOpleidingen")
