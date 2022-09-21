@@ -1,0 +1,27 @@
+name: release
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags:
+      - "release-*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+      - name: Generate v4 bundle
+        run: npx @redocly/cli bundle v4/spec.yaml -d -o ooapiv4.yaml
+      - name: Generate v5 bundle
+        run: npx @redocly/cli bundle v5/spec.yaml -d -o ooapiv5.yaml
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ooapiv4.yaml
+            ooapiv5.yaml
