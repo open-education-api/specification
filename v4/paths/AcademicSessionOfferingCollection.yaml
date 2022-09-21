@@ -34,9 +34,9 @@ get:
         enum:
           - nl-nl
           - en-gb
-    - name: resultExpected
+    - name: isLineItem
       in: query
-      description: Filter by resultExpected
+      description: Filter by isLineItem
       required: false
       schema:
         type: boolean
