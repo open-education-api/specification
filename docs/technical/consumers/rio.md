@@ -191,15 +191,22 @@ EducationSpecifications can have relations to other EducationSpecifications whic
 
 ### Mapping Program to RIO AangebodenOpleidingen
 
+Notes:
+- Cohorten will be mapped from the offerings belonging to the Program in question.
+- The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding:
+
+| `educationSpecificationType` of the linked `EducationSpecification` | Type of the Education | Maps to                         |
+| ------------------------------------------------------------------- | --------------------- | ------------------------------- |
+| `program`                                                           | Program               | AangebodenHoOpleiding           |
+| `privateProgram`                                                    | Program               | AangebodenParticuliereOpleiding |
+| `cluster`                                                           | Program               | AangebodenHoOpleidingsonderdeel |
+| `course`                                                            | Course                | AangebodenHoOpleidingsonderdeel |
+
 <div class="colored-table purple">
 
 <!-- tabs:start -->
 
 ### **AangebodenHoOpleiding**
-
-Notes:
-- *The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding*
-- *Cohorten will be mapped from the offerings belonging to the Program in question.*
 
 | Program                                              | AangebodenHoOpleiding                        | Enumeration mapping                                          | Remarks                                                                                                                                                        |
 | ---------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -236,10 +243,6 @@ Notes:
 
 ### **AangebodenHoOpleidingsonderdeel**
 
-Notes:
-- *The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding*
-- *Cohorten will be mapped from the offerings belonging to the Program in question.*
-
 | Program                                              | AangebodenHoOpleidingsonderdeel                 | Enumeration mapping                                          | Remarks                                                                                                                                                        |
 | ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | programId [*]                                        | aangebodenOpleidingCode [1]                     |                                                              |                                                                                                                                                                |
@@ -267,10 +270,6 @@ Notes:
 > OOAPI fields marked with `[*]` are required fields in the OOAPI specification.
 
 ### **AangebodenParticuliereOpleiding**
-
-Notes:
-- *The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding*
-- *Cohorten will be mapped from the offerings belonging to the Program in question.*
 
 | Program                                              | AangebodenParticuliereOpleiding (Non-formeel)   | Enumeration                                                  | Remarks                                                                                                                                                        |
 | ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
