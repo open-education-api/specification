@@ -62,3 +62,4 @@ For better examples see:
 
 https://www.surf.nl/surfeduhub-en-registratie-instellingen-en-opleidingen-rio?dst=n7908
 https://communities.surf.nl/artikel/vakken-volgen-bij-andere-instellingen-wordt-de-norm
+https://www.vipdoc.nl/stimuleringsregeling-uitwisselen-van-onderwijsaanbod-data/
