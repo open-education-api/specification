@@ -13,6 +13,7 @@ get:
         format: uuid
     - name: expand
       in: query
+      explode: false
       description: Optional properties to include, separated by a comma
       required: false
       schema:
