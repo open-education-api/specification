@@ -37,4 +37,3 @@
     * [eduXchange](technical/consumers-and-profiles/eduxchange.md)
 * [Abbreviations and definitions](abbreviations.md)
 * [Contact](contact.md)
-* [Documentation issues](issues.md)

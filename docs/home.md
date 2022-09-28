@@ -6,7 +6,7 @@ The underlying data, however, are stored in various systems (i.e. databases) bot
 
 Of course each school, college, or university can develop their own APIs, but this is a time-consuming and costly process. That is why the Open Education API, known in Dutch as the ‘Open Onderwijs API’ (OOAPI), was created. The OOAPI conforms to the design principles of [REST](technical/) (Representational State Transfer) - a flexible, lightweight way of integrating applications.
 
-This [open API](technical/), is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by [SURF](https://www.surf.nl/) (known collectively as the [Community](community/)). Within the [Working Group](https://jelmerderonde.github.io/ooapi-specification/#/community/workinggroup) of the Community, the OOAPI is being  constantly defined and developed so that new and existing education data can be efficiently processed.
+This [open API](technical/), is the result of a collaboration between several education institutes and suppliers in the Netherlands and is facilitated by [SURF](https://www.surf.nl/) (known collectively as the [Community](community/)). Within the [Working Group](community/workinggroup.md) of the Community, the OOAPI is being  constantly defined and developed so that new and existing education data can be efficiently processed.
 
 For a brief introduction to the OOAPI, please take a look at the short video below:
 
@@ -51,12 +51,3 @@ Furthermore, educational institutes that want to publish education data in a sta
 
 Are you an educational institute and interested in having the OOAPI developed to suit your needs? Then why not join us. For more information, please access the [Community](community/) link.
 
-## Case study
-
-TBD: A better example of a cases study is required, for example RIO. JH
-
-For better examples see:
-
-https://www.surf.nl/surfeduhub-en-registratie-instellingen-en-opleidingen-rio?dst=n7908
-https://communities.surf.nl/artikel/vakken-volgen-bij-andere-instellingen-wordt-de-norm
-https://www.vipdoc.nl/stimuleringsregeling-uitwisselen-van-onderwijsaanbod-data/
