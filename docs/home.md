@@ -1,6 +1,3 @@
----
-
----
 # Open Education API
 
 Educational institutes are increasingly sharing education data: with their students via apps, between different systems within an institution, and with other institutions.

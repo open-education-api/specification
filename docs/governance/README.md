@@ -1,6 +1,3 @@
----
-
----
 # Governance
 
 TBD: This entire section has been updated on 09/09/2022, JH.

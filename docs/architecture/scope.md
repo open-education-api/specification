@@ -1,6 +1,3 @@
----
-
----
 # OOAPI scope
 
 The OOAPI specification is aimed at providing information related to student activities and the information need of students in general.

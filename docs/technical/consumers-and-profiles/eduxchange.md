@@ -1,6 +1,3 @@
----
-
----
 # eduXchange and Project Studentmobiliteit (Version 2.0)
 
 ## Required requests
@@ -37,7 +34,7 @@ To be compatible with eduXchange and the Project 'Studentmobiliteit' an institut
 !> For the person object that is requested either through  `GET /persons/me`
 or `GET /persons/{personId}`. The object also needt to enclude a studielinkNumber to facilitate deduplication. This is achieved by adding an extra object in the otherCodes array of Person:
 
-```
+```json
 {
   "personId": "123e4567-e89b-12d3-a456-426614174000",
   "primaryCode": {
@@ -70,13 +67,9 @@ or `GET /persons/{personId}`. The object also needt to enclude a studielinkNumbe
 ],
 "ext": { }
 }
-
 ```
 
-
 !> For the home institutions to get a full oveview of the course a student is trying to enroll the `POST /associations/external/me` needs to have the courseoffering or program offering expanded an example of such a message:
-
-
 
 ## Explanation of rules governing the association state
 
@@ -174,6 +167,7 @@ To be compatible with the [eduXchange catalogue website](https://www.eduxchange.
 
 ### Example
 
+```json
     {
       "consumers": [
         {
@@ -192,6 +186,7 @@ To be compatible with the [eduXchange catalogue website](https://www.eduxchange.
         }
       ]
     }
+```
 
 ## Changes since OOAPI v4
 

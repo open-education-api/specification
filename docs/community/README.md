@@ -1,6 +1,3 @@
----
-
----
 # Community
 
 The Community consists of members (representatives) of education institutions and suppliers that work closely with SURF to further define and develop the Open Education API. Community members participate actively in the project and are encouraged to:

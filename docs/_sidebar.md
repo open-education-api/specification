@@ -1,6 +1,3 @@
----
-
----
 * [Home](/)
   * [Scope](architecture/scope.md "Scope")
   * [Architecture](architecture/ "ROSA-scan and architecture")
@@ -35,12 +32,9 @@
   * [Formatting text](technical/formatting-text.md)
   * [Historical and future data](technical/historical-and-future-data.md)
   * [Extending OOAPI](technical/extending-ooapi.md)
-  * [Specific consumers](technical/consumers/)
-    * [RIO](technical/consumers/rio.md)
-    * [eduXchange](technical/consumers/eduxchange.md)
-  * [Project profiles for OOAPI](technical/profiles/)
-    * [RIO](technical/profiles/rio.md)
-    * [eduXchange](technical/profiles/eduxchange.md)
+  * [Consumers and profiles](technical/consumers-and-profiles/)
+    * [RIO](technical/consumers-and-profiles/rio.md)
+    * [eduXchange](technical/consumers-and-profiles/eduxchange.md)
 * [Abbreviations and definitions](abbreviations.md)
 * [Contact](contact.md)
 * [Documentation issues](issues.md)

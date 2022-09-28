@@ -1,6 +1,3 @@
----
-
----
 # Audience
 
 The OOAPI workgroup is comprised of members of institutions for higer education, software suppliers of these members, as well as supra-sectoral (e.g. [VH](https://www.vereniginghogescholen.nl/) / [Universities of the Netherlands](https://www.universiteitenvannederland.nl/en_GB)).
