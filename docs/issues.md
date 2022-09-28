@@ -20,8 +20,8 @@
 * \[ \] Jim: Check for duplications in governance and bylaws
 * \[ \] Jim: rewrite the REST section of the Technical Information page
 * \[ \] Jim: update governance version and date (version info. etc. needed to complete this task JH)
-* \[ \] Ronald: add missing image to the scope page
-* \[ \] Ronald: fix video link once we clean up the fork
+* \[X\] Ronald: add missing image to the scope page
+* \[X\] Ronald: fix video link once we clean up the fork
 * \[ \] Ronald: restructure profiles and consumers so the consumer object and their profiles would be together
 * \[ \] Ronald/Jelmer: add a GH action to generate downloadable bundle of spec
 * \[ \] Tibert: consider adding a diagram how the governance it works
