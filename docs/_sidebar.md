@@ -8,7 +8,6 @@
     * [IBP (inclusief mapping OOAPI op HORA voor BIV) / Confidentiality, Integrity and Availability](architecture/ISP "information-security-and-privacy")
     * [IAA / Identification, Authentication and Authorization](architecture/IAA "Identification-Authentication-and-Authorization")
     * [Gegevensuitwisseling in de keten / Data exchange and relations with other specifications](architecture/interfacing "interface and other specifications")
-    * [Governance model](governance "governance")
     * [Ketenprocessen / Supply chain](architecture/supply-chain "supply-chain")
     * [Zeggenschappen / Data ownership](architecture/data-ownership "data-ownership")
     * [Referentiecomponenten en applicaties / References, implementations and examples](architecture/implementations "implementations")

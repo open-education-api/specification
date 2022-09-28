@@ -12,7 +12,7 @@ The current implementation of OOAPI is aimed at data in transit. It provides inf
 
 Specifically for the RIO implementation historical data is now also being made available.
 
-The current scope of the OOAPI plotted on the HORA information objects is shown in the figure below:
+The current scope of the OOAPI plotted on the [HORA](https://www.surf.nl/hoger-onderwijs-referentie-architectuur-hora) information objects is shown in the figure below:
 
 ![OOAPI mapping to HORA information model](../_media/ooapi_v50_rosa_hora_information_model.png)
 
@@ -20,12 +20,12 @@ The current scope of the OOAPI plotted on the HORA information objects is shown 
 
 The focus of the OOAPI specification is on providing
 
-information in the following HORA domains:
+information in the following [HORA](https://www.surf.nl/hoger-onderwijs-referentie-architectuur-hora) domains:
 
 * Education
 * Education support
 
-For future use the OOAPI has also been mapped on the MORA information model:
+For future use the OOAPI has also been mapped on the [MORA](https://mbodigitaal.nl/mora/) information model:
 
 ![](../_media/ooapi_v50_rosa_mora_information_model.png)
 
