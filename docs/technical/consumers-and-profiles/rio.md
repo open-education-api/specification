@@ -1,6 +1,3 @@
----
-
----
 # RIO
 
 RIO stands for [Register Instellingen en Opleidingen](https://www.rio-onderwijs.nl/). It is a Dutch national register provided by [DUO](https://www.duo.nl) in which educational institutions record three things: their educational offerings, how they are organized, and how to get in touch with them. DUO and other accrediting organizations record accreditations and licenses in RIO.
@@ -256,7 +253,6 @@ Notes:
 
 ### **AangebodenHoOpleidingsonderdeel**
 
-<<<<<<<< HEAD:docs/technical/profiles/rio.md
 Notes:
 - *The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding*
 - *Cohorten will be mapped from the offerings belonging to the Program in question.*
@@ -264,19 +260,6 @@ Notes:
 | Program                                              | AangebodenHoOpleidingsonderdeel                 | Enumeration mapping                                          | Remarks                                                                                                                                                        |
 | ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | programId [*]                                        | aangebodenOpleidingCode [1]                     |                                                              |                                                                                                                                                                |
-|||||||| f4c1882:docs/consumers/rio.md
-Notes:
-- *The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding*
-- *Cohorten will be mapped from the offerings belonging to the Program in question.*
-
-| Program                                             | AangebodenHoOpleidingsonderdeel                 | Enumeration mapping                                          | Remarks                                                                                                                                                        |
-| --------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| programId                                           | aangebodenOpleidingCode [1]                     |                                                              |                                                                                                                                                                |
-========
-| Program                                              | AangebodenHoOpleidingsonderdeel                 | Enumeration mapping                                          | Remarks                                                                                                                                                        |
-| ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| programId [*]                                        | aangebodenOpleidingCode [1]                     |                                                              |                                                                                                                                                                |
->>>>>>>> docs:docs/technical/consumers-and-profiles/rio.md
 | consumers › RIO › educationOffererCode               | onderwijsaanbiederCode [1]                      |                                                              |                                                                                                                                                                |
 | consumers › RIO › educationLocationCode or addresses | onderwijslocatieCode [0..1]                     |                                                              | If `educationLocationCode` is absent and a single address of type `teaching` is present then a lookup will be attempted to determine the OnderwijslocatieCode. |
 | validFrom                                            | begindatum [1]                                  |                                                              |                                                                                                                                                                |
@@ -302,21 +285,11 @@ Notes:
 
 ### **AangebodenParticuliereOpleiding**
 
-<<<<<<<< HEAD:docs/technical/profiles/rio.md
 Notes:
 - *The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding*
 - *Cohorten will be mapped from the offerings belonging to the Program in question.*
 
 | Program                                              | AangebodenParticuliereOpleiding (Non-formeel)   | Enumeration                                                  | Remarks                                                                                                                                                        |
-|||||||| f4c1882:docs/consumers/rio.md
-Notes:
-- *The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding*
-- *Cohorten will be mapped from the offerings belonging to the Program in question.*
-
-| Program                                              | AangebodenParticuliereOpleiding                 | Enumeration                                                  | Remarks                                                                                                                                                        |
-========
-| Program                                              | AangebodenParticuliereOpleiding (Non-formeel)   | Enumeration                                                  | Remarks                                                                                                                                                        |
->>>>>>>> docs:docs/technical/consumers-and-profiles/rio.md
 | ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | programId [*]                                        | aangebodenOpleidingCode [1]                     |                                                              |                                                                                                                                                                |
 | consumers › RIO › educationOffererCode               | onderwijsaanbiederCode [1]                      |                                                              |                                                                                                                                                                |
@@ -592,46 +565,6 @@ See also [this overview of language tags](https://www.loc.gov/standards/iso639-2
 | total costs   | TOTALE_VERPLICHTE_KOSTEN   |
 
 ### category › categorie
-
-<<<<<<<< HEAD:docs/technical/profiles/rio.md
-| category                                 | categorie                                |
-| ---------------------------------------- | ---------------------------------------- |
-| business_and_project_support             | BEDRIJFS_EN_PROJECTONDERSTEUNING         |
-| economy                                  | ECONOMIE                                 |
-| behavior_and_society                     | GEDRAG_EN_MAATSCHAPPIJ                   |
-| healthcare_and_sport                     | GEZONDHEID_ZORG_EN_SPORT                 |
-| hobby_and_leisure_time                   | HOBBY_EN_VRIJE_TIJD                      |
-| agriculture_food_and_natural_environment | LANDBOUW_VOEDSEL_EN_NATUURLIJKE_OMGEVING |
-| management_and_project_management        | MANAGEMENT_EN_PROJECTMANAGEMENT          |
-| nature                                   | NATUUR                                   |
-| education                                | ONDERWIJS                                |
-| law                                      | RECHT                                    |
-| cross_sectoral                           | SECTOROVERSTIJGEND                       |
-| language_and_culture                     | TAAL_EN_CULTUUR                          |
-| technology_and_ict                       | TECHNIEK_EN_ICT                          |
-| tourism_hospitality_and_recreation       | TOERISME_HORECA_EN_RECREATIE             |
-| transport_and_logistics                  | TRANSPORT_EN_LOGISTIEK                   |
-| security_and_defense                     | VEILIGHEID_EN_DEFENSIE                   |
-|||||||| f4c1882:docs/consumers/rio.md
-| category                                 | categorie                                |
-| ---------------------------------------- | ---------------------------------------- |
-| business_and_project_support             | BEDRIJFS_EN_PROJECTONDERSTEUNING         |
-| economy                                  | ECONOMIE                                 |
-| behavior_and_society                     | GEDRAG_EN_MAATSCHAPPIJ                   |
-| healthcare_and_sport                     | GEZONDHEID_ZORG_EN_SPORT                 |
-| hobby_and_leisure_time                   | HOBBY_EN_VRIJE_TIJD                      |
-| agriculture_food_and_natural_environment | LANDBOUW_VOEDSEL_EN_NATUURLIJKE_OMGEVING |
-| management_and_project_management        | MANAGEMENT_EN_PROJECTMANAGEMENT          |
-| nature                                   | NATUUR                                   |
-| education                                | ONDERWIJS                                |
-| law                                      | RECHT                                    |
-| cross_sectoral                           | SECTOROVERSTIJGEND                       |
-| language_and_culture                     | TAAL_EN_CULTUUR                          |
-| technology_and_ict                       | TECHNIEK_EN_ICT                          |
-| tourism_hospitality_and_recreation       | TOERISME_HORECA_EN_RECREATIE             |
-| transport_and_logistics                  | TRANSPORT_EN_LOGISTIEK                   |
-| security_and_defense                     | VEILIGHEID_EN_DEFENSIE                   |
-========
 | category                                 | categorie                      |
 | ---------------------------------------- | ------------------------------ |
 | business_and_project_support             | BEDRIJFS_PROJECTONDERSTEUNING  |
@@ -650,4 +583,3 @@ See also [this overview of language tags](https://www.loc.gov/standards/iso639-2
 | tourism_hospitality_and_recreation       | TOERISME_HORECA_EN_RECREATIE   |
 | transport_and_logistics                  | TRANSPORT_EN_LOGISTIEK         |
 | security_and_defense                     | VEILIGHEID_EN_DEFENSIE         |
->>>>>>>> docs:docs/technical/consumers-and-profiles/rio.md
