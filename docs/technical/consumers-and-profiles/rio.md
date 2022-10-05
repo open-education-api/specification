@@ -1,6 +1,3 @@
----
-
----
 # RIO
 
 RIO stands for [Register Instellingen en Opleidingen](https://www.rio-onderwijs.nl/). It is a Dutch national register provided by [DUO](https://www.duo.nl) in which educational institutions record three things: their educational offerings, how they are organized, and how to get in touch with them. DUO and other accrediting organizations record accreditations and licenses in RIO.
@@ -188,21 +185,38 @@ EducationSpecifications can have relations to other EducationSpecifications whic
 
 </div>
 
+### Relations between RIO Opleidingseenheden
+In RIO, there can exist relations between Opleidingseenheden. Two types of relations are possible:
+
+- Hierarchical
+  - From a HoOpleiding (regular) to a HoOnderwijsEenhedenCluster or HoOnderwijsEenheid
+  - From a HoOpleiding (variant) to a HoOnderwijsEenhedenCluster or HoOnderwijsEenheid
+  - From a HoOnderwijsEenhedenCluster to a HoOnderwijsEenheid
+- Variant
+  - From a HoOpleiding (regular) to a HoOpleiding (variant)
+
 ## Mapping Educations to RIO AangebodenOpleidingen
 
 ![Mapping of OOAPI Educations to RIO AangebodenOpleidingen](../../_media/simple_rio_aangebodenopleiding_mapping.png "Mapping of OOAPI Educations to RIO AangebodenOpleidingen")
 
 ### Mapping Program to RIO AangebodenOpleidingen
 
+Notes:
+- Cohorten will be mapped from the offerings belonging to the Program in question.
+- The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding:
+
+| `educationSpecificationType` of the linked `EducationSpecification` | Type of the Education | Maps to                         |
+| ------------------------------------------------------------------- | --------------------- | ------------------------------- |
+| `program`                                                           | Program               | AangebodenHoOpleiding           |
+| `privateProgram`                                                    | Program               | AangebodenParticuliereOpleiding |
+| `cluster`                                                           | Program               | AangebodenHoOpleidingsonderdeel |
+| `course`                                                            | Course                | AangebodenHoOpleidingsonderdeel |
+
 <div class="colored-table purple">
 
 <!-- tabs:start -->
 
 ### **AangebodenHoOpleiding**
-
-Notes:
-- *The type of the `educationSpecification` this program refers to, determines whether this Program will be mapped to a AangebodenHoOpleiding, AangebodenHoOpleidingsonderdeel or AangebodenParticuliereOpleiding*
-- *Cohorten will be mapped from the offerings belonging to the Program in question.*
 
 | Program                                              | AangebodenHoOpleiding                        | Enumeration mapping                                          | Remarks                                                                                                                                                        |
 | ---------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -551,22 +565,21 @@ See also [this overview of language tags](https://www.loc.gov/standards/iso639-2
 | total costs   | TOTALE_VERPLICHTE_KOSTEN   |
 
 ### category › categorie
-
-| category                                 | categorie                                |
-| ---------------------------------------- | ---------------------------------------- |
-| business_and_project_support             | BEDRIJFS_EN_PROJECTONDERSTEUNING         |
-| economy                                  | ECONOMIE                                 |
-| behavior_and_society                     | GEDRAG_EN_MAATSCHAPPIJ                   |
-| healthcare_and_sport                     | GEZONDHEID_ZORG_EN_SPORT                 |
-| hobby_and_leisure_time                   | HOBBY_EN_VRIJE_TIJD                      |
-| agriculture_food_and_natural_environment | LANDBOUW_VOEDSEL_EN_NATUURLIJKE_OMGEVING |
-| management_and_project_management        | MANAGEMENT_EN_PROJECTMANAGEMENT          |
-| nature                                   | NATUUR                                   |
-| education                                | ONDERWIJS                                |
-| law                                      | RECHT                                    |
-| cross_sectoral                           | SECTOROVERSTIJGEND                       |
-| language_and_culture                     | TAAL_EN_CULTUUR                          |
-| technology_and_ict                       | TECHNIEK_EN_ICT                          |
-| tourism_hospitality_and_recreation       | TOERISME_HORECA_EN_RECREATIE             |
-| transport_and_logistics                  | TRANSPORT_EN_LOGISTIEK                   |
-| security_and_defense                     | VEILIGHEID_EN_DEFENSIE                   |
+| category                                 | categorie                      |
+| ---------------------------------------- | ------------------------------ |
+| business_and_project_support             | BEDRIJFS_PROJECTONDERSTEUNING  |
+| economy                                  | ECONOMIE                       |
+| behavior_and_society                     | GEDRAG_EN_MAATSCHAPPIJ         |
+| healthcare_and_sport                     | GEZONDHEID_ZORG_EN_SPORT       |
+| hobby_and_leisure_time                   | HOBBY_EN_VRIJE_TIJD            |
+| agriculture_food_and_natural_environment | LANDBW_VOEDSEL_EN_NAT_OMGEVING |
+| management_and_project_management        | MANAGEMENT_EN_PROJECTMNGT      |
+| nature                                   | NATUUR                         |
+| education                                | ONDERWIJS                      |
+| law                                      | RECHT                          |
+| cross_sectoral                           | SECTOROVERSTIJGEND             |
+| language_and_culture                     | TAAL_EN_CULTUUR                |
+| technology_and_ict                       | TECHNIEK_EN_ICT                |
+| tourism_hospitality_and_recreation       | TOERISME_HORECA_EN_RECREATIE   |
+| transport_and_logistics                  | TRANSPORT_EN_LOGISTIEK         |
+| security_and_defense                     | VEILIGHEID_EN_DEFENSIE         |

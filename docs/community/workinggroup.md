@@ -1,9 +1,6 @@
----
-
----
 # Working group
 
-The Working group is a subgroup of the Community and consists of a number of members that meet on a regular basis. The [Working group members](community/workinggroup/) are responsible for topics such as:
+The Working group is a subgroup of the Community and consists of a number of members that meet on a regular basis. The [Working group members](#working-group-members) are responsible for topics such as:
 
 * the project roadmap.
 * the design and future development of the Open Education API specification (the development has an annual cycle consisting of a minor and a major release).
@@ -27,25 +24,18 @@ To register for the working group and become an active part of the Community, pl
 
 ## Working group members
 
-TBD:
-In the table below:
-
-* Check if members, including contact names, are up-to-date.
-* Check if links are okay now (I already created them, but they disappeared).
-* Should list below be in a certain sequence (alphabetical for example)? JH
-
 The Working group consists of the following members:
 
-| Member | Contact person(s) |
-| --- | --- |
-| Avans University of Applied Sciences | Piet Brekelmans |
-| InHolland University of Applied Sciences | Arthur van Alten |
-| Leiden University of Applied Sciences | Mark de Jong, Frank Schimmel |
-| SURF | Jelmer de Ronde, Frans Ward\] |
-| Finalist | Stanley Portiers\] |
-| University of Amsterdam | Tom Kuipers\] |
-| Arnhem Nijmegen University of Applied Sciences | Niels Kregting |
-| The Hague University of Applied Science | Henk Schouten, Danny Klootwijk |
-| Utrecht University of Applied Sciences | Joost Veerman, Xiaojie Bormans |
-| inQdo | Pieter Smit |
-| Leiden University | Maarten van Schie |
+| Member                                         | Representative(s)              |
+| ---------------------------------------------- | ------------------------------ |
+| Arnhem Nijmegen University of Applied Sciences | Niels Kregting                 |
+| Avans University of Applied Sciences           | Piet Brekelmans                |
+| Finalist                                       | Stanley Portiers               |
+| InHolland University of Applied Sciences       | Arthur van Alten               |
+| inQdo                                          | Pieter Smit                    |
+| Leiden University                              | Maarten van Schie              |
+| Leiden University of Applied Sciences          | Mark de Jong, Frank Schimmel   |
+| SURF                                           | Jelmer de Ronde, Frans Ward    |
+| The Hague University of Applied Science        | Henk Schouten, Danny Klootwijk |
+| University of Amsterdam                        | Tom Kuipers                    |
+| Utrecht University of Applied Sciences         | Joost Veerman, Xiaojie Bormans |
