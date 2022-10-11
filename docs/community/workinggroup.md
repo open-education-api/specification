@@ -26,19 +26,16 @@ To register for the working group and become an active part of the Community, pl
 
 The Working group consists of the following members:
 
-| Member                                         | Representative(s)              |
-| ---------------------------------------------- | ------------------------------ |
-| Arnhem Nijmegen University of Applied Sciences | Niels Kregting                 |
-| Avans University of Applied Sciences           | Piet Brekelmans                |
-| Finalist                                       | Stanley Portiers               |
-| InHolland University of Applied Sciences       | Arthur van Alten               |
-| inQdo                                          | Pieter Smit                    |
-| Leiden University                              | Maarten van Schie              |
-| Leiden University of Applied Sciences          | Mark de Jong, Frank Schimmel   |
-| SURF                                           | Jelmer de Ronde, Frans Ward    |
-| The Hague University of Applied Science        | Henk Schouten, Danny Klootwijk |
-| University of Amsterdam                        | Tom Kuipers                    |
-| Utrecht University of Applied Sciences         | Joost Veerman, Xiaojie Bormans |
+| Member                     | Representative(s)              |
+| -------------------------- | ------------------------------ |
+| Avans Hogeschool           | Andre Walraven                 |
+| Hogeschool Inholland       | Arthur van Alten               |
+| Hogeschool Leiden          | Mark de Jong, Frank Schimmel   |
+| SURF                       | Jelmer de Ronde, Frans Ward    |
+| Hogeschool Utrecht         | Joost Veerman, Xiaojie Bormans |
+| Universiteit van Amsterdam | Tom Kuipers                    |
+| Hogeschool Arnhem Nijmegen | Niels Kregting                 |
+| Haagse Hogeschool          | Danny Klootwijk                |
 
 ## Working group and community meetings
 
