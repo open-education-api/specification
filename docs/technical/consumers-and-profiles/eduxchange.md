@@ -105,7 +105,7 @@ This consumer object is used to specify the `enrollmentUrl` that is associated w
   * `enrollmentUrl`: a string formatted as an URL to which students will be redirected if `enrollmentForOwnStudents` **in the program/course consumer object** is set to `"url"`.
 
 The idea behind this construct is
-* At the program/course level is specified if a student can enroll for a course of the home institution at a specific URL of the home institution. Specified with `enrollmentForOwsStudentes=url`.
+* At the program/course level is specified if a student can enroll for a course of the home institution at a specific URL of the home institution. Specified with `enrollmentForOwnStudents=url`.
 * A program/course usually has multiple offerings associated with is, these offerings can have a different enrollment url's at the home institution. Therefor this url is specified in `enrollmentUrl` of the offering itself.
 
 ### Example
