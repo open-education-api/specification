@@ -51,7 +51,7 @@ properties:
     example: NL
   nationality:
     type: string
-    description: The nationality of this person the nationality according to https://gist.github.com/zspine/2365808
+    description: The nationality (CCA3) of this person according to https://gist.github.com/zspine/2365808.
     example: Dutch
   dateOfNationality:
     type: string
