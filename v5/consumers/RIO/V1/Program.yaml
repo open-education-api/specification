@@ -34,7 +34,8 @@ properties:
       Code van de onderwijsaanbieder waarmee wordt samengewerkt OnderwijsaanbiederID-v01
   foreignPartners:
     type: array
-    items: string
+    items:
+      type: string
     minItems: 1
     description: |
       buitenlandsePartner

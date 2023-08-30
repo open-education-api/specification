@@ -1,4 +1,4 @@
-openapi: "3.0.3"
+openapi: "3.1.0"
 info:
   version: "5.0.0"
   title: Open Education API
@@ -228,25 +228,6 @@ components:
     openId:
       type: openIdConnect
       openIdConnectUrl: https://example.nl/.well-known/openid-configuration
-  schemas:
-    # allOf: 
-    #   - $ref: 'schemas/Service.yaml'
-    #   - $ref: schemas/AcademicSession.yaml
-    #   - $ref: schemas/Building.yaml
-    #   - $ref: schemas/Component.yaml
-    #   - $ref: schemas/ComponentOffering.yaml
-    #   - $ref: schemas/Course.yaml
-    #   - $ref: schemas/CourseOffering.yaml
-    #   - $ref: schemas/EducationSpecification.yaml
-    #   - $ref: schemas/Group.yaml
-    #   - $ref: schemas/NewsFeed.yaml
-    #   - $ref: schemas/NewsItem.yaml
-    #   - $ref: schemas/Organization.yaml
-    #   - $ref: schemas/Person.yaml
-    #   - $ref: schemas/Program.yaml
-    #   - $ref: schemas/ProgramOffering.yaml
-    #   - $ref: schemas/Room.yaml
-    #   - $ref: schemas/AssociationFull.yaml
 
 paths:
   /:

@@ -31,11 +31,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - title: Without timelineOverrides (default)
-                $ref: '../schemas/EducationSpecification.yaml'
-              - title: With timelineOverrides
-                $ref: '../schemas/EducationSpecificationExpanded.yaml'
+            $ref: '../schemas/EducationSpecificationExpanded.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

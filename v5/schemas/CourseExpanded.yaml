@@ -4,7 +4,7 @@ allOf:
     description: These properties are only present when explicitly included
     properties:
       timelineOverrides:
-        description: Timeline overrides allow an implementation to provide versions of entities that will be valid in the future or have been in the past.
+        description: Timeline overrides allow an implementation to provide versions of entities that will be valid in the future or have been in the past.  The `timelineOverrides` attribute should only be returned when the query parameter `returnTimelineOverrides` is `true`.
         type: array
         items:
           $ref: './TimelineOverrideCourse.yaml'
