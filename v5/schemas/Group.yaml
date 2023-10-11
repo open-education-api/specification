@@ -11,7 +11,7 @@ required:
 properties:
   groupId:
     type: string
-    description: Unique id for this group
+    description: Unique id for this group. This id should be a stable (persistent) uuid, always pointing to the same resource.
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   primaryCode:

@@ -6,7 +6,7 @@ required:
 properties:
   newsItemId:
     type: string
-    description: Unique id for this news item
+    description: Unique id for this news item. This id should be a stable (persistent) uuid, always pointing to the same resource.
     format: uuid
     example: 123e4567-e89b-12d3-a456-122564174000
   newsItemType:
