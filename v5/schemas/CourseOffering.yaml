@@ -2,7 +2,6 @@ allOf:
   - $ref: './Offering.yaml'
   - type: object
     required:
-      - modeOfStudy
       - startDate
       - endDate
     properties:
