@@ -1,10 +1,14 @@
 allOf:
-  - $ref: './Offering.yaml'
+  - $ref: './OfferingId.yaml'
   - type: object
     required:
       - startDate
       - endDate
     properties:
+      offeringType:
+        const: course
+        description: The type of this offering
+        example: course
       startDate:
         type: string
         description: The moment on which this offering starts, RFC3339 (full-date)
@@ -69,7 +73,8 @@ allOf:
           - $ref: './Identifier.yaml'
             title: organizationId
           - $ref: './Organization.yaml'
-            title: Organization object     
+            title: Organization object 
+  - $ref: './OfferingProperties.yaml'    
 
 
 
