@@ -1,10 +1,14 @@
 allOf:
-  - $ref: './Offering.yaml'
+  - $ref: './OfferingId.yaml'
   - type: object
     required:
       - startDateTime
       - endDateTime
     properties:
+      offeringType:
+        const: component
+        description: The type of this offering
+        example: component
       startDateTime:
         type: string
         description: The moment on which this offering starts, RFC3339 (date-time)
@@ -68,3 +72,4 @@ allOf:
             title: organizationId
           - $ref: './Organization.yaml'
             title: Organization object
+  - $ref: './OfferingProperties.yaml' 
