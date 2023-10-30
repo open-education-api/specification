@@ -2,7 +2,6 @@ allOf:
   - $ref: './Offering.yaml'
   - type: object
     required:
-      - modeOfStudy
       - startDate
       - endDate
     properties:
@@ -71,15 +70,7 @@ allOf:
             title: organizationId
           - $ref: './Organization.yaml'
             title: Organization object     
-      academicSession:
-        description: |
-          The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)
-          By default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: academicSessionId
-          - $ref: './AcademicSession.yaml'
-            title: AcademicSession object
+
 
 
 
