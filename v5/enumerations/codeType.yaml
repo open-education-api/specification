@@ -10,8 +10,8 @@ description: |
     - `programCode`: Identifier for the program (collection of courses)
     - `componentCode`: The code for a component (part of a course)
     - `offeringCode`: The code to identify a specific offering (program, course or component offering)
-    - `organizationId`: The identifier for the organization
-    - `buildingId`: The number or code to identify a building
+    - `organizationId`: The identifier for the organization. This id should be a stable (persistent) uuid, always pointing to the same resource.
+    - `buildingId`: The number or code to identify a building. This id should be a stable (persistent) uuid, always pointing to the same resource.
     - `bagId`: The identification of a building as it is known in the Dutch Building Administration (BAG)
     - `roomCode`: The code for a room
     - `systemId`: Identifier assigned to an entity in context of a specific system

@@ -8,7 +8,7 @@ required:
 properties:
   buildingId:
     type: string
-    description: Unique id of this building
+    description: Unique id of this building. This id should be a stable (persistent) uuid, always pointing to the same resource.
     format: uuid
     example: 123e4567-e89b-12d3-a456-331214174000
   primaryCode:
