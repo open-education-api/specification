@@ -1,0 +1,54 @@
+type: object
+description: nl-test-admin add-on attributes to the Association 
+required:
+ - consumerKey
+properties:
+  consumerKey:
+    type: string
+  preferredName:
+    type: string
+    description: The name by which the person refers to him/het/their self, how the person would like to be called. Usually first name of this person
+    maxLength: 256
+    example: Maar
+  assignedNeeds:
+    type: array
+    items:
+      type: object 
+      properties:
+        code:
+          description: Human readable value for the code/identifier
+          type: string
+        description:
+          type: array
+          description: The description of this assignedNeed.
+          minItems: 1
+          items:
+            $ref: '../../../schemas/LanguageTypedString.yaml'
+          example:
+          - language: en-GB
+            value: Extra time for Math tests shown in a percentile of the overall time of a test
+        startDate:
+          type: string
+          description: The day on which this assigned need starts, RFC3339 (full-date)
+          format: date
+          example: '2020-08-17'
+        endDate:
+          type: string
+          description: The day on which this assigned need ends, RFC3339 (full-date)
+          format: date
+          example: '2025-07-31'          
+    minItems: 0
+    description: |
+      Assigned resources or time based on the needs of a person. 
+      These needs can later in the flows be mapped to a personalNeed for a specific association
+      Examples of such assignedNeeds: "ExtraTimeOnlyMath25%", "ExtraTimeOnlyMath30Min", "ExtraTimeDigitalTests25%"
+  idCheckName:
+    type: string
+    description: | 
+      The name of the person as printed on the official identification documents (Driver's license or passport or id card)
+      This MUST be formatted as "surname prefix surname, given names"  (separating surnamePrefix and surname with a single space and surname and given names by a comma and space) 
+      If the surname or given names are not available or secret the value of "secret" and "notAvailable" are recommended, surname prefix can be omitted.
+      E.g. "van der Graaf, Jacobus Adrianus"
+      Optionally the value of the student number can be added to this field by adding this at the end separated by a comma.
+      E.g. "van der Graaf, Jacobus Adrianus, s12345678"
+

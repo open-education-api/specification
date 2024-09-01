@@ -1,0 +1,136 @@
+type: object
+description: nl-test-admin add-on attributes to the offerings 
+required:
+ - offeringState
+ - consumerKey
+properties:
+  consumerKey:
+    type: string
+  duration:
+    type: string
+    description: |
+      To be documented see https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/4
+      The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+      For easy info https://en.wikipedia.org/wiki/ISO_8601#Durations
+    pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
+    example: P1DT30H4S
+  lastPossibleStartDateTime:
+    type: string
+    description: The moment on which this offering starts, RFC3339 (date-time)
+    format: date-time
+    example: 2020-12-15T08:50:00+01:00 
+  startOptions:
+    type: string
+    description: |
+      type of start that is allowed
+    enum:
+      - individualStart
+      - triggeredStart
+  durationFrom:
+    type: string
+    description: |
+      determine how to determine the start moment for the component
+    enum:
+      - startDateTime 
+      - individualStartDateTime
+      - triggeredStartDateTime
+  durationUntil:
+    type: string
+    description: |
+      determine how the length of the component should be determined (fixed endpoint or based on the duration)
+    enum:
+      - testDuration 
+      - endDateTime
+  safety:
+    type: array 
+    description: |
+      safety
+      See https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/5.
+      TODO : make list
+    items:
+      type: string
+      enum:
+        - securedComputer
+        - fixedLocation
+        - surveillance
+  offeringState:
+    type: string
+    description: |
+      offeringState
+      enum to indicate the state of the offering
+    enum:
+      - active
+      - canceled
+  locationCode:
+    type: string
+    example: A-12a
+    description: |
+      locationCode
+      string to indicate test room/space (for recognition, we will not use the location structure from OOAPI)
+  irregularities:
+    type: string
+    example: There was a lot of noise from the construction site nearby
+    description: |
+      irregularities
+      string with information about irragularies that effected all students in this offering
+  finalResultAllowed:
+    type: boolean
+    example: true
+    description: |
+      depicting wether it is allowed to send either a final result or a perliminary result to the SIS. 
+      To allow for final results to be delivered to the Student Information System the value should be true. 
+      If set to false only other than final results can be delivered (e.g. temporary/intermediate/draft/etc.)
+  testsToBeUsed:
+    type: array
+    items:
+      type: object
+      description: |
+        A list of references to a specific test that can be used to validate the students achievements.
+        This attribute SHOULD only be used in case of a component offering (and is only used in Flow 1)
+      properties:
+        testProvider:
+          description: The name of the organisation that is supplying the test.
+          type: string
+        componentId:
+          description: the UUID of the test in the testing system of the suppier.
+          type: string
+      example:
+        testProvider: MBO-NED
+        componentId: dfc9d973-42cf-46f3-bd18-f9b50492cdb5
+  cohort:
+    type: string
+    example: 2022-2023
+    description: |
+      The realisation of an educational element with its own starting and end period added with specific Education and examination Rules (OER) and enrollment requirements
+  location:
+    type: string
+    example: Campus Groningen
+    description: |
+      The location where the (Program) offering of the student takes place. Abbreviation of the location as provided to RIO
+  documents:
+    type: array
+    items:
+      type: object
+      description: |
+        documents that are relevant to this offering including the ID, Type ans Name to facilitate file handeling in downloading.
+      properties:
+        documentId:
+          description: the UUID of the document in the system of the suppier.
+          type: string
+        documentType:
+          description: |
+            The sort of document, this facilitates the document flow 
+            enum of the document sort
+          enum:
+            - sessionReport
+            - attendanceReport
+            - assessmentModel
+            - other
+        documentName:
+          description: the proposed file name of the document in the system of the suppier.
+          type: string
+      example:
+        documentId: dfc9d973-42cf-46f3-bd18-f9b50492cdb5
+        documentType: sessionReport
+        documentName: Session report on Session tbd.pdf
+

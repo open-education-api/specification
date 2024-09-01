@@ -1,0 +1,18 @@
+- consumerKey: nl-test-admin
+  duration: P1DT30H4S
+  lastPossibleStartDateTime: 2020-12-15T08:50:00 
+  startOptions: individualStart
+  durationFrom: individualStartDateTime
+  durationUntil: testDuration 
+  safety: [securedComputer, fixedLocation]
+  offeringState: active
+  locationCode: A-12a
+  testToBeUsed:
+    - testProvider: MBO-NED
+      componentId: dfc9d973-42cf-46f3-bd18-f9b50492cdb5 
+  irregularities: There was a lot of noise from the construction site nearby
+  documents:       
+    - documentId: 454566464665355545
+      documentType: sessionReport
+      documentName: Session report on Session tbd.pdf
+ 

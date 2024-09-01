@@ -1,0 +1,71 @@
+type: object
+description: nl-test-admin add-on attributes to the Association 
+required:
+ - consumerKey
+properties:
+  consumerKey:
+    type: string
+  additionalTimeInMin:
+    type: integer
+    format: int32
+    description: |
+      If you need additional time, specify how much max
+      To be documented see https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/4
+  personalNeeds:
+    type: array
+    items:
+      type: string
+    minItems: 0
+    description: |
+      personalNeed
+      personalNeed to be added for this student
+      TODO : make enum: see https://www.imsglobal.org/sites/default/files/spec/afa/3p0/information_model/imsafa3p0pnp_v1p0_InfoModel.html
+      examples : "extraTime", "spoken", "spell-checker-on-screen"
+  attempt:
+    type: integer
+    description: |
+      Which attempt this is for the given person on the given offering
+    format: int32
+  attemptLeft:
+    type: integer
+    description: |
+      The number of attempts still remain for the person to obtain a result on the given offering
+    format: int32
+  programOfferingAssociationId: 
+    type: string
+    description: |
+      The unique identifier of the enrollment of the student in a programOffering on the behalf of the current assocation is taking place 
+    format: uuid
+  courseOfferingAssociationId: 
+    type: string
+    description: |
+      The unique identifier of the enrollment of the student in a courseOffering on the behalf of the current assocation is taking place 
+    format: uuid
+  orgAssociationId:
+    type: string
+    description: |
+      The original UUID under which the Student information System provided the assocaition. This element is only needed at pass back to the SIS 
+    format: uuid
+  startDate:
+    type: string
+    description: The day on which this academic session starts, RFC3339 (full-date)
+    format: date
+    example: '2020-08-17'
+  expectedEndDate:
+    type: string
+    description: The day on which this academic session ends, RFC3339 (full-date)
+    format: date
+    example: '2025-07-31'
+  finalEndDate: 
+    type: string
+    nullable: true
+    description: The day on which this academic session ends, RFC3339 (full-date)
+    format: date
+    example: 'null'
+  sequenceCode:
+    type: string
+    description: |
+      The transaction number for the person within the SIS for example the loopbaannummer or an opleidingsblad 
+    format: uuid
+  
+

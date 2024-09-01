@@ -1,0 +1,13 @@
+- consumerKey: nl-test-admin
+  attendance: notKnown
+  additionalTimeInMin: 30
+  personalNeeds: ["extraTime", "spoken", "spell-checker-on-screen"]
+  attempt: 1
+  attemptLeft: 2
+  programOfferingAssociationId: 54e58f68-ceac-4845-99d5-caa721fefb88
+  courseOfferingAssociationId: 170b5f35-20be-47bf-96ff-d262d121b76b
+  orgAssociationId: 123c6f59-21wg-47bf-96ff-d262d133c51g
+  startDate: '2021-09-01'
+  expectedEndDate: '2025-07-31'
+  finalEndDate: null
+  sequenceCode: '1.2'
