@@ -6,10 +6,14 @@ description: |
     - teaching assistant: studentassistent
     - coordinator: coördinator
     - guest: gast
+    - invigilator: surveillant
+    - assessor: beoordelaar
 enum:
   - student
   - lecturer
   - teaching assistant
   - coordinator
   - guest
+  - invigilator
+  - assessor
 example: student

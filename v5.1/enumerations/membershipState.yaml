@@ -1,0 +1,6 @@
+type: string
+description: The state of this membership
+enum:
+  - canceled
+  - active
+example: active

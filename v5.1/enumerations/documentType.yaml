@@ -1,0 +1,21 @@
+type: string
+description: |
+  The type of document that is made available. This is an *extensible enumeration*.
+
+  The following values have been defined in the specification:
+    - `attendanceRegister`: a list of the people present during an education (Presentielijst)
+    - `officialReport`: a document descirbing possible events that have taken place during an education (Procesverbaal)
+    - `assessmentForm`: a form describing the results of an assessment (Beoordelingsformulier)
+    - `assessmentAnnex`: a document that can be added to an assessment form as part of the overall assessement (Beoordelingsbijlage)
+    - `documentsHandedIn`: documents that are handed in in order to be assessed (ingeleverde documenten)
+    - `plagiarismScan`: the results of the plagerism scan on a document that has been handed in (Plagiaatscan bij ingeleverd document)
+  
+  Implementations are allowed to add additional values to those above, as long as they do not overlap in definition to existing values.
+example: plagerismScan
+x-ooapi-extensible-enum:
+  - attendanceRegister
+  - officialReport
+  - assessmentForm
+  - assessmentAnnex
+  - documentsHandedIn
+  - plagiarismScan

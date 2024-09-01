@@ -8,6 +8,7 @@ description: |
     - `brin`: The registration number for a Dutch educational institution that is issued by the Dutch Ministry of Education, Culture and Science
     - `crohoCreboCode`: programs with a CREBO and CROHO number are accredited by the Dutch Ministry of Education, Culture and Science (OCW)
     - `programCode`: Identifier for the program (collection of courses)
+    - `courseCode`: Identifier for the course 
     - `componentCode`: The code for a component (part of a course)
     - `offeringCode`: The code to identify a specific offering (program, course or component offering)
     - `organizationId`: The identifier for the organization
@@ -30,10 +31,13 @@ description: |
     - `uuid`: A universally unique identifier
     - `schacHome`: Home organization using the domain name of the organization
     - `identifier`: Generic Identifier
+    - `eckid`: ID used in the education content chain
+    - `nationalEducationCode`: Code used to specify an education with in a country (e.g. RIO opleidingscode for NL) 
 x-ooapi-extensible-enum:
   - brin
   - crohoCreboCode
   - programCode
+  - courseCode
   - componentCode
   - offeringCode
   - organizationId
@@ -56,4 +60,6 @@ x-ooapi-extensible-enum:
   - uuid
   - schacHome
   - identifier
+  - eckid
+  - nationalEducationCode
 example: identifier
