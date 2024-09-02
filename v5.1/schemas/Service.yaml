@@ -23,6 +23,14 @@ properties:
     format: uri
     maxLength: 2048
     example: https://open-education-api.github.io/specification/v4/docs.html
+  supportedVersions: 
+    type: array
+    items:
+      $ref: ../enumerations/versions.yaml 
+  supportedConsumers: 
+    type: array
+    items:
+      $ref: ./ConsumerVersion.yaml
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array

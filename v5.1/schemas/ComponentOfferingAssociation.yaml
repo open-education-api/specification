@@ -1,6 +1,9 @@
 allOf:
-  - $ref: './Association.yaml'
+  - $ref: './AssociationId.yaml'
+  - $ref: './ComponentOfferingAssociationProperties.yaml'
   - type: object
-    properties:
-      result:
-        $ref: './ComponentResult.yaml'
+    required:
+      - associationType
+      - role
+      - state
+      - associationId

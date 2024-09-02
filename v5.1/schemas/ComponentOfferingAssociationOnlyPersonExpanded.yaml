@@ -1,0 +1,17 @@
+allOf:
+  - $ref: '../schemas/ComponentOfferingAssociationProperties.yaml'
+  - type: object
+    required:
+      - role
+      - state
+      - associationType    
+required:
+  - person
+properties:
+  person:
+    oneOf:
+      - $ref: '../schemas/Identifier.yaml'
+        title: personId
+      - $ref: '../schemas/Person.yaml'
+        title: Person
+

@@ -140,11 +140,7 @@ properties:
       - $ref: './Organization.yaml'
         title: Organization object  
   consumers:
+    $ref: './ConsumerOnComponent.yaml'
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   ext:
     $ref: './Ext.yaml'

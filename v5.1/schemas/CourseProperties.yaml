@@ -1,12 +1,5 @@
 type: object
 description: An object describing the metadata of a course
-required:
-  - name
-  - abbreviation
-  - description
-  - teachingLanguage
-  - level
-  - primaryCode
 properties:
   primaryCode:
     description: The primary human readable identifier for this course. This is often the source identifier as defined by the institution.

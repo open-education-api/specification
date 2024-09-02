@@ -10,3 +10,11 @@ allOf:
         description: The day this course ceases to be valid (e.g. exclusive).
         type: string
         format: date
+  - type: object
+    required:
+      - name
+      - abbreviation
+      - description
+      - teachingLanguage
+      - level
+      - primaryCode      

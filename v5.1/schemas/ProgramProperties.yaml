@@ -1,12 +1,5 @@
 type: object
 description: A collection of courses that lead to a certifiable learning outcome
-required:
-  - programType
-  - name
-  - abbreviation
-  - description
-  - primaryCode
-  - teachingLanguage
 properties:
   primaryCode:
     description: The primary human readable identifier for the program. This is often the source identifier as defined by the institution.

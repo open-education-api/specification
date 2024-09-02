@@ -301,10 +301,14 @@ paths:
     $ref: paths/CourseComponentCollection.yaml
   /courses/{courseId}/offerings:
     $ref: paths/CourseOfferingCollection.yaml
+  /components:
+    $ref: paths/ComponentCollection.yaml
   /components/{componentId}:
     $ref: paths/ComponentInstance.yaml
   /components/{componentId}/offerings:
     $ref: paths/ComponentOfferingCollection.yaml
+  /offerings:
+    $ref: paths/OfferingCollection.yaml
   /offerings/{offeringId}:
     $ref: paths/OfferingInstance.yaml
   /offerings/{offeringId}/associations:
@@ -313,8 +317,12 @@ paths:
   #   $ref: paths/OfferingAssociationInstanceMe.yaml
   /offerings/{offeringId}/groups:
     $ref: paths/OfferingGroupCollection.yaml
+  /documents/{documentId}:
+    $ref: paths/DocumentInstance.yaml
   /associations/{associationId}:
     $ref: paths/AssociationInstance.yaml
+  /associations/{associationId}/url:
+    $ref: paths/AssociationUrl.yaml
   # /associations/me:
   #   $ref: paths/AssociationInstanceMe.yaml
   /associations/external/me:
@@ -353,3 +361,5 @@ paths:
     $ref: paths/GroupInstance.yaml
   /groups/{groupId}/persons:
     $ref: paths/GroupPersonCollection.yaml
+  /groups/{groupId}/members:
+    $ref: paths/GroupMembers.yaml  

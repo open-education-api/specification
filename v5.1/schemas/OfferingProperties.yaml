@@ -1,12 +1,5 @@
 type: object
 description: Either a program, course or component offering which descrbes the program, course or offering in time
-required:
-  - primaryCode
-  - offeringType
-  - name
-  - description
-  - teachingLanguage
-  - resultExpected
 properties:
   primaryCode:
     description: The primary human readable identifier for this offering. This is often the source identifier as defined by the institution.
@@ -125,11 +118,6 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
   consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/RIO/V1/examples/Offering.yaml'
+    $ref: './ConsumerOnOffering.yaml'
   ext:
     $ref: './Ext.yaml'

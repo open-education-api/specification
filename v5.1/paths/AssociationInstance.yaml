@@ -1,6 +1,7 @@
 get:
   summary: GET /associations/{associationId}
-  description: Get a single association.
+  description: |
+    Get a single association.
   operationId: listAssociationById
   security:
     - oAuthFlows:  
@@ -70,7 +71,6 @@ patch:
       - nl-test-admin-flow-2-3-4
   tags:
     - associations
-
   parameters:
     - name: associationId
       in: path
@@ -79,8 +79,7 @@ patch:
       schema:
         type: string
         format: uuid
-
-   requestBody:
+  requestBody:
     required: true
     content:
       application/merge-patch+json:

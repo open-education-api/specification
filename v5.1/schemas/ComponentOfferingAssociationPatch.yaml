@@ -1,0 +1,15 @@
+allOf:
+  - $ref: '../schemas/ComponentOfferingAssociationProperties.yaml'
+properties:
+  person:
+    oneOf:
+      - $ref: '../schemas/Identifier.yaml'
+        title: personId
+      - $ref: '../schemas/Person.yaml'
+        title: Person
+  offering:
+    oneOf:
+      - $ref: '../schemas/Identifier.yaml'
+        title: offeringId
+      - $ref: '../schemas/ComponentOffering.yaml'
+        title: ComponentOffering
