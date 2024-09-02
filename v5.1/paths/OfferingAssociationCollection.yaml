@@ -1,8 +1,13 @@
 get:
   summary: GET /offerings/{offeringId}/associations
   description: Get a list of all offering associations.
+  operationId: listAssociationsByOfferingId
+  security:
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+      - nl-test-admin-flow-2-3-4 
   tags:
-    - offerings
+    - associations
   parameters:
     - name: offeringId
       in: path

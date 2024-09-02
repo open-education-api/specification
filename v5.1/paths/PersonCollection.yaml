@@ -1,6 +1,10 @@
 get:
   summary: GET /persons
   description: Get an ordered list of all persons.
+  operationId: listPersons
+  security:
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
   tags:
     - persons
   parameters:

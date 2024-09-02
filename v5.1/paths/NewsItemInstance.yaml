@@ -1,6 +1,7 @@
 get:
   summary: GET /news-items/{newsItemId}
   description: Get a single news item.
+  operationId: listNewsItemsById
   tags:
     - news
   parameters:

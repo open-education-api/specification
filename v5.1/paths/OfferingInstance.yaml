@@ -1,6 +1,11 @@
 get:
   summary: GET /offerings/{offeringId}
   description: Get a single offering.
+  operationId: listOfferingById
+  security:
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+      - nl-test-admin-flow-2-3-4
   tags:
     - offerings
   parameters:
@@ -57,3 +62,177 @@ get:
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
+
+patch:
+  summary: PATCH /offerings/{offeringId}
+  description: |
+    PATCH update a single offering based on the offeringID provided. 
+  operationId: partialUpdateOfferingById
+  security:
+    - openId:
+      - offerings.write
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+      - nl-test-admin-flow-2-3-4
+  tags:
+    - offerings
+  parameters:
+    - name: offeringId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/merge-patch+json:
+          schema:
+            allOf:
+              - $ref: '../schemas/OfferingId.yaml'
+              - $ref: '../schemas/ComponentOfferingProperties.yaml'
+            title: componentOffering
+          examples:
+            Delete offering (Flow 2.5):
+              value:
+                offeringType: component
+                consumers: 
+                - consumerKey: nl-test-admin
+                  offeringState: canceled
+            Send attendance and offering report directly (Flow 4.1):
+              value:
+                offeringType: component
+                consumers:
+                - consumerKey: nl-test-admin
+                  irregularities: "There was a lot of noise from the construction site nearby."
+                  documents: [
+                    {
+                      documentId: "454566464665355545",
+                      documentType: "sessionReport",
+                      documentName: "Session report on Session tbd.pdf",
+                    }
+                  ]
+
+
+  responses:
+    '200':
+      description: OK
+
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+put: 
+  summary: PUT /offerings/{offeringId}
+  description: |
+    PUT / create an offering  or update a single offering based on the offeringID provided. 
+    You want to PUT a resource to the same URI you intend to GET it from. also check RFC 72314.3.4 PUT.
+  operationId: replaceOfferingById
+  security:
+    - openId:
+      - offerings.write
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+      - nl-test-admin-flow-2-3-4      
+  tags:
+    - offerings
+  parameters:
+    - name: offeringId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+        application/json:
+          schema:
+            $ref: '../schemas/ComponentOffering.yaml'
+            title: componentOffering
+          examples:
+            Create offering (zitting) without students (flow 2.1):
+              value:
+                offeringId: "123e4567-e89b-12d3-a456-134564174000" 
+                primaryCode:
+                  codeType: offeringCode
+                  code: "Remindo_rekenen_MBO-3_op_woendag_middag_21-jun-22_om_13:00_in_lokaal_13"
+                offeringType: component
+                academicSession: 937983ad-cc0f-45a6-95ca-a8f60b7cf125
+                name:
+                - language: nl-NL
+                  value: "20220621-12:45-Remindo rekenen MBO-3"
+                description:
+                - language: nl-NL
+                  value: "Beschrijving van 20220621-12:45-Remindo rekenen MBO-3"
+                teachingLanguage: nld
+                modeOfDelivery:
+                - situated
+                resultExpected: true
+                consumers:
+                - consumerKey: nl-test-admin
+                  duration: P60M
+                  lastPossibleStartDateTime: 2020-12-15T08:50:00+01:00
+                  startOptions: individualStart
+                  durationFrom: individualStartDateTime
+                  durationUntil: testDuration 
+                  safety: ["Fixed Location", "Surveillance"]
+                  offeringState: active
+                  locationCode: A-22
+                startDateTime: 2022-06-21T12:45:00+01:00
+                endDateTime: 2022-06-21T13:45:00+01:00
+                component: "c5fca27e-ccc1-430d-9888-90e005ad6a86"
+            Create offering (zitting) without students (flow 2.1 minimal):
+              value:
+                offeringId: "123e4567-e89b-12d3-a456-134564174000" 
+                primaryCode:
+                  codeType: offeringCode
+                  code: "Remindo_rekenen_MBO-3_op_woendag_middag_21-jun-22_om_13:00_in_lokaal_13"
+                offeringType: component
+                name:
+                - language: nl-NL
+                  value: "20220621-12:45-Remindo rekenen MBO-3"
+                description:
+                - language: nl-NL
+                  value: "Beschrijving van 20220621-12:45-Remindo rekenen MBO-3"
+                teachingLanguage: nld
+                resultExpected: true
+                startDateTime: 2022-06-21T12:45:00+01:00
+                endDateTime: 2022-06-21T13:45:00+01:00
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+

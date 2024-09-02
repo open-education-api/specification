@@ -1,6 +1,7 @@
 get:
   summary: GET /courses/{courseId}/offerings
   description: Get a list of all offerings for this course, ordered chronologically.
+  operationId: listOfferingsByCourseId
   tags:
     - courses
   parameters:

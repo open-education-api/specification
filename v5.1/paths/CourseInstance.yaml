@@ -1,6 +1,7 @@
 get:
   summary: GET /courses/{courseId}
   description: Get a single course.
+  operationId: listCourseById
   tags:
     - courses
   parameters:

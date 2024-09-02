@@ -1,6 +1,7 @@
 get:
   summary: GET /rooms
   description: Get a list of all rooms, ordered by name (ascending).
+  operationId: listRooms
   tags:
     - rooms
   parameters:

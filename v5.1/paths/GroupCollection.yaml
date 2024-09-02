@@ -1,6 +1,10 @@
 get:
   summary: GET /groups
   description: Get a list of all groups, ordered by name (ascending).
+  operationId: listGroups
+  security:
+    - oAuthFlows:
+      - nl-test-admin-flow-1-5
   tags:
     - groups
   parameters:

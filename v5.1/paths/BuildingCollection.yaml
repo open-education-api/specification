@@ -1,6 +1,7 @@
 get:
   summary: GET /buildings
   description: Get a list of all buildings, ordered by name (ascending).
+  operationId: listBuildings
   tags:
     - buildings
   parameters:

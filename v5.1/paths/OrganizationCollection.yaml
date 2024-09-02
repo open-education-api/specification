@@ -1,6 +1,7 @@
 get:
   summary: GET /organizations
   description: Get an ordered list of all organizations, ordered by name.
+  operationId: listOrganizations
   tags:
     - organizations
   parameters:

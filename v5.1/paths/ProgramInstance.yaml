@@ -1,6 +1,7 @@
 get:
   summary: GET /programs/{programId}
   description: Get a single program.
+  operationId: listProgramById
   tags:
     - programs
   parameters:

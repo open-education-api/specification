@@ -1,6 +1,11 @@
 get:
   summary: GET /associations/{associationId}
   description: Get a single association.
+  operationId: listAssociationById
+  security:
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+      - nl-test-admin-flow-2-3-4
   tags:
     - associations
   parameters:
@@ -56,9 +61,13 @@ patch:
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
     to update parts of resource objects.
+  operationId: partialUpdateAssociationById
   security:
     - openId:
       - associations.write
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+      - nl-test-admin-flow-2-3-4
   tags:
     - associations
 
@@ -71,20 +80,70 @@ patch:
         type: string
         format: uuid
 
-  requestBody:
+   requestBody:
     required: true
     content:
       application/merge-patch+json:
         schema:
-          properties:
-            remoteState:
-              $ref: '../enumerations/remoteAssociationState.yaml'
-            result:
-              oneOf:
-                - $ref: '../schemas/ComponentResult.yaml'
-                - $ref: '../schemas/CourseResult.yaml'
-                - $ref: '../schemas/ProgramResult.yaml'  
-
+          allOf:
+          - $ref: '../schemas/ComponentOfferingAssociationPatch.yaml'
+        examples:
+            Delete student from offering (flow 2.4):
+              value:
+                associationType: componentOfferingAssociation
+                state: canceled
+            Send attendance and result directly (flow 3.1):
+              value:
+                associationType: componentOfferingAssociation
+                result:
+                  state: completed
+                  pass: unknown
+                  comment: string
+                  score: "9"
+                  resultDate: 2022-09-28
+                  weight: 100
+                  consumers:
+                  - consumerKey: nl-test-admin
+                    attendance: present
+                    assessorId: 05035972-0619-4d0b-8a09-7bdb6eee5e6d
+                    assessorCode: JAJE
+                    irregularities: Jantje heeft gespiekt
+                    final: true
+                    documents:
+                    - documentId: 123454
+                      documentType: assessmentForm
+                      documentName: Assessment form for Jake Doe.pdf
+            Send attendance for student directly (flow 3.2.A):
+              value:
+                associationType: componentOfferingAssociation
+                result:
+                  state: in progress
+                  resultDate: 2022-09-27
+                  weight: 100
+                  consumers:
+                  - consumerKey: nl-test-admin
+                    attendance: present
+            Send result for student (flow 3.2.B):
+              value:
+                associationType: componentOfferingAssociation
+                result:
+                  state: completed
+                  pass: unknown
+                  comment: string
+                  score: "9"
+                  resultDate: 2022-11-18
+                  weight: 100
+                  consumers:
+                  - consumerKey: nl-test-admin
+                    attendance: present
+                    assessorId: 05035972-0619-4d0b-8a09-7bdb6eee5e6d
+                    assessorCode: JAJE
+                    irregularities: Jantje heeft gespiekt
+                    final: true
+                    documents:
+                    - documentId: 123454
+                      documentType: assessmentForm
+                      documentName: Assessment form for Jake Doe.pdf
   responses:
     '200':
       description: OK
@@ -100,3 +159,113 @@ patch:
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
+
+
+put:
+  summary: PUT /associations/{associationId}
+  description: |
+    PUT a single association to enroll a person on s specific association that can later be retreived. The offeringId is provided in the path. 
+  operationId: replaceAssociationById
+  security:
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+      - nl-test-admin-flow-2-3-4
+  tags:
+    - associations
+  parameters:
+    - name: associationId
+      in: path
+      description: Association ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          oneOf:
+           - $ref: '../schemas/ComponentOfferingAssociationExpanded.yaml'
+        examples:
+          Add student to created offering (zitting) (flow 2.2.B and 2.3):
+            value:
+              #associationId is padparameter en ook mogelijk toegevoegd in body
+              #volgorde conform ooapi-v5
+              #associationType op volgende regel ontbreekt in endpoint-definitie
+              associationId: "123e4567-e89b-12d3-a456-426614174000"
+              associationType: componentOfferingAssociation
+              role: student
+              state: associated
+              consumers:
+              - consumerKey: nl-test-admin
+                extraTimeInMin: 30
+                personalNeeds: [extraTime,spoken,spell-checker-on-screen]
+              person:
+                personId: "111-2222-33-4444-222"
+                primaryCode:
+                  codeType: studentNumber
+                  code: "1234567"
+                givenName: Maartje
+                preferredName: Maar
+                surnamePrefix: van
+                surname: Damme
+                displayName: "Maartje van Damme"
+                activeEnrollment: true
+                affiliations: [student]
+                mail: vandamme.mcw@student.roc.nl
+                languageOfChoice: [nl-NL]
+                otherCodes: [
+                  {
+                    codeType: "accountId",
+                    code: "s1234567@student.roc.nl"
+                    # surfconext identifier
+                  },
+                  {
+                    codeType: "eckid",
+                    code: "https://roc.nl/8078d3...28bc85"
+                    # eckid cross chain
+                  }
+                ]
+              #id van offering op volgende regel is redendant want ook als padparameter
+              offering: "123e4567-e89b-12d3-a456-134564174000"
+
+          Change student enrollment to offering (zitting) (flow 2.x):
+            value:
+              #associationId is padparameter en ook mogelijk toegevoegd in body
+              #volgorde conform ooapi-v5
+              #associationType op volgende regel ontbreekt in endpoint-definitie
+              associationId: "123e4567-e89b-12d3-a456-426614174000"
+              associationType: componentOfferingAssociation
+              role: student
+              state: associated
+              consumers:
+              - consumerKey: nl-test-admin
+                extraTimeInMin: 30
+                personalNeeds: [extraTime,spoken,spell-checker-on-screen]
+              person: "111-2222-33-4444-222"
+              #id van offering op volgende regel is redendant want ook als padparameter
+              offering: "123e4567-e89b-12d3-a456-134564174000"    
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

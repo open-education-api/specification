@@ -1,6 +1,7 @@
 get:
   summary: GET /courses/{courseId}/components
   description: Get an ordered list of all course components.
+  operationId: listComponentsByCourseId
   tags:
     - courses
   parameters:

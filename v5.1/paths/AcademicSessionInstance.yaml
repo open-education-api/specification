@@ -1,6 +1,7 @@
 get:
   summary: GET /academic-sessions/{academicSessionId}
   description: Get a single academic session.
+  operationId: listAcademicSessionById
   tags:
     - academic sessions
   parameters:

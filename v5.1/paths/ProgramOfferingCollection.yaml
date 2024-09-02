@@ -1,8 +1,9 @@
 get:
   summary: GET /programs/{programId}/offerings
   description: Get a list of all offerings for this program, ordered chronologically.
+  operationId: listOfferinngsByProgramId
   tags:
-    - programs
+    - offerings
   parameters:
     - name: programId
       in: path

@@ -1,8 +1,9 @@
 get:
   summary: GET /education-specifications/{educationSpecificationId}/courses
   description: Get an ordered list of all courses given through this EducationSpecification.
+  operationId: listCoursesByEducationSpecificationId
   tags:
-    - education specifications
+    - courses
   parameters:
     - name: educationSpecificationId
       in: path

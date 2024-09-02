@@ -1,8 +1,9 @@
 get:
   summary: GET /components/{componentId}/offerings
   description: Get a list of all offerings for this component, ordered chronologically.
+  operationId: listOfferingsByComponentId
   tags:
-    - components
+    - offerings
   parameters:
     - name: componentId
       in: path

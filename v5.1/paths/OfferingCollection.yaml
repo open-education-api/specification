@@ -1,0 +1,102 @@
+get:
+  summary: GET /offerings
+  description: Get a list of all offerings, ordered chronologically.
+  operationId: listOfferings
+  security:
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+  tags:
+    - offerings
+  parameters:
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/search.yaml'
+    - $ref: '../parameters/teachingLanguage.yaml'
+    - name: offeringType
+      in: query
+      description: Filter by type of offering (offeringType)
+      required: false
+      schema:
+        type: string
+        enum:
+          - component
+          - course
+          - program
+    - name: resultExpected
+      in: query
+      description: Filter by resultExpected
+      required: false
+      schema:
+        type: boolean
+    - name: since
+      in: query
+      description: Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
+      required: false
+      schema:
+        type: string
+        format: date
+    - name: until
+      in: query
+      description: Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).
+      required: false
+      schema:
+        type: string
+        format: date
+    - name: sort
+      in: query
+      explode: false
+      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - offeringId
+            - name
+            - startDateTime
+            - endDateTime
+            - -offeringId
+            - -name
+            - -startDateTime
+            - -endDateTime
+        default: [ startDateTime ]
+        example:
+          - offeringId
+          - -startDateTime
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/Pagination.yaml'
+              - type: object
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    items:
+                      anyOf:
+                        - $ref: '../schemas/ComponentOffering.yaml'
+                        - $ref: '../schemas/CourseOffering.yaml'
+                        - $ref: '../schemas/ProgramOffering.yaml'
+                  ext:
+                      $ref: '../schemas/Ext.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

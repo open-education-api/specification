@@ -1,6 +1,7 @@
 get:
   summary: GET /education-specifications/{educationSpecificationId}
   description: Get a single education specification.
+  operationId: listEducationSpecificationById
   tags:
     - education specifications
   parameters:

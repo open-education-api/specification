@@ -1,8 +1,9 @@
 get:
   summary: GET /organizations/{organizationId}/offerings
   description: Get a list of all offerings for a given organization
+  operationId: listOfferingsByOrganizationId
   tags:
-    - organizations
+    - offerings
   parameters:
     - name: organizationId
       in: path

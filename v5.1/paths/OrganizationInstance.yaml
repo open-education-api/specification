@@ -1,6 +1,7 @@
 get:
   summary: GET /organizations/{organizationId}
   description: Get a single organization.
+  operationId: listGroupsByOrganizationId
   tags:
     - organizations
   parameters:

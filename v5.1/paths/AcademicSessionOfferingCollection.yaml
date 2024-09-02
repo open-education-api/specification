@@ -1,6 +1,7 @@
 get:
   summary: GET /academic-sessions/{academicSessionId}/offerings
   description: Get a list of all offerings during this academic session
+  operationId: listOfferingsByAcademicSessionId
   tags:
     - academic sessions
   parameters:

@@ -1,7 +1,10 @@
 get:
   summary: GET /persons/{personId}
   description: Get a single person.
-  tags:
+  operationId: listPersonById
+  security:
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5  tags:
     - persons
   parameters:
     - name: personId
@@ -18,6 +21,38 @@ get:
         application/json:
           schema:
             $ref: '../schemas/Person.yaml'
+          examples:
+            Person values:
+              value:
+                personId: "123e4567-e89b-12d3-a456-426614174000"
+                primaryCode: 
+                  codeType: "identifier"
+                  code: "1234qwe12"
+                givenName: "Maartje"
+                surnamePrefix: "van"
+                surname: "Damme"
+                displayName: "Maartje van Damme"
+                initials: "MCW"
+                activeEnrollment: true
+                affiliations: 
+                - "student"
+                mail: "vandamme.mcw@universiteitvanharderwijk.nl"
+                languageOfChoice: 
+                - "nl-NL"
+                otherCodes: 
+                - codeType: "eckid"
+                  code: "00000"
+                consumers: 
+                - consumerKey: "nl-test-admin"
+                  preferredName: "Maar"
+                  assignedNeeds:     
+                    code: "extraTimeOnlyMath25%"
+                    description:
+                    - language: nl-NL
+                      value: "Extra tijd van 25% bij de totale tijd van een toets waarin rekenen voorkomt"                
+                    startDate: "2023-10-25"
+                    endDate: "2025-09-30"
+                  idCheckName: "Damme, Maartje van"    
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -32,3 +67,89 @@ get:
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
+
+
+
+put:
+  summary: PUT /persons/{personId}
+  description: |
+    PUT a single person from the leading/source system into a following system. 
+  operationId: replacePersonById
+  security:
+    - oAuthFlows:  
+      - nl-test-admin-flow-1-5
+  tags:
+    - persons
+  parameters:
+    - name: personId
+      in: path
+      description: Person ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+        application/json:
+          schema:
+            $ref: '../schemas/Person.yaml'
+            title: person
+          examples:
+            Create person in remote system:
+              value:
+                personId: "123e4567-e89b-12d3-a456-426614174000"
+                primaryCode: 
+                  codeType: "identifier"
+                  code: "1234qwe12"
+                givenName: "Maartje"
+                surnamePrefix: "van"
+                surname: "Damme"
+                displayName: "Maartje van Damme"
+                initials: "MCW"
+                activeEnrollment: true
+                affiliations: 
+                - "student"
+                mail: "vandamme.mcw@universiteitvanharderwijk.nl"
+                languageOfChoice: 
+                - "nl-NL"
+                otherCodes: 
+                - codeType: "eckid"
+                  code: "00000"
+                consumers: 
+                - consumerKey: "nl-test-admin"
+                  preferredName: "Maar"                
+                  assignedNeeds:     
+                    code: "extraTimeOnlyMath25%"
+                    description:
+                    - language: nl-NL
+                      value: "Extra tijd van 25% bij de totale tijd van een toets waarin rekenen voorkomt"        
+                    startDate: "2023-10-25"
+                    endDate: "2025-09-30"
+                  idCheckName: "Damme, Maartje van"  
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+
+

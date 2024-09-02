@@ -1,6 +1,10 @@
 get:
   summary: GET /components/{componentId}
   description: Get a single component.
+  operationId: listComponentById
+  security:
+    - oAuthFlows:
+      - nl-test-admin-flow-0
   tags:
     - components
   parameters:

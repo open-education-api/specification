@@ -1,6 +1,7 @@
 get:
   summary: GET /programs
   description: Get an ordered list of all programs, ordered by name.
+  operationId: listPrograms
   tags:
     - programs
   parameters:

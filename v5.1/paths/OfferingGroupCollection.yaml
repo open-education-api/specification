@@ -1,8 +1,9 @@
 get:
   summary: GET /offerings/{offeringId}/groups
   description: Get an ordered list of all groups related to an offering, ordered by name.
+  operationId: listGroupsByOfferingId
   tags:
-    - offerings
+    - groups
   parameters:
     - name: offeringId
       in: path

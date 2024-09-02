@@ -1,6 +1,10 @@
 get:
   summary: GET /groups/{groupId}
   description: Get a single group.
+  operationId: listGroupById
+  security:
+    - oAuthFlows:
+      - nl-test-admin-flow-1-5
   tags:
     - groups
   parameters:
@@ -43,3 +47,74 @@ get:
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
+
+put:
+  summary: PUT /groups/{groupId}
+  description: Replace a single group from source system to recipient.
+  operationId: replaceGroupById
+  security:
+    - oAuthFlows:
+      - nl-test-admin-flow-1-5
+  tags:
+    - groups
+  parameters:
+    - name: groupId
+      in: path
+      description: Group ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+        application/json:
+          schema:
+            $ref: '../schemas/Group.yaml'
+            title: group
+          examples:
+            Create a group in remote system:
+              value:
+                groupId: "123e4567-e89b-12d3-a456-426614174000"
+                primaryCode:
+                  codeType: "identifier"
+                  code: "1234qwe12"
+                groupType: "learning group"
+                name: 
+                  - language: "en-GB"
+                    value: "statistics students"
+                description:
+                  - language: "en-GB"
+                    value: "The group of students that follow statistics classes"
+                startDate: "2020-08-17"
+                endDate: "2020-12-18"
+                personCount: 183
+                otherCodes: 
+                  - codeType: "identifier"
+                    code: "1234qwe12"
+                organization: "452c1a86-a0af-475b-b03f-724878b0f387"
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+

@@ -1,6 +1,7 @@
 get:
   summary: GET /programs/{programId}/programs
   description: Get an ordered list of nested programs, ordered by name.
+  operationId: listProgramsByProgramId
   tags:
     - programs
   parameters:

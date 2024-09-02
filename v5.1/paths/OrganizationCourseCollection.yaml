@@ -1,8 +1,9 @@
 get:
   summary: GET /organizations/{organizationId}/courses
   description: Get an ordered list of all courses for a given organization, ordered by name.
+  operationId: listCoursesByOrganizationId
   tags:
-    - organizations
+    - courses
   parameters:
     - name: organizationId
       in: path
