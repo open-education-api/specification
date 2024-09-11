@@ -5,30 +5,32 @@ allOf:
         type: string
         description: The moment on which this offering starts, RFC3339 (full-date)
         format: date
-        example: 2019-08-21
+        example: 2024-12-15T08:50:00+01:00
       endDate:
         type: string
         description: The moment on which this offering ends, RFC3339 (full-date)
         format: date
-        example: 2019-10-23
+        example: 2025-12-15T08:50:00+01:00
       enrollStartDate:
         type: string
         description: The first day on which a student can enroll for this course.
         format: date
-        example: 2019-05-01
+        example: 2024-11-15T08:50:00+01:00
       enrollEndDate:
         type: string
         description: The last day on which a student can enroll for this course.
         format: date
-        example: 2019-08-01
+        example: 2024-12-15T08:50:00+01:00
       flexibleEntryPeriodStart:
         type: string
         description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
         format: date
+        example: 2024-12-15T08:50:00+01:00
       flexibleEntryPeriodEnd:
         type: string
         description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
         format: date
+        example: 2025-02-15T08:50:00+01:00
       addresses:
         type: array
         description: Addresses for this offering

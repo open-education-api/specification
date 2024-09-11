@@ -61,17 +61,17 @@ properties:
     type: string
     description: The moment from which this news item is valid, RFC3339 (date-time)
     format: date-time
-    example: 2020-09-28T08:30:00.000Z
+    example: 2024-12-15T08:50:00+01:00
   validUntil:
     type: string
     description: The moment until which this news item is valid, RFC3339 (date-time)
     format: date-time
-    example: 2020-09-30T20:00:00.000Z
+    example: 2025-12-15T08:50:00+01:00
   lastModified:
     type: string
     description: The moment on which this news item was updated, RFC3339 (date-time)
     format: date-time
-    example: 2020-09-28T00:00:00.000Z
+    example: 2024-12-15T08:50:00+01:00
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
     type: array

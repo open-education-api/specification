@@ -50,12 +50,12 @@ properties:
     type: string
     description: The day on which this academic session starts, RFC3339 (full-date)
     format: date
-    example: '2020-08-17'
+    example: 2020-12-15T08:50:00+01:00
   expectedEndDate:
     type: string
     description: The day on which this academic session ends, RFC3339 (full-date)
     format: date
-    example: '2025-07-31'
+    example: 2020-12-15T08:50:00+01:00
   finalEndDate: 
     type: string
     nullable: true

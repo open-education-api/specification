@@ -44,12 +44,12 @@ properties:
     type: string
     description: The day on which this group starts being active, RFC3339 (full-date)
     format: date
-    example: '2020-08-17'
+    example: 2024-12-15T08:50:00+01:00
   endDate:
     type: string
     description: The day on which this group ends being active, RFC3339 (full-date)
     format: date
-    example: '2020-12-18'
+    example: 2025-12-15T08:50:00+01:00
   personCount:
     type: number
     description: The number of persons that are member of this group

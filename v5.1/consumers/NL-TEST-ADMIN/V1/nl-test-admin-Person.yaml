@@ -31,12 +31,12 @@ properties:
           type: string
           description: The day on which this assigned need starts, RFC3339 (full-date)
           format: date
-          example: '2020-08-17'
+          example: 2020-12-15T08:50:00+01:00
         endDate:
           type: string
           description: The day on which this assigned need ends, RFC3339 (full-date)
           format: date
-          example: '2025-07-31'          
+          example: 2020-12-15T08:50:00+01:00         
     minItems: 0
     description: |
       Assigned resources or time based on the needs of a person. 

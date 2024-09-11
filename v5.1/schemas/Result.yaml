@@ -20,6 +20,6 @@ properties:
     type: string
     description: The date this result has been published, RFC3339 (full-date)
     format: date
-    example: 2020-09-28
+    example: 2025-02-15T08:50:00+01:00
   ext:
     $ref: './Ext.yaml'

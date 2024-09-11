@@ -8,11 +8,11 @@ properties:
     type: string
     description: The day on which this timelineOverride starts (inclusive), RFC3339 (date)
     format: date
-    example: '2021-09-01'
+    example: 2023-12-15T08:50:00+01:00
   validTo:
     type: string
     description: The day on which this timelineOverride ends (exclusive), RFC3339 (date)
     format: date
-    example: '2022-08-31'
+    example: 2025-12-15T08:50:00+01:00
   program:
     $ref: './ProgramProperties.yaml'

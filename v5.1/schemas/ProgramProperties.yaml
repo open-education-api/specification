@@ -57,6 +57,7 @@ properties:
     type: string
     description: The date when participants can follow this program for the first time.
     format: date
+    example: 2023-12-15T08:50:00+01:00
   levelOfQualification:
     $ref: '../enumerations/levelOfQualification.yaml'
   level:

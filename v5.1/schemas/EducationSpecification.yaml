@@ -6,7 +6,9 @@ allOf:
         description: The first day this EducationSpecification is valid (inclusive).
         type: string
         format: date
+        example: 2024-12-15T08:50:00+01:00
       validTo:
         description: The day this EducationSpecification ceases to be valid (e.g. exclusive).
         type: string
         format: date
+        example: 2025-12-15T08:50:00+01:00
