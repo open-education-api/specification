@@ -6,39 +6,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [5.1.0 MBO v1.0] - 2024-09-12
 ### Added
-- added groups PUT endpoint 
-- added membership GET enpdoint to groups
-- added membership PUT endpoint to groups based on issue [#121](https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/121)
+- added PUT /groups/{groupId} endpoint 
+- added GET /groups/{groupDd}/members enpdoint to groups
+- added PUT /groups/{groupId}/members/{personId} endpoint to groups based on issue [#121](https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/121)
 - added proper security scopes based on issue [#117] (https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/117)
-- added persons PUT endpoint
+- added PUT /persons/{personId} endpoint
 - added <breaking> elements to assocationRole eunmerations surveillant [[#106](https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/106)]
-- added specification documents to doc\documents
-- added consumer to Persons endpoint
-- added <existing OOAPI> organizations GET endpoint 
 - added assignedNeeds to Persons consumer (used to be personalNeeds as extra attribute in Person)
 - added consumer elements cohort and location to offerings based on issue [#71](https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/71)
-- added <breaking> elements to assocationRole eunmerations surveillant [[#106](https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/106)]
+- added <potentially breaking> elements to assocationRole eunmerations surveillant [[#106](https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/106)]
 - added extra elements to NL-TEST-ADMIN-Association.yaml [#107](https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/107) 
-- added offerings endpoint (to allow querying for offerings based on OfferingType (component, course and program))
+- added GET /offerings endpoint (to allow querying for offerings based on OfferingType (component, course and program))
 - added associationProperties in .yaml to allow for better inheritance (no effect on endpoints)
 - added mechanism for requiredfields within endpoints (e.g ComponentOfferingAssociation.yaml)
-- added extra values to result consumer
-- added extraneous to modeOfdelevery
-- Association Url
-- extra enumeration in codeType: eckid
+- added <potentially breaking> extraneous to enum in modeOfdelevery
+- added /associations/{associationId}/URL endpoint
+- extra enumeration <potentially breaking> in codeType: eckid
 - consumer elements for MBO-toetsafname
     - Component
     - Offering
     - Association
     - Result
-- PUT endpoint for associations/{associationId}
-- POST endpoint for persons
-- PUT offerings/{offeringId}/associations/{associationId}
+- added PUT /associations/{associationId} endpoint
+- added POST /persons endpoint 
+- added PUT offerings/{offeringId}/associations/{associationId}
 - security for server to server communication based on oauth2 clientcredentials flow
     - added test-content-flow for flow 0
     - added test-admin-flow for flow 2,3,4
 - documentType.yaml as part of the types of documents allowed
-- consumer attribute in result
+- added consumer attribute in result
+- added consumer to Persons endpoint
 - operationId to all paths based on schema:
     - put -> replaceResource
     - get -> listResources
@@ -49,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     Reasoning for this schema is based on:
     https://github.com/watson-developer-cloud/api-guidelines/blob/master/swagger-coding-style.md
 - value courseCode to codeType to allow courseCode (UUID's) as otherCode in groups
-- update resultValue enum:
+- update resultValue <potentially breaking> enum:
   - 'pass-or-fail'
   - 'insufficient-satisfactory-good'
   - 'US letter'
@@ -58,15 +55,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - '0-100'
   - '0-10'
   - '0.0-10.0'
-- documents endpoint
+- added GET /documents{documentId} endpoint to allow for more finegrained access to documents and temporary access
 
 
 ### Changed
 - updated the service endpoint to inform of the OOAPI version and consumer, including its version, that are supported [#123](https://github.com/NetwerkExamineringDigitalisering/NED-OOAPI/issues/123)
-- updates on different flows (no impact on spec)
-- improvements on documentation
 - renamed all consumer .yaml files to lower case
-- made depricated groups/{groupId}/persons for this case
 - changed courseofferings.yaml and programofferings.yaml to new format by splitting properties, ID's and required fields 
 - courseOffering -> courseOffering & courseOfferingProperties same for programOffering 
 - consistency check in flow for selecting components since=..&until=.. (based on OOAPI v5 docs)
