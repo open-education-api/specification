@@ -1,0 +1,6 @@
+allOf:
+  - $ref: './AssociationProperties.yaml'
+  - type: object
+    properties:
+      result:
+        $ref: './ComponentResult.yaml'

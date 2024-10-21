@@ -1,0 +1,14 @@
+type: string
+description: |
+  Indicates whether the education is full-time, part-time, dual or self-paced.
+    - full-time: fulltime
+    - part-time: parttime
+    - dual training: duaal
+    - self-paced: eigen tempo
+    - extraneous : extraneus student: examendeelnemer (student mag alleen aan de toetsen deelnemen / beperkt colegegeld)
+enum:
+  - full-time
+  - part-time
+  - dual training
+  - self-paced
+  - extraneous

@@ -1,0 +1,8 @@
+type: array
+description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
+items:
+  anyOf:
+    - $ref: '../schemas/Consumer.yaml'
+    - $ref: '../consumers/NL-TEST-ADMIN/V1/nl-test-admin-Association.yaml'
+example: 
+  $ref: '../consumers/NL-TEST-ADMIN/V1/examples/nl-test-admin-Association.yaml'

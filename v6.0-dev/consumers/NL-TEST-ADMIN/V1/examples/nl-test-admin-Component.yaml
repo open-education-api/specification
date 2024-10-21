@@ -1,0 +1,12 @@
+- consumerKey: nl-test-admin
+  extraTime: 30
+  availablePersonalNeeds: 
+    - extraTime
+    - spoken
+    - spell-checker-on-screen
+  exam: true
+  resultValueType: 1.0-10.0
+  passFrom: 5.5
+  retries: 2
+  status: active
+  licensed: true

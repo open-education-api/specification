@@ -1,0 +1,53 @@
+type: object
+description: nl-test-admin add-on attributes to the Component 
+required:
+ - consumerKey
+properties:
+  consumerKey:
+    type: string
+  additionalTestingTime:
+    description: |
+      maximum time in minutes that can be added to a test as possible extra time as part of the available personal needs
+    type: integer
+  availablePersonalNeeds:
+      type: array
+      description: |
+        enum: see https://www.imsglobal.org/sites/default/files/spec/afa/3p0/information_model/imsafa3p0pnp_v1p0_InfoModel.html
+        examples : "extraTime", "spoken", "spell-checker-on-screen"
+      items:
+        type: string
+        enum:
+           - extraTime
+           - spoken 
+           - spell-checker-on-screen
+  safety:
+    type: array 
+    description: |
+      safety possibilities that are provided by the supplier of the component
+    items:
+      type: string
+      enum:
+        - securedComputer
+        - fixedLocation
+        - surveillance
+  exam:
+    type: boolean
+  resultValueType:
+    $ref: '../../../enumerations/resultValueType.yaml'
+  passFrom: 
+    type: string
+    enum:
+      - "5.5"
+  retries:
+    description: |
+      number of retries allowed for this component
+    type: integer
+  status:
+    type: string
+    enum: 
+      - active
+      - inactive
+  licensed:
+    type: boolean
+
+
