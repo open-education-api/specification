@@ -1,7 +1,6 @@
 type: string
 description: |
   The component type
-  - test: tentamen
   - lecture: college
   - practical: practicum
   - tutorial: werkcollege
@@ -13,7 +12,6 @@ description: |
   - external: extern
   - skills training: vaardighedentraining
 enum:
-  - test
   - lecture
   - practical
   - tutorial
@@ -24,4 +22,4 @@ enum:
   - independent study
   - external
   - skills training
-example: test
+example: lecture

@@ -1,0 +1,7 @@
+type: string
+description: |
+  The component type
+  - test: tentamen
+enum:
+  - test
+example: test
