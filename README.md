@@ -37,7 +37,7 @@ The Open Education API is an open source, community-driven project. If you'd lik
 
 ## Mailinglist
 A public mailinglist is available. Only subscribed users can send email to this mailing list. Users can subscribe at:
-https://list.surfnet.nl/mailman/listinfo/openonderwijsapi
+[https://list.surfnet.nl/mailman/listinfo/openonderwijsapi](https://list.surf.nl/postorius/lists/openonderwijsapi.list.surf.nl/)
 
 ## Community
 
