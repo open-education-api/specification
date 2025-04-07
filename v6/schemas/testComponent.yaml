@@ -22,7 +22,7 @@ properties:
       code: INFOMQNM-WRKCLG-1
     readOnly: true
   componentType:
-    $ref: '../enumerations/componentType.yaml'
+    $ref: '../enumerations/testComponentType.yaml'
   name:
     type: array
     description: The name of this component
