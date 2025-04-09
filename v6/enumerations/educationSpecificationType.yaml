@@ -7,7 +7,7 @@ description: |
     - course: HOONDERWIJSEENHEID
 enum:
   - program
-  - privateProgram
+  - private_program
   - cluster
   - course
 example: program

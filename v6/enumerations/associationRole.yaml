@@ -9,7 +9,7 @@ description: |
 enum:
   - student
   - lecturer
-  - teaching assistant
+  - teaching_assistant
   - coordinator
   - guest
 example: student

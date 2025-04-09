@@ -9,8 +9,8 @@ description: |
 items:
   type: string
   enum:
-    - distance-learning
-    - on campus
+    - distance_learning
+    - on_campus
     - online
     - hybrid
     - situated

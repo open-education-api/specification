@@ -32,28 +32,28 @@ description: |
     - `identifier`: Generic Identifier
 x-ooapi-extensible-enum:
   - brin
-  - crohoCreboCode
-  - programCode
-  - componentCode
-  - offeringCode
-  - organizationId
-  - buildingId
-  - bagId
-  - roomCode
-  - systemId
-  - productId
-  - nationalIdentityNumber
-  - studentNumber
-  - studielinkNumber
+  - croho_crebo_code
+  - program_code
+  - component_code
+  - offering_code
+  - organization_id
+  - building_id
+  - bag_id
+  - room_code
+  - system_id
+  - product_id
+  - national_identity_number
+  - student_number
+  - studielink_number
   - esi
-  - userName
-  - accountId
-  - emailAdress
-  - groupCode
+  - user_name
+  - account_id
+  - email_address
+  - group_code
   - isbn
   - issn
-  - orcId
+  - orc_id
   - uuid
-  - schacHome
+  - schac_home
   - identifier
 example: identifier

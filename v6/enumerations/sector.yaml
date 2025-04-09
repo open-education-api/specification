@@ -5,7 +5,7 @@ description: |
   - higher professional education: hoger beroepsonderwijs
   - university education: universitair onderwijs
 enum:
-  - secondary vocational education
-  - higher professional education
-  - university education
+  - secondary_vocational_education
+  - higher_professional_education
+  - university_education
 example: university education

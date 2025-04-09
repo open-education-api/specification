@@ -12,14 +12,14 @@ description: |
   - examination room: onderzoekskamer
   - conference room: vergaderkamer
 enum:
-  - general purpose
-  - lecture room
-  - computer room
+  - general_purpose
+  - lecture_room
+  - computer_room
   - laboratory
   - office
   - workspace
-  - exam location
-  - study room
-  - examination room
-  - conference room
-example: exam location
+  - exam_location
+  - study_room
+  - examination_room
+  - conference_room
+example: exam_location

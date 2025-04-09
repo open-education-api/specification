@@ -5,7 +5,7 @@ description: |
   - class: A collection of participants carrying out jointly scheduled educational activities
   - team: A collection of members of a team, either students, employees or mixed.
 enum:
-  - learning group
+  - learning_group
   - class
   - team
 example: learning group

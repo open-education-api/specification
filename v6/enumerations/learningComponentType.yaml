@@ -19,7 +19,7 @@ enum:
   - project
   - workshop
   - excursion
-  - independent study
+  - independent_study
   - external
-  - skills training
+  - skills_training
 example: lecture

@@ -8,5 +8,5 @@ description: |
 enum:
   - calamity
   - general
-  - schedule-change
+  - schedule_change
   - announcement

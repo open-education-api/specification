@@ -6,7 +6,7 @@ description: |
     - dual training: duaal
     - self-paced: eigen tempo
 enum:
-  - full-time
-  - part-time
-  - dual training
-  - self-paced
+  - full_time
+  - part_time
+  - dual_training
+  - self_paced

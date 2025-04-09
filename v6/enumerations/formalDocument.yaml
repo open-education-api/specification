@@ -9,7 +9,7 @@ description: |
 enum:
   - diploma
   - certificate
-  - no official document
+  - no_official_document
   - testimonial
-  - school advice
+  - school_advice
 example: diploma
