@@ -10,3 +10,4 @@ enum:
   - part_time
   - dual_training
   - self_paced
+example: full_time

@@ -21,8 +21,9 @@ properties:
     enum:
       - program
       - course
-      - component
-    example: component
+      - learning_component
+      - test_component
+    example: learning_component
   academicSession:
     description: |
       The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)
