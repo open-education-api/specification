@@ -31,9 +31,7 @@ properties:
     description: name of the city / locality
     example: Utrecht
   countryCode:
-    type: string
-    description: the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-    example: NL
+    $ref: ./Country.yaml
   geolocation:
     type: object
     description: Geolocation of the entrance of this address (WGS84 coordinate reference system)
