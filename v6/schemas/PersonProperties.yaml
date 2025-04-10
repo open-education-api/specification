@@ -54,13 +54,9 @@ properties:
     description: The city of birth of this person
     example: Utrecht
   countryOfBirth:
-    type: string
-    description: The country of birth of this person the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-    example: NL
+    $ref: ./Country.yaml
   nationality:
-    type: string
-    description: The nationality of this person the nationality according to https://gist.github.com/zspine/2365808
-    example: Dutch
+    $ref: ./Nationality.yaml
   dateOfNationality:
     type: string
     description: The date of nationality of this person, RFC3339 (full-date)
