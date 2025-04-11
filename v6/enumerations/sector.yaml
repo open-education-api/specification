@@ -1,9 +1,9 @@
 type: string
 description: |
   The sector for this program
-  - secondary vocational education: middelbaar beroepsonderwijs
-  - higher professional education: hoger beroepsonderwijs
-  - university education: universitair onderwijs
+  - secondary_vocational_education: middelbaar beroepsonderwijs
+  - higher_professional_education: hoger beroepsonderwijs
+  - university_education: universitair onderwijs
 enum:
   - secondary_vocational_education
   - higher_professional_education

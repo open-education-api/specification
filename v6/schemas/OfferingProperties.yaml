@@ -16,14 +16,7 @@ properties:
       code: INFOMQNM-20FS
     readOnly: true
   offeringType:
-    type: string
-    description: The type of this offering
-    enum:
-      - program
-      - course
-      - learning_component
-      - test_component
-    example: learning_component
+    $ref: ../enumerations/offeringType.yaml
   academicSession:
     description: |
       The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)
@@ -80,7 +73,10 @@ properties:
     pattern: "^[a-z]{3}$"
     example: nld
   modeOfDelivery:
-    $ref: '../enumerations/modesOfDelivery.yaml'
+    type: array
+    description: a list of modes of study that are provided for the offering
+    items:
+      $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:
     type: number
     description: The maximum number of students allowed to enroll for this offering

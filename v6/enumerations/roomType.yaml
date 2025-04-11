@@ -1,16 +1,16 @@
 type: string
 description: |
   The type of this room
-  - general purpose: algemeen
-  - lecture room: collegezaal
-  - computer room: computerruimte
+  - general_purpose: algemeen
+  - lecture_room: collegezaal
+  - computer-room: computerruimte
   - laboratory: laboratorium
   - office: kantoor
   - workspace: werkruimte
-  - exam location: tentamenruimte
-  - study room: studieruimte
-  - examination room: onderzoekskamer
-  - conference room: vergaderkamer
+  - exam_location: tentamenruimte
+  - study_room: studieruimte
+  - examination_room: onderzoekskamer
+  - conference_room: vergaderkamer
 enum:
   - general_purpose
   - lecture_room

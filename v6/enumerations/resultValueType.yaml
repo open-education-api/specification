@@ -5,5 +5,5 @@ enum:
   - us_letter
   - uk_letter
   - grade_0_100
-  - grade_1-10
+  - grade_1_10
 example: grade_1_10

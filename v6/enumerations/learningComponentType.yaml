@@ -10,7 +10,7 @@ description: |
   - excursion: excursie
   - independent study: zelfstudie
   - external: extern
-  - skills training: vaardighedentraining
+  - skills_training: vaardighedentraining
 enum:
   - lecture
   - practical
