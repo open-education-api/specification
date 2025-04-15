@@ -20,14 +20,14 @@ description: |
     - `student_number`: Identifier for the student
     - `studielink_number`: Identifier for the person as determined by the dutch centralized program enrollment system Studielink
     - `esi`: European Student Identifier
-    - `user_name`: The name of a user
+    - `username`: The name of a user
     - `account_id`: Identifier assigned to a specific account
     - `email_adress`: An email address
     - `group_code`: The identifier for a group (of persons)
     - `group_type_code`: The identifier for a type of group
     - `isbn`: International Standard Book Number that serve as product identifiers for Books
     - `issn`: International Standard Book Number that serve as product identifiers for periodicals
-    - `orc_id`: Open Researcher and Contributor ID
+    - `orcid`: Open Researcher and Contributor ID
     - `uuid`: A universally unique identifier
     - `schac_home`: Home organization using the domain name of the organization
     - `identifier`: Generic Identifier
@@ -47,13 +47,13 @@ x-ooapi-extensible-enum:
   - student_number
   - studielink_number
   - esi
-  - user_name
+  - username
   - account_id
   - email_address
   - group_code
   - isbn
   - issn
-  - orc_id
+  - orcid
   - uuid
   - schac_home
   - identifier
