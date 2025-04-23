@@ -73,10 +73,7 @@ properties:
     pattern: "^[a-z]{3}$"
     example: nld
   modeOfDelivery:
-    type: array
-    description: a list of modes of study that are provided for the offering
-    items:
-      $ref: '../enumerations/modesOfDelivery.yaml'
+    $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:
     type: number
     description: The maximum number of students allowed to enroll for this offering
