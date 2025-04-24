@@ -1,8 +1,8 @@
 type: string
 description: The gender of this person
 enum:
-  - M
-  - F
-  - U
-  - X
-example: F
+  - m
+  - f
+  - u
+  - x
+example: f

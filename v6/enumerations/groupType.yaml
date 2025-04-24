@@ -1,11 +1,11 @@
 type: string
 description: |
   The type of this group
-  - learning group: A collection of participants carrying out common learning activities
-  - class: A collection of participants carrying out jointly scheduled educational activities
+  - class: A collection of students jointly scheduled for/assigned to/carrying out educational activities
   - team: A collection of members of a team, either students, employees or mixed.
+  - group: A collection of students jointly scheduled for/assigned to/carrying out educational activities in a context not provide by a class
 enum:
-  - learning group
   - class
   - team
-example: learning group
+  - group
+example: class

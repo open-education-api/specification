@@ -15,17 +15,17 @@ description: |
   - nt2-1: NT2 niveau 1
   - nt2-2: NT2 niveau 2
 enum:
-  - secondary vocational education  
-  - secondary vocational education 1  
-  - secondary vocational education 2
-  - secondary vocational education 3
-  - secondary vocational education 4
-  - associate degree
+  - secondary_vocational_education  
+  - secondary_vocational_education_1  
+  - secondary_vocational_education_2
+  - secondary_vocational_education_3
+  - secondary_vocational_education_4
+  - associate_degree
   - bachelor
   - master
   - doctoral
   - undefined
   - undivided
-  - nt2-1
-  - nt2-2  
+  - nt2_1
+  - nt2_2  
 example: master

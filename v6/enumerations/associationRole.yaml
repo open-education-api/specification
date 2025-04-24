@@ -3,13 +3,13 @@ description: |
   The role of this person associated with the offering
     - student: student
     - lecturer: docent
-    - teaching assistant: studentassistent
+    - teaching_assistant: studentassistent
     - coordinator: coördinator
     - guest: gast
 enum:
   - student
   - lecturer
-  - teaching assistant
+  - teaching_assistant
   - coordinator
   - guest
 example: student

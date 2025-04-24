@@ -1,9 +1,9 @@
 type: string
 description: The result value type for this offering
 enum:
-  - 'pass-or-fail'
-  - 'US letter'
-  - 'UK letter'
-  - '0-100'
-  - '1-10'
-example: '1-10'
+  - pass_or_fail
+  - us_letter
+  - uk_letter
+  - grade_0_100
+  - grade_1_10
+example: grade_1_10

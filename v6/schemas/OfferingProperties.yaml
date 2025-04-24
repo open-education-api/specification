@@ -16,13 +16,7 @@ properties:
       code: INFOMQNM-20FS
     readOnly: true
   offeringType:
-    type: string
-    description: The type of this offering
-    enum:
-      - program
-      - course
-      - component
-    example: component
+    $ref: ../enumerations/offeringType.yaml
   academicSession:
     description: |
       The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)

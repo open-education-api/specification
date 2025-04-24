@@ -1,7 +1,7 @@
 type: string
 description: The state of this result
 enum:
-  - in progress
+  - in_progress
   - postponed
   - completed
   - queued
