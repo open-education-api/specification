@@ -93,12 +93,6 @@ tags:
     description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
   - name: components
     description: The components API provides information about components being part of parent courses.
-  - name: education specifications
-    description: |
-      The education specification API provides information on the specification of an education object.
-      This specification allows for other education objects to be derived from it.
-      It is used to aggregate education objects from a supplying institution.
-      It clusters programs to a main educationSpecification that is used in registries such as RIO.
   - name: groups
     description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees.
   - name: news
@@ -118,10 +112,6 @@ tags:
     x-displayName: Service
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Service" />
-  - name: education_specification_model
-    x-displayName: EducationSpecification
-    description: |
-      <SchemaDefinition schemaRef="#/components/schemas/EducationSpecification" />
   - name: program_model
     x-displayName: Program
     description: |
@@ -255,8 +245,6 @@ components:
       $ref: schemas/Course.yaml
     CourseOffering:
       $ref: schemas/CourseOffering.yaml
-    EducationSpecification:
-      $ref: schemas/EducationSpecification.yaml
     Group:
       $ref: schemas/Group.yaml
     NewsFeed:
