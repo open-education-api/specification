@@ -20,7 +20,7 @@ jobs:
           node-version: '22'
 
       - name: Install Redoc CLI
-        run: npm install -g redoc-cli
+        run: npm install -g @redocly/cli@1.34.2
 
       - name: Lint OpenAPI Specification
         run: npx @redocly/cli lint v6/spec.yaml --skip-rule security-defined
