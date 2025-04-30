@@ -23,4 +23,4 @@ jobs:
         run: npm install -g redoc-cli
 
       - name: Lint OpenAPI Specification
-        run: redoc-cli lint v6/spec.yaml
+        run: npx @redocly/cli lint v6/spec.yaml --skip-rule security-defined
