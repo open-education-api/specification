@@ -1,0 +1,12 @@
+- consumerKey: nl-test-admin
+  attendance: present
+  executedOfferingName: variant12_Nederlands2F
+  assessorId: 05035972-0619-4d0b-8a09-7bdb6eee5e6d
+  assessorCode: JAJE
+  irregularities: student cheated and 15 min late
+  final: true
+  documents:
+  - documentId: 123454
+    documentType: assessmentForm
+    documentName: Assessment form for Jake Doe.pd
+

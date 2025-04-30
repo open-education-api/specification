@@ -1,0 +1,6 @@
+type: string
+description: The version number of the specification
+enum:
+  - v4
+  - v5
+example: v5

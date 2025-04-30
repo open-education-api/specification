@@ -1,0 +1,16 @@
+type: object
+description: Object for communicating data to a specific consumer (destination). This object has no relationship with the `consumer` query parameter.
+required:
+  - consumerKey
+  - version
+properties:
+  consumerKey:
+    description: The key of the consumer (destination) for which this information is intended. See the [consumer registry](https://open-education-api.github.io/specification/#/consumers) for more information.
+    type: string
+    example:  "nl-test-admin"
+  version:
+    description: the version number of this consumer
+    type: string
+    example: "0.9.3"
+
+

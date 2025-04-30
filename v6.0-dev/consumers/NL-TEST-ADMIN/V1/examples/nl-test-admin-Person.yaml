@@ -1,0 +1,9 @@
+- consumerKey: nl-test-admin
+  assignedNeeds:     
+    code: "extraTimeOnlyMath25%"
+    description:
+    - language: nl-NL
+      value: "Extra tijd in een percentage van de totatel tijd van een toets waarin rekenen voorkomt"                
+    startDate: 2023-12-15T08:50:00+01:00
+    endDate: 2025-12-15T08:50:00+01:00
+  idCheckName: "Damme, Maartje van"    

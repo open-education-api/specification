@@ -1,0 +1,94 @@
+type: object
+description: nl-test-admin add-on attributes to the result 
+required:
+  - attendance
+  - consumerKey
+properties:
+  consumerKey:
+    type: string
+  attendance:
+    type: string
+    description: |
+      attendance
+      indication of presence during the test (mandatory). 
+      Possible values are:
+      notKnown (toetsmoment alleen gepland, moment nog niet gestart, nog geen aanwezigheidstoets mogelijk)
+      notPresent (niet aanwezig),
+      notStarted (aanwezig maar niet gestart),
+      notFinished (aanwezig en gestart maar niet afgerond/ingeleverd)
+      and present (aanwezig en afgerond/ingeleverd)"
+    enum:
+      - notKnown
+      - notPresent
+      - notStarted
+      - notFinished
+      - present
+  executedOfferingName: 
+    type : string
+    description: |
+      Name of the actual offering variant the result belongs to. 
+      The variant of the test can be different based on the algoritm of the Test System.
+      This information is also needed for future attempts, so not to repeat tests.  
+  assessorId:
+    type: string
+    description: |
+      assessorId
+      the identity of the assessor. 
+  assessorCode:
+    type: string
+    description: |
+      assessorCode
+      the identity code of the assessor. 
+  irregularities:
+    type: string
+    description: |
+      irregularities: textual information about the student test, such as irregularities
+    example: student cheated and 15 min late
+  final:
+    type: boolean
+    description: |
+      final: indicates that the result has been finalised by the exam committee. 
+      Can be done in Toetsplanning (or even DR), so most Toetsafname applications will send false. (optional, default false) 
+  rawScore:
+    type: integer
+    description: |
+      The number of points scored by a person on which the result could be calculated. 
+      The raw score provides additional insight in the achievement of the person. 
+      The raw score also needs the value of maxRawScore to provide necassary context.
+  maxRawScore:
+    type: integer
+    description: |
+      The maximum number of points a person could achieve for this result.
+      The max raw score also needs the value of rawScore to provide the actual score to make calculations possible.      
+  testDate:
+    type: string
+    description: The moment on which the test/assessment took place, RFC3339 (date-time)
+    format: date-time
+    example: 2020-12-15T08:50:00+01:00 
+  documents:
+    type: array
+    items:
+      type: object
+      description: |
+        documents that are relevant for this result including the ID, Type and Name to facilitate file handeling in downloading.
+      properties:
+        documentId:
+          description: the UUID of the document in the system of the suppier.
+          type: string
+        documentType:
+          description: |
+            identifies the kind of document; supported values: "assessmentForm" (beoordelingformulier), "assessmentFormWithAnswers" (answers with assessment notes), "assessmentModel" (beoordelingsmodel/-voorschrift), "other" (any document not suitable for the other values).
+          enum:
+            - assessmentForm
+            - assessmentFormWithAnswers
+            - assessmentModel
+            - other
+        documentName:
+          description: the proposed file name of the document in the system of the suppier.
+          type: string
+      example:
+        documentId: dfc9d973-42cf-46f3-bd18-q8z23456ert9
+        documentType: assessmentForm
+        documentName: assessmentFrom on test information analysis qw12.pdf
+
+

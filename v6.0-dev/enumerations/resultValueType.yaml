@@ -1,0 +1,25 @@
+type: string
+description: |
+  The result value type for this offering
+  - pass-or-fail = Resultvalue is from valuelist {passed, failed}
+  - insufficient-satisfactory-good = Resultvalue is from valuelist {insufficient, satisfactory, good}
+  - US letter = Resultvalue is a letter from A t/m D en F voor fail as in US
+  - UK letter = Resultvalue is a letter from A t/m G en U voor ungraded/unclassified as in UK
+  - DE grade = Resultvalue is a letter as used in Germany
+  - 0-100 = Resultvalue is a number from range (0,100)
+  - 0-10 = Resultvalue is a number from range (0,10)
+  - 0.0-10.0 = Resultvalue is a decimal number from range (0.0,10.0)
+  - referenceLevelRKTR = Resultvalue is a reference level from the Dutch "Referentiekader Taal en Rekenen" from value set {1F, 1S, 2F, 2S, 3F, 3S, 4F, 4S} and additional values like "Op weg naar 1F"
+  - referenceLevelERK = Resultvalue is a reference level from the "Europees Referencekader voor de talen" from value set {A1, A2, B1, B2, C1, C2}
+enum:
+  - 'pass-or-fail'
+  - 'insufficient-satisfactory-good'
+  - 'US letter'
+  - 'UK letter'
+  - 'DE grade'
+  - '0-100'
+  - '0-10'
+  - '0.0-10.0'
+  - 'referenceLevelRKTR' 
+  - 'referenceLevelERK'
+example: '0-10'
