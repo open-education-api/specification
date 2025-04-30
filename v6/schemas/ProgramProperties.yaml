@@ -68,8 +68,6 @@ properties:
     $ref: '../enumerations/levelOfQualification.yaml'
   level:
     $ref: '../enumerations/level.yaml'
-  sector:
-    $ref: '../enumerations/sector.yaml'
   fieldsOfStudy:
     type: string
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
@@ -124,6 +122,8 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
+  formalDocument:
+    $ref: '../enumerations/formalDocument.yaml'
   link:
     type: string
     description: URL of the program's website

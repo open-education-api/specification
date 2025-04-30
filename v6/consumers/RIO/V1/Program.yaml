@@ -3,6 +3,16 @@ description: RIO add-on attributes to a collection of courses that lead to a cer
 required:
   - educationOffererCode
 properties:
+  type:
+    type: string
+    description: |
+      The type determines what kind of RIO entity this Program will be mapped to.
+    enum:
+      - program
+      - variant
+      - cluster
+      - course
+      - private
   educationOffererCode:
     type: string
     description: |
@@ -93,3 +103,43 @@ properties:
     enum:
       - accelerated_route
       - no_accelerated_route
+  sector:
+    type: string
+    description: |
+      The sector for this program
+      - secondary_vocational_education: middelbaar beroepsonderwijs
+      - higher_professional_education: hoger beroepsonderwijs
+      - university_education: universitair onderwijs
+    enum:
+      - secondary_vocational_education
+      - higher_professional_education
+      - university_education
+    example: university_education
+  privateCategory:
+    type: array
+    description: |
+      A classification for programs in non-formal education. Used when describing EducationSpecification's that will map to a `ParticuliereOpleiding` in RIO
+    minItems: 0
+    maxItems: 3
+    items:
+      type: string
+      enum:
+        - business_and_project_support
+        - economy
+        - behavior_and_society
+        - healthcare_and_sport
+        - hobby_and_leisure_time
+        - agriculture_food_and_natural_environment
+        - management_and_project_management
+        - nature
+        - education
+        - law
+        - cross_sectoral
+        - language_and_culture
+        - technology_and_ict
+        - tourism_hospitality_and_recreation
+        - transport_and_logistics
+        - security_and_defense
+    example: 
+      - business_and_project_support
+      - economy
