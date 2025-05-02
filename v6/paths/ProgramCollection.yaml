@@ -28,12 +28,6 @@ get:
       required: false
       schema:
         $ref: '../enumerations/levelOfQualification.yaml'
-    - name: sector
-      in: query
-      description: Filter by sector
-      required: false
-      schema:
-        $ref: '../enumerations/sector.yaml'
     - name: fieldsOfStudy
       in: query
       description: Filter by fieldsOfStudy

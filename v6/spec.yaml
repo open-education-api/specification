@@ -1,6 +1,6 @@
 openapi: "3.0.3"
 info:
-  version: "5.0.0"
+  version: "6.0"
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API.
@@ -93,12 +93,6 @@ tags:
     description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
   - name: components
     description: The components API provides information about components being part of parent courses.
-  - name: education specifications
-    description: |
-      The education specification API provides information on the specification of an education object.
-      This specification allows for other education objects to be derived from it.
-      It is used to aggregate education objects from a supplying institution.
-      It clusters programs to a main educationSpecification that is used in registries such as RIO.
   - name: groups
     description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees.
   - name: news
@@ -118,10 +112,6 @@ tags:
     x-displayName: Service
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Service" />
-  - name: education_specification_model
-    x-displayName: EducationSpecification
-    description: |
-      <SchemaDefinition schemaRef="#/components/schemas/EducationSpecification" />
   - name: program_model
     x-displayName: Program
     description: |
@@ -130,10 +120,14 @@ tags:
     x-displayName: Course
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Course" />
-  - name: component_model
-    x-displayName: Component
+  - name: learning_component_model
+    x-displayName: LearningComponent
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/Component" />
+      <SchemaDefinition schemaRef="#/components/schemas/LearningComponent" />
+  - name: test_component_model
+    x-displayName: TestComponent
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/TestComponent" />
   - name: program_offering_model
     x-displayName: ProgramOffering
     description: |
@@ -142,10 +136,14 @@ tags:
     x-displayName: CourseOffering
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/CourseOffering" />
-  - name: component_offering_model
-    x-displayName: ComponentOffering
+  - name: learning_component_offering_model
+    x-displayName: LearningComponentOffering
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/ComponentOffering" />
+      <SchemaDefinition schemaRef="#/components/schemas/LearningComponentOffering" />
+  - name: test_component_offering_model
+    x-displayName: TestComponentOffering
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOffering" />
   - name: association_model
     x-displayName: Association
     description: |
@@ -229,127 +227,151 @@ components:
       type: openIdConnect
       openIdConnectUrl: https://example.nl/.well-known/openid-configuration
   schemas:
-    # allOf: 
-    #   - $ref: 'schemas/Service.yaml'
-    #   - $ref: schemas/AcademicSession.yaml
-    #   - $ref: schemas/Building.yaml
-    #   - $ref: schemas/Component.yaml
-    #   - $ref: schemas/ComponentOffering.yaml
-    #   - $ref: schemas/Course.yaml
-    #   - $ref: schemas/CourseOffering.yaml
-    #   - $ref: schemas/EducationSpecification.yaml
-    #   - $ref: schemas/Group.yaml
-    #   - $ref: schemas/NewsFeed.yaml
-    #   - $ref: schemas/NewsItem.yaml
-    #   - $ref: schemas/Organization.yaml
-    #   - $ref: schemas/Person.yaml
-    #   - $ref: schemas/Program.yaml
-    #   - $ref: schemas/ProgramOffering.yaml
-    #   - $ref: schemas/Room.yaml
-    #   - $ref: schemas/AssociationFull.yaml
+    Service:
+      $ref: schemas/Service.yaml
+    AcademicSession:
+      $ref: schemas/AcademicSession.yaml
+    Building:
+      $ref: schemas/Building.yaml
+    LearningComponent:
+      $ref: schemas/LearningComponent.yaml
+    TestComponent:
+      $ref: schemas/TestComponent.yaml
+    LearningComponentOffering:
+      $ref: schemas/LearningComponentOffering.yaml
+    TestComponentOffering:
+      $ref: schemas/TestComponentOffering.yaml
+    Course:
+      $ref: schemas/Course.yaml
+    CourseOffering:
+      $ref: schemas/CourseOffering.yaml
+    Group:
+      $ref: schemas/Group.yaml
+    NewsFeed:
+      $ref: schemas/NewsFeed.yaml
+    NewsItem:
+      $ref: schemas/NewsItem.yaml
+    Organization:
+      $ref: schemas/Organization.yaml
+    Person:
+      $ref: schemas/Person.yaml
+    Program:
+      $ref: schemas/Program.yaml
+    ProgramOffering:
+      $ref: schemas/ProgramOffering.yaml
+    Room:
+      $ref: schemas/Room.yaml
+    ProgramOfferingAssociation:
+      $ref: schemas/ProgramOfferingAssociation.yaml
+    CourseOfferingAssociation:
+      $ref: schemas/CourseOfferingAssociation.yaml
+    LearningComponentOfferingAssociation:
+      $ref: schemas/LearningComponentOfferingAssociation.yaml
+    TestComponentOfferingAssociation:
+      $ref: schemas/TestComponentOfferingAssociation.yaml
 
-paths:
-  /:
-    $ref: paths/Service.yaml
-  /persons:
-    $ref: paths/PersonCollection.yaml
-  /persons/me:
-    $ref: paths/PersonMe.yaml
-  /persons/{personId}:
-    $ref: paths/PersonInstance.yaml
-  /persons/{personId}/associations:
-    $ref: paths/PersonAssociationCollection.yaml
-  /persons/{personId}/groups:
-    $ref: paths/PersonGroupCollection.yaml
-  /organizations:
-    $ref: paths/OrganizationCollection.yaml
-  /organizations/{organizationId}:
-    $ref: paths/OrganizationInstance.yaml
-  /organizations/{organizationId}/programs:
-    $ref: paths/OrganizationProgramCollection.yaml
-  /organizations/{organizationId}/courses:
-    $ref: paths/OrganizationCourseCollection.yaml
-  /organizations/{organizationId}/components:
-    $ref: paths/OrganizationComponentCollection.yaml
-  /organizations/{organizationId}/offerings:
-    $ref: paths/OrganizationOfferingCollection.yaml
-  /organizations/{organizationId}/groups:
-    $ref: paths/OrganizationGroupCollection.yaml
-  /organizations/{organizationId}/education-specifications:
-    $ref: paths/OrganizationEducationSpecificationCollection.yaml
-  /academic-sessions:
-    $ref: paths/AcademicSessionCollection.yaml
-  /academic-sessions/{academicSessionId}:
-    $ref: paths/AcademicSessionInstance.yaml
-  /academic-sessions/{academicSessionId}/offerings:
-    $ref: paths/AcademicSessionOfferingCollection.yaml
-  /programs:
-    $ref: paths/ProgramCollection.yaml
-  /programs/{programId}:
-    $ref: paths/ProgramInstance.yaml
-  /programs/{programId}/programs:
-    $ref: paths/ProgramProgramCollection.yaml
-  /programs/{programId}/courses:
-    $ref: paths/ProgramCourseCollection.yaml
-  /programs/{programId}/offerings:
-    $ref: paths/ProgramOfferingCollection.yaml
-  /courses:
-    $ref: paths/CourseCollection.yaml
-  /courses/{courseId}:
-    $ref: paths/CourseInstance.yaml
-  /courses/{courseId}/components:
-    $ref: paths/CourseComponentCollection.yaml
-  /courses/{courseId}/offerings:
-    $ref: paths/CourseOfferingCollection.yaml
-  /components/{componentId}:
-    $ref: paths/ComponentInstance.yaml
-  /components/{componentId}/offerings:
-    $ref: paths/ComponentOfferingCollection.yaml
-  /offerings/{offeringId}:
-    $ref: paths/OfferingInstance.yaml
-  /offerings/{offeringId}/associations:
-    $ref: paths/OfferingAssociationCollection.yaml
-  # /offerings/{offeringId}/associations/me:
-  #   $ref: paths/OfferingAssociationInstanceMe.yaml
-  /offerings/{offeringId}/groups:
-    $ref: paths/OfferingGroupCollection.yaml
-  /associations/{associationId}:
-    $ref: paths/AssociationInstance.yaml
-  # /associations/me:
-  #   $ref: paths/AssociationInstanceMe.yaml
-  /associations/external/me:
-    $ref: paths/AssociationInstanceExternalMe.yaml
-  /buildings:
-    $ref: paths/BuildingCollection.yaml
-  /buildings/{buildingId}:
-    $ref: paths/BuildingInstance.yaml
-  /buildings/{buildingId}/rooms:
-    $ref: paths/BuildingRoomCollection.yaml
-  /rooms:
-    $ref: paths/RoomCollection.yaml
-  /rooms/{roomId}:
-    $ref: paths/RoomInstance.yaml
-  /news-feeds:
-    $ref: paths/NewsFeedCollection.yaml
-  /news-feeds/{newsFeedId}:
-    $ref: paths/NewsFeedInstance.yaml
-  /news-feeds/{newsFeedId}/news-items:
-    $ref: paths/NewsFeedItemCollection.yaml
-  /news-items/{newsItemId}:
-    $ref: paths/NewsItemInstance.yaml
-  /education-specifications:
-    $ref: paths/EducationSpecificationCollection.yaml
-  /education-specifications/{educationSpecificationId}:
-    $ref: paths/EducationSpecificationInstance.yaml
-  /education-specifications/{educationSpecificationId}/education-specifications:
-    $ref: paths/EducationSpecificationEducationSpecificationCollection.yaml
-  /education-specifications/{educationSpecificationId}/courses:
-    $ref: paths/EducationSpecificationCourseCollection.yaml
-  /education-specifications/{educationSpecificationId}/programs:
-    $ref: paths/EducationSpecificationProgramCollection.yaml
-  /groups:
-    $ref: paths/GroupCollection.yaml
-  /groups/{groupId}:
-    $ref: paths/GroupInstance.yaml
-  /groups/{groupId}/persons:
-    $ref: paths/GroupPersonCollection.yaml
+paths: {}
+  # /:
+  #   $ref: paths/Service.yaml
+  # /persons:
+  #   $ref: paths/PersonCollection.yaml
+  # /persons/me:
+  #   $ref: paths/PersonMe.yaml
+  # /persons/{personId}:
+  #   $ref: paths/PersonInstance.yaml
+  # /persons/{personId}/associations:
+  #   $ref: paths/PersonAssociationCollection.yaml
+  # /persons/{personId}/groups:
+  #   $ref: paths/PersonGroupCollection.yaml
+  # /organizations:
+  #   $ref: paths/OrganizationCollection.yaml
+  # /organizations/{organizationId}:
+  #   $ref: paths/OrganizationInstance.yaml
+  # /organizations/{organizationId}/programs:
+  #   $ref: paths/OrganizationProgramCollection.yaml
+  # /organizations/{organizationId}/courses:
+  #   $ref: paths/OrganizationCourseCollection.yaml
+  # /organizations/{organizationId}/components:
+  #   $ref: paths/OrganizationComponentCollection.yaml
+  # /organizations/{organizationId}/offerings:
+  #   $ref: paths/OrganizationOfferingCollection.yaml
+  # /organizations/{organizationId}/groups:
+  #   $ref: paths/OrganizationGroupCollection.yaml
+  # /organizations/{organizationId}/education-specifications:
+  #   $ref: paths/OrganizationEducationSpecificationCollection.yaml
+  # /academic-sessions:
+  #   $ref: paths/AcademicSessionCollection.yaml
+  # /academic-sessions/{academicSessionId}:
+  #   $ref: paths/AcademicSessionInstance.yaml
+  # /academic-sessions/{academicSessionId}/offerings:
+  #   $ref: paths/AcademicSessionOfferingCollection.yaml
+  # /programs:
+  #   $ref: paths/ProgramCollection.yaml
+  # /programs/{programId}:
+  #   $ref: paths/ProgramInstance.yaml
+  # /programs/{programId}/programs:
+  #   $ref: paths/ProgramProgramCollection.yaml
+  # /programs/{programId}/courses:
+  #   $ref: paths/ProgramCourseCollection.yaml
+  # /programs/{programId}/offerings:
+  #   $ref: paths/ProgramOfferingCollection.yaml
+  # /courses:
+  #   $ref: paths/CourseCollection.yaml
+  # /courses/{courseId}:
+  #   $ref: paths/CourseInstance.yaml
+  # /courses/{courseId}/components:
+  #   $ref: paths/CourseComponentCollection.yaml
+  # /courses/{courseId}/offerings:
+  #   $ref: paths/CourseOfferingCollection.yaml
+  # /components/{componentId}:
+  #   $ref: paths/ComponentInstance.yaml
+  # /components/{componentId}/offerings:
+  #   $ref: paths/ComponentOfferingCollection.yaml
+  # /offerings/{offeringId}:
+  #   $ref: paths/OfferingInstance.yaml
+  # /offerings/{offeringId}/associations:
+  #   $ref: paths/OfferingAssociationCollection.yaml
+  # # /offerings/{offeringId}/associations/me:
+  # #   $ref: paths/OfferingAssociationInstanceMe.yaml
+  # /offerings/{offeringId}/groups:
+  #   $ref: paths/OfferingGroupCollection.yaml
+  # /associations/{associationId}:
+  #   $ref: paths/AssociationInstance.yaml
+  # # /associations/me:
+  # #   $ref: paths/AssociationInstanceMe.yaml
+  # /associations/external/me:
+  #   $ref: paths/AssociationInstanceExternalMe.yaml
+  # /buildings:
+  #   $ref: paths/BuildingCollection.yaml
+  # /buildings/{buildingId}:
+  #   $ref: paths/BuildingInstance.yaml
+  # /buildings/{buildingId}/rooms:
+  #   $ref: paths/BuildingRoomCollection.yaml
+  # /rooms:
+  #   $ref: paths/RoomCollection.yaml
+  # /rooms/{roomId}:
+  #   $ref: paths/RoomInstance.yaml
+  # /news-feeds:
+  #   $ref: paths/NewsFeedCollection.yaml
+  # /news-feeds/{newsFeedId}:
+  #   $ref: paths/NewsFeedInstance.yaml
+  # /news-feeds/{newsFeedId}/news-items:
+  #   $ref: paths/NewsFeedItemCollection.yaml
+  # /news-items/{newsItemId}:
+  #   $ref: paths/NewsItemInstance.yaml
+  # /education-specifications:
+  #   $ref: paths/EducationSpecificationCollection.yaml
+  # /education-specifications/{educationSpecificationId}:
+  #   $ref: paths/EducationSpecificationInstance.yaml
+  # /education-specifications/{educationSpecificationId}/education-specifications:
+  #   $ref: paths/EducationSpecificationEducationSpecificationCollection.yaml
+  # /education-specifications/{educationSpecificationId}/courses:
+  #   $ref: paths/EducationSpecificationCourseCollection.yaml
+  # /education-specifications/{educationSpecificationId}/programs:
+  #   $ref: paths/EducationSpecificationProgramCollection.yaml
+  # /groups:
+  #   $ref: paths/GroupCollection.yaml
+  # /groups/{groupId}:
+  #   $ref: paths/GroupInstance.yaml
+  # /groups/{groupId}/persons:
+  #   $ref: paths/GroupPersonCollection.yaml

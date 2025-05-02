@@ -3,4 +3,4 @@ allOf:
   - type: object
     properties:
       result:
-        $ref: './ComponentResult.yaml'
+        $ref: './LearningComponentOfferingAssociationResult.yaml'

@@ -117,13 +117,6 @@ properties:
     format: uri
     maxLength: 2048
     example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
-  educationSpecification:
-    description: The educationSpecification of which this course is a more concrete implementation. [`expandable`](#tag/education_specification_model)
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: educationSpecificationId
-      - $ref: './EducationSpecification.yaml'
-        title: EducationSpecification
   addresses:
     type: array
     description: Addresses for this course

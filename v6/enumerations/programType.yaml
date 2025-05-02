@@ -6,10 +6,12 @@ description: |
   - honours: honours
   - specialization: specialisatie
   - track: track
+  - specification: specificatie
 enum:
   - program
   - minor
   - honours
   - specialization
   - track
+  - specification
 example: program

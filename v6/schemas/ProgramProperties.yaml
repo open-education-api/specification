@@ -68,8 +68,6 @@ properties:
     $ref: '../enumerations/levelOfQualification.yaml'
   level:
     $ref: '../enumerations/level.yaml'
-  sector:
-    $ref: '../enumerations/sector.yaml'
   fieldsOfStudy:
     type: string
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
@@ -124,19 +122,14 @@ properties:
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
+  formalDocument:
+    $ref: '../enumerations/formalDocument.yaml'
   link:
     type: string
     description: URL of the program's website
     format: uri
     maxLength: 2048
     example: https://bijvak.nl
-  educationSpecification:
-    description: The educationSpecification of which this program is a more concrete implementation. [`expandable`](#tag/education_specification_model)
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: educationSpecificationId
-      - $ref: './EducationSpecification.yaml'
-        title: EducationSpecification
   otherCodes:
     type: array
     description: An array of additional human readable codes/identifiers for the entity being described.

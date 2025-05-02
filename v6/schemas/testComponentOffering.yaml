@@ -48,8 +48,8 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: componentId
-          - $ref: './Component.yaml'
-            title: Component object      
+          - $ref: './TestComponent.yaml'
+            title: Test Component object      
       courseOffering:
         description: |
           The courseoffering where this componentoffering is related to. [`expandable`](#tag/course_offering_model)
