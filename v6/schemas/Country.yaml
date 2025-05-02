@@ -2,7 +2,6 @@ type: object
 description: >
   An object indicating a country based on at least one iso-3166 code.
   In situations where more than one iso-3166 code is provided the codes have address the same country.
-required: []
 properties:
   iso3166-1-alpha2:
     type: string
