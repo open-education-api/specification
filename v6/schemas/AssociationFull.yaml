@@ -3,9 +3,10 @@
 #   - $ref: '../schemas/CourseOfferingAssociation.yaml'
 #   - $ref: '../schemas/ProgramOfferingAssociation.yaml'
 oneOf:
-  - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-  - $ref: '../schemas/CourseOfferingAssociation.yaml'
-  - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+  - $ref: ProgramOfferingAssociation.yaml
+  - $ref: CourseOfferingAssociation.yaml
+  - $ref: learningComponentOfferingAssociation.yaml
+  - $ref: testComponentOfferingAssociation.yaml
 properties:
   person:
     readOnly: true
@@ -18,8 +19,8 @@ properties:
     oneOf:
       - $ref: '../schemas/Identifier.yaml'
         title: offeringId
-      - $ref: '../schemas/ComponentOffering.yaml'
-        title: ComponentOffering
+      - $ref: '../schemas/learningComponentOffering.yaml'
+        title: LearningComponentOffering
       - $ref: '../schemas/CourseOffering.yaml'
         title: CourseOffering
       - $ref: '../schemas/ProgramOffering.yaml'
