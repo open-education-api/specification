@@ -2,8 +2,13 @@ type: string
 description: The result value type for this offering
 enum:
   - pass_or_fail
+  - insufficient_satisfactory_good
   - us_letter
   - uk_letter
+  - de_grade
   - grade_0_100
-  - grade_1_10
-example: grade_1_10
+  - grade_0_10
+  - grade_0_10_one_decimal
+  - reference_level_europass
+  - other
+example: grade_0_10

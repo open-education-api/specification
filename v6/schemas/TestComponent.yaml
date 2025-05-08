@@ -4,7 +4,7 @@ required:
   - componentId
   - componentType
   - name
-  - teachingLanguage
+  - testingLanguage
   - abbreviation
   - primaryCode
 properties:
@@ -43,12 +43,12 @@ properties:
     type: string
     description: The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
-    example: P1DT30H4S
+    example: PT1H30M
   extraDuration:
     type: string
     description: The extra duration of this component for candidates that are awarded extra time as a personal need. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
-    example: P1DT30H4S
+    example: PT30M
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
   attempts:
@@ -115,10 +115,10 @@ properties:
         value: enrollment through SIS. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
-    description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
+    description: An overview of the literature and other resources that are allowed during this test
     items:
       type: string
-    example: ['book to be announced', 'on-line resource x']
+    example: ['Scientific calculator', 'Criminal code law book']
   assessment:
     type: array
     description: A description of the way this test is taken.

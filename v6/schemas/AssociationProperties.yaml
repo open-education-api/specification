@@ -17,6 +17,21 @@ properties:
     readOnly: true
   role:
     $ref: '../enumerations/associationRole.yaml'
+  startDateTime:
+    type: string
+    format: date-time
+    description: The start date and time of the enrollment
+    example: '2025-01-01T00:00:00Z'
+  expectedEndDateTime:
+    type: string
+    format: date-time
+    description: The expected end date and time of the enrollment
+    example: '2025-10-25T23:00:00Z'
+  actualEndDateTime:
+    type: string
+    format: date-time
+    description: The actual end date and time of the enrollment
+    example: '2025-10-23T23:00:00Z'
   state:
     $ref: '../enumerations/associationState.yaml'
     readOnly: true

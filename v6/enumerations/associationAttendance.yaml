@@ -1,0 +1,8 @@
+type: string
+description: The attendance status of this association
+enum:
+  - not_known
+  - not_started
+  - not_finished
+  - present
+example: present
