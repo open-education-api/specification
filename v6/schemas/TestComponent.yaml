@@ -44,6 +44,23 @@ properties:
     description: The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
     example: P1DT30H4S
+  extraDuration:
+    type: string
+    description: The extra duration of this component for candidates that are awarded extra time as a personal need. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+    pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
+    example: P1DT30H4S
+  resultValueType:
+    $ref: '../enumerations/resultValueType.yaml'
+  attempts:
+    type: integer
+    description: The number of attempts that are allowed for this component within one offering.
+    example: 2
+  passFrom:
+    type: string
+    description: The minimum value that is required to pass an offering for this component. This value is inclusive.
+    example: "5.5"
+  state:
+    $ref: '../enumerations/componentState.yaml'
   description:
     type: array
     description: The description of this component.
@@ -70,9 +87,9 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
-  teachingLanguage:
+  testingLanguage:
     type: string
-    description: The (primary) teaching language in which this component is given, should be a three-letter language code as specified by ISO 639-2.
+    description: The (primary) testing language in which this component is given, should be a three-letter language code as specified by ISO 639-2.
     minLength: 3
     maxLength: 3
     pattern: "^[a-z]{3}$"
@@ -104,7 +121,7 @@ properties:
     example: ['book to be announced', 'on-line resource x']
   assessment:
     type: array
-    description: A description of the way exams for this course are taken (ECTS-assessment method and criteria).
+    description: A description of the way this test is taken.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
