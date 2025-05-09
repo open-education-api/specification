@@ -28,7 +28,7 @@ properties:
     example: INFOMQNM
   studyLoad:
     type: array 
-    itmes: 
+    items: 
       $ref: './StudyLoadDescriptor.yaml'
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'

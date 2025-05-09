@@ -56,21 +56,21 @@ properties:
     description: |
       The learning outcome which is the parent of this learning outcome. 
     $ref: './Identifier.yaml'
-    title: organizationId
+    title: learningOutcomeId
   children:
       type: array
       description: |
         All the learning outcomes for which this learning outcome is the parent.
       items:
         $ref: './Identifier.yaml'
-        title: organizationId
+        title: learningOutcomeId
   otherCodes:
     type: array
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   level:
-    $ref: '../enumerations/learningOutcomeLevels.yaml'      
+    $ref: '../enumerations/learningOutcomeLevel.yaml'      
   startDate:
     type: string
     description: The start date for this learning outcome. Should be a string formatted as an RFC3099 full-date.

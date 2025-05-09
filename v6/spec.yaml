@@ -247,6 +247,8 @@ components:
       $ref: schemas/CourseOffering.yaml
     Group:
       $ref: schemas/Group.yaml
+    LearningOutcome:
+      $ref: schemas/LearningOutcome.yaml  
     NewsFeed:
       $ref: schemas/NewsFeed.yaml
     NewsItem:
