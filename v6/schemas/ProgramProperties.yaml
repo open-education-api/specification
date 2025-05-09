@@ -48,7 +48,9 @@ properties:
     pattern: "^[a-z]{3}$"
     example: nld
   studyLoad:
-    $ref: './StudyLoadDescriptor.yaml'
+    type: array
+    items:
+      $ref: './StudyLoadDescriptor.yaml'
   qualificationAwarded:
     $ref: '../enumerations/qualificationAwarded.yaml'
   modeOfStudy:
@@ -89,15 +91,8 @@ properties:
     example: ['book to be announced', 'on-line resource x']
   learningOutcomes:
     type: array
-    description: List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.
     items:
-      type: array
-      minItems: 1
-      items:
-        $ref: './LanguageTypedString.yaml'
-      example:
-        - language: en-GB
-          value: 'Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms.'
+      $ref: './LearningOutcome.yaml'
   assessment:
     type: array
     description: A description of the way exams for this course are taken (ECTS-assessment method and criteria).

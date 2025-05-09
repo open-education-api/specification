@@ -1,0 +1,12 @@
+type: string
+description: |
+  Level of the learning outcome
+  - 1: curriculum / sector qualification
+  - 2: program / minor / specialisation
+  - 3: course
+  - 4: component
+enum:
+  - 1
+  - 2
+  - 3
+  - 4

@@ -79,15 +79,8 @@ properties:
     example: nld
   learningOutcomes:
     type: array
-    description: Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome).
     items:
-      type: array
-      minItems: 1
-      items:
-        $ref: './LanguageTypedString.yaml'
-      example:
-      - language: en-GB
-        value: 'Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms.'
+      $ref: './LearningOutcome.yaml'
   enrollment:
     type: array
     items:
