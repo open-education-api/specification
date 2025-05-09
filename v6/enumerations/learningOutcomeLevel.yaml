@@ -6,7 +6,7 @@ description: |
   - 3: course
   - 4: component
 enum:
-  - 1
-  - 2
-  - 3
-  - 4
+  - '1'
+  - '2'
+  - '3'
+  - '4'
