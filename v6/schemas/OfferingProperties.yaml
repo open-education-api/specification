@@ -4,6 +4,7 @@ required:
   - primaryCode
   - offeringType
   - name
+  - state
   - description
   - teachingLanguage
   - resultExpected
@@ -72,6 +73,8 @@ properties:
     maxLength: 3
     pattern: "^[a-z]{3}$"
     example: nld
+  state:
+    $ref: '../enumerations/componentState.yaml'
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:

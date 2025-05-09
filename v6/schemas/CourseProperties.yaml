@@ -27,7 +27,10 @@ properties:
     maxLength: 256
     example: INFOMQNM
   studyLoad:
-    $ref: './StudyLoadDescriptor.yaml'
+    type: array
+    description: A list of different ways of defining studyload for the course.
+    items:
+      $ref: './StudyLoadDescriptor.yaml'
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   duration:
