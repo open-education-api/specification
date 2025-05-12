@@ -55,6 +55,7 @@ allOf:
           An array of 0 or more courseofferings where this TestComponentoffering is related to. [`expandable`](#tag/course_offering_model)
           By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
         type: array
+        items:
           oneOf:
             - $ref: './Identifier.yaml'
               title: courseOfferingId
