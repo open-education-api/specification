@@ -112,6 +112,10 @@ tags:
     x-displayName: Service
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Service" />
+  - name: learning_outcome_model
+    x-displayName: LearningOutcome
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/LearningOutcome" />
   - name: program_model
     x-displayName: Program
     description: |
@@ -190,7 +194,6 @@ x-tagGroups:
       - buildings
       - courses
       - components
-      - education specifications
       - groups
       - news
       - offerings
@@ -201,14 +204,16 @@ x-tagGroups:
   - name: Models
     tags:
       - service_model
+      - learning_outcome_model
       - academic_session_model
       - association_model
       - building_model
-      - component_model
-      - component_offering_model
       - course_model
       - course_offering_model
-      - education_specification_model
+      - learning_component_model
+      - learning_component_offering_model
+      - test_component_model
+      - test_component_offering_model
       - group_model
       - news_feed_model
       - news_item_model
