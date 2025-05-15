@@ -1,10 +1,10 @@
 type: string
 description: |
-  Level of the learning outcome
-  - 1: curriculum / sector qualification
-  - 2: program / minor / specialisation
-  - 3: course
-  - 4: component
+  Level of the learning outcome based on SOLO taxonomy (www.johnbiggs.com.au)
+  - 1: Unistructural
+  - 2: Multistructural
+  - 3: Relational
+  - 4: Extended abstract
 enum:
   - '1'
   - '2'

@@ -78,9 +78,14 @@ properties:
     pattern: "^[a-z]{3}$"
     example: nld
   learningOutcomes:
+    description: Related Learning Outcomes to this test component. This object is [`expandable`](#tag/learningoucome_model)
     type: array
     items:
-      $ref: './LearningOutcome.yaml'
+      oneOf:
+      - $ref: './Identifier.yaml'
+        title: programId
+      - $ref: './LearningOutcome.yaml'
+        title: LearningOutcome
   enrollment:
     type: array
     items:

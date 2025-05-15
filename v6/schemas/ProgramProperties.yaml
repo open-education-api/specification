@@ -90,9 +90,14 @@ properties:
       type: string
     example: ['book to be announced', 'on-line resource x']
   learningOutcomes:
+    description: Related Learning Outcomes to this program. This object is [`expandable`](#tag/learningoucome_model)
     type: array
     items:
-      $ref: './LearningOutcome.yaml'
+      oneOf:
+      - $ref: './Identifier.yaml'
+        title: programId
+      - $ref: './LearningOutcome.yaml'
+        title: LearningOutcome
   assessment:
     type: array
     description: A description of the way exams for this course are taken (ECTS-assessment method and criteria).

@@ -71,13 +71,13 @@ properties:
       $ref: './IdentifierEntry.yaml'
   level:
     $ref: '../enumerations/learningOutcomeLevel.yaml'      
-  startDate:
+  validFrom:
     type: string
-    description: The start date for this learning outcome. Should be a string formatted as an RFC3099 full-date.
+    description: The date for when this learning outcome will be active. Should be a string formatted as an RFC3099 full-date.
     format: date
-  endDate:
+  validTo:
     type: string
-    description: The end date for this learning outcome. Should be a string formatted as an RFC3099 full-date.
+    description: The date when this learning outcome will no longer be valid, or should be renewed. Should be a string formatted as an RFC3099 full-date.
     format: date
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.

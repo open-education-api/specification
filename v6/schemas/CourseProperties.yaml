@@ -63,9 +63,14 @@ properties:
     maxLength: 4
     example: '0732'
   learningOutcomes:
+    description: Related Learning Outcomes to this course. This object is [`expandable`](#tag/learningoucome_model)
     type: array
     items:
-      $ref: './LearningOutcome.yaml'
+      oneOf:
+      - $ref: './Identifier.yaml'
+        title: programId
+      - $ref: './LearningOutcome.yaml'
+        title: LearningOutcome
   admissionRequirements:
     type: array
     description: This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students.
