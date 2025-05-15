@@ -70,3 +70,25 @@ allOf:
             title: organizationId
           - $ref: './Organization.yaml'
             title: Organization object
+      documents:
+        type: array
+        description: |
+          Documents that are related to the test component offering. E.g. instructions, assignment, reports, etc.
+        items:
+          type: object
+          required:
+            - documentId
+            - documentType
+            - documentName
+          properties:
+            documentId:
+              type: string
+              description: The unique identifier of the document
+              example: 12345678-1234-1234-1234-123456789012
+            documentType:
+              $ref: ../enumerations/offeringDocumentType.yaml
+            documentName:
+              type: string
+              description: The name of the document
+              example: Assignment 1.pdf
+
