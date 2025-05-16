@@ -99,6 +99,8 @@ tags:
     description: The news API provides news feeds and items regarding a specific subject.
   - name: offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: learning outcomes
+    description: The learning outcomes API provides information about the statements regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
   - name: organizations
     description: The organizations API provides the organizations that are responsible for the execution and recognition of education.
   - name: persons
@@ -112,6 +114,10 @@ tags:
     x-displayName: Service
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Service" />
+  - name: learning_outcome_model
+    x-displayName: LearningOutcome
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/LearningOutcome" />
   - name: program_model
     x-displayName: Program
     description: |
@@ -190,10 +196,10 @@ x-tagGroups:
       - buildings
       - courses
       - components
-      - education specifications
       - groups
       - news
       - offerings
+      - learning outcomes
       - organizations
       - persons
       - programs
@@ -201,14 +207,16 @@ x-tagGroups:
   - name: Models
     tags:
       - service_model
+      - learning_outcome_model
       - academic_session_model
       - association_model
       - building_model
-      - component_model
-      - component_offering_model
       - course_model
       - course_offering_model
-      - education_specification_model
+      - learning_component_model
+      - learning_component_offering_model
+      - test_component_model
+      - test_component_offering_model
       - group_model
       - news_feed_model
       - news_item_model
@@ -216,6 +224,7 @@ x-tagGroups:
       - person_model
       - program_model
       - program_offering_model
+      - learning_outcome_model
       - room_model
 
 components:
@@ -247,6 +256,8 @@ components:
       $ref: schemas/CourseOffering.yaml
     Group:
       $ref: schemas/Group.yaml
+    LearningOutcome:
+      $ref: schemas/LearningOutcome.yaml  
     NewsFeed:
       $ref: schemas/NewsFeed.yaml
     NewsItem:
