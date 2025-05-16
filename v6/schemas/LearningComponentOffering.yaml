@@ -50,15 +50,17 @@ allOf:
             title: componentId
           - $ref: './LearningComponent.yaml'
             title: LearningComponent object  
-      courseOffering:
+      courseOfferings:
         description: |
-          The courseoffering where this componentoffering is related to. [`expandable`](#tag/course_offering_model)
+          An array of 0 or more courseofferings where this LearningComponentoffering is related to. [`expandable`](#tag/course_offering_model)
           By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: courseOfferingId
-          - $ref: './CourseOffering.yaml'
-            title: CourseOffering object     
+        type: array
+        items:
+          oneOf:
+            - $ref: './Identifier.yaml'
+              title: courseOfferingId
+            - $ref: './CourseOffering.yaml'
+              title: CourseOffering object     
       organization:
         description: |
           The organization that manages this componentoffering. [`expandable`](#tag/organization_model)
