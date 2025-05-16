@@ -2,3 +2,4 @@
 
 # ignore all local .vscode testing
 .vscode/
+.DS_Store
