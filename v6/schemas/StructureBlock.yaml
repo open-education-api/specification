@@ -1,5 +1,5 @@
 type: object
-description: De description of a structure of courses and programs that could describe a curriculum for a student
+description: The description of a structure of courses and programs that could describe a curriculum for a student
 required:
   - blockId
   - blockType
@@ -12,6 +12,11 @@ properties:
     example: 123e4567-e89b-12d3-a456-426614174000
   blockType:
     $ref: '../enumerations/blockType.yaml'
+  educationId:
+    type: string
+    description: Unique id of the education element that is referneced in other words the UUID of either a progrma, course or learning outcome
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174000
   name:
     type: array
     description: The name of this block
