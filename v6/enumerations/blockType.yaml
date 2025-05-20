@@ -1,0 +1,11 @@
+type: string
+description: |
+  The type of block that is modeled
+    - program: this is a program block and can be found through the program endpoint
+    - course: this is a course block and can be found through the course endpoint
+    - learning_outcome: this is a leanring_outcome block and can be found through the lernaingoutcome endpoint
+enum:
+  - program
+  - course
+  - learning_outcome
+example: program

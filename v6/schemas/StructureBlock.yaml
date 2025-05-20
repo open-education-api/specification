@@ -1,0 +1,83 @@
+type: object
+description: De description of a structure of courses and programs that could describe a curriculum for a student
+required:
+  - blockId
+  - blockType
+  - name
+properties:
+  blockId:
+    type: string
+    description: Unique id of this structure block
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174000
+  blockType:
+    $ref: '../enumerations/blockType.yaml'
+  name:
+    type: array
+    description: The name of this block
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: Masters program applied Physics
+  abbreviation:
+    type: string
+    description: The abbreviation of this block
+    maxLength: 256
+    example: Phys-1234
+  validFrom:
+    type: string
+    description: The date for when this structure block will be active. Should be a string formatted as an RFC3099 full-date.
+    format: date
+  validTo:
+    type: string
+    description: The date when this structure block will no longer be valid, or should be renewed. Should be a string formatted as an RFC3099 full-date.
+    format: date  
+  description:
+    type: array
+    description: The description of this component.
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+    - language: en-GB
+      value: >
+              'Overview of the curriculum for applied physics'
+  organization:
+    description: |
+      The organization which provides this block. [`expandable`](#tag/organization_model)
+      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: organizationId
+      - $ref: './Organization.yaml'
+        title: Organization object
+  relatedBlocksRule:
+    type: object
+    description: |
+      the rules that will be governing the related objects at one level lower
+    properties:
+      blockRuleType:
+        $ref: '../enumerations/blockRuleType.yaml'
+      blockAmount:
+        description: |
+          either number of EC or number of elments that need to be met at least (only needed when atleast type is used)
+        type: number
+  relatedBlocks:
+    type: array
+    items:
+      $ref: ./StructureBlock.yaml
+  sequence:
+    description: |
+      The number of the position of this structure block in the current nesting level relatedBlocks always have a lower level than the current StructureBlock
+    type: number
+  consumers:
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
+    type: array
+    items:
+      $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+  ext:
+    $ref: './Ext.yaml'
