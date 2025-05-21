@@ -138,22 +138,34 @@ tags:
     x-displayName: ProgramOffering
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/ProgramOffering" />
+  - name: program_offering_association_model
+    x-displayName: ProgramOfferingAssociation
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/ProgramOfferingAssociation" />
   - name: course_offering_model
     x-displayName: CourseOffering
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/CourseOffering" />
+  - name: course_offering_association_model
+    x-displayName: CourseOfferingAssociation
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociation" />
   - name: learning_component_offering_model
     x-displayName: LearningComponentOffering
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/LearningComponentOffering" />
+  - name: learning_component_offering_association_model
+    x-displayName: LearningComponentOfferingAssociation
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/LearningComponentOfferingAssociation" />
   - name: test_component_offering_model
     x-displayName: TestComponentOffering
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/TestComponentOffering" />
-  - name: association_model
-    x-displayName: Association
+  - name: test_component_offering_association_model
+    x-displayName: TestComponentOfferingAssocation
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/Association" />
+      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociation" />
   - name: person_model
     x-displayName: Person
     description: |
@@ -162,6 +174,10 @@ tags:
     x-displayName: Group
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Group" />
+  - name: membership_model
+    x-displayName: Membership
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/Membership" />
   - name: academic_session_model
     x-displayName: AcademicSession
     description: |
@@ -209,21 +225,25 @@ x-tagGroups:
       - service_model
       - learning_outcome_model
       - academic_session_model
-      - association_model
       - building_model
       - course_model
       - course_offering_model
+      - course_offering_association_model
       - learning_component_model
       - learning_component_offering_model
+      - learning_component_offering_association_model
       - test_component_model
       - test_component_offering_model
+      - test_component_offering_association_model
       - group_model
+      - membership_model
       - news_feed_model
       - news_item_model
       - organization_model
       - person_model
       - program_model
       - program_offering_model
+      - program_offering_association_model
       - learning_outcome_model
       - room_model
 
@@ -248,14 +268,22 @@ components:
       $ref: schemas/TestComponent.yaml
     LearningComponentOffering:
       $ref: schemas/LearningComponentOffering.yaml
+    LearningComponentOfferingAssociation:
+      $ref: schemas/LearningComponentOfferingAssociation.yaml
     TestComponentOffering:
       $ref: schemas/TestComponentOffering.yaml
+    TestComponentOfferingAssociation:
+      $ref: schemas/TestComponentOfferingAssociation.yaml
     Course:
       $ref: schemas/Course.yaml
     CourseOffering:
       $ref: schemas/CourseOffering.yaml
+    CourseOfferingAssociation:
+      $ref: schemas/CourseOfferingAssociation.yaml
     Group:
       $ref: schemas/Group.yaml
+    Membership:
+      $ref: schemas/Membership.yaml
     LearningOutcome:
       $ref: schemas/LearningOutcome.yaml  
     NewsFeed:
@@ -274,12 +302,6 @@ components:
       $ref: schemas/Room.yaml
     ProgramOfferingAssociation:
       $ref: schemas/ProgramOfferingAssociation.yaml
-    CourseOfferingAssociation:
-      $ref: schemas/CourseOfferingAssociation.yaml
-    LearningComponentOfferingAssociation:
-      $ref: schemas/LearningComponentOfferingAssociation.yaml
-    TestComponentOfferingAssociation:
-      $ref: schemas/TestComponentOfferingAssociation.yaml
 
 paths: {}
   # /:

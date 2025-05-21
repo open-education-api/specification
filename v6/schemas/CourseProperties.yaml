@@ -68,7 +68,7 @@ properties:
     items:
       oneOf:
       - $ref: './Identifier.yaml'
-        title: programId
+        title: learningOutcomeId
       - $ref: './LearningOutcome.yaml'
         title: LearningOutcome
   admissionRequirements:
