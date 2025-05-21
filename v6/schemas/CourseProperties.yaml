@@ -56,7 +56,7 @@ properties:
     minItems: 1
     items:
       type: string
-      description:
+      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
       minLength: 3
       maxLength: 3
       pattern: "^[a-z]{3}$"
