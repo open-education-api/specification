@@ -41,10 +41,10 @@ allOf:
           $ref: './Cost.yaml'
       room:
         $ref: './Room.yaml'
-      component:
+      learningComponent:
         description: |
-          The component that is offered in this componentoffering. [`expandable`](#tag/component_model)
-          By default only the `componentId` (a string) is returned. If the client requested an expansion of `component` the full component object should be returned.
+          The learning component that is offered in this learningComponentoffering. [`expandable`](#tag/learning_component_model)
+          By default only the `learningComponentId` (a string) is returned. If the client requested an expansion of `learning_component` the full learning component object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
             title: componentId

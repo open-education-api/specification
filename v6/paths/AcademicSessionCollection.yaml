@@ -1,5 +1,6 @@
 get:
   summary: GET /academic-sessions
+  operationId: listAcademicSessions
   description: Get a list of all academic sessions, ordered chronologically.
   tags:
     - academic sessions

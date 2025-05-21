@@ -1,5 +1,6 @@
 get:
   summary: GET /courses
+  operationId: listCourses
   description: Get a list of all courses, ordered by name (ascending).
   tags:
     - courses

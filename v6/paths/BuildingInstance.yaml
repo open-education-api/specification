@@ -1,5 +1,6 @@
 get:
   summary: GET /buildings/{buildingId}
+  operationId: listBuildingById
   description: Get a single building.
   tags:
     - buildings

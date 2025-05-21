@@ -1,5 +1,6 @@
 get:
   summary: GET /buildings/{buildingId}/rooms
+  operationId: listRoomsByBuildingId
   description: Get a list of all rooms in a building.
   tags:
     - buildings

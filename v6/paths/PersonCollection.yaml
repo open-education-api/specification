@@ -1,5 +1,6 @@
 get:
   summary: GET /persons
+  operationId: listPersons
   description: Get an ordered list of all persons.
   tags:
     - persons
@@ -70,6 +71,7 @@ get:
 
 post:
   summary: POST /persons
+  operationId: createPerson
   description: POST a single person.
   tags:
     - persons

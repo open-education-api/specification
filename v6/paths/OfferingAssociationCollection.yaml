@@ -1,5 +1,6 @@
 get:
   summary: GET /offerings/{offeringId}/associations
+  operationId: listAssociationsByOfferingId
   description: Get a list of all offering associations.
   tags:
     - offerings
@@ -23,7 +24,8 @@ get:
         enum:
           - programOffering
           - courseOffering
-          - componentOffering
+          - learingComponentOffering
+          - testComponentOffering
     - name: role
       in: query
       description: Filter by role
@@ -76,7 +78,8 @@ get:
                       oneOf:
                         - $ref: '../schemas/ProgramOfferingAssociationExpandable.yaml'
                         - $ref: '../schemas/CourseOfferingAssociationExpandable.yaml'
-                        - $ref: '../schemas/ComponentOfferingAssociationExpandable.yaml'
+                        - $ref: '../schemas/LearningComponentOfferingAssociationExpandable.yaml'
+                        - $ref: '../schemas/TestComponentOfferingAssociationExpandable.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

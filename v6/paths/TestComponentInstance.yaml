@@ -1,13 +1,13 @@
 get:
-  summary: GET /courses/{courseId}
-  operationId: listCourseById
-  description: Get a single course.
+  summary: GET /test-components/{componentId}
+  operationId: listTestComponentById
+  description: Get a single test component.
   tags:
-    - courses
+    - components
   parameters:
-    - name: courseId
+    - name: componentId
       in: path
-      description: Course ID
+      description: component ID
       required: true
       schema:
         type: string
@@ -15,24 +15,22 @@ get:
     - name: expand
       in: query
       explode: false
-      description: Optional properties to include, separated by a comma
+      description: Optional properties to expand, separated by a comma
       required: false
       schema:
         type: array
         items:
           type: string
           enum:
-            - programs
-            - coordinators
+            - course
             - organization
-    - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/CourseExpanded.yaml'
+            $ref: '../schemas/TestComponent.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

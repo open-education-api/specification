@@ -1,5 +1,6 @@
 get:
   summary: GET /persons/{personId}/associations
+  operationId: listAssociationsByPersonId
   description: Get a list of all associations for an individual person.
   tags:
     - persons
@@ -23,7 +24,8 @@ get:
         enum:
           - programOffering
           - courseOffering
-          - componentOffering
+          - learningComponentOffering
+          - testComponentOffering
     - name: role
       in: query
       description: Filter by role
@@ -94,13 +96,23 @@ get:
                                 academicSession:
                                   $ref: '../schemas/AcademicSession.yaml'
                         - allOf:
-                            - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+                            - $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
                             - type: object
                               required:
                                 - offering
                               properties:
                                 offering:
-                                  $ref: '../schemas/ComponentOffering.yaml'
+                                  $ref: '../schemas/LearningComponentOffering.yaml'
+                                academicSession:
+                                  $ref: '../schemas/AcademicSession.yaml'
+                        - allOf:
+                            - $ref: '../schemas/TestComponentOfferingAssociation.yaml'
+                            - type: object
+                              required:
+                                - offering
+                              properties:
+                                offering:
+                                  $ref: '../schemas/TestComponentOffering.yaml'
                                 academicSession:
                                   $ref: '../schemas/AcademicSession.yaml'
                   ext:

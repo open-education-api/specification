@@ -1,5 +1,6 @@
 get:
   summary: GET /organizations/{organizationId}/programs
+  operationId: listProgramsByOrganizationId
   description: Get an ordered list of all programs for a given organization, ordered by name.
   tags:
     - organizations
