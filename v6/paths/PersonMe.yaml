@@ -1,8 +1,9 @@
 get:
   summary: GET /persons/me
+  operationId: listPersonByMyOauthId
   description: Returns the person object for the currently authenticated user.
   security:
-    - bearerAuth: []
+    - openId: []
   tags:
     - persons
   responses:

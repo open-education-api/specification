@@ -3,7 +3,6 @@ allOf:
   - type: object
     properties:
       result:
-        $ref: './ProgramOfferingAssociationResult.yaml'
+        $ref: './TestComponentOfferingAssociationResult.yaml'
       person:
         $ref: './PersonId.yaml'
-

@@ -1,5 +1,6 @@
 get:
   summary: GET /academic-sessions/{academicSessionId}/offerings
+  operationId: listOfferingsByAcademicSessionId
   description: Get a list of all offerings during this academic session
   tags:
     - academic sessions
@@ -25,7 +26,8 @@ get:
         enum:
           - program
           - course
-          - component
+          - learning_component
+          - test_component
     - name: resultExpected
       in: query
       description: Filter by resultExpected
@@ -86,7 +88,8 @@ get:
                       oneOf:
                         - $ref: '../schemas/ProgramOffering.yaml'
                         - $ref: '../schemas/CourseOffering.yaml'
-                        - $ref: '../schemas/ComponentOffering.yaml'
+                        - $ref: '../schemas/LearningComponentOffering.yaml'
+                        - $ref: '../schemas/TestComponentOffering.yaml'
                   ext:
                       $ref: '../schemas/Ext.yaml'
     '400':

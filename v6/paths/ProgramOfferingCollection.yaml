@@ -1,5 +1,6 @@
 get:
   summary: GET /programs/{programId}/offerings
+  operationId: listOfferinngsByProgramId
   description: Get a list of all offerings for this program, ordered chronologically.
   tags:
     - programs

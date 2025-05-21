@@ -1,5 +1,6 @@
 get:
   summary: GET /organizations/{organizationId}/offerings
+  operationId: listOfferingsByOrganizationId
   description: Get a list of all offerings for a given organization
   tags:
     - organizations
@@ -86,7 +87,8 @@ get:
                       oneOf:
                         - $ref: '../schemas/ProgramOffering.yaml'
                         - $ref: '../schemas/CourseOffering.yaml'
-                        - $ref: '../schemas/ComponentOffering.yaml'
+                        - $ref: '../schemas/LearningComponentOffering.yaml'
+                        - $ref: '../schemas/TestComponentOffering.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

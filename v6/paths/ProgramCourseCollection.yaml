@@ -1,5 +1,6 @@
 get:
   summary: GET /programs/{programId}/courses
+  operationId: listCoursesByProgramId
   description: Get an ordered list of all courses given through this program.
   tags:
     - programs

@@ -1,6 +1,7 @@
 get:
   parameters: []
   summary: GET /
+  operationId: listServiceMetaData
   description: Get metadata for the service.
   tags:
     - service metadata

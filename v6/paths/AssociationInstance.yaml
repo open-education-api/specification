@@ -1,5 +1,6 @@
 get:
   summary: GET /associations/{associationId}
+  operationId: listAssociationById
   description: Get a single association.
   tags:
     - associations
@@ -50,6 +51,7 @@ get:
 
 patch:
   summary: PATCH /associations/{associationId}
+  operationId: partialUpdateAssociationById
   description: |
     Update the status or result of an enrollment. Other elements of the association object COULD 
     also be PATCHED. But are not likely and have therefor not been included in this endpoint.
@@ -81,9 +83,10 @@ patch:
               $ref: '../enumerations/remoteAssociationState.yaml'
             result:
               oneOf:
-                - $ref: '../schemas/ComponentResult.yaml'
-                - $ref: '../schemas/CourseResult.yaml'
-                - $ref: '../schemas/ProgramResult.yaml'  
+                - $ref: '../schemas/LearningComponentOfferingAssociationResult.yaml'
+                - $ref: '../schemas/TestComponentOfferingAssociationResult.yaml'
+                - $ref: '../schemas/CourseOfferingAssociationResult.yaml'
+                - $ref: '../schemas/ProgramOfferingAssociationResult.yaml'  
 
   responses:
     '200':
@@ -100,3 +103,4 @@ patch:
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
+
