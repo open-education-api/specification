@@ -5,11 +5,15 @@ description: |
     - lecturer: docent
     - teaching_assistant: studentassistent
     - coordinator: coördinator
+    - invigilator: surveillant
+    - assessor: beoordelaar
     - guest: gast
 enum:
   - student
   - lecturer
   - teaching_assistant
   - coordinator
+  - invigilator
+  - assessor
   - guest
 example: student

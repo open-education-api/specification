@@ -1,0 +1,8 @@
+type: string
+description: The state of this component or offering
+enum:
+  - concept
+  - canceled
+  - active
+  - inactive
+example: active

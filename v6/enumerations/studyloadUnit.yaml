@@ -1,0 +1,15 @@
+description: |
+  The unit in which the studyload is specfied
+  - contacttime: CONTACTUUR	amount of time spent in classes
+  - ects: ECTS_PUNT	European Credit Transfer System
+  - sbu: SBU	studentloadhours
+  - sp: STUDIEPUNT studentpoints
+  - hour: UUR	hours
+type: string
+enum:
+  - contacttime
+  - ects
+  - sbu
+  - sp
+  - hour
+example: ects

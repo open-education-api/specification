@@ -6,4 +6,5 @@ enum:
   - denied
   - associated
   - queued
+  - finished
 example: associated

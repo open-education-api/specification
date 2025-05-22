@@ -1,7 +1,11 @@
 type: string
 description: |
   The component type
-  - test: tentamen
+  - test_on_paper: tentamen
 enum:
-  - test
-example: test
+  - test_on_paper
+  - digital_test
+  - life_skills_test
+  - oral_test
+  - portfolio_assessment
+example: test_on_paper
