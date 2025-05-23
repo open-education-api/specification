@@ -8,7 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Adds academic-session to groups #247
-- Add chosenName to person #308
+- Add preferredName to person for OKE
+- Add alternateName to person #308
+- Add idCheckName and assignedNeeds # 
+- Add languageTypedString subfields should be required #316
+- Add assignedNeeds (not personalNeed this is part of association) #327
 
 ### Removed
 - removed required attribute for startDate in EducationSpecification
