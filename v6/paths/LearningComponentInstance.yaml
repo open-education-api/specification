@@ -1,6 +1,7 @@
 get:
-  summary: GET /components/{componentId}
-  description: Get a single component.
+  summary: GET /learning-components/{componentId}
+  operationId: listLearningComponentById
+  description: Get a single learnig component.
   tags:
     - components
   parameters:
@@ -29,7 +30,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Component.yaml'
+            $ref: '../schemas/LearningComponent.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

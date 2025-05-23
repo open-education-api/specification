@@ -3,7 +3,7 @@ description: |
   The type of this group
   - class: A collection of students jointly scheduled for/assigned to/carrying out educational activities
   - team: A collection of members of a team, either students, employees or mixed.
-  - group: A collection of students jointly scheduled for/assigned to/carrying out educational activities in a context not provide by a class
+  - group: A collection of students jointly scheduled for/assigned to/carrying out educational activities in a context not provided by a class
 enum:
   - class
   - team

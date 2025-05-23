@@ -15,15 +15,15 @@ allOf:
         description: The moment on which this offering ends, RFC3339 (full-date)
         format: date
         example: 2023-06-15
-      enrollStartDate:
+      enrollStartDateTime:
         type: string
-        description: The first day on which a student can enroll for this program.
-        format: date
+        description: The moment from which a student can enroll for this program, RFC3339 (date-time).
+        format: date-time
         example: 2019-05-01
-      enrollEndDate:
+      enrollEndDateTime:
         type: string
-        description: The last day on which a student can enroll for this program.
-        format: date
+        description: The last moment to which a student can enroll for this program, RFC3339 (date-time).
+        format: date-time
         example: 2019-08-01
       flexibleEntryPeriodStart:
         type: string

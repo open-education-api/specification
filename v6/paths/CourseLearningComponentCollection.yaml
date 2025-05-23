@@ -1,12 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}/components
-  description: Get an ordered list of all components for a given organization, ordered by name.
+  summary: GET /courses/{courseId}/learning-components
+  operationId: listLearningComponentsByCourseId
+  description: Get an ordered list of all course learning components.
   tags:
-    - organizations
+    - courses
   parameters:
-    - name: organizationId
+    - name: courseId
       in: path
-      description: Organization ID
+      description: Course ID
       required: true
       schema:
         type: string
@@ -16,12 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: componentType
-      in: query
-      description: Filter by component type
-      required: false
-      schema:
-        $ref: '../enumerations/componentType.yaml'
     - name: sort
       in: query
       explode: false
@@ -36,10 +31,10 @@ get:
             - name
             - -componentId
             - -name
-        default: [ name ]
+        default: [ componentId ]
         example:
-          - componentId
-          - -name
+          - name
+          - -componentId
   responses:
     '200':
       description: OK
@@ -55,7 +50,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Component.yaml'
+                      $ref: '../schemas/LearningComponent.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

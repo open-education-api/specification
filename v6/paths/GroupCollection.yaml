@@ -1,5 +1,6 @@
 get:
   summary: GET /groups
+  operationId: listGroups
   description: Get a list of all groups, ordered by name (ascending).
   tags:
     - groups
