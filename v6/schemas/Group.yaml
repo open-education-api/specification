@@ -41,12 +41,18 @@ properties:
       value: The group of students that follow statistics classes
   startDateTime:
     type: string
-    description: The day on which this group starts being active, RFC3339 (full-date)
+    description: |
+      The moment on which this group starts being active, RFC3339 (full-date).
+      Groups can be ordered in time through the academic-session  
+      The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
     format: date
     example: 2025-05-30T20:00:00+01:00
   endDateTime:
     type: string
-    description: The day on which this group ends being active, RFC3339 (full-date)
+    description: |
+      The moment on which this group ends being active, RFC3339 (full-date)
+      Groups can be ordered in time through the academic-session  
+      The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
     format: date
     example: 2025-06-30T20:00:00+01:00
   personCount:
