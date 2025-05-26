@@ -57,7 +57,9 @@ properties:
     example: 2
   passFrom:
     type: string
-    description: The minimum value that is required to pass an offering for this component. This value is inclusive.
+    description: |
+      The minimum value that is required to pass an offering for this component. 
+      This value is inclusive and dependes on the resultValueType.
     example: "5.5"
   state:
     $ref: '../enumerations/componentState.yaml'

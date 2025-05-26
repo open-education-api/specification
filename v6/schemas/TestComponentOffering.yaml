@@ -1,9 +1,9 @@
 allOf:
   - $ref: './Offering.yaml'
   - type: object
-    required:
-      - startDateTime
-      - endDateTime
+    description: |
+      startDateTime and endDateTime of an offering are to be provided at least in the state `active`. In all other states the
+      times on the academic session should indicate in what timeframe the offering will or should have been available.
     properties:
       startDateTime:
         type: string
@@ -14,7 +14,7 @@ allOf:
         type: string
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
-        example: 2020-12-16
+        example: 2025-07-19T18:00:00Z
       enrollStartDateTime:
         type: string
         description: The moment from which a student can enroll for this component, RFC3339 (date-time).

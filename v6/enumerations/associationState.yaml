@@ -1,5 +1,12 @@
 type: string
-description: The state of this association
+description: |
+  The state of this association
+  - pending: A student wants to enroll, but the enrollment has not yet been confirmed/accepted/processed
+  - canceled: The association has been canceled, for example by the student or the institution
+  - denied: The student was denied enrollment, for example because the student does not meet the requirements
+  - associated: The association has been confirmed/accepted/processed, the student is enrolled
+  - queued: The association is in a queue, for example because the course is full
+  - finished: The association has ended, for example because the course has ended or the student has completed the course
 enum:
   - pending
   - canceled

@@ -74,7 +74,7 @@ properties:
     pattern: "^[a-z]{3}$"
     example: nld
   state:
-    $ref: '../enumerations/componentState.yaml'
+    $ref: '../enumerations/offeringState.yaml'
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:

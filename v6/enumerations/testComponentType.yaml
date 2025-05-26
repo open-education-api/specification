@@ -1,6 +1,7 @@
 type: string
 description: |
-  The component type
+  The way the test is conducted. This can be a test on paper, a digital test, a life skills test, an oral test, or a portfolio assessment.
+  Together with modeOfStudy/Assessment it indicates where the test is taken and how it is conducted.
   - test_on_paper: tentamen
 enum:
   - test_on_paper

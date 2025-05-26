@@ -20,17 +20,17 @@ properties:
   startDateTime:
     type: string
     format: date-time
-    description: The start date and time of the enrollment
+    description: The start date and time the person is intended to start participating in the offering. Formatted according to RFC3339 (full-date)
     example: '2025-01-01T00:00:00Z'
   expectedEndDateTime:
     type: string
     format: date-time
-    description: The expected end date and time of the enrollment
+    description: The expected end date and time the person is intended to stop participating in the offering. Formatted according to RFC3339 (full-date) 
     example: '2025-10-25T23:00:00Z'
   actualEndDateTime:
     type: string
     format: date-time
-    description: The actual end date and time of the enrollment
+    description: The actual end date and time the person stopped participating in the offering. Formatted according to RFC3339 (full-date)
     example: '2025-10-23T23:00:00Z'
   state:
     $ref: '../enumerations/associationState.yaml'

@@ -1,30 +1,30 @@
 allOf:
   - $ref: './Offering.yaml'
   - type: object
-    required:
-      - startDate
-      - endDate
+    description: |
+      startDateTime and endDateTime of an offering are to be provided at least in the state `active`. In all other states the
+      times on the academic session should indicate in what timeframe the offering will or should have been available.
     properties:
-      startDate:
+      startDateTime:
         type: string
         description: The moment on which this offering starts, RFC3339 (full-date)
         format: date
-        example: 2019-08-21
-      endDate:
+        example: 2019-08-21T00:00:00Z
+      endDateTime:
         type: string
         description: The moment on which this offering ends, RFC3339 (full-date)
         format: date
-        example: 2019-10-23
+        example: 2019-10-23T23:59:59Z
       enrollStartDateTime:
         type: string
-        description: The moment from which a student can enroll for this component, RFC3339 (date-time).
+        description: The moment from which a student can enroll for this offering, RFC3339 (date-time).
         format: date-time
-        example: 2019-05-01
+        example: 2019-05-01T00:00:00Z
       enrollEndDateTime:
         type: string
         description: The last moment to which a student can enroll for this component, RFC3339 (date-time).
         format: date-time
-        example: 2019-08-01
+        example: 2019-08-01T23:59:59Z
       flexibleEntryPeriodStart:
         type: string
         description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
