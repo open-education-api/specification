@@ -6,7 +6,7 @@ required:
   - name
   - state
   - description
-  - teachingLanguage
+  - teachingLanguages
   - resultExpected
 properties:
   primaryCode:
@@ -66,15 +66,17 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
-  teachingLanguage:
-    type: string
-    description: The (primary) teaching language in which this offering is given, should be a three-letter language code as specified by ISO 639-2.
-    minLength: 3
-    maxLength: 3
-    pattern: "^[a-z]{3}$"
-    example: nld
-  state:
-    $ref: '../enumerations/componentState.yaml'
+  teachingLanguages:
+    type: array
+    description:  The languages in which this course is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the offering.
+    minItems: 1
+    items:
+      type: string
+      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
+      minLength: 3
+      maxLength: 3
+      pattern: "^[a-z]{3}$"
+      example: nld
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:

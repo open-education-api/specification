@@ -1,12 +1,13 @@
 get:
-  summary: GET /courses/{courseId}/components
-  description: Get an ordered list of all course components.
+  summary: GET /learning-components/{componentId}/offerings
+  operationId: listOfferingsByLearningComponentId
+  description: Get a list of all offerings for this learning component, ordered chronologically.
   tags:
-    - courses
+    - components
   parameters:
-    - name: courseId
+    - name: componentId
       in: path
-      description: Course ID
+      description: Component ID
       required: true
       schema:
         type: string
@@ -16,12 +17,26 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: componentType
+    - name: resultExpected
       in: query
-      description: Filter by component type
+      description: Filter by resultExpected
       required: false
       schema:
-        $ref: '../enumerations/componentType.yaml'
+        type: boolean
+    - name: since
+      in: query
+      description: Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
+      required: false
+      schema:
+        type: string
+        format: date
+    - name: until
+      in: query
+      description: Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).
+      required: false
+      schema:
+        type: string
+        format: date
     - name: sort
       in: query
       explode: false
@@ -32,14 +47,18 @@ get:
         items:
           type: string
           enum:
-            - componentId
+            - offeringId
             - name
-            - -componentId
+            - startDateTime
+            - endDateTime
+            - -offeringId
             - -name
-        default: [ componentId ]
+            - -startDateTime
+            - -endDateTime
+        default: [ startDateTime ]
         example:
-          - name
-          - -componentId
+          - offeringId
+          - -startDateTime
   responses:
     '200':
       description: OK
@@ -55,9 +74,9 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Component.yaml'
+                      $ref: '../schemas/LearningComponentOffering.yaml'
                   ext:
-                    $ref: '../schemas/Ext.yaml'
+                      $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

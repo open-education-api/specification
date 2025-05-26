@@ -1,5 +1,6 @@
 get:
   summary: GET /persons/{personId}
+  operationId: listPersonById
   description: Get a single person.
   tags:
     - persons
