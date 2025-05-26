@@ -1,5 +1,6 @@
 post:
   summary: POST /associations/external/me
+  operationId: createExternalAssociationByopenId
   description: |
     POST a single association enroll a person based on person information obtained from .wellknown endpoint, an offering, 
     and the organization/type=root information form the organization that is issuing this association. 

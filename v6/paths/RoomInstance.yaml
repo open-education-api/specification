@@ -1,5 +1,6 @@
 get:
   summary: GET /rooms/{roomId}
+  operationId: listRoomById
   description: Get a single room.
   tags:
     - rooms

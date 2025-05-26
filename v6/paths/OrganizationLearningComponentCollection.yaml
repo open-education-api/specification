@@ -1,7 +1,7 @@
 get:
-  summary: GET /organizations/{organizationId}/courses
-  operationId: listCoursesByOrganizationId
-  description: Get an ordered list of all courses for a given organization, ordered by name.
+  summary: GET /organizations/{organizationId}/learning-components
+  operationId: listLearningComponentsByOrganizationId
+  description: Get an ordered list of all learning components for a given organization, ordered by name.
   tags:
     - organizations
   parameters:
@@ -17,18 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: level
-      in: query
-      description: Filter by level
-      required: false
-      schema:
-        $ref: '../enumerations/level.yaml'
-    - name: modeOfDelivery
-      in: query
-      description: Filter by modeOfDelivery
-      required: false
-      schema:
-        $ref: '../enumerations/modesOfDelivery.yaml'
     - name: sort
       in: query
       explode: false
@@ -39,14 +27,14 @@ get:
         items:
           type: string
           enum:
-            - courseId
+            - componentId
             - name
-            - -courseId
+            - -componentId
             - -name
         default: [ name ]
         example:
-          - name
-          - -courseId
+          - componentId
+          - -name
   responses:
     '200':
       description: OK
@@ -62,7 +50,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Course.yaml'
+                      $ref: '../schemas/LearningComponent.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

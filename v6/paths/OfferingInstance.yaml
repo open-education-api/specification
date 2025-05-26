@@ -1,5 +1,6 @@
 get:
   summary: GET /offerings/{offeringId}
+  operationId: listOfferingsById
   description: Get a single offering.
   tags:
     - offerings
@@ -25,7 +26,8 @@ get:
             - programOffering
             - course
             - courseOffering
-            - component
+            - learningComponent
+            - testComponent
             - organization
             - academicSession
   responses:
@@ -37,11 +39,12 @@ get:
             oneOf:
               - $ref: '../schemas/CourseOffering.yaml'
                 title: courseOffering
-              - $ref: '../schemas/ComponentOffering.yaml'
-                title: componentOffering
+              - $ref: '../schemas/LearningComponentOffering.yaml'
+                title: testComponentOffering
+              - $ref: '../schemas/TestComponentOffering.yaml'
+                title: learningComponentOffering
               - $ref: '../schemas/ProgramOffering.yaml'
                 title: programOffering
-
               
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
