@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Beta] - 2025-05-22
+
+### Added
+- Adds academic-session to groups #247
+- Add preferredName to person for OKE
+- Add alternateName to person #308
+- Add idCheckName and assignedNeeds # 
+- Add languageTypedString subfields should be required #316
+- Add assignedNeeds (not personalNeed this is part of association) #327
+
+### Removed
+- removed required attribute for startDate in EducationSpecification
+
+### Changed
+- update of model
+
+
+
+
 ## [5.0.0] - 2022-07-19
 The v5.0.0 release is the same as 5.0.0 RC2.
 
