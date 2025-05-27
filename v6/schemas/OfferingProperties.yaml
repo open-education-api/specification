@@ -4,6 +4,7 @@ required:
   - primaryCode
   - offeringType
   - name
+  - state
   - description
   - teachingLanguages
   - resultExpected

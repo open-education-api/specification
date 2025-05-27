@@ -2,5 +2,10 @@ allOf:
   - $ref: './Association.yaml'
   - type: object
     properties:
+      studyLoad:
+        description: |
+          Only required when the studyload for the individual student/enrollment is different 
+          from the studyload of the course offering.
+        $ref: './StudyLoadDescriptor.yaml'
       result:
         $ref: './CourseOfferingAssociationResult.yaml'
