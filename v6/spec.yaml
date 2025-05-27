@@ -351,9 +351,12 @@ paths:
     $ref: paths/OrganizationLearningComponentOfferingCollection.yaml
   /organizations/{organizationId}/test-component-offerings:
     $ref: paths/OrganizationTestComponentOfferingCollection.yaml
-
   /organizations/{organizationId}/groups:
     $ref: paths/OrganizationGroupCollection.yaml
+  /learning-outcomes:
+    $ref: paths/LearningOutcomeCollection.yaml
+  /learning-outcomes/{learningOutcomeId}:
+    $ref: paths/LearningOutcomeInstance.yaml
   /academic-sessions:
     $ref: paths/AcademicSessionCollection.yaml
   /academic-sessions/{academicSessionId}:
