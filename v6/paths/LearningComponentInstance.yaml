@@ -3,7 +3,7 @@ get:
   operationId: listLearningComponentById
   description: Get a single learnig component.
   tags:
-    - components
+    - learning components
   parameters:
     - name: componentId
       in: path

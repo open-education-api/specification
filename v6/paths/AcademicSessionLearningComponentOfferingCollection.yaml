@@ -1,13 +1,13 @@
 get:
-  summary: GET /courses/{courseId}/offerings
-  operationId: listOfferingsByComponentId
-  description: Get a list of all offerings for this course, ordered chronologically.
+  summary: GET /academic-sessions/{academicSessionId}/learning-component-offerings
+  operationId: listLearningComponentOfferingsByAcademicSessionId
+  description: Get a list of all offerings during this academic session
   tags:
-    - courses
+    - learning component offerings
   parameters:
-    - name: courseId
+    - name: academicSessionId
       in: path
-      description: Course ID
+      description: Academic session ID
       required: true
       schema:
         type: string
@@ -17,12 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: modeOfDelivery
-      in: query
-      description: Filter by modeOfDelivery
-      required: false
-      schema:
-        $ref: '../enumerations/modesOfDelivery.yaml'
     - name: resultExpected
       in: query
       description: Filter by resultExpected
@@ -63,8 +57,8 @@ get:
             - -endDate
         default: [ startDate ]
         example:
-           - offeringId
-           - -endDate
+          - startDate
+          - -name
   responses:
     '200':
       description: OK
@@ -80,9 +74,9 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/CourseOffering.yaml'
+                      $ref: '../schemas/LearningComponentOffering.yaml'
                   ext:
-                    $ref: '../schemas/Ext.yaml'
+                      $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

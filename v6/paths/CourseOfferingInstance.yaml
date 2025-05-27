@@ -1,13 +1,13 @@
 get:
-  summary: GET /test-components/{componentId}
-  operationId: listTestComponentById
-  description: Get a single test component.
+  summary: GET /course-offerings/{offeringId}
+  operationId: listCourseOfferingsById
+  description: Get a single course offering.
   tags:
-    - test components
+    - course offerings
   parameters:
-    - name: componentId
+    - name: offeringId
       in: path
-      description: component ID
+      description: Offering ID
       required: true
       schema:
         type: string
@@ -23,14 +23,17 @@ get:
           type: string
           enum:
             - course
-            - organization
+            - courseOffering
+            - academicSession
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/TestComponent.yaml'
+            $ref: '../schemas/CourseOffering.yaml'
+            title: courseOffering
+              
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

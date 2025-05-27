@@ -1,9 +1,9 @@
 get:
-  summary: GET /test-components/{componentId}/offerings
+  summary: GET /test-components/{componentId}/test-component-offerings
   operationId: listOfferingsByTestComponentId
   description: Get a list of all offerings for this test component, ordered chronologically.
   tags:
-    - components
+    - test component offerings
   parameters:
     - name: componentId
       in: path

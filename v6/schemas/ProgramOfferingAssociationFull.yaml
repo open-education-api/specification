@@ -1,0 +1,16 @@
+oneOf:
+  - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+properties:
+  person:
+    readOnly: true
+    oneOf:
+      - $ref: '../schemas/Identifier.yaml'
+        title: personId
+      - $ref: '../schemas/Person.yaml'
+        title: Person
+  offering:
+    oneOf:
+      - $ref: '../schemas/Identifier.yaml'
+        title: offeringId
+      - $ref: '../schemas/ProgramOffering.yaml'
+        title: ProgramOffering

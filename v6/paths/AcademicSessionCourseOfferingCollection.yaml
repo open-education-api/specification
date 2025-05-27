@@ -1,13 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}/offerings
-  operationId: listOfferingsByOrganizationId
-  description: Get a list of all offerings for a given organization
+  summary: GET /academic-sessions/{academicSessionId}/course-offerings
+  operationId: listCourseOfferingsByAcademicSessionId
+  description: Get a list of all course offerings during this academic session
   tags:
-    - organizations
+    - course offerings
   parameters:
-    - name: organizationId
+    - name: academicSessionId
       in: path
-      description: Organization ID
+      description: Academic session ID
       required: true
       schema:
         type: string
@@ -17,17 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: offeringType
-      in: query
-      description: Filter by offering type
-      required: false
-      schema:
-        type: string
-        enum:
-          - program
-          - course
-          - learning-component
-          - test-component
     - name: resultExpected
       in: query
       description: Filter by resultExpected
@@ -68,8 +57,8 @@ get:
             - -endDate
         default: [ startDate ]
         example:
-          - name
-          - -startDate
+          - startDate
+          - -name
   responses:
     '200':
       description: OK
@@ -83,15 +72,9 @@ get:
                   - items
                 properties:
                   items:
-                    type: array
-                    items:
-                      oneOf:
-                        - $ref: '../schemas/ProgramOffering.yaml'
-                        - $ref: '../schemas/CourseOffering.yaml'
-                        - $ref: '../schemas/LearningComponentOffering.yaml'
-                        - $ref: '../schemas/TestComponentOffering.yaml'
+                    $ref: '../schemas/CourseOffering.yaml'
                   ext:
-                    $ref: '../schemas/Ext.yaml'
+                      $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

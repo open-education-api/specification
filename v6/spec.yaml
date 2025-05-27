@@ -97,7 +97,13 @@ tags:
     description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees.
   - name: memberships
     description: The memberships API provides information about meberships that are related to groups and persons. 
-  - name: offerings
+  - name: program offerings
+    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: course offerings
+    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: learning component offerings
+    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: test component offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
   - name: learning outcomes
     description: The learning outcomes API provides information about the statements regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
@@ -214,14 +220,19 @@ x-tagGroups:
       - associations
       - buildings
       - courses
+      - course offerings
       - components
       - groups
-      - offerings
+      - learning component offerings
+      - learning components
       - learning outcomes
       - organizations
       - persons
       - programs
+      - program offerings
+      - program offering associations
       - rooms
+      - test component offerings
       # - news
   - name: Models
     tags:
@@ -332,14 +343,29 @@ paths:
     $ref: paths/OrganizationTestComponentCollection.yaml
   /organizations/{organizationId}/offerings:
     $ref: paths/OrganizationOfferingCollection.yaml
+  /organizations/{organizationId}/program-offerings:
+    $ref: paths/OrganizationProgramOfferingCollection.yaml
+  /organizations/{organizationId}/course-offerings:
+    $ref: paths/OrganizationCourseOfferingCollection.yaml
+  /organizations/{organizationId}/learning-component-offerings:
+    $ref: paths/OrganizationLearningComponentOfferingCollection.yaml
+  /organizations/{organizationId}/test-component-offerings:
+    $ref: paths/OrganizationTestComponentOfferingCollection.yaml
+
   /organizations/{organizationId}/groups:
     $ref: paths/OrganizationGroupCollection.yaml
   /academic-sessions:
     $ref: paths/AcademicSessionCollection.yaml
   /academic-sessions/{academicSessionId}:
     $ref: paths/AcademicSessionInstance.yaml
-  /academic-sessions/{academicSessionId}/offerings:
-    $ref: paths/AcademicSessionOfferingCollection.yaml
+  /academic-sessions/{academicSessionId}/program-offerings:
+    $ref: paths/AcademicSessionProgramOfferingCollection.yaml
+  /academic-sessions/{academicSessionId}/course-offerings:
+    $ref: paths/AcademicSessionCourseOfferingCollection.yaml
+  /academic-sessions/{academicSessionId}/learning-component-offerings:
+    $ref: paths/AcademicSessionLearningComponentOfferingCollection.yaml
+  /academic-sessions/{academicSessionId}/test-component-offerings:
+    $ref: paths/AcademicSessionTestComponentOfferingCollection.yaml
   /programs:
     $ref: paths/ProgramCollection.yaml
   /programs/{programId}:
@@ -358,8 +384,12 @@ paths:
     $ref: paths/CourseLearningComponentCollection.yaml
   /courses/{courseId}/test-components:
     $ref: paths/CourseTestComponentCollection.yaml
-  /courses/{courseId}/offerings:
-    $ref: paths/CourseOfferingCollection.yaml
+  /courses/{courseId}/course-offerings:
+    $ref: paths/CourseCourseOfferingCollection.yaml
+  /courses/{courseId}/learning-component-offerings:
+    $ref: paths/CourseLearningComponentOfferingCollection.yaml
+  /courses/{courseId}/test-component-offerings:
+    $ref: paths/CourseTestComponentOfferingCollection.yaml
   /learning-components/{componentId}:
     $ref: paths/LearningComponentInstance.yaml
   /learning-components/{componentId}/offerings:
@@ -378,6 +408,8 @@ paths:
     $ref: paths/OfferingGroupCollection.yaml
   /associations/{associationId}:
     $ref: paths/AssociationInstance.yaml
+  /program-offering-associations/{associationId}:
+    $ref: paths/ProgramOfferingAssociationInstance.yaml    
   # /associations/me:
   #   $ref: paths/AssociationInstanceMe.yaml
   /associations/external/me:

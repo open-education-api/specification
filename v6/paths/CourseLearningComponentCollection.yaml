@@ -3,7 +3,7 @@ get:
   operationId: listLearningComponentsByCourseId
   description: Get an ordered list of all course learning components.
   tags:
-    - courses
+    - learning components
   parameters:
     - name: courseId
       in: path

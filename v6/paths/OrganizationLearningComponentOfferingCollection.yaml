@@ -1,9 +1,9 @@
 get:
-  summary: GET /organizations/{organizationId}/offerings
-  operationId: listOfferingsByOrganizationId
-  description: Get a list of all offerings for a given organization
+  summary: GET /organizations/{organizationId}/learning-component-offerings
+  operationId: listLearningComponentOfferingsByOrganizationId
+  description: Get a list of all learning component offerings for a given organization
   tags:
-    - organizations
+    - learning component offerings
   parameters:
     - name: organizationId
       in: path
@@ -17,17 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: offeringType
-      in: query
-      description: Filter by offering type
-      required: false
-      schema:
-        type: string
-        enum:
-          - program
-          - course
-          - learning-component
-          - test-component
     - name: resultExpected
       in: query
       description: Filter by resultExpected
@@ -85,11 +74,7 @@ get:
                   items:
                     type: array
                     items:
-                      oneOf:
-                        - $ref: '../schemas/ProgramOffering.yaml'
-                        - $ref: '../schemas/CourseOffering.yaml'
-                        - $ref: '../schemas/LearningComponentOffering.yaml'
-                        - $ref: '../schemas/TestComponentOffering.yaml'
+                      $ref: '../schemas/LearningComponentOffering.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':
