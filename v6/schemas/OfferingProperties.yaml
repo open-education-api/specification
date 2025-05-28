@@ -122,7 +122,12 @@ properties:
     type: array
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
-      $ref: './IdentifierEntry.yaml'
+      $ref: './IdentifierEntry.yaml'    
+  enrollmentPeriods:
+    type: array
+    description: An array of periods that a person can enroll into this offering. The period is defined by taretgroup and date
+    items:
+      $ref: './EnrollmentPeriods.yaml'
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array
