@@ -1,5 +1,6 @@
 allOf:
-  - $ref: './Offering.yaml'
+  - $ref: '../schemas/OfferingId.yaml'
+  - $ref: '../schemas/OfferingProperties.yaml'
   - type: object
     required:
       - startDateTime

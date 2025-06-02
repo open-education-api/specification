@@ -1,8 +1,6 @@
 type: object
-description: Either a program, course or component offering which descrbes the program, course or offering in time
 required:
   - primaryCode
-  - offeringType
   - name
   - description
   - teachingLanguages
@@ -15,8 +13,6 @@ properties:
       codeType: offeringCode
       code: INFOMQNM-20FS
     readOnly: true
-  offeringType:
-    $ref: ../enumerations/offeringType.yaml
   academicSession:
     description: |
       The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)

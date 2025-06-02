@@ -1,20 +1,9 @@
 type: object
 description: A relationship between a person object and an offering
 required:
-  - associationType
   - role
   - state
 properties:
-  associationType:
-    type: string
-    description: The type of this association
-    enum:
-      - program_offering_association
-      - course_offering_association
-      - learning_component_offering_association
-      - test_component_offering_association
-    example: learning_component_offering_association
-    readOnly: true
   role:
     $ref: '../enumerations/associationRole.yaml'
   state:

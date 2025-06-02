@@ -1,5 +1,5 @@
 allOf:
-  - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+  - $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
 properties:
   person:
     readOnly: true
@@ -12,5 +12,5 @@ properties:
     oneOf:
       - $ref: '../schemas/Identifier.yaml'
         title: offeringId
-      - $ref: '../schemas/ProgramOffering.yaml'
-        title: ProgramOffering
+      - $ref: '../schemas/LearningComponentOffering.yaml'
+        title: LearningComponentOffering

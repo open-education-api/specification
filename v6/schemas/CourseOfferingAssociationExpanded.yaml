@@ -9,5 +9,5 @@ allOf:
         $ref: './Person.yaml'
       offering:
         description: The offering this association is for
-        $ref: './Offering.yaml'
+        $ref: './CourseOffering.yaml'
         

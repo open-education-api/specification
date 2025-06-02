@@ -92,7 +92,7 @@ tags:
   - name: courses
     description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
   - name: components
-    description: The components API provides information about components being part of parent courses.
+    description: This path is no longer supported you can now use learning components or test components.
   - name: groups
     description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees.
   - name: memberships
@@ -101,8 +101,12 @@ tags:
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
   - name: course offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: learning components 
+    description: The learing components API provides information about learning activities that are part of a course (or learning unit).
   - name: learning component offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: test components 
+    description: The test components API provides information about test or assessment activities that are part of a course (or learning unit).
   - name: test component offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
   - name: learning outcomes
@@ -221,10 +225,11 @@ x-tagGroups:
       - buildings
       - courses
       - course offerings
+      - course offering associations
       - components
       - groups
-      - learning component offerings
       - learning components
+      - learning component offerings
       - learning outcomes
       - organizations
       - persons
@@ -232,8 +237,8 @@ x-tagGroups:
       - program offerings
       - program offering associations
       - rooms
+      - test components
       - test component offerings
-      # - news
   - name: Models
     tags:
       - service_model
@@ -258,8 +263,6 @@ x-tagGroups:
       - program_offering_association_model
       - learning_outcome_model
       - room_model
-      # - news_feed_model
-      # - news_item_model
 
 
 components:
@@ -301,10 +304,6 @@ components:
       $ref: schemas/Membership.yaml
     LearningOutcome:
       $ref: schemas/LearningOutcome.yaml  
-    # NewsFeed:
-    #   $ref: schemas/NewsFeed.yaml
-    # NewsItem:
-    #   $ref: schemas/NewsItem.yaml
     Organization:
       $ref: schemas/Organization.yaml
     Person:
@@ -411,12 +410,16 @@ paths:
     $ref: paths/OfferingGroupCollection.yaml
   /associations/{associationId}:
     $ref: paths/AssociationInstance.yaml
-  /program-offering-associations/{associationId}:
+  /program-offering-associations/{programOfferingAssociationId}:
     $ref: paths/ProgramOfferingAssociationInstance.yaml    
+  /course-offering-associations/{courseOfferingAssociationId}:
+    $ref: paths/CourseOfferingAssociationInstance.yaml    
   # /associations/me:
   #   $ref: paths/AssociationInstanceMe.yaml
-  /associations/external/me:
-    $ref: paths/AssociationInstanceExternalMe.yaml
+  /program-offering-associations/external/me:
+    $ref: paths/ProgramOfferingAssociationInstanceExternalMe.yaml
+  /course-offering-associations/external/me:
+    $ref: paths/CourseOfferingAssociationInstanceExternalMe.yaml
   /buildings:
     $ref: paths/BuildingCollection.yaml
   /buildings/{buildingId}:
@@ -435,24 +438,3 @@ paths:
     $ref: paths/GroupMemberships.yaml  
   /groups/{groupId}/memberships/{personId}:
     $ref: paths/PersonGroupMemberships.yaml  
-  # /groups/{groupId}/persons:
-  #   $ref: paths/GroupPersonCollection.yaml
-  # /news-feeds:
-  #   $ref: paths/NewsFeedCollection.yaml
-  # /news-feeds/{newsFeedId}:
-  #   $ref: paths/NewsFeedInstance.yaml
-  # /news-feeds/{newsFeedId}/news-items:
-  #   $ref: paths/NewsFeedItemCollection.yaml
-  # /news-items/{newsItemId}:
-  #   $ref: paths/NewsItemInstance.yaml
-  # /education-specifications:
-  #   $ref: paths/EducationSpecificationCollection.yaml
-  # /education-specifications/{educationSpecificationId}:
-  #   $ref: paths/EducationSpecificationInstance.yaml
-  # /education-specifications/{educationSpecificationId}/education-specifications:
-  #   $ref: paths/EducationSpecificationEducationSpecificationCollection.yaml
-  # /education-specifications/{educationSpecificationId}/courses:
-  #   $ref: paths/EducationSpecificationCourseCollection.yaml
-  # /education-specifications/{educationSpecificationId}/programs:
-  #   $ref: paths/EducationSpecificationProgramCollection.yaml
-
