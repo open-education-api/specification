@@ -62,7 +62,7 @@ patch:
     - openId:
       - associations.write
   tags:
-    - associations
+    - program offering associations
 
   parameters:
     - name: programOfferingAssociationId

@@ -62,7 +62,7 @@ patch:
     - openId:
       - associations.write
   tags:
-    - associations
+    - course offering associations
 
   parameters:
     - name: courseOfferingAssociationId

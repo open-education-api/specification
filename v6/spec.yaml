@@ -37,9 +37,23 @@ tags:
   - name: academic sessions
     description: The academic sessions API provides information about the different time periods a program can be offered.
   - name: associations
+    description: The association API is now depricated and has been replaced by more specific endpoints program offering assocation, course offering association, learning component offering association and test component offering association.
+  - name: buildings
+    description: The building API provides a building that is currently used by the organization. Including all location details.
+  - name: courses
+    description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
+  - name: components
+    description: This path is no longer supported you can now use learning components or test components.
+  - name: groups
+    description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees.
+  - name: memberships
+    description: The memberships API provides information about meberships that are related to groups and persons. 
+  - name: program offerings
+    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: program offering associations
     description: |
-      The associations API provides information about the association between an offering and a person (e.g. students, lecturers, etc).
-      Associations can be posted between institutions This requires information details on the offering and the persons.
+      The program offering associations API provides information about the association between a program offering and a person (e.g. students, lecturers, etc).
+      Associations can be posted between institutions This requires information details on the program offering and the persons.
       To allow for this information a complete person object and offering object can be part of the API.
       The structure is explained in the following model:
       <table>
@@ -61,7 +75,7 @@ tags:
           <br>Alternatively the association can also be created through POST <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a>
          </td>
          -->
-         <td>POST <a href="#tag/associations/paths/~1associations~1external~1me/post">/associations/external/me</a> gets student details from .wellknown at home institution. It passes offering details (provided by external institution) to the home institution so the home institution can create a placeholder for the offering and its results. 
+         <td>POST <a href="#tag/course-offering-associations/operation/createExternalProgramOfferingAssociationByopenId">/program-offering-associations/external/me</a> gets student details from .wellknown at home institution. It passes offering details (provided by external institution) to the home institution so the home institution can create a placeholder for the offering and its results. 
          </td>
         </tr>
         <tr>
@@ -82,25 +96,44 @@ tags:
          <td>no support needed</td>
         </tr>
       </table>
-      Direct update of current information: <a href="#tag/associations/paths/~1associations~1{associationId}/patch"> PATCH /associations/{associationId}</a>
+      Direct update of current information: <a href="##tag/program-offering-associations/operation/partialUpdateProgramOfferingAssociationById"> PATCH /program-offering-associations/{programOfferingAssociationId}</a>
+      This call is currently limited to passing results and a remote state. For future use other association resource information could be passed. 
+      More information on the support for student mobility can be found 
+      <a href="https://swimlanes.io/d/s5mfpj7Si">here</a>    
+  - name: course offerings
+    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: course offering associations
+    description: |
+      The course offering associations API provides information about the association between a course offering and a person (e.g. students, lecturers, etc).
+      Associations can be posted between institutions This requires information details on the course offering and the persons.
+      To allow for this information a complete person object and offering object can be part of the API.
+      The structure is explained in the following model:
+      <table>
+        <tr>
+         <td></td>
+         <td colspan=3 align=center>offering</td>
+        </tr>
+        <tr>
+         <td rowspan=3>student</td>
+         <td></td>
+         <!-- <td>internal</td>
+         -->
+         <td>external</td>
+        </tr>
+        <tr>
+         <td>internal</td>
+         <td>POST <a href="#tag/course-offering-associations/operation/createExternalCourseOfferingAssociationByopenId">/course-offering-associations/external/me</a> gets student details from .wellknown at home institution. It passes offering details (provided by external institution) to the home institution so the home institution can create a placeholder for the offering and its results. 
+         </td>
+        </tr>
+        <tr>
+         <td>external</td>
+         <td>no support needed</td>
+        </tr>
+      </table>
+      Direct update of current information: <a href="#tag/course-offering-associations/operation/partialUpdateCourseOfferingAssociationById"> PATCH /course-offering-associations/{courseOfferingAssociationId}</a>
       This call is currently limited to passing results and a remote state. For future use other association resource information could be passed. 
       More information on the support for student mobility can be found 
       <a href="https://swimlanes.io/d/s5mfpj7Si">here</a>
-
-  - name: buildings
-    description: The building API provides a building that is currently used by the organization. Including all location details.
-  - name: courses
-    description: The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program.
-  - name: components
-    description: This path is no longer supported you can now use learning components or test components.
-  - name: groups
-    description: The groups API provides information about groups that are related to organizations, persons and offerings. Groups of students that are related to an offering are typically used for rostering. The rostering application assigns students based on these groups. For example, class 1b will be assigned to the course offering on monday morning. Not all groups are related to an offering. A group of people can also be a team that is working on a task outside the OOAPI scope. These can be teams of students, but also teams of employees.
-  - name: memberships
-    description: The memberships API provides information about meberships that are related to groups and persons. 
-  - name: program offerings
-    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
-  - name: course offerings
-    description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
   - name: learning components 
     description: The learing components API provides information about learning activities that are part of a course (or learning unit).
   - name: learning component offerings
