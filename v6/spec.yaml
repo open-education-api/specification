@@ -373,8 +373,6 @@ paths:
     $ref: paths/OrganizationLearningComponentCollection.yaml
   /organizations/{organizationId}/test-components:
     $ref: paths/OrganizationTestComponentCollection.yaml
-  /organizations/{organizationId}/offerings:
-    $ref: paths/OrganizationOfferingCollection.yaml
   /organizations/{organizationId}/program-offerings:
     $ref: paths/OrganizationProgramOfferingCollection.yaml
   /organizations/{organizationId}/course-offerings:

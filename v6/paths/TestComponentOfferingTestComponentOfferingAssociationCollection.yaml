@@ -1,13 +1,13 @@
 get:
-  summary: GET /offerings/{offeringId}/associations
-  operationId: listAssociationsByOfferingId
-  description: Get a list of all offering associations.
+  summary: GET /test-component-offerings/{testComponentOfferingId}/test-component-offering-associations
+  operationId: listTestComponentOfferingAssociationsByTestComponentOfferingId
+  description: Get a list of all test component offering associations related to the test component offering based on its ID.
   tags:
-    - offerings
+    - test component offering associations
   parameters:
-    - name: offeringId
+    - name: testComonentOfferingId
       in: path
-      description: Offering ID
+      description: Test Component Offering ID
       required: true
       schema:
         type: string
@@ -15,17 +15,6 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
-    - name: associationType
-      in: query
-      description: Filter by association type
-      required: false
-      schema:
-        type: string
-        enum:
-          - programOffering
-          - courseOffering
-          - learingComponentOffering
-          - testComponentOffering
     - name: role
       in: query
       description: Filter by role
@@ -59,10 +48,6 @@ get:
                   items:
                     type: array
                     items:
-                      oneOf:
-                        - $ref: '../schemas/ProgramOfferingAssociationExpandable.yaml'
-                        - $ref: '../schemas/CourseOfferingAssociationExpandable.yaml'
-                        - $ref: '../schemas/LearningComponentOfferingAssociationExpandable.yaml'
                         - $ref: '../schemas/TestComponentOfferingAssociationExpandable.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'

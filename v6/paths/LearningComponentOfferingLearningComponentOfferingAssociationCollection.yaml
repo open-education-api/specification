@@ -1,13 +1,13 @@
 get:
-  summary: GET /course-offerings/{courseOfferingId}/course-offering-associations
-  operationId: listCourseOfferingAssociationsByCourseOfferingId
-  description: Get a list of all course offering associations related to the course offering based on its ID.
+  summary: GET /learning-component-offerings/{learningComponentOfferingId}/learning-component-offering-associations
+  operationId: listLearningComponentOfferingAssociationsByLearningComponentOfferingId
+  description: Get a list of all learning component offering associations related to the learning component offering based on its ID.
   tags:
-    - course offering associations
+    - learning component offering associations
   parameters:
-    - name: courseOfferingId
+    - name: learningComonentOfferingId
       in: path
-      description: Course Offering ID
+      description: Learning Component Offering ID
       required: true
       schema:
         type: string
@@ -48,7 +48,7 @@ get:
                   items:
                     type: array
                     items:
-                        - $ref: '../schemas/CourseOfferingAssociationExpandable.yaml'
+                      - $ref: '../schemas/LearningComponentOfferingAssociationExpandable.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

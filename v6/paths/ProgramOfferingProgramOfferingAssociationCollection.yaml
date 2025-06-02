@@ -1,7 +1,7 @@
 get:
   summary: GET /program-offerings/{programOfferingId}/program-offering-associations
   operationId: listProgramOfferingAssociationsByProgramOfferingId
-  description: Get a list of all offering associations.
+  description: Get a list of all program offering associations related to the program offering based on its ID.
   tags:
     - program offering associations
   parameters:
