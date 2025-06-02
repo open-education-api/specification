@@ -38,7 +38,7 @@ get:
       required: false
       schema:
         $ref: '../enumerations/associationState.yaml'
-    - name: result-state
+    - name: resultState
       in: query
       description: Filter by result state
       required: false
