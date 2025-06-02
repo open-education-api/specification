@@ -3,7 +3,7 @@ get:
   operationId: listTestComponentsByCourseId
   description: Get an ordered list of all course test components.
   tags:
-    - courses
+    - test components
   parameters:
     - name: courseId
       in: path

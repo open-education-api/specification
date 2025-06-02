@@ -1,13 +1,13 @@
 get:
-  summary: GET /learning-components/{componentId}/learning-component-offerings
+  summary: GET /learning-components/{learningComponentId}/learning-component-offerings
   operationId: listOfferingsByLearningComponentId
   description: Get a list of all learning component offerings for this learning component, ordered chronologically.
   tags:
     - learning component offerings
   parameters:
-    - name: componentId
+    - name: learningComponentId
       in: path
-      description: Component ID
+      description: Learning Component ID
       required: true
       schema:
         type: string

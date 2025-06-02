@@ -1,11 +1,11 @@
 get:
-  summary: GET /test-components/{componentId}
+  summary: GET /test-components/{testComponentId}
   operationId: listTestComponentById
   description: Get a single test component.
   tags:
     - test components
   parameters:
-    - name: componentId
+    - name: testComponentId
       in: path
       description: component ID
       required: true

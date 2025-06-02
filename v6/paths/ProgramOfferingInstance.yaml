@@ -1,11 +1,11 @@
 get:
-  summary: GET /program-offerings/{offeringId}
+  summary: GET /program-offerings/{programOfferingId}
   operationId: listProgramOfferingsById
   description: Get a single program offering.
   tags:
     - program offerings
   parameters:
-    - name: offeringId
+    - name: programOfferingId
       in: path
       description: Offering ID
       required: true

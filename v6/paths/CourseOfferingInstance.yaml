@@ -1,13 +1,13 @@
 get:
-  summary: GET /course-offerings/{offeringId}
+  summary: GET /course-offerings/{courseOfferingId}
   operationId: listCourseOfferingsById
   description: Get a single course offering.
   tags:
     - course offerings
   parameters:
-    - name: offeringId
+    - name: courseOfferingId
       in: path
-      description: Offering ID
+      description: Course Offering ID
       required: true
       schema:
         type: string

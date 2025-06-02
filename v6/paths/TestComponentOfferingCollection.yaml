@@ -1,13 +1,13 @@
 get:
-  summary: GET /test-components/{componentId}/test-component-offerings
+  summary: GET /test-components/{testComponentId}/test-component-offerings
   operationId: listOfferingsByTestComponentId
   description: Get a list of all offerings for this test component, ordered chronologically.
   tags:
     - test component offerings
   parameters:
-    - name: componentId
+    - name: testComponentId
       in: path
-      description: Component ID
+      description: Test Component ID
       required: true
       schema:
         type: string

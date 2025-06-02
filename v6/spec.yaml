@@ -409,7 +409,7 @@ paths:
     $ref: paths/ProgramProgramCollection.yaml
   /programs/{programId}/courses:
     $ref: paths/ProgramCourseCollection.yaml
-  /programs/{programId}/offerings:
+  /programs/{programId}/program-offerings:
     $ref: paths/ProgramOfferingCollection.yaml
   /courses:
     $ref: paths/CourseCollection.yaml
@@ -425,24 +425,34 @@ paths:
     $ref: paths/CourseLearningComponentOfferingCollection.yaml
   /courses/{courseId}/test-component-offerings:
     $ref: paths/CourseTestComponentOfferingCollection.yaml
-  /learning-components/{componentId}:
+  /learning-components/{learningComponentId}:
     $ref: paths/LearningComponentInstance.yaml
-  /learning-components/{componentId}/offerings:
+  /learning-components/{learningComponentId}/offerings:
     $ref: paths/LearningComponentOfferingCollection.yaml
-  /test-components/{componentId}:
+  /learning-component-offerings/{learningComponentOfferingId}:
+    $ref: paths/LearningComponentOfferingInstance.yaml  
+  /test-components/{testComponentId}:
     $ref: paths/TestComponentInstance.yaml
-  /test-components/{componentId}/offerings:
+  /test-components/{testComponentId}/offerings:
     $ref: paths/TestComponentOfferingCollection.yaml
-  /offerings/{offeringId}:
-    $ref: paths/OfferingInstance.yaml
-  /offerings/{offeringId}/associations:
-    $ref: paths/OfferingAssociationCollection.yaml
+  /test-component-offerings/{testComponentOfferingId}:
+    $ref: paths/TestComponentOfferingInstance.yaml  
+  # /offerings/{offeringId}:
+  #   $ref: paths/OfferingInstance.yaml
+  # /offerings/{offeringId}/associations:
+  #   $ref: paths/OfferingAssociationCollection.yaml
   # /offerings/{offeringId}/associations/me:
   #   $ref: paths/OfferingAssociationInstanceMe.yaml
   /offerings/{offeringId}/groups:
     $ref: paths/OfferingGroupCollection.yaml
-  /associations/{associationId}:
-    $ref: paths/AssociationInstance.yaml
+  /program-offerings/{programOfferingId}/program-offering-associations:
+    $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
+
+  /course-offerings/{courseOfferingId}/course-offering-associations:
+    $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
+
+  # /associations/{associationId}:
+  #   $ref: paths/AssociationInstance.yaml
   /program-offering-associations/{programOfferingAssociationId}:
     $ref: paths/ProgramOfferingAssociationInstance.yaml    
   /course-offering-associations/{courseOfferingAssociationId}:

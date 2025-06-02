@@ -3,7 +3,7 @@ get:
   operationId: listCoursesByOrganizationId
   description: Get an ordered list of all courses for a given organization, ordered by name.
   tags:
-    - organizations
+    - courses
   parameters:
     - name: organizationId
       in: path

@@ -3,7 +3,7 @@ get:
   operationId: listGroupsByOrganizationId
   description: Get an ordered list of all groups for a given organization, ordered by name.
   tags:
-    - organizations
+    - groups
   parameters:
     - name: organizationId
       in: path

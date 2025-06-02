@@ -1,13 +1,13 @@
 get:
-  summary: GET /learning-components/{componentId}
+  summary: GET /learning-components/{learningComponentId}
   operationId: listLearningComponentById
   description: Get a single learnig component.
   tags:
     - learning components
   parameters:
-    - name: componentId
+    - name: learningComponentId
       in: path
-      description: component ID
+      description: learning component ID
       required: true
       schema:
         type: string
