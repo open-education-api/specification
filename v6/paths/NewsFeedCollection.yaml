@@ -22,24 +22,6 @@ get:
           - person
           - building
           - room
-    - name: sort
-      in: query
-      explode: false
-      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - newsFeedId
-            - name
-            - -newsFeedId
-            - -name
-        default: [ name ]
-        example:
-          - name
-          - -newsFeedId
   responses:
     '200':
       description: OK

@@ -44,22 +44,6 @@ get:
       required: false
       schema:
         $ref: '../enumerations/resultState.yaml'
-    - name: sort
-      in: query
-      explode: false
-      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - associationId
-            - -associationId
-        default:
-        - associationId
-        example:
-          - associationId
   responses:
     '200':
       description: OK
