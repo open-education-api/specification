@@ -13,9 +13,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add idCheckName and assignedNeeds # 
 - Add languageTypedString subfields should be required #316
 - Add assignedNeeds (not personalNeed this is part of association) #327
+- add paths for learning outcomes
+- add paths for:
+    - learning-component
+    - learning-component-offering
+    - learning-component-offering-association
+- add paths for:
+    - test-component
+    - test-component-offering
+    - test-component-offering-association
+- implement longer self explanatory Ids
+- update and create sub paths on groups academic-sessions
+- remove sorting
+- improve rendering by removing general offering.yaml and association.yaml in favour of referencing to shared properties and separate Id
+- fix Consider changing query parameter result-state to resultState. #320
+
 
 ### Removed
 - removed required attribute for startDate in EducationSpecification
+- reomved components
+- removed offerings
 
 ### Changed
 - update of model
