@@ -1,11 +1,9 @@
 name: release
 
 on:
-  push:
-    branches: ["new_paths"]
-    
-    # tags:
-    #   - "release-*"
+  push:    
+    tags:
+      - "release-*"
 
 jobs:
   release:
