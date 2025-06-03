@@ -3,7 +3,7 @@ name: publish_branch
 on:
   pull_request:
     branches:
-      - 6.0  # Replace with your specific branch name
+      - new_paths  # Replace with your specific branch name
   workflow_dispatch:
 
 jobs:
@@ -32,6 +32,7 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v1
+        if: github.ref_type == 'tag'
         with:
           files: |
             ooapiv5.yaml
