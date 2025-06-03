@@ -1,0 +1,39 @@
+name: publish_branch
+
+on:
+  pull_request:
+    branches:
+      - 6.0  # Replace with your specific branch name
+  workflow_dispatch:
+
+jobs:
+  publish_branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+
+      - name: Install Redoc CLI
+        run: npm install -g redoc-cli
+
+      - name: Lint OpenAPI Specification
+        run: redoc-cli lint v6/spec.yaml
+
+      - name: Generate v5 bundle
+        run: npx @redocly/cli bundle v5/spec.yaml -d -o ooapiv5.yaml
+      - name: Generate v6 bundle
+        run: npx @redocly/cli bundle v6/spec.yaml -d -o ooapiv6.yaml
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ooapiv5.yaml
+            ooapiv6.yaml
+      
