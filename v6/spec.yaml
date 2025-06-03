@@ -446,12 +446,6 @@ paths:
   /test-component-offering-associations/{testComponentOfferingAssociationId}:
     $ref: paths/TestComponentOfferingAssociationInstance.yaml      
 
-  # /offerings/{offeringId}:
-  #   $ref: paths/OfferingInstance.yaml
-  # /offerings/{offeringId}/associations:
-  #   $ref: paths/OfferingAssociationCollection.yaml
-  # /offerings/{offeringId}/associations/me:
-  #   $ref: paths/OfferingAssociationInstanceMe.yaml
   /program-offerings/{programOfferingId}/program-offering-associations:
     $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
   /program-offerings/{programOfferingId}/groups:
@@ -462,14 +456,14 @@ paths:
   /course-offerings/{courseOfferingId}/groups:
     $ref: paths/CourseOfferingGroupCollection.yaml      
 
-  # /associations/{associationId}:
-  #   $ref: paths/AssociationInstance.yaml
   /program-offering-associations/{programOfferingAssociationId}:
     $ref: paths/ProgramOfferingAssociationInstance.yaml    
   /course-offering-associations/{courseOfferingAssociationId}:
     $ref: paths/CourseOfferingAssociationInstance.yaml    
+
   # /associations/me:
   #   $ref: paths/AssociationInstanceMe.yaml
+
   /program-offering-associations/external/me:
     $ref: paths/ProgramOfferingAssociationInstanceExternalMe.yaml
   /course-offering-associations/external/me:
