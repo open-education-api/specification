@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds academic-session to groups #247
 - Add preferredName to person for OKE
 - Add alternateName to person #308
-- Add idCheckName and assignedNeeds # 
+- Add idCheckName and assignedNeeds # OKE 
 - Add learning outcomes as an object #340 and #356
 - Add languageTypedString subfields should be required #316
 - Add assignedNeeds (not personalNeed this is part of association) #327
@@ -30,7 +30,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - improve rendering by removing general offering.yaml and association.yaml in favour of referencing to shared properties and separate Id
 - fix Consider changing query parameter result-state to resultState. #320
 - add enrollment periods to offering properties #319
-- 
+- operationId to all paths based on schema:
+    - put -> replaceResource
+    - get -> listResources
+    - get (byId) -> listResourceById
+    - post -> createResource
+    - patch -> partialUpdateResource
+    - /me -> {action}ResourceByMyOauthId
+    Reasoning for this schema is based on:
+    https://github.com/watson-developer-cloud/api-guidelines/blob/master/swagger-coding-style.md
+
 
 ### Removed
 - removed required attribute for startDate in EducationSpecification
