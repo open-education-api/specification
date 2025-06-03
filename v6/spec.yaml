@@ -6,8 +6,8 @@ info:
     OpenAPI (fka Swagger) specification for the Open Education API.
 
     <figure>
-    	<a target="_blank" href="OOAPIv5_model.png">
-      <img src="OOAPIv5_model.png" alt="OOAPI information model that feeds OOAPI specification" width="70%" class="img-responsive">
+    	<a target="_blank" href="ooapi_v6.png">
+      <img src="ooapi_v6.png" alt="OOAPI information model that feeds OOAPI specification" width="100%" class="img-responsive">
       </a>
       <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>
     </figure>
@@ -260,6 +260,7 @@ x-tagGroups:
       - course offerings
       - course offering associations
       - components
+      - documents
       - groups
       - learning components
       - learning component offerings
@@ -361,8 +362,14 @@ paths:
     $ref: paths/PersonMe.yaml
   /persons/{personId}:
     $ref: paths/PersonInstance.yaml
-  /persons/{personId}/associations:
-    $ref: paths/PersonAssociationCollection.yaml
+  /persons/{personId}/program-offering-associations:
+    $ref: paths/PersonProgramOfferingAssociationCollection.yaml
+  /persons/{personId}/course-offering-associations:
+    $ref: paths/PersonCourseOfferingAssociationCollection.yaml
+  /persons/{personId}/learning-component-offering-associations:
+    $ref: paths/PersonLearningComponentOfferingAssociationCollection.yaml
+  /persons/{personId}/test-component-offering-associations:
+    $ref: paths/PersonTestComponentOfferingAssociationCollection.yaml
   /organizations:
     $ref: paths/OrganizationCollection.yaml
   /organizations/{organizationId}:
@@ -486,3 +493,6 @@ paths:
     $ref: paths/GroupMemberships.yaml  
   /groups/{groupId}/memberships/{personId}:
     $ref: paths/PersonGroupMemberships.yaml  
+
+  /documents/{documentId}:
+    $ref: paths/DocumentInstance.yaml

@@ -23,8 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - test-component
     - test-component-offering
     - test-component-offering-association
+- add path for documents
 - implement longer self explanatory Ids
-- update and create sub paths on groups academic-sessions
+- update and create sub paths on groups academic-sessions persons for ...offering-associations
 - remove sorting
 - improve rendering by removing general offering.yaml and association.yaml in favour of referencing to shared properties and separate Id
 - fix Consider changing query parameter result-state to resultState. #320
