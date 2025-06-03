@@ -135,7 +135,7 @@ tags:
       More information on the support for student mobility can be found 
       <a href="https://swimlanes.io/d/s5mfpj7Si">here</a>
   - name: learning components 
-    description: The learing components API provides information about learning activities that are part of a course (or learning unit).
+    description: The learning components API provides information about learning activities that are part of a course (or learning unit).
   - name: learning component offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
   - name: test components 
@@ -429,25 +429,32 @@ paths:
     $ref: paths/LearningComponentOfferingCollection.yaml
   /learning-component-offerings/{learningComponentOfferingId}:
     $ref: paths/LearningComponentOfferingInstance.yaml  
+  /learning-component-offerings/{learningComponentOfferingId}/groups:
+    $ref: paths/LearningComponentOfferingGroupCollection.yaml      
+
   /test-components/{testComponentId}:
     $ref: paths/TestComponentInstance.yaml
   /test-components/{testComponentId}/offerings:
     $ref: paths/TestComponentOfferingCollection.yaml
   /test-component-offerings/{testComponentOfferingId}:
     $ref: paths/TestComponentOfferingInstance.yaml  
+  /test-component-offerings/{testComponentOfferingId}/groups:
+    $ref: paths/TestComponentOfferingGroupCollection.yaml      
   # /offerings/{offeringId}:
   #   $ref: paths/OfferingInstance.yaml
   # /offerings/{offeringId}/associations:
   #   $ref: paths/OfferingAssociationCollection.yaml
   # /offerings/{offeringId}/associations/me:
   #   $ref: paths/OfferingAssociationInstanceMe.yaml
-  /offerings/{offeringId}/groups:
-    $ref: paths/OfferingGroupCollection.yaml
   /program-offerings/{programOfferingId}/program-offering-associations:
     $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
+  /program-offerings/{programOfferingId}/groups:
+    $ref: paths/ProgramOfferingGroupCollection.yaml      
 
   /course-offerings/{courseOfferingId}/course-offering-associations:
     $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
+  /course-offerings/{courseOfferingId}/groups:
+    $ref: paths/CourseOfferingGroupCollection.yaml      
 
   # /associations/{associationId}:
   #   $ref: paths/AssociationInstance.yaml
