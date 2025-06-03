@@ -121,7 +121,7 @@ properties:
       $ref: './IdentifierEntry.yaml'    
   enrollmentPeriods:
     type: array
-    description: An array of periods that a person can enroll into this offering. The period is defined by taretgroup and date
+    description: An array of periods that a person can enroll into this offering. The period is defined by taretgroup and dateTime
     items:
       $ref: './EnrollmentPeriods.yaml'
   consumers:

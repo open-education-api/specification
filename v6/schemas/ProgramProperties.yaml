@@ -66,10 +66,11 @@ properties:
     description: The duration of this program. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
     example: P1DT30H4S
-  firstStartDate:
+  firstStartDateTime:
     type: string
-    description: The date when participants can follow this program for the first time.
-    format: date
+    description: The moment when participants can follow this program for the first time.
+    format: date-time
+    example: '2025-08-28T08:30:00+01:00'
   levelOfQualification:
     $ref: '../enumerations/levelOfQualification.yaml'
   level:

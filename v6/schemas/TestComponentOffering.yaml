@@ -10,22 +10,22 @@ allOf:
         type: string
         description: The moment on which this offering starts, RFC3339 (date-time)
         format: date-time
-        example: 2025-03-01T10:00:00Z
+        example: 2025-03-01T08:30:00+01:00
       endDateTime:
         type: string
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
-        example: 2025-07-19T18:00:00Z
+        example: 2025-07-19T08:30:00+01:00
       enrollStartDateTime:
         type: string
         description: The moment from which a student can enroll for this component, RFC3339 (date-time).
         format: date-time
-        example: 2025-03-01T10:00:00Z
+        example: 2025-03-01T08:30:00+01:00
       enrollEndDateTime:
         type: string
         description: The last moment to which a student can enroll for this component, RFC3339 (date-time).
         format: date-time
-        example: 2025-03-01T10:00:00Z
+        example: 2025-03-01T08:30:00+01:00
       resultWeight:
         type: integer
         description: The result weight of this offering

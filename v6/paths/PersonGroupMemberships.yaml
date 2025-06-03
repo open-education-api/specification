@@ -32,8 +32,8 @@ put:
             Create a new group member in remote system:
               value:
                 personId: 123e4567-e89b-12d3-a456-122564174000
-                startDateTime: 2020-09-28T08:30:00+01:00
-                endDateTime: 2020-09-30T20:00:00+01:00
+                startDateTime: 2025-09-28T08:30:00+01:00
+                endDateTime: 2025-11-30T20:00:00+01:00
                 state: active
                 role: student
             

@@ -453,11 +453,15 @@ paths:
   /test-component-offering-associations/{testComponentOfferingAssociationId}:
     $ref: paths/TestComponentOfferingAssociationInstance.yaml      
 
+  /program-offerings/{programOfferingId}:
+    $ref: paths/ProgramOfferingInstance.yaml      
   /program-offerings/{programOfferingId}/program-offering-associations:
     $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
   /program-offerings/{programOfferingId}/groups:
     $ref: paths/ProgramOfferingGroupCollection.yaml      
 
+  /course-offerings/{courseOfferingId}:
+    $ref: paths/CourseOfferingInstance.yaml      
   /course-offerings/{courseOfferingId}/course-offering-associations:
     $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
   /course-offerings/{courseOfferingId}/groups:

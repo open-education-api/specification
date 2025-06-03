@@ -5,37 +5,37 @@ allOf:
   description: A program offering which describes the program in time.
   title: ProgramOffering
   required:
-    - startDate
-    - endDate
+    - startDateTime
+    - endDateTime
   properties:
-    startDate:
+    startDateTime:
       type: string
       description: The moment on which this offering starts, RFC3339 (full-date)
-      format: date
-      example: 2019-08-21
-    endDate:
+      format: date-time
+      example: '2025-09-28T08:30:00+01:00'
+    endDateTime:
       type: string
       description: The moment on which this offering ends, RFC3339 (full-date)
-      format: date
-      example: 2023-06-15
+      format: date-time
+      example: '2025-12-28T08:30:00+01:00'
     enrollStartDateTime:
       type: string
       description: The moment from which a student can enroll for this program, RFC3339 (date-time).
       format: date-time
-      example: 2019-05-01
+      example: '2025-06-28T08:30:00+01:00'
     enrollEndDateTime:
       type: string
       description: The last moment to which a student can enroll for this program, RFC3339 (date-time).
       format: date-time
-      example: 2019-08-01
+      example: '2025-09-28T08:30:00+01:00'
     flexibleEntryPeriodStart:
       type: string
       description: If this is a program wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
-      format: date
+      format: date-time
     flexibleEntryPeriodEnd:
       type: string
       description: If this is a program wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
-      format: date
+      format: date-time
     addresses:
       type: array
       description: Addresses for this offering
