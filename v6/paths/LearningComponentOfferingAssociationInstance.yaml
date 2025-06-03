@@ -62,7 +62,7 @@ patch:
     - openId:
       - associations.write
   tags:
-    - associations
+    - learning component offering associations
 
   parameters:
     - name: learningComponentOfferingAssociationId

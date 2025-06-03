@@ -263,6 +263,7 @@ x-tagGroups:
       - groups
       - learning components
       - learning component offerings
+      - learning component offering associations
       - learning outcomes
       - organizations
       - persons
@@ -272,6 +273,7 @@ x-tagGroups:
       - rooms
       - test components
       - test component offerings
+      - test component offering associations
   - name: Models
     tags:
       - service_model
@@ -431,7 +433,8 @@ paths:
     $ref: paths/LearningComponentOfferingInstance.yaml  
   /learning-component-offerings/{learningComponentOfferingId}/groups:
     $ref: paths/LearningComponentOfferingGroupCollection.yaml      
-
+  /learning-component-offering-associations/{learningComponentOfferingAssociationId}:
+    $ref: paths/LearningComponentOfferingAssociationInstance.yaml
   /test-components/{testComponentId}:
     $ref: paths/TestComponentInstance.yaml
   /test-components/{testComponentId}/offerings:
@@ -440,6 +443,9 @@ paths:
     $ref: paths/TestComponentOfferingInstance.yaml  
   /test-component-offerings/{testComponentOfferingId}/groups:
     $ref: paths/TestComponentOfferingGroupCollection.yaml      
+  /test-component-offering-associations/{testComponentOfferingAssociationId}:
+    $ref: paths/TestComponentOfferingAssociationInstance.yaml      
+
   # /offerings/{offeringId}:
   #   $ref: paths/OfferingInstance.yaml
   # /offerings/{offeringId}/associations:

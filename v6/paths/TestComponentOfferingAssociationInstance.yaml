@@ -3,7 +3,7 @@ get:
   operationId: listTestComponentOfferingAssociationById
   description: Get a single test component offering association.
   tags:
-    - leartestning component offering associations
+    - test component offering associations
   parameters:
     - name: testComponentOfferingAssociationId
       in: path
@@ -50,7 +50,7 @@ get:
 
 
 patch:
-  summary: PATCH /cotest-component-offering-associations/{testComponentOfferingAssociationId}
+  summary: PATCH /test-component-offering-associations/{testComponentOfferingAssociationId}
   operationId: partialUpdateTestComponentOfferingAssociationById
   description: |
     Update the status or result of an enrollment. Other elements of the association object COULD 
@@ -62,7 +62,7 @@ patch:
     - openId:
       - associations.write
   tags:
-    - associations
+    - test component offering associations
 
   parameters:
     - name: testComponentOfferingAssociationId
