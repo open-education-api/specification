@@ -51,7 +51,7 @@ properties:
       - codeType: bagId
         code: '0344100000139910'
   consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) for more information about this mechanism.
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'

@@ -40,3 +40,19 @@ properties:
       buitenlandsePartner
       Beschrijving van de organisatie waarmee door een Nederlandse onderwijsbestuur wordt samengewerkt
       bij het verzorgen van een Joint Degree.
+  teachingLanguages:
+    type: array
+    description: |
+      voertaal
+    items:
+      type: string
+      description: The (primary) teaching language in which this program is given, should be a three-letter language code as specified by ISO 639-2.
+      minLength: 3
+      maxLength: 3
+      pattern: "^[a-z]{3}$"
+      example: nld
+    maxItems: 3
+  lastStartDate:
+    type: string
+    description: The date when participants can follow this program for the last time.
+    format: date
