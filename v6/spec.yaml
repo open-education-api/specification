@@ -152,9 +152,8 @@ tags:
     description: The programs API provides a coherent set of educational components, aimed at the realization of competences or objectives in the field of knowledge, insight, attitudes and skills that the person who completes the program must have.
   - name: rooms
     description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
-  # - name: news
-  #   description: The news API provides news feeds and items regarding a specific subject.
-
+  - name: news
+    description: This path is no longer supported.
 
   - name: service_model
     x-displayName: Service
@@ -240,14 +239,6 @@ tags:
     x-displayName: Room
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Room" />
-  # - name: news_feed_model
-  #   x-displayName: NewsFeed
-  #   description: |
-  #     <SchemaDefinition schemaRef="#/components/schemas/NewsFeed" />
-  # - name: news_item_model
-  #   x-displayName: NewsItem
-  #   description: |
-  #     <SchemaDefinition schemaRef="#/components/schemas/NewsItem" />
 
 x-tagGroups:
   - name: Requests and respones
@@ -266,6 +257,7 @@ x-tagGroups:
       - learning component offerings
       - learning component offering associations
       - learning outcomes
+      - news
       - organizations
       - persons
       - programs
