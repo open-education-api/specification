@@ -22,8 +22,7 @@ info:
 
     Information on the EDU-API model that was also used for this api is shown <a target="_blank" href="eduapi.png">here</a>
 
-    The followind paths are described in the model:
-     
+    The followind paths are described in the model: 
     / (The service endpoint)
 
     /academic-sessions
@@ -165,6 +164,7 @@ info:
 
   x-logo:
     url: ../logo.png
+    href: ./docs.html
 
 servers:
   - url: http://demo01.eduapi.nl/v5
