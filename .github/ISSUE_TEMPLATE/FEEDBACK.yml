@@ -34,7 +34,7 @@ body:
     id: issues
     attributes:
       label: Related issues
-      description: If applicable, please refer to relevant issue number(s), ex. #123, #567
+      description: "If applicable, please refer to relevant issue number(s), ex. #123, #567"
     validations:
       required: false
   - type: dropdown
@@ -52,8 +52,8 @@ body:
       label: Follow-up invitation
       description: Would you also be open to spend some time to discuss this issue in a technical working group session?
       options:
-        - No
-        - Yes
+        - "No"
+        - "Yes"
     validations:
       required: true
   - type: textarea
