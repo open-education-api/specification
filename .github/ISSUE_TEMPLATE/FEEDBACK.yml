@@ -52,8 +52,8 @@ body:
       label: Follow-up invitation
       description: Would you also be open to spend some time to discuss this issue in a technical working group session?
       options:
-        - No
-        - Yes
+        - "No"
+        - "Yes"
     validations:
       required: true
   - type: textarea
