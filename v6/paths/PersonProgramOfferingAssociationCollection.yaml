@@ -48,16 +48,14 @@ get:
                   items:
                     type: array
                     items:
-                      - allOf:
-                          - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-                          - type: object
-                            required:
-                              - offering
-                            properties:
-                              offering:
-                                $ref: '../schemas/ProgramOffering.yaml'
-                              academicSession:
-                                $ref: '../schemas/AcademicSession.yaml'
+                      allOf:
+                        - $ref: '../schemas/ProgramOfferingAssociation.yaml'
+                        - type: object
+                          properties:
+                            offering:
+                              $ref: '../schemas/ProgramOffering.yaml'
+                            academicSession:
+                              $ref: '../schemas/AcademicSession.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

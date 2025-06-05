@@ -1,6 +1,6 @@
 openapi: "3.0.3"
 info:
-  version: "6.0"
+  version: "6.0 - BETA for feedback only"
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API. 
@@ -22,6 +22,145 @@ info:
 
     Information on the EDU-API model that was also used for this api is shown <a target="_blank" href="eduapi.png">here</a>
 
+    The followind paths are described in the model:
+     
+    / (The service endpoint)
+
+    /academic-sessions
+
+    /academic-sessions/{academicSessionId}
+
+    /academic-sessions/{academicSessionId}/program-offerings
+
+    /academic-sessions/{academicSessionId}/course-offerings
+    
+    /academic-sessions/{academicSessionId}/learning-component-offerings
+    
+    /academic-sessions/{academicSessionId}/test-component-offerings
+    
+    /buildings
+    
+    /buildings/{buildingId}
+    
+    /buildings/{buildingId}/rooms
+    
+    /courses
+    
+    /courses/{courseId}
+    
+    /courses/{courseId}/course-offerings
+    
+    /courses/{courseId}/learning-components
+    
+    /courses/{courseId}/learning-component-offerings
+    
+    /courses/{courseId}/test-components
+    
+    /courses/{courseId}/test-component-offerings
+    
+    /course-offerings/{courseOfferingId}
+    
+    /course-offerings/{courseOfferingId}/course-offering-associations
+    
+    /course-offerings/{courseOfferingId}/groups
+    
+    /course-offering-associations/{courseOfferingAssociationId}
+    
+    /course-offering-associations/external/me
+    
+    /documents/{documentId}
+    
+    /groups
+    
+    /groups/{groupId}
+    
+    /groups/{groupId}/memberships
+    
+    /groups/{groupId}/memberships/{personId}
+    
+    /learning-outcomes
+    
+    /learning-outcomes/{learningOutcomeId}
+    
+    /organizations
+    
+    /organizations/{organizationId}
+    
+    /organizations/{organizationId}/courses
+    
+    /organizations/{organizationId}/course-offerings
+    
+    /organizations/{organizationId}/groups
+    
+    /organizations/{organizationId}/learning-components
+    
+    /organizations/{organizationId}/learning-component-offerings
+    
+    /organizations/{organizationId}/programs
+    
+    /organizations/{organizationId}/program-offerings
+    
+    /organizations/{organizationId}/test-components
+    
+    /organizations/{organizationId}/test-component-offerings
+    
+    /persons
+    
+    /persons/me
+    
+    /persons/{personId}
+    
+    /persons/{personId}/course-offering-associations
+    
+    /persons/{personId}/learning-component-offering-associations
+    
+    /persons/{personId}/program-offering-associations
+    
+    /persons/{personId}/test-component-offering-associations
+    
+    /programs
+    
+    /programs/{programId}
+    
+    /programs/{programId}/courses
+    
+    /programs/{programId}/programs
+    
+    /programs/{programId}/program-offerings
+    
+    /learning-components/{learningComponentId}
+    
+    /learning-components/{learningComponentId}/offerings
+    
+    /learning-component-offerings/{learningComponentOfferingId}
+    
+    /learning-component-offerings/{learningComponentOfferingId}/groups
+    
+    /learning-component-offering-associations/{learningComponentOfferingAssociationId}
+    
+    /test-components/{testComponentId}
+    
+    /test-components/{testComponentId}/offerings
+    
+    /test-component-offerings/{testComponentOfferingId}
+    
+    /test-component-offerings/{testComponentOfferingId}/groups
+    
+    /test-component-offering-associations/{testComponentOfferingAssociationId}
+    
+    /program-offerings/{programOfferingId}
+    
+    /program-offerings/{programOfferingId}/program-offering-associations
+    
+    /program-offerings/{programOfferingId}/groups
+    
+    /program-offering-associations/{programOfferingAssociationId}
+    
+    /program-offering-associations/external/me
+    
+    /rooms
+    
+    /rooms/{roomId}
 
 
   x-logo:
