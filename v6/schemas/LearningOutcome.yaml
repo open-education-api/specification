@@ -3,7 +3,7 @@ description: statements regarding what a learner knows, understands and is able 
 required:
   - learningOutcomeId
   - name
-  - startDate
+  - validFrom
 properties:
   learningOutcomeId:
     type: string
@@ -73,12 +73,12 @@ properties:
     $ref: '../enumerations/learningOutcomeLevel.yaml'      
   validFrom:
     type: string
-    description: The date for when this learning outcome will be active. Should be a string formatted as an RFC3099 full-date.
-    format: date
+    description: The date and time for when this learning outcome will be active. Should be a string formatted as an RFC3099 full-date.
+    format: date-time
   validTo:
     type: string
-    description: The date when this learning outcome will no longer be valid, or should be renewed. Should be a string formatted as an RFC3099 full-date.
-    format: date
+    description: The date and time when this learning outcome will no longer be valid, or should be renewed. Should be a string formatted as an RFC3099 full-date.
+    format: date-time
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array

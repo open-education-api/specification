@@ -3,7 +3,7 @@ get:
   operationId: listTestComponentsByCourseId
   description: Get an ordered list of all course test components.
   tags:
-    - courses
+    - test components
   parameters:
     - name: courseId
       in: path
@@ -17,24 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: sort
-      in: query
-      explode: false
-      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - componentId
-            - name
-            - -componentId
-            - -name
-        default: [ componentId ]
-        example:
-          - name
-          - -componentId
   responses:
     '200':
       description: OK

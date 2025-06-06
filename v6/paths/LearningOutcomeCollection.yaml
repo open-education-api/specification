@@ -1,45 +1,28 @@
 get:
-  summary: GET /news-feeds
-  description: Get a list of all news feeds, ordered by title.
+  summary: GET /learning-outcomes
+  operationId: listLearningOutcomes
+  description: Get a list of all learning outcomes, ordered chronologically.
   tags:
-    - news
+    - learning outcomes
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
-    - name: newsFeedType
+    - name: since
       in: query
-      description: Filter by news type
+      description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
       required: false
       schema:
         type: string
-        enum:
-          - organization
-          - program
-          - course
-          - component
-          - person
-          - building
-          - room
-    - name: sort
+        format: date-time
+    - name: until
       in: query
-      explode: false
-      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
+      description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
       required: false
       schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - newsFeedId
-            - name
-            - -newsFeedId
-            - -name
-        default: [ name ]
-        example:
-          - name
-          - -newsFeedId
+        type: string
+        format: date-time
   responses:
     '200':
       description: OK
@@ -55,15 +38,17 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/NewsFeed.yaml'
+                      $ref: '../schemas/LearningOutcome.yaml'
                   ext:
-                    $ref: '../schemas/Ext.yaml'
+                      $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

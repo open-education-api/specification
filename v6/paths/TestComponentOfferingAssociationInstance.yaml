@@ -1,13 +1,13 @@
 get:
-  summary: GET /associations/{associationId}
-  operationId: listAssociationById
-  description: Get a single association.
+  summary: GET /test-component-offering-associations/{testComponentOfferingAssociationId}
+  operationId: listTestComponentOfferingAssociationById
+  description: Get a single test component offering association.
   tags:
-    - associations
+    - test component offering associations
   parameters:
-    - name: associationId
+    - name: testComponentOfferingAssociationId
       in: path
-      description: Association ID
+      description: Test Component Offering Association ID
       required: true
       schema:
         type: string
@@ -23,14 +23,14 @@ get:
           type: string
           enum:
             - person
-            - offering
+            - testComponentOffering
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/AssociationFull.yaml'          
+            $ref: '../schemas/TestComponentOfferingAssociationFull.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -50,8 +50,8 @@ get:
 
 
 patch:
-  summary: PATCH /associations/{associationId}
-  operationId: partialUpdateAssociationById
+  summary: PATCH /test-component-offering-associations/{testComponentOfferingAssociationId}
+  operationId: partialUpdateTestComponentOfferingAssociationById
   description: |
     Update the status or result of an enrollment. Other elements of the association object COULD 
     also be PATCHED. But are not likely and have therefor not been included in this endpoint.
@@ -62,10 +62,10 @@ patch:
     - openId:
       - associations.write
   tags:
-    - associations
+    - test component offering associations
 
   parameters:
-    - name: associationId
+    - name: testComponentOfferingAssociationId
       in: path
       description: The id of the association to update
       required: true
@@ -82,11 +82,8 @@ patch:
             remoteState:
               $ref: '../enumerations/remoteAssociationState.yaml'
             result:
-              oneOf:
-                - $ref: '../schemas/LearningComponentOfferingAssociationResult.yaml'
-                - $ref: '../schemas/TestComponentOfferingAssociationResult.yaml'
-                - $ref: '../schemas/CourseOfferingAssociationResult.yaml'
-                - $ref: '../schemas/ProgramOfferingAssociationResult.yaml'  
+              $ref: '../schemas/TestComponentOfferingAssociationResult.yaml'
+
 
   responses:
     '200':

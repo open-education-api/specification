@@ -1,15 +1,15 @@
 post:
-  summary: POST /associations/external/me
-  operationId: createExternalAssociationByopenId
+  summary: POST /course-offering-associations/external/me
+  operationId: createExternalCourseOfferingAssociationByopenId
   description: |
-    POST a single association enroll a person based on person information obtained from .wellknown endpoint, an offering, 
+    POST a single course offering association, enroll a person based on person information obtained from .wellknown endpoint, an offering, 
     and the organization/type=root information form the organization that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
   security:
     - openId:
-      - associations:external:me.write
+      - course-offering-associations:external:me.write
   tags:
-    - associations
+    - course offering associations
 
   requestBody:
     required: true
@@ -19,7 +19,7 @@ post:
           required:
             - remoteState
           allOf:
-          - $ref: '../schemas/AssociationWrite.yaml'
+          - $ref: '../schemas/CourseOfferingAssociationWrite.yaml'
           - properties:
               issuer:
                 $ref: '../schemas/Organization.yaml'

@@ -1,8 +1,6 @@
 type: object
-description: Either a program, course or component offering which descrbes the program, course or offering in time
 required:
   - primaryCode
-  - offeringType
   - name
   - state
   - description
@@ -16,8 +14,6 @@ properties:
       codeType: offeringCode
       code: INFOMQNM-20FS
     readOnly: true
-  offeringType:
-    $ref: ../enumerations/offeringType.yaml
   academicSession:
     description: |
       The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)
@@ -125,7 +121,7 @@ properties:
       $ref: './IdentifierEntry.yaml'    
   enrollmentPeriods:
     type: array
-    description: An array of periods that a person can enroll into this offering. The period is defined by taretgroup and date
+    description: An array of periods that a person can enroll into this offering. The period is defined by targetgroup and dateTime
     items:
       $ref: './EnrollmentPeriods.yaml'
   consumers:

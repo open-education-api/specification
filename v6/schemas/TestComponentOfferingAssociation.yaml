@@ -1,5 +1,6 @@
 allOf:
-  - $ref: './Association.yaml'
+  - $ref: './AssociationId.yaml'
+  - $ref: './AssociationProperties.yaml'
   - type: object
     properties:
       extraDuration:

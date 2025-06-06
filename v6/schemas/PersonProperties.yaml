@@ -183,12 +183,12 @@ properties:
         startDateTime:
           type: string
           description: The moment on which this assigned need starts, RFC3339 (full-date)
-          format: date
+          format: date-time
           example: '2025-05-30T20:00:00+01:00'
         endDateTime:
           type: string
           description: The moment on which this assigned need ends, RFC3339 (full-date)
-          format: date
+          format: date-time
           example: '2025-07-30T20:00:00+01:00'          
     minItems: 0
   consumers:

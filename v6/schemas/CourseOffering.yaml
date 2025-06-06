@@ -1,38 +1,40 @@
 allOf:
-  - $ref: './Offering.yaml'
+  - $ref: '../schemas/OfferingId.yaml'
+  - $ref: '../schemas/OfferingProperties.yaml'
   - type: object
     description: |
       startDateTime and endDateTime of an offering are to be provided at least in the state `active`. In all other states the
       times on the academic session should indicate in what timeframe the offering will or should have been available.
+    title: CourseOffering
     properties:
       startDateTime:
         type: string
         description: The moment on which this offering starts, RFC3339 (full-date)
-        format: date
-        example: 2019-08-21T00:00:00Z
+        format: date-time
+        example: 2019-08-21T08:30:00+01:00
       endDateTime:
         type: string
         description: The moment on which this offering ends, RFC3339 (full-date)
-        format: date
-        example: 2019-10-23T23:59:59Z
+        format: date-time
+        example: 2019-10-23T22:59:59+01:00
       enrollStartDateTime:
         type: string
         description: The moment from which a student can enroll for this offering, RFC3339 (date-time).
         format: date-time
-        example: 2019-05-01T00:00:00Z
+        example: 2019-05-01T00:00:00+01:00
       enrollEndDateTime:
         type: string
         description: The last moment to which a student can enroll for this component, RFC3339 (date-time).
         format: date-time
-        example: 2019-08-01T23:59:59Z
+        example: 2019-08-01T23:59:59+01:00
       flexibleEntryPeriodStart:
         type: string
         description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
-        format: date
+        format: date-time
       flexibleEntryPeriodEnd:
         type: string
         description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
-        format: date
+        format: date-time
       addresses:
         type: array
         description: Addresses for this offering

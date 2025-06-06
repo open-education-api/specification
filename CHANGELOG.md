@@ -10,15 +10,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds academic-session to groups #247
 - Add preferredName to person for OKE
 - Add alternateName to person #308
-- Add idCheckName and assignedNeeds # 
+- Add idCheckName and assignedNeeds # OKE 
+- Add generic OKE elements #353
+- Add learning outcomes as an object #340, #349 and #356 
 - Add languageTypedString subfields should be required #316
 - Add assignedNeeds (not personalNeed this is part of association) #327
+- add paths for learning outcomes
+- add paths for:
+    - learning-component
+    - learning-component-offering
+    - learning-component-offering-association
+- add paths for:
+    - test-component
+    - test-component-offering
+    - test-component-offering-association
+- add path for documents
+- implement longer self explanatory Ids
+- update and create sub paths on groups academic-sessions persons for ...offering-associations
+- remove sorting
+- improve rendering by removing general offering.yaml and association.yaml in favour of referencing to shared properties and separate Id
+- fix Consider changing query parameter result-state to resultState. #320
+- add learningComponent and testComponent #333
+- add enrollment periods to offering properties #319
+- operationId to all paths based on schema:
+    - put -> replaceResource
+    - get -> listResources
+    - get (byId) -> listResourceById
+    - post -> createResource
+    - patch -> partialUpdateResource
+    - /me -> {action}ResourceByMyOauthId
+    Reasoning for this schema is based on:
+    https://github.com/watson-developer-cloud/api-guidelines/blob/master/swagger-coding-style.md
+
 
 ### Removed
 - removed required attribute for startDate in EducationSpecification
+- reomved components 
+- removed offerings
+- removed education specification #345
+- removed news #347
+- removed newsfeeds #347
+- removed path /groups/persons
+- removed server side sorting from all paths for improved performance and more consistent results
+
 
 ### Changed
 - update of model
+- update relations and remove generic offering #108
+- update query elements in paths to use date-time in stead of only date 
+- update of visualisation of the information model #331
+- update result-state parameter to resultState #320
 
 
 

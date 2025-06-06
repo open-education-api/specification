@@ -1,13 +1,13 @@
 get:
-  summary: GET /offerings/{offeringId}/associations
-  operationId: listAssociationsByOfferingId
-  description: Get a list of all offering associations.
+  summary: GET /persons/{personId}/learning-component-offering-associations
+  operationId: listLearningComponentOfferingAssociationsByPersonId
+  description: Get a list of all learning component offering associations for an individual person.
   tags:
-    - offerings
+    - learning component offering associations
   parameters:
-    - name: offeringId
+    - name: personId
       in: path
-      description: Offering ID
+      description: Person ID
       required: true
       schema:
         type: string
@@ -15,17 +15,6 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
-    - name: associationType
-      in: query
-      description: Filter by association type
-      required: false
-      schema:
-        type: string
-        enum:
-          - programOffering
-          - courseOffering
-          - learingComponentOffering
-          - testComponentOffering
     - name: role
       in: query
       description: Filter by role
@@ -38,28 +27,12 @@ get:
       required: false
       schema:
         $ref: '../enumerations/associationState.yaml'
-    - name: result-state
+    - name: resultState
       in: query
       description: Filter by result state
       required: false
       schema:
         $ref: '../enumerations/resultState.yaml'
-    - name: sort
-      in: query
-      explode: false
-      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - associationId
-            - -associationId
-        default:
-        - associationId
-        example:
-          - associationId
   responses:
     '200':
       description: OK
@@ -75,11 +48,16 @@ get:
                   items:
                     type: array
                     items:
-                      oneOf:
-                        - $ref: '../schemas/ProgramOfferingAssociationExpandable.yaml'
-                        - $ref: '../schemas/CourseOfferingAssociationExpandable.yaml'
-                        - $ref: '../schemas/LearningComponentOfferingAssociationExpandable.yaml'
-                        - $ref: '../schemas/TestComponentOfferingAssociationExpandable.yaml'
+                      - allOf:
+                          - $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
+                          - type: object
+                            required:
+                              - offering
+                            properties:
+                              offering:
+                                $ref: '../schemas/LearningComponentOffering.yaml'
+                              academicSession:
+                                $ref: '../schemas/AcademicSession.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

@@ -39,8 +39,9 @@ properties:
     example: P1DT30H4S
   firstStartDate:
     type: string
-    description: The date when participants can follow this course for the first time.
-    format: date
+    description: The date and time when participants can follow this course for the first time.
+    format: date-time
+    example: 2020-09-28T08:30:00+01:00
   description:
     type: array
     description: The description of this course (ECTS-description).

@@ -3,7 +3,7 @@ get:
   operationId: listLearningComponentsByOrganizationId
   description: Get an ordered list of all learning components for a given organization, ordered by name.
   tags:
-    - organizations
+    - learning components
   parameters:
     - name: organizationId
       in: path
@@ -17,24 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: sort
-      in: query
-      explode: false
-      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - componentId
-            - name
-            - -componentId
-            - -name
-        default: [ name ]
-        example:
-          - componentId
-          - -name
   responses:
     '200':
       description: OK

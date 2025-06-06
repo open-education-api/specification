@@ -1,23 +1,35 @@
 get:
-  summary: GET /news-feeds/{newsFeedId}
-  description: Get a single news feed.
+  summary: GET /learning-outcomes/{learningOutcomeId}
+  operationId: listLearningOutcomeById
+  description: Get a single learnig outcome.
   tags:
-    - news
+    - learning outcomes
   parameters:
-    - name: newsFeedId
+    - name: learningOutcomeId
       in: path
-      description: News feed ID
+      description: learning outcomecomponent ID
       required: true
       schema:
         type: string
         format: uuid
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to expand, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - organization
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/NewsFeed.yaml'
+            $ref: '../schemas/LearningOutcome.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
