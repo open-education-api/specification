@@ -12,10 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add alternateName to person #308
 - Add idCheckName and assignedNeeds # OKE 
 - Add generic OKE elements #353
-- Add learning outcomes as an object #340, #349 and #356 
 - Add languageTypedString subfields should be required #316
 - Add assignedNeeds (not personalNeed this is part of association) #327
+- Add learning outcomes as an object #340, #349 and #356 
+- Add enumeration for learning outcome types (based on SOLO SOLO taxonomy (www.johnbiggs.com.au))
 - add paths for learning outcomes
+- add learning-component object
+- add testing-component object #333
 - add paths for:
     - learning-component
     - learning-component-offering
@@ -41,10 +44,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - /me -> {action}ResourceByMyOauthId
     Reasoning for this schema is based on:
     https://github.com/watson-developer-cloud/api-guidelines/blob/master/swagger-coding-style.md
-
+- membership element added for groupmembership
+- added PUT path for memebership to a group
 
 ### Removed
-- removed required attribute for startDate in EducationSpecification
 - reomved components 
 - removed offerings
 - removed education specification #345
@@ -60,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update query elements in paths to use date-time in stead of only date 
 - update of visualisation of the information model #331
 - update result-state parameter to resultState #320
-
+- update relation between component offerings allow for 0 or more relations #341 and 
 
 
 
