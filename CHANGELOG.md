@@ -46,9 +46,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     https://github.com/watson-developer-cloud/api-guidelines/blob/master/swagger-coding-style.md
 - membership element added for groupmembership
 - added PUT path for memebership to a group
+- add structureblocks
 
 ### Removed
-- reomved components 
+- removed components 
 - removed offerings
 - removed education specification #345
 - removed news #347

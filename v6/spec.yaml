@@ -303,6 +303,10 @@ tags:
     x-displayName: LearningOutcome
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/LearningOutcome" />
+  - name: structure_block_model
+    x-displayName: StructureBlock
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/StructureBlock" />     
   - name: program_model
     x-displayName: Program
     description: |
@@ -471,7 +475,17 @@ components:
     Membership:
       $ref: schemas/Membership.yaml
     LearningOutcome:
-      $ref: schemas/LearningOutcome.yaml  
+      $ref: schemas/LearningOutcome.yaml
+    StructureBlock:
+      $ref: schemas/StructureBlock.yaml
+    NewsFeed:
+      $ref: schemas/NewsFeed.yaml
+    NewsItem:
+      $ref: schemas/NewsItem.yaml
+    # NewsFeed:
+    #   $ref: schemas/NewsFeed.yaml
+    # NewsItem:
+    #   $ref: schemas/NewsItem.yaml
     Organization:
       $ref: schemas/Organization.yaml
     Person:
