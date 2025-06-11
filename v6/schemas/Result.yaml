@@ -2,7 +2,7 @@ type: object
 description: A result as part of an association 
 required:
   - state
-  - resultDate
+  - resultDateTime
 properties:
   state:
     $ref: '../enumerations/resultState.yaml'
@@ -16,10 +16,10 @@ properties:
     type: string
     description: The score of this program/course/component association (based on resultValueType in offering)
     example: '9'
-  resultDate:
+  resultDateTime:
     type: string
     description: The date this result has been published, RFC3339 (full-date)
-    format: date
-    example: 2020-09-28
+    format: date-time
+    example: '2025-11-28T08:30:00+01:00'
   ext:
     $ref: './Ext.yaml'

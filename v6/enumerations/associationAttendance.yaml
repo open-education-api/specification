@@ -1,0 +1,12 @@
+type: string
+description: |
+  Tracks the attendance status of an individual's association with an offering. 
+  This field indicates whether the person has not yet begun their attendance, attended as required for the offering, has completed their attendance, 
+  did not attend at all, or if their attendance status is unknown.
+enum:
+  - not_known
+  - not_started
+  - not_finished
+  - present
+  - not_present
+example: present

@@ -1,13 +1,13 @@
 get:
-  summary: GET /learning-components/{componentId}/offerings
+  summary: GET /learning-components/{learningComponentId}/learning-component-offerings
   operationId: listOfferingsByLearningComponentId
-  description: Get a list of all offerings for this learning component, ordered chronologically.
+  description: Get a list of all learning component offerings for this learning component, ordered chronologically.
   tags:
-    - components
+    - learning component offerings
   parameters:
-    - name: componentId
+    - name: learningComponentId
       in: path
-      description: Component ID
+      description: Learning Component ID
       required: true
       schema:
         type: string
@@ -25,40 +25,18 @@ get:
         type: boolean
     - name: since
       in: query
-      description: Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
+      description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
       required: false
       schema:
         type: string
-        format: date
+        format: date-time
     - name: until
       in: query
-      description: Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).
+      description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
       required: false
       schema:
         type: string
-        format: date
-    - name: sort
-      in: query
-      explode: false
-      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - offeringId
-            - name
-            - startDateTime
-            - endDateTime
-            - -offeringId
-            - -name
-            - -startDateTime
-            - -endDateTime
-        default: [ startDateTime ]
-        example:
-          - offeringId
-          - -startDateTime
+        format: date-time
   responses:
     '200':
       description: OK

@@ -7,12 +7,12 @@ properties:
   validFrom:
     type: string
     description: The day on which this timelineOverride starts (inclusive), RFC3339 (date)
-    format: date
-    example: '2021-09-01'
+    format: date-time
+    example: '2025-09-01T08:30:00+01:00'
   validTo:
     type: string
     description: The day on which this timelineOverride ends (exclusive), RFC3339 (date)
-    format: date
-    example: '2022-08-31'
+    format: date-time
+    example: '2025-11-31T08:30:00+01:00'
   course:
     $ref: './CourseProperties.yaml'

@@ -1,5 +1,8 @@
 type: object
-description: A String with an associated language code.
+description: A String with an associated language code. IF this object is used both fields are mandatory.
+required:
+  - language
+  - description
 properties:
   language:
     description: The language used in the described entity. A string formatted according to RFC3066.

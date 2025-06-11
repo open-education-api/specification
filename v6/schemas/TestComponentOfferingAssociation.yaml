@@ -1,6 +1,46 @@
 allOf:
-  - $ref: './Association.yaml'
+  - $ref: './AssociationId.yaml'
+  - $ref: './AssociationProperties.yaml'
   - type: object
     properties:
+      extraDuration:
+        type: string
+        description: The extra duration of this component for this specific candidate. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
+        pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
+        example: PT20M
+      requiredPersonalNeeds:
+        $ref: '../enumerations/personalNeeds.yaml'
+      attempt:
+        type: integer
+        description: The attempt this association is linked to.
+        example: 2
+      attendance:
+        $ref: '../enumerations/associationAttendance.yaml'
+      irregularities:
+        type: array
+        description: The irregularities that are reported for this association. This is a list of the irregularities that are reported for this association.
+        items:
+          type: string
+      documents:
+        type: array
+        description: |
+          Documents that are related to the test component offering association. E.g. handed in documents, plagiarism reports, test made, etc.
+        items:
+          type: object
+          required:
+            - documentId
+            - documentType
+            - documentName
+          properties:
+            documentId:
+              type: string
+              description: The unique identifier of the document
+              example: 12345678-1234-1234-1234-123456789012
+            documentType:
+              $ref: ../enumerations/testComponentAssociationDocumentType.yaml
+            documentName:
+              type: string
+              description: The name of the document
+              example: paper_test_1234333.pdf
       result:
         $ref: './TestComponentOfferingAssociationResult.yaml'

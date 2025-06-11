@@ -6,7 +6,7 @@ required:
   - abbreviation
   - description
   - primaryCode
-  - teachingLanguage
+  - teachingLanguages
 properties:
   primaryCode:
     description: The primary human readable identifier for the program. This is often the source identifier as defined by the institution.
@@ -40,13 +40,17 @@ properties:
     example:
     - language: en-GB
       value: The study of life
-  teachingLanguage:
-    type: string
-    description: The (primary) teaching language in which this program is given, should be a three-letter language code as specified by ISO 639-2.
-    minLength: 3
-    maxLength: 3
-    pattern: "^[a-z]{3}$"
-    example: nld
+  teachingLanguages:
+    type: array
+    description:  The languages in which this program is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the program.
+    minItems: 1
+    items:
+      type: string
+      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
+      minLength: 3
+      maxLength: 3
+      pattern: "^[a-z]{3}$"
+      example: nld
   studyLoad:
     type: array
     items:
@@ -62,10 +66,11 @@ properties:
     description: The duration of this program. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
     example: P1DT30H4S
-  firstStartDate:
+  firstStartDateTime:
     type: string
-    description: The date when participants can follow this program for the first time.
-    format: date
+    description: The moment when participants can follow this program for the first time.
+    format: date-time
+    example: '2025-08-28T08:30:00+01:00'
   levelOfQualification:
     $ref: '../enumerations/levelOfQualification.yaml'
   level:

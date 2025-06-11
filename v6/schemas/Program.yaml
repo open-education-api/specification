@@ -3,10 +3,10 @@ allOf:
   - $ref: '../schemas/ProgramProperties.yaml'
   - properties: 
       validFrom:
-        description: The first day this program is valid (inclusive).
+        description: The first moment this program is valid (inclusive).
         type: string
-        format: date
+        format: date-time
       validTo:
-        description: The day this program ceases to be valid (e.g. exclusive).
+        description: The moment this program ceases to be valid (e.g. exclusive).
         type: string
-        format: date
+        format: date-time

@@ -1,0 +1,50 @@
+get:
+  summary: GET /course-offerings/{courseOfferingId}
+  operationId: listCourseOfferingsById
+  description: Get a single course offering.
+  tags:
+    - course offerings
+  parameters:
+    - name: courseOfferingId
+      in: path
+      description: Course Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to expand, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - course
+            - programOffering
+            - academicSession
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CourseOffering.yaml'
+            title: courseOffering
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

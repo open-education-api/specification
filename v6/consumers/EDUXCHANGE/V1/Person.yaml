@@ -34,14 +34,14 @@ properties:
             - part-time
             - dual training
             - self-paced
-        startDate:
+        startDateTime:
           type: string
-          description: The start date for this enrollment. Should be a string formatted as an RFC3099 full-date.
-          format: date
-        endDate:
+          description: The start moment for this enrollment. Should be a string formatted as an RFC3099 full-date.
+          format: date-time
+        endDateTime:
           type: string
-          description: The end date for this enrollment. Should be a string formatted as an RFC3099 full-date.
-          format: date
+          description: The end moment for this enrollment. Should be a string formatted as an RFC3099 full-date.
+          format: date-time
   institutionBRINCode:
     type: string
     pattern: ^\d{2}[A-Z]{2}$

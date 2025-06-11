@@ -4,7 +4,7 @@ required:
   - name
   - abbreviation
   - description
-  - teachingLanguage
+  - teachingLanguages
   - level
   - primaryCode
 properties:
@@ -39,8 +39,9 @@ properties:
     example: P1DT30H4S
   firstStartDate:
     type: string
-    description: The date when participants can follow this course for the first time.
-    format: date
+    description: The date and time when participants can follow this course for the first time.
+    format: date-time
+    example: 2020-09-28T08:30:00+01:00
   description:
     type: array
     description: The description of this course (ECTS-description).
@@ -50,13 +51,17 @@ properties:
     example:
     - language: en-GB
       value: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
-  teachingLanguage:
-    type: string
-    description: The (primary) teaching language in which this course is given, should be a three-letter language code as specified by ISO 639-2.
-    minLength: 3
-    maxLength: 3
-    pattern: "^[a-z]{3}$"
-    example: nld
+  teachingLanguages:
+    type: array
+    description:  The languages in which this course is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the course.
+    minItems: 1
+    items:
+      type: string
+      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
+      minLength: 3
+      maxLength: 3
+      pattern: "^[a-z]{3}$"
+      example: nld
   fieldsOfStudy:
     type: string
     description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.

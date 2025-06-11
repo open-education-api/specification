@@ -1,0 +1,45 @@
+get:
+  summary: GET /documents/{documentId}
+  operationId: listDocumentById
+  description: Get the binary data from a document.
+  security:
+    - oAuthFlows:
+      - nl-test-admin-flow-2-3-4
+  tags:
+    - documents
+  parameters:
+    - name: documentId
+      in: path
+      description: Document ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    '200':
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+          examples:
+            file-download:
+              description: File download
+              summary: File download
+              value: <raw data>
+      description: OK
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

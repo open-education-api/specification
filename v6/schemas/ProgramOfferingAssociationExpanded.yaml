@@ -1,5 +1,6 @@
 allOf:
-  - $ref: './Association.yaml'
+  - $ref: './AssociationId.yaml'
+  - $ref: './AssociationProperties.yaml'
   - type: object
     properties:
       result:
@@ -9,4 +10,4 @@ allOf:
         $ref: './Person.yaml'
       offering:
         description: The offering this association is for
-        $ref: './Offering.yaml'
+        $ref: './ProgramOffering.yaml'

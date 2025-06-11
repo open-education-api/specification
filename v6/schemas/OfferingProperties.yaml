@@ -1,11 +1,10 @@
 type: object
-description: Either a program, course or component offering which descrbes the program, course or offering in time
 required:
   - primaryCode
-  - offeringType
   - name
+  - state
   - description
-  - teachingLanguage
+  - teachingLanguages
   - resultExpected
 properties:
   primaryCode:
@@ -15,8 +14,6 @@ properties:
       codeType: offeringCode
       code: INFOMQNM-20FS
     readOnly: true
-  offeringType:
-    $ref: ../enumerations/offeringType.yaml
   academicSession:
     description: |
       The academicsession during which this courseoffering takes place. [`expandable`](#tag/academic_session_model)
@@ -65,13 +62,17 @@ properties:
               Select an appropriate sampling method (e.g., stratified)
               Perform parametric tests (e.g., repeated measures (M)ANOVA)
               Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
-  teachingLanguage:
-    type: string
-    description: The (primary) teaching language in which this offering is given, should be a three-letter language code as specified by ISO 639-2.
-    minLength: 3
-    maxLength: 3
-    pattern: "^[a-z]{3}$"
-    example: nld
+  teachingLanguages:
+    type: array
+    description:  The languages in which this course is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the offering.
+    minItems: 1
+    items:
+      type: string
+      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
+      minLength: 3
+      maxLength: 3
+      pattern: "^[a-z]{3}$"
+      example: nld
   modeOfDelivery:
     $ref: '../enumerations/modesOfDelivery.yaml'
   maxNumberStudents:
@@ -117,7 +118,12 @@ properties:
     type: array
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
-      $ref: './IdentifierEntry.yaml'
+      $ref: './IdentifierEntry.yaml'    
+  enrollmentPeriods:
+    type: array
+    description: An array of periods that a person can enroll into this offering. The period is defined by targetgroup and dateTime
+    items:
+      $ref: './EnrollmentPeriods.yaml'
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array

@@ -3,7 +3,7 @@ get:
   operationId: listCoursesByOrganizationId
   description: Get an ordered list of all courses for a given organization, ordered by name.
   tags:
-    - organizations
+    - courses
   parameters:
     - name: organizationId
       in: path
@@ -29,24 +29,6 @@ get:
       required: false
       schema:
         $ref: '../enumerations/modesOfDelivery.yaml'
-    - name: sort
-      in: query
-      explode: false
-      description: 'Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]'
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          enum:
-            - courseId
-            - name
-            - -courseId
-            - -name
-        default: [ name ]
-        example:
-          - name
-          - -courseId
   responses:
     '200':
       description: OK
