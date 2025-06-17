@@ -478,14 +478,6 @@ components:
       $ref: schemas/LearningOutcome.yaml
     StructureBlock:
       $ref: schemas/StructureBlock.yaml
-    NewsFeed:
-      $ref: schemas/NewsFeed.yaml
-    NewsItem:
-      $ref: schemas/NewsItem.yaml
-    # NewsFeed:
-    #   $ref: schemas/NewsFeed.yaml
-    # NewsItem:
-    #   $ref: schemas/NewsItem.yaml
     Organization:
       $ref: schemas/Organization.yaml
     Person:
