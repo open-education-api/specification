@@ -8,13 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add /learning-components ant test-components path (based on feedback and OKE see: https://netwerkexamineringdigitalisering.github.io/NED-OOAPI/specification/v5/docs.html#tag/components/operation/listComponents) #377
--  
+
 
 ### Removed
 
 
 ### Changed
-
+- teachingLanguage query paramater to match the type in schema from string to array (#373)
 
 
 ## [6.0.0 Beta] - 2025-05-22
