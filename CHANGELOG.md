@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Beta_postfeedback] - 2025-06-17
+
+### Added
+- Add /learning-components ant test-components path (based on feedback and OKE see: https://netwerkexamineringdigitalisering.github.io/NED-OOAPI/specification/v5/docs.html#tag/components/operation/listComponents) #377
+-  
+
+### Removed
+
+
+### Changed
+
+
+
 ## [6.0.0 Beta] - 2025-05-22
 
 ### Added
