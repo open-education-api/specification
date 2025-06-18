@@ -574,6 +574,8 @@ paths:
     $ref: paths/LearningComponentOfferingInstance.yaml  
   /learning-component-offerings/{learningComponentOfferingId}/groups:
     $ref: paths/LearningComponentOfferingGroupCollection.yaml      
+  /learning-component-offerings/{learningComponentOfferingId}/learning-component-offering-associations:
+    $ref: paths/LearningComponentOfferingLearningComponentOfferingAssociationCollection.yaml      
   /learning-component-offering-associations/{learningComponentOfferingAssociationId}:
     $ref: paths/LearningComponentOfferingAssociationInstance.yaml
   /test-components:
@@ -583,11 +585,15 @@ paths:
   /test-components/{testComponentId}/test-component-offerings:
     $ref: paths/TestComponentTestComponentOfferingCollection.yaml
   /test-component-offerings/{testComponentOfferingId}:
-    $ref: paths/TestComponentOfferingInstance.yaml  
+    $ref: paths/TestComponentOfferingInstance.yaml 
+  /test-component-offerings/{testComponentOfferingId}/test-component-offering-associations:
+    $ref: paths/TestComponentOfferingTestComponentOfferingAssociationCollection.yaml 
   /test-component-offerings/{testComponentOfferingId}/groups:
     $ref: paths/TestComponentOfferingGroupCollection.yaml      
   /test-component-offering-associations/{testComponentOfferingAssociationId}:
     $ref: paths/TestComponentOfferingAssociationInstance.yaml      
+  /test-component-offering-associations/{testComponentOfferingAssociationId}/url:
+    $ref: paths/TestComponentOfferingAssociationUrl.yaml      
 
   /program-offerings/{programOfferingId}:
     $ref: paths/ProgramOfferingInstance.yaml      

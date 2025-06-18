@@ -8,7 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add /learning-components ant test-components path (based on feedback and OKE see: https://netwerkexamineringdigitalisering.github.io/NED-OOAPI/specification/v5/docs.html#tag/components/operation/listComponents) #377
-
+- for OKE add:
+- PUT /person/{personID}
+- PUT /test-component-offering-associations/{testComponentOfferingAssociationId}
+- PATCH /program-offerings/{programOfferingId}
+- PUT /program-offerings/{programOfferingId}
+- PUT /program-offering-associations/{programOfferingAssociationId}
+- PUT /learning-component-offering-associations/{learningComponentOfferingAssociationId}
+- PUT /course-offering-associations/{courseOfferingAssociationId}
+- PATCH /course-offerings/{courseOfferingId}
+- PUT /course-offerings/{courseOfferingId}
+- PATCH /test-component-offerings/{testComponentOfferingId}
+- PUT /test-component-offerings/{testComponentOfferingId}
+- PATCH /learning-component-offerings/{learningComponentOfferingId}
+- PUT /learning-component-offerings/{learningComponentOfferingId}
+- GET /learning-component-offerings/{learningComponentOfferingId}/learning-component-offering-associations
+- GET /test-component-offering-associations/{testComponentOfferingAssociationId}/url
 
 ### Removed
 

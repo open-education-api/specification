@@ -4,7 +4,7 @@ description: Filter by teachingLanguage, which is a string describing the main t
 required: false
 schema:
   type: array
-  desciption: teachingLanguage
+  description: teachingLanguage
   items:
     type: string
     pattern: "^[a-z]{3}$"
