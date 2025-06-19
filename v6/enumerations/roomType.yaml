@@ -3,7 +3,7 @@ description: |
   The type of this room
   - general_purpose: algemeen
   - lecture_room: collegezaal
-  - computer-room: computerruimte
+  - computer_room: computerruimte
   - laboratory: laboratorium
   - office: kantoor
   - workspace: werkruimte
