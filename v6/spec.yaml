@@ -1,6 +1,6 @@
 openapi: "3.0.3"
 info:
-  version: "6.0 - BETA for feedback only"
+  version: "6.0 - BETA _with_fixes_250619_ for feedback only"
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API. 
