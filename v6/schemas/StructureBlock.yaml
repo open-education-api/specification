@@ -14,7 +14,7 @@ properties:
     $ref: '../enumerations/blockType.yaml'
   educationId:
     type: string
-    description: Unique id of the education element that is referneced in other words the UUID of either a progrma, course or learning outcome
+    description: Unique id of the education element that is referenced in other words the UUID of either a progrma, course or learning outcome
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   name:
@@ -65,9 +65,13 @@ properties:
     properties:
       blockRuleType:
         $ref: '../enumerations/blockRuleType.yaml'
-      blockAmount:
+      minRequiredBlocks:
         description: |
-          either number of EC or number of elments that need to be met at least (only needed when atleast type is used)
+          either number of EC or number of elments that need to be met at least (only needed when range type is used)
+        type: number
+      maxAllowedBlocks:
+        description: |
+          maximum number of either EC or elments that can be selected (only needed when range type is used)
         type: number
   relatedBlocks:
     type: array
