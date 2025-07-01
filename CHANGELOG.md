@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - not implemented request for teachingLanguage query paramater to match the type in schema from string to array (#373)
+- update link in enumeration (#384)
 
 
 ## [6.0.0 Beta] - 2025-05-22
