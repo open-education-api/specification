@@ -6,7 +6,7 @@ description: |
   - deliveries: bezorg
   - billing: factuur
   - teaching: the address where education takes place
-enum:
+x-ooapi-extensible-enum:
   - postal
   - visit
   - deliveries

@@ -5,7 +5,7 @@ description: |
     - private_program: PARTICULIEREOPLEIDING
     - program_cluster: HOONDERWIJSEENHEDENCLUSTER
     - course: HOONDERWIJSEENHEID
-enum:
+x-ooapi-extensible-enum:
   - program
   - private_program
   - cluster

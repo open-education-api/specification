@@ -5,7 +5,7 @@ description: |
   - 2: Multistructural
   - 3: Relational
   - 4: Extended abstract
-enum:
+x-ooapi-extensible-enum:
   - '1'
   - '2'
   - '3'

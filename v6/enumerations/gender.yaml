@@ -1,6 +1,6 @@
 type: string
 description: The gender of this person
-enum:
+x-ooapi-extensible-enum:
   - m
   - f
   - u

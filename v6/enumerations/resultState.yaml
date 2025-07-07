@@ -1,6 +1,6 @@
 type: string
 description: The state of this result
-enum:
+x-ooapi-extensible-enum:
   - in_progress
   - postponed
   - completed

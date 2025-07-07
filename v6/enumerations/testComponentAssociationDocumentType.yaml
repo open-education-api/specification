@@ -1,6 +1,6 @@
 type: string
 description: The type document related to a specific association
-enum:
+x-ooapi-extensible-enum:
   - test_made
   - handed_in_document
   - plagiarism_report

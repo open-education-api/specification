@@ -5,7 +5,7 @@ description: |
   - general: algemeen
   - schedule_change: roosterwijziging
   - announcement: aankondiging
-enum:
+x-ooapi-extensible-enum:
   - calamity
   - general
   - schedule_change

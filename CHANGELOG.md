@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0 Beta_postfeedback] - 2025-06-17
+## [6.0.0 Beta_postfeedback] - 2025-07-07
 
 ### Added
 - Add /learning-components ant test-components path (based on feedback and OKE see: https://netwerkexamineringdigitalisering.github.io/NED-OOAPI/specification/v5/docs.html#tag/components/operation/listComponents) #377
@@ -31,7 +31,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - not implemented request for teachingLanguage query paramater to match the type in schema from string to array (#373)
 - update link in enumeration (#384)
-
+- update all enumerations to extisible enumerations
+- altered modeOfDelivery string -> modesOfDelivery (array)
+- altered personalNeeds string -> personalNeeds (array)
+- altered enumarations:
+    - made enumerations singular and only string
+    - modesOfDelivery (array) -> modeOfdelivery (string) 
+    - personAffiliation (array) -> personAffiliation (string)
+    - personalNeeds (array) -> personalNeed (string)
 
 ## [6.0.0 Beta] - 2025-05-22
 

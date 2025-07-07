@@ -6,7 +6,7 @@ description: |
     - no_official_document: GEEN OFFICIEEL DOCUMENT
     - testimonial: GETUIGSCHRIFT
     - school_advice: SCHOOLADVIES
-enum:
+x-ooapi-extensible-enum:
   - diploma
   - certificate
   - no_official_document

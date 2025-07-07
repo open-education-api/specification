@@ -82,7 +82,9 @@ properties:
     format: date
     example: '2003-09-30'
   affiliations:
-    $ref: '../enumerations/personAffiliations.yaml'
+    type: array 
+    items: 
+      $ref: '../enumerations/personAffiliation.yaml'
   mail:
     type: string
     description: The primary e-mailaddress of this person
