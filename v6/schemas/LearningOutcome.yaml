@@ -69,8 +69,12 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
-  level:
+  complexityLevel:
     $ref: '../enumerations/learningOutcomeLevel.yaml'      
+  abbreviation:
+    type: string
+    description: shorthand description of this learning outcome
+    example: LO12_INFO_RET
   validFrom:
     type: string
     description: The date and time for when this learning outcome will be active. Should be a string formatted as an RFC3099 full-date.

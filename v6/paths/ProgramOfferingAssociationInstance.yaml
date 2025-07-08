@@ -100,3 +100,47 @@ patch:
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
 
+put:
+  summary: PUT /program-offering-associations/{programOfferingAssociationId}
+  description: |
+    PUT a single program offering association to enroll a person on specific association that can later be retreived.  
+  operationId: replaceProgramOfferingAssociationById
+  tags:
+    - program offering associations
+  parameters:
+    - name: programOfferingAssociationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ProgramOfferingAssociationExpanded.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

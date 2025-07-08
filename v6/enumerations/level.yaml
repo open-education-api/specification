@@ -14,7 +14,7 @@ description: |
   - undivided: ongedeeld
   - nt2-1: NT2 niveau 1
   - nt2-2: NT2 niveau 2
-enum:
+x-ooapi-extensible-enum:
   - secondary_vocational_education  
   - secondary_vocational_education_1  
   - secondary_vocational_education_2

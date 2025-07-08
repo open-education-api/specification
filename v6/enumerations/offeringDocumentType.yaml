@@ -1,6 +1,6 @@
 type: string
 description: The type document related to a specific offering
-enum:
+x-ooapi-extensible-enum:
   - assignment
   - instructions
   - session_report

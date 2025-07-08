@@ -22,7 +22,7 @@ get:
       description: Filter by modeOfDelivery
       required: false
       schema:
-        $ref: '../enumerations/modesOfDelivery.yaml'
+        $ref: '../enumerations/modeOfDelivery.yaml'
     - name: resultExpected
       in: query
       description: Filter by resultExpected

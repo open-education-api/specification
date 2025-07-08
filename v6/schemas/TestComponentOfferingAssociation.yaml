@@ -9,7 +9,10 @@ allOf:
         pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
         example: PT20M
       requiredPersonalNeeds:
-        $ref: '../enumerations/personalNeeds.yaml'
+        type: array
+        description: The additional facilities or resrouces needed by a person to make the component accessible and usable.
+        items:      
+          $ref: '../enumerations/personalNeed.yaml'
       attempt:
         type: integer
         description: The attempt this association is linked to.

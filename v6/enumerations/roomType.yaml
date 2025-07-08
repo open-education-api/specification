@@ -11,7 +11,7 @@ description: |
   - study_room: studieruimte
   - examination_room: onderzoekskamer
   - conference_room: vergaderkamer
-enum:
+x-ooapi-extensible-enum:
   - general_purpose
   - lecture_room
   - computer_room

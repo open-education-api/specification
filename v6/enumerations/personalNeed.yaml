@@ -1,14 +1,11 @@
-
-type: array
+type: string
 description: |
   The personal needs that are required for this component for this specific candidate. 
   This is a list of the personal needs that are required for this component for this specific candidate.
   The enum list is a selection from the imsglobal personal needs. For the full list, see https://www.imsglobal.org/sites/default/files/spec/afa/3p0/information_model/imsafa3p0pnp_v1p0_InfoModel.html
-items:
-  type: string
-  enum:
-    - extra_time
-    - spoken
-    - spell_checker_on_screen
+x-ooapi-extensible-enum:
+  - extra_time
+  - spoken
+  - spell_checker_on_screen
 example:
   - extra_time
