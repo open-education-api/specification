@@ -1,8 +1,8 @@
 type: string
 description: |
   The rule governing the set of blocks that are referenced from here
-    - one_of: you have to choose one of the elements in this list
-    - all: all elements form this list are mandatory (a compulsory item in a list is a single element with rule all)
+    - one_of: you have to choose one of the elements in this list.
+    - all: all elements form this list are mandatory (a compulsory item in a list is a single element with rule all).
     - range: the number of elements must be between min_required and max_allowed inclusive.
 enum:
   - one_of
