@@ -24,6 +24,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PUT /learning-component-offerings/{learningComponentOfferingId}
 - GET /learning-component-offerings/{learningComponentOfferingId}/learning-component-offering-associations
 - GET /test-component-offering-associations/{testComponentOfferingAssociationId}/url
+- Added StructureBlock object and also added enumerations:
+    - blockRuleType
+    - blockType
+
 
 ### Removed
 
