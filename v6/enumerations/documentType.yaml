@@ -1,0 +1,27 @@
+type: string
+description: |
+  The type of a documents:
+    - additional_document: e.g. to add additional information
+    - assessment_form: A form that is used to assess a test
+    - assessment_model: Formal description on how a test is assessed
+    - assignment: Description on what is expected from a student e.g. to hand in a paper
+    - attendance_report: A report that contains information on the attendance of a student for a course or test
+    - handed_in_document: A document that is handed in by the student
+    - instructions: Instructions for the student on how to enroll for a course or how to make a test
+    - plagiarism_report: A report that containts (potential) plagiarism info on e.g. a handed in document
+    - session_report: A report that contains information on a session, e.g. an academic session, a course or a test session
+    - test_made: The test including all the answers made by the student
+    - other: Other types of documents that are not listed above
+enum:
+  - additional_document
+  - assessment_form
+  - assessment_model
+  - assignment
+  - attendance_report
+  - handed_in_document
+  - instructions
+  - plagiarism_report
+  - session_report
+  - test_made
+  - other
+example: test_made

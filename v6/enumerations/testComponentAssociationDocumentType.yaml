@@ -1,9 +1,0 @@
-type: string
-description: The type document related to a specific association
-enum:
-  - test_made
-  - handed_in_document
-  - plagiarism_report
-  - additional_document
-  - other
-example: test_made
