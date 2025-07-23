@@ -1,6 +1,6 @@
 type: string
 description: Type of relation between person and In Case of Emergency contact
-enum:
+x-ooapi-extensible-enum:
   - partner
   - parent
   - other

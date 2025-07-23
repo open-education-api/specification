@@ -11,7 +11,7 @@ description: |
   - independent study: zelfstudie
   - external: extern
   - skills_training: vaardighedentraining
-enum:
+x-ooapi-extensible-enum:
   - lecture
   - practical
   - tutorial

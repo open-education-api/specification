@@ -6,7 +6,7 @@ description: |
   - sp: STUDIEPUNT studentpoints
   - hour: UUR	hours
 type: string
-enum:
+x-ooapi-extensible-enum:
   - contacttime
   - ects
   - sbu

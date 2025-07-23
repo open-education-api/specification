@@ -1,11 +1,11 @@
 type: string
 description: |
-  Level of the learning outcome based on SOLO taxonomy (www.johnbiggs.com.au)
+  Level of the learning outcome based on SOLO taxonomy (https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome)
   - 1: Unistructural
   - 2: Multistructural
   - 3: Relational
   - 4: Extended abstract
-enum:
+x-ooapi-extensible-enum:
   - '1'
   - '2'
   - '3'

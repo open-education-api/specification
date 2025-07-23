@@ -1,6 +1,6 @@
 type: string
 description: The state of this component or offering
-enum:
+x-ooapi-extensible-enum:
   - concept
   - canceled
   - active

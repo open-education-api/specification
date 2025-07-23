@@ -2,7 +2,7 @@ type: string
 description: |
   Level of qualification according to the European Qualification Framework, see https://europass.europa.eu/en/description-eight-eqf-levels and https://europass.europa.eu/en/europass-digital-tools/european-qualifications-framework
   Extended with level 4+ (VWO) from the Dutch National Qualification Framework, see [this overview](https://nlqf.nl/images/downloads/English2018/Schematic_overview_NLQF_2020.pdf) for more information.
-enum:
+x-ooapi-extensible-enum:
   - eqf_1
   - eqf_2
   - eqf_3

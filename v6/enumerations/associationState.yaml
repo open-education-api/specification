@@ -7,7 +7,7 @@ description: |
   - associated: The association has been confirmed/accepted/processed, the student is enrolled
   - queued: The association is in a queue, for example because the course is full
   - finished: The association has ended, for example because the course has ended or the student has completed the course
-enum:
+x-ooapi-extensible-enum:
   - pending
   - canceled
   - denied

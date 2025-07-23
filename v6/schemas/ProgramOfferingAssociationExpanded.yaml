@@ -4,7 +4,7 @@ allOf:
   - type: object
     properties:
       result:
-        $ref: './ProgramResult.yaml'
+        $ref: './ProgramOfferingAssociationResult.yaml'
       person:
         description: The person this association is to
         $ref: './Person.yaml'

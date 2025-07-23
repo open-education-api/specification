@@ -8,7 +8,7 @@ description: |
     - guest: gast
     - invigilator: surveillant
     - assessor: beoordelaar
-enum:
+x-ooapi-extensible-enum:
   - student
   - lecturer
   - teaching_assistant

@@ -5,7 +5,7 @@ get:
   tags:
     - test component offering associations
   parameters:
-    - name: testComonentOfferingId
+    - name: testComponentOfferingId
       in: path
       description: Test Component Offering ID
       required: true

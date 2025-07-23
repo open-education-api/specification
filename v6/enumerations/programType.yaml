@@ -7,7 +7,7 @@ description: |
   - specialization: specialisatie
   - track: track
   - specification: specificatie
-enum:
+x-ooapi-extensible-enum:
   - program
   - minor
   - honours

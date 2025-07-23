@@ -8,7 +8,7 @@ description: |
   - branch: vestiging
   - academy: academie
   - school: school
-enum:
+x-ooapi-extensible-enum:
   - root
   - institute
   - department

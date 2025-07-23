@@ -5,7 +5,7 @@ get:
   tags:
     - learning component offering associations
   parameters:
-    - name: learningComonentOfferingId
+    - name: learningComponentOfferingId
       in: path
       description: Learning Component Offering ID
       required: true

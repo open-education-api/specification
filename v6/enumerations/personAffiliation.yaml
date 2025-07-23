@@ -1,13 +1,11 @@
-type: array
+type: string
 description: |
   The affiliations of this person, the relations a person has with the organization providing this endpoint
   - student: student
   - employee: medewerker
   - guest: gast
-items:
-  type: string
-  enum:
-    - student
-    - employee
-    - guest
-  example: student
+x-ooapi-extensible-enum:
+  - student
+  - employee
+  - guest
+example: student

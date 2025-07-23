@@ -5,7 +5,7 @@ description: |
   - canceled: The offering has been canceled and is no longer available
   - active: The offering is currently available for students to enroll in and participate
   - inactive: The offering is not currently available for students, but may be available in the future
-enum:
+x-ooapi-extensible-enum:
   - concept
   - canceled
   - active
