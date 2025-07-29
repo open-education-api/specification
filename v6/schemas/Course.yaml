@@ -1,7 +1,8 @@
 allOf:
   - $ref: '../schemas/CourseId.yaml'
   - $ref: '../schemas/CourseProperties.yaml'
-  - properties:
+  - type: object
+    properties:
       validFrom:
         description: The first day and time this course is valid (inclusive).
         type: string
