@@ -1,5 +1,12 @@
 type: string
-description: The type document related to a specific offering
+description: |
+  The type of document related to a specific offering:
+  - assignment: document describing a task or exercise for students to complete
+  - instructions: guidelines or directions to support participation in the offering
+  - session_report: summary or notes capturing what occurred during a session
+  - attendance_report: record of participants present or absent during sessions
+  - assessment_model: framework or criteria used to evaluate student performance
+  - other: any other type of document not covered by the categories above
 enum:
   - assignment
   - instructions
