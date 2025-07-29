@@ -1,16 +1,16 @@
 allOf:
-  - $ref: '../schemas/CourseOfferingAssociation.yaml'
+  - $ref: './CourseOfferingAssociation.yaml'
   - type: object
     properties:
       person:
         oneOf:
-        - $ref: '../schemas/Identifier.yaml'
+        - $ref: './Identifier.yaml'
           title: personId
-        - $ref: '../schemas/Person.yaml'
+        - $ref: './Person.yaml'
           title: Person
       offering:
         oneOf:
-        - $ref: '../schemas/Identifier.yaml'
+        - $ref: './Identifier.yaml'
           title: offeringId
-        - $ref: '../schemas/CourseOffering.yaml'
+        - $ref: './CourseOffering.yaml'
           title: CourseOffering

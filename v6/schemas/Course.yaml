@@ -1,6 +1,6 @@
 allOf:
-  - $ref: '../schemas/CourseId.yaml'
-  - $ref: '../schemas/CourseProperties.yaml'
+  - $ref: './CourseId.yaml'
+  - $ref: './CourseProperties.yaml'
   - type: object
     properties:
       validFrom:

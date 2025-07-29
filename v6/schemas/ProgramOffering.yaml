@@ -1,6 +1,6 @@
 allOf:
-- $ref: '../schemas/OfferingId.yaml'
-- $ref: '../schemas/OfferingProperties.yaml'
+- $ref: './OfferingId.yaml'
+- $ref: './OfferingProperties.yaml'
 - type: object
   description: A program offering which describes the program in time.
   title: ProgramOffering
