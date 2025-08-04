@@ -7,7 +7,7 @@ description: |
   - specialization: a focused area of study within a broader program or degree
   - track: a structured learning path within a program, often thematically or methodologically defined
   - specification: a further defined variant or subset of a track or specialization
-enum:
+x-ooapi-extensible-enum:
   - program
   - minor
   - honours

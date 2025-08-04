@@ -6,7 +6,7 @@ description: |
   - not_finished: attendance has begun but not completed
   - present: individual attended as expected
   - not_present: individual did not attend
-enum:
+x-ooapi-extensible-enum:
   - not_known
   - not_started
   - not_finished

@@ -15,7 +15,7 @@ get:
       description: Filter by affiliations
       required: false
       schema:
-        $ref: '../enumerations/personAffiliations.yaml'
+        $ref: '../enumerations/personAffiliation.yaml'
   responses:
     '200':
       description: OK

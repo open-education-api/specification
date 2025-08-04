@@ -3,7 +3,7 @@ description: |
   The state of this membership:
   - canceled: the membership has been formally terminated and is no longer valid
   - active: the membership is currently valid and in effect
-enum:
+x-ooapi-extensible-enum:
   - canceled
   - active
 example: active

@@ -8,7 +8,7 @@ description: |
   - invigilator: supervises exams or assessments
   - assessor: evaluates student performance or work
   - guest: external participant with a non-standard role
-enum:
+x-ooapi-extensible-enum:
   - student
   - lecturer
   - teaching_assistant

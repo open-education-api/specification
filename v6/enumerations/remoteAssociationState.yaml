@@ -6,7 +6,7 @@ description: |
   - denied: the association request was reviewed and explicitly rejected
   - associated: the association has been successfully established and is active
   - queued: the association request is awaiting processing in a queue
-enum:
+x-ooapi-extensible-enum:
   - pending
   - canceled
   - denied

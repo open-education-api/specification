@@ -11,7 +11,7 @@ description: |
   - independent_study: self-directed learning without scheduled contact hours
   - external: activity taking place outside the institution, such as internships or courses at partner institutions
   - skills_training: session focused on developing specific practical or professional skills
-enum:
+x-ooapi-extensible-enum:
   - lecture
   - practical
   - tutorial

@@ -45,3 +45,97 @@ get:
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
+
+
+
+
+patch:
+  summary: PATCH /learning-component-offerings/{learningComponentOfferingId}
+  operationId: partialUpdateLearningComponentOfferingsById
+  description: Change attributes of a single learning component offering.
+  tags:
+    - learning component offerings
+  parameters:
+    - name: learningComponentOfferingId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/LearningComponentOffering.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+
+put:
+  summary: PUT /learning-component-offerings/{learningComponentOfferingId}
+  operationId: replaceLearningComponentOfferingsById
+  description: Update all attributes of a single learning component offering.
+  tags:
+    - learning component offerings
+  parameters:
+    - name: learningComponentOfferingId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/LearningComponentOffering.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

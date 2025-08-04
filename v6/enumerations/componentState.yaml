@@ -5,7 +5,7 @@ description: |
   - canceled: withdrawn and no longer available
   - active: currently available and in use
   - inactive: no longer in use, but not canceled
-enum:
+x-ooapi-extensible-enum:
   - concept
   - canceled
   - active

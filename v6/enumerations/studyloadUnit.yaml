@@ -6,7 +6,7 @@ description: |
   - sbu: student workload hours, representing the total estimated effort
   - sp: study points used in some national systems (e.g. studiepunt in Flanders or the Netherlands)
   - hour: plain number of hours, regardless of context (e.g. used for informal or modular learning units)
-enum:
+x-ooapi-extensible-enum:
   - contacttime
   - ects
   - sbu

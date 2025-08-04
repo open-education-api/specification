@@ -9,7 +9,6 @@ description: |
   - period: any other period in an academic year
 
   Implementations are allowed to add additional values to those above, as long as they do not overlap in definition to existing values.
-example: semester
 x-ooapi-extensible-enum:
   - academic_year
   - semester
@@ -17,3 +16,4 @@ x-ooapi-extensible-enum:
   - quarter
   - testing_period
   - period
+example: semester
