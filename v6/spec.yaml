@@ -162,6 +162,10 @@ info:
     
     /rooms/{roomId}
 
+  contact:
+    name: OOAPI Working Group / SURF
+    url: https://openonderwijsapi.nl
+    email: info@openonderwijsapi.nl
 
   x-logo:
     url: ../logo.png
@@ -278,10 +282,14 @@ tags:
     description: The learning components API provides information about learning activities that are part of a course (or learning unit).
   - name: learning component offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: learning component offering associations
+    description: The API for associations between persons and learning component offerings.
   - name: test components 
     description: The test components API provides information about test or assessment activities that are part of a course (or learning unit).
   - name: test component offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: test component offering associations
+    description: The API for associations between persons and test component offerings.
   - name: learning outcomes
     description: The learning outcomes API provides information about the statements regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
   - name: organizations
@@ -294,6 +302,8 @@ tags:
     description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
   - name: news
     description: This path is no longer supported.
+  - name: documents
+    description: The API for accessing and retrieving document resources.
 
   - name: service_model
     x-displayName: Service
