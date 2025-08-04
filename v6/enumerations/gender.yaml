@@ -1,8 +1,21 @@
 type: string
-description: The gender of this person
+description: |
+  The gender of this person, based on international education and data interoperability standards.
+  The values are informed by practices from agencies such as:
+  - European Commission (EULF, INSPIRE, GeoDCAT-AP)
+  - Edustandaard, EUNIS
+  
+  - m: male
+  - f: female
+  - x: non-binary or gender diverse, officially registered
+  - o: other gender identity, not officially classified as m/f/x
+  - u: unknown or not registered
+  - n: not applicable, e.g. for non-person entities or gender-irrelevant use cases
 x-ooapi-extensible-enum:
   - m
   - f
-  - u
   - x
+  - o
+  - u
+  - n
 example: f

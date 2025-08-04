@@ -1,13 +1,13 @@
 type: string
 description: |
   The type of this organization. Each OOAPI endpoint should have a single organization with type `root`, describing the root organization.
-  - root: the root of this organization, representing the Educational Institution itself
-  - institute: instituut
-  - department: departement
-  - faculty: faculteit
-  - branch: vestiging
-  - academy: academie
-  - school: school
+  - root: the top-level organization, representing the educational institution itself
+  - institute: a subdivision of the root organization, typically focused on a broad field of study
+  - department: an organizational unit within a faculty or institute, focused on a specific discipline
+  - faculty: a major academic division within the institution, often overseeing multiple departments
+  - branch: a geographically separate location or campus of the institution
+  - academy: a specialized academic unit, often focused on applied or artistic disciplines
+  - school: an organizational unit typically used in primary, secondary, or specialized higher education contexts
 x-ooapi-extensible-enum:
   - root
   - institute

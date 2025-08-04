@@ -1,5 +1,15 @@
 type: string
-description: Type of qualificaton that can be obtained on finishing the program
+description: |
+  Type of qualification that can be obtained upon completing the program:
+  - ad: Associate degree — short-cycle higher education qualification (EQF level 5)
+  - ba: Bachelor of Arts — undergraduate degree typically in the humanities or social sciences (EQF level 6)
+  - bsc: Bachelor of Science — undergraduate degree typically in the sciences, technology, or economics (EQF level 6)
+  - llb: Bachelor of Laws — undergraduate law degree (EQF level 6)
+  - ma: Master of Arts — postgraduate degree in the humanities or social sciences (EQF level 7)
+  - msc: Master of Science — postgraduate degree in science, technology, or economics (EQF level 7)
+  - llm: Master of Laws — postgraduate law degree (EQF level 7)
+  - phd: Doctor of Philosophy — research-based doctoral degree (EQF level 8)
+  - none: no formal qualification is awarded for this program
 x-ooapi-extensible-enum:
   - ad
   - ba

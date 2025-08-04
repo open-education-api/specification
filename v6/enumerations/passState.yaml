@@ -1,5 +1,9 @@
 type: string
-description: The state of this result
+description: |
+  The state of this result:
+  - unknown: the result has not been determined, recorded, or is not yet available
+  - passed: the individual has met the required criteria to pass
+  - failed: the individual did not meet the required criteria to pass
 x-ooapi-extensible-enum:
   - unknown
   - passed

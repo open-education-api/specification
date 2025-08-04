@@ -1,12 +1,12 @@
 type: string
 description: |
-  The type of this program
-  - program: opleiding
-  - minor: minor
-  - honours: honours
-  - specialization: specialisatie
-  - track: track
-  - specification: specificatie
+  The type of this program:
+  - program: a full formal programme of study leading to a qualification or degree
+  - minor: a smaller, complementary program that broadens or deepens the main field of study
+  - honours: an honours program, typically with additional academic requirements or distinction
+  - specialization: a focused area of study within a broader program or degree
+  - track: a structured learning path within a program, often thematically or methodologically defined
+  - specification: a further defined variant or subset of a track or specialization
 x-ooapi-extensible-enum:
   - program
   - minor

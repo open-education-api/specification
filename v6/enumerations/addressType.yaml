@@ -1,14 +1,15 @@
 type: string
 description: |
-  Address type
-  - postal: post
-  - visit: bezoek
-  - deliveries: bezorg
-  - billing: factuur
-  - teaching: the address where education takes place
+  The type of address, indicating its intended use:
+  - postal: used for receiving mail
+  - visit: used for physical visits
+  - deliveries: used for deliveries
+  - billing: used for invoicing and billing purposes
+  - teaching: the location where educational activities are held
 x-ooapi-extensible-enum:
   - postal
   - visit
   - deliveries
   - billing
   - teaching
+example: postal
