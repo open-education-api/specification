@@ -43,7 +43,7 @@ properties:
     type: string
     description: The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
-    example: P1DT30H4S
+    example: P1DT10H30M  # 1 day, 10 hours and 30 minutes
   description:
     type: array
     description: The description of this component.

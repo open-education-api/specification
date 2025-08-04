@@ -1,6 +1,6 @@
 allOf:
-  - $ref: '../schemas/OfferingId.yaml'
-  - $ref: '../schemas/OfferingProperties.yaml'
+  - $ref: './OfferingId.yaml'
+  - $ref: './OfferingProperties.yaml'
   - type: object
     description: |
       startDateTime and endDateTime of an offering are to be provided at least in the state `active`. In all other states the

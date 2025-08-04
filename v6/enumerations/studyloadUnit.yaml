@@ -1,11 +1,11 @@
-description: |
-  The unit in which the studyload is specfied
-  - contacttime: CONTACTUUR	amount of time spent in classes
-  - ects: ECTS_PUNT	European Credit Transfer System
-  - sbu: SBU	studentloadhours
-  - sp: STUDIEPUNT studentpoints
-  - hour: UUR	hours
 type: string
+description: |
+  The unit in which the study load is specified:
+  - contacttime: amount of time spent in scheduled classroom or contact hours
+  - ects: European Credit Transfer and Accumulation System (ECTS credits), typically 1 ECTS = 28 study hours
+  - sbu: student workload hours, representing the total estimated effort
+  - sp: study points used in some national systems (e.g. studiepunt in Flanders or the Netherlands)
+  - hour: plain number of hours, regardless of context (e.g. used for informal or modular learning units)
 enum:
   - contacttime
   - ects

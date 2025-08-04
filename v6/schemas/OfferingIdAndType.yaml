@@ -4,7 +4,7 @@ required:
   - offeringId
 properties:
   offeringId:
-    $ref: '../schemas/OfferingId.yaml'
+    $ref: './OfferingId.yaml'
   offeringType:
     $ref: '../enumerations/offeringType.yaml'
 

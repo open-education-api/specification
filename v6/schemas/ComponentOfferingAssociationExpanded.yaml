@@ -1,16 +1,16 @@
 allOf:
-  - $ref: '../schemas/ComponentOfferingAssociation.yaml'
+  - $ref: './ComponentOfferingAssociation.yaml'
 properties:
   person:
     readOnly: true
     oneOf:
-      - $ref: '../schemas/Identifier.yaml'
+      - $ref: './Identifier.yaml'
         title: personId
-      - $ref: '../schemas/Person.yaml'
+      - $ref: './Person.yaml'
         title: Person
   offering:
     oneOf:
-      - $ref: '../schemas/Identifier.yaml'
+      - $ref: './Identifier.yaml'
         title: offeringId
-      - $ref: '../schemas/ComponentOffering.yaml'
+      - $ref: './ComponentOffering.yaml'
         title: ComponentOffering
