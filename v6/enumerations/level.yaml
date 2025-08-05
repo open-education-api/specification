@@ -1,0 +1,35 @@
+type: string
+description: |
+  The level of this course (ECTS year of study if applicable):
+  - pre_vocational: preparatory education prior to vocational training, typically before mbo level
+  - secondary_vocational_education: mbo
+  - secondary_vocational_education_1: mbo 1, corresponds to levelOfQualification 1
+  - secondary_vocational_education_2: mbo 2, corresponds to levelOfQualification 2
+  - secondary_vocational_education_3: mbo 3, corresponds to levelOfQualification 3
+  - secondary_vocational_education_4: mbo 4, corresponds to levelOfQualification 4
+  - associate_degree: associate degree, corresponds to levelOfQualification 5
+  - bachelor: bachelor, corresponds to levelOfQualification 6
+  - master: master, corresponds to levelOfQualification 7
+  - doctoral: doctoral, corresponds to levelOfQualification 8
+  - post_doctoral: advanced academic or professional qualification beyond the doctoral level
+  - undefined: the level is not specified
+  - undivided: integrated program not divided into bachelor and master phases
+  - nt2_1: Dutch as a second language, Program I, intended for vocational training (CEFR level A2, B1)
+  - nt2_2: Dutch as a second language, Program II, intended for higher education or professional work (CEFR level B2)
+x-ooapi-extensible-enum:
+  - pre_vocational
+  - secondary_vocational_education  
+  - secondary_vocational_education_1  
+  - secondary_vocational_education_2
+  - secondary_vocational_education_3
+  - secondary_vocational_education_4
+  - associate_degree
+  - bachelor
+  - master
+  - doctoral
+  - post_doctoral
+  - undefined
+  - undivided
+  - nt2_1
+  - nt2_2
+example: master

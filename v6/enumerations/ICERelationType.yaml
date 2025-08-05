@@ -1,0 +1,11 @@
+type: string
+description: |
+  Type of relation between the person and their In Case of Emergency (ICE) contact:
+  - partner: spouse or life partner
+  - parent: biological, adoptive, or legal parent
+  - other: other type of relationship (e.g. sibling, friend, neighbor)
+x-ooapi-extensible-enum:
+  - partner
+  - parent
+  - other
+example: partner

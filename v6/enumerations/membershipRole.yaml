@@ -1,0 +1,19 @@
+type: string
+description: |
+  The role of this person in the context of this membership
+  - student: enrolled participant in the offering
+  - lecturer: delivers or leads the teaching content
+  - teaching_assistant: supports the lecturer in teaching activities
+  - coordinator: responsible for organizational or administrative aspects
+  - invigilator: supervises exams or assessments
+  - assessor: evaluates student performance or work
+  - guest: external participant with a non-standard role
+x-ooapi-extensible-enum:
+  - student
+  - lecturer
+  - teaching_assistant
+  - coordinator
+  - invigilator
+  - assessor
+  - guest
+example: student

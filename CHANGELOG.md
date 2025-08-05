@@ -4,6 +4,105 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Beta_postfeedback] - 2025-07-07
+
+### Added
+- Add /learning-components ant test-components path (based on feedback and OKE see: https://netwerkexamineringdigitalisering.github.io/NED-OOAPI/specification/v5/docs.html#tag/components/operation/listComponents) #377
+- for OKE add:
+- PUT /person/{personID}
+- PUT /test-component-offering-associations/{testComponentOfferingAssociationId}
+- PATCH /program-offerings/{programOfferingId}
+- PUT /program-offerings/{programOfferingId}
+- PUT /program-offering-associations/{programOfferingAssociationId}
+- PUT /learning-component-offering-associations/{learningComponentOfferingAssociationId}
+- PUT /course-offering-associations/{courseOfferingAssociationId}
+- PATCH /course-offerings/{courseOfferingId}
+- PUT /course-offerings/{courseOfferingId}
+- PATCH /test-component-offerings/{testComponentOfferingId}
+- PUT /test-component-offerings/{testComponentOfferingId}
+- PATCH /learning-component-offerings/{learningComponentOfferingId}
+- PUT /learning-component-offerings/{learningComponentOfferingId}
+- GET /learning-component-offerings/{learningComponentOfferingId}/learning-component-offering-associations
+- GET /test-component-offering-associations/{testComponentOfferingAssociationId}/url
+
+### Removed
+
+
+### Changed
+- not implemented request for teachingLanguage query paramater to match the type in schema from string to array (#373)
+- update link in enumeration (#384)
+- update all enumerations to extisible enumerations
+- altered modeOfDelivery string -> modesOfDelivery (array)
+- altered personalNeeds string -> personalNeeds (array)
+- altered enumarations:
+    - made enumerations singular and only string
+    - modesOfDelivery (array) -> modeOfdelivery (string) 
+    - personAffiliation (array) -> personAffiliation (string)
+    - personalNeeds (array) -> personalNeed (string)
+
+## [6.0.0 Beta] - 2025-05-22
+
+### Added
+- Adds academic-session to groups #247
+- Add preferredName to person for OKE
+- Add alternateName to person #308
+- Add idCheckName and assignedNeeds # OKE 
+- Add generic OKE elements #353
+- Add languageTypedString subfields should be required #316
+- Add assignedNeeds (not personalNeed this is part of association) #327
+- Add learning outcomes as an object #340, #349 and #356 
+- Add enumeration for learning outcome types (based on SOLO SOLO taxonomy (www.johnbiggs.com.au))
+- add paths for learning outcomes
+- add learning-component object
+- add testing-component object #333
+- add paths for:
+    - learning-component
+    - learning-component-offering
+    - learning-component-offering-association
+- add paths for:
+    - test-component
+    - test-component-offering
+    - test-component-offering-association
+- add path for documents
+- implement longer self explanatory Ids
+- update and create sub paths on groups academic-sessions persons for ...offering-associations
+- remove sorting
+- improve rendering by removing general offering.yaml and association.yaml in favour of referencing to shared properties and separate Id
+- fix Consider changing query parameter result-state to resultState. #320
+- add learningComponent and testComponent #333
+- add enrollment periods to offering properties #319
+- operationId to all paths based on schema:
+    - put -> replaceResource
+    - get -> listResources
+    - get (byId) -> listResourceById
+    - post -> createResource
+    - patch -> partialUpdateResource
+    - /me -> {action}ResourceByMyOauthId
+    Reasoning for this schema is based on:
+    https://github.com/watson-developer-cloud/api-guidelines/blob/master/swagger-coding-style.md
+- membership element added for groupmembership
+- added PUT path for memebership to a group
+
+### Removed
+- reomved components 
+- removed offerings
+- removed education specification #345
+- removed news #347
+- removed newsfeeds #347
+- removed path /groups/persons
+- removed server side sorting from all paths for improved performance and more consistent results
+
+
+### Changed
+- update of model
+- update relations and remove generic offering #108
+- update query elements in paths to use date-time in stead of only date 
+- update of visualisation of the information model #331
+- update result-state parameter to resultState #320
+- update relation between component offerings allow for 0 or more relations #341 and 
+
+
+
 ## [5.0.0] - 2022-07-19
 The v5.0.0 release is the same as 5.0.0 RC2.
 

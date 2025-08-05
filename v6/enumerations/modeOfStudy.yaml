@@ -1,0 +1,13 @@
+type: string
+description: |
+  Indicates whether the education is full-time, part-time, dual or self-paced.
+    - full_time: regular day-time study
+    - part_time: study outside business hours, during evening en week-ends.
+    - dual_training: combine learning on the job and study
+    - self_paced: student determines study tempo
+x-ooapi-extensible-enum:
+  - full_time
+  - part_time
+  - dual_training
+  - self_paced
+example: full_time

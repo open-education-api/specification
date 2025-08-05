@@ -1,0 +1,7 @@
+allOf:
+  - $ref: './AssociationId.yaml'
+  - $ref: './AssociationProperties.yaml'
+  - type: object
+    properties:
+      result:
+        $ref: './ProgramOfferingAssociationResult.yaml'

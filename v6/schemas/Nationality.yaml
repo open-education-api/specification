@@ -1,0 +1,28 @@
+type: object
+description: >
+  An object indicating nationality based on at least one iso-3166 code.
+  In situations where more than one iso-3166 code is provided the codes have address the same country.
+properties:
+  iso3166-1-alpha2:
+    type: string
+    minLength: 2
+    maxLength: 2
+    description: A country code based on https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+    example: NL
+  iso3166-1-alpha3:
+    type: string
+    minLength: 3
+    maxLength: 3
+    description: A country code based on https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
+    example: NLD
+  iso3166-3:
+    type: string
+    minLength: 4
+    maxLength: 4
+    description: > 
+      A nationality code for a country that no longer exists on https://en.wikipedia.org/wiki/ISO_3166-3
+      It is not adviced to use the original iso3166-1 for such a country since country codes
+      can get reassigned to new countries ones the original country code is officially obsolete. It is possible
+      that a person has a nationality of a country that does not exist anymore (after a country got split up like CZ and YU)\
+      and never applied for nationality of one of the new countries.
+    example: ANHH

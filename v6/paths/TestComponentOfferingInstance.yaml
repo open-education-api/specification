@@ -1,0 +1,141 @@
+get:
+  summary: GET /test-component-offerings/{testComponentOfferingId}
+  operationId: listTestComponentOfferingsById
+  description: Get a single learnig component offering.
+  tags:
+    - test component offerings
+  parameters:
+    - name: testComponentOfferingId
+      in: path
+      description: test component offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to expand, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - test-component
+            - organization
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TestComponentOffering.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+
+
+
+patch:
+  summary: PATCH /test-component-offerings/{testComponentOfferingId}
+  operationId: partialUpdateTestComponentOfferingsById
+  description: Change attributes of a single test component offering.
+  tags:
+    - test component offerings
+  parameters:
+    - name: testComponentOfferingId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TestComponentOffering.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+
+put:
+  summary: PUT /test-component-offerings/{testComponentOfferingId}
+  operationId: replaceTestComponentOfferingsById
+  description: Update all attributes of a single test component offering.
+  tags:
+    - test component offerings
+  parameters:
+    - name: testComponentOfferingId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TestComponentOffering.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

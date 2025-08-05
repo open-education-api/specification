@@ -1,0 +1,10 @@
+type: object
+required:
+  - offeringId
+properties:
+  offeringId:
+    type: string
+    description: The unique ID of the offering, this should be unique across all program, course. learning and testcomponent offerings.  
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-134564174000
+    # readOnly: true

@@ -1,0 +1,25 @@
+type: string
+description: |
+  The type of learning component, indicating the format or method of educational delivery:
+  - lecture: classroom-based or online lecture given by an instructor
+  - practical: hands-on session focusing on application of concepts
+  - tutorial: interactive session in small groups to reinforce learning
+  - consultation: scheduled meeting for individual or group guidance
+  - project: structured assignment carried out over a period of time
+  - workshop: intensive session focused on practical skills or knowledge
+  - excursion: educational trip or site visit
+  - independent_study: self-directed learning without scheduled contact hours
+  - external: activity taking place outside the institution, such as internships or courses at partner institutions
+  - skills_training: session focused on developing specific practical or professional skills
+x-ooapi-extensible-enum:
+  - lecture
+  - practical
+  - tutorial
+  - consultation
+  - project
+  - workshop
+  - excursion
+  - independent_study
+  - external
+  - skills_training
+example: lecture

@@ -1,0 +1,16 @@
+- consumerKey: rio
+  type: program
+  educationOffererCode: 122A112
+  educationLocationCode: 123X122
+  consentParticipationSTAP: permission_granted
+  jointPartnerCodes: [122A113]
+  foreignPartners: ["Harvard University"]
+  deficiency: deficiencies
+  requirementsActivities: requirements
+  propaedeuticPhase: no_propaedeutic_phase
+  studyChoiceCheck: no_study_choice_check
+  acceleratedRoute: accelerated_route
+  sector: higher_professional_education
+  privateCategory:
+    - business_and_project_support
+    - economy

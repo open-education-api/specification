@@ -1,0 +1,148 @@
+get:
+  summary: GET /program-offerings/{programOfferingId}
+  operationId: listProgramOfferingsById
+  description: Get a single program offering.
+  tags:
+    - program offerings
+  parameters:
+    - name: programOfferingId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to expand, separated by a comma
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - program
+            - programOffering
+            - course
+            - courseOffering
+            - learningComponent
+            - testComponent
+            - organization
+            - academicSession
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ProgramOffering.yaml'
+            title: programOffering
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+
+
+patch:
+  summary: PATCH /program-offerings/{programOfferingId}
+  operationId: partialUpdateProgramOfferingsById
+  description: Change attributes of a single program offering.
+  tags:
+    - program offerings
+  parameters:
+    - name: programOfferingId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ProgramOffering.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+
+put:
+  summary: PUT /program-offerings/{programOfferingId}
+  operationId: replaceProgramOfferingsById
+  description: Update all attributes of a single program offering.
+  tags:
+    - program offerings
+  parameters:
+    - name: programOfferingId
+      in: path
+      description: Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ProgramOffering.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

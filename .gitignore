@@ -1,0 +1,5 @@
+#files to be ignored 
+
+# ignore all local .vscode testing
+.vscode/
+.DS_Store

@@ -1,0 +1,16 @@
+allOf:
+  - $ref: './TestComponentOfferingAssociation.yaml'
+properties:
+  person:
+    readOnly: true
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: personId
+      - $ref: './Person.yaml'
+        title: Person
+  offering:
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: offeringId
+      - $ref: './TestComponentOffering.yaml'
+        title: TestComponentOffering

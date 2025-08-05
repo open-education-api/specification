@@ -1,0 +1,16 @@
+allOf:
+  - $ref: './CourseOfferingAssociation.yaml'
+  - type: object
+    properties:
+      person:
+        oneOf:
+        - $ref: './Identifier.yaml'
+          title: personId
+        - $ref: './Person.yaml'
+          title: Person
+      offering:
+        oneOf:
+        - $ref: './Identifier.yaml'
+          title: offeringId
+        - $ref: './CourseOffering.yaml'
+          title: CourseOffering

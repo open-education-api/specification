@@ -1,0 +1,12 @@
+type: string
+description: |
+  The type of this news item
+  - calamity: calamiteit
+  - general: algemeen
+  - schedule_change: roosterwijziging
+  - announcement: aankondiging
+x-ooapi-extensible-enum:
+  - calamity
+  - general
+  - schedule_change
+  - announcement
