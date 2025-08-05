@@ -12,7 +12,7 @@ description: |
     - session_report: A report that contains information on a session, e.g. an academic session, a course or a test session
     - test_made: The test including all the answers made by the student
     - other: Other types of documents that are not listed above
-enum:
+x-ooapi-extensible-enum:
   - additional_document
   - assessment_form
   - assessment_model

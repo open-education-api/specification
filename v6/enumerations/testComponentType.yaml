@@ -7,7 +7,7 @@ description: |
   - life_skills_test: practical assessment of real-world competencies and life skills
   - oral_test: spoken examination, typically involving verbal questioning and answering
   - portfolio_assessment: evaluation based on a collection of the candidate’s work over time
-enum:
+x-ooapi-extensible-enum:
   - test_on_paper
   - digital_test
   - life_skills_test

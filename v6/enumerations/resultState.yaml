@@ -5,7 +5,7 @@ description: |
   - postponed: the result process has been delayed and will be resumed later
   - completed: the result has been finalized and recorded
   - queued: the result is awaiting processing or evaluation
-enum:
+x-ooapi-extensible-enum:
   - in_progress
   - postponed
   - completed

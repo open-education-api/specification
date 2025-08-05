@@ -6,7 +6,7 @@ description: |
   - deliveries: used for deliveries
   - billing: used for invoicing and billing purposes
   - teaching: the location where educational activities are held
-enum:
+x-ooapi-extensible-enum:
   - postal
   - visit
   - deliveries

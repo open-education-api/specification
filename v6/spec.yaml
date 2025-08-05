@@ -1,6 +1,6 @@
 openapi: "3.0.3"
 info:
-  version: "6.0 - BETA for feedback only"
+  version: "6.0 - BETA _with_fixes_250619_ for feedback only"
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API. 
@@ -575,24 +575,34 @@ paths:
     $ref: paths/CourseTestComponentOfferingCollection.yaml
   /learning-components/{learningComponentId}:
     $ref: paths/LearningComponentInstance.yaml
-  /learning-components/{learningComponentId}/offerings:
-    $ref: paths/LearningComponentOfferingCollection.yaml
+  /learning-components:
+    $ref: paths/LearningComponentCollection.yaml
+  /learning-components/{learningComponentId}/learning-component-offerings:
+    $ref: paths/LearningComponentLearningComponentOfferingCollection.yaml
   /learning-component-offerings/{learningComponentOfferingId}:
     $ref: paths/LearningComponentOfferingInstance.yaml  
   /learning-component-offerings/{learningComponentOfferingId}/groups:
     $ref: paths/LearningComponentOfferingGroupCollection.yaml      
+  /learning-component-offerings/{learningComponentOfferingId}/learning-component-offering-associations:
+    $ref: paths/LearningComponentOfferingLearningComponentOfferingAssociationCollection.yaml      
   /learning-component-offering-associations/{learningComponentOfferingAssociationId}:
     $ref: paths/LearningComponentOfferingAssociationInstance.yaml
+  /test-components:
+    $ref: paths/TestComponentCollection.yaml
   /test-components/{testComponentId}:
     $ref: paths/TestComponentInstance.yaml
-  /test-components/{testComponentId}/offerings:
-    $ref: paths/TestComponentOfferingCollection.yaml
+  /test-components/{testComponentId}/test-component-offerings:
+    $ref: paths/TestComponentTestComponentOfferingCollection.yaml
   /test-component-offerings/{testComponentOfferingId}:
-    $ref: paths/TestComponentOfferingInstance.yaml  
+    $ref: paths/TestComponentOfferingInstance.yaml 
+  /test-component-offerings/{testComponentOfferingId}/test-component-offering-associations:
+    $ref: paths/TestComponentOfferingTestComponentOfferingAssociationCollection.yaml 
   /test-component-offerings/{testComponentOfferingId}/groups:
     $ref: paths/TestComponentOfferingGroupCollection.yaml      
   /test-component-offering-associations/{testComponentOfferingAssociationId}:
     $ref: paths/TestComponentOfferingAssociationInstance.yaml      
+  /test-component-offering-associations/{testComponentOfferingAssociationId}/url:
+    $ref: paths/TestComponentOfferingAssociationUrl.yaml      
 
   /program-offerings/{programOfferingId}:
     $ref: paths/ProgramOfferingInstance.yaml      

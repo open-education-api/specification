@@ -10,7 +10,7 @@ description: |
   - llm: Master of Laws — postgraduate law degree (EQF level 7)
   - phd: Doctor of Philosophy — research-based doctoral degree (EQF level 8)
   - none: no formal qualification is awarded for this program
-enum:
+x-ooapi-extensible-enum:
   - ad
   - ba
   - bsc

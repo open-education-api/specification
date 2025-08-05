@@ -8,7 +8,7 @@ description: |
   - branch: a geographically separate location or campus of the institution
   - academy: a specialized academic unit, often focused on applied or artistic disciplines
   - school: an organizational unit typically used in primary, secondary, or specialized higher education contexts
-enum:
+x-ooapi-extensible-enum:
   - root
   - institute
   - department

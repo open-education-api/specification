@@ -21,7 +21,7 @@ description: |
   - eqf_6: advanced knowledge and skills for complex problem-solving, typically bachelor level
   - eqf_7: highly specialized knowledge and critical awareness, typically master level
   - eqf_8: knowledge at the most advanced frontier of a field, typically doctoral level
-enum:
+x-ooapi-extensible-enum:
   - eqf_0
   - eqf_1
   - eqf_2

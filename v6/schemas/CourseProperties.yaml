@@ -30,8 +30,10 @@ properties:
     type: array 
     items: 
       $ref: './StudyLoadDescriptor.yaml'
-  modeOfDelivery:
-    $ref: '../enumerations/modesOfDelivery.yaml'
+  modesOfDelivery:
+    type: array 
+    items: 
+      $ref: '../enumerations/modeOfDelivery.yaml'
   duration:
     type: string
     description: The duration of this course. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.

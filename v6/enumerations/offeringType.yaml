@@ -5,7 +5,7 @@ description: |
   - course: a structured unit of learning within a programme, often carrying credit
   - learning_component: a part of a course or programme focused on specific content or activity (e.g. lecture, project)
   - test_component: an assessment element used to evaluate knowledge, skills, or competence (e.g. exam, presentation)
-enum:
+x-ooapi-extensible-enum:
   - program
   - course
   - learning_component

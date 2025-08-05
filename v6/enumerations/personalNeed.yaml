@@ -1,5 +1,4 @@
-
-type: array
+type: string
 description: |
   The personal needs that are required for this component for this specific candidate. 
   This is a list of the personal needs that are required for this component for this specific candidate.
@@ -7,11 +6,9 @@ description: |
   - extra_time: additional time allocated for completing the component beyond standard timing
   - spoken: spoken output support (e.g. text-to-speech)
   - spell_checker_on_screen: on-screen spell checking tool enabled during writing tasks
-items:
-  type: string
-  enum:
-    - extra_time
-    - spoken
-    - spell_checker_on_screen
+x-ooapi-extensible-enum:
+  - extra_time
+  - spoken
+  - spell_checker_on_screen
 example:
   - extra_time

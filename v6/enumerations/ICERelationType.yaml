@@ -4,7 +4,7 @@ description: |
   - partner: spouse or life partner
   - parent: biological, adoptive, or legal parent
   - other: other type of relationship (e.g. sibling, friend, neighbor)
-enum:
+x-ooapi-extensible-enum:
   - partner
   - parent
   - other

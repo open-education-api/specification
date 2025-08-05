@@ -11,7 +11,7 @@ description: |
   - o: other gender identity, not officially classified as m/f/x
   - u: unknown or not registered
   - n: not applicable, e.g. for non-person entities or gender-irrelevant use cases
-enum:
+x-ooapi-extensible-enum:
   - m
   - f
   - x
