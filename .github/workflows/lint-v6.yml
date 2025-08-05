@@ -24,3 +24,4 @@ jobs:
 
       - name: Lint OpenAPI Specification
         run: npx @redocly/cli lint v6/spec.yaml --skip-rule security-defined
+

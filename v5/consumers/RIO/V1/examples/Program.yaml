@@ -1,7 +1,6 @@
 - consumerKey: rio
   educationOffererCode: 122A112
   educationLocationCode: 123X122
-  consentParticipationSTAP: permission_granted
   jointPartnerCodes: [122A113]
   foreignPartners: ["Harvard University"]
   deficiency: deficiencies
@@ -9,3 +8,5 @@
   propaedeuticPhase: no_propaedeutic_phase
   studyChoiceCheck: no_study_choice_check
   acceleratedRoute: accelerated_route
+  lastStartDate: 01-09-2025
+  teachingLanguages: ["nld", "eng"]
