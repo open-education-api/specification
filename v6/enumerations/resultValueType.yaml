@@ -1,16 +1,19 @@
 type: string
 description: |
-  The result value type for this offering
-  - pass_or_fail: A simple pass or fail result
-  - insufficient_satisfactory_good: A result with three levels: insufficient, satisfactory, and good
-  - us_letter: A result in the US letter grading system (A, B, C, D, F)
-  - uk_letter: A result in the UK letter grading system (A, B, C, D, E, U)
-  - de_grade: A result in the German grading system (1, 2, 3, 4, 5, 6)
-  - grade_0_100: A result in the 0-100 grading system
-  - grade_0_10: A result in the 0-10 grading system. No decimals allowed.
-  - grade_0_10_one_decimal: A result in the 0-10 grading system with one decimal place
-  - reference_level_europass: A result in the Europass reference level grading system (A1, A2, B1, B2, C1, C2)
-  - other: Any other grading system not specified above
+  The result value type for this offering.
+
+  - pass_or_fail: A simple pass or fail result.
+  - insufficient_satisfactory_good: A result with three levels (insufficient, satisfactory and good).
+  - us_letter: A result in the US letter grading system (A, B, C, D, F).
+  - uk_letter: A result in the UK letter grading system (A, B, C, D, E, U).
+  - de_grade: A result in the German grading system (1, 2, 3, 4, 5, 6).
+  - grade_0_100: A result in the 0–100 grading system.
+  - grade_0_10: A result in the 0–10 grading system (no decimals allowed).
+  - grade_0_10_one_decimal: A result in the 0–10 grading system (with one decimal place).
+  - reference_level_europass: A result in the Europass reference level grading system (A1, A2, B1, B2, C1, C2).
+  - other: Any other grading system not specified above.
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - pass_or_fail
   - insufficient_satisfactory_good

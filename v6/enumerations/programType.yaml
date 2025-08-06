@@ -1,17 +1,21 @@
 type: string
 description: |
-  The type of this program:
-  - program: a full formal programme of study leading to a qualification or degree
-  - minor: a smaller, complementary program that broadens or deepens the main field of study
-  - honours: an honours program, typically with additional academic requirements or distinction
-  - specialization: a focused area of study within a broader program or degree
-  - track: a structured learning path within a program, often thematically or methodologically defined
-  - specification: a further defined variant or subset of a track or specialization
+  The type of this programme:
+
+  - programme: A full formal programme of study leading to a qualification or degree
+  - minor: A smaller, complementary programme that broadens or deepens the main field of study
+  - honours: An honours programme, typically with additional academic requirements or distinction
+  - specialisation: A focused area of study within a broader programme or degree
+  - track: A structured learning path within a programme, often thematically or methodologically defined
+  - specification: A further defined variant or subset of a track or specialisation
+
+  This is an extensible enumeration. Use the prefix x- for custom values.
 x-ooapi-extensible-enum:
-  - program
+  - programme
   - minor
   - honours
-  - specialization
+  - specialisation
   - track
   - specification
-example: program
+example: 
+  - programme

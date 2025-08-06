@@ -1,9 +1,12 @@
 type: string
 description: |
   The state of this membership:
-  - canceled: the membership has been formally terminated and is no longer valid
-  - active: the membership is currently valid and in effect
+
+  - cancelled: The membership has been formally terminated and is no longer valid
+  - active: The membership is currently valid and in effect
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
-  - canceled
+  - cancelled
   - active
 example: active

@@ -1,12 +1,15 @@
 type: string
 description: |
   The type of offering based on the object that is offered:
-  - program: a complete programme of study leading to a qualification or degree
-  - course: a structured unit of learning within a programme, often carrying credit
-  - learning_component: a part of a course or programme focused on specific content or activity (e.g. lecture, project)
-  - test_component: an assessment element used to evaluate knowledge, skills, or competence (e.g. exam, presentation)
+
+  - programme: A complete programme of study leading to a qualification or degree
+  - course: A structured unit of learning within a programme, often carrying credit
+  - learning_component: A part of a course or programme focused on specific content or activity (e.g. lecture, project)
+  - test_component: An assessment element used to evaluate knowledge, skills, or competence (e.g. exam, presentation)
+
+  This is an extensible enumeration. Use the prefix x- for custom values.
 x-ooapi-extensible-enum:
-  - program
+  - programme
   - course
   - learning_component
   - test_component
