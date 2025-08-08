@@ -8,9 +8,17 @@ properties:
         title: personId
       - $ref: './Person.yaml'
         title: Person
-  offering:
+  testComponentOffering:
     oneOf:
       - $ref: './Identifier.yaml'
         title: offeringId
       - $ref: './TestComponentOffering.yaml'
         title: TestComponentOffering
+  attempts:
+    type: array
+    items:
+      oneOf: 
+        - $ref: './Identifier.yaml'
+          title: attemptId
+        - $ref: './TestComponentOfferingAssociationAttempt.yaml'
+          title: TestComponentOfferingAssociationAttempt
