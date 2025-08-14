@@ -361,6 +361,10 @@ tags:
     x-displayName: TestComponentOfferingAssocation
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociation" />
+  - name: test_component_offering_association_attempt_model
+    x-displayName: TestComponentOfferingAssociationAttempt
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttempt" />
   - name: person_model
     x-displayName: Person
     description: |
@@ -432,6 +436,7 @@ x-tagGroups:
       - test_component_model
       - test_component_offering_model
       - test_component_offering_association_model
+      - test_component_offering_association_attempt_model
       - group_model
       - membership_model
       - organization_model

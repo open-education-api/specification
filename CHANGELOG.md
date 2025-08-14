@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Attempt on test component offering] - 2025-08-14
+
+### Added
+- TestComponentOfferingAssociationAttempt.yaml Net attempt model 
+- TestComponentOfferingAssociationAttemptFull.yaml attempt model including an identifier.
+- Document.yaml snippet for generic re-use of documents
+
+### Removed
+
+### Changed
+- Result.yaml: added generic result attributes from OKE project
+- Offering.yaml: 
+    - made use of generic Document.yaml
+    - added state attribute
+- TestComponentOfferingAssociation
+    - made use of generic Document.yaml
+- TestComponentOfferingAssociationExpandable: corrected references    
+- TestComponentOfferingAssociationExpanded: corrected references
+
 ## [6.0.0 Fix OpenAPI errors and warnings] - 2025-07-07
 
 ### Added

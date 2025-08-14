@@ -21,7 +21,7 @@ properties:
     description: |
       Which attempt this is for the given person on the given offering
     format: int32
-  planningState:
+  state:
     type: string
     description: |
       Status of the fulfilment of the attempt. The status typically progresses from pending to associated and then to finished (possibly canceled with canceled). Based on enum
@@ -59,7 +59,9 @@ properties:
       - present
   irregularities:
     type: string
-    description: Additional information about the situation during ht etest, e.g. the irregularities or specifics during which the test took place.
+    description: | 
+      Additional information about external disturbances or (potentially) illegal actions by the student, 
+      before, during or after the test.
     example: The student was late because there was a train delay
   coordinator:
     description: |
