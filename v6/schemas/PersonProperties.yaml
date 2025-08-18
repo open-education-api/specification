@@ -65,7 +65,7 @@ properties:
     example: false
   dateOfBirth:
     type: string
-    description: The date of birth of this person, RFC3339 (date-time)
+    description: The date of birth of this person, RFC3339 (full-date)
     format: date
     example: '2003-09-30'
   cityOfBirth:
@@ -78,7 +78,7 @@ properties:
     $ref: ./Nationality.yaml
   dateOfNationality:
     type: string
-    description: The date of nationality of this person, RFC3339 (date-time)
+    description: The date of nationality of this person, RFC3339 (full-date)
     format: date
     example: '2003-09-30'
   affiliations:
@@ -184,12 +184,12 @@ properties:
             value: Extra time for Math tests shown in a percentile of the overall time of a test
         startDateTime:
           type: string
-          description: The moment on which this assigned need starts, RFC3339 (date-time)
+          description: The moment on which this assigned need starts, RFC3339 (full-date)
           format: date-time
           example: '2025-05-30T20:00:00+01:00'
         endDateTime:
           type: string
-          description: The moment on which this assigned need ends, RFC3339 (date-time)
+          description: The moment on which this assigned need ends, RFC3339 (full-date)
           format: date-time
           example: '2025-07-30T20:00:00+01:00'          
     minItems: 0

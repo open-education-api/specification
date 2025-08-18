@@ -9,12 +9,12 @@ allOf:
     properties:
       startDateTime:
         type: string
-        description: The moment on which this offering starts, RFC3339 (date-time)
+        description: The moment on which this offering starts, RFC3339 (full-date)
         format: date-time
         example: 2019-08-21T08:30:00+01:00
       endDateTime:
         type: string
-        description: The moment on which this offering ends, RFC3339 (date-time)
+        description: The moment on which this offering ends, RFC3339 (full-date)
         format: date-time
         example: 2019-10-23T22:59:59+01:00
       enrollStartDateTime:
