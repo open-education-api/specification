@@ -1,6 +1,6 @@
 get:
   summary: GET /courses/{courseId}/learning-component-offerings
-  operationId: listLearningCompoentOfferingsByCourseId
+  operationId: listLearningComponentOfferingsByCourseId
   description: Get a list of all learning component offerings for this course, ordered chronologically.
   tags:
     - learning component offerings

@@ -1,6 +1,6 @@
 get:
   summary: GET /courses/{courseId}/test-component-offerings
-  operationId: listTestCompoentOfferingsByCourseId
+  operationId: listTestComponentOfferingsByCourseId
   description: Get a list of all test component offerings for this course, ordered chronologically.
   tags:
     - test component offerings

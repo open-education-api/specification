@@ -16,13 +16,13 @@ description: |
     - `room_code`: The code for a room
     - `system_id`: Identifier assigned to an entity in context of a specific system
     - `product_id`: Identifier assigned to a specific product
-    - `national_identity_number`: Identifier assigned by the governement of the person. e.g. a social security number in the USA
+    - `national_identity_number`: Identifier assigned by the government of the person. e.g. a social security number in the USA
     - `student_number`: Identifier for the student
     - `studielink_number`: Identifier for the person as determined by the dutch centralized program enrollment system Studielink
     - `esi`: European Student Identifier
     - `username`: The name of a user
     - `account_id`: Identifier assigned to a specific account
-    - `email_adress`: An email address
+    - `email_address`: An email address
     - `group_code`: The identifier for a group (of persons)
     - `group_type_code`: The identifier for a type of group
     - `isbn`: International Standard Book Number that serve as product identifiers for Books
