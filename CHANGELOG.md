@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Fix OpenAPI errors and warnings] - 2025-07-07
+
+### Added
+
+### Removed
+
+### Changed
+- personId: "123e4567-e89b-12d3-a456-426614174000" in v6/paths/LearningComponentOfferingAssociationInstance.yaml and v6/paths/TestComponentOfferingAssociationInstance.yaml
+- removed required - state in v6/schemas/OfferingProperties.yaml
+- removed required - items in v6/schemas/Pagination.yaml
+
+
 ## [6.0.0 Beta_postfeedback] - 2025-07-07
 
 ### Added

@@ -1,7 +1,7 @@
 get:
   summary: GET /learning-outcomes/{learningOutcomeId}
   operationId: listLearningOutcomeById
-  description: Get a single learnig outcome.
+  description: Get a single learning outcome.
   tags:
     - learning outcomes
   parameters:
