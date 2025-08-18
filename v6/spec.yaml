@@ -175,6 +175,8 @@ servers:
   - url: http://demo01.eduapi.nl/v5
     description: SURF demo implementation
 
+security: []
+
 tags:
   - name: service metadata
     description: The service API provides additional metadata needed to make the OOAPI fit for this organization.
