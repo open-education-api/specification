@@ -1,7 +1,7 @@
 get:
   summary: GET /test-component-offerings/{testComponentOfferingId}
   operationId: listTestComponentOfferingsById
-  description: Get a single learning component offering.
+  description: Get a single learnig component offering.
   tags:
     - test component offerings
   parameters:

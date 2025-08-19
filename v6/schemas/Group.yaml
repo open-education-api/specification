@@ -42,7 +42,7 @@ properties:
   startDateTime:
     type: string
     description: |
-      The moment on which this group starts being active, RFC3339 (date-time).
+      The moment on which this group starts being active, RFC3339 (full-date).
       Groups can be ordered in time through the academic-session  
       The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
     format: date-time
@@ -50,7 +50,7 @@ properties:
   endDateTime:
     type: string
     description: |
-      The moment on which this group ends being active, RFC3339 (date-time)
+      The moment on which this group ends being active, RFC3339 (full-date)
       Groups can be ordered in time through the academic-session  
       The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
     format: date-time
