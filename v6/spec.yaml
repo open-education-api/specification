@@ -9,7 +9,7 @@ info:
     	<a target="_blank" href="ooapi_v6.png">
       <img src="ooapi_v6.png" alt="OOAPI information model that feeds OOAPI specification" width="100%" class="img-responsive">
       </a>
-      <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>
+      <figcaption> OOAPI information model that feeds OOAPI specification (click to enlarge)</figcaption>
     </figure>
 
     The model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.
@@ -130,7 +130,7 @@ info:
     
     /learning-components/{learningComponentId}
     
-    /learning-components/{learningComponentId}/offerings
+    /learning-components/{learningComponentId}/learning-component-offerings
     
     /learning-component-offerings/{learningComponentOfferingId}
     
@@ -140,7 +140,7 @@ info:
     
     /test-components/{testComponentId}
     
-    /test-components/{testComponentId}/offerings
+    /test-components/{testComponentId}/test-component-offerings
     
     /test-component-offerings/{testComponentOfferingId}
     
@@ -174,6 +174,8 @@ info:
 servers:
   - url: http://demo01.eduapi.nl/v5
     description: SURF demo implementation
+
+security: []
 
 tags:
   - name: service metadata
@@ -614,7 +616,7 @@ paths:
   /course-offerings/{courseOfferingId}:
     $ref: paths/CourseOfferingInstance.yaml      
   /course-offerings/{courseOfferingId}/course-offering-associations:
-    $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
+    $ref: paths/CourseOfferingCourseOfferingAssociationCollection.yaml
   /course-offerings/{courseOfferingId}/groups:
     $ref: paths/CourseOfferingGroupCollection.yaml      
 
