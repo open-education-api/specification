@@ -2,7 +2,8 @@ type: object
 description: A membership contains the information on a membership of a person for a specific group
 required:
   - personId
-  - startDateTime
+  - role
+  - state
 properties:
   personId:
     type: string

@@ -1,6 +1,9 @@
 allOf:
   - $ref: './LearningComponentOfferingAssociation.yaml'
   - type: object
+    required:
+      - person
+      - offering
     properties:
       person:
         readOnly: true

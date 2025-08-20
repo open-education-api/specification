@@ -1,6 +1,9 @@
 allOf:
   - $ref: './CourseOfferingAssociation.yaml'
   - type: object
+    required:
+      - person
+      - offering
     properties:
       person:
         oneOf:
