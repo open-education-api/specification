@@ -1,5 +1,5 @@
 type: object
-description: A result as part of an association 
+description: A result as part of an association or attempt
 required:
   - state
   - resultDateTime

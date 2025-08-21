@@ -22,15 +22,7 @@ properties:
       Which attempt this is for the given person on the given offering
     format: int32
   state:
-    type: string
-    description: |
-      Status of the fulfilment of the attempt. The status typically progresses from pending to associated and then to finished (possibly canceled with canceled). Based on enum
-    enum:
-      - associated
-      - canceled
-      - pending
-      - finished 
-    example: associated
+    $ref: ../enumerations/attemptState.yaml
   startDateTime:
     type: string
     description: Moment (date and time) of the start of the actual test.
@@ -42,21 +34,7 @@ properties:
   room:
     $ref: './Room.yaml'
   attendance:
-    type: string
-    description: |
-      Indication of the attendance of a student during the test.
-      Possible values are:
-      not_known (No information on presence available or not yet known)
-      not_present (not present),
-      not_started (present but not started),
-      not_finished (present and started but not finished/submitted)
-      and present (present and finished/submitted)"
-    enum:
-      - not_known
-      - not_present
-      - not_started
-      - not_finished
-      - present
+    $ref: '../enumerations/attendance.yaml'
   irregularities:
     type: string
     description: | 
