@@ -25,11 +25,17 @@ properties:
     $ref: ../enumerations/attemptState.yaml
   startDateTime:
     type: string
-    description: Moment (date and time) of the start of the actual test.
+    description: | 
+      Moment (date and time) of the start of the actual attempt. This can be the start date-time for a test where the 
+      association can have no start- or end date-times, but only have a relation with an academic session representing
+      a periode, trimester, semester or academic year
     format: date-time
   endDateTime:
     type: string
-    description: Moment (date and time) of the end of the actual test.
+    description: |
+      Moment (date and time) of the end of the actual attempt. This can be the the deadline for handing in a document for an assignment or the end date-time for a test where the 
+      association can have no start- or end date-times, but only have a relation with an academic session representing
+      a periode, trimester, semester or academic year
     format: date-time
   room:
     $ref: './Room.yaml'
