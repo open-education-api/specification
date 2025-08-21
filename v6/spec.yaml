@@ -292,6 +292,8 @@ tags:
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
   - name: test component offering associations
     description: The API for associations between persons and test component offerings.
+  - name: test component offering association attempts
+    description: The API for the attempts that are made by a person on a test component offering association.
   - name: learning outcomes
     description: The learning outcomes API provides information about the statements regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
   - name: organizations
@@ -367,6 +369,10 @@ tags:
     x-displayName: TestComponentOfferingAssociationAttempt
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttempt" />
+  - name: document_model
+    x-displayName: Document
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/Document" />
   - name: person_model
     x-displayName: Person
     description: |
@@ -423,6 +429,7 @@ x-tagGroups:
       - test components
       - test component offerings
       - test component offering associations
+      - test component offering association attempts
   - name: Models
     tags:
       - service_model
@@ -439,6 +446,7 @@ x-tagGroups:
       - test_component_offering_model
       - test_component_offering_association_model
       - test_component_offering_association_attempt_model
+      - document_model
       - group_model
       - membership_model
       - organization_model
@@ -476,6 +484,8 @@ components:
       $ref: schemas/TestComponentOffering.yaml
     TestComponentOfferingAssociation:
       $ref: schemas/TestComponentOfferingAssociation.yaml
+    TestComponentOfferingAssociationAttempt:
+      $ref: schemas/TestComponentOfferingAssociationAttempt.yaml
     Course:
       $ref: schemas/Course.yaml
     CourseOffering:
@@ -599,18 +609,23 @@ paths:
   /test-components/{testComponentId}:
     $ref: paths/TestComponentInstance.yaml
   /test-components/{testComponentId}/test-component-offerings:
-    $ref: paths/TestComponentTestComponentOfferingCollection.yaml
+    $ref: paths/TestComponentOfferingCollection.yaml
   /test-component-offerings/{testComponentOfferingId}:
     $ref: paths/TestComponentOfferingInstance.yaml 
   /test-component-offerings/{testComponentOfferingId}/test-component-offering-associations:
-    $ref: paths/TestComponentOfferingTestComponentOfferingAssociationCollection.yaml 
+    $ref: paths/TestComponentOfferingAssociationCollection.yaml 
   /test-component-offerings/{testComponentOfferingId}/groups:
     $ref: paths/TestComponentOfferingGroupCollection.yaml      
   /test-component-offering-associations/{testComponentOfferingAssociationId}:
     $ref: paths/TestComponentOfferingAssociationInstance.yaml      
   /test-component-offering-associations/{testComponentOfferingAssociationId}/url:
-    $ref: paths/TestComponentOfferingAssociationUrl.yaml      
-
+    $ref: paths/TestComponentOfferingAssociationUrl.yaml    
+  /test-component-offering-associations/{testComponentOfferingAssociationId}/test-component-offering-association-attempts:
+    $ref: paths/TestComponentOfferingAssociationAttemptCollection.yaml
+  /test-component-offering-associations-attempt/{testComponentOfferingAssociationAttemptId}:
+    $ref: paths/TestComponentOfferingAssociationAttemptInstance.yaml
+  /test-component-offering-associations/{testComponentOfferingAssociationId}/test-component-offering-association-attempt/{testComponentOfferingAssociationAttemptId}:
+    $ref: paths/TestComponentOfferingAssociationAttemptOnAssociationInstance.yaml
   /program-offerings/{programOfferingId}:
     $ref: paths/ProgramOfferingInstance.yaml      
   /program-offerings/{programOfferingId}/program-offering-associations:
