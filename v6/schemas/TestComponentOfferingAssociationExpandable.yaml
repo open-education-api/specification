@@ -1,9 +1,12 @@
 allOf:
-  - $ref: './AssociationId.yaml'
-  - $ref: './AssociationProperties.yaml'
+  - $ref: './TestComponentOfferingAssociation.yaml'
   - type: object
     properties:
-      result:
-        $ref: './TestComponentOfferingAssociationResult.yaml'
       person:
         $ref: './PersonId.yaml'
+      testComponentOffering:
+        $ref: './OfferingId.yaml'
+      attempts:
+        type: array
+        items:
+          $ref: './Identifier.yaml'

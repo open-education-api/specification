@@ -29,21 +29,6 @@ allOf:
         description: |
           Documents that are related to the test component offering association. E.g. handed in documents, plagiarism reports, test made, etc.
         items:
-          type: object
-          required:
-            - documentId
-            - documentType
-            - documentName
-          properties:
-            documentId:
-              type: string
-              description: The unique identifier of the document
-              example: 12345678-1234-1234-1234-123456789012
-            documentType:
-              $ref: ../enumerations/documentType.yaml
-            documentName:
-              type: string
-              description: The name of the document
-              example: paper_test_1234333.pdf
+          $ref: './Document.yaml'
       result:
         $ref: './TestComponentOfferingAssociationResult.yaml'

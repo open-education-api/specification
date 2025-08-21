@@ -1,0 +1,72 @@
+type: object
+description: |
+  Planning and execution information on an attempt belong to a TestComponentOfferingAssociation. Result on the attempt
+  is only relevant when a score or rawScore could be determined.
+required:
+  - attemptId
+properties:
+  attemptId:
+    type: string
+    description: Unique id of this attempt
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174000
+  opportunity:
+    type: string
+    description: |
+      The opportunity during which this attempt can be fulfilled. 
+      Only relevant when only one attempt is allowed per association.
+      example: "2025Semester1"
+  attempt:
+    type: integer
+    description: |
+      Which attempt this is for the given person on the given offering
+    format: int32
+  state:
+    $ref: ../enumerations/attemptState.yaml
+  startDateTime:
+    type: string
+    description: | 
+      Moment (date and time) of the start of the actual attempt. This can be the start date-time for a test where the 
+      association can have no start- or end date-times, but only have a relation with an academic session representing
+      a periode, trimester, semester or academic year
+    format: date-time
+  endDateTime:
+    type: string
+    description: |
+      Moment (date and time) of the end of the actual attempt. This can be the the deadline for handing in a document for an assignment or the end date-time for a test where the 
+      association can have no start- or end date-times, but only have a relation with an academic session representing
+      a periode, trimester, semester or academic year
+    format: date-time
+  room:
+    $ref: './Room.yaml'
+  attendance:
+    $ref: '../enumerations/attendance.yaml'
+  irregularities:
+    type: string
+    description: | 
+      Additional information about external disturbances or (potentially) illegal actions by the student, 
+      before, during or after the test.
+    example: The student was late because there was a train delay
+  coordinator:
+    description: |
+      The coordinator responsible for overseeing the test
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: coordinatorId
+      - $ref: './Person.yaml'
+        title: Person object
+  documents:
+    type: array
+    description: |
+      Documents that are related to the test component offering association attempt. E.g. test made, work handed in, etc.
+    items:
+      $ref: './Document.yaml'
+  result:
+    $ref: './Result.yaml'
+  consumers:
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
+    type: array
+    items:
+      $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
