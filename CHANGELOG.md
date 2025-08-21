@@ -37,7 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `Organization`
     - Removed the requirement for `shortName`.
   - `Person`
-    - Removed the requirement for `givenName`, `displayName`, `activeEnrollment`, `affiliations` and `mail`.
+    - Removed the requirement for `givenName`, `displayName`, `affiliations` and `mail`.
   - `Program`
     - Removed the requirement for `abbreviation`, `description`, `teachingLanguages`.
   - `Service`
