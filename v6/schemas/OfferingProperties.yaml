@@ -2,9 +2,6 @@ type: object
 required:
   - primaryCode
   - name
-  - description
-  - teachingLanguages
-  - resultExpected
 properties:
   primaryCode:
     description: The primary human readable identifier for this offering. This is often the source identifier as defined by the institution.

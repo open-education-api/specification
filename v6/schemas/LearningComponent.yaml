@@ -4,8 +4,6 @@ required:
   - componentId
   - componentType
   - name
-  - teachingLanguages
-  - abbreviation
   - primaryCode
 properties:
   componentId:

@@ -3,7 +3,6 @@ description: A metadataset providing details on the provider of this OOAPI imple
 required:
   - contactEmail
   - specification
-  - documentation
 properties:
   contactEmail:
     type: string

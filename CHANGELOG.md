@@ -4,6 +4,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Change required fields - 2025-08-20
+
+### Added
+
+### Removed
+
+### Changed
+- Change required fields.
+  - **Explanation**: since OOAPI is used in a lot of different contexts we aimed to minimize the required fields. If a certain non-required field is required in a certain context, this should be specified in the consumer. We did keep some requirements however, because we feel the entities would become meaningless or hard to recognize otherwise. We also added some new requirements for consistency.
+    - These fields are **always** required (if they exist for that entity)"
+      - `<entity>Id`
+      - `primaryCode`
+      - `role`
+      - `state`
+      - `type` and various specializations thereof
+      - `name`
+  - `AcademicSession`
+    - Made `academicSessionType` and `primaryCode` required.
+    - Added `abbreviation` for consistency.
+  - All `Associations`
+    - Made `person` and `offering` required fields, because according to the datamodel an association is always between a `Person` and an `Offering`.
+  - `Building`
+    - Removed the requirement for an `address`.
+  - `Course`
+    - Removed the requirement for `abbreviation`, `description`, `teachingLanguages` and `level`.
+  - `LearningComponent`
+    - Removed the requirement for `abbreviation` and `teachingLanguages`.
+  - All `Offerings`
+    - Removed the requirement for `description`, `teachingLanguages` and `resultExpected`
+    - Removed the requirement for `startDate(Time)` and `endDate(Time)`. Offerings no longer need specific dates. This supports the common scenario where an Offering is confirmed for an EducationItem (Program, Course, or Component) but exact dates are not yet determined. To indicate the general timeframe, Offerings can reference an AcademicSession instead of providing specific dates.
+  - `Organization`
+    - Removed the requirement for `shortName`.
+  - `Person`
+    - Removed the requirement for `givenName`, `displayName`, `affiliations` and `mail`.
+  - `Program`
+    - Removed the requirement for `abbreviation`, `description`, `teachingLanguages`.
+  - `Service`
+    - Removed the requirement for `documentation`.
+  - `TestComponent`
+    - Removed the requirement for `abbreviation` and `teachingLanguages`.
+
 ## [6.0.0 Fix Typo's and warnings] - 2025-08-19
 
 ### Added
