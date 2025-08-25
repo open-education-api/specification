@@ -5,9 +5,13 @@ post:
     POST a single program offering association, enroll a person based on person information obtained from .wellknown endpoint, an offering, 
     and the organization/type=root information form the organization that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
-  security:
-    - openId:
-      - program-offering-associations:external:me.write
+
+    Security must be implemented at the level of the actual deployment rather than in the core specification. 
+    This means that the specification remains neutral, while concrete security measures can be applied in 
+    practice using established techniques such as OpenID with fine-grained scopes. For example, write access 
+    on programme-offering associations for an external user (“me.write”) can be granted in this way. The previous 
+    inline declaration has therefore been removed to avoid conflating implementation details with the specification.
+
   tags:
     - program offering associations
 
