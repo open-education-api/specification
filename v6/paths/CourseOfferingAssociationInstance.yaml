@@ -58,9 +58,14 @@ patch:
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
     to update parts of resource objects.
-  security:
-    - openId:
-      - associations.write
+
+    Security must be implemented at the level of the actual deployment rather than in the core 
+    specification. This means that the specification remains neutral, while concrete security 
+    measures can be applied in practice using established techniques such as OpenID with fine-grained 
+    scopes. For example, write access on associations (associations.write) can be granted in this way. 
+    The previous inline declaration has therefore been removed to avoid conflating implementation 
+    details with the specification.
+    
   tags:
     - course offering associations
 
