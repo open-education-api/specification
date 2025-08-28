@@ -81,7 +81,7 @@ properties:
     type: array 
     items: 
       $ref: '../enumerations/personAffiliation.yaml'
-  mail:
+  email:
     type: string
     description: The primary e-mailaddress of this person
     format: email
