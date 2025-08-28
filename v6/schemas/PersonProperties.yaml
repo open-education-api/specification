@@ -87,7 +87,7 @@ properties:
     format: email
     maxLength: 256
     example: vandamme.mcw@universiteitvanharderwijk.nl
-  secondaryMail:
+  secondaryEmail:
     type: string
     description: The secondary e-mailaddress of this person
     format: email
