@@ -51,11 +51,9 @@ properties:
       Documents that are related to the result of the test component offering association. E.g. assessment form, assessment model, etc.
     items:
       $ref: './Document.yaml'
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
+  consumer:
+    description: The additional consumer element that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
+    $ref: './Consumer.yaml'
     example:
       $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   ext:
