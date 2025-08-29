@@ -2,8 +2,8 @@ type: object
 description: statements regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy (https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017H0615(01)&from=EN)
 required:
   - learningOutcomeId
+  - primaryCode
   - name
-  - validFrom
 properties:
   learningOutcomeId:
     type: string
@@ -28,6 +28,11 @@ properties:
               Describe the differing views, within society,
               relating to the scientific uses of animals and
               recognize the need to respect these.
+  abbreviation:
+    type: string
+    description: The abbreviation or internal code used to identify this LearningOutcome
+    maxLength: 256
+    example: LO12_INFO_RET
   description:
     type: array
     description: The description of this learning outcome.
@@ -71,10 +76,6 @@ properties:
       $ref: './IdentifierEntry.yaml'
   complexityLevel:
     $ref: '../enumerations/learningOutcomeLevel.yaml'      
-  abbreviation:
-    type: string
-    description: shorthand description of this learning outcome
-    example: LO12_INFO_RET
   validFrom:
     type: string
     description: The date and time for when this learning outcome will be active. Should be a string formatted as an RFC3099 full-date.

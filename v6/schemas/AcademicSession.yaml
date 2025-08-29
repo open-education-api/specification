@@ -4,6 +4,8 @@ description: |
   Offerings MAY be be linked to a specific AcademicSession to indicate that the specified Offering takes place during the AcademicSession, however this is not mandatory.
 required:
   - academicSessionId
+  - academicSessionType
+  - primaryCode
   - name
   - startDateTime
   - endDateTime
@@ -31,6 +33,11 @@ properties:
     example:
     - language: en-GB
       value: Fall semester 2020
+  abbreviation:
+    type: string
+    description: The abbreviation or internal code used to identify this AcademicSession
+    maxLength: 256
+    example: SPRING-2026
   startDateTime:
     type: string
     description: The moment on which this academic session starts, RFC3339 (date-time)

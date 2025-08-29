@@ -3,7 +3,6 @@ description: An object describing a building and the properties of a building.
 required:
   - buildingId
   - name
-  - address
   - primaryCode
 properties:
   buildingId:

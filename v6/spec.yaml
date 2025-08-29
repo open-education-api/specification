@@ -308,6 +308,14 @@ tags:
     description: This path is no longer supported.
   - name: documents
     description: The API for accessing and retrieving document resources.
+  - name: security
+    description: |
+      Within the specification, no global security is defined. This keeps the core specification neutral and avoids 
+      prescribing a single security model for all operations. For those API calls that require authentication or 
+      authorisation, this is explicitly indicated in the accompanying documentation.
+      
+      By leaving the global security section empty, implementation details are separated from the functional description, 
+      while still providing guidance on how concrete security measures can be applied in practice.
 
   - name: service_model
     x-displayName: Service
@@ -405,6 +413,7 @@ tags:
 x-tagGroups:
   - name: Requests and respones
     tags: 
+      - security
       - service metadata
       - academic sessions
       - associations
@@ -458,13 +467,6 @@ x-tagGroups:
 
 
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-    openId:
-      type: openIdConnect
-      openIdConnectUrl: https://example.nl/.well-known/openid-configuration
   schemas:
     Service:
       $ref: schemas/Service.yaml

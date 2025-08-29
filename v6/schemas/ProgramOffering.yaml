@@ -4,9 +4,6 @@ allOf:
 - type: object
   description: A program offering which describes the program in time.
   title: ProgramOffering
-  required:
-    - startDateTime
-    - endDateTime
   properties:
     startDateTime:
       type: string

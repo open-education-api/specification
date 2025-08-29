@@ -48,7 +48,7 @@ get:
                   items:
                     type: array
                     items:
-                      - $ref: '../schemas/LearningComponentOfferingAssociationExpandable.yaml'
+                      $ref: '../schemas/LearningComponentOfferingAssociationExpandable.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':
