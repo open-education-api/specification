@@ -76,6 +76,38 @@ spec.yaml:
 - corrected /course-offerings/{courseOfferingId}/course
 updated RFC3339 -> RFC3339 (date-time) where applicable corrected
 
+## [6.0.0 Attempt on test component offering] - 2025-08-14
+
+### Added
+- TestComponentOfferingAssociationAttempt.yaml Net attempt model 
+- TestComponentOfferingAssociationAttemptFull.yaml attempt model including an identifier.
+- Document.yaml snippet for generic re-use of documents
+- New Paths:
+    - TestComponentOfferingAssociationAttemptInstance.yaml
+    - TestComponentOfferingAssociationAttemptCollection.yaml
+    - TestComponentOfferingAssociationAttemptOnAssociationInstance.yaml (For SIS vendors that need to process on associationId)
+- New Enumerations:
+    - attemptState.yaml
+    - attendance.yaml
+
+### Removed
+
+### Changed
+- Result.yaml: added generic result attributes from OKE project
+- Offering.yaml: 
+    - made use of generic Document.yaml
+    - added state attribute
+- TestComponentOfferingAssociation
+    - made use of generic Document.yaml
+- TestComponentOfferingAssociationExpandable: corrected references    
+- TestComponentOfferingAssociationExpanded: corrected references
+- spec.yaml
+    - added model elements for document
+    - added model element for attempts
+    - added path elements as mentioned in the added section above.
+- Renamed TestComponentOfferingTestComponentOfferingAssociationCollection.yaml to TestComponentOfferingAssociationCollection.yaml (and updated path in spec.yaml)
+- Renamed TestComponentOfferingTestComponentOfferingCollection.yaml to TestComponentOfferingCollection.yaml (and updated path in spec.yaml)
+
 ## [6.0.0 Fix OpenAPI errors and warnings] - 2025-07-07
 
 ### Added
