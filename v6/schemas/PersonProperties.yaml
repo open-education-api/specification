@@ -81,13 +81,13 @@ properties:
     type: array 
     items: 
       $ref: '../enumerations/personAffiliation.yaml'
-  mail:
+  email:
     type: string
     description: The primary e-mailaddress of this person
     format: email
     maxLength: 256
     example: vandamme.mcw@universiteitvanharderwijk.nl
-  secondaryMail:
+  secondaryEmail:
     type: string
     description: The secondary e-mailaddress of this person
     format: email

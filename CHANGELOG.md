@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Change move security to documentation] - 2025-08-28
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved: Inconsistent use of mail instead of email. All occurrences have been standardised to email.
+- Resolved: Enum values have been harmonised:
+  - not_known changed to unknown
+  - not_finished changed to unfinished
+  - not_present changed to absent
+
+
 ## [6.0.0 Change move security to documentation] - 2025-08-26
 
 ### Added
