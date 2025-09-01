@@ -28,6 +28,9 @@ properties:
     example:
     - language: en-GB
       value: Final written test for INFOMQNM for fall semseter 2020
+  state:
+    $ref: '../enumerations/offeringState.yaml'
+    description: The state of this offering, e.g. active, inactive, archived
   abbreviation:
     type: string
     description: The abbreviation or internal code used to identify this offering

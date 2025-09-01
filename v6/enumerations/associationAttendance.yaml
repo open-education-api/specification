@@ -1,15 +1,15 @@
 type: string
 description: |
   The attendance status of an individual's association with an offering:
-  - not_known: attendance status is unknown or unrecorded
+  - unknown: attendance status is unknown or unrecorded
   - not_started: attendance has not yet begun
-  - not_finished: attendance has begun but not completed
+  - unfinished: attendance has begun but not completed
   - present: individual attended as expected
-  - not_present: individual did not attend
+  - absent: individual did not attend
 x-ooapi-extensible-enum:
-  - not_known
+  - unknown
   - not_started
-  - not_finished
+  - unfinished
   - present
-  - not_present
+  - absent
 example: present

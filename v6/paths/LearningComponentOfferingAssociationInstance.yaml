@@ -150,7 +150,7 @@ put:
                 displayName: "Maartje van Damme"
                 activeEnrollment: true
                 affiliations: [student]
-                mail: vandamme.mcw@student.roc.nl
+                email: vandamme.mcw@student.roc.nl
                 languageOfChoice: [nl-NL]
                 otherCodes: [
                   {
