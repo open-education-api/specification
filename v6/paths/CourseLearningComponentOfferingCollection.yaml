@@ -17,6 +17,7 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
+    - $ref: '../parameters/offeringState.yaml'
     - name: modeOfDelivery
       in: query
       description: Filter by modeOfDelivery
