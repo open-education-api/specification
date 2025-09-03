@@ -52,8 +52,14 @@ properties:
     type: array
     items:
       $ref: './StudyLoadDescriptor.yaml'
-  qualificationAwarded:
-    $ref: '../enumerations/qualificationAwarded.yaml'
+  degreeAwarded:
+    $ref: '../enumerations/degreeAwarded.yaml'
+  degreeDesignations:
+      type: array
+      description: Academic field designations that specify the discipline area of the degree (e.g., "of Arts", "of Sciences", "of Engineering"). Multiple designations may apply to interdisciplinary programs.
+      items:
+        type: string
+        description: The designation suffix indicating the academic field or discipline (e.g., "of Arts" for humanities, "of Sciences" for natural sciences, "of Engineering" for engineering disciplines)
   modeOfStudy:
     $ref: '../enumerations/modeOfStudy.yaml'
   modesOfDelivery:

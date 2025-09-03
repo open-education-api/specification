@@ -1,0 +1,15 @@
+type: string
+description: |
+  Type of qualification that can be obtained upon completing the program:
+  - associate_degree: Associate degree — short-cycle higher education qualification (EQF level 5)
+  - bachelor: Bachelor — undergraduate degree (EQF level 6)
+  - master: Master — postgraduate degree (EQF level 7)
+  - doctoral: Doctoral degree — research-based doctoral degree (EQF level 8)
+  - none: no formal qualification is awarded for this program
+x-ooapi-extensible-enum:
+  - associate_degree
+  - bachelor
+  - master
+  - doctoral
+  - none
+example: none

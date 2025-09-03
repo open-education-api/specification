@@ -23,12 +23,12 @@ get:
       required: false
       schema:
         $ref: '../enumerations/programType.yaml'
-    - name: qualificationAwarded
+    - name: degreeAwarded
       in: query
-      description: Filter by qualificationAwarded
+      description: Filter by degreeAwarded
       required: false
       schema:
-        $ref: '../enumerations/qualificationAwarded.yaml'
+        $ref: '../enumerations/degreeAwarded.yaml'
     - name: levelOfQualification
       in: query
       description: Filter by levelOfQualification
