@@ -17,6 +17,7 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
@@ -46,13 +47,10 @@ get:
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
-
-
-
-patch:
-  summary: PATCH /learning-component-offerings/{learningComponentOfferingId}
-  operationId: partialUpdateLearningComponentOfferingsById
-  description: Change attributes of a single learning component offering.
+put:
+  summary: PUT /learning-component-offerings/{learningComponentOfferingId}
+  operationId: replaceLearningComponentOfferingsById
+  description: Update all attributes of a single learning component offering.
   tags:
     - learning component offerings
   parameters:
@@ -94,11 +92,10 @@ patch:
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
-
-put:
-  summary: PUT /learning-component-offerings/{learningComponentOfferingId}
-  operationId: replaceLearningComponentOfferingsById
-  description: Update all attributes of a single learning component offering.
+patch:
+  summary: PATCH /learning-component-offerings/{learningComponentOfferingId}
+  operationId: partialUpdateLearningComponentOfferingsById
+  description: Change attributes of a single learning component offering.
   tags:
     - learning component offerings
   parameters:

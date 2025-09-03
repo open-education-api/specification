@@ -55,6 +55,7 @@ properties:
       E.g. "van der Graaf, Jacobus Adrianus"
       Optionally the value of the student number can be added to this field by adding this at the end separated by a comma.
       E.g. "van der Graaf, Jacobus Adrianus, s12345678"
+    example: "van der Graaf, Jacobus Adrianus, s12345678"
   activeEnrollment:
     type: boolean
     description: Whether this person has an active enrollment.
@@ -128,6 +129,7 @@ properties:
   office:
     type: string
     description: The name of the office where this person is located
+    example: Zernikecomplex
   address:
     $ref: './Address.yaml'
   ICEName:
@@ -169,6 +171,7 @@ properties:
         code:
           description: Human readable value for the code/identifier
           type: string
+          example: "ExtraTimeOnlyMath25%"
         description:
           type: array
           description: The description of this assignedNeed.

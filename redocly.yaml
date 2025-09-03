@@ -1,0 +1,21 @@
+apis:
+  main:
+    root: ./v6/spec.yaml
+  test:
+    root: ./v6/spec.yaml
+extends:
+  - all
+rules:
+ info-license: off
+ required-string-property-missing-min-length: off
+ boolean-parameter-prefixes: off
+# array-parameter-serialization: off
+ request-mime-type: off
+# path-http-verbs-order: off
+ path-segment-plural: off
+# scalar-property-missing-example: off
+ response-mime-type: off
+ no-invalid-schema-examples: off
+ operation-4xx-problem-details-rfc7807: off
+# tags-alphabetical: off
+ no-required-schema-properties-undefined: off

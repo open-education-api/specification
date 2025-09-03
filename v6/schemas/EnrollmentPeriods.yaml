@@ -24,9 +24,11 @@ properties:
   enrollmentUrl:
     type: string
     description: The URL where a person of this targetGroup can enroll him or herself
+    example: "https://university.example.org/"
   comment:
     type: string
     description: Additional information regarding this enollment period that can be shared with the persons in the target groups.
+    example: "Additional information..."
   consumers:
     description: |
             The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) 

@@ -7,8 +7,10 @@ allOf:
         description: |
           The unique identifier of the enrollment of the student in a courseOffering on the behalf of the current assocation is taking place 
         format: uuid
+        example: "123e4567-e89b-12d3-a456-426614174000"
       testComponentOfferingAssociationId:
         type: string
         description: |
           The associationId under which this attempt was made.
         format: uuid
+        example: "123e4567-e89b-12d3-a456-426614174000"
