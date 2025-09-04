@@ -22,6 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Problems are now defined in accordance with RFC 7807
 
 
+## [6.0.0 Add state query parameter for offerings] - 2025-09-03
+
+### Added
+- Added: `state` query parameter to all `GET` requests that return a collection of offerings. Offerings now have a `state` attribute and many applications will want to retrieve only offerings with a particular state such as `active`.
+
 ## [6.0.0 Change move security to documentation] - 2025-08-28
 
 ### Added
