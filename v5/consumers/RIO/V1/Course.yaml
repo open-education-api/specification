@@ -15,14 +15,6 @@ properties:
       onderwijslocatiecode
       Een betekenisloze identifier voor een onderwijslocatie in de Registratie Instellingen en Opleidingen.
     pattern: ^(?:\d{3}X\d{3})$
-  consentParticipationSTAP:
-    type: string
-    description: |
-      toestemmingDeelnameSTAP
-      Geeft aan of een AangebodenOpleiding beschikbaar is in het kader van de STAP-regeling en voorkomt in het Scholingsregister.
-    enum:
-      - permission_granted
-      - permission_not_granted
   jointPartnerCodes:
     type: array
     items:
@@ -50,9 +42,11 @@ properties:
       minLength: 3
       maxLength: 3
       pattern: "^[a-z]{3}$"
-      example: nld
+      example:
+        - nld
+        - eng
     maxItems: 3
   lastStartDate:
     type: string
-    description: The date when participants can follow this program for the last time.
+    description: The start date on which participants can last enter the Program.
     format: date

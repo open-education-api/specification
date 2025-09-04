@@ -1,0 +1,65 @@
+name: Feedback
+description: Use this form to provide feedback on the OOAPI development during feedback windows.
+title: "[Feedback]: "
+labels: ["type: feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to provide feedback for the OOAPI development.
+        *When a version is not in active development please use the issue template to create an issue to be picked up for the next release.*
+  - type: input
+    id: organization
+    attributes:
+      label: Organization
+      description: Which organization do you represent?
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      description: Please give a short description of your feedback, where possible, mention the relevant path(s) or object(s)
+    validations:
+      required: true
+  - type: input
+    id: issues
+    attributes:
+      label: Related issues
+      description: "If applicable, please refer to relevant issue number(s), ex. #123, #567"
+    validations:
+      required: false
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of the OOAPI are you targeting?
+      options:
+        - v6.0
+    validations:
+      required: true
+  - type: dropdown
+    id: twg-participation
+    attributes:
+      label: Follow-up invitation
+      description: Would you also be open to spend some time to discuss this issue in a technical working group session?
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+  - type: textarea
+    id: usecases
+    attributes:
+      label: Your uses case(s)
+      description: If possible please describe your OOAPI use case(s) for context
+    validations:
+      required: false

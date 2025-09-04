@@ -4,8 +4,6 @@ required:
   - componentId
   - componentType
   - name
-  - teachingLanguages
-  - abbreviation
   - primaryCode
 properties:
   componentId:
@@ -84,7 +82,7 @@ properties:
               Analyze and improve methods and analysis of published scientific articles
               Able to deliver scientific reports
 
-              Prove executable knowledge of ­­­statistics, including:
+              Prove executable knowledge of statistics, including:
               Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
               Data preparation (e.g., coding and feature selection)
               Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)

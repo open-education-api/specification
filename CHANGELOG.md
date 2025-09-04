@@ -4,6 +4,141 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Add state query parameter for offerings] - 2025-09-03
+
+### Added
+- Added: `state` query parameter to all `GET` requests that return a collection of offerings. Offerings now have a `state` attribute and many applications will want to retrieve only offerings with a particular state such as `active`.
+
+## [6.0.0 Change move security to documentation] - 2025-08-28
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved: Inconsistent use of mail instead of email. All occurrences have been standardised to email.
+- Resolved: Enum values have been harmonised:
+  - not_known changed to unknown
+  - not_finished changed to unfinished
+  - not_present changed to absent
+
+
+## [6.0.0 Change move security to documentation] - 2025-08-26
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved: all security-related aspects moved to documentation, ensuring the specification remains clean and free from implementation details
+
+## [6.0.0 Change 'items: - $ref' error] - 2025-08-25
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved: replaced all invalid 'items: - $ref' occurrences with the correct 'items: $ref', ensuring valid OpenAPI syntax and proper display in Redoc.
+
+## [6.0.0 Change required fields] - 2025-08-20
+
+### Added
+
+### Removed
+
+### Changed
+- Change required fields.
+  - **Explanation**: since OOAPI is used in a lot of different contexts we aimed to minimize the required fields. If a certain non-required field is required in a certain context, this should be specified in the consumer. We did keep some requirements however, because we feel the entities would become meaningless or hard to recognize otherwise. We also added some new requirements for consistency.
+    - These fields are **always** required (if they exist for that entity)"
+      - `<entity>Id`
+      - `primaryCode`
+      - `role`
+      - `state`
+      - `type` and various specializations thereof
+      - `name`
+  - `AcademicSession`
+    - Made `academicSessionType` and `primaryCode` required.
+    - Added `abbreviation` for consistency.
+  - All `Associations`
+    - Made `person` and `offering` required fields, because according to the datamodel an association is always between a `Person` and an `Offering`.
+  - `Building`
+    - Removed the requirement for an `address`.
+  - `Course`
+    - Removed the requirement for `abbreviation`, `description`, `teachingLanguages` and `level`.
+  - `LearningComponent`
+    - Removed the requirement for `abbreviation` and `teachingLanguages`.
+  - All `Offerings`
+    - Removed the requirement for `description`, `teachingLanguages` and `resultExpected`
+    - Removed the requirement for `startDate(Time)` and `endDate(Time)`. Offerings no longer need specific dates. This supports the common scenario where an Offering is confirmed for an EducationItem (Program, Course, or Component) but exact dates are not yet determined. To indicate the general timeframe, Offerings can reference an AcademicSession instead of providing specific dates.
+  - `Organization`
+    - Removed the requirement for `shortName`.
+  - `Person`
+    - Removed the requirement for `givenName`, `displayName`, `affiliations` and `mail`.
+  - `Program`
+    - Removed the requirement for `abbreviation`, `description`, `teachingLanguages`.
+  - `Service`
+    - Removed the requirement for `documentation`.
+  - `TestComponent`
+    - Removed the requirement for `abbreviation` and `teachingLanguages`.
+
+## [6.0.0 Fix Typo's and warnings] - 2025-08-19
+
+### Added
+
+### Removed
+
+### Changed
+Corrected typo's
+spec.yaml: 
+- Added security: []
+- corrected /course-offerings/{courseOfferingId}/course
+updated RFC3339 -> RFC3339 (date-time) where applicable corrected
+
+## [6.0.0 Attempt on test component offering] - 2025-08-14
+
+### Added
+- TestComponentOfferingAssociationAttempt.yaml Net attempt model 
+- TestComponentOfferingAssociationAttemptFull.yaml attempt model including an identifier.
+- Document.yaml snippet for generic re-use of documents
+- New Paths:
+    - TestComponentOfferingAssociationAttemptInstance.yaml
+    - TestComponentOfferingAssociationAttemptCollection.yaml
+    - TestComponentOfferingAssociationAttemptOnAssociationInstance.yaml (For SIS vendors that need to process on associationId)
+- New Enumerations:
+    - attemptState.yaml
+    - attendance.yaml
+
+### Removed
+
+### Changed
+- Result.yaml: added generic result attributes from OKE project
+- Offering.yaml: 
+    - made use of generic Document.yaml
+    - added state attribute
+- TestComponentOfferingAssociation
+    - made use of generic Document.yaml
+- TestComponentOfferingAssociationExpandable: corrected references    
+- TestComponentOfferingAssociationExpanded: corrected references
+- spec.yaml
+    - added model elements for document
+    - added model element for attempts
+    - added path elements as mentioned in the added section above.
+- Renamed TestComponentOfferingTestComponentOfferingAssociationCollection.yaml to TestComponentOfferingAssociationCollection.yaml (and updated path in spec.yaml)
+- Renamed TestComponentOfferingTestComponentOfferingCollection.yaml to TestComponentOfferingCollection.yaml (and updated path in spec.yaml)
+
+## [6.0.0 Fix OpenAPI errors and warnings] - 2025-07-07
+
+### Added
+
+### Removed
+
+### Changed
+- personId: "123e4567-e89b-12d3-a456-426614174000" in v6/paths/LearningComponentOfferingAssociationInstance.yaml and v6/paths/TestComponentOfferingAssociationInstance.yaml
+- removed required - state in v6/schemas/OfferingProperties.yaml
+- removed required - items in v6/schemas/Pagination.yaml
+
+
 ## [6.0.0 Beta_postfeedback] - 2025-07-07
 
 ### Added

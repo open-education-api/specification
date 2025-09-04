@@ -1,10 +1,15 @@
 get:
   summary: GET /documents/{documentId}
   operationId: listDocumentById
-  description: Get the binary data from a document.
-  security:
-    - oAuthFlows:
-      - nl-test-admin-flow-2-3-4
+  description: |
+    Get the binary data from a document.
+
+    Security must be implemented at the level of the actual deployment rather than in the core specification. 
+    This means that the specification remains neutral, while concrete security measures can be applied in practice 
+    using established techniques such as OAuth flows with fine-grained definitions. For example, access may be 
+    managed through the flow identified as nl-test-admin-flow-2-3-4. The previous inline declaration has therefore 
+    been removed to avoid conflating implementation details with the specification.
+
   tags:
     - documents
   parameters:

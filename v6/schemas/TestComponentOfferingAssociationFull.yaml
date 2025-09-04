@@ -1,6 +1,9 @@
 allOf:
   - $ref: './TestComponentOfferingAssociation.yaml'
   - type: object
+    required:
+      - person
+      - offering
     properties:
       person:
         readOnly: true

@@ -1,0 +1,14 @@
+allOf:
+  - $ref: './TestComponentOfferingAssociationAttempt.yaml'
+  - type: object
+    properties:
+      courseOfferingAssociationId: 
+        type: string
+        description: |
+          The unique identifier of the enrollment of the student in a courseOffering on the behalf of the current assocation is taking place 
+        format: uuid
+      testComponentOfferingAssociationId:
+        type: string
+        description: |
+          The associationId under which this attempt was made.
+        format: uuid

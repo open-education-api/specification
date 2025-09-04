@@ -9,7 +9,7 @@ info:
     	<a target="_blank" href="ooapi_v6.png">
       <img src="ooapi_v6.png" alt="OOAPI information model that feeds OOAPI specification" width="100%" class="img-responsive">
       </a>
-      <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>
+      <figcaption> OOAPI information model that feeds OOAPI specification (click to enlarge)</figcaption>
     </figure>
 
     The model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.
@@ -130,7 +130,7 @@ info:
     
     /learning-components/{learningComponentId}
     
-    /learning-components/{learningComponentId}/offerings
+    /learning-components/{learningComponentId}/learning-component-offerings
     
     /learning-component-offerings/{learningComponentOfferingId}
     
@@ -140,7 +140,7 @@ info:
     
     /test-components/{testComponentId}
     
-    /test-components/{testComponentId}/offerings
+    /test-components/{testComponentId}/test-component-offerings
     
     /test-component-offerings/{testComponentOfferingId}
     
@@ -162,6 +162,10 @@ info:
     
     /rooms/{roomId}
 
+  contact:
+    name: OOAPI Working Group / SURF
+    url: https://openonderwijsapi.nl
+    email: info@openonderwijsapi.nl
 
   x-logo:
     url: ../logo.png
@@ -170,6 +174,8 @@ info:
 servers:
   - url: http://demo01.eduapi.nl/v5
     description: SURF demo implementation
+
+security: []
 
 tags:
   - name: service metadata
@@ -278,10 +284,16 @@ tags:
     description: The learning components API provides information about learning activities that are part of a course (or learning unit).
   - name: learning component offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: learning component offering associations
+    description: The API for associations between persons and learning component offerings.
   - name: test components 
     description: The test components API provides information about test or assessment activities that are part of a course (or learning unit).
   - name: test component offerings
     description: The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll.
+  - name: test component offering associations
+    description: The API for associations between persons and test component offerings.
+  - name: test component offering association attempts
+    description: The API for the attempts that are made by a person on a test component offering association.
   - name: learning outcomes
     description: The learning outcomes API provides information about the statements regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy.
   - name: organizations
@@ -294,6 +306,16 @@ tags:
     description: The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)
   - name: news
     description: This path is no longer supported.
+  - name: documents
+    description: The API for accessing and retrieving document resources.
+  - name: security
+    description: |
+      Within the specification, no global security is defined. This keeps the core specification neutral and avoids 
+      prescribing a single security model for all operations. For those API calls that require authentication or 
+      authorisation, this is explicitly indicated in the accompanying documentation.
+      
+      By leaving the global security section empty, implementation details are separated from the functional description, 
+      while still providing guidance on how concrete security measures can be applied in practice.
 
   - name: service_model
     x-displayName: Service
@@ -351,6 +373,14 @@ tags:
     x-displayName: TestComponentOfferingAssocation
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociation" />
+  - name: test_component_offering_association_attempt_model
+    x-displayName: TestComponentOfferingAssociationAttempt
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttempt" />
+  - name: document_model
+    x-displayName: Document
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/Document" />
   - name: person_model
     x-displayName: Person
     description: |
@@ -383,6 +413,7 @@ tags:
 x-tagGroups:
   - name: Requests and respones
     tags: 
+      - security
       - service metadata
       - academic sessions
       - associations
@@ -407,6 +438,7 @@ x-tagGroups:
       - test components
       - test component offerings
       - test component offering associations
+      - test component offering association attempts
   - name: Models
     tags:
       - service_model
@@ -422,6 +454,8 @@ x-tagGroups:
       - test_component_model
       - test_component_offering_model
       - test_component_offering_association_model
+      - test_component_offering_association_attempt_model
+      - document_model
       - group_model
       - membership_model
       - organization_model
@@ -433,13 +467,6 @@ x-tagGroups:
 
 
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-    openId:
-      type: openIdConnect
-      openIdConnectUrl: https://example.nl/.well-known/openid-configuration
   schemas:
     Service:
       $ref: schemas/Service.yaml
@@ -459,6 +486,8 @@ components:
       $ref: schemas/TestComponentOffering.yaml
     TestComponentOfferingAssociation:
       $ref: schemas/TestComponentOfferingAssociation.yaml
+    TestComponentOfferingAssociationAttempt:
+      $ref: schemas/TestComponentOfferingAssociationAttempt.yaml
     Course:
       $ref: schemas/Course.yaml
     CourseOffering:
@@ -582,18 +611,23 @@ paths:
   /test-components/{testComponentId}:
     $ref: paths/TestComponentInstance.yaml
   /test-components/{testComponentId}/test-component-offerings:
-    $ref: paths/TestComponentTestComponentOfferingCollection.yaml
+    $ref: paths/TestComponentOfferingCollection.yaml
   /test-component-offerings/{testComponentOfferingId}:
     $ref: paths/TestComponentOfferingInstance.yaml 
   /test-component-offerings/{testComponentOfferingId}/test-component-offering-associations:
-    $ref: paths/TestComponentOfferingTestComponentOfferingAssociationCollection.yaml 
+    $ref: paths/TestComponentOfferingAssociationCollection.yaml 
   /test-component-offerings/{testComponentOfferingId}/groups:
     $ref: paths/TestComponentOfferingGroupCollection.yaml      
   /test-component-offering-associations/{testComponentOfferingAssociationId}:
     $ref: paths/TestComponentOfferingAssociationInstance.yaml      
   /test-component-offering-associations/{testComponentOfferingAssociationId}/url:
-    $ref: paths/TestComponentOfferingAssociationUrl.yaml      
-
+    $ref: paths/TestComponentOfferingAssociationUrl.yaml    
+  /test-component-offering-associations/{testComponentOfferingAssociationId}/test-component-offering-association-attempts:
+    $ref: paths/TestComponentOfferingAssociationAttemptCollection.yaml
+  /test-component-offering-associations-attempt/{testComponentOfferingAssociationAttemptId}:
+    $ref: paths/TestComponentOfferingAssociationAttemptInstance.yaml
+  /test-component-offering-associations/{testComponentOfferingAssociationId}/test-component-offering-association-attempt/{testComponentOfferingAssociationAttemptId}:
+    $ref: paths/TestComponentOfferingAssociationAttemptOnAssociationInstance.yaml
   /program-offerings/{programOfferingId}:
     $ref: paths/ProgramOfferingInstance.yaml      
   /program-offerings/{programOfferingId}/program-offering-associations:
@@ -604,7 +638,7 @@ paths:
   /course-offerings/{courseOfferingId}:
     $ref: paths/CourseOfferingInstance.yaml      
   /course-offerings/{courseOfferingId}/course-offering-associations:
-    $ref: paths/ProgramOfferingProgramOfferingAssociationCollection.yaml
+    $ref: paths/CourseOfferingCourseOfferingAssociationCollection.yaml
   /course-offerings/{courseOfferingId}/groups:
     $ref: paths/CourseOfferingGroupCollection.yaml      
 

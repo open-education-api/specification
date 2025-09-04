@@ -57,9 +57,13 @@ patch:
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
     to update parts of resource objects.
-  security:
-    - openId:
-      - associations.write
+
+    Security must be implemented at the level of the actual deployment rather than in the core 
+    specification. This means that the specification remains neutral, while concrete security 
+    measures can be applied in practice using established techniques such as OpenID with fine-grained 
+    scopes (for example, write access on associations). The previous inline declaration has therefore
+    been removed to avoid conflating implementation details with the specification.
+
   tags:
     - test component offering associations
 
@@ -134,7 +138,7 @@ put:
                 extraTimeInMin: 30
                 personalNeeds: [extraTime,spoken,spell-checker-on-screen]
               person:
-                personId: "111-2222-33-4444-222"
+                personId: "123e4567-e89b-12d3-a456-426614174000"
                 primaryCode:
                   codeType: studentNumber
                   code: "1234567"
@@ -145,7 +149,7 @@ put:
                 displayName: "Maartje van Damme"
                 activeEnrollment: true
                 affiliations: [student]
-                mail: vandamme.mcw@student.roc.nl
+                email: vandamme.mcw@student.roc.nl
                 languageOfChoice: [nl-NL]
                 otherCodes: [
                   {
@@ -174,7 +178,7 @@ put:
               - consumerKey: nl-test-admin
                 extraTimeInMin: 30
                 personalNeeds: [extraTime,spoken,spell-checker-on-screen]
-              person: "111-2222-33-4444-222"
+              person: "123e4567-e89b-12d3-a456-426614174000"
               #id van offering op volgende regel is redendant want ook als padparameter
               offering: "123e4567-e89b-12d3-a456-134564174000"    
 

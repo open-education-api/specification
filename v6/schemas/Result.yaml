@@ -1,12 +1,11 @@
 type: object
-description: A result as part of an association 
+description: A result as part of an association or attempt
 required:
   - state
   - resultDateTime
 properties:
   state:
     $ref: '../enumerations/resultState.yaml'
-# added state based on request by CACI
   pass:
     $ref: '../enumerations/passState.yaml'
   comment:
@@ -16,10 +15,46 @@ properties:
     type: string
     description: The score of this program/course/component association (based on resultValueType in offering)
     example: '9'
+  rawScore:
+    type: integer
+    description: |
+      The number of points scored by a person (on the test or assessment form) which the result could be calculated. 
+      The raw score provides additional insight in the achievement of the person. 
+      The raw score also needs the value of maxRawScore to provide necessary context.
+  maxRawScore:
+    type: integer
+    description: |
+      The maximum number of points a person could achieve on the test or assessment form.
+  final:
+    type: boolean
+    default: false
+    description: |
+      final: indicates that the result has been finalised by the exam committee. 
+      Can be done in any step of the test taking and assessment cycle. 
+    example: true  
+  assessor:
+    description: |
+      The assessor responsible for evaluating the result.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: assessorId
+      - $ref: './Person.yaml'
+        title: Person object
   resultDateTime:
     type: string
-    description: The date this result has been published, RFC3339 (full-date)
+    description: The date this result has been published, RFC3339 (date-time)
     format: date-time
     example: '2025-11-28T08:30:00+01:00'
+  documents:
+    type: array
+    description: |
+      Documents that are related to the result of the test component offering association. E.g. assessment form, assessment model, etc.
+    items:
+      $ref: './Document.yaml'
+  consumer:
+    description: The additional consumer element that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
+    $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
   ext:
     $ref: './Ext.yaml'

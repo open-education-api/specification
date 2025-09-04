@@ -15,7 +15,8 @@ description: |
     - `room_code`: Code used to identify a room
     - `system_id`: Identifier assigned within the context of a specific system
     - `product_id`: Identifier for a specific product
-    - `national_identity_number`: Identifier assigned by a government to a person (e.g. national insurance number in the UK, or personnummer in Sweden)    - `student_number`: Identifier for a student
+    - `national_identity_number`: Identifier assigned by a government to a person (e.g. national insurance number in the UK, or personnummer in Sweden)
+    - `student_number`: Identifier for the student
     - `studielink_number`: Identifier assigned to a person by the Dutch centralised enrolment system Studielink
     - `esi`: European Student Identifier
     - `username`: The user's login name
