@@ -3,12 +3,12 @@ description: |
   Status of the fulfilment of the attempt. 
   The status typically progresses from pending to associated and then to finished. 
   - pending: A student is associated to the offering, but has not yet been allocated a specific attempt.
-  - canceled: The attempt has been canceled, for example by the student or the institution
+  - cancelled: The attempt has been cancelled, for example by the student or the institution
   - associated: The attempt has been confirmed/accepted/processed, the student is enrolled for a specific test moment
   - finished: The attempt has ended, for example because the student  has ended or the student has completed the test, or the deadline for handing in / finishing the test has expired.
 x-ooapi-extensible-enum:
   - pending
-  - canceled
+  - cancelled
   - associated
   - finished
 example: associated

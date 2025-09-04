@@ -96,7 +96,7 @@ patch:
   summary: PATCH /program-offering-associations/{programOfferingAssociationId}
   operationId: partialUpdateProgramOfferingAssociationById
   description: |
-    Update the status or result of an enrollment. Other elements of the association object COULD 
+    Update the status or result of an enrolment. Other elements of the association object COULD 
     also be PATCHED. But are not likely and have therefor not been included in this endpoint.
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 

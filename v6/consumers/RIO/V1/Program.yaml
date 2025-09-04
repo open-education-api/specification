@@ -126,7 +126,7 @@ properties:
       enum:
         - business_and_project_support
         - economy
-        - behavior_and_society
+        - behaviour_and_society
         - healthcare_and_sport
         - hobby_and_leisure_time
         - agriculture_food_and_natural_environment

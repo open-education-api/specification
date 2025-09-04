@@ -3,7 +3,7 @@ description: A person that has a relationship with this institution
 required:
   - surname
   - primaryCode
-  - activeEnrollment
+  - activeenrolment
 properties:
   primaryCode:
     description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
@@ -48,17 +48,23 @@ properties:
     example: MCW
   idCheckName:
     type: string
-    description: | 
-      The name of the person as printed on the official identification documents (Driver's license or passport or id card)
-      This MUST be formatted as "surname prefix surname, given names"  (separating surnamePrefix and surname with a single space and surname and given names by a comma and space) 
-      If the surname or given names are not available or secret the value of "secret" and "notAvailable" are recommended, surname prefix can be omitted.
-      E.g. "van der Graaf, Jacobus Adrianus"
-      Optionally the value of the student number can be added to this field by adding this at the end separated by a comma.
-      E.g. "van der Graaf, Jacobus Adrianus, s12345678"
+    description: |
+      The name of the person as printed on official identification documents
+      (driving licence, passport or identity card). This MUST be formatted as
+      "surname prefix surname, given names" (separating surnamePrefix and surname
+      with a single space, and surname and given names with a comma and space).
+      
+      If the surname or given names are not available or are secret, the values
+      "secret" and "notAvailable" are recommended. The surname prefix may be
+      omitted. E.g. "van der Graaf, Jacobus Adrianus". 
+      
+      Optionally, the value of
+      the student number can be added to this field by appending it at the end,
+      separated by a comma. E.g. "van der Graaf, Jacobus Adrianus, s12345678"
     example: "van der Graaf, Jacobus Adrianus, s12345678"
-  activeEnrollment:
+  activeenrolment:
     type: boolean
-    description: Whether this person has an active enrollment.
+    description: Whether this person has an active enrolment.
     example: false
   dateOfBirth:
     type: string

@@ -1,27 +1,27 @@
 type: object
 description: |
-  An enrollment period describes the moment at which an offering is available for enrollment.
-  The enrollment period is supplemented with additional information regarding the intended users, the time for the enrollment as well as a URL that contains the enrollment logic.
+  An enrolment period describes the moment at which an offering is available for enrolment.
+  The enrolment period is supplemented with additional information regarding the intended users, the time for the enrolment as well as a URL that contains the enrolment logic.
 required:
   - startDateTime
 properties:
   startDateTime:
     type: string
-    description: The moment from which the enrollment should be available
+    description: The moment from which the enrolment should be available
     format: date-time
     example: 2020-09-28T08:30:00+01:00
   endDateTime:
     type: string
-    description: The moment until which the enrollment shoud be available (when the enrollment for this taretgroup stops), RFC3339 (date-time)
+    description: The moment until which the enrolment shoud be available (when the enrolment for this taretgroup stops), RFC3339 (date-time)
     format: date-time
     example: 2020-09-30T20:00:00+01:00
   targetGroup:
     type: array
-    description: The people for whom this enrollment is available.
+    description: The people for whom this enrolment is available.
     items:
       type: string
       description: the specific targetgroup
-  enrollmentUrl:
+  enrolmentUrl:
     type: string
     description: The URL where a person of this targetGroup can enroll him or herself
     example: "https://university.example.org/"

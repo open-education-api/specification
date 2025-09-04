@@ -52,7 +52,7 @@ properties:
               Define/produce materials (e.g., stimuli and questionnaires)
               Define protocols for research studies
               Understands and take in account concepts of reliability and validity
-              Analyze and improve methods and analysis of published scientific articles
+              analyse and improve methods and analysis of published scientific articles
               Able to deliver scientific reports
               Prove in writing knowledge of ­­­statistics, including:
               Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
@@ -90,7 +90,7 @@ properties:
     example: 150
   pendingNumberStudents:
     type: number
-    description: The number of students that have a pending enrollment request for this offering
+    description: The number of students that have a pending enrolment request for this offering
     format: int32
     minimum: 0
     example: 50
@@ -120,11 +120,11 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'    
-  enrollmentPeriods:
+  enrolmentPeriods:
     type: array
     description: An array of periods that a person can enroll into this offering. The period is defined by targetgroup and dateTime
     items:
-      $ref: './EnrollmentPeriods.yaml'
+      $ref: './enrolmentPeriods.yaml'
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array

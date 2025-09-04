@@ -400,7 +400,7 @@ tags:
          <td>internal</td>
          <!-- <td>POST <a
               href="#tag/offerings/paths/~1offerings~1{offeringId}~1associations~1external/post">
-              /offerings/{offeringId}/associations/me</a> local enrollment based on
+              /offerings/{offeringId}/associations/me</a> local enrolment based on
               selected offering
               This call will allow for a local student using his .wellknown credentials
               to enroll for the offering identified by the offeringId
@@ -434,7 +434,7 @@ tags:
                /offerings/{offeringId}/associations/me</a>
            </li>
           </ul>
-          for the enrollment
+          for the enrolment
          </td>
           -->
          <td>no support needed</td>

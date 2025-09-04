@@ -90,7 +90,7 @@ put:
                 surnamePrefix: van
                 surname: Damme
                 displayName: "Maartje van Damme"
-                activeEnrollment: true
+                activeenrolment: true
                 affiliations: [student]
                 email: vandamme.mcw@student.roc.nl
                 languageOfChoice: [nl-NL]
@@ -109,7 +109,7 @@ put:
               #id van offering op volgende regel is redendant want ook als padparameter
               offering: "123e4567-e89b-12d3-a456-134564174000"
 
-          Change student enrollment to offering (zitting) (flow 2.x):
+          Change student enrolment to offering (zitting) (flow 2.x):
             value:
               #associationId is padparameter en ook mogelijk toegevoegd in body
               #volgorde conform ooapi-v5
@@ -152,7 +152,7 @@ patch:
   summary: PATCH /learning-component-offering-associations/{learningComponentOfferingAssociationId}
   operationId: partialUpdateLearningComponentOfferingAssociationById
   description: |
-    Update the status or result of an enrollment. Other elements of the association object COULD 
+    Update the status or result of an enrolment. Other elements of the association object COULD 
     also be PATCHED. But are not likely and have therefor not been included in this endpoint.
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 

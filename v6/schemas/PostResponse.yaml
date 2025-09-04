@@ -11,7 +11,7 @@ properties:
       $ref: './LanguageTypedString.yaml'
     example:
     - language: en-GB
-      value: Your enrollment was partly succesful, you have been placed on the waitinglist 
+      value: Your enrolment was partly succesful, you have been placed on the waitinglist 
   redirect:
     description: URL where additional information can be found e.g. by use of deeplink
     type: string

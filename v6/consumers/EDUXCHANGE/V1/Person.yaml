@@ -1,12 +1,12 @@
 type: object
 required:
  - consumerKey
- - enrollments
+ - enrolments
  - institutionBRINCode
 properties:
   consumerKey:
     type: string
-  enrollments:
+  enrolments:
     type: array
     items:
       type: object
@@ -19,16 +19,16 @@ properties:
           description: The crohoCreboCode for this program. This should be a five character string, e.g. "34401".
         name:
           type: string
-          description: The name of the program this enrollment is for.
+          description: The name of the program this enrolment is for.
         phase:
           type: string
-          description: The phase of the program for this enrollment.
+          description: The phase of the program for this enrolment.
           enum:
             - bachelor
             - master
         modeOfStudy:
           type: string
-          description: The modeOfStudy of the program for this enrollment
+          description: The modeOfStudy of the program for this enrolment
           enum:
             - full-time
             - part-time
@@ -36,11 +36,11 @@ properties:
             - self-paced
         startDateTime:
           type: string
-          description: The start moment for this enrollment. Should be a string formatted as an RFC3099 full-date.
+          description: The start moment for this enrolment. Should be a string formatted as an RFC3099 full-date.
           format: date-time
         endDateTime:
           type: string
-          description: The end moment for this enrollment. Should be a string formatted as an RFC3099 full-date.
+          description: The end moment for this enrolment. Should be a string formatted as an RFC3099 full-date.
           format: date-time
   institutionBRINCode:
     type: string

@@ -33,13 +33,13 @@ properties:
         visibleForOwnStudents:
           type: boolean
           description: a boolean value (`true` or `false`) indicating whether this Program or Course should be visible for students of the offering institution. The default values for this attribute is specified outside of this specification on the alliance level.
-        enrollmentForOwnStudents:
+        enrolmentForOwnStudents:
           type: string
-          description: a string indicating which enrollments process should be followed for students of the offering institution. Allowed values are "broker"` or `"url"`. This attribute is only used if `visibleForOwnStudents` is set to `true`. If `"url"` is chosen the attribute `enrollmentUrl` is mandatory.
+          description: a string indicating which enrolments process should be followed for students of the offering institution. Allowed values are "broker"` or `"url"`. This attribute is only used if `visibleForOwnStudents` is set to `true`. If `"url"` is chosen the attribute `enrolmentUrl` is mandatory.
           enum:
             - broker
             - url
-        enrollmentUrl:
+        enrolmentUrl:
           type: string
-          description: a string formatted as an url to which students will be redirected if `enrollmentForOwnStudents is set to `"url"`.
+          description: a string formatted as an url to which students will be redirected if `enrolmentForOwnStudents is set to `"url"`.
           format: url
