@@ -6,6 +6,11 @@ apis:
 extends:
   - all
 rules:
+ response-mime-type:
+  severity: warn
+  allowedValues:
+    - application/json
+    - application/problem+json
  info-license: off
  required-string-property-missing-min-length: off
  boolean-parameter-prefixes: off
@@ -14,8 +19,8 @@ rules:
 # path-http-verbs-order: off
  path-segment-plural: off
 # scalar-property-missing-example: off
- response-mime-type: off
+# response-mime-type: off
  no-invalid-schema-examples: off
- operation-4xx-problem-details-rfc7807: off
+# operation-4xx-problem-details-rfc7807: off
 # tags-alphabetical: off
  no-required-schema-properties-undefined: off
