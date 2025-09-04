@@ -15,12 +15,13 @@ properties:
     description: |
       The opportunity during which this attempt can be fulfilled. 
       Only relevant when only one attempt is allowed per association.
-      example: "2025Semester1"
+    example: "2025Semester1"
   attempt:
     type: integer
     description: |
       Which attempt this is for the given person on the given offering
     format: int32
+    example: 1
   state:
     $ref: ../enumerations/attemptState.yaml
   startDateTime:
@@ -30,6 +31,7 @@ properties:
       association can have no start- or end date-times, but only have a relation with an academic session representing
       a periode, trimester, semester or academic year
     format: date-time
+    example: "2025-09-01T09:00:00Z"
   endDateTime:
     type: string
     description: |
@@ -37,6 +39,7 @@ properties:
       association can have no start- or end date-times, but only have a relation with an academic session representing
       a periode, trimester, semester or academic year
     format: date-time
+    example: "2025-09-01T09:00:00Z"
   room:
     $ref: './Room.yaml'
   attendance:

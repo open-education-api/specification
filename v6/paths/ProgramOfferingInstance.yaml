@@ -17,6 +17,7 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
@@ -54,12 +55,10 @@ get:
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
-
-
-patch:
-  summary: PATCH /program-offerings/{programOfferingId}
-  operationId: partialUpdateProgramOfferingsById
-  description: Change attributes of a single program offering.
+put:
+  summary: PUT /program-offerings/{programOfferingId}
+  operationId: replaceProgramOfferingsById
+  description: Update all attributes of a single program offering.
   tags:
     - program offerings
   parameters:
@@ -101,11 +100,10 @@ patch:
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
-
-put:
-  summary: PUT /program-offerings/{programOfferingId}
-  operationId: replaceProgramOfferingsById
-  description: Update all attributes of a single program offering.
+patch:
+  summary: PATCH /program-offerings/{programOfferingId}
+  operationId: partialUpdateProgramOfferingsById
+  description: Change attributes of a single program offering.
   tags:
     - program offerings
   parameters:
