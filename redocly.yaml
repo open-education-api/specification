@@ -7,10 +7,11 @@ extends:
   - all
 rules:
  response-mime-type:
-  severity: warn
+  severity: error
   allowedValues:
     - application/json
     - application/problem+json
+    - application/octet-stream
  info-license: off
  required-string-property-missing-min-length: off
  boolean-parameter-prefixes: off
