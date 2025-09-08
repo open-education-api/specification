@@ -17,6 +17,7 @@ get:
       explode: false
       description: Optional properties to include, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:

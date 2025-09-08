@@ -17,6 +17,7 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
@@ -45,65 +46,6 @@ get:
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
-
-
-
-
-patch:
-  summary: PATCH /learning-component-offering-associations/{learningComponentOfferingAssociationId}
-  operationId: partialUpdateLearningComponentOfferingAssociationById
-  description: |
-    Update the status or result of an enrollment. Other elements of the association object COULD 
-    also be PATCHED. But are not likely and have therefor not been included in this endpoint.
-    Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
-    a specialized media type `application/merge-patch+json` for partial resource representation 
-    to update parts of resource objects.
-
-    Security must be implemented at the level of the actual deployment rather than in the core 
-    specification. This means that the specification remains neutral, while concrete security 
-    measures can be applied in practice using established techniques such as OpenID with fine-grained 
-    scopes (for example, write access on associations). The previous inline declaration has therefore
-    been removed to avoid conflating implementation details with the specification.
-    
-  tags:
-    - learning component offering associations
-
-  parameters:
-    - name: learningComponentOfferingAssociationId
-      in: path
-      description: The id of the association to update
-      required: true
-      schema:
-        type: string
-        format: uuid
-
-  requestBody:
-    required: true
-    content:
-      application/merge-patch+json:
-        schema:
-          properties:
-            remoteState:
-              $ref: '../enumerations/remoteAssociationState.yaml'
-            result:
-              $ref: '../schemas/CourseOfferingAssociationResult.yaml'
-
-
-  responses:
-    '200':
-      description: OK
-      content:
-        application/json:
-          schema:
-            allOf:
-              - $ref: '../schemas/AssociationId.yaml'
-              - $ref: '../schemas/PostResponse.yaml'
-              - properties:
-                  state:
-                    $ref: '../enumerations/associationState.yaml' 
-
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
 
 put:
   summary: PUT /learning-component-offering-associations/{learningComponentOfferingAssociationId}
@@ -205,3 +147,59 @@ put:
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
+
+patch:
+  summary: PATCH /learning-component-offering-associations/{learningComponentOfferingAssociationId}
+  operationId: partialUpdateLearningComponentOfferingAssociationById
+  description: |
+    Update the status or result of an enrollment. Other elements of the association object COULD 
+    also be PATCHED. But are not likely and have therefor not been included in this endpoint.
+    Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
+    a specialized media type `application/merge-patch+json` for partial resource representation 
+    to update parts of resource objects.
+
+    Security must be implemented at the level of the actual deployment rather than in the core 
+    specification. This means that the specification remains neutral, while concrete security 
+    measures can be applied in practice using established techniques such as OpenID with fine-grained 
+    scopes (for example, write access on associations). The previous inline declaration has therefore
+    been removed to avoid conflating implementation details with the specification.
+    
+  tags:
+    - learning component offering associations
+
+  parameters:
+    - name: learningComponentOfferingAssociationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/merge-patch+json:
+        schema:
+          properties:
+            remoteState:
+              $ref: '../enumerations/remoteAssociationState.yaml'
+            result:
+              $ref: '../schemas/CourseOfferingAssociationResult.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/AssociationId.yaml'
+              - $ref: '../schemas/PostResponse.yaml'
+              - properties:
+                  state:
+                    $ref: '../enumerations/associationState.yaml' 
+
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
