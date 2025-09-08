@@ -16,3 +16,4 @@ properties:
     description: URL where additional information can be found e.g. by use of deeplink
     type: string
     format: uri
+    example: "https://university.example.org/"

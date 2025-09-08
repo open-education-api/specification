@@ -29,10 +29,12 @@ allOf:
       type: string
       description: If this is a program wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
       format: date-time
+      example: "2025-09-01T09:00:00Z"
     flexibleEntryPeriodEnd:
       type: string
       description: If this is a program wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
       format: date-time
+      example: "2025-09-01T09:00:00Z"
     addresses:
       type: array
       description: Addresses for this offering

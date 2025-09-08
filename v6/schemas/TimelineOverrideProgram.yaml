@@ -13,6 +13,6 @@ properties:
     type: string
     description: The day on which this timelineOverride ends (exclusive), RFC3339 (date)
     format: date-time
-    example: '2025-11-31T08:30:00+01:00'
+    example: '2025-11-30T08:30:00+01:00'
   program:
     $ref: './ProgramProperties.yaml'

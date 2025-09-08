@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0 Change service information element] - 2025-09-03
+## [6.0.0 Change service information element] - 2025-09-08
 
 ### Added
 - Added more detailed information regarding supported consumers, paths and version that can be supported by an implementation.
@@ -14,6 +14,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+
+## [6.0.0 Change move security to documentation] - 2025-09-04
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved lint issues 
+  - tags-alphabetical
+  - array-parameter-serialization
+  - path-http-verbs-order.
+  - scalar-property-missing-example
+  - operation-4xx-problem-details-rfc7807
+  - no-invalid-schema-examples 
+- Problems are now defined in accordance with RFC 7807
+
+
+## [6.0.0 Add state query parameter for offerings] - 2025-09-03
+
+### Added
+- Added: `state` query parameter to all `GET` requests that return a collection of offerings. Offerings now have a `state` attribute and many applications will want to retrieve only offerings with a particular state such as `active`.
 
 ## [6.0.0 Change move security to documentation] - 2025-08-28
 
