@@ -39,14 +39,14 @@ properties:
           description: the version number of this consumer
           type: string
           example: "0.9.3"
-  supportedEndpoints:
+  supportedOperations:
     type: array
     items:
       type: object
       description: Object for communicating VERBS and endpoints that are supported by this implementation.
       required:
       - verb
-      - endpoint
+      - path
       properties:
         verb:
           description: The type of method or verb.
@@ -57,8 +57,8 @@ properties:
           - PATCH
           - POST
           example: "GET"
-        endpoint:
-          description: the path of the endpoint
+        path:
+          description: the path of the operation
           type: string
           format: uri-reference
           example: "/courses"
