@@ -1,8 +1,8 @@
 type: object
-description: A time-line override of the program.
+description: A time-line override of the programme.
 required:
   - validFrom
-  - program
+  - programme
 properties:
   validFrom:
     type: string
@@ -14,5 +14,5 @@ properties:
     description: The day on which this timelineOverride ends (exclusive), RFC3339 (date)
     format: date-time
     example: '2025-11-30T08:30:00+01:00'
-  program:
-    $ref: './ProgramProperties.yaml'
+  programme:
+    $ref: './ProgrammeProperties.yaml'

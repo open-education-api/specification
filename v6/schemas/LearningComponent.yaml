@@ -87,7 +87,7 @@ properties:
     items:
       oneOf:
       - $ref: './Identifier.yaml'
-        title: programId
+        title: programmeId
       - $ref: './LearningOutcome.yaml'
         title: LearningOutcome
   enrolment:

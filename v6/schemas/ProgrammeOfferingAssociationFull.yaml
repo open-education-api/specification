@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './ProgramOfferingAssociation.yaml'
+  - $ref: './ProgrammeOfferingAssociation.yaml'
   - type: object
     required:
       - person
@@ -16,5 +16,5 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: offeringId
-          - $ref: './ProgramOffering.yaml'
-            title: ProgramOffering
+          - $ref: './ProgrammeOffering.yaml'
+            title: ProgrammeOffering

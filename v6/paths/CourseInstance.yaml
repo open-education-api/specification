@@ -23,7 +23,7 @@ get:
         items:
           type: string
           enum:
-            - programs
+            - programmes
             - coordinators
             - organisation
     - $ref: '../parameters/returnTimelineOverrides.yaml'

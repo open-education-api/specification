@@ -6,9 +6,9 @@ properties:
   type:
     type: string
     description: |
-      The type determines what kind of RIO entity this Program will be mapped to.
+      The type determines what kind of RIO entity this Programme will be mapped to.
     enum:
-      - program
+      - programme
       - variant
       - cluster
       - course
@@ -97,7 +97,7 @@ properties:
     type: string
     description: |
       versneldTraject
-      Geeft aan of een student een versneld programma volgt zodat het opleiding in minder tijd dan normaal doorlopen kan worden.
+      Geeft aan of een student een versneld programmema volgt zodat het opleiding in minder tijd dan normaal doorlopen kan worden.
       - accelerated_route: VERSNELD_TRAJECT			Versneld traject
       - no_accelerated_route: GEEN_VERSNELD_TRAJECT			Geen versneld traject
     enum:
@@ -106,7 +106,7 @@ properties:
   sector:
     type: string
     description: |
-      The sector for this program
+      The sector for this programme
       - secondary_vocational_education: middelbaar beroepsonderwijs
       - higher_professional_education: hoger beroepsonderwijs
       - university_education: universitair onderwijs
@@ -118,7 +118,7 @@ properties:
   privateCategory:
     type: array
     description: |
-      A classification for programs in non-formal education. Used when describing EducationSpecification's that will map to a `ParticuliereOpleiding` in RIO
+      A classification for programmes in non-formal education. Used when describing EducationSpecification's that will map to a `ParticuliereOpleiding` in RIO
     minItems: 0
     maxItems: 3
     items:

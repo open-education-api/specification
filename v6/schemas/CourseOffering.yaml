@@ -56,17 +56,17 @@ allOf:
             title: courseId
           - $ref: './Course.yaml'
             title: Course object      
-      programOfferings:
+      programmeOfferings:
         description: |
-          An array of 0 or more programofferings that this courseoffering is related to. [`expandable`](#tag/program_offering_model)
-          By default only the `programOfferingId` (a string) is returned. If the client requested an expansion of `programOffering` the full programOffering object should be returned.
+          An array of 0 or more programmeofferings that this courseoffering is related to. [`expandable`](#tag/programme_offering_model)
+          By default only the `programmeOfferingId` (a string) is returned. If the client requested an expansion of `programmeOffering` the full programmeOffering object should be returned.
         type: array
         items: 
           oneOf:
             - $ref: './Identifier.yaml'
-              title: programOfferingId
-            - $ref: './ProgramOffering.yaml'
-              title: ProgramOffering object     
+              title: programmeOfferingId
+            - $ref: './ProgrammeOffering.yaml'
+              title: ProgrammeOffering object     
       organisation:
         description: |
           The organisation that manages this courseoffering. [`expandable`](#tag/organisation_model)

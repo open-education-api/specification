@@ -16,19 +16,19 @@ properties:
       properties:
         crohoCreboCode:
           type: string
-          description: The crohoCreboCode for this program. This should be a five character string, e.g. "34401".
+          description: The crohoCreboCode for this programme. This should be a five character string, e.g. "34401".
         name:
           type: string
-          description: The name of the program this enrolment is for.
+          description: The name of the programme this enrolment is for.
         phase:
           type: string
-          description: The phase of the program for this enrolment.
+          description: The phase of the programme for this enrolment.
           enum:
             - bachelor
             - master
         modeOfStudy:
           type: string
-          description: The modeOfStudy of the program for this enrolment
+          description: The modeOfStudy of the programme for this enrolment
           enum:
             - full-time
             - part-time

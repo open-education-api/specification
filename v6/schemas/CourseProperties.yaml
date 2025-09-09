@@ -85,7 +85,7 @@ properties:
       $ref: './LanguageTypedString.yaml'
   qualificationRequirements:
     type: array
-    description: Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.
+    description: Normally, students will receive a diploma when they have completed the (official) study programme and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
@@ -139,15 +139,15 @@ properties:
       $ref: '../consumers/RIO/V1/examples/Course.yaml'
   ext:
     $ref: './Ext.yaml'
-  programs:
-    description: The program of which this course is a part of. This object is [`expandable`](#tag/program_model)
-    type: array   # array is used because of implementation of alliances in program where courses can be part of regular education and alliances
+  programmes:
+    description: The programme of which this course is a part of. This object is [`expandable`](#tag/programme_model)
+    type: array   # array is used because of implementation of alliances in programme where courses can be part of regular education and alliances
     items:
       oneOf:
       - $ref: './Identifier.yaml'
-        title: programId
-      - $ref: './Program.yaml'
-        title: Program object        
+        title: programmeId
+      - $ref: './Programme.yaml'
+        title: Programme object        
   coordinators:
     description: The person(s) responsible for this course. This object is [`expandable`](#tag/person_model)
     type: array

@@ -1,13 +1,13 @@
 get:
-  summary: GET /programs/{programId}
-  operationId: listProgramById
-  description: Get a single program.
+  summary: GET /programmes/{programmeId}
+  operationId: listProgrammeById
+  description: Get a single programme.
   tags:
-    - programs
+    - programmes
   parameters:
-    - name: programId
+    - name: programmeId
       in: path
-      description: Program ID
+      description: Programme ID
       required: true
       schema:
         type: string
@@ -35,7 +35,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/ProgramExpanded.yaml'
+            $ref: '../schemas/ProgrammeExpanded.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

@@ -24,7 +24,7 @@ get:
           type: string
           enum:
             - course
-            - programOffering
+            - programmeOffering
             - academicSession
   responses:
     '200':

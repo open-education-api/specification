@@ -1,43 +1,40 @@
 get:
-  summary: GET /organisations/{organisationId}/program-offerings
-  operationId: listProgramOfferingsByOrganisationId
-  description: Get a list of all program offerings for a given organisation
+  summary: GET /programmes
+  operationId: listProgrammes
+  description: Get an ordered list of all programmes, ordered by name.
   tags:
-    - program offerings
+    - programmes
   parameters:
-    - name: organisationId
-      in: path
-      description: Organisation ID
-      required: true
-      schema:
-        type: string
-        format: uuid
+    - $ref: '../parameters/primaryCode.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - $ref: '../parameters/offeringState.yaml'
-    - name: resultExpected
+    - name: programmeType
       in: query
-      description: Filter by resultExpected
+      description: Filter by programme type
       required: false
       schema:
-        type: boolean
-    - name: since
+        $ref: '../enumerations/programmeType.yaml'
+    - name: qualificationAwarded
       in: query
-      description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+      description: Filter by qualificationAwarded
+      required: false
+      schema:
+        $ref: '../enumerations/qualificationAwarded.yaml'
+    - name: levelOfQualification
+      in: query
+      description: Filter by levelOfQualification
+      required: false
+      schema:
+        $ref: '../enumerations/levelOfQualification.yaml'
+    - name: fieldsOfStudy
+      in: query
+      description: Filter by fieldsOfStudy
       required: false
       schema:
         type: string
-        format: date-time
-    - name: until
-      in: query
-      description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
-      required: false
-      schema:
-        type: string
-        format: date-time
   responses:
     '200':
       description: OK
@@ -53,7 +50,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/ProgramOffering.yaml'
+                      $ref: '../schemas/Programme.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':
@@ -62,8 +59,6 @@ get:
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
-    '404':
-      $ref: '../schemas/ErrorNotFound.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

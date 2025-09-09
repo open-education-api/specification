@@ -1,8 +1,8 @@
 post:
-  summary: POST /program-offering-associations/external/me
-  operationId: createExternalProgramOfferingAssociationByopenId
+  summary: POST /programme-offering-associations/external/me
+  operationId: createExternalProgrammeOfferingAssociationByopenId
   description: |
-    POST a single program offering association, enrol a person based on person information obtained from .wellknown endpoint, an offering, 
+    POST a single programme offering association, enrol a person based on person information obtained from .wellknown endpoint, an offering, 
     and the organisation/type=root information form the organisation that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
 
@@ -13,7 +13,7 @@ post:
     inline declaration has therefore been removed to avoid conflating implementation details with the specification.
 
   tags:
-    - program offering associations
+    - programme offering associations
 
   requestBody:
     required: true
@@ -23,7 +23,7 @@ post:
           required:
             - remoteState
           allOf:
-          - $ref: '../schemas/ProgramOfferingAssociationWrite.yaml'
+          - $ref: '../schemas/ProgrammeOfferingAssociationWrite.yaml'
           - properties:
               issuer:
                 $ref: '../schemas/Organisation.yaml'

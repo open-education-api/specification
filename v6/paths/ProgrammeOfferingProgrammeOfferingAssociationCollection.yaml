@@ -1,13 +1,13 @@
 get:
-  summary: GET /persons/{personId}/progam-offering-associations
-  operationId: listProgramOfferingAssociationsByPersonId
-  description: Get a list of all program offering associations for an individual person.
+  summary: GET /programme-offerings/{programmeOfferingId}/programme-offering-associations
+  operationId: listProgrammeOfferingAssociationsByProgrammeOfferingId
+  description: Get a list of all programme offering associations related to the programme offering based on its ID.
   tags:
-    - program offering associations
+    - programme offering associations
   parameters:
-    - name: personId
+    - name: programmeOfferingId
       in: path
-      description: Person ID
+      description: Offering ID
       required: true
       schema:
         type: string
@@ -48,14 +48,7 @@ get:
                   items:
                     type: array
                     items:
-                      allOf:
-                        - $ref: '../schemas/ProgramOfferingAssociation.yaml'
-                        - type: object
-                          properties:
-                            offering:
-                              $ref: '../schemas/ProgramOffering.yaml'
-                            academicSession:
-                              $ref: '../schemas/AcademicSession.yaml'
+                      $ref: '../schemas/ProgrammeOfferingAssociationExpandable.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

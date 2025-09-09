@@ -1,28 +1,28 @@
 get:
-  summary: GET /programs/{programId}/programs
-  operationId: listProgramsByProgramId
-  description: Get an ordered list of nested programs, ordered by name.
+  summary: GET /programmes/{programmeId}/programmes
+  operationId: listProgrammesByProgrammeId
+  description: Get an ordered list of nested programmes, ordered by name.
   tags:
-    - programs
+    - programmes
   parameters:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: programId
+    - name: programmeId
       in: path
-      description: the id of the program to find nested programs for
+      description: the id of the programme to find nested programmes for
       required: true
       schema:
         type: string
         format: uuid
-    - name: programType
+    - name: programmeType
       in: query
-      description: Filter by program type
+      description: Filter by programme type
       required: false
       schema:
-        $ref: '../enumerations/programType.yaml'
+        $ref: '../enumerations/programmeType.yaml'
     - name: qualificationAwarded
       in: query
       description: Filter by qualificationAwarded
@@ -56,7 +56,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Program.yaml'
+                      $ref: '../schemas/Programme.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

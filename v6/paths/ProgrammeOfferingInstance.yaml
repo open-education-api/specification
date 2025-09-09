@@ -1,11 +1,11 @@
 get:
-  summary: GET /program-offerings/{programOfferingId}
-  operationId: listProgramOfferingsById
-  description: Get a single program offering.
+  summary: GET /programme-offerings/{programmeOfferingId}
+  operationId: listProgrammeOfferingsById
+  description: Get a single programme offering.
   tags:
-    - program offerings
+    - programme offerings
   parameters:
-    - name: programOfferingId
+    - name: programmeOfferingId
       in: path
       description: Offering ID
       required: true
@@ -23,8 +23,8 @@ get:
         items:
           type: string
           enum:
-            - program
-            - programOffering
+            - programme
+            - programmeOffering
             - course
             - courseOffering
             - learningComponent
@@ -37,8 +37,8 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/ProgramOffering.yaml'
-            title: programOffering
+            $ref: '../schemas/ProgrammeOffering.yaml'
+            title: programmeOffering
               
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
@@ -56,13 +56,13 @@ get:
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
 put:
-  summary: PUT /program-offerings/{programOfferingId}
-  operationId: replaceProgramOfferingsById
-  description: Update all attributes of a single program offering.
+  summary: PUT /programme-offerings/{programmeOfferingId}
+  operationId: replaceProgrammeOfferingsById
+  description: Update all attributes of a single programme offering.
   tags:
-    - program offerings
+    - programme offerings
   parameters:
-    - name: programOfferingId
+    - name: programmeOfferingId
       in: path
       description: Offering ID
       required: true
@@ -75,7 +75,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/ProgramOffering.yaml'
+          $ref: '../schemas/ProgrammeOffering.yaml'
 
 
   responses:
@@ -101,13 +101,13 @@ put:
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
 patch:
-  summary: PATCH /program-offerings/{programOfferingId}
-  operationId: partialUpdateProgramOfferingsById
-  description: Change attributes of a single program offering.
+  summary: PATCH /programme-offerings/{programmeOfferingId}
+  operationId: partialUpdateProgrammeOfferingsById
+  description: Change attributes of a single programme offering.
   tags:
-    - program offerings
+    - programme offerings
   parameters:
-    - name: programOfferingId
+    - name: programmeOfferingId
       in: path
       description: Offering ID
       required: true
@@ -120,7 +120,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '../schemas/ProgramOffering.yaml'
+          $ref: '../schemas/ProgrammeOffering.yaml'
 
 
   responses:

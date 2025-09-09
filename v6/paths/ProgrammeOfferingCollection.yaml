@@ -1,13 +1,13 @@
 get:
-  summary: GET /programs/{programId}/courses
-  operationId: listCoursesByProgramId
-  description: Get an ordered list of all courses given through this program.
+  summary: GET /programmes/{programmeId}/programme-offerings
+  operationId: listOfferingsByProgrammeId
+  description: Get a list of all offerings for this programme, ordered chronologically.
   tags:
-    - courses
+    - programme offerings
   parameters:
-    - name: programId
+    - name: programmeId
       in: path
-      description: Program ID
+      description: Programme ID
       required: true
       schema:
         type: string
@@ -17,18 +17,33 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: level
+    - $ref: '../parameters/offeringState.yaml'
+    - name: modeOfStudy
       in: query
-      description: Filter by level
+      description: Filter by modeOfStudy
       required: false
       schema:
-        $ref: '../enumerations/level.yaml'
-    - name: modeOfDelivery
+        $ref: '../enumerations/modeOfStudy.yaml'
+    - name: resultExpected
       in: query
-      description: Filter by modeOfDelivery
+      description: Filter by resultExpected
       required: false
       schema:
-        $ref: '../enumerations/modeOfDelivery.yaml'
+        type: boolean
+    - name: since
+      in: query
+      description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+      required: false
+      schema:
+        type: string
+        format: date-time
+    - name: until
+      in: query
+      description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
+      required: false
+      schema:
+        type: string
+        format: date-time
   responses:
     '200':
       description: OK
@@ -44,7 +59,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Course.yaml'
+                      $ref: '../schemas/ProgrammeOffering.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

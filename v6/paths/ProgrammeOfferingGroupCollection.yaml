@@ -1,40 +1,27 @@
 get:
-  summary: GET /programs
-  operationId: listPrograms
-  description: Get an ordered list of all programs, ordered by name.
+  summary: GET /programme-offerings/{programmeOfferingId}/groups
+  operationId: listGroupsByProgrammeOfferingId
+  description: Get an ordered list of all groups related to a programme offering, ordered by name.
   tags:
-    - programs
+    - groups
   parameters:
-    - $ref: '../parameters/primaryCode.yaml'
+    - name: programmeOfferingId
+      in: path
+      description: Programme Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
-    - $ref: '../parameters/teachingLanguage.yaml'
-    - name: programType
+    - name: groupType
       in: query
-      description: Filter by program type
+      description: Filter by group type
       required: false
       schema:
-        $ref: '../enumerations/programType.yaml'
-    - name: qualificationAwarded
-      in: query
-      description: Filter by qualificationAwarded
-      required: false
-      schema:
-        $ref: '../enumerations/qualificationAwarded.yaml'
-    - name: levelOfQualification
-      in: query
-      description: Filter by levelOfQualification
-      required: false
-      schema:
-        $ref: '../enumerations/levelOfQualification.yaml'
-    - name: fieldsOfStudy
-      in: query
-      description: Filter by fieldsOfStudy
-      required: false
-      schema:
-        type: string
+        $ref: '../enumerations/groupType.yaml'
   responses:
     '200':
       description: OK
@@ -44,13 +31,13 @@ get:
             allOf:
               - $ref: '../schemas/Pagination.yaml'
               - type: object
-                required:
-                  - items
+                required: 
+                  -  items
                 properties:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Program.yaml'
+                      $ref: '../schemas/Group.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

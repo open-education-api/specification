@@ -1,13 +1,13 @@
 get:
-  summary: GET /program-offering-associations/{programOfferingAssociationId}
-  operationId: listProgramOfferingAssociationById
-  description: Get a single program offering association.
+  summary: GET /programme-offering-associations/{programmeOfferingAssociationId}
+  operationId: listProgrammeOfferingAssociationById
+  description: Get a single programme offering association.
   tags:
-    - program offering associations
+    - programme offering associations
   parameters:
-    - name: programOfferingAssociationId
+    - name: programmeOfferingAssociationId
       in: path
-      description: Program offering association ID
+      description: Programme offering association ID
       required: true
       schema:
         type: string
@@ -24,14 +24,14 @@ get:
           type: string
           enum:
             - person
-            - program_offering
+            - programme_offering
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/ProgramOfferingAssociationFull.yaml'          
+            $ref: '../schemas/ProgrammeOfferingAssociationFull.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -48,14 +48,14 @@ get:
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
 put:
-  summary: PUT /program-offering-associations/{programOfferingAssociationId}
+  summary: PUT /programme-offering-associations/{programmeOfferingAssociationId}
   description: |
-    PUT a single program offering association to enrol a person on specific association that can later be retreived.  
-  operationId: replaceProgramOfferingAssociationById
+    PUT a single programme offering association to enrol a person on specific association that can later be retreived.  
+  operationId: replaceProgrammeOfferingAssociationById
   tags:
-    - program offering associations
+    - programme offering associations
   parameters:
-    - name: programOfferingAssociationId
+    - name: programmeOfferingAssociationId
       in: path
       description: The id of the association to update
       required: true
@@ -67,7 +67,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/ProgramOfferingAssociationExpanded.yaml'
+          $ref: '../schemas/ProgrammeOfferingAssociationExpanded.yaml'
 
 
   responses:
@@ -93,8 +93,8 @@ put:
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
 patch:
-  summary: PATCH /program-offering-associations/{programOfferingAssociationId}
-  operationId: partialUpdateProgramOfferingAssociationById
+  summary: PATCH /programme-offering-associations/{programmeOfferingAssociationId}
+  operationId: partialUpdateProgrammeOfferingAssociationById
   description: |
     Update the status or result of an enrolment. Other elements of the association object COULD 
     also be PATCHED. But are not likely and have therefor not been included in this endpoint.
@@ -109,10 +109,10 @@ patch:
     been removed to avoid conflating implementation details with the specification.
 
   tags:
-    - program offering associations
+    - programme offering associations
 
   parameters:
-    - name: programOfferingAssociationId
+    - name: programmeOfferingAssociationId
       in: path
       description: The id of the association to update
       required: true
@@ -129,7 +129,7 @@ patch:
             remoteState:
               $ref: '../enumerations/remoteAssociationState.yaml'
             result:
-              $ref: '../schemas/ProgramOfferingAssociationResult.yaml'  
+              $ref: '../schemas/ProgrammeOfferingAssociationResult.yaml'  
 
   responses:
     '200':

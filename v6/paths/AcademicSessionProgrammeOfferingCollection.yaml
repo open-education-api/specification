@@ -1,13 +1,13 @@
 get:
-  summary: GET /program-offerings/{programOfferingId}/program-offering-associations
-  operationId: listProgramOfferingAssociationsByProgramOfferingId
-  description: Get a list of all program offering associations related to the program offering based on its ID.
+  summary: GET /academic-sessions/{academicSessionId}/programme-offerings
+  operationId: listProgrammeOfferingsByAcademicSessionId
+  description: Get a list of all programme offerings during this academic session
   tags:
-    - program offering associations
+    - programme offerings
   parameters:
-    - name: programOfferingId
+    - name: academicSessionId
       in: path
-      description: Offering ID
+      description: Academic session ID
       required: true
       schema:
         type: string
@@ -15,24 +15,29 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
-    - name: role
+    - $ref: '../parameters/search.yaml'
+    - $ref: '../parameters/teachingLanguage.yaml'
+    - $ref: '../parameters/offeringState.yaml'
+    - name: resultExpected
       in: query
-      description: Filter by role
+      description: Filter by resultExpected
       required: false
       schema:
-        $ref: '../enumerations/associationRole.yaml'
-    - name: state
+        type: boolean
+    - name: since
       in: query
-      description: Filter by state
+      description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
       required: false
       schema:
-        $ref: '../enumerations/associationState.yaml'
-    - name: resultState
+        type: string
+        format: date-time
+    - name: until
       in: query
-      description: Filter by result state
+      description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
       required: false
       schema:
-        $ref: '../enumerations/resultState.yaml'
+        type: string
+        format: date-time
   responses:
     '200':
       description: OK
@@ -48,9 +53,9 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/ProgramOfferingAssociationExpandable.yaml'
+                        $ref: '../schemas/ProgrammeOffering.yaml'
                   ext:
-                    $ref: '../schemas/Ext.yaml'
+                      $ref: '../schemas/Ext.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

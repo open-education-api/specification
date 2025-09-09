@@ -12,7 +12,7 @@ properties:
   value:
     description: String to describe the entity.
     type: string
-    example: program that is a place holder for all courses that are made available for student mobility
+    example: programme that is a place holder for all courses that are made available for student mobility
 example:
   language: en-GB
-  value: program that is a place holder for all courses that are made available for student mobility
+  value: programme that is a place holder for all courses that are made available for student mobility

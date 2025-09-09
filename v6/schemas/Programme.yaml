@@ -1,15 +1,15 @@
 allOf:
-  - $ref: './ProgramId.yaml'
-  - $ref: './ProgramProperties.yaml'
+  - $ref: './ProgrammeId.yaml'
+  - $ref: './ProgrammeProperties.yaml'
   - type: object
     properties: 
       validFrom:
-        description: The first moment this program is valid (inclusive).
+        description: The first moment this programme is valid (inclusive).
         type: string
         format: date-time
         example: "2025-09-01T09:00:00Z"
       validTo:
-        description: The moment this program ceases to be valid (e.g. exclusive).
+        description: The moment this programme ceases to be valid (e.g. exclusive).
         type: string
         format: date-time
         example: "2025-09-01T09:00:00Z"
