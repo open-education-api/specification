@@ -1,13 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}/programs
-  operationId: listProgramsByOrganizationId
-  description: Get an ordered list of all programs for a given organization, ordered by name.
+  summary: GET /organisations/{organisationId}/test-components
+  operationId: listTestComponentsByOrganisationId
+  description: Get an ordered list of all test components for a given organisation, ordered by name.
   tags:
-    - programs
+    - test components
   parameters:
-    - name: organizationId
+    - name: organisationId
       in: path
-      description: Organization ID
+      description: Organisation ID
       required: true
       schema:
         type: string
@@ -17,30 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: programType
-      in: query
-      description: Filter by program type
-      required: false
-      schema:
-        $ref: '../enumerations/programType.yaml'
-    - name: qualificationAwarded
-      in: query
-      description: Filter by qualificationAwarded
-      required: false
-      schema:
-        $ref: '../enumerations/qualificationAwarded.yaml'
-    - name: levelOfQualification
-      in: query
-      description: Filter by levelOfQualification
-      required: false
-      schema:
-        $ref: '../enumerations/levelOfQualification.yaml'
-    - name: fieldsOfStudy
-      in: query
-      description: Filter by fieldsOfStudy
-      required: false
-      schema:
-        type: string
   responses:
     '200':
       description: OK
@@ -56,7 +32,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Program.yaml'
+                      $ref: '../schemas/TestComponent.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

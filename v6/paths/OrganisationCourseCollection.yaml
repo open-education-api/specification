@@ -1,13 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}/test-components
-  operationId: listTestComponentsByOrganizationId
-  description: Get an ordered list of all test components for a given organization, ordered by name.
+  summary: GET /organisations/{organisationId}/courses
+  operationId: listCoursesByOrganisationId
+  description: Get an ordered list of all courses for a given organisation, ordered by name.
   tags:
-    - test components
+    - courses
   parameters:
-    - name: organizationId
+    - name: organisationId
       in: path
-      description: Organization ID
+      description: Organisation ID
       required: true
       schema:
         type: string
@@ -17,6 +17,18 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
+    - name: level
+      in: query
+      description: Filter by level
+      required: false
+      schema:
+        $ref: '../enumerations/level.yaml'
+    - name: modeOfDelivery
+      in: query
+      description: Filter by modeOfDelivery
+      required: false
+      schema:
+        $ref: '../enumerations/modeOfDelivery.yaml'
   responses:
     '200':
       description: OK
@@ -32,7 +44,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/TestComponent.yaml'
+                      $ref: '../schemas/Course.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

@@ -3,7 +3,7 @@ post:
   operationId: createExternalProgramOfferingAssociationByopenId
   description: |
     POST a single program offering association, enrol a person based on person information obtained from .wellknown endpoint, an offering, 
-    and the organization/type=root information form the organization that is issuing this association. 
+    and the organisation/type=root information form the organisation that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
 
     Security must be implemented at the level of the actual deployment rather than in the core specification. 
@@ -26,7 +26,7 @@ post:
           - $ref: '../schemas/ProgramOfferingAssociationWrite.yaml'
           - properties:
               issuer:
-                $ref: '../schemas/Organization.yaml'
+                $ref: '../schemas/Organisation.yaml'
 
   responses:
     '201':

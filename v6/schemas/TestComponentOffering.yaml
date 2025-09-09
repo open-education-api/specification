@@ -64,15 +64,15 @@ allOf:
               title: courseOfferingId
             - $ref: './CourseOffering.yaml'
               title: CourseOffering object     
-      organization:
+      organisation:
         description: |
-          The organization that manages this componentoffering. [`expandable`](#tag/organization_model)
-          By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+          The organisation that manages this componentoffering. [`expandable`](#tag/organisation_model)
+          By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
-            title: organizationId
-          - $ref: './Organization.yaml'
-            title: Organization object
+            title: organisationId
+          - $ref: './Organisation.yaml'
+            title: Organisation object
       documents:
         type: array
         description: |

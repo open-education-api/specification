@@ -1,13 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}/groups
-  operationId: listGroupsByOrganizationId
-  description: Get an ordered list of all groups for a given organization, ordered by name.
+  summary: GET /organisations/{organisationId}/groups
+  operationId: listGroupsByOrganisationId
+  description: Get an ordered list of all groups for a given organisation, ordered by name.
   tags:
     - groups
   parameters:
-    - name: organizationId
+    - name: organisationId
       in: path
-      description: Organization ID
+      description: Organisation ID
       required: true
       schema:
         type: string

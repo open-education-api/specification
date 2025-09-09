@@ -1,21 +1,21 @@
 get:
-  summary: GET /organizations
-  operationId: listOrganizations
-  description: Get an ordered list of all organizations, ordered by name.
+  summary: GET /organisations
+  operationId: listOrganisations
+  description: Get an ordered list of all organisations, ordered by name.
   tags:
-    - organizations
+    - organisations
   parameters:
     - $ref: '../parameters/primaryCode.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
-    - name: organizationType
+    - name: organisationType
       in: query
-      description: Filter by organization type
+      description: Filter by organisation type
       required: false
       schema:
-        $ref: '../enumerations/organizationType.yaml'
+        $ref: '../enumerations/organisationType.yaml'
   responses:
     '200':
       description: OK
@@ -31,7 +31,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Organization.yaml'
+                      $ref: '../schemas/Organisation.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

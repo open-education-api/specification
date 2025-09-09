@@ -1,13 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}
-  operationId: listOrganizationById
-  description: Get a single organization.
+  summary: GET /organisations/{organisationId}
+  operationId: listOrganisationById
+  description: Get a single organisation.
   tags:
-    - organizations
+    - organisations
   parameters:
-    - name: organizationId
+    - name: organisationId
       in: path
-      description: Organization ID
+      description: Organisation ID
       required: true
       schema:
         type: string
@@ -31,7 +31,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/Organization.yaml'
+            $ref: '../schemas/Organisation.yaml'
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

@@ -1,13 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}/learning-component-offerings
-  operationId: listLearningComponentOfferingsByOrganizationId
-  description: Get a list of all learning component offerings for a given organization
+  summary: GET /organisations/{organisationId}/learning-components
+  operationId: listLearningComponentsByOrganisationId
+  description: Get an ordered list of all learning components for a given organisation, ordered by name.
   tags:
-    - learning component offerings
+    - learning components
   parameters:
-    - name: organizationId
+    - name: organisationId
       in: path
-      description: Organization ID
+      description: Organisation ID
       required: true
       schema:
         type: string
@@ -17,27 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - $ref: '../parameters/offeringState.yaml'
-    - name: resultExpected
-      in: query
-      description: Filter by resultExpected
-      required: false
-      schema:
-        type: boolean
-    - name: since
-      in: query
-      description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
-      required: false
-      schema:
-        type: string
-        format: date-time
-    - name: until
-      in: query
-      description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
-      required: false
-      schema:
-        type: string
-        format: date-time
   responses:
     '200':
       description: OK
@@ -53,7 +32,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/LearningComponentOffering.yaml'
+                      $ref: '../schemas/LearningComponent.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

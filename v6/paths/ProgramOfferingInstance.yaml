@@ -29,7 +29,7 @@ get:
             - courseOffering
             - learningComponent
             - testComponent
-            - organization
+            - organisation
             - academicSession
   responses:
     '200':

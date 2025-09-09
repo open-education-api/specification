@@ -92,27 +92,27 @@ info:
     
     /learning-outcomes/{learningOutcomeId}
     
-    /organizations
+    /organisations
     
-    /organizations/{organizationId}
+    /organisations/{organisationId}
     
-    /organizations/{organizationId}/course-offerings
+    /organisations/{organisationId}/course-offerings
     
-    /organizations/{organizationId}/courses
+    /organisations/{organisationId}/courses
     
-    /organizations/{organizationId}/groups
+    /organisations/{organisationId}/groups
     
-    /organizations/{organizationId}/learning-component-offerings
+    /organisations/{organisationId}/learning-component-offerings
     
-    /organizations/{organizationId}/learning-components
+    /organisations/{organisationId}/learning-components
     
-    /organizations/{organizationId}/program-offerings
+    /organisations/{organisationId}/program-offerings
     
-    /organizations/{organizationId}/programs
+    /organisations/{organisationId}/programs
     
-    /organizations/{organizationId}/test-component-offerings
+    /organisations/{organisationId}/test-component-offerings
     
-    /organizations/{organizationId}/test-components
+    /organisations/{organisationId}/test-components
     
     /persons
     
@@ -202,7 +202,7 @@ tags:
 
   - name: buildings
     description: |
-      The building API provides a building that is currently used by the organization.
+      The building API provides a building that is currently used by the organisation.
       Including all location details.
 
   - name: components
@@ -295,7 +295,7 @@ tags:
   - name: groups
     description: |
       The groups API provides information about groups that are related to
-      organizations, persons and offerings. Groups of students that are related to an
+      organisations, persons and offerings. Groups of students that are related to an
       offering are typically used for rostering. The rostering application assigns
       students based on these groups. For example, class 1b will be assigned to the
       course offering on monday morning. Not all groups are related to an offering. A
@@ -357,14 +357,14 @@ tags:
   - name: news
     description: This path is no longer supported.
 
-  - name: organization_model
-    x-displayName: Organization
+  - name: organisation_model
+    x-displayName: Organisation
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/Organization" />
+      <SchemaDefinition schemaRef="#/components/schemas/Organisation" />
 
-  - name: organizations
+  - name: organisations
     description: |
-      The organizations API provides the organizations that are responsible for the
+      The organisations API provides the organisations that are responsible for the
       execution and recognition of education.
 
   - name: person_model
@@ -374,7 +374,7 @@ tags:
 
   - name: persons
     description: |
-      The persons API provides information about persons related to an organization.
+      The persons API provides information about persons related to an organisation.
 
   - name: program offering associations
     description: |
@@ -500,7 +500,7 @@ tags:
   - name: service metadata
     description: |
       The service API provides additional metadata needed to make the OOAPI fit for
-      this organization.
+      this organisation.
 
   - name: service_model
     x-displayName: Service
@@ -564,7 +564,7 @@ x-tagGroups:
       - learning component offering associations
       - learning outcomes
       - news
-      - organizations
+      - organisations
       - persons
       - programs
       - program offerings
@@ -591,7 +591,7 @@ x-tagGroups:
       - test_component_offering_association_model
       - group_model
       - membership_model
-      - organization_model
+      - organisation_model
       - person_model
       - program_model
       - program_offering_model
@@ -632,8 +632,8 @@ components:
       $ref: schemas/Membership.yaml
     LearningOutcome:
       $ref: schemas/LearningOutcome.yaml  
-    Organization:
-      $ref: schemas/Organization.yaml
+    Organisation:
+      $ref: schemas/Organisation.yaml
     Person:
       $ref: schemas/Person.yaml
     Program:
@@ -731,28 +731,28 @@ paths:
   /learning-outcomes/{learningOutcomeId}:
     $ref: paths/LearningOutcomeInstance.yaml
 
-  /organizations:
-    $ref: paths/OrganizationCollection.yaml
-  /organizations/{organizationId}:
-    $ref: paths/OrganizationInstance.yaml
-  /organizations/{organizationId}/course-offerings:
-    $ref: paths/OrganizationCourseOfferingCollection.yaml
-  /organizations/{organizationId}/courses:
-    $ref: paths/OrganizationCourseCollection.yaml
-  /organizations/{organizationId}/groups:
-    $ref: paths/OrganizationGroupCollection.yaml
-  /organizations/{organizationId}/learning-component-offerings:
-    $ref: paths/OrganizationLearningComponentOfferingCollection.yaml
-  /organizations/{organizationId}/learning-components:
-    $ref: paths/OrganizationLearningComponentCollection.yaml
-  /organizations/{organizationId}/program-offerings:
-    $ref: paths/OrganizationProgramOfferingCollection.yaml
-  /organizations/{organizationId}/programs:
-    $ref: paths/OrganizationProgramCollection.yaml
-  /organizations/{organizationId}/test-component-offerings:
-    $ref: paths/OrganizationTestComponentOfferingCollection.yaml
-  /organizations/{organizationId}/test-components:
-    $ref: paths/OrganizationTestComponentCollection.yaml
+  /organisations:
+    $ref: paths/OrganisationCollection.yaml
+  /organisations/{organisationId}:
+    $ref: paths/OrganisationInstance.yaml
+  /organisations/{organisationId}/course-offerings:
+    $ref: paths/OrganisationCourseOfferingCollection.yaml
+  /organisations/{organisationId}/courses:
+    $ref: paths/OrganisationCourseCollection.yaml
+  /organisations/{organisationId}/groups:
+    $ref: paths/OrganisationGroupCollection.yaml
+  /organisations/{organisationId}/learning-component-offerings:
+    $ref: paths/OrganisationLearningComponentOfferingCollection.yaml
+  /organisations/{organisationId}/learning-components:
+    $ref: paths/OrganisationLearningComponentCollection.yaml
+  /organisations/{organisationId}/program-offerings:
+    $ref: paths/OrganisationProgramOfferingCollection.yaml
+  /organisations/{organisationId}/programs:
+    $ref: paths/OrganisationProgramCollection.yaml
+  /organisations/{organisationId}/test-component-offerings:
+    $ref: paths/OrganisationTestComponentOfferingCollection.yaml
+  /organisations/{organisationId}/test-components:
+    $ref: paths/OrganisationTestComponentCollection.yaml
 
   /persons:
     $ref: paths/PersonCollection.yaml

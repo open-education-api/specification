@@ -1,13 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}/program-offerings
-  operationId: listProgramOfferingsByOrganizationId
-  description: Get a list of all program offerings for a given organization
+  summary: GET /organisations/{organisationId}/learning-component-offerings
+  operationId: listLearningComponentOfferingsByOrganisationId
+  description: Get a list of all learning component offerings for a given organisation
   tags:
-    - program offerings
+    - learning component offerings
   parameters:
-    - name: organizationId
+    - name: organisationId
       in: path
-      description: Organization ID
+      description: Organisation ID
       required: true
       schema:
         type: string
@@ -53,7 +53,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/ProgramOffering.yaml'
+                      $ref: '../schemas/LearningComponentOffering.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

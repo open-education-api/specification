@@ -1,13 +1,13 @@
 get:
-  summary: GET /organizations/{organizationId}/courses
-  operationId: listCoursesByOrganizationId
-  description: Get an ordered list of all courses for a given organization, ordered by name.
+  summary: GET /organisations/{organisationId}/test-component-offerings
+  operationId: listTestComponentOfferingsByOrganisationId
+  description: Get a list of all test component offerings for a given organisation
   tags:
-    - courses
+    - test component offerings
   parameters:
-    - name: organizationId
+    - name: organisationId
       in: path
-      description: Organization ID
+      description: Organisation ID
       required: true
       schema:
         type: string
@@ -17,18 +17,27 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
-    - name: level
+    - $ref: '../parameters/offeringState.yaml'
+    - name: resultExpected
       in: query
-      description: Filter by level
+      description: Filter by resultExpected
       required: false
       schema:
-        $ref: '../enumerations/level.yaml'
-    - name: modeOfDelivery
+        type: boolean
+    - name: since
       in: query
-      description: Filter by modeOfDelivery
+      description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
       required: false
       schema:
-        $ref: '../enumerations/modeOfDelivery.yaml'
+        type: string
+        format: date-time
+    - name: until
+      in: query
+      description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
+      required: false
+      schema:
+        type: string
+        format: date-time
   responses:
     '200':
       description: OK
@@ -44,7 +53,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/Course.yaml'
+                      $ref: '../schemas/TestComponentOffering.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

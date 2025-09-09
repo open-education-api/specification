@@ -151,15 +151,15 @@ properties:
         title: courseId
       - $ref: './Course.yaml'
         title: Course object  
-  organization:
+  organisation:
     description: |
-      The organization which provides this component. [`expandable`](#tag/organization_model)
-      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+      The organisation which provides this component. [`expandable`](#tag/organisation_model)
+      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
-        title: organizationId
-      - $ref: './Organization.yaml'
-        title: Organization object  
+        title: organisationId
+      - $ref: './Organisation.yaml'
+        title: Organisation object  
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array

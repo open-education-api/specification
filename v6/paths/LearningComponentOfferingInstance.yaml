@@ -24,7 +24,7 @@ get:
           type: string
           enum:
             - learning-component
-            - organization
+            - organisation
   responses:
     '200':
       description: OK
