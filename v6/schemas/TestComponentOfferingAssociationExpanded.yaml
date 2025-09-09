@@ -3,7 +3,7 @@ allOf:
   - type: object
     required:
       - person
-      - offering
+      - testComponentOffering
     properties:
       person:
         readOnly: true

@@ -4,8 +4,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Change service information element] - 2025-09-08
 
-## [6.0.0 Change move security to documentation] - 2025-09-04
+### Added
+- Added more detailed information regarding supported consumers, paths and version that can be supported by an implementation.
+
+### Removed
+- Removed consumers property from service
+
+### Changed
+
+
+## [6.0.0 resolve required bug] - 2025-09-04
+
+### Added
+
+### Removed
+
+### Changed
+- resolved bug required offering 
+  - offering -> testComponentOffering
+  - updated examples
+
+
+## [6.0.0 resolve lint errors/warnings] - 2025-09-04
 
 ### Added
 
