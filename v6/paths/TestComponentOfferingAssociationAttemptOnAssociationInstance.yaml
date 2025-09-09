@@ -2,7 +2,7 @@
 put:
   summary: PUT /test-component-offering-associations/{testComponentOfferingAssociationd}/test-component-offering-association-attempt/{testComponentOfferingAssociationAttemptId}
   description: |
-    PUT a single test component offering association attempt to enroll a person on a specific attempt or update information on that enrolment that can later be retrieved.
+    PUT a single test component offering association attempt to enrol a person on a specific attempt or update information on that enrolment that can later be retrieved.
     Additional path supported for systems that need to process attempt results based on the association ID the attempt belongs to.
   operationId: insertOrReplaceTestComponentOfferingAssociationAttemptByAssociationIdAndAttemptId
   tags:

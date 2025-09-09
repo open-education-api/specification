@@ -23,7 +23,7 @@ properties:
           description: the theme of the Program or Course within the alliance
         selection:
           type: boolean
-          description: A boolean value (`true` or `false`) indicating whether this Program or Course is selective, e.g. whether student need to pass extra requirements before being allowed to enroll.
+          description: A boolean value (`true` or `false`) indicating whether this Program or Course is selective, e.g. whether student need to pass extra requirements before being allowed to enrol.
         type:
           type: string
           description: A string indicating whether a Program or Course is broadening or deepening

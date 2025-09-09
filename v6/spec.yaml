@@ -256,7 +256,7 @@ tags:
   - name: course offerings
     description: |
       The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enroll.
+      timeframe, e.g. a period to which students can enrol.
 
   - name: course_model
     x-displayName: Course
@@ -309,7 +309,7 @@ tags:
   - name: learning component offerings
     description: |
       The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enroll.
+      timeframe, e.g. a period to which students can enrol.
 
   - name: learning components 
     description: |
@@ -403,7 +403,7 @@ tags:
               /offerings/{offeringId}/associations/me</a> local enrolment based on
               selected offering
               This call will allow for a local student using his .wellknown credentials
-              to enroll for the offering identified by the offeringId
+              to enrol for the offering identified by the offeringId
               <br>Alternatively the association can also be created through POST
               <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a>
              </td>
@@ -451,7 +451,7 @@ tags:
   - name: program offerings
     description: |
       The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enroll.
+      timeframe, e.g. a period to which students can enrol.
 
   - name: program_model
     x-displayName: Program
@@ -517,7 +517,7 @@ tags:
   - name: test component offerings
     description: |
       The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enroll.
+      timeframe, e.g. a period to which students can enrol.
 
   - name: test components 
     description: |

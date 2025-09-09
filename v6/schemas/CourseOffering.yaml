@@ -17,14 +17,14 @@ allOf:
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
         example: 2019-10-23T22:59:59+01:00
-      enrollStartDateTime:
+      enrolStartDateTime:
         type: string
-        description: The moment from which a student can enroll for this offering, RFC3339 (date-time).
+        description: The moment from which a student can enrol for this offering, RFC3339 (date-time).
         format: date-time
         example: 2019-05-01T00:00:00+01:00
-      enrollEndDateTime:
+      enrolEndDateTime:
         type: string
-        description: The last moment to which a student can enroll for this component, RFC3339 (date-time).
+        description: The last moment to which a student can enrol for this component, RFC3339 (date-time).
         format: date-time
         example: 2019-08-01T23:59:59+01:00
       flexibleEntryPeriodStart:

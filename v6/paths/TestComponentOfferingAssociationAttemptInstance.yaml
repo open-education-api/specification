@@ -37,7 +37,7 @@ get:
 put:
   summary: PUT /test-component-offering-association-attempts/{testComponentOfferingAssociationAttemptId}
   description: |
-    PUT a single test component offering association attempt to enroll a person on a specific attempt or update information on that enrolment that can later be retrieved.
+    PUT a single test component offering association attempt to enrol a person on a specific attempt or update information on that enrolment that can later be retrieved.
   operationId: insertOrReplaceTestComponentOfferingAssociationAttemptById
   tags:
     - test component offering association attempts

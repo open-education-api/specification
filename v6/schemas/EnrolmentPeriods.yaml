@@ -23,7 +23,7 @@ properties:
       description: the specific targetgroup
   enrolmentUrl:
     type: string
-    description: The URL where a person of this targetGroup can enroll him or herself
+    description: The URL where a person of this targetGroup can enrol him or herself
     example: "https://university.example.org/"
   comment:
     type: string

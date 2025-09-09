@@ -50,7 +50,7 @@ get:
 put:
   summary: PUT /learning-component-offering-associations/{learningComponentOfferingAssociationId}
   description: |
-    PUT a single learning component offering association to enroll a person on s specific association that can later be retreived. 
+    PUT a single learning component offering association to enrol a person on s specific association that can later be retreived. 
   operationId: replaceLearningComponentOfferingAssociationById
   tags:
     - learning component offering associations

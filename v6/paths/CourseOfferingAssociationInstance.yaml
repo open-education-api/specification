@@ -50,7 +50,7 @@ get:
 put:
   summary: PUT /course-offering-associations/{courseOfferingAssociationId}
   description: |
-    PUT a single course offering association to enroll a person on specific association that can later be retreived.  
+    PUT a single course offering association to enrol a person on specific association that can later be retreived.  
   operationId: replaceCourseOfferingAssociationById
   tags:
     - course offering associations

@@ -78,7 +78,7 @@ properties:
       $ref: '../enumerations/modeOfDelivery.yaml'
   maxNumberStudents:
     type: number
-    description: The maximum number of students allowed to enroll for this offering
+    description: The maximum number of students allowed to enrol for this offering
     format: int32
     minimum: 0
     example: 200
@@ -122,7 +122,7 @@ properties:
       $ref: './IdentifierEntry.yaml'    
   enrolmentPeriods:
     type: array
-    description: An array of periods that a person can enroll into this offering. The period is defined by targetgroup and dateTime
+    description: An array of periods that a person can enrol into this offering. The period is defined by targetgroup and dateTime
     items:
       $ref: './enrolmentPeriods.yaml'
   consumers:

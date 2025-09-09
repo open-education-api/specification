@@ -50,7 +50,7 @@ get:
 put:
   summary: PUT /program-offering-associations/{programOfferingAssociationId}
   description: |
-    PUT a single program offering association to enroll a person on specific association that can later be retreived.  
+    PUT a single program offering association to enrol a person on specific association that can later be retreived.  
   operationId: replaceProgramOfferingAssociationById
   tags:
     - program offering associations
