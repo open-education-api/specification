@@ -3,7 +3,7 @@ description: A person that has a relationship with this institution
 required:
   - surname
   - primaryCode
-  - activeenrolment
+  - activeEnrolment
 properties:
   primaryCode:
     description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
@@ -62,7 +62,7 @@ properties:
       the student number can be added to this field by appending it at the end,
       separated by a comma. E.g. "van der Graaf, Jacobus Adrianus, s12345678"
     example: "van der Graaf, Jacobus Adrianus, s12345678"
-  activeenrolment:
+  activeEnrolment:
     type: boolean
     description: Whether this person has an active enrolment.
     example: false

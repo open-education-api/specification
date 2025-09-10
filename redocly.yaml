@@ -25,6 +25,7 @@ rules:
   boolean-parameter-prefixes: off
   path-segment-plural: off
   no-invalid-schema-examples: off
+  no-unresolved-refs: error
 #  array-parameter-serialization: off
 #  request-mime-type: off
 #  path-http-verbs-order: off

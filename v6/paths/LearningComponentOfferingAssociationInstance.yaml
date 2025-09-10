@@ -90,7 +90,7 @@ put:
                 surnamePrefix: van
                 surname: Damme
                 displayName: "Maartje van Damme"
-                activeenrolment: true
+                activeEnrolment: true
                 affiliations: [student]
                 email: vandamme.mcw@student.roc.nl
                 languageOfChoice: [nl-NL]
