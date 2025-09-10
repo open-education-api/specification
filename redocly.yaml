@@ -26,6 +26,7 @@ rules:
   path-segment-plural: off
   no-invalid-schema-examples: off
   no-unresolved-refs: error
+  no-required-schema-properties-undefined: off
 #  array-parameter-serialization: off
 #  request-mime-type: off
 #  path-http-verbs-order: off
@@ -33,4 +34,3 @@ rules:
 #  response-mime-type: off
 #  operation-4xx-problem-details-rfc7807: off
 #  tags-alphabetical: off
-#  no-required-schema-properties-undefined: off
