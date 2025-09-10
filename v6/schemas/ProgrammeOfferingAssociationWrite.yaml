@@ -1,0 +1,7 @@
+allOf:
+  - $ref: './ProgrammeOfferingAssociation.yaml'
+  - type: object
+    properties:
+      offering:
+        description: The offering this association is for
+        $ref: './ProgrammeOffering.yaml'

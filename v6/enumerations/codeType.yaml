@@ -1,43 +1,44 @@
 type: string
 description: |
-  The code/identifier type. 
-  
-  This is an *extensible enumeration*. Use `x-` to prefix custom values
-  
+  The type of code or identifier.
+
   The predefined values are:
-    - `brin`: The registration number for a Dutch educational institution that is issued by the Dutch Ministry of Education, Culture and Science
-    - `croho_crebo_code`: programs with a CREBO and CROHO number are accredited by the Dutch Ministry of Education, Culture and Science (OCW)
-    - `program_code`: Identifier for the program (collection of courses)
-    - `component_code`: The code for a component (part of a course)
-    - `offering_code`: The code to identify a specific offering (program, course or component offering)
-    - `organization_id`: The identifier for the organization
-    - `building_id`: The number or code to identify a building
-    - `bag_id`: The identification of a building as it is known in the Dutch Building Administration (BAG)
-    - `room_code`: The code for a room
-    - `system_id`: Identifier assigned to an entity in context of a specific system
-    - `product_id`: Identifier assigned to a specific product
-    - `national_identity_number`: Identifier assigned by the government of the person. e.g. a social security number in the USA
+    
+    - `brin`: The registration number of a Dutch educational institution, as issued by the Dutch Ministry of Education, Culture and Science (OCW)
+    - `croho_crebo_code`: Programmes with a CREBO or CROHO number accredited by the Dutch Ministry of Education, Culture and Science (OCW)
+    - `programme_code`: Identifier for a programme (collection of courses)
+    - `component_code`: Code for a component (part of a course)
+    - `offering_code`: Code used to identify a specific offering (programme, course or component offering)
+    - `organisation_id`: Identifier for the organisation
+    - `building_id`: Code used to identify a building
+    - `bag_id`: Identifier for a building as registered in the Dutch Building and Address Registry (BAG)
+    - `room_code`: Code used to identify a room
+    - `system_id`: Identifier assigned within the context of a specific system
+    - `product_id`: Identifier for a specific product
+    - `national_identity_number`: Identifier assigned by a government to a person (e.g. national insurance number in the UK, or personnummer in Sweden)
     - `student_number`: Identifier for the student
-    - `studielink_number`: Identifier for the person as determined by the dutch centralized program enrollment system Studielink
+    - `studielink_number`: Identifier assigned to a person by the Dutch centralised enrolment system Studielink
     - `esi`: European Student Identifier
-    - `username`: The name of a user
-    - `account_id`: Identifier assigned to a specific account
+    - `username`: The user's login name
+    - `account_id`: Identifier for a specific account
     - `email_address`: An email address
-    - `group_code`: The identifier for a group (of persons)
-    - `group_type_code`: The identifier for a type of group
-    - `isbn`: International Standard Book Number that serve as product identifiers for Books
-    - `issn`: International Standard Book Number that serve as product identifiers for periodicals
+    - `group_code`: Identifier for a group (of people)
+    - `group_type_code`: Identifier for the type of group
+    - `isbn`: International Standard Book Number (used to identify books)
+    - `issn`: International Standard Serial Number (used to identify periodicals)
     - `orcid`: Open Researcher and Contributor ID
-    - `uuid`: A universally unique identifier
-    - `schac_home`: Home organization using the domain name of the organization
-    - `identifier`: Generic Identifier
+    - `uuid`: Universally unique identifier
+    - `schac_home`: Home organisation, represented by its domain name
+    - `identifier`: Generic identifier
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - brin
   - croho_crebo_code
-  - program_code
+  - programme_code
   - component_code
   - offering_code
-  - organization_id
+  - organisation_id
   - building_id
   - bag_id
   - room_code
@@ -51,6 +52,7 @@ x-ooapi-extensible-enum:
   - account_id
   - email_address
   - group_code
+  - group_type_code
   - isbn
   - issn
   - orcid

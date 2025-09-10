@@ -1,13 +1,17 @@
 type: string
 description: |
-  The mode of delivery of the component based on https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/learning-assessment
-  - presential: classroom learning
-  - online: real-time online learning
-  - hybrid: use different modes of delivery in a flexible way
-  - blended: mix online and offline learning
-  - research_lab_based: learning while doing research
-  - work_based: learning on the job
-  - project_based: learning/testing within a project team
+  The mode of delivery of the component, based on the EU vocabulary:  
+  https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/learning-assessment
+
+  - presential: Learning that takes place in a physical classroom setting
+  - online: Real-time learning delivered entirely via the internet
+  - hybrid: Delivery using different modes in a flexible and interchangeable way
+  - blended: Structured combination of online and in-person learning
+  - research_lab_based: Learning that occurs within a research environment
+  - work_based: Learning through practical work or workplace experience
+  - project_based: Learning or assessment conducted as part of a project team
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - presential
   - online

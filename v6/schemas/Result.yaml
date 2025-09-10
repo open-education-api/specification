@@ -14,7 +14,7 @@ properties:
     example: "Strong performance overall, only minor calculation errors in section 3."
   score:
     type: string
-    description: The score of this program/course/component association (based on resultValueType in offering)
+    description: The score of this programme/course/component association (based on resultValueType in offering)
     example: '9'
   rawScore:
     type: integer

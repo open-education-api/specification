@@ -8,19 +8,21 @@ description: |
   - https://database.nlqf.nl/assets/pdf/schema-en-print.pdf
   
   This list is extended with:
-  - eqf_0: informal or non-formal learning below EQF level 1 (e.g. basic literacy or life skills)
+  - eqf_0: Informal or non-formal learning below EQF level 1, e.g. basic literacy or life skills
   - nlqf_4plus: Dutch pre-university education (VWO), considered above EQF level 4 but not formally mapped to EQF level 5
 
-  - eqf_0: informal or pre-qualification learning below EQF level 1
-  - eqf_1: basic general knowledge and skills to carry out simple tasks
-  - eqf_2: basic factual knowledge and practical skills in a field of work or study
-  - eqf_3: knowledge of facts, principles and processes with basic problem-solving
-  - eqf_4: factual and theoretical knowledge in broad contexts within a field of work or study
-  - nlqf_4plus: Dutch VWO (pre-university secondary education), positioned between EQF level 4 and 5
-  - eqf_5: comprehensive, specialized knowledge and practical skills, typically short-cycle higher education (e.g. associate degree)
-  - eqf_6: advanced knowledge and skills for complex problem-solving, typically bachelor level
-  - eqf_7: highly specialized knowledge and critical awareness, typically master level
-  - eqf_8: knowledge at the most advanced frontier of a field, typically doctoral level
+  - eqf_0: Informal or pre-qualification learning, below EQF level 1
+  - eqf_1: Basic general knowledge and skills to carry out simple tasks
+  - eqf_2: Basic factual knowledge and practical skills in a field of work or study
+  - eqf_3: Knowledge of facts, principles and processes, with basic problem-solving skills
+  - eqf_4: Factual and theoretical knowledge in broad contexts within a field of work or study
+  - nlqf_4plus: Dutch VWO (pre-university secondary education), positioned between EQF levels 4 and 5
+  - eqf_5: Comprehensive, specialised knowledge and practical skills, typically short-cycle higher education (e.g. associate degree)
+  - eqf_6: Advanced knowledge and skills for complex problem-solving, typically bachelor level
+  - eqf_7: Highly specialised knowledge and critical awareness, typically master level
+  - eqf_8: Knowledge at the most advanced frontier of a field, typically doctoral level
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - eqf_0
   - eqf_1

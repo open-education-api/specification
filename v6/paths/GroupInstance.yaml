@@ -23,7 +23,7 @@ get:
         items:
           type: string
           enum:
-            - organization
+            - organisation
   responses:
     '200':
       description: OK

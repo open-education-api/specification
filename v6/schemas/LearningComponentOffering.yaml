@@ -16,14 +16,14 @@ allOf:
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
         example: 2020-12-16T18:00:00+01:00
-      enrollStartDateTime:
+      enrolStartDateTime:
         type: string
-        description: The moment from which a student can enroll for this component, RFC3339 (date-time).
+        description: The moment from which a student can enrol for this component, RFC3339 (date-time).
         format: date-time
         example: "2025-09-01T09:00:00Z"
-      enrollEndDateTime:
+      enrolEndDateTime:
         type: string
-        description: The last moment to which a student can enroll for this component, RFC3339 (date-time).
+        description: The last moment to which a student can enrol for this component, RFC3339 (date-time).
         format: date-time
         example: "2025-09-01T09:00:00Z"
       resultWeight:
@@ -64,12 +64,12 @@ allOf:
               title: courseOfferingId
             - $ref: './CourseOffering.yaml'
               title: CourseOffering object     
-      organization:
+      organisation:
         description: |
-          The organization that manages this componentoffering. [`expandable`](#tag/organization_model)
-          By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+          The organisation that manages this componentoffering. [`expandable`](#tag/organisation_model)
+          By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
-            title: organizationId
-          - $ref: './Organization.yaml'
-            title: Organization object
+            title: organisationId
+          - $ref: './Organisation.yaml'
+            title: Organisation object

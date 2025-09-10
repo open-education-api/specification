@@ -50,7 +50,7 @@ get:
 put:
   summary: PUT /course-offering-associations/{courseOfferingAssociationId}
   description: |
-    PUT a single course offering association to enroll a person on specific association that can later be retreived.  
+    PUT a single course offering association to enrol a person on specific association that can later be retreived.  
   operationId: replaceCourseOfferingAssociationById
   tags:
     - course offering associations
@@ -94,7 +94,7 @@ patch:
   summary: PATCH /course-offering-associations/{courseOfferingAssociationId}
   operationId: partialUpdateCourseOfferingAssociationById
   description: |
-    Update the status or result of an enrollment. Other elements of the association object COULD 
+    Update the status or result of an enrolment. Other elements of the association object COULD 
     also be PATCHED. But are not likely and have therefor not been included in this endpoint.
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 

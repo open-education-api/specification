@@ -1,0 +1,42 @@
+type: object
+description: |
+  An enrolment period describes the moment at which an offering is available for enrolment.
+  The enrolment period is supplemented with additional information regarding the intended users, the time for the enrolment as well as a URL that contains the enrolment logic.
+required:
+  - startDateTime
+properties:
+  startDateTime:
+    type: string
+    description: The moment from which the enrolment should be available
+    format: date-time
+    example: 2020-09-28T08:30:00+01:00
+  endDateTime:
+    type: string
+    description: The moment until which the enrolment shoud be available (when the enrolment for this taretgroup stops), RFC3339 (date-time)
+    format: date-time
+    example: 2020-09-30T20:00:00+01:00
+  targetGroup:
+    type: array
+    description: The people for whom this enrolment is available.
+    items:
+      type: string
+      description: the specific targetgroup
+  enrolmentUrl:
+    type: string
+    description: The URL where a person of this targetGroup can enrol him or herself
+    example: "https://university.example.org/"
+  comment:
+    type: string
+    description: Additional information regarding this enollment period that can be shared with the persons in the target groups.
+    example: "Additional information..."
+  consumers:
+    description: |
+            The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) 
+            for more information about this mechanism.
+    type: array
+    items:
+      $ref: './Consumer.yaml'
+    example:
+      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+  ext:
+    $ref: './Ext.yaml'

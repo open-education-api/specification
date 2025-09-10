@@ -23,9 +23,9 @@ get:
         items:
           type: string
           enum:
-            - programs
+            - programmes
             - coordinators
-            - organization
+            - organisation
     - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
     '200':

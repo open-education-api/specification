@@ -1,10 +1,13 @@
 type: string
 description: |
-  Level of the learning outcome based on SOLO taxonomy (www.johnbiggs.com.au):
-  - 1: Unistructural, the student can identify or carry out simple procedures; understanding is limited to one relevant aspect
-  - 2: Multistructural, the student can handle several relevant aspects but sees them as unrelated; knowledge is additive
-  - 3: Relational, the student integrates several aspects into a coherent whole; shows deeper understanding of relationships
-  - 4: Extended abstract, the student generalizes and transfers learning to new domains; demonstrates theoretical and abstract thinking
+  The level of the learning outcome, based on the SOLO taxonomy (www.johnbiggs.com.au):
+
+  - 1: Unistructural, the student can identify or carry out simple procedures; understanding is limited to a single relevant aspect
+  - 2: Multistructural, the student can address several relevant aspects, but sees them as unrelated; knowledge is additive
+  - 3: Relational, the student integrates several aspects into a coherent whole, demonstrating deeper understanding of relationships
+  - 4: Extended abstract, the student generalises and applies learning to new domains, demonstrating theoretical and abstract thinking
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - '1'
   - '2'

@@ -24,7 +24,7 @@ get:
           type: string
           enum:
             - course
-            - organization
+            - organisation
   responses:
     '200':
       description: OK
