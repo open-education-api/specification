@@ -90,7 +90,7 @@ properties:
     example: 150
   pendingNumberStudents:
     type: number
-    description: The number of students thawhot have a pending enrolment request for this offering
+    description: The number of students who have a pending enrolment request for this offering
     format: int32
     minimum: 0
     example: 50
