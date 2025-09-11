@@ -4,7 +4,7 @@ const NoItemsArray = () => {
       enter(schema, ctx) {
         if (schema.items && Array.isArray(schema.items)) {
           ctx.report({
-            message: 'items moet een object zijn, niet een array. Gebruik "items: {$ref: ...}" in plaats van "items: - $ref: ..."',
+            message: 'items must be an object, not an array. Use "items: {$ref: ...}" instead of "items: - $ref: ..."',
             location: ctx.location.child('items')
           });
         }

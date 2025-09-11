@@ -4,7 +4,7 @@ apis:
   test:
     root: ./v6/spec.yaml
 extends:
-  - recommended-strict
+  - all
   
 plugins:
   - './redocly-plugin.js'
