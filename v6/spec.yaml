@@ -266,7 +266,7 @@ tags:
   - name: course_offering_association_model
     x-displayName: CourseOfferingAssociation
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociation" />
+      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociationFull" />
 
   - name: course_offering_model
     x-displayName: CourseOffering
@@ -332,7 +332,7 @@ tags:
     x-displayName: LearningComponentOfferingAssociation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/LearningComponentOfferingAssociation" />
+        schemaRef="#/components/schemas/LearningComponentOfferingAssociationFull" />
 
   - name: learning_component_offering_model
     x-displayName: LearningComponentOffering
@@ -462,7 +462,7 @@ tags:
     x-displayName: ProgrammeOfferingAssociation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/ProgrammeOfferingAssociation" />
+        schemaRef="#/components/schemas/ProgrammeOfferingAssociationFull" />
 
   - name: programme_offering_model
     x-displayName: ProgrammeOffering
@@ -532,13 +532,13 @@ tags:
   - name: test_component_offering_association_attempt_model
     x-displayName: TestComponentOfferingAssociationAttempt
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttempt" />
+      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttemptFull" />
 
   - name: test_component_offering_association_model
     x-displayName: TestComponentOfferingAssocation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/TestComponentOfferingAssociation" />
+        schemaRef="#/components/schemas/TestComponentOfferingAssociationFull" />
 
   - name: test_component_offering_model
     x-displayName: TestComponentOffering
@@ -583,12 +583,14 @@ x-tagGroups:
       - course_model
       - course_offering_model
       - course_offering_association_model
+      - document_model
       - learning_component_model
       - learning_component_offering_model
       - learning_component_offering_association_model
       - test_component_model
       - test_component_offering_model
       - test_component_offering_association_model
+      - test_component_offering_association_attempt_model
       - group_model
       - membership_model
       - organisation_model
@@ -597,8 +599,6 @@ x-tagGroups:
       - programme_offering_model
       - programme_offering_association_model
       - room_model
-      - test_component_offering_association_attempt_model
-      - document_model
 
 components:
   schemas:

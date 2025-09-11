@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 resolve required bug] - 2025-09-11
+
+### Added
+new drawing of relationships and model
+relations between objects in de model at spec.yaml level see issue #427
+### Removed
+
+### Changed
+improved readability of the attempts path by removing array
+
+
 ## [6.0.0 resolve required bug] - 2025-09-04
 
 ### Added
