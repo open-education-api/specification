@@ -4,7 +4,11 @@ apis:
   test:
     root: ./v6/spec.yaml
 extends:
-  - all
+  - recommended-strict
+  
+plugins:
+  - './redocly-plugin.js'
+  
 rules:
   response-mime-type:
     severity: error
@@ -34,3 +38,5 @@ rules:
 #  response-mime-type: off
 #  operation-4xx-problem-details-rfc7807: off
 #  tags-alphabetical: off
+
+  custom-rules/no-items-array: error

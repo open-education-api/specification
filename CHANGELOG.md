@@ -12,6 +12,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 – All US English terms have been replaced with British English terms, in paths, fields, entities, and file names.
+| US word        | UK word        | Explanation |
+|----------------|----------------|-------|-------------|
+| analyze        | analyse        | UK spelling with 's'. |
+| behavior       | behaviour      | UK spelling with 'u'. |
+| canceled       | cancelled      | UK spelling: double 'l'. |
+| catalog        | catalogue      | UK spelling with 'ue'. |
+| enroll         | enrol          | UK spelling: single 'l'. |
+| enrollment     | enrolment      | UK spelling: single 'l'. |
+| enrolled       | enrolled       | UK spelling: also double 'l'. |
+| license        | licence        | In British English: 'licence' = noun, 'license' = verb. |
+| mail           | email          | In UK, 'mail' usually means physical post; 'email' avoids confusion. |
+| math           | maths          | UK spelling with 's'. |
+| organization   | organisation   | Spelling difference: UK uses 's' instead of 'z'. |
+| organizations  | organisations  | Spelling difference: UK uses 's' instead of 'z'. |
+| program        | programme      | In education context, UK/EU uses 'programme'. 'Program' is for software. |
+| programs       | programmes     | In education context, UK/EU uses 'programmes'. 'Programs' is for software. |
+| semester       | term           | In the UK the academic year is divided into 'terms' (autumn, spring, summer). |
+| specialization | specialisation | UK spelling with 's'. |
+| specializations| specialisations| UK spelling with 's'. |
 
 
 ## [6.0.0 Change service information element] - 2025-09-08
