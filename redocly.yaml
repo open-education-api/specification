@@ -10,6 +10,7 @@ plugins:
   - './redocly-plugin.js'
   
 rules:
+  
   response-mime-type:
     severity: error
     allowedValues:
@@ -17,6 +18,7 @@ rules:
       - application/problem+json
       - application/octet-stream
       - application/merge-patch+json
+
   request-mime-type:
     severity: error
     allowedValues:
@@ -24,13 +26,17 @@ rules:
       - application/problem+json
       - application/octet-stream
       - application/merge-patch+json
+
+  no-unresolved-refs: error
+  custom-rules/no-items-array: error
+
   info-license: off
   required-string-property-missing-min-length: off
   boolean-parameter-prefixes: off
   path-segment-plural: off
   no-invalid-schema-examples: off
-  no-unresolved-refs: error
   no-required-schema-properties-undefined: off
+
 #  array-parameter-serialization: off
 #  request-mime-type: off
 #  path-http-verbs-order: off
@@ -39,4 +45,3 @@ rules:
 #  operation-4xx-problem-details-rfc7807: off
 #  tags-alphabetical: off
 
-  custom-rules/no-items-array: error
