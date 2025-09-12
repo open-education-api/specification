@@ -66,13 +66,8 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+  consumer:
+    $ref: './Consumer.yaml'
   organisation:
     description: |
       The organisation that manages this group. [`expandable`](.#tag/organisation_model)

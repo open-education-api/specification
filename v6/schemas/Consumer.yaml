@@ -6,5 +6,9 @@ properties:
   consumerKey:
     description: The key of the consumer (destination) for which this information is intended. See the [consumer registry](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/). This key is used to select the additional data to be presented in the request.
     type: string
-    example: rio
+    example: test-consumer
+  exampleProperty:
+    description: An example of an additional exampleProperty
+    type: string
+    example: value-of-example-property  
 additionalProperties: true

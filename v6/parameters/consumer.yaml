@@ -1,6 +1,6 @@
 name: consumer
 in: query
-description: Request entities meant for a specific consumer. The `consumer` profile allows for adding additional data, or specific rules regarding the presentation of the data. A consumer can be selected based on the key of the consumer profile. More information regarding the use of consumers can be found in the [documentation](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/)
+description: Request entities meant for a specific consumer. The `consumer` profile allows for adding additional data, or specific rules regarding the presentation of the data. A consumer can be selected based on the key of the consumer profile. An implementation of the OOAPI SHOULD always return the consumer information inside the consumer property of the object(s) that is/are requested. More information regarding the use of consumers can be found in the [documentation](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/)
 required: false
 schema:
   type: string

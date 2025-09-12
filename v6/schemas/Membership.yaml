@@ -24,14 +24,7 @@ properties:
     $ref: '../enumerations/membershipState.yaml'
   role:
     $ref: '../enumerations/membershipRole.yaml'
-  consumers:
-    description: |
-            The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) 
-            for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+  consumer:
+    $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

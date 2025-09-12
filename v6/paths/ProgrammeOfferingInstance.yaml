@@ -31,6 +31,7 @@ get:
             - testComponent
             - organisation
             - academicSession
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK

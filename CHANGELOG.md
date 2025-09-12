@@ -7,12 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
 
 ### Added
+- consuemer parameter to individual instances of objects 
 
 ### Removed
 
 ### Changed
-– changed change conumers [] to consumer {}
-- changed query path for all instances to allow consumer as a paramater on 1 object instance 
+– changed change consumers [] to consumer {}
+- changed query path for all instances to allow consumer as a parameter on 1 object instance 
 
 ## [6.0.0 fix ISCED issue] - 2025-09-10
 

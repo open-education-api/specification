@@ -125,12 +125,7 @@ properties:
     description: An array of periods that a person can enrol into this offering. The period is defined by targetgroup and dateTime
     items:
       $ref: './EnrolmentPeriods.yaml'
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/RIO/V1/examples/Offering.yaml'
+  consumer:
+    $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

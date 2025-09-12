@@ -25,6 +25,7 @@ get:
           enum:
             - parent
             - children
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
