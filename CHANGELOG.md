@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 add relation definitions] - 2025-09-12
+
+### Added
+- Added a table to the description of the specification that describes all reliationships in the data model.
+
 ## [6.0.0 resolve required bug] - 2025-09-11
 
 ### Added
@@ -13,6 +18,15 @@ relations between objects in de model at spec.yaml level see issue #427
 
 ### Changed
 improved readability of the attempts path by removing array
+
+## [6.0.0 fix ISCED issue] - 2025-09-10
+
+### Added
+
+### Removed
+
+### Changed
+– changed requirements for field of study in programme and course
 
 
 ## [6.0.0 resolve required bug] - 2025-09-04
