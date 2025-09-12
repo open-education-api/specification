@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
+
+### Added
+
+### Removed
+
+### Changed
+– changed change conumers [] to consumer {}
+- changed query path for all instances to allow consumer as a paramater on 1 object instance 
+
 ## [6.0.0 fix ISCED issue] - 2025-09-10
 
 ### Added
