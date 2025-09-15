@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
 
 ### Added
-- consuemer parameter to individual instances of objects 
+- consumer parameter to individual instances of objects 
 
 ### Removed
 

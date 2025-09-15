@@ -1,5 +1,5 @@
 type: object
-description: The additional elements of a consumer that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
+description: The additional elements of a consumer that may be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for further information about this mechanism.
 required:
   - consumerKey
 properties:
@@ -8,7 +8,7 @@ properties:
     type: string
     example: test-consumer
   exampleProperty:
-    description: An example of an additional exampleProperty
+    description: An example of an additional property
     type: string
     example: value-of-example-property  
 additionalProperties: true
