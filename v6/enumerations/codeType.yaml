@@ -16,7 +16,7 @@ description: |
   | `group_code`              | Identifier for a group of people.                                 |
   | `group_type_code`         | Identifier for the type of group.                                 |
   | `identifier`              | Generic identifier.                                               |
-  | `vv`        | Registration number of an educational institution. In the         |
+  | `institution_code`        | Registration number of an educational institution. In the         |
   |                           | Netherlands, the former BRIN code has been replaced by the        |
   |                           | institution code, issued by the Ministry of Education, Culture    |
   |                           | and Science (OCW).                                                |
