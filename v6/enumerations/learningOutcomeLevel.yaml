@@ -1,16 +1,40 @@
 type: string
 description: |
-  The level of the learning outcome, based on the SOLO taxonomy (www.johnbiggs.com.au):
+  The level of the learning outcome. Two common frameworks are supported: SOLO and
+  Bloom. Both are extensible; additional frameworks may be added if required.
 
-  - 1: Unistructural, the student can identify or carry out simple procedures; understanding is limited to a single relevant aspect
-  - 2: Multistructural, the student can address several relevant aspects, but sees them as unrelated; knowledge is additive
-  - 3: Relational, the student integrates several aspects into a coherent whole, demonstrating deeper understanding of relationships
-  - 4: Extended abstract, the student generalises and applies learning to new domains, demonstrating theoretical and abstract thinking
+  **SOLO taxonomy** (https://www.johnbiggs.com.au/academic/solo-taxonomy/):
+
+  | Level | Label             | Description                                                     |
+  |-------|-------------------|-----------------------------------------------------------------|
+  | 0     | Prestructural     | No understanding; the student misses the point.                 |
+  | 1     | Unistructural     | Identifies or carries out simple procedures; limited to one     |
+  |       |                   | relevant aspect.                                                |
+  | 2     | Multistructural   | Addresses several relevant aspects, but sees them as unrelated; |
+  |       |                   | knowledge is additive.                                          |
+  | 3     | Relational        | Integrates aspects into a coherent whole, showing deeper        |
+  |       |                   | understanding of relationships.                                 |
+  | 4     | Extended abstract | Generalises and applies learning to new domains, showing        |
+  |       |                   | theoretical and abstract thinking.                              |
+
+  **Bloom’s taxonomy** (https://bloomstaxonomy.net/):
+
+  | Level | Label        | Description                                                         |
+  |-------|--------------|---------------------------------------------------------------------|
+  | 1     | Remember     | Recall facts and basic concepts (define, list, state).              |
+  | 2     | Understand   | Explain ideas or concepts (describe, discuss, explain).             |
+  | 3     | Apply        | Use knowledge in new situations (implement, solve, use).            |
+  | 4     | Analyse      | Draw connections among ideas (differentiate, compare, examine).     |
+  | 5     | Evaluate     | Justify a decision or course of action (critique, assess, argue).   |
+  | 6     | Create       | Produce new or original work (design, construct, develop).          |
 
   This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
+  - '0'
   - '1'
   - '2'
   - '3'
   - '4'
+  - '5'
+  - '6'
 example: '1'
