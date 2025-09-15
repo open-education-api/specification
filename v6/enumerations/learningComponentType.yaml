@@ -1,28 +1,37 @@
 type: string
 description: |
-  The type of learning component, indicating the format or method of educational delivery:
+  The type of learning component (format/method). Use with `modeOfDelivery`
+  to indicate how the component is delivered (e.g. online, blended, coil).
 
-  - lecture: A classroom-based or online lecture delivered by an instructor
-  - practical: A hands-on session focusing on the application of concepts
-  - tutorial: An interactive session in small groups to reinforce learning
-  - consultation: A scheduled meeting for individual or group guidance
-  - project: A structured assignment carried out over a period of time
-  - workshop: An intensive session focused on developing practical skills or knowledge
-  - excursion: An educational trip or site visit
-  - independent_study: Self-directed learning without scheduled contact hours
-  - external: An activity taking place outside the institution, such as an internship or course at a partner organisation
-  - skills_training: A session focused on developing specific practical or professional skills
+  | Code                | Description                                                    |
+  |---------------------|----------------------------------------------------------------|
+  | `consultation`      | Scheduled meeting for individual or group guidance.            |
+  | `excursion`         | Educational trip or site visit.                                |
+  | `external`          | Activity outside the home institution (e.g. internship,        |
+  |                     | course at a partner institution).                              |
+  | `independent_study` | Self-directed learning without scheduled contact hours.        |
+  | `learning_community`| Structured collaboration between education, research and       |
+  |                     | industry with shared ownership of learning and outcomes;       |
+  |                     | distinct from internships and from COIL.                       |
+  | `lecture`           | Classroom-based or online lecture given by an instructor.      |
+  | `practical`         | Hands-on session focusing on application of concepts.          |
+  | `project`           | Structured assignment carried out over a period of time.       |
+  | `skills_training`   | Session focused on developing specific practical or            |
+  |                     | professional skills.                                           |
+  | `tutorial`          | Interactive small-group session to reinforce learning.         |
+  | `workshop`          | Intensive session focused on practical skills or knowledge.    |
 
   This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
+  - consultation
+  - excursion
+  - external
+  - independent_study
+  - learning_community
   - lecture
   - practical
-  - tutorial
-  - consultation
   - project
-  - workshop
-  - excursion
-  - independent_study
-  - external
   - skills_training
-example: lecture
+  - tutorial
+  - workshop
+example: learning_community
