@@ -92,12 +92,7 @@ properties:
             title: organisationId
           - $ref: './Organisation.yaml'
             title: Organisation object     
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+  consumer:
+    $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

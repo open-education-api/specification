@@ -20,6 +20,7 @@ get:
       schema:
         type: string
         format: uuid
+    - $ref: '../parameters/consumer.yaml'
 
   responses:
     '200':
