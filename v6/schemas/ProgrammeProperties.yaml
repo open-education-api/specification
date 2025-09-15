@@ -76,8 +76,17 @@ properties:
     $ref: '../enumerations/level.yaml'
   fieldsOfStudy:
     type: string
-    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
-    maxLength: 4
+    description: |
+      Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf. 
+      ISCED-F categorizes the fields of study 2 numbers at root level and further subdivision as more numbers are added
+      Perferably fieldsOfStudy contains at least 4 digits
+      ISCEDF2013vSOI2021 currently allows for 6 numbers max (https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/documents/2025/pubsoi2021_ed2425.pdf) .
+      07 Engineering, manufacturing and construction
+      073 Architecture and construction
+      0731 Architecture and town planning
+      073101 Townplanning
+    minLength: 2
+    maxLength: 6
     example: '0732'
   enrolment:
     type: array
