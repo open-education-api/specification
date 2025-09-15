@@ -1,25 +1,39 @@
 type: string
 description: |
   Type of qualification that can be obtained upon completing the programme:
-    
-  - ad: Associate degree, short-cycle higher education qualification (EQF level 5)
-  - ba: Bachelor of Arts, undergraduate degree typically in the Humanities or Social Sciences (EQF level 6)
-  - bsc: Bachelor of Science, undergraduate degree typically in the Sciences, Technology, or Economics (EQF level 6)
-  - llb: Bachelor of Laws, undergraduate Law degree (EQF level 6)
-  - ma: Master of Arts, postgraduate degree in the Humanities or Social Sciences (EQF level 7)
-  - msc: Master of Science, postgraduate degree in Science, Technology, or Economics (EQF level 7)
-  - llm: Master of Laws, postgraduate Law degree (EQF level 7)
-  - phd: Doctor of Philosophy, research-based Doctoral degree (EQF level 8)
-  - none: No formal qualification is awarded for this programme
 
+  | Code              | Description                                               |
+  |-------------------|-----------------------------------------------------------|
+  | `ad`              | Associate degree, short-cycle higher education            |
+  |                   | qualification (EQF level 5)                               |
+  | `ba`              | Bachelor of Arts, undergraduate degree typically in the   |
+  |                   | Humanities or Social Sciences (EQF level 6)               |
+  | `bsc`             | Bachelor of Science, undergraduate degree typically in the|
+  |                   | Sciences, Technology, or Economics (EQF level 6)          |
+  | `llb`             | Bachelor of Laws, undergraduate Law degree (EQF level 6)  |
+  | `llm`             | Master of Laws, postgraduate Law degree (EQF level 7)     |
+  | `ma`              | Master of Arts, postgraduate degree in the Humanities or  |
+  |                   | Social Sciences (EQF level 7)                             |
+  | `micro_credential`| Micro-credential awarded upon successful completion of a  |
+  |                   | short, assessed learning experience (typically credit-    |
+  |                   | bearing), aligned with the EU Council Recommendation on   |
+  |                   | micro-credentials.                                        |
+  | `msc`             | Master of Science, postgraduate degree in Science,        |
+  |                   | Technology, or Economics (EQF level 7)                    |
+  | `none`            | No formal qualification is awarded for this programme     |
+  | `phd`             | Doctor of Philosophy, research-based Doctoral degree      |
+  |                   | (EQF level 8)                                             |
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - ad
   - ba
   - bsc
   - llb
-  - ma
-  - msc
   - llm
+  - ma
+  - micro_credential
+  - msc
   - phd
   - none
 example: none
