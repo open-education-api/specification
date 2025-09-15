@@ -4,7 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0 add relation definitions] - 2025-09-12
+
+## [6.0.0] Enum feedback incorporated across specifications - 2025-09-15
+
+### Added
+- `coil` added to `modeOfDelivery` (Collaborative Online International Learning)
+- `micro_credential` added to `qualificationAwarded`
+- `micro_credential_certificate` added to `formalDocument`
+- Extended `learningOutcomeLevel` with SOLO level 0 and Bloom taxonomy levels 1–6
+- Added `learning_community` to `learningComponentType`
+- Added `institution_code` to `codeType`
+
+### Removed
+- BRIN and CROHO/CREBO codes removed, in line with the OCW project *Taal gaat met de tijd mee*
+
+### Changed
+
+
+# [6.0.0 add relation definitions] - 2025-09-12
 
 ### Added
 - Added a table to the description of the specification that describes all reliationships in the data model.
