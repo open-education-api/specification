@@ -11,8 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Changed
-- Renamed `qualificationAwarded` to `degreeAwarded` and simplified degree types to Bologna Process cycles (`associate_degree`, `bachelor`, `master`, `doctoral`). Field-specific designations like "of Arts" or "of Sciences" are now captured separately in the new `degreeDesignations` array field.
-- Updated Program schema to use `degreeAwarded` query parameter instead of `qualificationAwarded`.
+- Simplified degree types to Bologna Process cycles (`associate_degree`, `bachelor`, `master`, `doctoral`), in addition to the more general qualifications such as `diploma` and `certificate` . Field-specific designations like "of Arts" or "of Sciences" are now captured separately in the new `qualificationDesignations` array field.
 
 ## [6.0.0 add relation definitions] - 2025-09-12
 
