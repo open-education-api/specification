@@ -15,6 +15,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 – changed change consumers [] to consumer {}
 - changed query path for all instances to allow consumer as a parameter on 1 object instance 
 
+## [6.0.0 add relation definitions] - 2025-09-12
+
+### Added
+- Added a table to the description of the specification that describes all reliationships in the data model.
+
+## [6.0.0 resolve required bug] - 2025-09-11
+
+### Added
+new drawing of relationships and model
+relations between objects in de model at spec.yaml level see issue #427
+### Removed
+
+### Changed
+improved readability of the attempts path by removing array
+
 ## [6.0.0 fix ISCED issue] - 2025-09-10
 
 ### Added
@@ -23,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 – changed requirements for field of study in programme and course
+
 
 ## [6.0.0 resolve required bug] - 2025-09-04
 

@@ -18,149 +18,129 @@ info:
 
     The programme relations object is not found as a separate endpoint but relations between programmes can be found within the programme endpoint by expanding that endpoint.
 
+    Definitions for all relationships in the model:
+    
+    | Entities                                                                                                                                                                                     | Relationship             | Cardinality | Description                                                                                                                                       |
+    | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | **Learning Outcomes**                                                                                                                                                                        |                          |             |                                                                                                                                                   |
+    | LearningOutcome ↔ Program, Course, LearningComponent, TestComponent                                                                                                                          | achieves                 | * : *       | Educational entities are designed to achieve specific learning outcomes that define the knowledge, skills, and competencies students will acquire |
+    | LearningOutcome → LearningOutcome                                                                                                                                                            | has parent               | * : 0..1    | Learning outcomes can be organized hierarchically, where specific outcomes are grouped under broader outcomes                                     |
+    | **Organizational Structure**                                                                                                                                                                 |                          |             |                                                                                                                                                   |
+    | Organization → Organization                                                                                                                                                                  | has parent               | * : 0..1    | Organizations can be structured hierarchically (departments → faculties → institutions), creating a tree structure                                |
+    | Organization ↔ LearningOutcome, Program, Course, LearningComponent, TestComponent, ProgramOffering, CourseOffering, LearningComponentOffering, TestComponentOffering, Group, AcademicSession | provides/manages/defines | 1 : *       | Organizations own and administer educational entities, manage operational delivery of offerings, oversee groups, and define academic sessions     |
+    | **Educational Structure**                                                                                                                                                                    |                          |             |                                                                                                                                                   |
+    | Program → Program                                                                                                                                                                            | has parent               | * : 0..1    | Programs can be nested (specializations, tracks, minors within main programs)                                                                     |
+    | Program ↔ Course                                                                                                                                                                             | composed of              | * : *       | Courses can be included in multiple programs (core in some, electives in others)                                                                  |
+    | Course → LearningComponent, TestComponent                                                                                                                                                    | composed of              | 1 : *       | Components are the constituent parts of a course - the building blocks (lectures, tutorials, exams) that together form the complete course        |
+    | **Educational Offerings**                                                                                                                                                                    |                          |             |                                                                                                                                                   |
+    | Program → ProgramOffering                                                                                                                                                                    | offered as               | 1 : *       | A program can have multiple offerings for different cohorts or start dates                                                                        |
+    | Course → CourseOffering                                                                                                                                                                      | offered as               | 1 : *       | A course can have multiple offerings for different times, locations, or delivery modes                                                            |
+    | LearningComponent → LearningComponentOffering                                                                                                                                                | offered as               | 1 : *       | A component can have multiple scheduled instances                                                                                                 |
+    | TestComponent → TestComponentOffering                                                                                                                                                        | offered as               | 1 : *       | A test can have multiple scheduled exam sessions                                                                                                  |
+    | **Offering Relationships**                                                                                                                                                                   |                          |             |                                                                                                                                                   |
+    | ProgramOffering ↔ CourseOffering                                                                                                                                                             | includes                 | * : *       | Course offerings are part of program offerings, indicating which courses are being delivered within that specific program instance                |
+    | CourseOffering ↔ LearningComponentOffering, TestComponentOffering                                                                                                                            | includes                 | * : *       | Component offerings are the scheduled instances that together deliver a course offering                                                           |
+    | **Scheduling & Location**                                                                                                                                                                    |                          |             |                                                                                                                                                   |
+    | AcademicSession → ProgramOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                          | scheduled in             | 1 : *       | Each offering occurs within a specific academic session defining its temporal boundaries                                                          |
+    | AcademicSession → AcademicSession                                                                                                                                                            | has parent               | * : 0..1    | Academic sessions can be nested (quarters within semesters, weeks within terms)                                                                   |
+    | LearningComponentOffering, TestComponentOffering → Room                                                                                                                                      | takes place in           | * : 1       | Each component offering is assigned to a specific physical or virtual room                                                                        |
+    | Room → Building                                                                                                                                                                              | located in               | * : 1       | Each room exists within exactly one building                                                                                                      |
+    | **Enrollments (Associations)**                                                                                                                                                               |                          |             |                                                                                                                                                   |
+    | Person → ProgramOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation                                                       | enrolled via             | 1 : 1       | Person's enrollment/participation in offerings at various levels (program, course, component, test) with role and status                          |
+    | ProgramOffering → ProgramOfferingAssociation                                                                                                                                                 | has enrollments          | 1 : *       | Each ProgramOffering can have multiple enrolled persons                                                                                           |
+    | CourseOffering → CourseOfferingAssociation                                                                                                                                                   | has enrollments          | 1 : *       | Each CourseOffering can have multiple enrolled persons                                                                                            |
+    | LearningComponentOffering → LearningComponentOfferingAssociation                                                                                                                             | has enrollments          | 1 : *       | Each LearningComponentOffering can have multiple enrolled persons                                                                                 |
+    | TestComponentOffering → TestComponentOfferingAssociation                                                                                                                                     | has enrollments          | 1 : *       | Each TestComponentOffering can have multiple enrolled persons                                                                                     |
+    | **Results**                                                                                                                                                                                  |                          |             |                                                                                                                                                   |
+    | ProgramOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation → Result                                                       | has                      | 1 : 0..1    | Associations may have results representing grades or completion status (optional for active enrollments)                                          |
+    | **Groups & Memberships**                                                                                                                                                                     |                          |             |                                                                                                                                                   |
+    | Group → AcademicSession                                                                                                                                                                      | active during            | 1 : 1       | Groups are associated with specific academic sessions indicating when they are active                                                             |
+    | Group ↔ ProgramOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                                    | related to               | * : *       | Groups can be related to offerings                                                                                                                |
+    | Person → Membership                                                                                                                                                                          | has                      | 1 : *       | A membership represents one person's membership of a group                                                                                        |
+    | Group → Membership                                                                                                                                                                           | contains                 | 1 : *       | Each group can have multiple members                                                                                                              |
+
+    Notes:
+    - Cardinality notation: `Source : Target` where `*` = many (0 or more), `1` = exactly one, `0..1` = zero or one
+    - Bidirectional relationships (↔) indicate many-to-many relationships that can be traversed in both directions
+    - Some relationships are implemented through junction entities (e.g., Associations for enrollments)
+    - The "offered as" relationships connect abstract educational entities to their concrete scheduled instances
+    - Organization acts as a central entity providing and managing most other entities in the system    
+
     Information about earlier meetings and presentations can be found <a target="_blank" href="https://github.com/open-education-api/notulen">here</a>
 
     Information on the EDU-API model that was also used for this api is shown <a target="_blank" href="eduapi.png">here</a>
 
-    The followind paths are described in the model:
+    The following paths are described in the model:
      
-    / (The service endpoint)
-    
-    /academic-sessions
-    
-    /academic-sessions/{academicSessionId}
-    
-    /academic-sessions/{academicSessionId}/course-offerings
-    
-    /academic-sessions/{academicSessionId}/learning-component-offerings
-    
-    /academic-sessions/{academicSessionId}/programme-offerings
-    
-    /academic-sessions/{academicSessionId}/test-component-offerings
-    
-    /buildings
-    
-    /buildings/{buildingId}
-    
-    /buildings/{buildingId}/rooms
-    
-    /course-offering-associations/{courseOfferingAssociationId}
-    
-    /course-offering-associations/external/me
-    
-    /course-offerings/{courseOfferingId}
-    
-    /course-offerings/{courseOfferingId}/course-offering-associations
-    
-    /course-offerings/{courseOfferingId}/groups
-    
-    /courses
-    
-    /courses/{courseId}
-    
-    /courses/{courseId}/course-offerings
-    
-    /courses/{courseId}/learning-component-offerings
-    
-    /courses/{courseId}/learning-components
-    
-    /courses/{courseId}/test-component-offerings
-    
-    /courses/{courseId}/test-components
-    
-    /documents/{documentId}
-    
-    /groups
-    
-    /groups/{groupId}
-    
-    /groups/{groupId}/memberships
-    
-    /groups/{groupId}/memberships/{personId}
-    
-    /learning-component-offering-associations/{learningComponentOfferingAssociationId}
-    
-    /learning-component-offerings/{learningComponentOfferingId}
-    
-    /learning-component-offerings/{learningComponentOfferingId}/groups
-    
-    /learning-components/{learningComponentId}
-    
-    /learning-components/{learningComponentId}/learning-component-offerings
-    
-    /learning-outcomes
-    
-    /learning-outcomes/{learningOutcomeId}
-    
-    /organisations
-    
-    /organisations/{organisationId}
-    
-    /organisations/{organisationId}/course-offerings
-    
-    /organisations/{organisationId}/courses
-    
-    /organisations/{organisationId}/groups
-    
-    /organisations/{organisationId}/learning-component-offerings
-    
-    /organisations/{organisationId}/learning-components
-    
-    /organisations/{organisationId}/programme-offerings
-    
-    /organisations/{organisationId}/programmes
-    
-    /organisations/{organisationId}/test-component-offerings
-    
-    /organisations/{organisationId}/test-components
-    
-    /persons
-    
-    /persons/{personId}
-    
-    /persons/{personId}/course-offering-associations
-    
-    /persons/{personId}/learning-component-offering-associations
-    
-    /persons/{personId}/programme-offering-associations
-    
-    /persons/{personId}/test-component-offering-associations
-    
-    /persons/me
-    
-    /programme-offering-associations/{programmeOfferingAssociationId}
-    
-    /programme-offering-associations/external/me
-    
-    /programme-offerings/{programmeOfferingId}
-    
-    /programme-offerings/{programmeOfferingId}/groups
-    
-    /programme-offerings/{programmeOfferingId}/programme-offering-associations
-    
-    /programmes
-    
-    /programmes/{programmeId}
-    
-    /programmes/{programmeId}/courses
-    
-    /programmes/{programmeId}/programme-offerings
-    
-    /programmes/{programmeId}/programmes
-    
-    /rooms
-    
-    /rooms/{roomId}
-    
-    /test-component-offering-associations/{testComponentOfferingAssociationId}
-    
-    /test-component-offerings/{testComponentOfferingId}
-    
-    /test-component-offerings/{testComponentOfferingId}/groups
-    
-    /test-components/{testComponentId}
-    
-    /test-components/{testComponentId}/test-component-offerings
+    - / (The service endpoint)
+    - /academic-sessions
+    - /academic-sessions/{academicSessionId}
+    - /academic-sessions/{academicSessionId}/course-offerings
+    - /academic-sessions/{academicSessionId}/learning-component-offerings
+    - /academic-sessions/{academicSessionId}/programme-offerings
+    - /academic-sessions/{academicSessionId}/test-component-offerings
+    - /buildings
+    - /buildings/{buildingId}
+    - /buildings/{buildingId}/rooms
+    - /course-offering-associations/{courseOfferingAssociationId}
+    - /course-offering-associations/external/me
+    - /course-offerings/{courseOfferingId}
+    - /course-offerings/{courseOfferingId}/course-offering-associations
+    - /course-offerings/{courseOfferingId}/groups
+    - /courses
+    - /courses/{courseId}
+    - /courses/{courseId}/course-offerings
+    - /courses/{courseId}/learning-component-offerings
+    - /courses/{courseId}/learning-components
+    - /courses/{courseId}/test-component-offerings
+    - /courses/{courseId}/test-components
+    - /documents/{documentId}
+    - /groups
+    - /groups/{groupId}
+    - /groups/{groupId}/memberships
+    - /groups/{groupId}/memberships/{personId}
+    - /learning-component-offering-associations/{learningComponentOfferingAssociationId}
+    - /learning-component-offerings/{learningComponentOfferingId}
+    - /learning-component-offerings/{learningComponentOfferingId}/groups
+    - /learning-components/{learningComponentId}
+    - /learning-components/{learningComponentId}/learning-component-offerings
+    - /learning-outcomes
+    - /learning-outcomes/{learningOutcomeId}
+    - /organisations
+    - /organisations/{organisationId}
+    - /organisations/{organisationId}/course-offerings
+    - /organisations/{organisationId}/courses
+    - /organisations/{organisationId}/groups
+    - /organisations/{organisationId}/learning-component-offerings
+    - /organisations/{organisationId}/learning-components
+    - /organisations/{organisationId}/programme-offerings
+    - /organisations/{organisationId}/programmes
+    - /organisations/{organisationId}/test-component-offerings
+    - /organisations/{organisationId}/test-components
+    - /persons
+    - /persons/{personId}
+    - /persons/{personId}/course-offering-associations
+    - /persons/{personId}/learning-component-offering-associations
+    - /persons/{personId}/programme-offering-associations
+    - /persons/{personId}/test-component-offering-associations
+    - /persons/me
+    - /programme-offering-associations/{programmeOfferingAssociationId}
+    - /programme-offering-associations/external/me
+    - /programme-offerings/{programmeOfferingId}
+    - /programme-offerings/{programmeOfferingId}/groups
+    - /programme-offerings/{programmeOfferingId}/programme-offering-associations
+    - /programmes
+    - /programmes/{programmeId}
+    - /programmes/{programmeId}/courses
+    - /programmes/{programmeId}/programme-offerings
+    - /programmes/{programmeId}/programmes
+    - /rooms
+    - /rooms/{roomId}
+    - /test-component-offering-associations/{testComponentOfferingAssociationId}
+    - /test-component-offerings/{testComponentOfferingId}
+    - /test-component-offerings/{testComponentOfferingId}/groups
+    - /test-components/{testComponentId}
+    - /test-components/{testComponentId}/test-component-offerings
 
   contact:
     name: OOAPI Working Group / SURF
@@ -266,7 +246,7 @@ tags:
   - name: course_offering_association_model
     x-displayName: CourseOfferingAssociation
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociation" />
+      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociationFull" />
 
   - name: course_offering_model
     x-displayName: CourseOffering
@@ -332,7 +312,7 @@ tags:
     x-displayName: LearningComponentOfferingAssociation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/LearningComponentOfferingAssociation" />
+        schemaRef="#/components/schemas/LearningComponentOfferingAssociationFull" />
 
   - name: learning_component_offering_model
     x-displayName: LearningComponentOffering
@@ -462,7 +442,7 @@ tags:
     x-displayName: ProgrammeOfferingAssociation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/ProgrammeOfferingAssociation" />
+        schemaRef="#/components/schemas/ProgrammeOfferingAssociationFull" />
 
   - name: programme_offering_model
     x-displayName: ProgrammeOffering
@@ -532,13 +512,13 @@ tags:
   - name: test_component_offering_association_attempt_model
     x-displayName: TestComponentOfferingAssociationAttempt
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttempt" />
+      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttemptFull" />
 
   - name: test_component_offering_association_model
     x-displayName: TestComponentOfferingAssocation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/TestComponentOfferingAssociation" />
+        schemaRef="#/components/schemas/TestComponentOfferingAssociationFull" />
 
   - name: test_component_offering_model
     x-displayName: TestComponentOffering
@@ -583,12 +563,14 @@ x-tagGroups:
       - course_model
       - course_offering_model
       - course_offering_association_model
+      - document_model
       - learning_component_model
       - learning_component_offering_model
       - learning_component_offering_association_model
       - test_component_model
       - test_component_offering_model
       - test_component_offering_association_model
+      - test_component_offering_association_attempt_model
       - group_model
       - membership_model
       - organisation_model
@@ -597,8 +579,6 @@ x-tagGroups:
       - programme_offering_model
       - programme_offering_association_model
       - room_model
-      - test_component_offering_association_attempt_model
-      - document_model
 
 components:
   schemas:
