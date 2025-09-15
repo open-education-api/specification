@@ -17,14 +17,15 @@ get:
       explode: false
       description: Optional properties to include, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
-            - programs
+            - programmes
             - coordinators
-            - organization
+            - organisation
     - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
     '200':

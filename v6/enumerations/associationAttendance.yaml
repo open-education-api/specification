@@ -6,6 +6,8 @@ description: |
   - unfinished: attendance has begun but not completed
   - present: individual attended as expected
   - absent: individual did not attend
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - unknown
   - not_started

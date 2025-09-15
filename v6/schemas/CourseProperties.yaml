@@ -48,7 +48,7 @@ properties:
       $ref: './LanguageTypedString.yaml'
     example:
     - language: en-GB
-      value: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
+      value: 'As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyse the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R.'
   teachingLanguages:
     type: array
     description:  The languages in which this course is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the course.
@@ -62,8 +62,17 @@ properties:
       example: nld
   fieldsOfStudy:
     type: string
-    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
-    maxLength: 4
+    description: |
+      Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf. 
+      ISCED-F categorizes the fields of study 2 numbers at root level and further subdivision as more numbers are added
+      Perferably fieldsOfStudy contains at least 4 digits
+      ISCEDF2013vSOI2021 currently allows for 6 numbers max (https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/documents/2025/pubsoi2021_ed2425.pdf) .
+      07 Engineering, manufacturing and construction
+      073 Architecture and construction
+      0731 Architecture and town planning
+      073101 Townplanning
+    minLength: 2
+    maxLength: 6
     example: '0732'
   learningOutcomes:
     description: Related Learning Outcomes to this course. This object is [`expandable`](#tag/learningoucome_model)
@@ -85,20 +94,20 @@ properties:
       $ref: './LanguageTypedString.yaml'
   qualificationRequirements:
     type: array
-    description: Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.
+    description: Normally, students will receive a diploma when they have completed the (official) study programme and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
   level:
     $ref: '../enumerations/level.yaml'
-  enrollment:
+  enrolment:
     type: array
     items:
       $ref: './LanguageTypedString.yaml'
-    description: The extra information that is provided for enrollment
+    description: The extra information that is provided for enrolment
     example:
       - language: en-GB
-        value: enrollment through SIS. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+        value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
   resources:
     type: array
     description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
@@ -139,15 +148,15 @@ properties:
       $ref: '../consumers/RIO/V1/examples/Course.yaml'
   ext:
     $ref: './Ext.yaml'
-  programs:
-    description: The program of which this course is a part of. This object is [`expandable`](#tag/program_model)
-    type: array   # array is used because of implementation of alliances in program where courses can be part of regular education and alliances
+  programmes:
+    description: The programme of which this course is a part of. This object is [`expandable`](#tag/programme_model)
+    type: array   # array is used because of implementation of alliances in programme where courses can be part of regular education and alliances
     items:
       oneOf:
       - $ref: './Identifier.yaml'
-        title: programId
-      - $ref: './Program.yaml'
-        title: Program object        
+        title: programmeId
+      - $ref: './Programme.yaml'
+        title: Programme object        
   coordinators:
     description: The person(s) responsible for this course. This object is [`expandable`](#tag/person_model)
     type: array
@@ -157,12 +166,12 @@ properties:
         title: personId
       - $ref: './Person.yaml'
         title: Person object         
-  organization:
+  organisation:
     description: |
-      The organization that manages this group. [`expandable`](#tag/organization_model)
-      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+      The organisation that manages this group. [`expandable`](#tag/organisation_model)
+      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
-        title: organizationId
-      - $ref: './Organization.yaml'
-        title: Organization object     
+        title: organisationId
+      - $ref: './Organisation.yaml'
+        title: Organisation object     

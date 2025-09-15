@@ -1,17 +1,20 @@
 type: string
 description: |
-  The type of a documents:
-    - additional_document: e.g. to add additional information
-    - assessment_form: A form that is used to assess a test
-    - assessment_model: Formal description on how a test is assessed
-    - assignment: Description on what is expected from a student e.g. to hand in a paper
-    - attendance_report: A report that contains information on the attendance of a student for a course or test
-    - handed_in_document: A document that is handed in by the student
-    - instructions: Instructions for the student on how to enroll for a course or how to make a test
-    - plagiarism_report: A report that containts (potential) plagiarism info on e.g. a handed in document
-    - session_report: A report that contains information on a session, e.g. an academic session, a course or a test session
-    - test_made: The test including all the answers made by the student
-    - other: Other types of documents that are not listed above
+  The type of document:
+
+    - additional_document: Used to provide supplementary information
+    - assessment_form: A form used to assess a test
+    - assessment_model: A formal description of how a test is assessed
+    - assignment: A description of what is expected from a student, e.g. to submit a paper
+    - attendance_report: A report containing information on a student’s attendance for a course or test
+    - handed_in_document: A document submitted by the student
+    - instructions: Instructions for the student on how to enrol in a course or take a test
+    - plagiarism_report: A report containing information on (potential) plagiarism, e.g. in a submitted document
+    - session_report: A report containing information on a session, e.g. an academic session, course, or test session
+    - test_made: The completed test, including all answers provided by the student
+    - other: Any other type of document not listed above
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - additional_document
   - assessment_form

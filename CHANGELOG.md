@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0 Change qualificationAwarded to degreeAwarded] - 2025-09-03
+## [6.0.0 Change qualificationAwarded to degreeAwarded] - 2025-09-15
 
 ### Added
 
@@ -13,6 +13,86 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Renamed `qualificationAwarded` to `degreeAwarded` and simplified degree types to Bologna Process cycles (`associate_degree`, `bachelor`, `master`, `doctoral`). Field-specific designations like "of Arts" or "of Sciences" are now captured separately in the new `degreeDesignations` array field.
 - Updated Program schema to use `degreeAwarded` query parameter instead of `qualificationAwarded`.
+
+## [6.0.0 add relation definitions] - 2025-09-12
+
+### Added
+- Added a table to the description of the specification that describes all reliationships in the data model.
+
+## [6.0.0 resolve required bug] - 2025-09-11
+
+### Added
+new drawing of relationships and model
+relations between objects in de model at spec.yaml level see issue #427
+### Removed
+
+### Changed
+improved readability of the attempts path by removing array
+
+## [6.0.0 fix ISCED issue] - 2025-09-10
+
+### Added
+
+### Removed
+
+### Changed
+– changed requirements for field of study in programme and course
+
+
+## [6.0.0 resolve required bug] - 2025-09-04
+
+### Added
+
+### Removed
+
+### Changed
+– All US English terms have been replaced with British English terms, in paths, fields, entities, and file names.
+
+
+## [6.0.0 Change service information element] - 2025-09-08
+
+### Added
+- Added more detailed information regarding supported consumers, paths and version that can be supported by an implementation.
+
+### Removed
+- Removed consumers property from service
+
+### Changed
+
+
+## [6.0.0 resolve required bug] - 2025-09-04
+
+### Added
+
+### Removed
+
+### Changed
+- resolved bug required offering 
+  - offering -> testComponentOffering
+  - updated examples
+
+
+## [6.0.0 resolve lint errors/warnings] - 2025-09-04
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved lint issues 
+  - tags-alphabetical
+  - array-parameter-serialization
+  - path-http-verbs-order.
+  - scalar-property-missing-example
+  - operation-4xx-problem-details-rfc7807
+  - no-invalid-schema-examples 
+- Problems are now defined in accordance with RFC 7807
+
+
+## [6.0.0 Add state query parameter for offerings] - 2025-09-03
+
+### Added
+- Added: `state` query parameter to all `GET` requests that return a collection of offerings. Offerings now have a `state` attribute and many applications will want to retrieve only offerings with a particular state such as `active`.
 
 ## [6.0.0 Change move security to documentation] - 2025-08-28
 

@@ -1,5 +1,5 @@
 type: object
-description: ID and type of Either a program, course or component offering which descrbes the program, course or offering in time 
+description: ID and type of Either a programme, course or component offering which descrbes the programme, course or offering in time 
 required:
   - offeringId
 properties:

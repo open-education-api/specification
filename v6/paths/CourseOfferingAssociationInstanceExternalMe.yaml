@@ -2,8 +2,8 @@ post:
   summary: POST /course-offering-associations/external/me
   operationId: createExternalCourseOfferingAssociationByopenId
   description: |
-    POST a single course offering association, enroll a person based on person information obtained from .wellknown endpoint, an offering, 
-    and the organization/type=root information form the organization that is issuing this association. 
+    POST a single course offering association, enrol a person based on person information obtained from .wellknown endpoint, an offering, 
+    and the organisation/type=root information form the organisation that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
 
     Security must be implemented at the level of the actual deployment rather than in the core specification. 
@@ -27,7 +27,7 @@ post:
           - $ref: '../schemas/CourseOfferingAssociationWrite.yaml'
           - properties:
               issuer:
-                $ref: '../schemas/Organization.yaml'
+                $ref: '../schemas/Organisation.yaml'
 
   responses:
     '201':

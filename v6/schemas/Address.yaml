@@ -22,9 +22,9 @@ properties:
     example:
     - language: en-GB
       value: On the other side of the road
-  postalCode:
+  postCode:
     type: string
-    description: Postal code
+    description: Code to help sort and deliver mail also known as Postal code and ZIP code
     example: 3511 EP
   city:
     type: string

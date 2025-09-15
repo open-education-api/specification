@@ -1,11 +1,14 @@
 type: string
 description: |
-  The type of formal document obtained after completion of the education:
-  - diploma: official qualification awarded upon graduation
-  - certificate: formal recognition of participation or achievement
-  - no_official_document: no official document is issued
-  - testimonial: written statement attesting to attendance or performance
-  - school_advice: educational recommendation or guidance issued by the school
+  The type of formal document obtained upon completion of an educational programme:
+
+    - diploma: An official qualification awarded upon graduation
+    - certificate: A formal recognition of participation or achievement
+    - no_official_document: No official document is issued
+    - testimonial: A written statement confirming attendance or performance
+    - school_advice: Educational recommendation or guidance issued by the school
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - diploma
   - certificate

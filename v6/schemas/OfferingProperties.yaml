@@ -52,7 +52,7 @@ properties:
               Define/produce materials (e.g., stimuli and questionnaires)
               Define protocols for research studies
               Understands and take in account concepts of reliability and validity
-              Analyze and improve methods and analysis of published scientific articles
+              Analyse and improve methods and analysis of published scientific articles
               Able to deliver scientific reports
               Prove in writing knowledge of ­­­statistics, including:
               Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
@@ -78,7 +78,7 @@ properties:
       $ref: '../enumerations/modeOfDelivery.yaml'
   maxNumberStudents:
     type: number
-    description: The maximum number of students allowed to enroll for this offering
+    description: The maximum number of students allowed to enrol for this offering
     format: int32
     minimum: 0
     example: 200
@@ -90,7 +90,7 @@ properties:
     example: 150
   pendingNumberStudents:
     type: number
-    description: The number of students that have a pending enrollment request for this offering
+    description: The number of students that have a pending enrolment request for this offering
     format: int32
     minimum: 0
     example: 50
@@ -105,7 +105,7 @@ properties:
     description: |
       resultExpected, previously knwon as isLineItem is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
       Offerings do not always have to result in a grade or an other type of result. 
-      If there is a result expected from a programOffering/courseOffering/componentOffering the is resultExpected field should parse true
+      If there is a result expected from a programmeOffering/courseOffering/componentOffering the is resultExpected field should parse true
     example: true
   resultValueType:
     $ref: '../enumerations/resultValueType.yaml'
@@ -120,11 +120,11 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'    
-  enrollmentPeriods:
+  enrolmentPeriods:
     type: array
-    description: An array of periods that a person can enroll into this offering. The period is defined by targetgroup and dateTime
+    description: An array of periods that a person can enrol into this offering. The period is defined by targetgroup and dateTime
     items:
-      $ref: './EnrollmentPeriods.yaml'
+      $ref: './EnrolmentPeriods.yaml'
   consumers:
     description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array

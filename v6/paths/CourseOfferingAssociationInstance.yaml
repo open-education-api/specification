@@ -17,6 +17,7 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
@@ -46,14 +47,54 @@ get:
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
+put:
+  summary: PUT /course-offering-associations/{courseOfferingAssociationId}
+  description: |
+    PUT a single course offering association to enrol a person on specific association that can later be retreived.  
+  operationId: replaceCourseOfferingAssociationById
+  tags:
+    - course offering associations
+  parameters:
+    - name: courseOfferingAssociationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CourseOfferingAssociationExpanded.yaml'
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
 
-
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
 
 patch:
   summary: PATCH /course-offering-associations/{courseOfferingAssociationId}
   operationId: partialUpdateCourseOfferingAssociationById
   description: |
-    Update the status or result of an enrollment. Other elements of the association object COULD 
+    Update the status or result of an enrolment. Other elements of the association object COULD 
     also be PATCHED. But are not likely and have therefor not been included in this endpoint.
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
@@ -105,48 +146,3 @@ patch:
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
-
-put:
-  summary: PUT /course-offering-associations/{courseOfferingAssociationId}
-  description: |
-    PUT a single course offering association to enroll a person on specific association that can later be retreived.  
-  operationId: replaceCourseOfferingAssociationById
-  tags:
-    - course offering associations
-  parameters:
-    - name: courseOfferingAssociationId
-      in: path
-      description: The id of the association to update
-      required: true
-      schema:
-        type: string
-        format: uuid
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '../schemas/CourseOfferingAssociationExpanded.yaml'
-
-
-  responses:
-    '200':
-      description: OK
-    '201':
-      description: Created
-
-              
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
-    '401':
-      $ref: '../schemas/ErrorUnauthorized.yaml'
-    '403':
-      $ref: '../schemas/ErrorForbidden.yaml'
-    '404':
-      $ref: '../schemas/ErrorNotFound.yaml'
-    '405':
-      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
-    '429':
-      $ref: '../schemas/ErrorTooManyRequests.yaml'
-    '500':
-      $ref: '../schemas/ErrorInternalServerError.yaml'
