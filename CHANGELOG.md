@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 
-# [6.0.0 add relation definitions] - 2025-09-12
+## [6.0.0 add relation definitions] - 2025-09-12
 
 ### Added
 - Added a table to the description of the specification that describes all reliationships in the data model.
