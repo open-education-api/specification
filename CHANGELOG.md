@@ -20,6 +20,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
+
+### Added
+- consumer parameter to individual instances of objects 
+
+### Removed
+
+### Changed
+– changed change consumers [] to consumer {}
+- changed query path for all instances to allow consumer as a parameter on 1 object instance 
 
 ## [6.0.0 add relation definitions] - 2025-09-12
 
