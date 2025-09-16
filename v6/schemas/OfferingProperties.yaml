@@ -84,13 +84,13 @@ properties:
     example: 200
   enrolledNumberStudents:
     type: number
-    description: The number of students that have already enrolled for this offering
+    description: The number of students who have already enrolled for this offering
     format: int32
     minimum: 0
     example: 150
   pendingNumberStudents:
     type: number
-    description: The number of students that have a pending enrolment request for this offering
+    description: The number of students who have a pending enrolment request for this offering
     format: int32
     minimum: 0
     example: 50
@@ -104,7 +104,7 @@ properties:
     type: boolean
     description: |
       resultExpected, previously knwon as isLineItem is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
-      Offerings do not always have to result in a grade or an other type of result. 
+      Offerings need not always result in a grade or another type of result. 
       If there is a result expected from a programmeOffering/courseOffering/componentOffering the is resultExpected field should parse true
     example: true
   resultValueType:
@@ -125,12 +125,7 @@ properties:
     description: An array of periods that a person can enrol into this offering. The period is defined by targetgroup and dateTime
     items:
       $ref: './EnrolmentPeriods.yaml'
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/RIO/V1/examples/Offering.yaml'
+  consumer:
+    $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

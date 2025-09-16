@@ -10,6 +10,8 @@ get:
     fine-grained scopes.
   tags:
     - persons
+  parameters:
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
