@@ -130,7 +130,7 @@ patch:
         schema:
           properties:
             remoteState:
-              $ref: '../enumerations/remoteAssociationState.yaml'
+              $ref: '../enumerations/desiredAssociationState.yaml'
             result:
               $ref: '../schemas/ProgrammeOfferingAssociationResult.yaml'  
 

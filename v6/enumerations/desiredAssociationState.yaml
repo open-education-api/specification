@@ -1,0 +1,11 @@
+type: string
+description: |
+ Desired end state communicated by the requesting organisation to the receiving organisation.
+
+  - cancelled: The association request was withdrawn before being completed
+  - associated: The association has been successfully established, and is active
+enum:
+  - cancelled
+  - associated
+example: associated
+writeOnly: true

@@ -228,7 +228,7 @@ tags:
       Direct update of current information: <a
         href="#tag/course-offering-associations/operation/partialUpdateCourseOfferingAssociationById">
         PATCH /course-offering-associations/{courseOfferingAssociationId}</a>
-      This call is currently limited to passing results and a remote state. For future
+      This call is currently limited to passing results and a desired state. For future
       use other association resource information could be passed. More information on
       the support for student mobility can be found
       <a href="https://swimlanes.io/d/s5mfpj7Si">here</a>
@@ -473,7 +473,7 @@ tags:
       Direct update of current information: <a
         href="##tag/programme-offering-associations/operation/partialUpdateProgrammeOfferingAssociationById">
         PATCH /programme-offering-associations/{programmeOfferingAssociationId}</a>
-      This call is currently limited to passing results and a remote state. For future
+      This call is currently limited to passing results and a desired state. For future
       use other association resource information could be passed. More information on
       the support for student mobility can be found
       <a href="https://swimlanes.io/d/s5mfpj7Si">here</a>

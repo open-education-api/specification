@@ -24,8 +24,8 @@ properties:
   state:
     $ref: '../enumerations/associationState.yaml'
     readOnly: true
-  remoteState:
-    $ref: '../enumerations/remoteAssociationState.yaml'
+  desiredState:
+    $ref: '../enumerations/desiredAssociationState.yaml'
     writeOnly: true
   consumer:
     $ref: './Consumer.yaml'

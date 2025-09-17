@@ -9,8 +9,7 @@ description: |
   - queued: The association is in a queue, for example because the course is full
   - finished: The association has ended, for example because the course has ended or the student has completed the course
     
-  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-x-ooapi-extensible-enum:
+enum:
   - pending
   - cancelled
   - denied
@@ -18,3 +17,4 @@ x-ooapi-extensible-enum:
   - queued
   - finished
 example: associated
+readOnly: true

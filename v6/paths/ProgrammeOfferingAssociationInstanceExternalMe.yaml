@@ -21,7 +21,7 @@ post:
       application/json:
         schema:
           required:
-            - remoteState
+            - desiredState
           allOf:
           - $ref: '../schemas/ProgrammeOfferingAssociationWrite.yaml'
           - properties:

@@ -22,7 +22,7 @@ post:
       application/json:
         schema:
           required:
-            - remoteState
+            - desiredState
           allOf:
           - $ref: '../schemas/CourseOfferingAssociationWrite.yaml'
           - properties:

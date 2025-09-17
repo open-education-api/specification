@@ -128,8 +128,8 @@ patch:
       application/merge-patch+json:
         schema:
           properties:
-            remoteState:
-              $ref: '../enumerations/remoteAssociationState.yaml'
+            desiredState:
+              $ref: '../enumerations/desiredAssociationState.yaml'
             result:
               $ref: '../schemas/CourseOfferingAssociationResult.yaml'
 
