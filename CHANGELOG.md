@@ -4,7 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0 change inner workings of consumer mechanism] - 2025-09-16
+## [6.0.0 update 202 response ] - 2025-09-16
+
+### Added
+- added PUT request for external groups
+
+### Removed
+
+### Changed
+- updated all PUT and PATCH calls to allow for a 202 response
+
+
+## [6.0.0 update date information and add description of strings usage] - 2025-09-16
 
 ### Added
 - additional information on data types in the spec

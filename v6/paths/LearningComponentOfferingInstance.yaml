@@ -76,6 +76,8 @@ put:
       description: OK
     '201':
       description: Created
+    '202':
+      description: Accepted
 
               
     '400':
@@ -121,6 +123,8 @@ patch:
       description: OK
     '201':
       description: Created
+    '202':
+      description: Accepted
 
               
     '400':
