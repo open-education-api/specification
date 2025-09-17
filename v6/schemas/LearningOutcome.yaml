@@ -80,18 +80,13 @@ properties:
     type: string
     description: The date and time for when this learning outcome will be active. Should be a string formatted as an RFC3099 full-date.
     format: date-time
-    example: "2025-09-01T09:00:00Z"
+    example: "2025-09-01T09:00:00+01:00"
   validTo:
     type: string
     description: The date and time when this learning outcome will no longer be valid, or should be renewed. Should be a string formatted as an RFC3099 full-date.
     format: date-time
-    example: "2025-09-01T09:00:00Z"
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+    example: "2025-09-01T09:00:00+01:00"
+  consumer:
+    $ref: './Consumer.yaml'
   ext:
     $ref: './Ext.yaml'

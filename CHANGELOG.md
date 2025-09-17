@@ -4,14 +4,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0 Change qualificationAwarded to degreeAwarded] - 2025-09-15
+## [6.0.0 Change qualificationAwarded ] - 2025-09-17
+
+### Changed
+- Simplified degree types to Bologna Process cycles (`associate_degree`, `bachelor`, `master`, `doctoral`), in addition to the more general qualifications such as `diploma` and `certificate` . Field-specific designations like "of Arts" or "of Sciences" are now captured separately in the new `qualificationDesignations` array field.
+
+## [6.0.0 change inner workings of consumer mechanism] - 2025-09-16
 
 ### Added
+- additional information on data types in the spec
 
 ### Removed
 
 ### Changed
-- Simplified degree types to Bologna Process cycles (`associate_degree`, `bachelor`, `master`, `doctoral`), in addition to the more general qualifications such as `diploma` and `certificate` . Field-specific designations like "of Arts" or "of Sciences" are now captured separately in the new `qualificationDesignations` array field.
+– updated all date-time elements from Z to +1:00
+- check on offerings  
+
+
+## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
+
+### Added
+- consumer parameter to individual instances of objects 
+
+### Removed
+
+### Changed
+– changed change consumers [] to consumer {}
+- changed query path for all instances to allow consumer as a parameter on 1 object instance 
 
 ## [6.0.0 add relation definitions] - 2025-09-12
 
@@ -46,6 +65,25 @@ improved readability of the attempts path by removing array
 
 ### Changed
 – All US English terms have been replaced with British English terms, in paths, fields, entities, and file names.
+| US word        | UK word        | Explanation |
+|----------------|----------------|-------|-------------|
+| analyze        | analyse        | UK spelling with 's'. |
+| behavior       | behaviour      | UK spelling with 'u'. |
+| canceled       | cancelled      | UK spelling: double 'l'. |
+| catalog        | catalogue      | UK spelling with 'ue'. |
+| enroll         | enrol          | UK spelling: single 'l'. |
+| enrollment     | enrolment      | UK spelling: single 'l'. |
+| enrolled       | enrolled       | UK spelling: also double 'l'. |
+| license        | licence        | In British English: 'licence' = noun, 'license' = verb. |
+| mail           | email          | In UK, 'mail' usually means physical post; 'email' avoids confusion. |
+| math           | maths          | UK spelling with 's'. |
+| organization   | organisation   | Spelling difference: UK uses 's' instead of 'z'. |
+| organizations  | organisations  | Spelling difference: UK uses 's' instead of 'z'. |
+| program        | programme      | In education context, UK/EU uses 'programme'. 'Program' is for software. |
+| programs       | programmes     | In education context, UK/EU uses 'programmes'. 'Programs' is for software. |
+| semester       | term           | In the UK the academic year is divided into 'terms' (autumn, spring, summer). |
+| specialization | specialisation | UK spelling with 's'. |
+| specializations| specialisations| UK spelling with 's'. |
 
 
 ## [6.0.0 Change service information element] - 2025-09-08

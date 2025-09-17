@@ -31,7 +31,7 @@ properties:
       association can have no start- or end date-times, but only have a relation with an academic session representing
       a periode, trimester, semester or academic year
     format: date-time
-    example: "2025-09-01T09:00:00Z"
+    example: "2025-09-01T09:00:00+01:00"
   endDateTime:
     type: string
     description: |
@@ -39,7 +39,7 @@ properties:
       association can have no start- or end date-times, but only have a relation with an academic session representing
       a periode, trimester, semester or academic year
     format: date-time
-    example: "2025-09-01T09:00:00Z"
+    example: "2025-09-01T09:00:00+01:00"
   room:
     $ref: './Room.yaml'
   attendance:
@@ -66,10 +66,5 @@ properties:
       $ref: './Document.yaml'
   result:
     $ref: './Result.yaml'
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+  consumer:
+    $ref: './Consumer.yaml'

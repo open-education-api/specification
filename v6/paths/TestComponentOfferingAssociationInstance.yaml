@@ -25,6 +25,7 @@ get:
           enum:
             - person
             - testComponentOffering
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
@@ -76,8 +77,8 @@ put:
               associationId: "123e4567-e89b-12d3-a456-426614174000"
               role: student
               state: associated
-              consumers:
-              - consumerKey: nl-test-admin
+              consumer:
+                consumerKey: nl-test-admin
                 extraTimeInMin: 30
                 personalNeeds: [extraTime,spoken,spell-checker-on-screen]
               person:
@@ -117,8 +118,8 @@ put:
               associationId: "123e4567-e89b-12d3-a456-426614174000"
               role: student
               state: associated
-              consumers:
-              - consumerKey: nl-test-admin
+              consumer:
+                consumerKey: nl-test-admin
                 extraTimeInMin: 30
                 personalNeeds: [extraTime,spoken,spell-checker-on-screen]
               person: "123e4567-e89b-12d3-a456-426614174000"
