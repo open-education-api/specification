@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.0 update 202 response ] - 2025-09-16
 
 ### Added
+- added PUT request for external groups
 
 ### Removed
 
