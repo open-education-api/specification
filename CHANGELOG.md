@@ -14,6 +14,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - updated all PUT and PATCH calls to allow for a 202 response
 
 
+## [6.0.0 update date information and add description of strings usage] - 2025-09-16
+
+### Added
+- additional information on data types in the spec
+
+### Removed
+
+### Changed
+– updated all date-time elements from Z to +1:00
+- check on offerings  
+
+
 ## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
 
 ### Added
