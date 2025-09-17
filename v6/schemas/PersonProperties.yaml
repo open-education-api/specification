@@ -14,22 +14,30 @@ properties:
     # Returned by GET, not used in POST/PUT/PATCH
     readOnly: true
   givenName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The first name of this person
     maxLength: 256
     example: Martina
   alternateName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The Name a person chooses to use. this is part of a Self Sovereign name e.g. in the eduId proces comparable to schema.org alternateName
     maxLength: 256
     example: Marieke
   preferredName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The name how the person would like to be called. Usually first name of this person. In line with ISO/IEC 24760 – Identity Management Vocabulary
     maxLength: 256
     example: Maartje
   surnamePrefix:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The prefix of the family name of this person
     example: van
   surname:
@@ -38,26 +46,32 @@ properties:
     maxLength: 256
     example: Damme
   displayName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The name of this person which will be displayed
     maxLength: 256
     example: Maartje van Damme
   initials:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The initials of this person
     example: MCW
   idCheckName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: |
       The name of the person as printed on official identification documents
       (driving licence, passport or identity card). This MUST be formatted as
       "surname prefix surname, given names" (separating surnamePrefix and surname
       with a single space, and surname and given names with a comma and space).
-      
+
       If the surname or given names are not available or are secret, the values
       "secret" and "notAvailable" are recommended. The surname prefix may be
       omitted. E.g. "van der Graaf, Jacobus Adrianus". 
-      
+
       Optionally, the value of
       the student number can be added to this field by appending it at the end,
       separated by a comma. E.g. "van der Graaf, Jacobus Adrianus, s12345678"
@@ -67,97 +81,141 @@ properties:
     description: Whether this person has an active enrolment.
     example: false
   dateOfBirth:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The date of birth of this person, RFC3339 (date-time)
     format: date
     example: '2003-09-30'
   cityOfBirth:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The city of birth of this person
     example: Utrecht
   countryOfBirth:
-    $ref: ./Country.yaml
+    oneOf:
+      - $ref: ./Country.yaml
+      - type: 'null'
   nationality:
-    $ref: ./Nationality.yaml
+    oneOf:
+      - $ref: ./Nationality.yaml
+      - type: 'null'
   dateOfNationality:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The date of nationality of this person, RFC3339 (date-time)
     format: date
     example: '2003-09-30'
   affiliations:
-    type: array 
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       $ref: '../enumerations/personAffiliation.yaml'
   email:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The primary e-mailaddress of this person
     format: email
     maxLength: 256
     example: vandamme.mcw@universiteitvanharderwijk.nl
   secondaryEmail:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The secondary e-mailaddress of this person
     format: email
     maxLength: 256
     example: poekie@xyz.nl
   telephoneNumber:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The telephone number of this person
     maxLength: 256
     example: +31 123 456 789
   mobileNumber:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The mobile number of this person
     maxLength: 256
     example: +31 612 345 678
   photoSocial:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The url of the informal picture of this person
     format: uri
     maxLength: 2048
     example: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Placeholder_female_superhero_c.png/203px-Placeholder_female_superhero_c.png
   photoOfficial:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The url of the official picture of this person
     format: uri
     maxLength: 2048
     example: https://upload.wikimedia.org/wikipedia/commons/6/66/Johannes_Vermeer_%281632-1675%29_-_The_Girl_With_The_Pearl_Earring_%281665%29.jpg
   gender:
-    $ref: '../enumerations/gender.yaml'
+    oneOf:
+      - $ref: '../enumerations/gender.yaml'
+      - type: 'null'
   titlePrefix:
-    type: string
+    type:
+      - string
+      - 'null'
     description: A title prefix to be used for this person
     example: drs
   titleSuffix:
-    type: string
+    type:
+      - string
+      - 'null'
     description: A title suffix to be used for this person
     example: BSc
   office:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The name of the office where this person is located
     example: Zernikecomplex
   address:
-    $ref: './Address.yaml'
+    oneOf:
+      - $ref: './Address.yaml'
+      - type: 'null'
   ICEName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Full name of In Case of Emergency contact
     maxLength: 256
     example: Janne
   ICEPhoneNumber:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Phone number of In Case of Emergency contact
     maxLength: 256
     example: +31 623 456 789
   ICERelation:
-    $ref: '../enumerations/ICERelationType.yaml'
+    oneOf:
+      - $ref: '../enumerations/ICERelationType.yaml'
+      - type: 'null'
   languageOfChoice:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The language(s) of choice for this person, RFC3066
     items:
       type: string
       example: nl-NL
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
@@ -170,35 +228,49 @@ properties:
       They describe which needs the student requires under which conditions e.g. 15% extra times for tests that requires maths skills.
       These needs can later in the flows be mapped to a personalNeed for a specific association.
       Examples of such assignedNeeds: "ExtraTimeOnlyMaths25%", "ExtraTimeOnlyMaths30Min", "ExtraTimeDigitalTests25%"
-    type: array
+    type:
+      - array
+      - 'null'
     items:
-      type: object 
+      type: object
       properties:
         code:
           description: Human readable value for the code/identifier
-          type: string
+          type:
+            - string
+            - 'null'
           example: "ExtraTimeOnlyMaths25%"
         description:
-          type: array
+          type:
+            - array
+            - 'null'
           description: The description of this assignedNeed.
           minItems: 1
           items:
             $ref: './LanguageTypedString.yaml'
           example:
-          - language: en-GB
-            value: Extra time for Maths tests shown in a percentile of the overall time of a test
+            - language: en-GB
+              value: Extra time for Maths tests shown in a percentile of the overall time of a test
         startDateTime:
-          type: string
+          type:
+            - string
+            - 'null'
           description: The moment on which this assigned need starts, RFC3339 (date-time)
           format: date-time
           example: '2025-05-30T20:00:00+01:00'
         endDateTime:
-          type: string
+          type:
+            - string
+            - 'null'
           description: The moment on which this assigned need ends, RFC3339 (date-time)
           format: date-time
-          example: '2025-07-30T20:00:00+01:00'          
+          example: '2025-07-30T20:00:00+01:00'
     minItems: 0
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

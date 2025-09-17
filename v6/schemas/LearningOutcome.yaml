@@ -23,70 +23,90 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: >
-              Describe the differing views, within society,
-              relating to the scientific uses of animals and
-              recognize the need to respect these.
+      - language: en-GB
+        value: >
+          Describe the differing views, within society,
+          relating to the scientific uses of animals and
+          recognize the need to respect these.
   abbreviation:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The abbreviation or internal code used to identify this LearningOutcome
     maxLength: 256
     example: LO12_INFO_RET
   description:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The description of this learning outcome.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: >
-              The candidate should have retained the information that they
-              have been taught and be able to:
-              1. Relate opinions as voiced collectively or individually by
-              * animal protection societies
-              * patient support societies
-              * establishments and researchers
-              * industry, including pharma, biotech and food
-              * people with personal, cultural or religious beliefs;
-              2. Recognize the fundamental right of freedom of speech;
-              3. Recall different perspectives which enable an individual to
-              determine their own opinion on the use of animals for sci-
-              entific purposes;
-              4. Explain how different perspectives drive forward advance-
-              ments in animal welfare, legislation and science.
-              (based on: https://repub.eur.nl/pub/132564/Repub_132564_O-A.pdf)
+      - language: en-GB
+        value: >
+          The candidate should have retained the information that they
+          have been taught and be able to:
+          1. Relate opinions as voiced collectively or individually by
+          * animal protection societies
+          * patient support societies
+          * establishments and researchers
+          * industry, including pharma, biotech and food
+          * people with personal, cultural or religious beliefs;
+          2. Recognize the fundamental right of freedom of speech;
+          3. Recall different perspectives which enable an individual to
+          determine their own opinion on the use of animals for sci-
+          entific purposes;
+          4. Explain how different perspectives drive forward advance-
+          ments in animal welfare, legislation and science.
+          (based on: https://repub.eur.nl/pub/132564/Repub_132564_O-A.pdf)
   parent:
     description: |
       The learning outcome which is the parent of this learning outcome. 
-    $ref: './Identifier.yaml'
     title: learningOutcomeId
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   children:
-      type: array
-      description: |
-        All the learning outcomes for which this learning outcome is the parent.
-      items:
-        $ref: './Identifier.yaml'
-        title: learningOutcomeId
+    type:
+      - array
+      - 'null'
+    description: |
+      All the learning outcomes for which this learning outcome is the parent.
+    items:
+      $ref: './Identifier.yaml'
+      title: learningOutcomeId
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   complexityLevel:
-    $ref: '../enumerations/learningOutcomeLevel.yaml'      
+    oneOf:
+      - $ref: '../enumerations/learningOutcomeLevel.yaml'
+      - type: 'null'
   validFrom:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The date and time for when this learning outcome will be active. Should be a string formatted as an RFC3099 full-date.
     format: date-time
     example: "2025-09-01T09:00:00+01:00"
   validTo:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The date and time when this learning outcome will no longer be valid, or should be renewed. Should be a string formatted as an RFC3099 full-date.
     format: date-time
     example: "2025-09-01T09:00:00+01:00"
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'
