@@ -55,7 +55,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/TestComponentOfferingAssociationAttempt.yaml'
+          $ref: '../schemas/TestComponentOfferingAssociationAttemptFull.yaml'
 
 
   responses:

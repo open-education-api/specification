@@ -1,5 +1,5 @@
 get:
-  summary: GET /test-component-offering-associations/{testComponentOffering}/test-component-offering-association-attempts
+  summary: GET /test-component-offering-associations/{testComponentOfferingAssociationId}/test-component-offering-association-attempts
   operationId: listTestComponentOfferingAssociationAttemptsByTestComponentOfferingAssociationId
   description: Get a list of all test component offering association attempts related to the test component offering association based on its ID.
   tags:
