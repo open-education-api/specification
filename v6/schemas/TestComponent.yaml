@@ -101,7 +101,7 @@ properties:
       pattern: "^[a-z]{3}$"
       example: nld
   learningOutcomes:
-    description: Related Learning Outcomes to this test component. This object is [`expandable`](#tag/learningoucome_model)
+    description: Related Learning Outcomes to this test component. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a LearningOutcome.
     type: array
     items:
       oneOf:
@@ -144,7 +144,7 @@ properties:
       $ref: './IdentifierEntry.yaml'
   course:
     description: |
-      The course of which this component is a part. [`expandable`](#tag/course_model)
+      The course of which this component is a part. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Course.
       By default only the `courseId` (a string) is returned. If the client requested an expansion of `course` the full course object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
@@ -153,7 +153,7 @@ properties:
         title: Course object  
   organisation:
     description: |
-      The organisation which provides this component. [`expandable`](#tag/organisation_model)
+      The organisation which provides this component. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
       By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'

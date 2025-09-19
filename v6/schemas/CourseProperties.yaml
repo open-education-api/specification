@@ -75,7 +75,7 @@ properties:
     maxLength: 6
     example: '0732'
   learningOutcomes:
-    description: Related Learning Outcomes to this course. This object is [`expandable`](#tag/learningoucome_model)
+    description: Related Learning Outcomes to this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a LearningOutcome.
     type: array
     items:
       oneOf:
@@ -144,7 +144,7 @@ properties:
   ext:
     $ref: './Ext.yaml'
   programmes:
-    description: The programme of which this course is a part of. This object is [`expandable`](#tag/programme_model)
+    description: The programme of which this course is a part of. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Programme.
     type: array   # array is used because of implementation of alliances in programme where courses can be part of regular education and alliances
     items:
       oneOf:
@@ -153,7 +153,7 @@ properties:
       - $ref: './Programme.yaml'
         title: Programme object        
   coordinators:
-    description: The person(s) responsible for this course. This object is [`expandable`](#tag/person_model)
+    description: The person(s) responsible for this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Person.
     type: array
     items:
       oneOf:
@@ -163,7 +163,7 @@ properties:
         title: Person object         
   organisation:
     description: |
-      The organisation that manages this group. [`expandable`](#tag/organisation_model)
+      The organisation that manages this group. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
       By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'

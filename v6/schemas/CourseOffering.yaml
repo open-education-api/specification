@@ -49,7 +49,7 @@ allOf:
           $ref: './Cost.yaml'
       course:
         description: |
-          The course that is offered in this courseoffering. [`expandable`](#tag/course_model)
+          The course that is offered in this courseoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Course.
           By default only the `courseId` (a string) is returned. If the client requested an expansion of `course` the full course object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
@@ -58,7 +58,7 @@ allOf:
             title: Course object      
       programmeOfferings:
         description: |
-          An array of 0 or more programmeofferings that this courseoffering is related to. [`expandable`](#tag/programme_offering_model)
+          An array of 0 or more programmeofferings that this courseoffering is related to. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a ProgrammeOffering.
           By default only the `programmeOfferingId` (a string) is returned. If the client requested an expansion of `programmeOffering` the full programmeOffering object should be returned.
         type: array
         items: 
@@ -69,7 +69,7 @@ allOf:
               title: ProgrammeOffering object     
       organisation:
         description: |
-          The organisation that manages this courseoffering. [`expandable`](#tag/organisation_model)
+          The organisation that manages this courseoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
           By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'

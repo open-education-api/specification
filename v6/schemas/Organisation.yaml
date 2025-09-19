@@ -74,7 +74,7 @@ properties:
         code: '12345678'
   parent:
     description: |
-      The organisational unit which is the parent of this organisation. [`expandable`](#tag/organisation_model)
+      The organisational unit which is the parent of this organisation. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
       By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
@@ -84,7 +84,7 @@ properties:
   children:
       type: array
       description: |
-        All the organisational units for which this organisation is the parent. [`expandable`](#tag/organisation_model)
+        All the organisational units for which this organisation is the parent. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
         By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
       items:
         oneOf:

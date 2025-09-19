@@ -46,7 +46,7 @@ allOf:
         $ref: './Room.yaml'
       learningComponent:
         description: |
-          The learning component that is offered in this learningComponentoffering. [`expandable`](#tag/learning_component_model)
+          The learning component that is offered in this learningComponentoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a LearningComponent.
           By default only the `learningComponentId` (a string) is returned. If the client requested an expansion of `learning_component` the full learning component object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
@@ -55,7 +55,7 @@ allOf:
             title: LearningComponent object  
       courseOfferings:
         description: |
-          An array of 0 or more courseofferings where this LearningComponentoffering is related to. [`expandable`](#tag/course_offering_model)
+          An array of 0 or more courseofferings where this LearningComponentoffering is related to. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a CourseOffering.
           By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
         type: array
         items:
@@ -66,7 +66,7 @@ allOf:
               title: CourseOffering object     
       organisation:
         description: |
-          The organisation that manages this componentoffering. [`expandable`](#tag/organisation_model)
+          The organisation that manages this componentoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
           By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
