@@ -24,7 +24,7 @@ get:
           type: string
           enum:
             - person
-            - testComponentOffering
+            - test_component_offering
     - $ref: '../parameters/consumer.yaml'
   responses:
     '200':

@@ -1,0 +1,35 @@
+type: string
+description: |
+  The object that can be expanded for this path.
+    - academic_session: the academicSession object can be expanded.
+    - building: the building object can be expanded.
+    - coordinators: the person object indicating a coordinator can be expanded.
+    - course: the course object can be expanded.
+    - course_offering: the courseOffering object can be expanded.
+    - learning_component: the learningComponent object can be expanded.
+    - learning_outcome: the learningOutcome object can be expanded.
+    - organisation: the organisation object can be expanded.
+    - programme: the programme object can be expanded.
+    - programmes: a set of programme objects can be expanded.
+    - programme_offering: the programmeOffering object can be expanded.
+    - test_component:the testComponent object can be expanded.
+    - parent: the parent object (which is an instance of the current object) can be expanded.
+    - child: the child object (which is an instance of the current object) can be expanded.
+    - children: a set of objects (which are an instance of the current object) can be expanded.  
+x-ooapi-extensible-enum:
+- academic_session
+- building
+- coordinators
+- course
+- course_offering
+- learning_component
+- learning_outcome
+- organisation
+- programme
+- programmes
+- programme_offering
+- test_component
+- parent
+- child
+- children
+example: "programme"
