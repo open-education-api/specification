@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0 add relations to leanrning component ] - 2025-09-16
+## [6.0.0 add relations to learning component ] - 2025-09-22
 
 ### Added
 - added recursive relation to learningComponent and tesComponent
@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - expand of educationspecification expand on program
 ### Changed
 
+
+## [6.0.0 optimalizations on attempt] - 2025-09-18
+
+### Changed
+- Summary GET /test-component-offering-associations/{testComponentOfferingAssociationId}/test-component-offering-association-attempts parameter changed from testComponentOffering to testComponentOfferingAssociationId
+- PUT and GET on TestComponentOfferingAssociationAttemptInstance changed from regular TestComponentOfferingAssociationAttempt schema to Full variant.
 
 ## [6.0.0 update 202 response ] - 2025-09-16
 
