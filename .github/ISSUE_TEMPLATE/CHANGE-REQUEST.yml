@@ -43,9 +43,8 @@ body:
       label: Version
       description: What version of the OOAPI are you targeting?
       options:
-        - v3
-        - v4
         - v5
+        - v6
     validations:
       required: true
   - type: textarea
