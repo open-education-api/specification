@@ -59,13 +59,16 @@ properties:
               (based on: https://repub.eur.nl/pub/132564/Repub_132564_O-A.pdf)
   parent:
     description: |
-      The learning outcome which is the parent of this learning outcome. 
+      The learning outcome which is the parent of this Learning outcome. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Learning outcome. 
+      By default only the learningOutcomeId (a string) is returned. 
+      If the client requested an expansion of Learning outcome the full Learning outcome object should be returned. 
     $ref: './Identifier.yaml'
     title: learningOutcomeId
   children:
       type: array
       description: |
-        All the learning outcomes for which this learning outcome is the parent.
+        All the learning outcomes for which this learning outcome is the parent. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Learning outcome.
+        By default only the `learningOutcomeId` (a string) is returned. If the client requested an expansion of `learning_outcome` the full Learning outcome object should be returned.
       items:
         $ref: './Identifier.yaml'
         title: learningOutcomeId

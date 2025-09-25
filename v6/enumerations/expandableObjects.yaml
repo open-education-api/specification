@@ -19,17 +19,24 @@ description: |
 x-ooapi-extensible-enum:
 - academic_session
 - building
+- child
+- children
 - coordinators
 - course
 - course_offering
 - learning_component
+- learning_component_offering
 - learning_outcome
+- learning_outcomes
 - organisation
+- parent
+- person
 - programme
 - programmes
 - programme_offering
 - test_component
-- parent
-- child
-- children
+- test_component_offering
+- year
+
+
 example: "programme"
