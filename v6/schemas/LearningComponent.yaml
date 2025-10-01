@@ -75,12 +75,7 @@ properties:
     description:  The languages in which this learning component is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the learning component.
     minItems: 1
     items:
-      type: string
-      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
-      minLength: 3
-      maxLength: 3
-      pattern: "^[a-z]{3}$"
-      example: nld
+      $ref: '../schemas/Language.yaml'
   learningOutcomes:
     description: Related Learning Outcomes to this learning component. This object is [`expandable`](#tag/learningoucome_model)
     type: array

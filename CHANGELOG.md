@@ -12,9 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 ### Changed
-- Refer to Language.yaml from LanguageTypedString.yaml and OfferingProperties.yaml
-- Changed teachingLanguage parameter to comply to ISO4647
-- Changes languageOfChoice attribute in PersonProperties to comply to ISO4647
+- Refer to Language.yaml in LanguageTypedString.yaml
+- teachingLanguage parameter 
+- languageOfChoice attribute in PersonProperties 
+- teachingLanguage attribute in CourseProperties, LearningComponent, OfferingProperties, ProgrammeProperties, TestComponent
 
 ## [6.0.0 optimalizations on attempt] - 2025-09-18
 
