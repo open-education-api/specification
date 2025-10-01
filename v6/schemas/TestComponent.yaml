@@ -142,6 +142,22 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
+  parent:
+    description: The parent Test Component of which the current Test Component is a child. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses) 
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: testComponentId
+      - $ref: './TestComponent.yaml'
+        title: Expanded TestComponent    
+  children:
+    type: array
+    description: TestComponents which are a part of this testComponent (e.g combined tests). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses)
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: testComponentId
+        - $ref: './TestComponent.yaml'
+          title: Expanded TestComponent 
   course:
     description: |
       The course of which this component is a part. [`expandable`](#tag/course_model)
