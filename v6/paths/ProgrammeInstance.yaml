@@ -27,7 +27,6 @@ get:
             - children
             - coordinators
             - organisation
-            - educationSpecification
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
