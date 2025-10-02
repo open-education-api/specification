@@ -4,4 +4,6 @@ allOf:
     properties:
       offering:
         description: The offering this association is for
-        $ref: './ProgrammeOffering.yaml'
+        oneOf:
+          - $ref: './ProgrammeOffering.yaml'
+          - type: 'null'

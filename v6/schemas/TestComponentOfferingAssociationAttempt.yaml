@@ -11,42 +11,58 @@ properties:
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   opportunity:
-    type: string
+    type:
+      - string
+      - 'null'
     description: |
       The opportunity during which this attempt can be fulfilled. 
       Only relevant when only one attempt is allowed per association.
     example: "2025Semester1"
   attempt:
-    type: integer
+    type:
+      - integer
+      - 'null'
     description: |
       Which attempt this is for the given person on the given offering
     format: int32
     example: 1
   state:
-    $ref: ../enumerations/attemptState.yaml
+    oneOf:
+      - $ref: ../enumerations/attemptState.yaml
+      - type: 'null'
   startDateTime:
-    type: string
-    description: | 
+    type:
+      - string
+      - 'null'
+    description: |
       Moment (date and time) of the start of the actual attempt. This can be the start date-time for a test where the 
       association can have no start- or end date-times, but only have a relation with an academic session representing
       a periode, trimester, semester or academic year
     format: date-time
-    example: "2025-09-01T09:00:00Z"
+    example: "2025-09-01T09:00:00+01:00"
   endDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     description: |
       Moment (date and time) of the end of the actual attempt. This can be the the deadline for handing in a document for an assignment or the end date-time for a test where the 
       association can have no start- or end date-times, but only have a relation with an academic session representing
       a periode, trimester, semester or academic year
     format: date-time
-    example: "2025-09-01T09:00:00Z"
+    example: "2025-09-01T09:00:00+01:00"
   room:
-    $ref: './Room.yaml'
+    oneOf:
+      - $ref: './Room.yaml'
+      - type: 'null'
   attendance:
-    $ref: '../enumerations/attendance.yaml'
+    oneOf:
+      - $ref: '../enumerations/attendance.yaml'
+      - type: 'null'
   irregularities:
-    type: string
-    description: | 
+    type:
+      - string
+      - 'null'
+    description: |
       Additional information about external disturbances or (potentially) illegal actions by the student, 
       before, during or after the test.
     example: The student was late because there was a train delay
@@ -58,13 +74,20 @@ properties:
         title: coordinatorId
       - $ref: './Person.yaml'
         title: Person object
+      - type: 'null'
   documents:
-    type: array
+    type:
+      - array
+      - 'null'
     description: |
       Documents that are related to the test component offering association attempt. E.g. test made, work handed in, etc.
     items:
       $ref: './Document.yaml'
   result:
-    $ref: './Result.yaml'
+    oneOf:
+      - $ref: './Result.yaml'
+      - type: 'null'
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'

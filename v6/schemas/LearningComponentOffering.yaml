@@ -7,43 +7,59 @@ allOf:
       times on the academic session should indicate in what timeframe the offering will or should have been available.
     properties:
       startDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment on which this offering starts, RFC3339 (date-time)
         format: date-time
         example: 2020-12-15T10:00:00+01:00
       endDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
         example: 2020-12-16T18:00:00+01:00
       enrolStartDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment from which a student can enrol for this component, RFC3339 (date-time).
         format: date-time
-        example: "2025-09-01T09:00:00Z"
+        example: "2025-09-01T09:00:00+01:00"
       enrolEndDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The last moment to which a student can enrol for this component, RFC3339 (date-time).
         format: date-time
-        example: "2025-09-01T09:00:00Z"
+        example: "2025-09-01T09:00:00+01:00"
       resultWeight:
-        type: integer
+        type:
+          - integer
+          - 'null'
         description: The result weight of this offering
         minimum: 0
         maximum: 100
         example: 100
       addresses:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Addresses for this offering
         items:
           $ref: './Address.yaml'
       priceInformation:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Price information for this offering.
         items:
           $ref: './Cost.yaml'
       room:
-        $ref: './Room.yaml'
+        oneOf:
+          - $ref: './Room.yaml'
+          - type: 'null'
       learningComponent:
         description: |
           The learning component that is offered in this learningComponentoffering. [`expandable`](#tag/learning_component_model)
@@ -52,18 +68,21 @@ allOf:
           - $ref: './Identifier.yaml'
             title: componentId
           - $ref: './LearningComponent.yaml'
-            title: LearningComponent object  
+            title: LearningComponent object
+          - type: 'null'
       courseOfferings:
         description: |
           An array of 0 or more courseofferings where this LearningComponentoffering is related to. [`expandable`](#tag/course_offering_model)
           By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
-        type: array
+        type:
+          - array
+          - 'null'
         items:
           oneOf:
             - $ref: './Identifier.yaml'
               title: courseOfferingId
             - $ref: './CourseOffering.yaml'
-              title: CourseOffering object     
+              title: CourseOffering object
       organisation:
         description: |
           The organisation that manages this componentoffering. [`expandable`](#tag/organisation_model)
@@ -73,3 +92,4 @@ allOf:
             title: organisationId
           - $ref: './Organisation.yaml'
             title: Organisation object
+          - type: 'null'

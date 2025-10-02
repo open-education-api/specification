@@ -19,9 +19,11 @@ allOf:
           - $ref: './TestComponentOffering.yaml'
             title: TestComponentOffering
       attempts:
-        type: array
+        type:
+          - array
+          - 'null'
         items:
-          oneOf: 
+          oneOf:
             - $ref: './Identifier.yaml'
               title: attemptId
             - $ref: './TestComponentOfferingAssociationAttempt.yaml'

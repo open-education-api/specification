@@ -8,42 +8,58 @@ allOf:
     title: CourseOffering
     properties:
       startDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment on which this offering starts, RFC3339 (date-time)
         format: date-time
-        example: 2019-08-21T08:30:00+01:00
+        example: "2019-08-21T08:30:00+01:00"
       endDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
-        example: 2019-10-23T22:59:59+01:00
+        example: "2019-10-23T22:59:59+01:00"
       enrolStartDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment from which a student can enrol for this offering, RFC3339 (date-time).
         format: date-time
-        example: 2019-05-01T00:00:00+01:00
+        example: "2019-05-01T00:00:00+01:00"
       enrolEndDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The last moment to which a student can enrol for this component, RFC3339 (date-time).
         format: date-time
-        example: 2019-08-01T23:59:59+01:00
+        example: "2019-08-01T23:59:59+01:00"
       flexibleEntryPeriodStart:
-        type: string
+        type:
+          - string
+          - 'null'
         description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
         format: date-time
-        example: "2025-09-01T09:00:00Z"
+        example: "2025-09-01T09:00:00+01:00"
       flexibleEntryPeriodEnd:
-        type: string
+        type:
+          - string
+          - 'null'
         description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
         format: date-time
-        example: "2025-09-01T09:00:00Z"
+        example: "2025-09-01T09:00:00+01:00"
       addresses:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Addresses for this offering
         items:
           $ref: './Address.yaml'
       priceInformation:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Price information for this offering.
         items:
           $ref: './Cost.yaml'
@@ -55,18 +71,21 @@ allOf:
           - $ref: './Identifier.yaml'
             title: courseId
           - $ref: './Course.yaml'
-            title: Course object      
+            title: Course object
+          - type: 'null'
       programmeOfferings:
         description: |
           An array of 0 or more programmeofferings that this courseoffering is related to. [`expandable`](#tag/programme_offering_model)
           By default only the `programmeOfferingId` (a string) is returned. If the client requested an expansion of `programmeOffering` the full programmeOffering object should be returned.
-        type: array
-        items: 
+        type:
+          - array
+          - 'null'
+        items:
           oneOf:
             - $ref: './Identifier.yaml'
               title: programmeOfferingId
             - $ref: './ProgrammeOffering.yaml'
-              title: ProgrammeOffering object     
+              title: ProgrammeOffering object
       organisation:
         description: |
           The organisation that manages this courseoffering. [`expandable`](#tag/organisation_model)
@@ -75,8 +94,9 @@ allOf:
           - $ref: './Identifier.yaml'
             title: organisationId
           - $ref: './Organisation.yaml'
-            title: Organisation object     
+            title: Organisation object
 
 
 
 
+          - type: 'null'

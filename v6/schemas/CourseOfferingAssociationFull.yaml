@@ -7,13 +7,13 @@ allOf:
     properties:
       person:
         oneOf:
-        - $ref: './Identifier.yaml'
-          title: personId
-        - $ref: './Person.yaml'
-          title: Person
+          - $ref: './Identifier.yaml'
+            title: personId
+          - $ref: './Person.yaml'
+            title: Person
       offering:
         oneOf:
-        - $ref: './Identifier.yaml'
-          title: offeringId
-        - $ref: './CourseOffering.yaml'
-          title: CourseOffering
+          - $ref: './Identifier.yaml'
+            title: offeringId
+          - $ref: './CourseOffering.yaml'
+            title: CourseOffering

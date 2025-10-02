@@ -9,6 +9,8 @@ properties:
     example: test-consumer
   exampleProperty:
     description: An example of an additional property
-    type: string
-    example: value-of-example-property  
+    type:
+      - string
+      - 'null'
+    example: value-of-example-property
 additionalProperties: true

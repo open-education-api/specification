@@ -4,4 +4,6 @@ allOf:
   - type: object
     properties:
       result:
-        $ref: './LearningComponentOfferingAssociationResult.yaml'
+        oneOf:
+          - $ref: './LearningComponentOfferingAssociationResult.yaml'
+          - type: 'null'

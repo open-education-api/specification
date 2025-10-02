@@ -55,7 +55,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/TestComponentOfferingAssociationAttempt.yaml'
+          $ref: '../schemas/TestComponentOfferingAssociationAttemptFull.yaml'
 
 
   responses:
@@ -63,6 +63,8 @@ put:
       description: OK
     '201':
       description: Created
+    '202':
+      description: Accepted
 
               
     '400':

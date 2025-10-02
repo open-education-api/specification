@@ -1,7 +1,10 @@
 type: string
 description: |
-  The type of learning component (format/method). Use with `modeOfDelivery`
-  to indicate how the component is delivered (e.g. online, blended, coil).
+  The type of learning component, indicating the format or method of educational delivery.
+  One learning component of a certain type can have multiple offerings, 1 component can refer to a set of componentOfferings.
+  e.g. the component lecture can be a set of lectures (group of offerings)
+  An example of such a case in natural language: the lecture takes place weekly for 7 weeks
+  This implies 1 learningComponent of type lecture with 7 learningComponentOfferings of type lecture. 
 
   | Code                | Description                                                    |
   |---------------------|----------------------------------------------------------------|

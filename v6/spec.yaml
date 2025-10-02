@@ -1,4 +1,4 @@
-openapi: "3.0.3"
+openapi: "3.1.1"
 info:
   version: "6.0 - BETA _with_fixes_250619_ for feedback only"
   title: Open Education API
@@ -258,6 +258,56 @@ tags:
       The courses API provides a self-contained and formally structured learning
       experience. Aimed at providing learning outcomes to students. Usually placed in
       the context of a programme.
+
+  - name: data_model
+    x-displayName: Data model
+    description: |
+      The Open Education API defines different objects using schemas.
+      These schemas are based on OpenApi base types, with occasional specific amendments to these base types.
+      The types we use are:
+        The data type of a schema is defined by the type keyword, for example, type: string. OpenAPI defines the following basic types:
+        - [string](#strings) (this includes dates and files)
+        - number
+        - integer
+        - boolean
+        - array
+        - [object](#objects)
+
+
+      ### Strings
+
+      A string of text is defined as:
+      
+      ```yaml  
+      type: string
+      String length can be restricted using minLength and maxLength:`
+      ```
+      
+      
+      ```yaml
+        type: string
+        minLength: 3
+        maxLength: 20
+      ```
+
+      Note that an empty string "" is a valid string unless minLength or pattern is specified.
+      String Formats
+
+      An optional format modifier can be used as a hint about the contents and structure of the string. OpenAPI defines the following built-in string formats:
+
+      
+      ```yaml  
+      date – full-date notation as defined by RFC 3339, section 5.6, for example, 2017-07-21
+      date-time – the date-time notation as defined by RFC 3339, section 5.6, for example, 2017-07-21T17:32:28+1:00
+      byte – base64-encoded characters, for example, U3dhZ2dlciByb2Nrcw==
+      binary – binary data, used to describe files
+      ```
+
+      ### Objects
+
+      The Open Education API contains a set of predefined objects that are related to one another. 
+      All objects listed below, and the relations between them are shown in the model at the top of this page. 
+
 
   - name: document_model
     x-displayName: Document
@@ -525,6 +575,7 @@ tags:
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/TestComponentOffering" />
 
+
 x-tagGroups:
   - name: Requests and respones
     tags: 
@@ -556,6 +607,7 @@ x-tagGroups:
       - test component offering association attempts
   - name: Models
     tags:
+      - data_model
       - service_model
       - learning_outcome_model
       - academic_session_model
