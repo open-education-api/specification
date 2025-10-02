@@ -95,8 +95,4 @@ allOf:
             title: organisationId
           - $ref: './Organisation.yaml'
             title: Organisation object
-
-
-
-
           - type: 'null'

@@ -101,9 +101,6 @@ properties:
     type:
       - array
       - 'null'
-    description: |
-      All the organisational units for which this organisation is the parent. [`expandable`](#tag/organisation_model)
-      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     items:
       oneOf:
         - $ref: './Identifier.yaml'

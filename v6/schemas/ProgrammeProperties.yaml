@@ -204,7 +204,6 @@ properties:
         title: Expanded Programme
       - type: 'null'
   children:
-    type: array
     description: Programmes which are a part of this programme (e.g specialisations). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Programme.
     type:
       - array
