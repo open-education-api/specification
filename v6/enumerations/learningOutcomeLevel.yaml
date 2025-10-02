@@ -3,38 +3,42 @@ description: |
   The level of the learning outcome. Two common frameworks are supported: SOLO and
   Bloom. Both are extensible; additional frameworks may be added if required.
 
-  **SOLO taxonomy** (https://www.johnbiggs.com.au/academic/solo-taxonomy/):
-
-  | Level | Label             | Description                                                     |
-  |-------|-------------------|-----------------------------------------------------------------|
-  | 0     | Prestructural     | No understanding; the student misses the point.                 |
-  | 1     | Unistructural     | Identifies or carries out simple procedures; limited to one     |
-  |       |                   | relevant aspect.                                                |
-  | 2     | Multistructural   | Addresses several relevant aspects, but sees them as unrelated; |
-  |       |                   | knowledge is additive.                                          |
-  | 3     | Relational        | Integrates aspects into a coherent whole, showing deeper        |
-  |       |                   | understanding of relationships.                                 |
-  | 4     | Extended abstract | Generalises and applies learning to new domains, showing        |
-  |       |                   | theoretical and abstract thinking.                              |
-
   **Bloom’s taxonomy** (https://bloomstaxonomy.net/):
 
-  | Level | Label        | Description                                                         |
-  |-------|--------------|---------------------------------------------------------------------|
-  | 1     | Remember     | Recall facts and basic concepts (define, list, state).              |
-  | 2     | Understand   | Explain ideas or concepts (describe, discuss, explain).             |
-  | 3     | Apply        | Use knowledge in new situations (implement, solve, use).            |
-  | 4     | Analyse      | Draw connections among ideas (differentiate, compare, examine).     |
-  | 5     | Evaluate     | Justify a decision or course of action (critique, assess, argue).   |
-  | 6     | Create       | Produce new or original work (design, construct, develop).          |
+  | Level   | Label      | Description                                                         |
+  |---------|------------|---------------------------------------------------------------------|
+  | bloom_1 | Remember   | Recall facts and basic concepts (define, list, state).              |
+  | bloom_2 | Understand | Explain ideas or concepts (describe, discuss, explain).             |
+  | bloom_3 | Apply      | Use knowledge in new situations (implement, solve, use).            |
+  | bloom_4 | Analyse    | Draw connections among ideas (differentiate, compare, examine).     |
+  | bloom_5 | Evaluate   | Justify a decision or course of action (critique, assess, argue).   |
+  | bloom_6 | Create     | Produce new or original work (design, construct, develop).          |
+
+  **SOLO taxonomy** (https://www.johnbiggs.com.au/academic/solo-taxonomy/):
+
+  | Level   | Label             | Description                                                     |
+  |---------|-------------------|-----------------------------------------------------------------|
+  | solo_0  | Prestructural     | No understanding; the student misses the point.                 |
+  | solo_1  | Unistructural     | Identifies or carries out simple procedures; limited to one     |
+  |         |                   | relevant aspect.                                                |
+  | solo_2  | Multistructural   | Addresses several relevant aspects, but sees them as unrelated; |
+  |         |                   | knowledge is additive.                                          |
+  | solo_3  | Relational        | Integrates aspects into a coherent whole, showing deeper        |
+  |         |                   | understanding of relationships.                                 |
+  | solo_4  | Extended abstract | Generalises and applies learning to new domains, showing        |
+  |         |                   | theoretical and abstract thinking.                              |
 
   This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
-  - '0'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-example: '1'
+  - bloom_1
+  - bloom_2
+  - bloom_3
+  - bloom_4
+  - bloom_5
+  - bloom_6
+  - solo_0
+  - solo_1
+  - solo_2
+  - solo_3
+  - solo_4
+example: bloom_1
