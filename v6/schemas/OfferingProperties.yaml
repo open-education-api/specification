@@ -48,7 +48,7 @@ properties:
     description: The description of this offering.
     minItems: 1
     items:
-      $ref: './LanguageTypedString.yaml'
+      $ref: '../schemas/LanguageTypedString.yaml'
     example:
       - language: en-GB
         value: |
@@ -72,15 +72,10 @@ properties:
     type:
       - array
       - 'null'
-    description: The languages in which this course is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the offering.
+    description:  The languages in which this course is given, should at least a two-letter language code as specified by ISO4647. A student should be reasonably proficient in each language to be able to follow the offering.
     minItems: 1
     items:
-      type: string
-      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
-      minLength: 3
-      maxLength: 3
-      pattern: "^[a-z]{3}$"
-      example: nld
+      $ref: './Language.yaml'
   modesOfDelivery:
     type:
       - array

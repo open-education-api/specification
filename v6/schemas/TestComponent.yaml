@@ -114,12 +114,7 @@ properties:
     description: The languages in which this test component is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the test component.
     minItems: 1
     items:
-      type: string
-      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
-      minLength: 3
-      maxLength: 3
-      pattern: "^[a-z]{3}$"
-      example: nld
+      $ref: '../schemas/Language.yaml'
   learningOutcomes:
     description: Related Learning Outcomes to this test component. This object is [`expandable`](#tag/learningoucome_model)
     type:
@@ -174,6 +169,22 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
+  parent:
+    description: The parent Test Component of which the current Test Component is a child. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses) 
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: testComponentId
+      - $ref: './TestComponent.yaml'
+        title: Expanded TestComponent    
+  children:
+    type: array
+    description: TestComponents which are a part of this testComponent (e.g combined tests). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses)
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: testComponentId
+        - $ref: './TestComponent.yaml'
+          title: Expanded TestComponent 
   course:
     description: |
       The course of which this component is a part. [`expandable`](#tag/course_model)

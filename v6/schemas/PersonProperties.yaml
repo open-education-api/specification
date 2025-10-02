@@ -208,10 +208,9 @@ properties:
     type:
       - array
       - 'null'
-    description: The language(s) of choice for this person, RFC3066
+    description: The language(s) of choice for this person according to RFC4647. For details see the descriptions in the Language schema.
     items:
-      type: string
-      example: nl-NL
+      $ref: ../schemas/Language.yaml
   otherCodes:
     type:
       - array

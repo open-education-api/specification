@@ -48,12 +48,7 @@ properties:
     description: The languages in which this programme is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the programme.
     minItems: 1
     items:
-      type: string
-      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
-      minLength: 3
-      maxLength: 3
-      pattern: "^[a-z]{3}$"
-      example: nld
+      $ref: ../schemas/Language.yaml
   studyLoad:
     type:
       - array

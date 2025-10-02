@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.0 Add nullable to non-required fields] - 2025-09-17
+## [6.0.0 Add nullable to non-required fields] - 2025-10-02
 
 ### Changed
 - Changed: Added `nullable: true` or `type: null` to all non-required fields across the specification to explicitly indicate that these fields can be null, improving API clarity and consistency with actual behavior.
@@ -14,7 +14,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Changed: Switched to [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html). OOAPI v5 used OpenAPI v3.0.3. Note: This change may require updates to client code generation and validation tools to ensure compatibility with the new specification format. This upgrade brings full JSON Schema Draft 2020-12 compatibility, meaning all standard JSON Schema keywords are now supported. 
 
-## [6.0.0 change inner workings of consumer mechanism] - 2025-09-16
+## [6.0.0 Standardise use of language codes ] - 2025-09-26
+
+### Added
+- added Language.yaml in schemas
+
+### Removed
+
+### Changed
+- Refer to Language.yaml in LanguageTypedString.yaml
+- teachingLanguage parameter 
+- languageOfChoice attribute in PersonProperties 
+- teachingLanguage attribute in CourseProperties, LearningComponent, OfferingProperties, ProgrammeProperties, TestComponent
+
+## [6.0.0 add relations to learning component ] - 2025-09-22
+
+### Added
+- added recursive relation to learningComponent and tesComponent
+
+### Removed
+- expand of educationspecification expand on program
+### Changed
+
+## [6.0.0 optimalizations on attempt] - 2025-09-18
+
+### Changed
+- Summary GET /test-component-offering-associations/{testComponentOfferingAssociationId}/test-component-offering-association-attempts parameter changed from testComponentOffering to testComponentOfferingAssociationId
+- PUT and GET on TestComponentOfferingAssociationAttemptInstance changed from regular TestComponentOfferingAssociationAttempt schema to Full variant.
+
+## [6.0.0 update 202 response ] - 2025-09-16
+
+### Added
+- added PUT request for external groups
+
+### Removed
+
+### Changed
+- updated all PUT and PATCH calls to allow for a 202 response
+
+
+## [6.0.0 update date information and add description of strings usage] - 2025-09-16
 
 ### Added
 - additional information on data types in the spec
