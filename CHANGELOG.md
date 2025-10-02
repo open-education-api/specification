@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-2
 
 ### Changed
@@ -52,9 +53,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - added PUT request for external groups
 
+## [6.0.0] Enum feedback incorporated across specifications - 2025-09-15
+
+### Added
+- `coil` added to `modeOfDelivery` (Collaborative Online International Learning)
+- `micro_credential` added to `qualificationAwarded`
+- `micro_credential_certificate` added to `formalDocument`
+- Extended `learningOutcomeLevel` with SOLO level 0 and Bloom taxonomy levels 1–6
+- Added `learning_community` to `learningComponentType`
+- Added `institution_code` to `codeType`
+
+### Removed
+- BRIN and CROHO/CREBO codes removed, in line with the OCW project *Taal gaat met de tijd mee*
+
+### Changed
+
+## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
+
+### Added
+- consumer parameter to individual instances of objects 
+
 ### Removed
 
 ### Changed
+– changed change consumers [] to consumer {}
+- changed query path for all instances to allow consumer as a parameter on 1 object instance 
 - updated all PUT and PATCH calls to allow for a 202 response
 
 

@@ -3,60 +3,70 @@ description: |
   The type of code or identifier.
 
   The predefined values are:
-    
-    - `brin`: The registration number of a Dutch educational institution, as issued by the Dutch Ministry of Education, Culture and Science (OCW)
-    - `croho_crebo_code`: Programmes with a CREBO or CROHO number accredited by the Dutch Ministry of Education, Culture and Science (OCW)
-    - `programme_code`: Identifier for a programme (collection of courses)
-    - `component_code`: Code for a component (part of a course)
-    - `offering_code`: Code used to identify a specific offering (programme, course or component offering)
-    - `organisation_id`: Identifier for the organisation
-    - `building_id`: Code used to identify a building
-    - `bag_id`: Identifier for a building as registered in the Dutch Building and Address Registry (BAG)
-    - `room_code`: Code used to identify a room
-    - `system_id`: Identifier assigned within the context of a specific system
-    - `product_id`: Identifier for a specific product
-    - `national_identity_number`: Identifier assigned by a government to a person (e.g. national insurance number in the UK, or personnummer in Sweden)
-    - `student_number`: Identifier for the student
-    - `studielink_number`: Identifier assigned to a person by the Dutch centralised enrolment system Studielink
-    - `esi`: European Student Identifier
-    - `username`: The user's login name
-    - `account_id`: Identifier for a specific account
-    - `email_address`: An email address
-    - `group_code`: Identifier for a group (of people)
-    - `group_type_code`: Identifier for the type of group
-    - `isbn`: International Standard Book Number (used to identify books)
-    - `issn`: International Standard Serial Number (used to identify periodicals)
-    - `orcid`: Open Researcher and Contributor ID
-    - `uuid`: Universally unique identifier
-    - `schac_home`: Home organisation, represented by its domain name
-    - `identifier`: Generic identifier
+
+  | Code                      | Description                                                       |
+  |---------------------------|-------------------------------------------------------------------|
+  | `account_id`              | Identifier for an account.                                        |
+  | `bag_id`                  | Identifier for a building in the Dutch Building and Address       |
+  |                           | Registry (BAG).                                                   |
+  | `building_id`             | Identifier for a building.                                        |
+  | `component_code`          | Identifier for a component (part of a course).                    |
+  | `email_address`           | An email address.                                                 |
+  | `esi`                     | European Student Identifier.                                      |
+  | `group_code`              | Identifier for a group of people.                                 |
+  | `group_type_code`         | Identifier for the type of group.                                 |
+  | `identifier`              | Generic identifier.                                               |
+  | `institution_code`        | Registration number of an educational institution. In the         |
+  |                           | Netherlands, the former BRIN code has been replaced by the        |
+  |                           | institution code, issued by the Ministry of Education, Culture    |
+  |                           | and Science (OCW).                                                |
+  | `isbn`                    | International Standard Book Number (for books).                   |
+  | `issn`                    | International Standard Serial Number (for periodicals).           |
+  | `national_identity_number`| Government-assigned personal identifier (e.g. NI number in the UK,|
+  |                           | or *personnummer* in Sweden).                                     |
+  | `offering_code`           | Identifier for a specific offering (programme, course or          |
+  |                           | component).                                                       |
+  | `organisation_id`         | Identifier for an organisation.                                   |
+  | `orcid`                   | Open Researcher and Contributor ID.                               |
+  | `product_id`              | Identifier for a product.                                         |
+  | `programme_code`          | Identifier of a programme (a recognised collection of courses).   |
+  |                           | In the Netherlands, the former CREBO and CROHO codes have been    |
+  |                           | replaced by the programme code as registered in RIO, under the    |
+  |                           | authority of OCW.                                                 |
+  | `room_code`               | Identifier for a room.                                            |
+  | `schac_home`              | Home organisation represented by its domain name.                 |
+  | `student_number`          | Identifier for a student.                                         |
+  | `studielink_number`       | Identifier assigned to a student by Studielink (Dutch central     |
+  |                           | enrolment system).                                                |
+  | `system_id`               | Identifier used within a specific system.                         |
+  | `username`                | User login name.                                                  |
+  | `uuid`                    | Universally unique identifier.                                    |
 
   This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
-  - brin
-  - croho_crebo_code
-  - programme_code
-  - component_code
-  - offering_code
-  - organisation_id
-  - building_id
-  - bag_id
-  - room_code
-  - system_id
-  - product_id
-  - national_identity_number
-  - student_number
-  - studielink_number
-  - esi
-  - username
   - account_id
+  - bag_id
+  - building_id
+  - component_code
   - email_address
+  - esi
   - group_code
   - group_type_code
+  - identifier
+  - institution_code
   - isbn
   - issn
+  - offering_code
+  - organisation_id
   - orcid
-  - uuid
+  - product_id
+  - programme_code
+  - room_code
   - schac_home
-  - identifier
+  - student_number
+  - studielink_number
+  - system_id
+  - username
+  - uuid
+  - national_identity_number
 example: identifier
