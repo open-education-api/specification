@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Change qualificationAwarded ] - 2025-10-2
+
+### Changed
+- Simplified degree types to Bologna Process cycles (`associate_degree`, `bachelor`, `master`, `doctoral`), in addition to the more general qualifications such as `diploma` and `certificate` . Field-specific designations like "of Arts" or "of Sciences" are now captured separately in the new `qualificationDesignations` array field.
+
 ## [6.0.0 Add nullable to non-required fields] - 2025-10-02
 
 ### Changed
