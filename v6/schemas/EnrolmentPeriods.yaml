@@ -11,25 +11,37 @@ properties:
     format: date-time
     example: 2020-09-28T08:30:00+01:00
   endDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The moment until which the enrolment shoud be available (when the enrolment for this taretgroup stops), RFC3339 (date-time)
     format: date-time
     example: 2020-09-30T20:00:00+01:00
   targetGroup:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The people for whom this enrolment is available.
     items:
       type: string
       description: the specific targetgroup
   enrolmentUrl:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The URL where a person of this targetGroup can enrol him or herself
     example: "https://university.example.org/"
   comment:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Additional information regarding this enollment period that can be shared with the persons in the target groups.
     example: "Additional information..."
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

@@ -4,31 +4,45 @@ allOf:
   - type: object
     properties:
       extraDuration:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The extra duration of this component for this specific candidate. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
         pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
         example: PT20M
       requiredPersonalNeeds:
-        type: array
+        type:
+          - array
+          - 'null'
         description: The additional facilities or resrouces needed by a person to make the component accessible and usable.
-        items:      
+        items:
           $ref: '../enumerations/personalNeed.yaml'
       attempt:
-        type: integer
+        type:
+          - integer
+          - 'null'
         description: The attempt this association is linked to.
         example: 2
       attendance:
-        $ref: '../enumerations/associationAttendance.yaml'
+        oneOf:
+          - $ref: '../enumerations/associationAttendance.yaml'
+          - type: 'null'
       irregularities:
-        type: array
+        type:
+          - array
+          - 'null'
         description: The irregularities that are reported for this association. This is a list of the irregularities that are reported for this association.
         items:
           type: string
       documents:
-        type: array
+        type:
+          - array
+          - 'null'
         description: |
           Documents that are related to the test component offering association. E.g. handed in documents, plagiarism reports, test made, etc.
         items:
           $ref: './Document.yaml'
       result:
-        $ref: './TestComponentOfferingAssociationResult.yaml'
+        oneOf:
+          - $ref: './TestComponentOfferingAssociationResult.yaml'
+          - type: 'null'

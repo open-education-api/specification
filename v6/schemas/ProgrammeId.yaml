@@ -1,5 +1,5 @@
 type: object
-description: A collection of courses that lead to a certifiable learning outcome   
+description: A collection of courses that lead to a certifiable learning outcome
 required:
   - programmeId
 properties:

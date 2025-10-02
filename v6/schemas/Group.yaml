@@ -28,19 +28,23 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: statistics students
+      - language: en-GB
+        value: statistics students
   description:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The description of this group
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: The group of students that follow statistics classes
+      - language: en-GB
+        value: The group of students that follow statistics classes
   startDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     description: |
       The moment on which this group starts being active, RFC3339 (date-time).
       Groups can be ordered in time through the academic-session  
@@ -48,7 +52,9 @@ properties:
     format: date-time
     example: 2025-05-30T20:00:00+01:00
   endDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     description: |
       The moment on which this group ends being active, RFC3339 (date-time)
       Groups can be ordered in time through the academic-session  
@@ -56,18 +62,24 @@ properties:
     format: date-time
     example: 2025-06-30T20:00:00+01:00
   personCount:
-    type: number
+    type:
+      - number
+      - 'null'
     description: The number of persons that are member of this group
     format: int32
     minimum: 0
     example: 183
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   organisation:
     description: |
       The organisation that manages this group. [`expandable`](.#tag/organisation_model)
@@ -76,7 +88,8 @@ properties:
       - $ref: './Identifier.yaml'
         title: organisationId
       - $ref: './Organisation.yaml'
-        title: Expanded organisation      
+        title: Expanded organisation
+      - type: 'null'
   academicSession:
     description: |
       The academicsession for which this group is intended. [`expandable`](#tag/academic_session_model)
@@ -86,5 +99,8 @@ properties:
         title: academicSessionId
       - $ref: './AcademicSession.yaml'
         title: AcademicSession object
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

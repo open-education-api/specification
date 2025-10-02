@@ -64,7 +64,7 @@ post:
 
   responses:
     '201':
-      description: CREATED
+      description: Created
       content:
         application/json:
           schema:

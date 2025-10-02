@@ -4,4 +4,6 @@ allOf:
   - type: object
     properties:
       result:
-        $ref: './ProgrammeOfferingAssociationResult.yaml'
+        oneOf:
+          - $ref: './ProgrammeOfferingAssociationResult.yaml'
+          - type: 'null'
