@@ -1,67 +1,84 @@
 allOf:
-- $ref: './OfferingId.yaml'
-- $ref: './OfferingProperties.yaml'
-- type: object
-  description: A programme offering which describes the programme in time.
-  title: ProgrammeOffering
-  properties:
-    startDateTime:
-      type: string
-      description: The moment on which this offering starts, RFC3339 (date-time)
-      format: date-time
-      example: '2025-09-28T08:30:00+01:00'
-    endDateTime:
-      type: string
-      description: The moment on which this offering ends, RFC3339 (date-time)
-      format: date-time
-      example: '2025-12-28T08:30:00+01:00'
-    enrolStartDateTime:
-      type: string
-      description: The moment from which a student can enrol for this programme, RFC3339 (date-time).
-      format: date-time
-      example: '2025-06-28T08:30:00+01:00'
-    enrolEndDateTime:
-      type: string
-      description: The last moment to which a student can enrol for this programme, RFC3339 (date-time).
-      format: date-time
-      example: '2025-09-28T08:30:00+01:00'
-    flexibleEntryPeriodStart:
-      type: string
-      description: If this is a programme wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
-      format: date-time
-      example: "2025-09-01T09:00:00+01:00"
-    flexibleEntryPeriodEnd:
-      type: string
-      description: If this is a programme wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
-      format: date-time
-      example: "2025-09-01T09:00:00+01:00"
-    addresses:
-      type: array
-      description: Addresses for this offering
-      items:
-        $ref: './Address.yaml'
-    priceInformation:
-      type: array
-      description: Price information for this offering.
-      items:
-        $ref: './Cost.yaml'
-      minItems: 1
-    programme:
-      description: |
-        The Programme that is offered in this programmeoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Programme.
-        By default only the `programmeId` (a string) is returned. If the client requested an expansion of `programme` the full programme object should be returned.
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: programmeId
-        - $ref: './Programme.yaml'
-          title: Programme object      
-    organisation:
-      description: |
-        The organisation that manages this programmeeoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
-        By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: organisationId
-        - $ref: './Organisation.yaml'
-          title: Organisation object
-        
+  - $ref: './OfferingId.yaml'
+  - $ref: './OfferingProperties.yaml'
+  - type: object
+    description: A programme offering which describes the programme in time.
+    title: ProgrammeOffering
+    properties:
+      startDateTime:
+        type:
+          - string
+          - 'null'
+        description: The moment on which this offering starts, RFC3339 (date-time)
+        format: date-time
+        example: '2025-09-28T08:30:00+01:00'
+      endDateTime:
+        type:
+          - string
+          - 'null'
+        description: The moment on which this offering ends, RFC3339 (date-time)
+        format: date-time
+        example: '2025-12-28T08:30:00+01:00'
+      enrolStartDateTime:
+        type:
+          - string
+          - 'null'
+        description: The moment from which a student can enrol for this programme, RFC3339 (date-time).
+        format: date-time
+        example: '2025-06-28T08:30:00+01:00'
+      enrolEndDateTime:
+        type:
+          - string
+          - 'null'
+        description: The last moment to which a student can enrol for this programme, RFC3339 (date-time).
+        format: date-time
+        example: '2025-09-28T08:30:00+01:00'
+      flexibleEntryPeriodStart:
+        type:
+          - string
+          - 'null'
+        description: If this is a programme wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
+        format: date-time
+        example: "2025-09-01T09:00:00+01:00"
+      flexibleEntryPeriodEnd:
+        type:
+          - string
+          - 'null'
+        description: If this is a programme wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
+        format: date-time
+        example: "2025-09-01T09:00:00+01:00"
+      addresses:
+        type:
+          - array
+          - 'null'
+        description: Addresses for this offering
+        items:
+          $ref: './Address.yaml'
+      priceInformation:
+        type:
+          - array
+          - 'null'
+        description: Price information for this offering.
+        items:
+          $ref: './Cost.yaml'
+        minItems: 1
+      programme:
+        description: |
+          The Programme that is offered in this programmeoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Programme.
+          By default only the `programmeId` (a string) is returned. If the client requested an expansion of `programme` the full programme object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: programmeId
+          - $ref: './Programme.yaml'
+            title: Programme object
+          - type: 'null'
+      organisation:
+        description: |
+          The organisation that manages this programmeeoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
+          By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: organisationId
+          - $ref: './Organisation.yaml'
+            title: Organisation object
+          - type: 'null'

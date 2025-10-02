@@ -1,5 +1,5 @@
 type: object
-description: An object describing the metadata of a course 
+description: An object describing the metadata of a course
 required:
   - courseId
 properties:

@@ -6,34 +6,48 @@ properties:
   addressType:
     $ref: '../enumerations/addressType.yaml'
   street:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The street name
     example: Moreelsepark
   streetNumber:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The street number
     example: "48"
   additional:
-    type: array
+    type:
+      - array
+      - 'null'
     description: Further details like building name, suite, apartment number, etc.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: On the other side of the road
+      - language: en-GB
+        value: On the other side of the road
   postCode:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Code to help sort and deliver mail also known as Postal code and ZIP code
     example: 3511 EP
   city:
-    type: string
+    type:
+      - string
+      - 'null'
     description: name of the city / locality
     example: Utrecht
   countryCode:
-    $ref: ./Country.yaml
+    oneOf:
+      - $ref: ./Country.yaml
+      - type: 'null'
   geolocation:
-    type: object
+    type:
+      - object
+      - 'null'
     description: Geolocation of the entrance of this address (WGS84 coordinate reference system)
     required:
       - latitude
@@ -48,4 +62,6 @@ properties:
         format: double
         example: 5.113337
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

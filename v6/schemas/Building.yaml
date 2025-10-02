@@ -17,7 +17,9 @@ properties:
       codeType: buildingId
       code: '45'
   abbreviation:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The abbreviation of the name of this building
     maxLength: 256
     example: Bb
@@ -28,21 +30,27 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: Beatrix building
+      - language: en-GB
+        value: Beatrix building
   description:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The description of this building.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: external rooms location for exams
+      - language: en-GB
+        value: external rooms location for exams
   address:
-    $ref: './Address.yaml'
+    oneOf:
+      - $ref: './Address.yaml'
+      - type: 'null'
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
@@ -50,6 +58,10 @@ properties:
       - codeType: bagId
         code: '0344100000139910'
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

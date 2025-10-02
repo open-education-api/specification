@@ -7,34 +7,46 @@ properties:
   state:
     $ref: '../enumerations/resultState.yaml'
   pass:
-    $ref: '../enumerations/passState.yaml'
+    oneOf:
+      - $ref: '../enumerations/passState.yaml'
+      - type: 'null'
   comment:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The comment on this result
     example: "Strong performance overall, only minor calculation errors in section 3."
   score:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The score of this programme/course/component association (based on resultValueType in offering)
     example: '9'
   rawScore:
-    type: integer
+    type:
+      - integer
+      - 'null'
     description: |
       The number of points scored by a person (on the test or assessment form) which the result could be calculated. 
       The raw score provides additional insight in the achievement of the person. 
       The raw score also needs the value of maxRawScore to provide necessary context.
     example: 72
   maxRawScore:
-    type: integer
+    type:
+      - integer
+      - 'null'
     description: |
       The maximum number of points a person could achieve on the test or assessment form.
     example: 80
   final:
-    type: boolean
+    type:
+      - boolean
+      - 'null'
     default: false
     description: |
       final: indicates that the result has been finalised by the exam committee. 
       Can be done in any step of the test taking and assessment cycle. 
-    example: true  
+    example: true
   assessor:
     description: |
       The assessor responsible for evaluating the result.
@@ -43,18 +55,25 @@ properties:
         title: assessorId
       - $ref: './Person.yaml'
         title: Person object
+      - type: 'null'
   resultDateTime:
     type: string
     description: The date this result has been published, RFC3339 (date-time)
     format: date-time
     example: '2025-11-28T08:30:00+01:00'
   documents:
-    type: array
+    type:
+      - array
+      - 'null'
     description: |
       Documents that are related to the result of the test component offering association. E.g. assessment form, assessment model, etc.
     items:
       $ref: './Document.yaml'
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

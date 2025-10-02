@@ -1,5 +1,5 @@
 type: object
-description: A metadataset providing details on the provider of this OOAPI implementation 
+description: A metadataset providing details on the provider of this OOAPI implementation
 required:
   - contactEmail
   - specification
@@ -17,19 +17,23 @@ properties:
     maxLength: 2048
     example: https://rawgit.com/open-education-api/specification/v3/docs.html#tag/course-offerings/paths/~1course-offerings/get
   documentation:
-    type: string
+    type:
+      - string
+      - 'null'
     description: URL of the API documentation, including general terms and privacy statement
     format: uri
     maxLength: 2048
     example: https://open-education-api.github.io/specification/v4/docs.html
   supportedConsumers:
-    type: array
+    type:
+      - array
+      - 'null'
     items:
       type: object
       description: Object for communicating data to a specific consumer (destination). This object has no relationship with the consumer query parameter.
       required:
-      - consumerKey
-      - version
+        - consumerKey
+        - version
       properties:
         consumerKey:
           description: The key of the consumer (destination) for which this information is intended. See the consumer registry for more information.
@@ -40,13 +44,15 @@ properties:
           type: string
           example: "0.9.3"
   supportedOperations:
-    type: array
+    type:
+      - array
+      - 'null'
     items:
       type: object
       description: Object for communicating VERBS and endpoints that are supported by this implementation.
       required:
-      - verb
-      - path
+        - verb
+        - path
       properties:
         verbs:
           type: array
@@ -83,6 +89,7 @@ properties:
           type: string
           format: uri-reference
           example: "/courses"
-
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

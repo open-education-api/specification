@@ -28,41 +28,53 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: nl-NL
-      value: Coöperatie SURF U.A.
+      - language: nl-NL
+        value: Coöperatie SURF U.A.
   shortName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Short name of the organisation
     maxLength: 256
     example: SURF
   description:
-    type: array
+    type:
+      - array
+      - 'null'
     description: Any general description of the organisation should clearly mention the type of education organisation, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: nl-NL
-      value: SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.
+      - language: nl-NL
+        value: SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.
   addresses:
-    type: array
+    type:
+      - array
+      - 'null'
     description: Addresses of this organisation
     items:
       $ref: './Address.yaml'
   link:
-    type: string
+    type:
+      - string
+      - 'null'
     description: URL of the organisation's website
     format: uri
     maxLength: 2048
     example: https://surf.nl
   logo:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Logo of this organisation
     format: uri
     maxLength: 2048
     example: https://www.surf.nl/themes/surf/logo.svg
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     minItems: 1
     items:
@@ -80,19 +92,29 @@ properties:
       - $ref: './Identifier.yaml'
         title: organisationId
       - $ref: './Organisation.yaml'
-        title: Organisation object     
+        title: Organisation object
+      - type: 'null'
   children:
-      type: array
-      description: |
-        All the organisational units for which this organisation is the parent. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
-        By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
-      items:
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: organisationId
-          - $ref: './Organisation.yaml'
-            title: Organisation object     
+    description: |
+      All the organisational units for which this organisation is the parent. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
+      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
+    type:
+      - array
+      - 'null'
+    description: |
+      All the organisational units for which this organisation is the parent. [`expandable`](#tag/organisation_model)
+      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: organisationId
+        - $ref: './Organisation.yaml'
+          title: Organisation object
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

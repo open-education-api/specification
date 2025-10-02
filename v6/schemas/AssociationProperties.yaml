@@ -7,17 +7,23 @@ properties:
   role:
     $ref: '../enumerations/associationRole.yaml'
   startDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     format: date-time
     description: The start date and time the person is intended to start participating in the offering. Formatted according to RFC3339 (date-time)
     example: '2025-01-01T08:30:00+01:00'
   expectedEndDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     format: date-time
-    description: The expected end date and time the person is intended to stop participating in the offering. Formatted according to RFC3339 (date-time) 
+    description: The expected end date and time the person is intended to stop participating in the offering. Formatted according to RFC3339 (date-time)
     example: '2025-10-25T08:30:00+01:00'
   actualEndDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     format: date-time
     description: The actual end date and time the person stopped participating in the offering. Formatted according to RFC3339 (date-time)
     example: '2025-10-23T08:30:00+01:00'
@@ -25,9 +31,15 @@ properties:
     $ref: '../enumerations/associationState.yaml'
     readOnly: true
   remoteState:
-    $ref: '../enumerations/remoteAssociationState.yaml'
     writeOnly: true
+    oneOf:
+      - $ref: '../enumerations/remoteAssociationState.yaml'
+      - type: 'null'
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

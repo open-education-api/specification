@@ -31,10 +31,12 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: Autumn term 2020
+      - language: en-GB
+        value: Autumn term 2020
   abbreviation:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The abbreviation or internal code used to identify this AcademicSession
     maxLength: 256
     example: SPRING-2026
@@ -54,16 +56,19 @@ properties:
       - $ref: './Identifier.yaml'
         title: academicSessionId
       - $ref: './AcademicSession.yaml'
-        title: Expanded AcademicSession    
+        title: Expanded AcademicSession
+      - type: 'null'
   children:
-    type: array
     description: The list of Academicsession children of this Session (e.g. all academic sessions in Autumn term 20xx). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an AcademicSession.
+    type:
+      - array
+      - 'null'
     items:
       oneOf:
         - $ref: './Identifier.yaml'
           title: academicSessionId
         - $ref: './AcademicSession.yaml'
-          title: Expanded AcademicSession    
+          title: Expanded AcademicSession
   year:
     description: The top level year of this session (e.g. 20xx where the current session is a week 40 of a semester). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an AcademicSession.
     oneOf:
@@ -71,12 +76,19 @@ properties:
         title: academicSessionId
       - $ref: './AcademicSession.yaml'
         title: Expanded AcademicSession
+      - type: 'null'
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'
