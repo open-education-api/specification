@@ -7,7 +7,9 @@ allOf:
       - offering
     properties:
       result:
-        $ref: './ProgrammeOfferingAssociationResult.yaml'
+        oneOf:
+          - $ref: './ProgrammeOfferingAssociationResult.yaml'
+          - type: 'null'
       person:
         description: The person this association is to
         $ref: './Person.yaml'

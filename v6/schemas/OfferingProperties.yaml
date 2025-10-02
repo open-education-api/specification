@@ -19,6 +19,7 @@ properties:
         title: academicSessionId
       - $ref: './AcademicSession.yaml'
         title: AcademicSession object
+      - type: 'null'
   name:
     type: array
     description: The name of this offering
@@ -26,101 +27,133 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: Final written test for INFOMQNM for fall semseter 2020
+      - language: en-GB
+        value: Final written test for INFOMQNM for fall semseter 2020
   state:
-    $ref: '../enumerations/offeringState.yaml'
     description: The state of this offering, e.g. active, inactive, archived
+    oneOf:
+      - $ref: '../enumerations/offeringState.yaml'
+      - type: 'null'
   abbreviation:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The abbreviation or internal code used to identify this offering
     maxLength: 256
     example: Test-INFOMQNM-20FS
   description:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The description of this offering.
     minItems: 1
     items:
       $ref: '../schemas/LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: |
-              'Prove in writing knowledge of research methods, including:
-              Acquire knowledge of HCI research paradigms
-              Able to design suitable research studies (e.g., choose between within and between subject designs)
-              Define/apply/design metrics and scales
-              Define/produce materials (e.g., stimuli and questionnaires)
-              Define protocols for research studies
-              Understands and take in account concepts of reliability and validity
-              Analyse and improve methods and analysis of published scientific articles
-              Able to deliver scientific reports
-              Prove in writing knowledge of ­­­statistics, including:
-              Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
-              Data preparation (e.g., coding and feature selection)
-              Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
-              Select an appropriate sampling method (e.g., stratified)
-              Perform parametric tests (e.g., repeated measures (M)ANOVA)
-              Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
+      - language: en-GB
+        value: |
+          'Prove in writing knowledge of research methods, including:
+          Acquire knowledge of HCI research paradigms
+          Able to design suitable research studies (e.g., choose between within and between subject designs)
+          Define/apply/design metrics and scales
+          Define/produce materials (e.g., stimuli and questionnaires)
+          Define protocols for research studies
+          Understands and take in account concepts of reliability and validity
+          Analyse and improve methods and analysis of published scientific articles
+          Able to deliver scientific reports
+          Prove in writing knowledge of ­­­statistics, including:
+          Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
+          Data preparation (e.g., coding and feature selection)
+          Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
+          Select an appropriate sampling method (e.g., stratified)
+          Perform parametric tests (e.g., repeated measures (M)ANOVA)
+          Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
   teachingLanguages:
-    type: array
+    type:
+      - array
+      - 'null'
     description:  The languages in which this course is given, should at least a two-letter language code as specified by ISO4647. A student should be reasonably proficient in each language to be able to follow the offering.
     minItems: 1
     items:
       $ref: './Language.yaml'
   modesOfDelivery:
-    type: array 
-    items:   
+    type:
+      - array
+      - 'null'
+    items:
       $ref: '../enumerations/modeOfDelivery.yaml'
   maxNumberStudents:
-    type: number
+    type:
+      - number
+      - 'null'
     description: The maximum number of students allowed to enrol for this offering
     format: int32
     minimum: 0
     example: 200
   enrolledNumberStudents:
-    type: number
+    type:
+      - number
+      - 'null'
     description: The number of students who have already enrolled for this offering
     format: int32
     minimum: 0
     example: 150
   pendingNumberStudents:
-    type: number
+    type:
+      - number
+      - 'null'
     description: The number of students who have a pending enrolment request for this offering
     format: int32
     minimum: 0
     example: 50
   minNumberStudents:
-    type: number
+    type:
+      - number
+      - 'null'
     description: The minimum number of students needed for this offering to proceed
     format: int32
     minimum: 0
     example: 15
   resultExpected:
-    type: boolean
+    type:
+      - boolean
+      - 'null'
     description: |
       resultExpected, previously knwon as isLineItem is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
       Offerings need not always result in a grade or another type of result. 
       If there is a result expected from a programmeOffering/courseOffering/componentOffering the is resultExpected field should parse true
     example: true
   resultValueType:
-    $ref: '../enumerations/resultValueType.yaml'
+    oneOf:
+      - $ref: '../enumerations/resultValueType.yaml'
+      - type: 'null'
   link:
-    type: string
+    type:
+      - string
+      - 'null'
     description: URL of this offering's webpage.
     format: uri
     maxLength: 2048
     example: https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
-      $ref: './IdentifierEntry.yaml'    
+      $ref: './IdentifierEntry.yaml'
   enrolmentPeriods:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of periods that a person can enrol into this offering. The period is defined by targetgroup and dateTime
     items:
       $ref: './EnrolmentPeriods.yaml'
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

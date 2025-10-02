@@ -20,7 +20,9 @@ properties:
   roomType:
     $ref: '../enumerations/roomType.yaml'
   abbreviation:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The abbreviation of the name of this room
     maxLength: 256
     example: Bb4.54
@@ -31,37 +33,49 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: Beatrix building room 4.54
+      - language: en-GB
+        value: Beatrix building room 4.54
   description:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The description of this room. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: External education and exam room 4.54
+      - language: en-GB
+        value: External education and exam room 4.54
   totalSeats:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int32
     description: The total number of seats located in the room
     example: 300
   availableSeats:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int32
     description: The total number of available (=non-reserved) seats in the room
     example: 200
   floor:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The floor on which this room is located
     example: '4'
   wing:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The wing in which this room is located
     example: None
   geolocation:
-    type: object
+    type:
+      - object
+      - 'null'
     description: Geolocation of the entrance of this room (WGS84 coordinate reference system)
     required:
       - latitude
@@ -76,7 +90,9 @@ properties:
         format: double
         example: 5.106669
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
@@ -88,8 +104,13 @@ properties:
       - $ref: './Identifier.yaml'
         title: buildingId
       - $ref: './Building.yaml'
-        title: Building object    
+        title: Building object
+      - type: 'null'
   consumer:
-    $ref: './Consumer.yaml'
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

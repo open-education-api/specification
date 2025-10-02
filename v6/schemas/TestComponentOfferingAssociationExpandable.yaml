@@ -3,10 +3,16 @@ allOf:
   - type: object
     properties:
       person:
-        $ref: './PersonId.yaml'
+        oneOf:
+          - $ref: './PersonId.yaml'
+          - type: 'null'
       testComponentOffering:
-        $ref: './OfferingId.yaml'
+        oneOf:
+          - $ref: './OfferingId.yaml'
+          - type: 'null'
       attempts:
-        type: array
+        type:
+          - array
+          - 'null'
         items:
           $ref: './Identifier.yaml'

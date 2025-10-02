@@ -1,11 +1,11 @@
 type: object
-description: ID and type of Either a programme, course or component offering which descrbes the programme, course or offering in time 
+description: ID and type of Either a programme, course or component offering which descrbes the programme, course or offering in time
 required:
   - offeringId
 properties:
   offeringId:
     $ref: './OfferingId.yaml'
   offeringType:
-    $ref: '../enumerations/offeringType.yaml'
-
-
+    oneOf:
+      - $ref: '../enumerations/offeringType.yaml'
+      - type: 'null'
