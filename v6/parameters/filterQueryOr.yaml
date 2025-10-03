@@ -1,0 +1,52 @@
+name: filter_query[__or][]
+in: query
+required: false
+style: deepObject
+explode: true
+description: >
+  OR blocks. Provide an array of single-field filter objects, each combined with OR.
+  Serialises as `filter_query[__or][][field][operation]=value`.
+schema:
+  type: array
+  items:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        in:
+          type: string
+          description: Exact match; multiple values allowed as CSV.
+          example: "org-uu,org-hku"
+        like:
+          type: string
+          description: Wildcards allowed (e.g., "*Utrecht*").
+          example: "*Utrecht*"
+        any_in_array:
+          type: string
+          description: Match if any of the CSV values occur.
+          example: "evening,block_week"
+        gt_date:
+          type: string
+          format: date-time
+          description: ISO 8601 / RFC 3339 date-time.
+          example: "2025-09-01T00:00:00Z"
+        lt_date:
+          type: string
+          format: date-time
+          description: ISO 8601 / RFC 3339 date-time.
+          example: "2025-12-31T23:59:59Z"
+examples:
+  providersOrLocation:
+    summary: Provider is Org A or Org B, OR campus city contains “Utrecht”
+    value:
+      - organisation.id:
+          in: "org-uu,org-hku"
+      - campus.city:
+          like: "*Utrecht*"
+  timeWindowOrTag:
+    summary: Start date after 1 Sept 2025 OR has evening/block_week tag
+    value:
+      - start_date:
+          gt_date: "2025-09-01T00:00:00Z"
+      - tags:
+          any_in_array: "evening,block_week"

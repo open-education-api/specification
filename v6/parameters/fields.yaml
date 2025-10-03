@@ -1,0 +1,28 @@
+name: fields
+in: query
+required: false
+style: form
+explode: false
+description: >
+  Comma-separated list of field names to include in the response (sparse fieldset).
+  Use dot notation for nested fields (e.g., `programme.code`, `campus.city`).
+  When omitted, the default server fieldset is returned.
+  Unknown fields SHOULD be ignored. The server MAY always include minimal identifiers (e.g., `id`).
+schema:
+  type: array
+  items:
+    type: string
+  example:
+    - id
+    - title
+    - ects_credits
+    - language_of_instruction
+    - programme.code
+    - campus.city
+examples:
+  basic:
+    summary: Return a minimal fieldset for course offerings
+    value: [ "id", "title", "ects_credits", "language_of_instruction" ]
+  nested:
+    summary: Include nested programme code and campus city
+    value: [ "id", "title", "programme.code", "campus.city" ]

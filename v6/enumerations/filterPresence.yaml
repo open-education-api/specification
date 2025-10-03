@@ -1,0 +1,13 @@
+type: string
+description: >
+  Presence check or special value for filter operations.
+enum:
+  - empty
+  - not_empty
+  - empty_array
+  - not_empty_array
+  - 'true'
+  - 'false'
+  - 'null'
+  - not_null
+example: not_empty

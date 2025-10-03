@@ -14,6 +14,10 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/excludeFields.yaml'
     - $ref: '../parameters/search.yaml'
     - name: groupType
       in: query

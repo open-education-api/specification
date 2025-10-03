@@ -9,6 +9,10 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/excludeFields.yaml'
     - name: academicSessionType
       in: query
       description: Filter by academic session type
