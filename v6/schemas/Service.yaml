@@ -54,15 +54,36 @@ properties:
         - verb
         - path
       properties:
-        verb:
+        verbs:
+          type: array
           description: The type of method or verb.
-          type: string
-          enum:
+          items:
+            type: string
+            enum:
             - GET
             - PUT
             - PATCH
             - POST
-          example: "GET"
+            example: "GET"
+        path:
+          description: the path of the operation
+          type: string
+          format: uri-reference
+          example: "/courses"
+  supportedExpands:
+    type: array
+    items:
+      type: object
+      description: Object for communicating the expands and paths for which they are implemented.
+      required:
+      - expandableObject
+      - path
+      properties:
+        expandableObjects:
+          description: the objects that are expandable for a specific path
+          type: array
+          items:
+            $ref: '../enumerations/expandableObjects.yaml'
         path:
           description: the path of the operation
           type: string

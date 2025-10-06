@@ -42,6 +42,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - expand of educationspecification expand on program
 ### Changed
 
+## [6.0.0 improvement of service endpoint for documentation on expand] - 2025-09-22
+
+### Added
+- Added aditional properties and query paths for the serivce path, indicating the availability of expand objects.
+
+### Changed
+- updated all expands to follow enum style
+
+
+## [6.0.0 improvement of documentation on expand] - 2025-09-19
+
+### Changed
+- Removed the links in expand pointing to an object that is expanded and changed it to an explanation about the expand mechanism.
+
+
 ## [6.0.0 optimalizations on attempt] - 2025-09-18
 
 ### Changed
