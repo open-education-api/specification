@@ -62,7 +62,7 @@ allOf:
           - type: 'null'
       component:
         description: |
-          The component that is offered in this componentoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a TestComponent.
+          The component that is offered in this component offering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a test component.
           By default only the `componentId` (a string) is returned. If the client requested an expansion of `component` the full component object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
@@ -72,7 +72,7 @@ allOf:
           - type: 'null'
       courseOfferings:
         description: |
-          An array of 0 or more courseofferings where this TestComponentoffering is related to. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a CourseOffering.
+          An array of 0 or more course offerings where this test component offering is related to. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a course offering.
           By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
         type:
           - array
@@ -85,7 +85,7 @@ allOf:
               title: CourseOffering object
       organisation:
         description: |
-          The organisation that manages this componentoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
+          The organisation that manages this component offering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
           By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'

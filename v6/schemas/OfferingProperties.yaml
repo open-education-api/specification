@@ -12,7 +12,7 @@ properties:
     readOnly: true
   academicSession:
     description: |
-      The academicsession during which this courseoffering takes place. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an AcademicSession.
+      The academic session during which this courseoffering takes place. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academic session.
       By default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'

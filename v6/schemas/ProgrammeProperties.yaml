@@ -126,7 +126,7 @@ properties:
       type: string
     example: ['book to be announced', 'on-line resource x']
   learningOutcomes:
-    description: Related Learning Outcomes to this programme. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a LearningOutcome.
+    description: Related learning outcomes to this programme. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome.
     type:
       - array
       - 'null'
@@ -196,7 +196,7 @@ properties:
     items:
       $ref: './Address.yaml'
   parent:
-    description: Parent programme of which the current programme is a child. This object is [`expandable`]((https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Programme.
+    description: Parent programme of which the current programme is a child. This object is [`expandable`]((https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a programme.
     oneOf:
       - $ref: './Identifier.yaml'
         title: programmeId
@@ -204,7 +204,7 @@ properties:
         title: Expanded Programme
       - type: 'null'
   children:
-    description: Programmes which are a part of this programme (e.g specialisations). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Programme.
+    description: Programmes which are a part of this programme (e.g specialisations). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a programme.
     type:
       - array
       - 'null'
@@ -215,7 +215,7 @@ properties:
         - $ref: './Programme.yaml'
           title: Expanded Programme
   coordinators:
-    description: The person(s) responsible for this programme. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case a Person.
+    description: The person(s) responsible for this programme. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a person.
     type:
       - array
       - 'null'
@@ -227,7 +227,7 @@ properties:
           title: Person object
   organisation:
     description: |
-      The organisation providing this programme. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
+      The organisation providing this programme. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
       By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'

@@ -82,7 +82,7 @@ properties:
       - type: 'null'
   organisation:
     description: |
-      The organisation that manages this group. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an Organisation.
+      The organisation that manages this group. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
       By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
@@ -92,7 +92,7 @@ properties:
       - type: 'null'
   academicSession:
     description: |
-      The academicsession for which this group is intended. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an AcademicSession.
+      The academicsession for which this group is intended. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academic session.
       By default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'

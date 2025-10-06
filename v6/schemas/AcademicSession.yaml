@@ -51,7 +51,7 @@ properties:
     format: date-time
     example: '2025-09-28T08:30:00+01:00'
   parent:
-    description: The parent Academicsession of this session (e.g. Autumn term 20xx where the current session is a week 40). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an AcademicSession.
+    description: The parent Academicsession of this session (e.g. Autumn term 20xx where the current session is a week 40). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academicSession.
     oneOf:
       - $ref: './Identifier.yaml'
         title: academicSessionId
@@ -59,7 +59,7 @@ properties:
         title: Expanded AcademicSession
       - type: 'null'
   children:
-    description: The list of Academicsession children of this Session (e.g. all academic sessions in Autumn term 20xx). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an AcademicSession.
+    description: The list of Academicsession children of this Session (e.g. all academic sessions in Autumn term 20xx). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academicSession.
     type:
       - array
       - 'null'
@@ -70,7 +70,7 @@ properties:
         - $ref: './AcademicSession.yaml'
           title: Expanded AcademicSession
   year:
-    description: The top level year of this session (e.g. 20xx where the current session is a week 40 of a semester). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). Expanding needs the full object, in this case an AcademicSession.
+    description: The top level year of this session (e.g. 20xx where the current session is a week 40 of a semester). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academicSession.
     oneOf:
       - $ref: './Identifier.yaml'
         title: academicSessionId
