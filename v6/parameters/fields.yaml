@@ -3,26 +3,34 @@ in: query
 required: false
 style: form
 explode: false
-description: >
-  Comma-separated list of field names to include in the response (sparse fieldset).
-  Use dot notation for nested fields (e.g., `programme.code`, `campus.city`).
-  When omitted, the default server fieldset is returned.
-  Unknown fields SHOULD be ignored. The server MAY always include minimal identifiers (e.g., `id`).
+description: |
+  Allows clients to indicate which fields should be included in the response.  
+  This parameter supports the principle of data minimisation and helps to optimise 
+  data usage and performance by reducing unnecessary data transmission.
+
+  The `fields` parameter uses *nested field selection syntax* with parentheses for subfields, 
+  for example: `programme(code)` or `campus(city)`.  
+  Multiple fields can be grouped within parentheses, for example:  
+  `fields=(id,title,ectsCredits,programme(code),campus(city))`.
+
+  When omitted, the server returns all fields the client has access to.  
+  Unknown field names SHOULD be ignored.  
+  The server MAY always include *mandatory fields* (e.g., identifiers such as `id`) 
+  that are required for a valid or minimal response, even if not explicitly requested.
+
+  *Important:* This is a **request hint**, not a **security feature**.  
+  The server always determines the final response structure based on the client’s access rights.  
+  If a client requests unauthorised fields, these MUST be silently omitted or redacted.
 schema:
-  type: array
-  items:
-    type: string
-  example:
-    - id
-    - title
-    - ects_credits
-    - language_of_instruction
-    - programme.code
-    - campus.city
+  type: string
+  example: "(id,title,ectsCredits,programme(code),campus(city))"
 examples:
-  basic:
+  minimal:
     summary: Return a minimal fieldset for course offerings
-    value: [ "id", "title", "ects_credits", "language_of_instruction" ]
+    value: "(id,title,ectsCredits,languageOfInstruction)"
   nested:
     summary: Include nested programme code and campus city
-    value: [ "id", "title", "programme.code", "campus.city" ]
+    value: "(id,title,programme(code),campus(city))"
+  combined:
+    summary: Example using multiple nested fields
+    value: "(id,title,ectsCredits,programme(code,name),campus(city,country))"

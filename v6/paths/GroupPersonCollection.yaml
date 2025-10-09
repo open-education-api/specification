@@ -17,7 +17,6 @@ get:
     - $ref: '../parameters/filterQuery.yaml'
     - $ref: '../parameters/filterQueryOr.yaml'
     - $ref: '../parameters/fields.yaml'
-    - $ref: '../parameters/excludeFields.yaml'
     - $ref: '../parameters/personSearch.yaml'
     - name: affiliations
       in: query
