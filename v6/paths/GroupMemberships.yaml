@@ -17,8 +17,7 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/filterQuery.yaml'
     - $ref: '../parameters/filterQueryOr.yaml'
-    - $ref: '../parameters/fields.yaml'
-    - $ref: '../parameters/excludeFields.yaml'
+
   responses:
     '200':
       description: OK
