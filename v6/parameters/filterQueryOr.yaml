@@ -3,7 +3,7 @@ in: query
 required: false
 style: deepObject
 explode: true
-description: >
+description: |
   OR blocks. Provide an array of single-field filter objects, each combined with OR.
   Serialises as `filter_query[__or][][field][operation]=value`.
 schema:
