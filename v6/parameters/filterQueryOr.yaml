@@ -6,6 +6,8 @@ explode: true
 description: |
   OR blocks. Provide an array of single-field filter objects, each combined with OR.
   Serialises as `filter_query[__or][][field][operation]=value`.
+
+  Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
 schema:
   type: array
   items:

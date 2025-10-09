@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.0 Add filtering ] - 2025-10-9
 
 ### Changed
-- Added filtering to all endpoints that support paging
+- Added filtering to all endpoints that support paging. Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
 
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-2
 

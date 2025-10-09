@@ -1,6 +1,8 @@
 type: string
 description: |
   Presence check or special value for filter operations.
+
+  Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
 enum:
   - empty
   - not_empty
