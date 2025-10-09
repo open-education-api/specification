@@ -1,5 +1,5 @@
 type: string
-description: >
+description: |
   Presence check or special value for filter operations.
 enum:
   - empty
