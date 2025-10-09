@@ -3,7 +3,7 @@ in: query
 required: false
 style: deepObject
 explode: true
-description: >
+description: |
   Filter object serialised as `filter_query[field][operation]=value`.
   Multiple top-level fields are combined with AND. CSV accepted where noted.
 schema:
