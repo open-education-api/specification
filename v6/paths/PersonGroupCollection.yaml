@@ -16,7 +16,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/filterQuery.yaml'
     - $ref: '../parameters/filterQueryOr.yaml'
-
     - $ref: '../parameters/search.yaml'
     - name: groupType
       in: query

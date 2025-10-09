@@ -17,7 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/filterQuery.yaml'
     - $ref: '../parameters/filterQueryOr.yaml'
-
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
     - $ref: '../parameters/offeringState.yaml'

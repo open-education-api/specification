@@ -11,7 +11,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/filterQuery.yaml'
     - $ref: '../parameters/filterQueryOr.yaml'
-
     - $ref: '../parameters/search.yaml'
   responses:
     '200':
