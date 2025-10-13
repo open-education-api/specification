@@ -61,16 +61,20 @@ properties:
           4. Explain how different perspectives drive forward advance-
           ments in animal welfare, legislation and science.
           (based on: https://repub.eur.nl/pub/132564/Repub_132564_O-A.pdf)
-  parent:
+  parents:
     description: |
-      The learning outcome which is the parent of this Learning outcome. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome. 
+      The learning outcome which are the parent of this Learning outcome. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome. 
       By default only the learningOutcomeId (a string) is returned. 
       If the client requested an expansion of Learning outcome the full learning outcome object should be returned. 
-    title: learningOutcomeId
-    oneOf:
-      - $ref: './Identifier.yaml'
-      - $ref: './LearningOutcome.yaml'
-      - type: 'null'
+    type:
+      - array
+      - 'null'
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: learningOutcomeId
+        - $ref: './LearningOutcome.yaml'
+          title: LearningOutcome object
   children:
     description: |
       All the learning outcomes for which this learning outcome is the parent. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome.
