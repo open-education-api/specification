@@ -24,7 +24,7 @@ get:
           type: string
           enum:
             - organisation
-            - parent
+            - parents
             - children
     - $ref: '../parameters/consumer.yaml'
   responses:
