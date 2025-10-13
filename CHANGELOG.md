@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-13
 
 ### Changed
-- Changed LearningOutcome object to allow for multiple parents of one LearningOutcome object. This allows for more flexible (matrix) style schematics of learning outcomes. Addede relationship between attempt and result in the diagram. Changed the relationship type between rooms and components. Updated the cardinality overview in the spec.yaml file.
+- Changed LearningOutcome object to allow for multiple parents of a single LearningOutcome object. This allows for more flexible (matrix) style schematics of learning outcomes. Added relationship between attempt and result in the diagram. Changed the relationship type between rooms and components. Updated the cardinality overview in the spec.yaml file.
 
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-2
 

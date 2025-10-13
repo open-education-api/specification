@@ -84,7 +84,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="uOkrZp9zEzWbIRnn9URp-108" value="learningOutcomes []" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;" parent="uOkrZp9zEzWbIRnn9URp-106" vertex="1">
+        <mxCell id="uOkrZp9zEzWbIRnn9URp-108" value="learningOutcomes[]" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;" parent="uOkrZp9zEzWbIRnn9URp-106" vertex="1">
           <mxGeometry x="30" width="160" height="30" as="geometry">
             <mxRectangle width="160" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -262,7 +262,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="uOkrZp9zEzWbIRnn9URp-99" value="learningOutcomes []" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;" parent="uOkrZp9zEzWbIRnn9URp-97" vertex="1">
+        <mxCell id="uOkrZp9zEzWbIRnn9URp-99" value="learningOutcomes[]" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;" parent="uOkrZp9zEzWbIRnn9URp-97" vertex="1">
           <mxGeometry x="30" width="160" height="30" as="geometry">
             <mxRectangle width="160" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -580,7 +580,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="uOkrZp9zEzWbIRnn9URp-70" value="programOfferingAssociationId" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;" parent="uOkrZp9zEzWbIRnn9URp-68" vertex="1">
+        <mxCell id="uOkrZp9zEzWbIRnn9URp-70" value="programmeOfferingAssociationId" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;" parent="uOkrZp9zEzWbIRnn9URp-68" vertex="1">
           <mxGeometry x="30" width="258" height="30" as="geometry">
             <mxRectangle width="258" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -763,7 +763,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="uOkrZp9zEzWbIRnn9URp-95" value="parent" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;" parent="uOkrZp9zEzWbIRnn9URp-93" vertex="1">
+        <mxCell id="uOkrZp9zEzWbIRnn9URp-95" value="parents[]" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=0;" parent="uOkrZp9zEzWbIRnn9URp-93" vertex="1">
           <mxGeometry x="30" width="160" height="30" as="geometry">
             <mxRectangle width="160" height="30" as="alternateBounds" />
           </mxGeometry>
