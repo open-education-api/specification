@@ -139,7 +139,7 @@ properties:
     items:
       oneOf:
         - $ref: './Identifier.yaml'
-          title: programmeId
+          title: LearningOutcomeId
         - $ref: './LearningOutcome.yaml'
           title: LearningOutcome
   assessment:
