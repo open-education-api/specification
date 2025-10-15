@@ -64,7 +64,7 @@ allOf:
         minItems: 1
       programme:
         description: |
-          The Programme that is offered in this programmeoffering. [`expandable`](#tag/programme_model)
+          The programme that is offered in this programmeoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a programme.
           By default only the `programmeId` (a string) is returned. If the client requested an expansion of `programme` the full programme object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
@@ -74,12 +74,11 @@ allOf:
           - type: 'null'
       organisation:
         description: |
-          The organisation that manages this programmeeoffering. [`expandable`](#tag/organisation_model)
+          The organisation that manages this programmeeoffering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an Organisation.
           By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
             title: organisationId
           - $ref: './Organisation.yaml'
             title: Organisation object
-
           - type: 'null'

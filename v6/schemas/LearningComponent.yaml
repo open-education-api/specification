@@ -87,7 +87,7 @@ properties:
     items:
       $ref: '../schemas/Language.yaml'
   learningOutcomes:
-    description: Related Learning Outcomes to this learning component. This object is [`expandable`](#tag/learningoucome_model)
+    description: Related learning outcomes to this learning component. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome.
     type:
       - array
       - 'null'
@@ -158,7 +158,7 @@ properties:
           title: Expanded LearningComponent 
   course:
     description: |
-      The course of which this component is a part. [`expandable`](#tag/course_model)
+      The course of which this component is a part. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an course.
       By default only the `courseId` (a string) is returned. If the client requested an expansion of `course` the full course object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
@@ -168,7 +168,7 @@ properties:
       - type: 'null'
   organisation:
     description: |
-      The organisation which provides this component. [`expandable`](#tag/organisation_model)
+      The organisation which provides this component. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
       By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'

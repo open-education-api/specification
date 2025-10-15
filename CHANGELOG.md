@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Added filtering to all endpoints that support paging. Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
+## [6.0.0 Change qualificationAwarded ] - 2025-10-13
+
+### Changed
+- Changed LearningOutcome object to allow for multiple parents of a single LearningOutcome object. This allows for more flexible (matrix) style schematics of learning outcomes. Added relationship between attempt and result in the diagram. Changed the relationship type between rooms and components. Updated the cardinality overview in the spec.yaml file.
 
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-2
 
@@ -45,6 +49,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - expand of educationspecification expand on program
 ### Changed
+
+## [6.0.0 improvement of service endpoint for documentation on expand] - 2025-09-22
+
+### Added
+- Added aditional properties and query paths for the serivce path, indicating the availability of expand objects.
+
+### Changed
+- updated all expands to follow enum style
+
+
+## [6.0.0 improvement of documentation on expand] - 2025-09-19
+
+### Changed
+- Removed the links in expand pointing to an object that is expanded and changed it to an explanation about the expand mechanism.
+
 
 ## [6.0.0 optimalizations on attempt] - 2025-09-18
 

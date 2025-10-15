@@ -24,8 +24,8 @@ get:
           type: string
           enum:
             - course
-            - programmeOffering
-            - academicSession
+            - programme_offering
+            - academic_session
     - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
