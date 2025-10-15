@@ -1,6 +1,7 @@
+
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="2133" dy="2076" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="2363" dy="2236" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1374,7 +1375,7 @@
         <mxCell id="uOkrZp9zEzWbIRnn9URp-308" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="-700" y="-370" width="730" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="uOkrZp9zEzWbIRnn9URp-285" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Legenda and explanation OOAPI model&lt;/h1&gt;&lt;p&gt;The model descibes all the objects and meta objects that are part of the OOAPI specification. The model shows how the different elements are related to eachother and the types of relationship.&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font&gt;This model reads from left to right and from top bottom for the explanations of the relationships. The relations to the organization object are NOT part of thsi visual. However they can be seen in the tables of the specific objects&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1-1..n&amp;nbsp;&lt;/p&gt;&lt;p&gt;1-0..n&lt;/p&gt;&lt;p&gt;1-1&lt;/p&gt;&lt;p&gt;0..n - 0..n&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="uOkrZp9zEzWbIRnn9URp-308" vertex="1">
+        <mxCell id="uOkrZp9zEzWbIRnn9URp-285" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Legenda and explanation OOAPI model&lt;/h1&gt;&lt;p&gt;The model descibes all the objects and meta objects that are part of the OOAPI specification. The model shows how the different elements are related to eachother and the types of relationship.&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font&gt;This model reads from left to right and from top bottom for the explanations of the relationships. The relations to the organization object are NOT part of thsi visual. However they can be seen in the tables of the specific objects&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;0..1-0..n&lt;/p&gt;&lt;p&gt;1-1..n&amp;nbsp;&lt;/p&gt;&lt;p&gt;1-0..n&lt;/p&gt;&lt;p&gt;1-1&lt;/p&gt;&lt;p&gt;0..n- 0..n&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="uOkrZp9zEzWbIRnn9URp-308" vertex="1">
           <mxGeometry width="730" height="250" as="geometry" />
         </mxCell>
         <mxCell id="uOkrZp9zEzWbIRnn9URp-287" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;startArrow=ERmandOne;startFill=0;" parent="uOkrZp9zEzWbIRnn9URp-308" edge="1">
@@ -1544,10 +1545,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="jG558Vw9HbPCkFiOapdN-1" value="update since i5:&amp;nbsp;&lt;div&gt;add recursive relations for both learningComponent and testComponent&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="80" y="939" width="120" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="EpnzTtz-bnIO-brRWXGO-1" value="update since i6:&amp;nbsp;&lt;div&gt;changed relationship between learning Outcomes as N-M&lt;/div&gt;&lt;div&gt;Changed relationship from alll education specifications as N-M withe learning Outcomes&lt;/div&gt;&lt;div&gt;Renamed educationdescription to education sepcification for closer alignment with HORA&lt;/div&gt;&lt;div&gt;made room optional&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="210" y="939" width="240" height="180" as="geometry" />
+          <mxGeometry x="70" y="940" width="120" height="180" as="geometry" />
         </mxCell>
         <mxCell id="EpnzTtz-bnIO-brRWXGO-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=ERzeroToOne;endFill=0;startArrow=ERmandOne;startFill=0;curved=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="uOkrZp9zEzWbIRnn9URp-156" target="eWkyTOD2OdynfhoFvHL--9" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -1558,6 +1556,19 @@
               <mxPoint x="1320" y="837" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="IpP8emOQjiCXe5HEGRQh-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERzeroToOne;endFill=0;startArrow=ERzeroToMany;startFill=0;curved=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-597" y="-241" as="sourcePoint" />
+            <mxPoint x="-637" y="-241" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-617" y="-241" />
+              <mxPoint x="-617" y="-241" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IpP8emOQjiCXe5HEGRQh-5" value="&lt;span style=&quot;&quot;&gt;update since i6:&amp;nbsp;&lt;/span&gt;&lt;div style=&quot;&quot;&gt;changed relationship between learning Outcomes as N-M&lt;/div&gt;&lt;div style=&quot;&quot;&gt;Changed relationship from all education specifications as N-M withe learning Outcomes&lt;/div&gt;&lt;div style=&quot;&quot;&gt;Renamed educationDescription to educationSpecification for closer alignment with HORA&lt;/div&gt;&lt;div style=&quot;&quot;&gt;made room optional&lt;/div&gt;&lt;div style=&quot;&quot;&gt;added relation between result and attempt&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="940" width="210" height="180" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-14
 
 ### Changed
-- fix reference of learningcomponent in programme. Changes to the model
+- fix reference of learningcomponent in programme. Changes to the model. Update diagram and explanations
 
 
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-13
