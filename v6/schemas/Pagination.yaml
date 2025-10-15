@@ -10,20 +10,24 @@ properties:
     format: int32
     description: The number of items per page
     example: 10
+    readOnly: true
   pageNumber:
     type: integer
     format: int32
     description: The current page number
     example: 1
     minimum: 1
+    readOnly: true
   hasPreviousPage:
     type: boolean
     description: Whether there is a previous page
     example: false
+    readOnly: true
   hasNextPage:
     type: boolean
     description: Whether there is a previous page
     example: true
+    readOnly: true
   totalPages:
     type:
       - integer
@@ -31,3 +35,4 @@ properties:
     format: int32
     description: Total number of pages
     example: 8
+    readOnly: true

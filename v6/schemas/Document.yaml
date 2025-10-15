@@ -8,6 +8,7 @@ properties:
     type: string
     description: The unique identifier of the document
     example: 12345678-1234-1234-1234-123456789012
+    readOnly: true
   documentType:
     $ref: ../enumerations/documentType.yaml
   documentName:

@@ -13,6 +13,7 @@ properties:
     description: Unique id for this group
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
+    readOnly: true
   primaryCode:
     description: The primary human readable identifier for this group. This is often the source identifier as defined by the institution.
     $ref: './IdentifierEntry.yaml'
