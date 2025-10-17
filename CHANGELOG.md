@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Update othercodes ] - 2025-10-15
+
+### Changed
+- minItems removed from otherCodes in Organisation.yaml to be consistant with all other otherCodes arrays.
+
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-13
 
 ### Changed
