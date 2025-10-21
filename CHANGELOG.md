@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [6.0.0 Make organisations more generic] - 2025-10-21
 
+### Changed
+- **birthDate**, **nationalityDate** 
+  Updated description to clarify that the property uses the `full-date` format as defined in RFC 3339 (section 5.6),  
+  rather than `date-time`, since the time component is not applicable.
+
+## [6.0.0 Make organisations more generic] - 2025-10-21
+
 ### Added
 
 - Added a PUT /organisations to spec.yaml to support event based communication on organisations and organisational units.
