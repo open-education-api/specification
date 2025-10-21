@@ -85,7 +85,7 @@ properties:
         code: '50277374'
   root:
     description: |
-      The organisationwhich is the root organisation of this organisation. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When root is expanded, the full object MUST be returned. In this case an organisation.
+      The organisation which is the root organisation of this organisation. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When root is expanded, the full object MUST be returned. In this case an organisation.
       By default only the `organisationId` (a string) is returned. If the client requested an expansion of `root` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
