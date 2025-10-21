@@ -1,9 +1,11 @@
 type: string
 description: |
-  The level of the learning outcome. Two common frameworks are supported: SOLO and
-  Bloom. Both are extensible; additional frameworks may be added if required.
+  The level of the learning outcome. This field supports multiple frameworks for
+  describing cognitive complexity. Two common frameworks are provided below: **Bloom’s**
+  and **SOLO**. These are intended as examples — additional levels or entirely
+  different frameworks MAY be added as needed.
 
-  **Bloom’s taxonomy** (https://bloomstaxonomy.net/):
+  **Bloom’s taxonomy** (https://en.wikipedia.org/wiki/Bloom's_taxonomy):
 
   | Level   | Label      | Description                                                         |
   |---------|------------|---------------------------------------------------------------------|
@@ -14,7 +16,7 @@ description: |
   | bloom_5 | Evaluate   | Justify a decision or course of action (critique, assess, argue).   |
   | bloom_6 | Create     | Produce new or original work (design, construct, develop).          |
 
-  **SOLO taxonomy** (https://www.johnbiggs.com.au/academic/solo-taxonomy/):
+  **SOLO taxonomy** (https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome):
 
   | Level   | Label             | Description                                                     |
   |---------|-------------------|-----------------------------------------------------------------|
@@ -28,7 +30,10 @@ description: |
   | solo_4  | Extended abstract | Generalises and applies learning to new domains, showing        |
   |         |                   | theoretical and abstract thinking.                              |
 
-  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+  This is an *extensible enumeration*. Implementers MAY introduce other recognised
+  taxonomies, institutional or national frameworks.  
+
+  Custom values SHOULD use the prefix `x-` (e.g., `x-eqf_level_5` or `x-custom_1`).
 x-ooapi-extensible-enum:
   - bloom_1
   - bloom_2
