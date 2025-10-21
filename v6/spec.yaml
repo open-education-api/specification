@@ -395,7 +395,8 @@ tags:
   - name: organisations
     description: |
       The organisations API provides the organisations that are responsible for the
-      execution and recognition of education.
+      execution and recognition of education, either as an educational institution or
+      as an organisation providing services, internships or facilities.
 
   - name: person_model
     x-displayName: Person
