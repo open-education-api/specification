@@ -1,12 +1,12 @@
 type: string
 description: |
-  The type of this organisation. Each OOAPI endpoint should have a single organisation with type root, describing the root organisation.
+  The type of this organisation. When using non-root organisation types, make sure that there is always a parent organisation of type root available.
 
-  - root: The top-level organisation, representing the educational institution itself
+  - root: The top-level organisation, representing the organisation itself
   - institute: A subdivision of the root organisation, typically focused on a broad field of study
-  - department: An organisational unit within a faculty or institute, focused on a specific discipline
-  - faculty: A major academic division within the institution, often overseeing multiple departments
-  - branch: A geographically separate location or campus of the institution
+  - department: An organisational unit within an organisation or one of the subdivisions of an organisation, focused on a specific discipline
+  - faculty: A major academic division within an institution, often overseeing multiple departments
+  - branch: A geographically separate location or campus of an organisation
   - academy: A specialised academic unit, often focused on applied or artistic disciplines
   - school: An organisational unit typically used in primary, secondary, or specialised higher education contexts
 
