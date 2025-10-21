@@ -5,7 +5,7 @@ description: |
   and **SOLO**. These are intended as examples — additional levels or entirely
   different frameworks MAY be added as needed.
 
-  **Bloom’s taxonomy** (https://en.wikipedia.org/wiki/Bloom's_taxonomy):
+  **Bloom’s taxonomy** ([https://en.wikipedia.org/wiki/Bloom's_taxonomy](https://en.wikipedia.org/wiki/Bloom's_taxonomy)):
 
   | Level   | Label      | Description                                                         |
   |---------|------------|---------------------------------------------------------------------|
@@ -16,7 +16,7 @@ description: |
   | bloom_5 | Evaluate   | Justify a decision or course of action (critique, assess, argue).   |
   | bloom_6 | Create     | Produce new or original work (design, construct, develop).          |
 
-  **SOLO taxonomy** (https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome):
+  **SOLO taxonomy** ([https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome](https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome)):
 
   | Level   | Label             | Description                                                     |
   |---------|-------------------|-----------------------------------------------------------------|
@@ -33,7 +33,6 @@ description: |
   This is an *extensible enumeration*. Implementers MAY introduce other recognised
   taxonomies, institutional or national frameworks.  
 
-  Custom values SHOULD use the prefix `x-` (e.g., `x-eqf_level_5` or `x-custom_1`).
 x-ooapi-extensible-enum:
   - bloom_1
   - bloom_2
