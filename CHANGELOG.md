@@ -5,12 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<<<<<<< HEAD
 ## [6.0.0 Update link to formatting-text ] - 2025-10-21
 
 ### Changed
 - Update link for formatting text to (https://openonderwijsapi.nl/#/technical/formatting-text)
-=======
 ## [6.0.0 Make organisations more generic] - 2025-10-21
 
 ### Added
@@ -28,7 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - minItems removed from otherCodes in Organisation.yaml to be consistant with all other otherCodes arrays.
->>>>>>> origin/6.0
 
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-13
 
