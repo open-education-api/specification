@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - mUpdated read-only and write-only to match ID's
+## [6.0.0 Update othercodes ] - 2025-10-15
+
+### Changed
+- minItems removed from otherCodes in Organisation.yaml to be consistant with all other otherCodes arrays.
+
+## [6.0.0 Change qualificationAwarded ] - 2025-10-13
+
+### Changed
+- Changed LearningOutcome object to allow for multiple parents of a single LearningOutcome object. This allows for more flexible (matrix) style schematics of learning outcomes. Added relationship between attempt and result in the diagram. Changed the relationship type between rooms and components. Updated the cardinality overview in the spec.yaml file.
 
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-2
 
