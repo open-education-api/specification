@@ -69,7 +69,9 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: programmeId
-          - $ref: './Programme.yaml'
+          - allOf:
+              - $ref: './Programme.yaml'
+              - readOnly: true
             title: Programme object
           - type: 'null'
       organisation:
@@ -79,6 +81,8 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: organisationId
-          - $ref: './Organisation.yaml'
+          - allOf: 
+              - $ref: './Organisation.yaml'
+              - readOnly: true
             title: Organisation object
           - type: 'null'

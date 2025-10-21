@@ -17,7 +17,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: academicSessionId
-      - $ref: './AcademicSession.yaml'
+      - allOf:
+          - $ref: './AcademicSession.yaml'
+          - readOnly: true
         title: AcademicSession object
       - type: 'null'
   name:

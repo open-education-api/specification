@@ -16,7 +16,9 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: offeringId
-          - $ref: './TestComponentOffering.yaml'
+          - allOf:
+              - $ref: './TestComponentOffering.yaml'
+              - readOnly: true
             title: TestComponentOffering
       attempts:
         type:

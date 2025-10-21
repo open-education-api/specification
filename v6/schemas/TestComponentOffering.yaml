@@ -67,7 +67,9 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: componentId
-          - $ref: './TestComponent.yaml'
+          - allOf: 
+              - $ref: './TestComponent.yaml'
+              - readOnly: true
             title: Test Component object
           - type: 'null'
       courseOfferings:
@@ -81,7 +83,9 @@ allOf:
           oneOf:
             - $ref: './Identifier.yaml'
               title: courseOfferingId
-            - $ref: './CourseOffering.yaml'
+            - allOf:
+                - $ref: './CourseOffering.yaml'
+                - readOnly: true
               title: CourseOffering object
       organisation:
         description: |
@@ -90,7 +94,9 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: organisationId
-          - $ref: './Organisation.yaml'
+          - allOf: 
+              - $ref: './Organisation.yaml'
+              - readOnly: true
             title: Organisation object
           - type: 'null'
       documents:

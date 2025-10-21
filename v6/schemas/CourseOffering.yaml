@@ -70,7 +70,9 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: courseId
-          - $ref: './Course.yaml'
+          - allOf:
+              - $ref: './Course.yaml'
+              - readOnly: true
             title: Course object
           - type: 'null'
       programmeOfferings:
@@ -84,7 +86,9 @@ allOf:
           oneOf:
             - $ref: './Identifier.yaml'
               title: programmeOfferingId
-            - $ref: './ProgrammeOffering.yaml'
+            - allOf:
+                - $ref: './ProgrammeOffering.yaml'
+                - readOnly: true
               title: ProgrammeOffering object
       organisation:
         description: |
@@ -93,6 +97,8 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: organisationId
-          - $ref: './Organisation.yaml'
+          - allOf:
+              - $ref: './Organisation.yaml'
+              - readOnly: true
             title: Organisation object
           - type: 'null'

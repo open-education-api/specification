@@ -88,7 +88,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: organisationId
-      - $ref: './Organisation.yaml'
+      - allOf:
+          - $ref: './Organisation.yaml'
+          - readOnly: true
         title: Expanded organisation
       - type: 'null'
   academicSession:
@@ -98,7 +100,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: academicSessionId
-      - $ref: './AcademicSession.yaml'
+      - allOf:
+          - $ref: './AcademicSession.yaml'
+          - readOnly: true
         title: AcademicSession object
       - type: 'null'
   ext:

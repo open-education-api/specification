@@ -53,7 +53,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: assessorId
-      - $ref: './Person.yaml'
+      - allOf:
+          - $ref: './Person.yaml'
+          - readOnly: true
         title: Person object
       - type: 'null'
   resultDateTime:

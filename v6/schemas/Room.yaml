@@ -104,7 +104,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: buildingId
-      - $ref: './Building.yaml'
+      - allOf:
+          - $ref: './Building.yaml'
+          - readOnly: true
         title: Building object
       - type: 'null'
   consumer:

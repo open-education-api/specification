@@ -94,8 +94,10 @@ properties:
     items:
       oneOf:
         - $ref: './Identifier.yaml'
-          title: programmeId
-        - $ref: './LearningOutcome.yaml'
+          title: learningOutcomeId
+        - allOf: 
+            - $ref: './LearningOutcome.yaml'
+            - readOnly: true
           title: LearningOutcome
   enrolment:
     type:
@@ -145,7 +147,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: learningComponentId
-      - $ref: './LearningComponent.yaml'
+      - allOf: 
+          - $ref: './LearningComponent.yaml'
+          - readOnly: true
         title: Expanded learningComponent    
   children:
     type: array
@@ -154,7 +158,9 @@ properties:
       oneOf:
         - $ref: './Identifier.yaml'
           title: learningComponentId
-        - $ref: './LearningComponent.yaml'
+        - allOf: 
+            - $ref: './LearningComponent.yaml'
+            - readOnly: true
           title: Expanded LearningComponent 
   course:
     description: |
@@ -163,7 +169,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: courseId
-      - $ref: './Course.yaml'
+      - allOf:
+          - $ref: './Course.yaml'
+          - readOnly: true
         title: Course object
       - type: 'null'
   organisation:
@@ -173,7 +181,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: organisationId
-      - $ref: './Organisation.yaml'
+      - allOf: 
+          - $ref: './Organisation.yaml'
+          - readOnly: true
         title: Organisation object
       - type: 'null'
   consumer:

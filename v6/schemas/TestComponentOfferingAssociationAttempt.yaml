@@ -73,7 +73,9 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: coordinatorId
-      - $ref: './Person.yaml'
+      - allOf:
+          - $ref: './Person.yaml'
+          - readOnly: true
         title: Person object
       - type: 'null'
   documents:

@@ -10,11 +10,15 @@ allOf:
         oneOf:
           - $ref: './Identifier.yaml'
             title: personId
-          - $ref: './Person.yaml'
+          - allOf:
+              - $ref: './Person.yaml'
+              - readOnly: true
             title: Person
       offering:
         oneOf:
           - $ref: './Identifier.yaml'
             title: offeringId
-          - $ref: './ProgrammeOffering.yaml'
+          - allOf:
+              - $ref: './ProgrammeOffering.yaml'
+              - readOnly: true
             title: ProgrammeOffering

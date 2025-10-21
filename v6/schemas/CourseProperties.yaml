@@ -187,7 +187,9 @@ properties:
       oneOf:
         - $ref: './Identifier.yaml'
           title: programmeId
-        - $ref: './Programme.yaml'
+        - allOf:
+            - $ref: './Programme.yaml'
+            - readOnly: true
           title: Programme object
   coordinators:
     description: The person(s) responsible for this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a person.
@@ -198,7 +200,9 @@ properties:
       oneOf:
         - $ref: './Identifier.yaml'
           title: personId
-        - $ref: './Person.yaml'
+        - allOf:
+            - $ref: './Person.yaml'
+            - readOnly: true
           title: Person object
   organisation:
     description: |
@@ -207,6 +211,8 @@ properties:
     oneOf:
       - $ref: './Identifier.yaml'
         title: organisationId
-      - $ref: './Organisation.yaml'
+      - allOf:
+          - $ref: './Organisation.yaml'
+          - readOnly: true
         title: Organisation object
       - type: 'null'
