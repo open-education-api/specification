@@ -17,6 +17,11 @@ description: |
   - The availability and behaviour of this query functionality are entirely determined by the organisation hosting
     the API implementation. It is not mandatory for all implementers to support this functionality, and it cannot be
     enforced upon organisations that consume OOAPI endpoints as clients.
+  - It is up to each implementer to decide whether to support this feature. It is **not** a requirement of the OOAPI 
+    standard itself.
+  - Consumers or working groups that wish to apply specific filtering mechanisms are encouraged to do so using 
+    this approach for the sake of consistency across implementations.
+    
 schema:
   type: array
   items:
