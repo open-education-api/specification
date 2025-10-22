@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - paths/PersonGroupCollection.yaml
 - schemas/GroupExpanded.yaml
 - schemas/OfferingIdAndType.yaml
+## [6.0.0 Change qualificationAwarded ] - 2025-10-20
+
+### Changed
+- fix reference of learningcomponent in programme. Changes to the model. Update diagram and explanations
 ## [6.0.0 Update link to formatting-text ] - 2025-10-21
 
 ### Changed
