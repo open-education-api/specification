@@ -1,0 +1,14 @@
+type: string
+description: |
+  Precision indicator with values for rostering puroposes:
+    
+  - definitive: Confirmed final timeslot
+  - preliminary: Maximum time range, will be refined
+  - tentative: Scheduled but subject to change
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - definitive
+  - preliminary
+  - tentative
+example: definitive
