@@ -135,7 +135,7 @@ properties:
     description: The extra information that is provided for enrolment
     example:
       - language: en-GB
-        value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+        value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/#/technical/formatting-text) MAY be used for rich text representation.
   resources:
     type:
       - array

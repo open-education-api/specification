@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Added fields that should be returned in URL. Fields not requested (except mandatory ones) will not be returned.
 
+## [6.0.0 Update link to formatting-text ] - 2025-10-21
+
+### Changed
+- Update link for formatting text to (https://openonderwijsapi.nl/#/technical/formatting-text)
 ## [6.0.0 Add filtering ] - 2025-10-21
 
 ### Changed
