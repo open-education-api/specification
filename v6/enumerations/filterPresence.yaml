@@ -1,0 +1,25 @@
+type: string
+description: |
+  Presence check or special value for filter operations.
+
+  Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
+
+  Implementation note:
+  - The availability and behaviour of this query functionality are entirely determined by the organisation hosting
+    the API implementation. It is not mandatory for implementers to support this functionality, and it cannot be enforced 
+    upon organisations that provide or consume OOAPI endpoints.
+  - It is up to each implementer to decide whether to support this feature. It is **not** a requirement of the OOAPI 
+    standard itself.
+  - Consumers or working groups that wish to apply specific filtering mechanisms are encouraged to do so using 
+    this approach for the sake of consistency across implementations.
+
+enum:
+  - empty
+  - not_empty
+  - empty_array
+  - not_empty_array
+  - 'true'
+  - 'false'
+  - 'null'
+  - not_null
+example: not_empty
