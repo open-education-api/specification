@@ -24,13 +24,13 @@ get:
           type: string
           enum:
             - programme
-            - programmeOffering
+            - programme_offering
             - course
-            - courseOffering
-            - learningComponent
-            - testComponent
+            - course_offering
+            - learning_component
+            - test_component
             - organisation
-            - academicSession
+            - academic_session
     - $ref: '../parameters/consumer.yaml'
   responses:
     '200':

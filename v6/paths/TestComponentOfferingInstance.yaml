@@ -23,7 +23,7 @@ get:
         items:
           type: string
           enum:
-            - test-component
+            - test_component
             - organisation
     - $ref: '../parameters/consumer.yaml'
   responses:

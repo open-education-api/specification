@@ -98,7 +98,7 @@ properties:
       $ref: './IdentifierEntry.yaml'
   building:
     description: |
-      The building in which the room is located. [`expandable`](#tag/building_model)
+      The building in which the room is located. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a building.
       By default only the `buildingId` (a string) is returned. If the client requested an expansion of `building` the full building object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
