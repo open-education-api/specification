@@ -11,14 +11,12 @@ properties:
     description: Unique id of this organisation
     format: uuid
     example: 123e4567-e89b-12d3-a456-123514174000
-    readOnly: true
   primaryCode:
-    description: The primary human readable identifier for the organisation. This is often the source identifier as defined by the institution.
+    description: The primary human readable identifier for the organisation. This is often the source identifier as defined by the root organisation.
     $ref: './IdentifierEntry.yaml'
     example:
-      codeType: orgId
+      codeType: organisation_id
       code: Org01-Root
-    readOnly: true
   organisationType:
     $ref: '../enumerations/organisationType.yaml'
   name:
@@ -41,7 +39,9 @@ properties:
     type:
       - array
       - 'null'
-    description: Any general description of the organisation should clearly mention the type of education organisation, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
+    description: | 
+      If the organisation is an educational organisation, any general description should clearly mention the type of education organisation, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
+      If the organisation is not an educational organisation, a general description should describe the role it plays in education like providing certain types of internships, educational services, products or facilities.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
@@ -80,9 +80,19 @@ properties:
       $ref: './IdentifierEntry.yaml'
     example:
       - codeType: institution_code
-        code: 00AA
-      - codeType: kvk
-        code: '12345678'
+        code: 114B529
+      - codeType: kvk_organisation_id
+        code: '50277374'
+  root:
+    description: |
+      The organisation which is the root organisation of this organisation. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When root is expanded, the full object MUST be returned. In this case an organisation.
+      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `root` the full organisation object should be returned.
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: organisationId
+      - $ref: './Organisation.yaml'
+        title: Organisation object
+      - type: 'null'
   parent:
     description: |
       The organisational unit which is the parent of this organisation. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When parent is expanded, the full object MUST be returned. In this case an organisation.
