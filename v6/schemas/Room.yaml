@@ -39,7 +39,7 @@ properties:
     type:
       - array
       - 'null'
-    description: The description of this room. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+    description: The description of this room. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/#/technical/formatting-text) MAY be used for rich text representation.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
