@@ -8,6 +8,8 @@ get:
     - $ref: '../parameters/primaryCode.yaml'
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - name: groupType
