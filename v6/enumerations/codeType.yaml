@@ -11,6 +11,11 @@ description: |
   |                           | Registry (BAG).                                                   |
   | `building_id`             | Identifier for a building.                                        |
   | `component_code`          | Identifier for a component (part of a course).                    |
+  | `eckid`                   | Identifier assigned within the Dutch *Educatieve ContentKeten iD* |
+  |                           | framework. It enables persistent identification and exchange of   |
+  |                           | digital learning resources within the Dutch educational sector.   |
+  |                           | Comparable international approaches include LRMI, DOI and Handle  |
+  |                           | identifiers for learning resources.                               |
   | `email_address`           | An email address.                                                 |
   | `esi`                     | European Student Identifier.                                      |
   | `group_code`              | Identifier for a group of people.                                 |
@@ -54,6 +59,7 @@ x-ooapi-extensible-enum:
   - bag_id
   - building_id
   - component_code
+  - eckid
   - email_address
   - esi
   - group_code
