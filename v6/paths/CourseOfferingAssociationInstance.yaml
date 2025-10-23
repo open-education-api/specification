@@ -25,6 +25,7 @@ get:
           enum:
             - person
             - course_offering
+    - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
