@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - eckid added to enumeration codeType
+## [6.0.0 Add fieldselection] - 2025-10-22
+
+### Changed
+- Added fields that should be returned in URL. Fields not requested (except mandatory ones) will not be returned.
 
 ## [6.0.0 Remove unused files] - 2025-10-21
 
