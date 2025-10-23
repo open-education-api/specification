@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   GET /course-offerings/{courseOfferingId}/learning-component-offerings
   GET /course-offerings/{courseOfferingId}/test-component-offerings
 - added enum for rostering purposes
+## [6.0.0 Remove unused files] - 2025-10-23
+
+### Changed
+
+- Either the preferred name, given name or the surname MUST be provided. At least one of these two fields is required to identify the person.
 ## [6.0.0 clarify that some properties use the `full-date`] - 2025-10-21
 
 ### Changed
@@ -44,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - paths/PersonGroupCollection.yaml
 - schemas/GroupExpanded.yaml
 - schemas/OfferingIdAndType.yaml
+
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-20
 
 ### Changed
