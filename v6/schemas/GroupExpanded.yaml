@@ -1,9 +1,0 @@
-allOf:
-  - $ref: './Group.yaml'
-  - type: object
-    description: These properties are only present when explicitly included. This allows for categorizing of groups
-    properties:
-      organisation:
-        allOf: # Use allOf to make sure description renders
-          - $ref: './Organisation.yaml'
-          - description: The organisation providing this group
