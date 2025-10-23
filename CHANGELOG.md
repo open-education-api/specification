@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   GET /course-offerings/{courseOfferingId}/learning-component-offerings
   GET /course-offerings/{courseOfferingId}/test-component-offerings
 - added enum for rostering purposes
+## [6.0.0 Clarification frameworks] - 2025-10-21
+
+### Changed
+
+- Clarification of the learningoutcome frameworks
 ## [6.0.0 eckid added to codeType enumeration ] - 2025-10-22
 
 ### Added
