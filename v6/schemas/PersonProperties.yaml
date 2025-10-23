@@ -9,6 +9,10 @@ anyOf:
       - givenname
       - primaryCode
       - activeEnrolment
+  - required:
+      - preferredName
+      - primaryCode
+      - activeEnrolment
 properties:
   primaryCode:
     description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
