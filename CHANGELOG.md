@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **birthDate**, **nationalityDate** 
   Updated description to clarify that the property uses the `full-date` format as defined in RFC 3339 (section 5.6),  
   rather than `date-time`, since the time component is not applicable.
+## [6.0.0 eckid added to codeType enumeration ] - 2025-10-22
+
+### Added
+- eckid added to enumeration codeType
 ## [6.0.0 Add fieldselection] - 2025-10-22
 
 ### Changed
