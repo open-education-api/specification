@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Added fields that should be returned in URL. Fields not requested (except mandatory ones) will not be returned.
 
+## [6.0.0 Remove unused files] - 2025-10-21
+
+### Removed
+
+- enumerations/newsItemType.yaml
+- enumerations/offeringType.yaml
+- paths/CourseOfferingCollection.yaml
+- paths/GroupPersonCollection.yaml
+- paths/OfferingGroupCollection.yaml
+- paths/PersonGroupCollection.yaml
+- schemas/GroupExpanded.yaml
+- schemas/OfferingIdAndType.yaml
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-20
 
 ### Changed
