@@ -1,9 +1,14 @@
 type: object
 description: A person that has a relationship with this institution
-required:
-  - surname
-  - primaryCode
-  - activeEnrolment
+anyOf:
+  - required:
+      - surname
+      - primaryCode
+      - activeEnrolment
+  - required:
+      - givenname
+      - primaryCode
+      - activeEnrolment
 properties:
   primaryCode:
     description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
