@@ -13,8 +13,9 @@ description: |
   | `component_code`          | Identifier for a component (part of a course).                    |
   | `eckid`                   | Identifier assigned within the Dutch *Educatieve ContentKeten iD* |
   |                           | framework. It enables persistent identification and exchange of   |
-  |                           | digital learning resources within the Dutch educational sector.   |
-  |                           | Comparable international approaches include LRMI, DOI and Handle  |
+  |                           | digital learning resources within the Dutch educational sector for|
+  |                           | EQF levels 1, 2, 3 and 4. Comparable international approaches     |
+  |                           | include LRMI, DOI and Handle                                      |
   |                           | identifiers for learning resources.                               |
   | `email_address`           | An email address.                                                 |
   | `esi`                     | European Student Identifier.                                      |
