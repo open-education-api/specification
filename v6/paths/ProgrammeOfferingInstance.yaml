@@ -31,6 +31,7 @@ get:
             - test_component
             - organisation
             - academic_session
+    - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
