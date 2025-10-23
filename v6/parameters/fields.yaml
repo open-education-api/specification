@@ -15,7 +15,7 @@ description: |
 
   When omitted, the server returns all fields the client has access to.  
   Unknown field names SHOULD be ignored.  
-  The server SHOULD/MUST always include *mandatory fields* (e.g., identifiers such as `id`) 
+  The server MUST always include *mandatory fields* (e.g., identifiers such as `id`) 
   that are required for a valid or minimal response, even if not explicitly requested.
 
   *Important:* This is a **request hint**, not a **security feature**.  
