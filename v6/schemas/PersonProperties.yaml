@@ -93,7 +93,9 @@ properties:
     type:
       - string
       - 'null'
-    description: The date of birth of this person, RFC3339 (date-time)
+    description: |
+      The date of birth of this person, using the `full-date` format as defined in 
+      RFC 3339 (section 5.6).
     format: date
     example: '2003-09-30'
   cityOfBirth:
@@ -114,7 +116,9 @@ properties:
     type:
       - string
       - 'null'
-    description: The date of nationality of this person, RFC3339 (date-time)
+    description: |
+      The date of nationality of this person, using the `full-date` format as defined in 
+      RFC 3339 (section 5.6).
     format: date
     example: '2003-09-30'
   affiliations:
