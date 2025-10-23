@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Either the given name or the family name MUST be provided. At least one of these two fields is required to identify the person.
+## [6.0.0 eckid added to codeType enumeration ] - 2025-10-22
+
+### Added
+- eckid added to enumeration codeType
 ## [6.0.0 Add fieldselection] - 2025-10-22
 
 ### Changed
