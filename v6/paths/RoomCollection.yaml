@@ -11,6 +11,7 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/filterQuery.yaml'
     - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/search.yaml'
     - name: roomType
       in: query
