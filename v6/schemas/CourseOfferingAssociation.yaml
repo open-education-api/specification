@@ -5,8 +5,12 @@ allOf:
     properties:
       studyLoad:
         description: |
-          Only required when the studyload for the individual student/enrollment is different 
+          Only required when the studyload for the individual student/enrolment is different 
           from the studyload of the course offering.
-        $ref: './StudyLoadDescriptor.yaml'
+        oneOf:
+          - $ref: './StudyLoadDescriptor.yaml'
+          - type: 'null'
       result:
-        $ref: './CourseOfferingAssociationResult.yaml'
+        oneOf:
+          - $ref: './CourseOfferingAssociationResult.yaml'
+          - type: 'null'

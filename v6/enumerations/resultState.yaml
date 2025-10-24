@@ -1,5 +1,13 @@
 type: string
-description: The state of this result
+description: |
+  The state of this result:
+
+  - in_progress: The result is currently being worked on or assessed
+  - postponed: The result process has been delayed and will be resumed later
+  - completed: The result has been finalised and recorded
+  - queued: The result is awaiting processing or evaluation
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - in_progress
   - postponed

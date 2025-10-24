@@ -1,7 +1,9 @@
 allOf:
-  - $ref: '../schemas/CourseOfferingAssociation.yaml'
-
-properties:
-  offering:
-    description: The offering this association is for
-    $ref: '../schemas/CourseOffering.yaml'
+  - $ref: './CourseOfferingAssociation.yaml'
+  - type: object
+    properties:
+      offering:
+        description: The offering this association is for
+        oneOf:
+          - $ref: './CourseOffering.yaml'
+          - type: 'null'

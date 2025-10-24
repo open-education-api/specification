@@ -1,11 +1,18 @@
 get:
   summary: GET /persons/me
   operationId: listPersonByMyOauthId
-  description: Returns the person object for the currently authenticated user.
-  security:
-    - openId: []
+  description: |
+    Returns the person object for the currently authenticated user.
+
+    Security must be implemented at the level of the actual deployment rather than in the core 
+    specification. This means that the specification remains neutral, while concrete security 
+    measures can be applied in practice using established techniques such as OpenID with 
+    fine-grained scopes.
   tags:
     - persons
+  parameters:
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK

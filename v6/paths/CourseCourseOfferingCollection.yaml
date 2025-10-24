@@ -15,8 +15,12 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
+    - $ref: '../parameters/offeringState.yaml'
     - name: modeOfDelivery
       in: query
       description: Filter by modeOfDelivery
@@ -31,14 +35,14 @@ get:
         type: boolean
     - name: since
       in: query
-      description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
+      description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
       required: false
       schema:
         type: string
         format: date-time
     - name: until
       in: query
-      description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
+      description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
       required: false
       schema:
         type: string

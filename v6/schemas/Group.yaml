@@ -28,68 +28,79 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: statistics students
+      - language: en-GB
+        value: statistics students
   description:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The description of this group
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: The group of students that follow statistics classes
+      - language: en-GB
+        value: The group of students that follow statistics classes
   startDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     description: |
-      The moment on which this group starts being active, RFC3339 (full-date).
+      The moment on which this group starts being active, RFC3339 (date-time).
       Groups can be ordered in time through the academic-session  
       The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
     format: date-time
     example: 2025-05-30T20:00:00+01:00
   endDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     description: |
-      The moment on which this group ends being active, RFC3339 (full-date)
+      The moment on which this group ends being active, RFC3339 (date-time)
       Groups can be ordered in time through the academic-session  
       The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
     format: date-time
     example: 2025-06-30T20:00:00+01:00
   personCount:
-    type: number
+    type:
+      - number
+      - 'null'
     description: The number of persons that are member of this group
     format: int32
     minimum: 0
     example: 183
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
-  organization:
+  consumer:
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
+  organisation:
     description: |
-      The organization that manages this group. [`expandable`](.#tag/organization_model)
-      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+      The organisation that manages this group. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
+      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
-        title: organizationId
-      - $ref: './Organization.yaml'
-        title: Expanded organization      
+        title: organisationId
+      - $ref: './Organisation.yaml'
+        title: Expanded organisation
+      - type: 'null'
   academicSession:
     description: |
-      The academicsession for which this group is intended. [`expandable`](#tag/academic_session_model)
+      The academicsession for which this group is intended. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academic session.
       By default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
         title: academicSessionId
       - $ref: './AcademicSession.yaml'
         title: AcademicSession object
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

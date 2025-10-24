@@ -4,7 +4,6 @@ required:
   - pageNumber
   - hasPreviousPage
   - hasNextPage
-  - items
 properties:
   pageSize:
     type: integer
@@ -26,7 +25,9 @@ properties:
     description: Whether there is a previous page
     example: true
   totalPages:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Total number of pages
     example: 8

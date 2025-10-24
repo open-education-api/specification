@@ -14,6 +14,9 @@ get:
         format: uuid
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
     - name: role
       in: query
@@ -48,16 +51,16 @@ get:
                   items:
                     type: array
                     items:
-                      - allOf:
-                          - $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
-                          - type: object
-                            required:
-                              - offering
-                            properties:
-                              offering:
-                                $ref: '../schemas/LearningComponentOffering.yaml'
-                              academicSession:
-                                $ref: '../schemas/AcademicSession.yaml'
+                      allOf:
+                        - $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
+                        - type: object
+                          required:
+                            - offering
+                          properties:
+                            offering:
+                              $ref: '../schemas/LearningComponentOffering.yaml'
+                            academicSession:
+                              $ref: '../schemas/AcademicSession.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

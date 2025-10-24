@@ -1,73 +1,95 @@
 allOf:
-  - $ref: '../schemas/OfferingId.yaml'
-  - $ref: '../schemas/OfferingProperties.yaml'
+  - $ref: './OfferingId.yaml'
+  - $ref: './OfferingProperties.yaml'
   - type: object
     description: |
       startDateTime and endDateTime of an offering are to be provided at least in the state `active`. In all other states the
       times on the academic session should indicate in what timeframe the offering will or should have been available.
     properties:
       startDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment on which this offering starts, RFC3339 (date-time)
         format: date-time
         example: 2020-12-15T10:00:00+01:00
       endDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
         example: 2020-12-16T18:00:00+01:00
-      enrollStartDateTime:
-        type: string
-        description: The moment from which a student can enroll for this component, RFC3339 (date-time).
+      enrolStartDateTime:
+        type:
+          - string
+          - 'null'
+        description: The moment from which a student can enrol for this component, RFC3339 (date-time).
         format: date-time
-      enrollEndDateTime:
-        type: string
-        description: The last moment to which a student can enroll for this component, RFC3339 (date-time).
+        example: "2025-09-01T09:00:00+01:00"
+      enrolEndDateTime:
+        type:
+          - string
+          - 'null'
+        description: The last moment to which a student can enrol for this component, RFC3339 (date-time).
         format: date-time
+        example: "2025-09-01T09:00:00+01:00"
       resultWeight:
-        type: integer
+        type:
+          - integer
+          - 'null'
         description: The result weight of this offering
         minimum: 0
         maximum: 100
         example: 100
       addresses:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Addresses for this offering
         items:
           $ref: './Address.yaml'
       priceInformation:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Price information for this offering.
         items:
           $ref: './Cost.yaml'
       room:
-        $ref: './Room.yaml'
+        oneOf:
+          - $ref: './Room.yaml'
+          - type: 'null'
       learningComponent:
         description: |
-          The learning component that is offered in this learningComponentoffering. [`expandable`](#tag/learning_component_model)
+          The learning component that is offered in this learning component offering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning component.
           By default only the `learningComponentId` (a string) is returned. If the client requested an expansion of `learning_component` the full learning component object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
             title: componentId
           - $ref: './LearningComponent.yaml'
-            title: LearningComponent object  
+            title: LearningComponent object
+          - type: 'null'
       courseOfferings:
         description: |
-          An array of 0 or more courseofferings where this LearningComponentoffering is related to. [`expandable`](#tag/course_offering_model)
+          An array of 0 or more course offerings where this LearningComponentoffering is related to. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a course offering.
           By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
-        type: array
+        type:
+          - array
+          - 'null'
         items:
           oneOf:
             - $ref: './Identifier.yaml'
               title: courseOfferingId
             - $ref: './CourseOffering.yaml'
-              title: CourseOffering object     
-      organization:
+              title: CourseOffering object
+      organisation:
         description: |
-          The organization that manages this componentoffering. [`expandable`](#tag/organization_model)
-          By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+          The organisation that manages this component offering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
+          By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
         oneOf:
           - $ref: './Identifier.yaml'
-            title: organizationId
-          - $ref: './Organization.yaml'
-            title: Organization object
+            title: organisationId
+          - $ref: './Organisation.yaml'
+            title: Organisation object
+          - type: 'null'

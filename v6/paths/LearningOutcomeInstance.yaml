@@ -1,7 +1,7 @@
 get:
   summary: GET /learning-outcomes/{learningOutcomeId}
   operationId: listLearningOutcomeById
-  description: Get a single learnig outcome.
+  description: Get a single learning outcome.
   tags:
     - learning outcomes
   parameters:
@@ -17,12 +17,17 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
-            - organization
+            - organisation
+            - parents
+            - children
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK

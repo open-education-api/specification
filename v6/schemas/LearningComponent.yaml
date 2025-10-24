@@ -4,8 +4,6 @@ required:
   - componentId
   - componentType
   - name
-  - teachingLanguages
-  - abbreviation
   - primaryCode
 properties:
   componentId:
@@ -30,125 +28,159 @@ properties:
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: Written test for INFOMQNM
+      - language: en-GB
+        value: Written test for INFOMQNM
   abbreviation:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The abbreviation of this component
     maxLength: 256
     example: Test-INFOMQNM
   modesOfDelivery:
-    type: array 
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       $ref: '../enumerations/modeOfDelivery.yaml'
   duration:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
-    example: P1DT30H4S
+    example: P1DT10H30M  # 1 day, 10 hours and 30 minutes
   description:
-    type: array
+    type:
+      - array
+      - 'null'
     description: The description of this component.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: >
-              'Prove executable knowledge of research methods, including:
-              Acquire knowledge of HCI research paradigms
-              Able to design suitable research studies (e.g., choose between within and between subject designs)
-              Define/apply/design metrics and scales
-              Define/produce materials (e.g., stimuli and questionnaires)
-              Define protocols for research studies
-              Understands and take in account concepts of reliability and validity
-              Analyze and improve methods and analysis of published scientific articles
-              Able to deliver scientific reports
+      - language: en-GB
+        value: >
+          'Prove executable knowledge of research methods, including:
+          Acquire knowledge of HCI research paradigms
+          Able to design suitable research studies (e.g., choose between within and between subject designs)
+          Define/apply/design metrics and scales
+          Define/produce materials (e.g., stimuli and questionnaires)
+          Define protocols for research studies
+          Understands and take in account concepts of reliability and validity
+          Analyse and improve methods and analysis of published scientific articles
+          Able to deliver scientific reports
 
-              Prove executable knowledge of ­­­statistics, including:
-              Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
-              Data preparation (e.g., coding and feature selection)
-              Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
-              Select an appropriate sampling method (e.g., stratified)
-              Perform parametric tests (e.g., repeated measures (M)ANOVA)
-              Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
+          Prove executable knowledge of ­­­statistics, including:
+          Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates)
+          Data preparation (e.g., coding and feature selection)
+          Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors)
+          Select an appropriate sampling method (e.g., stratified)
+          Perform parametric tests (e.g., repeated measures (M)ANOVA)
+          Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)'
   teachingLanguages:
-    type: array
-    description:  The languages in which this learning component is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the learning component.
+    type:
+      - array
+      - 'null'
+    description: The languages in which this learning component is given, should be three-letter language codes as specified by ISO 639-2. A student should be reasonably proficient in each language to be able to follow the learning component.
     minItems: 1
     items:
-      type: string
-      description: A string describing the main teaching language, should be a three-letter language code as specified by ISO 639-2.
-      minLength: 3
-      maxLength: 3
-      pattern: "^[a-z]{3}$"
-      example: nld
+      $ref: '../schemas/Language.yaml'
   learningOutcomes:
-    description: Related Learning Outcomes to this learning component. This object is [`expandable`](#tag/learningoucome_model)
-    type: array
+    description: Related learning outcomes to this learning component. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome.
+    type:
+      - array
+      - 'null'
     items:
       oneOf:
-      - $ref: './Identifier.yaml'
-        title: programId
-      - $ref: './LearningOutcome.yaml'
-        title: LearningOutcome
-  enrollment:
-    type: array
+        - $ref: './Identifier.yaml'
+          title: programmeId
+        - $ref: './LearningOutcome.yaml'
+          title: LearningOutcome
+  enrolment:
+    type:
+      - array
+      - 'null'
     items:
       $ref: './LanguageTypedString.yaml'
-    description: The extra information that is provided for enrollment
+    description: The extra information that is provided for enrolment
     example:
       - language: en-GB
-        value: enrollment through SIS. [The limited implementation of Git Hub Markdown syntax](#tag/formatting-and-displaying-results-from-API) MAY be used for rich text representation.
+        value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/#/technical/formatting-text) MAY be used for rich text representation.
   resources:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)
     items:
       type: string
     example: ['book to be announced', 'on-line resource x']
   assessment:
-    type: array
+    type:
+      - array
+      - 'null'
     description: A description of the way exams for this course are taken (ECTS-assessment method and criteria).
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
     example:
-    - language: en-GB
-      value: Exam on campus
+      - language: en-GB
+        value: Exam on campus
   addresses:
-    type: array
+    type:
+      - array
+      - 'null'
     description: Addresses for this component
     items:
       $ref: './Address.yaml'
   otherCodes:
-    type: array
+    type:
+      - array
+      - 'null'
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
+  parent:
+    description: The parent Learning Component of which the current Learning Component is a child. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses) 
+    oneOf:
+      - $ref: './Identifier.yaml'
+        title: learningComponentId
+      - $ref: './LearningComponent.yaml'
+        title: Expanded learningComponent    
+  children:
+    type: array
+    description: Learning Components which are a part of this learning Component (e.g combined tests). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses)
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: learningComponentId
+        - $ref: './LearningComponent.yaml'
+          title: Expanded LearningComponent 
   course:
     description: |
-      The course of which this component is a part. [`expandable`](#tag/course_model)
+      The course of which this component is a part. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an course.
       By default only the `courseId` (a string) is returned. If the client requested an expansion of `course` the full course object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
         title: courseId
       - $ref: './Course.yaml'
-        title: Course object  
-  organization:
+        title: Course object
+      - type: 'null'
+  organisation:
     description: |
-      The organization which provides this component. [`expandable`](#tag/organization_model)
-      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+      The organisation which provides this component. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
+      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
-        title: organizationId
-      - $ref: './Organization.yaml'
-        title: Organization object  
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+        title: organisationId
+      - $ref: './Organisation.yaml'
+        title: Organisation object
+      - type: 'null'
+  consumer:
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

@@ -17,12 +17,15 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
             - building
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK

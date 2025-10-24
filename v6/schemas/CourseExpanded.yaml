@@ -5,6 +5,8 @@ allOf:
     properties:
       timelineOverrides:
         description: Timeline overrides allow an implementation to provide versions of entities that will be valid in the future or have been in the past.
-        type: array
+        type:
+          - array
+          - 'null'
         items:
           $ref: './TimelineOverrideCourse.yaml'

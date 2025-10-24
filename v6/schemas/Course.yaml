@@ -1,12 +1,19 @@
 allOf:
-  - $ref: '../schemas/CourseId.yaml'
-  - $ref: '../schemas/CourseProperties.yaml'
-  - properties:
+  - $ref: './CourseId.yaml'
+  - $ref: './CourseProperties.yaml'
+  - type: object
+    properties:
       validFrom:
         description: The first day and time this course is valid (inclusive).
-        type: string
+        type:
+          - string
+          - 'null'
         format: date-time
+        example: "2025-09-01T09:00:00+01:00"
       validTo:
         description: The day and time this course ceases to be valid (e.g. exclusive).
-        type: string
+        type:
+          - string
+          - 'null'
         format: date-time
+        example: "2025-09-01T09:00:00+01:00"

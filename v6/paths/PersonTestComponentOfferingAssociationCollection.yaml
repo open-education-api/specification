@@ -15,6 +15,9 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
     - name: role
       in: query
       description: Filter by role
@@ -48,16 +51,16 @@ get:
                   items:
                     type: array
                     items:
-                      - allOf:
-                          - $ref: '../schemas/TestComponentOfferingAssociation.yaml'
-                          - type: object
-                            required:
-                              - offering
-                            properties:
-                              offering:
-                                $ref: '../schemas/TestComponentOffering.yaml'
-                              academicSession:
-                                $ref: '../schemas/AcademicSession.yaml'
+                      allOf:
+                        - $ref: '../schemas/TestComponentOfferingAssociation.yaml'
+                        - type: object
+                          required:
+                            - offering
+                          properties:
+                            offering:
+                              $ref: '../schemas/TestComponentOffering.yaml'
+                            academicSession:
+                              $ref: '../schemas/AcademicSession.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':

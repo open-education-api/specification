@@ -1,8 +1,0 @@
-type: string
-description: The type of offering based on the object that is offered
-x-ooapi-extensible-enum:
-  - program
-  - course
-  - learning_component
-  - test_component
-example: course

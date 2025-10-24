@@ -2,15 +2,14 @@ type: object
 description: A String with an associated language code. IF this object is used both fields are mandatory.
 required:
   - language
-  - description
+  - value
 properties:
   language:
-    description: The language used in the described entity. A string formatted according to RFC3066.
-    type: string
-    pattern: "^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"
+    $ref: '../schemas/Language.yaml'
   value:
     description: String to describe the entity.
     type: string
+    example: programme that is a place holder for all courses that are made available for student mobility
 example:
   language: en-GB
-  value: program that is a place holder for all courses that are made available for student mobility
+  value: programme that is a place holder for all courses that are made available for student mobility

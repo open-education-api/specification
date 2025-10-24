@@ -1,0 +1,30 @@
+type: string
+description: |
+  The type of document:
+
+    - additional_document: Used to provide supplementary information
+    - assessment_form: A form used to assess a test
+    - assessment_model: A formal description of how a test is assessed
+    - assignment: A description of what is expected from a student, e.g. to submit a paper
+    - attendance_report: A report containing information on a student’s attendance for a course or test
+    - handed_in_document: A document submitted by the student
+    - instructions: Instructions for the student on how to enrol in a course or take a test
+    - plagiarism_report: A report containing information on (potential) plagiarism, e.g. in a submitted document
+    - session_report: A report containing information on a session, e.g. an academic session, course, or test session
+    - test_made: The completed test, including all answers provided by the student
+    - other: Any other type of document not listed above
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - additional_document
+  - assessment_form
+  - assessment_model
+  - assignment
+  - attendance_report
+  - handed_in_document
+  - instructions
+  - plagiarism_report
+  - session_report
+  - test_made
+  - other
+example: test_made

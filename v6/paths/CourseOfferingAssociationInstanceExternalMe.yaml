@@ -2,12 +2,17 @@ post:
   summary: POST /course-offering-associations/external/me
   operationId: createExternalCourseOfferingAssociationByopenId
   description: |
-    POST a single course offering association, enroll a person based on person information obtained from .wellknown endpoint, an offering, 
-    and the organization/type=root information form the organization that is issuing this association. 
+    POST a single course offering association, enrol a person based on person information obtained from .wellknown endpoint, an offering, 
+    and the organisation/type=root information form the organisation that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
-  security:
-    - openId:
-      - course-offering-associations:external:me.write
+
+    Security must be implemented at the level of the actual deployment rather than in the core specification. 
+    This means that the specification remains neutral, while concrete security measures can be applied in 
+    practice using established techniques such as OpenID with fine-grained scopes. For example, write access 
+    on course-offering associations for an external user (me.write) can be granted in this way. The previous 
+    inline declaration has therefore been removed to avoid conflating implementation details with the 
+    specification.
+
   tags:
     - course offering associations
 
@@ -22,11 +27,11 @@ post:
           - $ref: '../schemas/CourseOfferingAssociationWrite.yaml'
           - properties:
               issuer:
-                $ref: '../schemas/Organization.yaml'
+                $ref: '../schemas/Organisation.yaml'
 
   responses:
     '201':
-      description: CREATED
+      description: Created
       content:
         application/json:
           schema:

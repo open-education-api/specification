@@ -1,8 +1,434 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [6.0.0 added paths for easier access to learning and testing component offerings ] - 2025-10-22
+
+### Added
+- Added two new paths: 
+  GET /course-offerings/{courseOfferingId}/learning-component-offerings
+  GET /course-offerings/{courseOfferingId}/test-component-offerings
+- added enum for rostering purposes
+## [6.0.0 Remove unused files] - 2025-10-23
+
+### Changed
+
+- Either the preferred name, given name or the surname MUST be provided. At least one of these two fields is required to identify the person.
+## [6.0.0 clarify that some properties use the `full-date`] - 2025-10-21
+
+### Changed
+- **birthDate**, **nationalityDate** 
+  Updated description to clarify that the property uses the `full-date` format as defined in RFC 3339 (section 5.6),  
+  rather than `date-time`, since the time component is not applicable.
+## [6.0.0 Clarification frameworks] - 2025-10-21
+
+### Changed
+
+- Clarification of the learningoutcome frameworks
+## [6.0.0 eckid added to codeType enumeration ] - 2025-10-22
+
+### Added
+- eckid added to enumeration codeType
+## [6.0.0 Add fieldselection] - 2025-10-22
+
+### Changed
+- Added fields that should be returned in URL. Fields not requested (except mandatory ones) will not be returned.
+
+## [6.0.0 Remove unused files] - 2025-10-21
+
+### Removed
+
+- enumerations/newsItemType.yaml
+- enumerations/offeringType.yaml
+- paths/CourseOfferingCollection.yaml
+- paths/GroupPersonCollection.yaml
+- paths/OfferingGroupCollection.yaml
+- paths/PersonGroupCollection.yaml
+- schemas/GroupExpanded.yaml
+- schemas/OfferingIdAndType.yaml
+
+## [6.0.0 Change qualificationAwarded ] - 2025-10-20
+
+### Changed
+- fix reference of learningcomponent in programme. Changes to the model. Update diagram and explanations
+
+## [6.0.0 Update link to formatting-text ] - 2025-10-21
+
+### Changed
+- Update link for formatting text to (https://openonderwijsapi.nl/#/technical/formatting-text)
+## [6.0.0 Add filtering ] - 2025-10-21
+
+### Changed
+- Added filtering to all endpoints that support paging. Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
+
+## [6.0.0 Make organisations more generic] - 2025-10-21
+
+### Added
+
+- Added a PUT /organisations to spec.yaml to support event based communication on organisations and organisational units.
+
+### Changed
+
+- updated organisation schema to support both educational organisations and non-educational organisations. Updated examples for enumerations where out of sync with the current enumerations specs
+- Updated enumeration organisationType to support both educational organisations and non-educational organisations.
+- Added enumeration values for kvk and leerbedrijfId to the codeType enumeration.
+
+## [6.0.0 Update othercodes ] - 2025-10-15
+
+### Changed
+
+- minItems removed from otherCodes in Organisation.yaml to be consistant with all other otherCodes arrays.
+
+## [6.0.0 Change qualificationAwarded ] - 2025-10-13
+
+### Changed
+- Changed LearningOutcome object to allow for multiple parents of a single LearningOutcome object. This allows for more flexible (matrix) style schematics of learning outcomes. Added relationship between attempt and result in the diagram. Changed the relationship type between rooms and components. Updated the cardinality overview in the spec.yaml file.
+
+## [6.0.0 Change qualificationAwarded ] - 2025-10-2
+
+### Changed
+- Simplified degree types to Bologna Process cycles (`associate_degree`, `bachelor`, `master`, `doctoral`), in addition to the more general qualifications such as `diploma` and `certificate` . Field-specific designations like "of Arts" or "of Sciences" are now captured separately in the new `qualificationDesignations` array field.
+
+## [6.0.0 Add nullable to non-required fields] - 2025-10-02
+
+### Changed
+- Changed: Added `nullable: true` or `type: null` to all non-required fields across the specification to explicitly indicate that these fields can be null, improving API clarity and consistency with actual behavior.
+
+## [6.0.0 Switch to OpenAPI 3.1.1] - 2025-09-17
+
+### Changed
+- Changed: Switched to [OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html). OOAPI v5 used OpenAPI v3.0.3. Note: This change may require updates to client code generation and validation tools to ensure compatibility with the new specification format. This upgrade brings full JSON Schema Draft 2020-12 compatibility, meaning all standard JSON Schema keywords are now supported. 
+
+## [6.0.0 Standardise use of language codes ] - 2025-09-26
+
+### Added
+- added Language.yaml in schemas
+
+### Removed
+
+### Changed
+- Refer to Language.yaml in LanguageTypedString.yaml
+- teachingLanguage parameter 
+- languageOfChoice attribute in PersonProperties 
+- teachingLanguage attribute in CourseProperties, LearningComponent, OfferingProperties, ProgrammeProperties, TestComponent
+
+## [6.0.0 add relations to learning component ] - 2025-09-22
+
+### Added
+- added recursive relation to learningComponent and tesComponent
+
+### Removed
+- expand of educationspecification expand on program
+### Changed
+
+## [6.0.0 improvement of service endpoint for documentation on expand] - 2025-09-22
+
+### Added
+- Added aditional properties and query paths for the serivce path, indicating the availability of expand objects.
+
+### Changed
+- updated all expands to follow enum style
+
+
+## [6.0.0 improvement of documentation on expand] - 2025-09-19
+
+### Changed
+- Removed the links in expand pointing to an object that is expanded and changed it to an explanation about the expand mechanism.
+
+
+## [6.0.0 optimalizations on attempt] - 2025-09-18
+
+### Changed
+- Summary GET /test-component-offering-associations/{testComponentOfferingAssociationId}/test-component-offering-association-attempts parameter changed from testComponentOffering to testComponentOfferingAssociationId
+- PUT and GET on TestComponentOfferingAssociationAttemptInstance changed from regular TestComponentOfferingAssociationAttempt schema to Full variant.
+
+## [6.0.0 update 202 response ] - 2025-09-16
+
+### Added
+- added PUT request for external groups
+
+## [6.0.0] Enum feedback incorporated across specifications - 2025-09-15
+
+### Added
+- `coil` added to `modeOfDelivery` (Collaborative Online International Learning)
+- `micro_credential` added to `qualificationAwarded`
+- `micro_credential_certificate` added to `formalDocument`
+- Extended `learningOutcomeLevel` with SOLO level 0 and Bloom taxonomy levels 1–6
+- Added `learning_community` to `learningComponentType`
+- Added `institution_code` to `codeType`
+
+### Removed
+- BRIN and CROHO/CREBO codes removed, in line with the OCW project *Taal gaat met de tijd mee*
+
+### Changed
+
+## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
+
+### Added
+- consumer parameter to individual instances of objects 
+
+### Removed
+
+### Changed
+– changed change consumers [] to consumer {}
+- changed query path for all instances to allow consumer as a parameter on 1 object instance 
+- updated all PUT and PATCH calls to allow for a 202 response
+
+
+## [6.0.0 update date information and add description of strings usage] - 2025-09-16
+
+### Added
+- additional information on data types in the spec
+
+### Removed
+
+### Changed
+– updated all date-time elements from Z to +1:00
+- check on offerings  
+
+
+## [6.0.0 change inner workings of consumer mechanism] - 2025-09-12
+
+### Added
+- consumer parameter to individual instances of objects 
+
+### Removed
+
+### Changed
+– changed change consumers [] to consumer {}
+- changed query path for all instances to allow consumer as a parameter on 1 object instance 
+
+## [6.0.0 add relation definitions] - 2025-09-12
+
+### Added
+- Added a table to the description of the specification that describes all reliationships in the data model.
+
+## [6.0.0 resolve required bug] - 2025-09-11
+
+### Added
+new drawing of relationships and model
+relations between objects in de model at spec.yaml level see issue #427
+### Removed
+
+### Changed
+improved readability of the attempts path by removing array
+
+## [6.0.0 fix ISCED issue] - 2025-09-10
+
+### Added
+
+### Removed
+
+### Changed
+– changed requirements for field of study in programme and course
+
+
+## [6.0.0 resolve required bug] - 2025-09-04
+
+### Added
+
+### Removed
+
+### Changed
+– All US English terms have been replaced with British English terms, in paths, fields, entities, and file names.
+| US word        | UK word        | Explanation |
+|----------------|----------------|-------|-------------|
+| analyze        | analyse        | UK spelling with 's'. |
+| behavior       | behaviour      | UK spelling with 'u'. |
+| canceled       | cancelled      | UK spelling: double 'l'. |
+| catalog        | catalogue      | UK spelling with 'ue'. |
+| enroll         | enrol          | UK spelling: single 'l'. |
+| enrollment     | enrolment      | UK spelling: single 'l'. |
+| enrolled       | enrolled       | UK spelling: also double 'l'. |
+| license        | licence        | In British English: 'licence' = noun, 'license' = verb. |
+| mail           | email          | In UK, 'mail' usually means physical post; 'email' avoids confusion. |
+| math           | maths          | UK spelling with 's'. |
+| organization   | organisation   | Spelling difference: UK uses 's' instead of 'z'. |
+| organizations  | organisations  | Spelling difference: UK uses 's' instead of 'z'. |
+| program        | programme      | In education context, UK/EU uses 'programme'. 'Program' is for software. |
+| programs       | programmes     | In education context, UK/EU uses 'programmes'. 'Programs' is for software. |
+| semester       | term           | In the UK the academic year is divided into 'terms' (autumn, spring, summer). |
+| specialization | specialisation | UK spelling with 's'. |
+| specializations| specialisations| UK spelling with 's'. |
+
+
+## [6.0.0 Change service information element] - 2025-09-08
+
+### Added
+- Added more detailed information regarding supported consumers, paths and version that can be supported by an implementation.
+
+### Removed
+- Removed consumers property from service
+
+### Changed
+
+
+## [6.0.0 resolve required bug] - 2025-09-04
+
+### Added
+
+### Removed
+
+### Changed
+- resolved bug required offering 
+  - offering -> testComponentOffering
+  - updated examples
+
+
+## [6.0.0 resolve lint errors/warnings] - 2025-09-04
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved lint issues 
+  - tags-alphabetical
+  - array-parameter-serialization
+  - path-http-verbs-order.
+  - scalar-property-missing-example
+  - operation-4xx-problem-details-rfc7807
+  - no-invalid-schema-examples 
+- Problems are now defined in accordance with RFC 7807
+
+
+## [6.0.0 Add state query parameter for offerings] - 2025-09-03
+
+### Added
+- Added: `state` query parameter to all `GET` requests that return a collection of offerings. Offerings now have a `state` attribute and many applications will want to retrieve only offerings with a particular state such as `active`.
+
+## [6.0.0 Change move security to documentation] - 2025-08-28
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved: Inconsistent use of mail instead of email. All occurrences have been standardised to email.
+- Resolved: Enum values have been harmonised:
+  - not_known changed to unknown
+  - not_finished changed to unfinished
+  - not_present changed to absent
+
+
+## [6.0.0 Change move security to documentation] - 2025-08-26
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved: all security-related aspects moved to documentation, ensuring the specification remains clean and free from implementation details
+
+## [6.0.0 Change 'items: - $ref' error] - 2025-08-25
+
+### Added
+
+### Removed
+
+### Changed
+- Resolved: replaced all invalid 'items: - $ref' occurrences with the correct 'items: $ref', ensuring valid OpenAPI syntax and proper display in Redoc.
+
+## [6.0.0 Change required fields] - 2025-08-20
+
+### Added
+
+### Removed
+
+### Changed
+- Change required fields.
+  - **Explanation**: since OOAPI is used in a lot of different contexts we aimed to minimize the required fields. If a certain non-required field is required in a certain context, this should be specified in the consumer. We did keep some requirements however, because we feel the entities would become meaningless or hard to recognize otherwise. We also added some new requirements for consistency.
+    - These fields are **always** required (if they exist for that entity)"
+      - `<entity>Id`
+      - `primaryCode`
+      - `role`
+      - `state`
+      - `type` and various specializations thereof
+      - `name`
+  - `AcademicSession`
+    - Made `academicSessionType` and `primaryCode` required.
+    - Added `abbreviation` for consistency.
+  - All `Associations`
+    - Made `person` and `offering` required fields, because according to the datamodel an association is always between a `Person` and an `Offering`.
+  - `Building`
+    - Removed the requirement for an `address`.
+  - `Course`
+    - Removed the requirement for `abbreviation`, `description`, `teachingLanguages` and `level`.
+  - `LearningComponent`
+    - Removed the requirement for `abbreviation` and `teachingLanguages`.
+  - All `Offerings`
+    - Removed the requirement for `description`, `teachingLanguages` and `resultExpected`
+    - Removed the requirement for `startDate(Time)` and `endDate(Time)`. Offerings no longer need specific dates. This supports the common scenario where an Offering is confirmed for an EducationItem (Program, Course, or Component) but exact dates are not yet determined. To indicate the general timeframe, Offerings can reference an AcademicSession instead of providing specific dates.
+  - `Organization`
+    - Removed the requirement for `shortName`.
+  - `Person`
+    - Removed the requirement for `givenName`, `displayName`, `affiliations` and `mail`.
+  - `Program`
+    - Removed the requirement for `abbreviation`, `description`, `teachingLanguages`.
+  - `Service`
+    - Removed the requirement for `documentation`.
+  - `TestComponent`
+    - Removed the requirement for `abbreviation` and `teachingLanguages`.
+
+## [6.0.0 Fix Typo's and warnings] - 2025-08-19
+
+### Added
+
+### Removed
+
+### Changed
+Corrected typo's
+spec.yaml: 
+- Added security: []
+- corrected /course-offerings/{courseOfferingId}/course
+updated RFC3339 -> RFC3339 (date-time) where applicable corrected
+
+## [6.0.0 Attempt on test component offering] - 2025-08-14
+
+### Added
+- TestComponentOfferingAssociationAttempt.yaml Net attempt model 
+- TestComponentOfferingAssociationAttemptFull.yaml attempt model including an identifier.
+- Document.yaml snippet for generic re-use of documents
+- New Paths:
+    - TestComponentOfferingAssociationAttemptInstance.yaml
+    - TestComponentOfferingAssociationAttemptCollection.yaml
+    - TestComponentOfferingAssociationAttemptOnAssociationInstance.yaml (For SIS vendors that need to process on associationId)
+- New Enumerations:
+    - attemptState.yaml
+    - attendance.yaml
+
+### Removed
+
+### Changed
+- Result.yaml: added generic result attributes from OKE project
+- Offering.yaml: 
+    - made use of generic Document.yaml
+    - added state attribute
+- TestComponentOfferingAssociation
+    - made use of generic Document.yaml
+- TestComponentOfferingAssociationExpandable: corrected references    
+- TestComponentOfferingAssociationExpanded: corrected references
+- spec.yaml
+    - added model elements for document
+    - added model element for attempts
+    - added path elements as mentioned in the added section above.
+- Renamed TestComponentOfferingTestComponentOfferingAssociationCollection.yaml to TestComponentOfferingAssociationCollection.yaml (and updated path in spec.yaml)
+- Renamed TestComponentOfferingTestComponentOfferingCollection.yaml to TestComponentOfferingCollection.yaml (and updated path in spec.yaml)
+
+## [6.0.0 Fix OpenAPI errors and warnings] - 2025-07-07
+
+### Added
+
+### Removed
+
+### Changed
+- personId: "123e4567-e89b-12d3-a456-426614174000" in v6/paths/LearningComponentOfferingAssociationInstance.yaml and v6/paths/TestComponentOfferingAssociationInstance.yaml
+- removed required - state in v6/schemas/OfferingProperties.yaml
+- removed required - items in v6/schemas/Pagination.yaml
+
 
 ## [6.0.0 Beta_postfeedback] - 2025-07-07
 

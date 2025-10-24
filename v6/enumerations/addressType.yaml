@@ -1,14 +1,18 @@
 type: string
 description: |
-  Address type
-  - postal: post
-  - visit: bezoek
-  - deliveries: bezorg
-  - billing: factuur
-  - teaching: the address where education takes place
+  The type of address, indicating its intended use:
+    
+  - postal: Used for receiving post
+  - visit: Used for physical visits
+  - deliveries: Used for deliveries
+  - invoicing: Used for invoicing purposes
+  - teaching: The location where educational activities take place
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - postal
   - visit
   - deliveries
-  - billing
+  - invoicing
   - teaching
+example: postal

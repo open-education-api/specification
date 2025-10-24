@@ -1,0 +1,20 @@
+allOf:
+  - $ref: './ProgrammeOfferingAssociation.yaml'
+  - type: object
+    required:
+      - person
+      - offering
+    properties:
+      person:
+        readOnly: true
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: personId
+          - $ref: './Person.yaml'
+            title: Person
+      offering:
+        oneOf:
+          - $ref: './Identifier.yaml'
+            title: offeringId
+          - $ref: './ProgrammeOffering.yaml'
+            title: ProgrammeOffering

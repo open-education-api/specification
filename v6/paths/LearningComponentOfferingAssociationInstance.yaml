@@ -17,13 +17,16 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
             - person
-            - learningComponentOffering
+            - learning_component_offering
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
@@ -46,21 +49,125 @@ get:
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
+put:
+  summary: PUT /learning-component-offering-associations/{learningComponentOfferingAssociationId}
+  description: |
+    PUT a single learning component offering association to enrol a person on s specific association that can later be retreived. 
+  operationId: replaceLearningComponentOfferingAssociationById
+  tags:
+    - learning component offering associations
+  parameters:
+    - name: learningComponentOfferingAssociationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/LearningComponentOfferingAssociationExpanded.yaml'
+        examples:
+          Add student to created offering (zitting) (flow 2.2.B and 2.3):
+            value:
+              #associationId is padparameter en ook mogelijk toegevoegd in body
+              #volgorde conform ooapi-v5
+              associationId: "123e4567-e89b-12d3-a456-426614174000"
+              role: student
+              state: associated
+              consumer:
+                consumerKey: nl-test-admin
+                extraTimeInMin: 30
+                personalNeeds: [extraTime,spoken,spell-checker-on-screen]
+              person:
+                personId: "123e4567-e89b-12d3-a456-426614174000"
+                primaryCode:
+                  codeType: student_number
+                  code: "1234567"
+                givenName: Maartje
+                preferredName: Maar
+                surnamePrefix: van
+                surname: Damme
+                displayName: "Maartje van Damme"
+                activeEnrolment: true
+                affiliations: [student]
+                email: vandamme.mcw@student.roc.nl
+                languageOfChoice: [nl-NL]
+                otherCodes: [
+                  {
+                    codeType: "accountId",
+                    code: "s1234567@student.roc.nl"
+                    # surfconext identifier
+                  },
+                  {
+                    codeType: "eckid",
+                    code: "https://roc.nl/8078d3...28bc85"
+                    # eckid cross chain
+                  }
+                ]
+              #id van offering op volgende regel is redendant want ook als padparameter
+              offering: "123e4567-e89b-12d3-a456-134564174000"
+
+          Change student enrolment to offering (zitting) (flow 2.x):
+            value:
+              #associationId is padparameter en ook mogelijk toegevoegd in body
+              #volgorde conform ooapi-v5
+              #associationType op volgende regel ontbreekt in endpoint-definitie
+              associationId: "123e4567-e89b-12d3-a456-426614174000"
+              role: student
+              state: associated
+              consumer:
+                consumerKey: nl-test-admin
+                extraTimeInMin: 30
+                personalNeeds: [extraTime,spoken,spell-checker-on-screen]
+              person: "123e4567-e89b-12d3-a456-426614174000"
+              #id van offering op volgende regel is redendant want ook als padparameter
+              offering: "123e4567-e89b-12d3-a456-134564174000"    
 
 
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+    '202':
+      description: Accepted
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
 
 patch:
   summary: PATCH /learning-component-offering-associations/{learningComponentOfferingAssociationId}
   operationId: partialUpdateLearningComponentOfferingAssociationById
   description: |
-    Update the status or result of an enrollment. Other elements of the association object COULD 
+    Update the status or result of an enrolment. Other elements of the association object COULD 
     also be PATCHED. But are not likely and have therefor not been included in this endpoint.
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
     to update parts of resource objects.
-  security:
-    - openId:
-      - associations.write
+
+    Security must be implemented at the level of the actual deployment rather than in the core 
+    specification. This means that the specification remains neutral, while concrete security 
+    measures can be applied in practice using established techniques such as OpenID with fine-grained 
+    scopes (for example, write access on associations). The previous inline declaration has therefore
+    been removed to avoid conflating implementation details with the specification.
+    
   tags:
     - learning component offering associations
 
@@ -100,104 +207,3 @@ patch:
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
-
-put:
-  summary: PUT /learning-component-offering-associations/{learningComponentOfferingAssociationId}
-  description: |
-    PUT a single learning component offering association to enroll a person on s specific association that can later be retreived. 
-  operationId: replaceLearningComponentOfferingAssociationById
-  tags:
-    - learning component offering associations
-  parameters:
-    - name: learningComponentOfferingAssociationId
-      in: path
-      description: The id of the association to update
-      required: true
-      schema:
-        type: string
-        format: uuid
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '../schemas/LearningComponentOfferingAssociationExpanded.yaml'
-        examples:
-          Add student to created offering (zitting) (flow 2.2.B and 2.3):
-            value:
-              #associationId is padparameter en ook mogelijk toegevoegd in body
-              #volgorde conform ooapi-v5
-              associationId: "123e4567-e89b-12d3-a456-426614174000"
-              role: student
-              state: associated
-              consumers:
-              - consumerKey: nl-test-admin
-                extraTimeInMin: 30
-                personalNeeds: [extraTime,spoken,spell-checker-on-screen]
-              person:
-                personId: "111-2222-33-4444-222"
-                primaryCode:
-                  codeType: studentNumber
-                  code: "1234567"
-                givenName: Maartje
-                preferredName: Maar
-                surnamePrefix: van
-                surname: Damme
-                displayName: "Maartje van Damme"
-                activeEnrollment: true
-                affiliations: [student]
-                mail: vandamme.mcw@student.roc.nl
-                languageOfChoice: [nl-NL]
-                otherCodes: [
-                  {
-                    codeType: "accountId",
-                    code: "s1234567@student.roc.nl"
-                    # surfconext identifier
-                  },
-                  {
-                    codeType: "eckid",
-                    code: "https://roc.nl/8078d3...28bc85"
-                    # eckid cross chain
-                  }
-                ]
-              #id van offering op volgende regel is redendant want ook als padparameter
-              offering: "123e4567-e89b-12d3-a456-134564174000"
-
-          Change student enrollment to offering (zitting) (flow 2.x):
-            value:
-              #associationId is padparameter en ook mogelijk toegevoegd in body
-              #volgorde conform ooapi-v5
-              #associationType op volgende regel ontbreekt in endpoint-definitie
-              associationId: "123e4567-e89b-12d3-a456-426614174000"
-              role: student
-              state: associated
-              consumers:
-              - consumerKey: nl-test-admin
-                extraTimeInMin: 30
-                personalNeeds: [extraTime,spoken,spell-checker-on-screen]
-              person: "111-2222-33-4444-222"
-              #id van offering op volgende regel is redendant want ook als padparameter
-              offering: "123e4567-e89b-12d3-a456-134564174000"    
-
-
-  responses:
-    '200':
-      description: OK
-    '201':
-      description: Created
-
-              
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
-    '401':
-      $ref: '../schemas/ErrorUnauthorized.yaml'
-    '403':
-      $ref: '../schemas/ErrorForbidden.yaml'
-    '404':
-      $ref: '../schemas/ErrorNotFound.yaml'
-    '405':
-      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
-    '429':
-      $ref: '../schemas/ErrorTooManyRequests.yaml'
-    '500':
-      $ref: '../schemas/ErrorInternalServerError.yaml'

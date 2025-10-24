@@ -1,12 +1,48 @@
 type: string
 description: |
-  Level of the learning outcome based on SOLO taxonomy (https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome)
-  - 1: Unistructural
-  - 2: Multistructural
-  - 3: Relational
-  - 4: Extended abstract
+  The level of the learning outcome. This field supports multiple frameworks for
+  describing cognitive complexity. Two common frameworks are provided below: **Bloom’s**
+  and **SOLO**. These are intended as examples — additional levels or entirely
+  different frameworks MAY be added as needed.
+
+  **Bloom’s taxonomy** ([https://en.wikipedia.org/wiki/Bloom's_taxonomy](https://en.wikipedia.org/wiki/Bloom's_taxonomy)):
+
+  | Level   | Label      | Description                                                         |
+  |---------|------------|---------------------------------------------------------------------|
+  | bloom_1 | Remember   | Recall facts and basic concepts (define, list, state).              |
+  | bloom_2 | Understand | Explain ideas or concepts (describe, discuss, explain).             |
+  | bloom_3 | Apply      | Use knowledge in new situations (implement, solve, use).            |
+  | bloom_4 | Analyse    | Draw connections among ideas (differentiate, compare, examine).     |
+  | bloom_5 | Evaluate   | Justify a decision or course of action (critique, assess, argue).   |
+  | bloom_6 | Create     | Produce new or original work (design, construct, develop).          |
+
+  **SOLO taxonomy** ([https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome](https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome)):
+
+  | Level   | Label             | Description                                                     |
+  |---------|-------------------|-----------------------------------------------------------------|
+  | solo_0  | Prestructural     | No understanding; the student misses the point.                 |
+  | solo_1  | Unistructural     | Identifies or carries out simple procedures; limited to one     |
+  |         |                   | relevant aspect.                                                |
+  | solo_2  | Multistructural   | Addresses several relevant aspects, but sees them as unrelated; |
+  |         |                   | knowledge is additive.                                          |
+  | solo_3  | Relational        | Integrates aspects into a coherent whole, showing deeper        |
+  |         |                   | understanding of relationships.                                 |
+  | solo_4  | Extended abstract | Generalises and applies learning to new domains, showing        |
+  |         |                   | theoretical and abstract thinking.                              |
+
+  This is an *extensible enumeration*. Implementers MAY introduce other recognised
+  taxonomies, institutional or national frameworks.  
+
 x-ooapi-extensible-enum:
-  - '1'
-  - '2'
-  - '3'
-  - '4'
+  - bloom_1
+  - bloom_2
+  - bloom_3
+  - bloom_4
+  - bloom_5
+  - bloom_6
+  - solo_0
+  - solo_1
+  - solo_2
+  - solo_3
+  - solo_4
+example: bloom_1

@@ -1,7 +1,7 @@
 get:
   summary: GET /learning-components/{learningComponentId}
   operationId: listLearningComponentById
-  description: Get a single learnig component.
+  description: Get a single learning component.
   tags:
     - learning components
   parameters:
@@ -17,13 +17,16 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
             - course
-            - organization
+            - organisation
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
