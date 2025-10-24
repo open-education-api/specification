@@ -34,6 +34,11 @@ properties:
     oneOf:
       - $ref: '../enumerations/offeringState.yaml'
       - type: 'null'
+  rosteringState:
+    description: The rostering state of this offering indicating the state in relation to planning, e.g. active, inactive, archived
+    oneOf:
+      - $ref: ../enumerations/rosteringState.yaml
+      - type: 'null'
   abbreviation:
     type:
       - string
