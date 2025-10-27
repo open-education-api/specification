@@ -373,7 +373,7 @@ tags:
     x-displayName: LearningOutcome
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/LearningOutcome" />
-
+      
   - name: membership_model
     x-displayName: Membership
     description: |
@@ -528,6 +528,7 @@ tags:
       separated from the functional description, while still providing guidance on how
       concrete security measures can be applied in practice.
 
+
   - name: service metadata
     description: |
       The service API provides additional metadata needed to make the OOAPI fit for
@@ -538,10 +539,10 @@ tags:
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/Service" />
 
-  - name: learning_outcome_model
-    x-displayName: LearningOutcome
+  - name: structure blocks
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/LearningOutcome" />
+      The sstructure blocks API provides insight in to how education is structured for
+      this organisation.      
 
   - name: structure_block_model
     x-displayName: StructureBlock
@@ -612,6 +613,7 @@ x-tagGroups:
       - programme offerings
       - programme offering associations
       - rooms
+      - structure blocks
       - test components
       - test component offerings
       - test component offering associations
@@ -642,6 +644,7 @@ x-tagGroups:
       - programme_offering_model
       - programme_offering_association_model
       - room_model
+      - structure_block_model
 
 components:
   schemas:
@@ -691,6 +694,7 @@ components:
       $ref: schemas/StructureBlock.yaml
     TestComponentOfferingAssociationAttempt:
       $ref: schemas/TestComponentOfferingAssociationAttempt.yaml
+
 paths: 
   /:
     $ref: paths/Service.yaml
@@ -846,6 +850,12 @@ paths:
     $ref: paths/RoomCollection.yaml
   /rooms/{roomId}:
     $ref: paths/RoomInstance.yaml
+  
+  /structure-blocks:
+    $ref: paths/StructureBlockCollection.yaml  
+  /structure-blocks/{structureBlockId}:
+    $ref: paths/StructureBlockInstance.yaml  
+  
 
   /test-component-offering-associations/{testComponentOfferingAssociationId}:
     $ref: paths/TestComponentOfferingAssociationInstance.yaml

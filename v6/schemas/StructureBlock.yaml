@@ -13,12 +13,16 @@ properties:
   blockType:
     $ref: '../enumerations/blockType.yaml'
   educationId:
-    type: string
+    type: 
+      - string
+      - 'null'
     description: Unique id of the education element that is referenced in other words the UUID of either a progrma, course or learning outcome
     format: uuid
     example: 123e4567-e89b-12d3-a456-426614174000
   name:
-    type: array
+    type: 
+      - array
+      - 'null'
     description: The name of this block
     minItems: 1
     items:
@@ -27,20 +31,30 @@ properties:
     - language: en-GB
       value: Masters program applied Physics
   abbreviation:
-    type: string
+    type: 
+      - string
+      - 'null'
     description: The abbreviation of this block
     maxLength: 256
     example: Phys-1234
   validFrom:
-    type: string
+    type: 
+      - string
+      - 'null'
     description: The date for when this structure block will be active. Should be a string formatted as an RFC3099 full-date.
-    format: date
+    format: date-time
+    example: '2025-09-28T08:30:00+01:00'
   validTo:
-    type: string
+    type: 
+      - string
+      - 'null'
     description: The date when this structure block will no longer be valid, or should be renewed. Should be a string formatted as an RFC3099 full-date.
-    format: date  
+    format: date-time
+    example: '2025-09-28T08:30:00+01:00'
   description:
-    type: array
+    type: 
+      - array
+      - 'null'
     description: The description of this component.
     minItems: 1
     items:
@@ -49,17 +63,20 @@ properties:
     - language: en-GB
       value: >
               'Overview of the curriculum for applied physics'
-  organization:
+  organisation:
     description: |
-      The organization which provides this block. [`expandable`](#tag/organization_model)
-      By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
+      The organisation which provides this block. [`expandable`](#tag/organisation_model)
+      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
     oneOf:
       - $ref: './Identifier.yaml'
-        title: organizationId
-      - $ref: './Organization.yaml'
-        title: Organization object
+        title: organisationId
+      - $ref: './Organisation.yaml'
+        title: Organisation object
+      - type: 'null'  
   relatedBlocksRule:
-    type: object
+    type: 
+      - object
+      - 'null'
     description: |
       the rules that will be governing the related objects at one level lower
     properties:
@@ -68,11 +85,17 @@ properties:
       minRequiredBlocks:
         description: |
           either number of EC or number of elments that need to be met at least (only needed when range type is used)
-        type: number
+        type: 
+          - number
+          - 'null'
+        example: 1
       maxAllowedBlocks:
         description: |
           maximum number of either EC or elments that can be selected (only needed when range type is used)
-        type: number
+        type: 
+          - number
+          - 'null'
+        example: 0
   relatedBlocks:
     type: array
     items:
@@ -80,13 +103,15 @@ properties:
   sequence:
     description: |
       The number of the position of this structure block in the current nesting level relatedBlocks always have a lower level than the current StructureBlock
-    type: number
-  consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+    type: 
+      - number
+      - 'null'
+    example: 1
+  consumer:
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

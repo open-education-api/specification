@@ -1,0 +1,60 @@
+get:
+  summary: GET /structure-blocks
+  operationId: listStructureBlocks
+  description: Get a list of all structure blocks, ordered chronologically.
+  tags:
+    - structure blocks
+  parameters:
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/search.yaml'
+    - name: validFrom
+      in: query
+      description: Filter all structure blocks by providing a minimum start moment for validFrom element, RFC3339 (date-time). By default only future structureblocks are shown (equal to `?validFrom=<today>`).
+      required: false
+      schema:
+        type: string
+        format: date-time
+    - name: validTo
+      in: query
+      description: Filter all structure blocks by providing a maximum end moment, RFC3339 (date-time).
+      required: false
+      schema:
+        type: string
+        format: date-time
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/Pagination.yaml'
+              - type: object
+                required:
+                  - items
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '../schemas/StructureBlock.yaml'
+                  ext:
+                      $ref: '../schemas/Ext.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
