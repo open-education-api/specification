@@ -1,6 +1,6 @@
 description: | 
-  The language used in the described entity. A string formatted according to RFC4647 https://www.rfc-editor.org/rfc/rfc4647.html
-  RFC4647 supports language specifications from very general to very specific. 
+  The language used in the described entity. A string formatted according to RFC 4647 https://www.rfc-editor.org/rfc/rfc4647.html
+  RFC 4647 supports language specifications from very general to very specific. 
   This breaks down as:
   - ([a-z]{2,3}) - Primary language subtag (2-3 letters) ISO 639-1, ISO 639-2 or ISO 639-3 https://www.iso.org/iso-639-language-code
   - (-([A-Z]{2}|[0-9]{3}))? - Optional region/country (2 uppercase letters or 3 digits) ISO 3166-1 or UN M.49 https://www.iso.org/iso-3166-country-codes.html

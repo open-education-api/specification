@@ -65,7 +65,7 @@ properties:
     type:
       - array
       - 'null'
-    description:  The languages in which this course is given, should be three-letter language codes as specified by ISO4647. A student should be reasonably proficient in each language to be able to follow the course.
+    description:  The languages in which this course is given, should be three-letter language codes as specified by RFC 4647. A student should be reasonably proficient in each language to be able to follow the course.
     minItems: 1
     items:
       $ref: ../schemas/Language.yaml
