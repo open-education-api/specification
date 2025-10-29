@@ -25,6 +25,7 @@ get:
           enum:
             - programmes
             - coordinators
+            - instructors
             - organisation
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'

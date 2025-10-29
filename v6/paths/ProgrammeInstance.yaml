@@ -26,6 +26,7 @@ get:
             - parent
             - children
             - coordinators
+            - instructors
             - organisation
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'

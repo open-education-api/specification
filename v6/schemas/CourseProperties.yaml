@@ -200,6 +200,17 @@ properties:
           title: personId
         - $ref: './Person.yaml'
           title: Person object
+  instructors:
+    description: The person(s) teaching or delivering this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a person.
+    type:
+      - array
+      - 'null'
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: personId
+        - $ref: './Person.yaml'
+          title: Person object
   organisation:
     description: |
       The organisation that manages this group. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
