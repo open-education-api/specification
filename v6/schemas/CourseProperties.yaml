@@ -7,7 +7,7 @@ properties:
   primaryCode:
     description: The primary human readable identifier for this course. This is often the source identifier as defined by the institution.
     $ref: './IdentifierEntry.yaml'
-    readOnly: true
+#    readOnly: true    # Due to the machine-to-machine (M2M) communication still being under development, it is currently not possible to set this field as read-only.
   name:
     type: array
     description: The name of this course (ECTS-title)

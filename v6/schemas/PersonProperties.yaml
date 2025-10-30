@@ -11,8 +11,8 @@ properties:
     example:
       codeType: studentNumber
       code: 0000000
-    # Returned by GET, not used in POST/PUT/PATCH
-    readOnly: true
+    # Returned by GET, not used in POST/PUT/PATCH, used in POST/PUT/GET in M2M
+#    readOnly: true    # Due to the machine-to-machine (M2M) communication still being under development, it is currently not possible to set this field as read-only.
   givenName:
     type:
       - string
