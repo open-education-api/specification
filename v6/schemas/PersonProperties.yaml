@@ -1,9 +1,18 @@
 type: object
 description: A person that has a relationship with this institution
-required:
-  - surname
-  - primaryCode
-  - activeEnrolment
+anyOf:
+  - required:
+      - surname
+      - primaryCode
+      - activeEnrolment
+  - required:
+      - givenname
+      - primaryCode
+      - activeEnrolment
+  - required:
+      - preferredName
+      - primaryCode
+      - activeEnrolment
 properties:
   primaryCode:
     description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
@@ -84,7 +93,9 @@ properties:
     type:
       - string
       - 'null'
-    description: The date of birth of this person, RFC3339 (date-time)
+    description: |
+      The date of birth of this person, using the `full-date` format as defined in 
+      RFC 3339 (section 5.6).
     format: date
     example: '2003-09-30'
   cityOfBirth:
@@ -105,7 +116,9 @@ properties:
     type:
       - string
       - 'null'
-    description: The date of nationality of this person, RFC3339 (date-time)
+    description: |
+      The date of nationality of this person, using the `full-date` format as defined in 
+      RFC 3339 (section 5.6).
     format: date
     example: '2003-09-30'
   affiliations:

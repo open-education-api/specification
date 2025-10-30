@@ -714,6 +714,11 @@ paths:
     $ref: paths/CourseOfferingCourseOfferingAssociationCollection.yaml
   /course-offerings/{courseOfferingId}/groups:
     $ref: paths/CourseOfferingGroupCollection.yaml
+  /course-offerings/{courseOfferingId}/learning-component-offerings:
+    $ref: paths/CourseOfferingLearningComponentOfferingCollection.yaml
+  /course-offerings/{courseOfferingId}/test-component-offerings:
+    $ref: paths/CourseOfferingTestComponentOfferingCollection.yaml
+
 
   /courses:
     $ref: paths/CourseCollection.yaml

@@ -10,6 +10,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - readonly for all ID's
 
+## [6.0.0 added paths for easier access to learning and testing component offerings ] - 2025-10-22
+
+### Added
+- Added two new paths: 
+  GET /course-offerings/{courseOfferingId}/learning-component-offerings
+  GET /course-offerings/{courseOfferingId}/test-component-offerings
+- added enum for rostering purposes
+## [6.0.0 Remove unused files] - 2025-10-23
+
+### Changed
+
+- Either the preferred name, given name or the surname MUST be provided. At least one of these two fields is required to identify the person.
+## [6.0.0 clarify that some properties use the `full-date`] - 2025-10-21
+
+### Changed
+- **birthDate**, **nationalityDate** 
+  Updated description to clarify that the property uses the `full-date` format as defined in RFC 3339 (section 5.6),  
+  rather than `date-time`, since the time component is not applicable.
+## [6.0.0 Clarification frameworks] - 2025-10-21
+
+### Changed
+
+- Clarification of the learningoutcome frameworks
+## [6.0.0 eckid added to codeType enumeration ] - 2025-10-22
+
+### Added
+- eckid added to enumeration codeType
+## [6.0.0 Add fieldselection] - 2025-10-22
+
+### Changed
+- Added fields that should be returned in URL. Fields not requested (except mandatory ones) will not be returned.
+
 ## [6.0.0 Remove unused files] - 2025-10-21
 
 ### Removed
@@ -22,10 +54,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - paths/PersonGroupCollection.yaml
 - schemas/GroupExpanded.yaml
 - schemas/OfferingIdAndType.yaml
+
 ## [6.0.0 Change qualificationAwarded ] - 2025-10-20
 
 ### Changed
 - fix reference of learningcomponent in programme. Changes to the model. Update diagram and explanations
+
 ## [6.0.0 Update link to formatting-text ] - 2025-10-21
 
 ### Changed

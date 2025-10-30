@@ -27,6 +27,7 @@ get:
             - children
             - coordinators
             - organisation
+    - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
