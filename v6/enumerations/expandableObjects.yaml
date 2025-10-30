@@ -6,6 +6,7 @@ description: |
     - child: the child object (which is an instance of the current object) can be expanded.
     - children: a set of objects (which are an instance of the current object) can be expanded.  
     - coordinators: the person object indicating a coordinator can be expanded.
+    - instructors: the person object indicating a instructor can be expanded.
     - course: the course object can be expanded.
     - course_offering: the courseOffering object can be expanded.
     - learning_component: the learningComponent object can be expanded.
@@ -30,6 +31,7 @@ x-ooapi-extensible-enum:
 - coordinators
 - course
 - course_offering
+- instructors
 - learning_component
 - learning_component_offering
 - learning_outcome

@@ -17,7 +17,7 @@ properties:
     description: The moment until which the enrolment shoud be available (when the enrolment for this taretgroup stops), RFC3339 (date-time)
     format: date-time
     example: 2020-09-30T20:00:00+01:00
-  targetGroup:
+  targetGroups:
     type:
       - array
       - 'null'

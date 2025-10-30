@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - readonly for all ID's
+## [6.0.0 added field instructors and resolved typo's ] - 2025-10-29
+
+### Added
+- field for instructors added in courses and programmes.
+
+### changed
+- teachingLanguages refers to ISO 4647, but this should be RFC 4647.
+- In enrolmentPeriods, the field targetGroup should be renamed to targetGroups.
 
 ## [6.0.0 added paths for easier access to learning and testing component offerings ] - 2025-10-22
 

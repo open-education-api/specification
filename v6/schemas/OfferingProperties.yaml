@@ -77,7 +77,7 @@ properties:
     type:
       - array
       - 'null'
-    description:  The languages in which this course is given, should at least a two-letter language code as specified by ISO4647. A student should be reasonably proficient in each language to be able to follow the offering.
+    description:  The languages in which this course is given, should at least a two-letter language code as specified by RFC 4647. A student should be reasonably proficient in each language to be able to follow the offering.
     minItems: 1
     items:
       $ref: './Language.yaml'
