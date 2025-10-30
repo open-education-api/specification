@@ -11,7 +11,7 @@ properties:
     example:
       codeType: programmeCode
       code: BIO
-    readOnly: true
+#    readOnly: true    # Due to the machine-to-machine (M2M) communication still being under development, it is currently not possible to set this field as read-only.
   programmeType:
     $ref: '../enumerations/programmeType.yaml'
   name:
