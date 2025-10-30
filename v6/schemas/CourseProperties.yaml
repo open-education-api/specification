@@ -65,7 +65,7 @@ properties:
     type:
       - array
       - 'null'
-    description:  The languages in which this course is given, should be three-letter language codes as specified by ISO4647. A student should be reasonably proficient in each language to be able to follow the course.
+    description:  The languages in which this course is given, should be three-letter language codes as specified by RFC 4647. A student should be reasonably proficient in each language to be able to follow the course.
     minItems: 1
     items:
       $ref: ../schemas/Language.yaml
@@ -191,6 +191,17 @@ properties:
           title: Programme object
   coordinators:
     description: The person(s) responsible for this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a person.
+    type:
+      - array
+      - 'null'
+    items:
+      oneOf:
+        - $ref: './Identifier.yaml'
+          title: personId
+        - $ref: './Person.yaml'
+          title: Person object
+  instructors:
+    description: The person(s) teaching or delivering this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a person.
     type:
       - array
       - 'null'
