@@ -9,14 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - readonly for all ID's
+
 ## [6.0.0 added field instructors and resolved typo's ] - 2025-10-29
 
 ### Added
 - field for instructors added in courses and programmes.
 
-### changed
-- teachingLanguages refers to ISO 4647, but this should be RFC 4647.
-- In enrolmentPeriods, the field targetGroup should be renamed to targetGroups.
+### Changed
+- flexibleEntryStart and flexibleEntryEnd will be replaced with flexibleEntry.
+- teachingLanguages, refers to ISO 4647 will be corrected to RFC 4647.
+- in enrolmentPeriods, the field targetGroup should be renamed to targetGroups.
+
+### Removed
+- enrolStartDateTime and enrolEndDateTime will be removed, as they duplicate the information provided by enrolmentPeriods.
 
 ## [6.0.0 added paths for easier access to learning and testing component offerings ] - 2025-10-22
 
@@ -25,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   GET /course-offerings/{courseOfferingId}/learning-component-offerings
   GET /course-offerings/{courseOfferingId}/test-component-offerings
 - added enum for rostering purposes
+
 ## [6.0.0 Remove unused files] - 2025-10-23
 
 ### Changed
