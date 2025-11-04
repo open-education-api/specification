@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   fully written query strings in the description, due to a rendering issue in
   Redocly where nested deepObject examples were shown as `[object Object]`.
 
-# [6.0.0 Remove unused files] - 2025-10-29
+# [6.0.0 Remove readOnly on ID's] - 2025-10-29
 
 ### Removed
 - readonly for all ID's
