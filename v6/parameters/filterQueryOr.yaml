@@ -22,18 +22,12 @@ description: |
   - Consumers or working groups that wish to apply specific filtering mechanisms are encouraged to do so using 
     this approach for the sake of consistency across implementations.
 
-  Examples:
-  <ul style="list-style: none;padding-left: 1.2em; margin: 0;">
-    <li>
- 
-      **Provider is Org A or Org B, OR campus city contains “Utrecht”** <br />
-      `?filter_query[__or][][organisation.id][in]=org-uu,org-hku&filter_query[__or][][campus.city][like]=*Utrecht*`
-    
-      **Start date after 1 Sept 2025 OR has evening/block_week tag** <br />
-      `?filter_query[__or][][start_date][gt_date]=2025-09-01T00:00:00Z&filter_query[__or][][tags][any_in_array]=evening,block_week`
-
-    </li>
-  </ul><br />
+  Examples:  
+    - **Provider is Org A or Org B, OR campus city contains “Utrecht”**  
+      `?filter_query[__or][][organisation.id][in]=org-uu,org-hku&filter_query[__or][][campus.city][like]=*Utrecht*`  
+      
+    - **Start date after 1 Sept 2025 OR has evening/block_week tag**  
+      `?filter_query[__or][][start_date][gt_date]=2025-09-01T00:00:00Z&filter_query[__or][][tags][any_in_array]=evening,block_week`  
 
 schema:
   type: array

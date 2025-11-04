@@ -22,17 +22,12 @@ description: |
   - Consumers or working groups that wish to apply specific filtering mechanisms are encouraged to do so using 
     this approach for the sake of consistency across implementations.
 
-  Examples:
-  <ul style="list-style: none;padding-left: 1.2em; margin: 0;">
-    <li>
-      
-      **Filter course offerings by programme, delivery, language and start date** <br />
-      `filter_query[programme.code][in]=B-IT-2025&filter_query[organisation.code][in]=RuG&filter_query[mode_of_delivery][in]=on_campus,hybrid&filter_query[language_of_instruction][in]=en-GB&filter_query[start_date][gt_date]=2025-09-01T00:00:00Z`
-
-      **Only offerings with email contact present** <br />
-      `filter_query[contacts.email][is]=not_empty`
-    </li>
-  </ul><br />
+  Examples:  
+  - **Filter course offerings by programme, delivery, language and start date**  
+    `filter_query[programme.code][in]=B-IT-2025&filter_query[organisation.code][in]=RuG&filter_query[mode_of_delivery][in]=on_campus,hybrid&filter_query[language_of_instruction][in]=en-GB&filter_query[start_date][gt_date]=2025-09-01T00:00:00Z`  
+    
+  - **Only offerings with email contact present**  
+    `filter_query[contacts.email][is]=not_empty`  
 
 schema:
   type: object
