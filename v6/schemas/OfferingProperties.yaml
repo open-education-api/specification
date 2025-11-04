@@ -10,6 +10,14 @@ properties:
       codeType: offeringCode
       code: INFOMQNM-20FS
 #    readOnly: true    # Due to the machine-to-machine (M2M) communication still being under development, it is currently not possible to set this field as read-only.
+  groupIds:
+    description: |
+      The offering identifiers (0..N) associated with this group.
+    oneOf:
+      - type: array
+        items:
+            $ref: './GroupId.yaml'
+      - type: 'null'
   academicSession:
     description: |
       The academic session during which this courseoffering takes place. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academic session.
