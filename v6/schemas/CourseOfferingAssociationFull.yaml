@@ -14,6 +14,6 @@ allOf:
       offering:
         oneOf:
           - $ref: './Identifier.yaml'
-            title: offeringId
+            title: courseOfferingId
           - $ref: './CourseOffering.yaml'
             title: CourseOffering

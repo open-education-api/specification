@@ -12,7 +12,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   fully written query strings in the description, due to a rendering issue in
   Redocly where nested deepObject examples were shown as `[object Object]`.
 
-# [6.0.0 Remove readOnly on ID's] - 2025-10-29
+## [6.0.0 FIX Offering IDs] - 2025-11-04
+
+### Added
+- courseOfferingId, programmeOfferingId, testComponentOfferingId and learningComponentOfferingId.
+
+### Changed
+- All paths to have the correct naming for offeringId and uniform usage of CAPS for names (for Offering IDs)
+
+### Removed
+- General offeringId.yaml and all references to it
+
+## [6.0.0 Remove readOnly on ID's] - 2025-10-29
 
 ### Removed
 - readonly for all ID's
