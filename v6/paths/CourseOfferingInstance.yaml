@@ -61,7 +61,7 @@ put:
   parameters:
     - name: courseOfferingId
       in: path
-      description: Offering ID
+      description: Course Offering ID
       required: true
       schema:
         type: string
@@ -108,7 +108,7 @@ patch:
   parameters:
     - name: courseOfferingId
       in: path
-      description: Offering ID
+      description: Course Offering ID
       required: true
       schema:
         type: string

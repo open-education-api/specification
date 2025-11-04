@@ -7,7 +7,7 @@ get:
   parameters:
     - name: programmeOfferingId
       in: path
-      description: Offering ID
+      description: Programme Offering ID
       required: true
       schema:
         type: string

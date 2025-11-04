@@ -7,7 +7,7 @@ get:
   parameters:
     - name: testComponentOfferingId
       in: path
-      description: test component offering ID
+      description: Test Component Offering ID
       required: true
       schema:
         type: string
@@ -58,7 +58,7 @@ put:
   parameters:
     - name: testComponentOfferingId
       in: path
-      description: Offering ID
+      description: Test Component Offering ID
       required: true
       schema:
         type: string
@@ -105,7 +105,7 @@ patch:
   parameters:
     - name: testComponentOfferingId
       in: path
-      description: Offering ID
+      description: Test Component Offering ID
       required: true
       schema:
         type: string

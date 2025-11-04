@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './OfferingId.yaml'
+  - $ref: './TestComponentOfferingId.yaml'
   - $ref: './OfferingProperties.yaml'
   - type: object
     description: |
