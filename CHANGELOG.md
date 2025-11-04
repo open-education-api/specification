@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Update parent–child cardinality] - 2025-11-04
+
+### Changed
+- Corrected the parent–child relationship cardinalities in entity diagrams.  
+  The previous notation incorrectly showed a one-to-many relationship  
+  (each child having exactly one parent).  
+  Updated to a many-to-many representation to align with the data model,  
+  where each learning outcome may have multiple parents and each parent  
+  may have multiple children.
+  
 ## [6.0.0 Remove unused files] - 2025-10-29
 
 ### Removed
