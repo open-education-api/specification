@@ -15,6 +15,6 @@ allOf:
       offering:
         oneOf:
           - $ref: './Identifier.yaml'
-            title: offeringId
+            title: testComponentOfferingId
           - $ref: './TestComponentOffering.yaml'
             title: TestComponentOffering

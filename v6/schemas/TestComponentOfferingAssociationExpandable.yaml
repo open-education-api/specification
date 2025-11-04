@@ -8,7 +8,7 @@ allOf:
           - type: 'null'
       testComponentOffering:
         oneOf:
-          - $ref: './OfferingId.yaml'
+          - $ref: './TestComponentOfferingId.yaml'
           - type: 'null'
       attempts:
         type:
