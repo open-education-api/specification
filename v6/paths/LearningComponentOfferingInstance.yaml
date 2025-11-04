@@ -7,7 +7,7 @@ get:
   parameters:
     - name: learningComponentOfferingId
       in: path
-      description: learning component offering ID
+      description: Learning Component Offering ID
       required: true
       schema:
         type: string
@@ -58,7 +58,7 @@ put:
   parameters:
     - name: learningComponentOfferingId
       in: path
-      description: Offering ID
+      description: Learning Component Offering ID
       required: true
       schema:
         type: string
@@ -105,7 +105,7 @@ patch:
   parameters:
     - name: learningComponentOfferingId
       in: path
-      description: Offering ID
+      description: Learning Component Offering ID
       required: true
       schema:
         type: string
