@@ -11,10 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - courseOfferingId, programmeOfferingId, testComponentOfferingId and learningComponentOfferingId.
 
 ### Changed
-- alle paths to have the correct naming for offeringId and uniform usage of cpas for names (for Offering IDs)
+- All paths to have the correct naming for offeringId and uniform usage of CAPS for names (for Offering IDs)
 
 ### Removed
-- general offeringId.yaml and all references to it
+- General offeringId.yaml and all references to it
 
 ## [6.0.0 Remove unused files] - 2025-10-29
 
