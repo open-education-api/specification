@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   and `testComponentOfferingId` properties to the `Group` object, as shown in the
   conceptual diagram.
 
-## [6.0.0 Remove unused files] - 2025-11-04
+## [6.0.0 FIX Offering IDs] - 2025-11-04
 
 ### Added
 - courseOfferingId, programmeOfferingId, testComponentOfferingId and learningComponentOfferingId.
@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - General offeringId.yaml and all references to it
 
-## [6.0.0 Remove unused files] - 2025-10-29
+## [6.0.0  Remove readOnly on ID's] - 2025-10-29
 
 ### Removed
 - readonly for all ID's
