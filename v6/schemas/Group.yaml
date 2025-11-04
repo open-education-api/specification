@@ -15,7 +15,7 @@ properties:
     example: 123e4567-e89b-12d3-a456-426614174000
   offeringIds:
     description: |
-      One or more offering identifiers associated with this group.
+      The offering identifiers (0..N) associated with this group.
     oneOf:
       - type: array
         items:
