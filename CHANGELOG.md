@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added missing `programmeOfferingId`, `courseOfferingId`, `learningComponentOfferingId`
   and `testComponentOfferingId` properties to the `Group` object, as shown in the
   conceptual diagram.
+
 ## [6.0.0 Remove unused files] - 2025-11-04
 
 ### Added
