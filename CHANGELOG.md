@@ -15,6 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   where each learning outcome may have multiple parents and each parent  
   may have multiple children.
   
+## [6.0.0 Fix Redocly deepObject rendering] - 2025-11-04
+
+### Changed
+- Adjusted `filter_query` and `filter_query[__or][]` parameter examples to include
+  fully written query strings in the description, due to a rendering issue in
+  Redocly where nested deepObject examples were shown as `[object Object]`.
+
 ## [6.0.0 FIX Offering IDs] - 2025-11-04
 
 ### Added
@@ -26,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - General offeringId.yaml and all references to it
 
-## [6.0.0 Remove unused files] - 2025-10-29
+## [6.0.0 Remove readOnly on ID's] - 2025-10-29
 
 ### Removed
 - readonly for all ID's
@@ -80,7 +87,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.0 Remove unused files] - 2025-10-21
 
 ### Removed
-
 - enumerations/newsItemType.yaml
 - enumerations/offeringType.yaml
 - paths/CourseOfferingCollection.yaml
