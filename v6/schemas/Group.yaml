@@ -92,11 +92,19 @@ allOf:
         oneOf:
           - type: array
             items:
-              oneOf:
-                - $ref: './CourseOfferingId.yaml'
-                - $ref: './ProgrammeOfferingId.yaml'
-                - $ref: './LearningComponentOfferingId.yaml'
-                - $ref: './TestComponentOfferingId.yaml'
+              type: object
+              minProperties: 1
+              maxProperties: 1
+              additionalProperties: false
+              properties:
+                courseOfferingId:
+                  $ref: './CourseOfferingId.yaml#/properties/courseOfferingId'
+                programmeOfferingId:
+                  $ref: './ProgrammeOfferingId.yaml#/properties/programmeOfferingId'
+                learningComponentOfferingId:
+                  $ref: './LearningComponentOfferingId.yaml#/properties/learningComponentOfferingId'
+                testComponentOfferingId:
+                  $ref: './TestComponentOfferingId.yaml#/properties/testComponentOfferingId'
           - type: 'null'
       academicSession:
         description: |
