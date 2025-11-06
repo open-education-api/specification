@@ -43,3 +43,4 @@ properties:
           type: string
           description: a string formatted as an url to which students will be redirected if `enrolmentForOwnStudents is set to `"url"`.
           format: uri
+          maxLength: 2048

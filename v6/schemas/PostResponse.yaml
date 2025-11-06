@@ -18,4 +18,5 @@ properties:
       - string
       - 'null'
     format: uri
+    maxLength: 2048
     example: "https://university.example.org/"
