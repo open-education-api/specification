@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 format: url is deprecated — replace with format: uri] - 2025-11-06
+
+### Fixed
+- format: url is deprecated — replace with format: uri
+
 ## [6.0.0 Add missing OfferingId references in Group object] - 2025-11-04
 
 ### Fixed

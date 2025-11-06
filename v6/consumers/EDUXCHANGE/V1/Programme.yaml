@@ -42,4 +42,4 @@ properties:
         enrolmentUrl:
           type: string
           description: a string formatted as an url to which students will be redirected if `enrolmentForOwnStudents is set to `"url"`.
-          format: url
+          format: uri
