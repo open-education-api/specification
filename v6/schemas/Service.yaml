@@ -69,6 +69,7 @@ properties:
           description: the path of the operation
           type: string
           format: uri-reference
+          maxLength: 2048
           example: "/courses"
   supportedExpands:
     type: array
@@ -88,6 +89,7 @@ properties:
           description: the path of the operation
           type: string
           format: uri-reference
+          maxLength: 2048
           example: "/courses"
   ext:
     oneOf:

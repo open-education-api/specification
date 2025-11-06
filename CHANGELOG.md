@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   where each learning outcome may have multiple parents and each parent  
   may have multiple children.
   
+## [6.0.0 format: url is deprecated — replace with format: uri] - 2025-11-06
+
+### Fixed
+- format: url is deprecated — replace with format: uri
+
 ## [6.0.0 Add missing OfferingId references in Group object] - 2025-11-04
 
 ### Fixed
