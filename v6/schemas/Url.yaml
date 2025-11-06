@@ -1,4 +1,5 @@
 type: string
 description: Url containing a web address.
 format: uri
+maxLength: 2048
 example: https://www.universiteitvanharderwijk.nl
