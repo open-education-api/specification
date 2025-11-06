@@ -16,7 +16,7 @@ properties:
     oneOf:
       - type: array
         items:
-            $ref: './GroupId.yaml'
+            $ref: './Identifier.yaml'
       - type: 'null'
   academicSession:
     description: |

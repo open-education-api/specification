@@ -9,18 +9,6 @@ allOf:
       - name
       - primaryCode
     properties:
-      offeringIds:
-        description: |
-          The offering identifiers (0..N) associated with this group.
-        oneOf:
-          - type: array
-            items:
-              oneOf:
-                - $ref: './CourseOfferingId.yaml'
-                - $ref: './ProgrammeOfferingId.yaml'
-                - $ref: './LearningComponentOfferingId.yaml'
-                - $ref: './TestComponentOfferingId.yaml'
-          - type: 'null'
       primaryCode:
         description: The primary human readable identifier for this group. This is often the source identifier as defined by the institution.
         $ref: './IdentifierEntry.yaml'
@@ -97,6 +85,18 @@ allOf:
             title: organisationId
           - $ref: './Organisation.yaml'
             title: Expanded organisation
+          - type: 'null'
+      offeringIds:
+        description: |
+          The offering identifiers (0..N) associated with this group.
+        oneOf:
+          - type: array
+            items:
+              oneOf:
+                - $ref: './CourseOfferingId.yaml'
+                - $ref: './ProgrammeOfferingId.yaml'
+                - $ref: './LearningComponentOfferingId.yaml'
+                - $ref: './TestComponentOfferingId.yaml'
           - type: 'null'
       academicSession:
         description: |
