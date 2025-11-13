@@ -13,13 +13,19 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
-      - name: Generate v4 bundle
+      - name: Generate v4 bundle (YAML)
         run: npx @redocly/cli bundle v4/spec.yaml -d -o ooapiv4.yaml
-      - name: Generate v5 bundle
+      - name: Generate v4 bundle (JSON)
+        run: npx @redocly/cli bundle v4/spec.yaml -o ooapiv4.json
+      - name: Generate v5 bundle (YAML)
         run: npx @redocly/cli bundle v5/spec.yaml -d -o ooapiv5.yaml
+      - name: Generate v5 bundle (JSON)
+        run: npx @redocly/cli bundle v5/spec.yaml -o ooapiv5.json
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
             ooapiv4.yaml
+            ooapiv4.json
             ooapiv5.yaml
+            ooapiv5.json
