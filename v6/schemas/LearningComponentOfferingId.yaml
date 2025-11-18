@@ -1,8 +1,8 @@
 type: object
 required:
-  - learingComponentOfferingId
+  - learningComponentOfferingId
 properties:
-  learingComponentOfferingId:
+  learningComponentOfferingId:
     type: string
     description: The unique ID of the learning component offering, this should be unique across all programme, course, learning and testcomponent offerings.
     format: uuid

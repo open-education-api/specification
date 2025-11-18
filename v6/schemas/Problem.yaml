@@ -13,6 +13,7 @@ properties:
   type:
     type: string
     format: uri
+    maxLength: 2048
     description: |
       An absolute URI that identifies the problem type. When dereferenced, 
       it should provide human-readable documentation.
@@ -40,6 +41,7 @@ properties:
       - string
       - 'null'
     format: uri
+    maxLength: 2048
     description: |
       An absolute URI that identifies the specific occurrence of the problem.
     example: "https://api.example.org/courses/abc123"

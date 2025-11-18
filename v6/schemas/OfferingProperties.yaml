@@ -10,6 +10,14 @@ properties:
       codeType: offeringCode
       code: INFOMQNM-20FS
 #    readOnly: true    # Due to the machine-to-machine (M2M) communication still being under development, it is currently not possible to set this field as read-only.
+  groupIds:
+    description: |
+      The offering identifiers (0..N) associated with this group.
+    oneOf:
+      - type: array
+        items:
+            $ref: './Identifier.yaml'
+      - type: 'null'
   academicSessionId:
     description: |
       The identifier of the academicSession during which this courseOffering takes place.

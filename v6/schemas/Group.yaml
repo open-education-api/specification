@@ -1,122 +1,139 @@
-type: object
-description: |
-  A group is simply a collection of persons. Groups can be used to accommodate various usecases.
-  Groups MAY optionally have a relation to an Offering, however the meaning of such relations is left unspecified and is left up to the implementer.
-required:
-  - groupId
-  - groupType
-  - name
-  - primaryCode
-properties:
-  groupId:
-    type: string
-    description: Unique id for this group
-    format: uuid
-    example: 123e4567-e89b-12d3-a456-426614174000
-  primaryCode:
-    description: The primary human readable identifier for this group. This is often the source identifier as defined by the institution.
-    $ref: './IdentifierEntry.yaml'
-    example:
-      codeType: groupCode
-      code: group-abc987
-  groupType:
-    $ref: '../enumerations/groupType.yaml'
-  name:
-    type: array
-    description: The name of this group
-    minItems: 1
-    items:
-      $ref: './LanguageTypedString.yaml'
-    example:
-      - language: en-GB
-        value: statistics students
-  description:
-    type:
-      - array
-      - 'null'
-    description: The description of this group
-    minItems: 1
-    items:
-      $ref: './LanguageTypedString.yaml'
-    example:
-      - language: en-GB
-        value: The group of students that follow statistics classes
-  startDateTime:
-    type:
-      - string
-      - 'null'
+allOf:
+  - $ref: './GroupId.yaml'
+  - type: object
     description: |
-      The moment on which this group starts being active, RFC3339 (date-time).
-      Groups can be ordered in time through the academic-session  
-      The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
-    format: date-time
-    example: 2025-05-30T20:00:00+01:00
-  endDateTime:
-    type:
-      - string
-      - 'null'
-    description: |
-      The moment on which this group ends being active, RFC3339 (date-time)
-      Groups can be ordered in time through the academic-session  
-      The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
-    format: date-time
-    example: 2025-06-30T20:00:00+01:00
-  personCount:
-    type:
-      - number
-      - 'null'
-    description: The number of persons that are member of this group
-    format: int32
-    minimum: 0
-    example: 183
-  otherCodes:
-    type:
-      - array
-      - 'null'
-    description: An array of additional human readable codes/identifiers for the entity being described.
-    items:
-      $ref: './IdentifierEntry.yaml'
-  consumer:
-    oneOf:
-      - $ref: './Consumer.yaml'
-      - type: 'null'
-  organisationId:
-    description: |
-      The identifier of the organisation that manages this group.
-      When the client does not request expansion of `organisation`, only this
-      identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
-  organisation:
-    description: |
-      The expanded organisation object that manages this group.
-      When the client requests expansion of `organisation`, the full expanded
-      organisation object MUST be returned here instead of only the identifier.
-      If no organisation is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
-      - $ref: './Organisation.yaml'
-  academicSessionId:
-    description: |
-      The identifier of the academicSession for which this group is intended.
-      When the client does not request expansion of `academicSession`, only this
-      identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
-  academicSession:
-    description: |
-      The expanded academicSession object for which this group is intended.
-      When the client requests expansion of `academicSession`, the full expanded
-      academicSession object MUST be returned here instead of only the identifier.
-      If no academicSession is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
-      - $ref: './AcademicSession.yaml'
-  ext:
-    oneOf:
-      - $ref: './Ext.yaml'
-      - type: 'null'
+      A group is simply a collection of persons. Groups can be used to accommodate various usecases.
+      Groups MAY optionally have a relation to an Offering, however the meaning of such relations is left unspecified and is left up to the implementer.
+    required:
+      - groupType
+      - name
+      - primaryCode
+    properties:
+      primaryCode:
+        description: The primary human readable identifier for this group. This is often the source identifier as defined by the institution.
+        $ref: './IdentifierEntry.yaml'
+        example:
+          codeType: groupCode
+          code: group-abc987
+      groupType:
+        $ref: '../enumerations/groupType.yaml'
+      name:
+        type: array
+        description: The name of this group
+        minItems: 1
+        items:
+          $ref: './LanguageTypedString.yaml'
+        example:
+          - language: en-GB
+            value: statistics students
+      description:
+        type:
+          - array
+          - 'null'
+        description: The description of this group
+        minItems: 1
+        items:
+          $ref: './LanguageTypedString.yaml'
+        example:
+          - language: en-GB
+            value: The group of students that follow statistics classes
+      startDateTime:
+        type:
+          - string
+          - 'null'
+        description: |
+          The moment on which this group starts being active, RFC3339 (date-time).
+          Groups can be ordered in time through the academic-session  
+          The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
+        format: date-time
+        example: 2025-05-30T20:00:00+01:00
+      endDateTime:
+        type:
+          - string
+          - 'null'
+        description: |
+          The moment on which this group ends being active, RFC3339 (date-time)
+          Groups can be ordered in time through the academic-session  
+          The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
+        format: date-time
+        example: 2025-06-30T20:00:00+01:00
+      personCount:
+        type:
+          - number
+          - 'null'
+        description: The number of persons that are member of this group
+        format: int32
+        minimum: 0
+        example: 183
+      otherCodes:
+        type:
+          - array
+          - 'null'
+        description: An array of additional human readable codes/identifiers for the entity being described.
+        items:
+          $ref: './IdentifierEntry.yaml'
+      consumer:
+        oneOf:
+          - $ref: './Consumer.yaml'
+          - type: 'null'
+          
+      organisationId:
+        description: |
+          The identifier of the organisation that manages this group.
+          When the client does not request expansion of `organisation`, only this
+          identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      organisation:
+        description: |
+          The expanded organisation object that manages this group.
+          When the client requests expansion of `organisation`, the full expanded
+          organisation object MUST be returned here instead of only the identifier.
+          If no organisation is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './Organisation.yaml'
+      academicSessionId:
+        description: |
+          The identifier of the academicSession for which this group is intended.
+          When the client does not request expansion of `academicSession`, only this
+          identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      academicSession:
+        description: |
+          The expanded academicSession object for which this group is intended.
+          When the client requests expansion of `academicSession`, the full expanded
+          academicSession object MUST be returned here instead of only the identifier.
+          If no academicSession is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './AcademicSession.yaml'          
+      offeringIds:
+        description: |
+          The offering identifiers (0..N) associated with this group.
+        oneOf:
+          - type: array
+            items:
+              type: object
+              minProperties: 1
+              maxProperties: 1
+              additionalProperties: false
+              properties:
+                courseOfferingId:
+                  $ref: './CourseOfferingId.yaml#/properties/courseOfferingId'
+                programmeOfferingId:
+                  $ref: './ProgrammeOfferingId.yaml#/properties/programmeOfferingId'
+                learningComponentOfferingId:
+                  $ref: './LearningComponentOfferingId.yaml#/properties/learningComponentOfferingId'
+                testComponentOfferingId:
+                  $ref: './TestComponentOfferingId.yaml#/properties/testComponentOfferingId'
+          - type: 'null'
+      ext:
+        oneOf:
+          - $ref: './Ext.yaml'
+          - type: 'null'
