@@ -66,15 +66,22 @@ properties:
       Additional information about external disturbances or (potentially) illegal actions by the student, 
       before, during or after the test.
     example: The student was late because there was a train delay
+  coordinatorId:
+    description: |
+      The identifier of the coordinator responsible for overseeing the test.
+      When the client does not request expansion of `coordinator`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   coordinator:
     description: |
-      The coordinator responsible for overseeing the test
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: coordinatorId
+      The expanded coordinator responsible for overseeing the test.
+      When the client requests expansion of `coordinator`, the full person object MUST be returned here instead of only the identifier.
+      If no coordinator is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './Person.yaml'
-        title: Person object
-      - type: 'null'
   documents:
     type:
       - array

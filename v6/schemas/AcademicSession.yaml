@@ -50,33 +50,70 @@ properties:
     description: The moment on which this academic session ends, RFC3339 (date-time)
     format: date-time
     example: '2025-09-28T08:30:00+01:00'
+  parentId:
+    description: |
+      The identifier of the parent academicSession for this session (e.g. Autumn
+      term 20xx where the current session is week 40).
+      When the client does not request expansion of `parent`, only this
+      identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   parent:
-    description: The parent Academicsession of this session (e.g. Autumn term 20xx where the current session is a week 40). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academicSession.
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: academicSessionId
+    description: |
+      The expanded parent academicSession object of this session (e.g. Autumn
+      term 20xx where the current session is week 40).
+      When the client requests expansion of `parent`, the full expanded
+      academicSession object MUST be returned here instead of only the identifier.
+      If no parent is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './AcademicSession.yaml'
-        title: Expanded AcademicSession
-      - type: 'null'
-  children:
-    description: The list of Academicsession children of this Session (e.g. all academic sessions in Autumn term 20xx). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academicSession.
+  childIds:
+    description: |
+      The list of identifiers of child academicSessions of this session (e.g. all
+      academic sessions in Autumn term 20xx).
+      When the client does not request expansion of `children`, only these
+      identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
     type:
       - array
       - 'null'
     items:
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: academicSessionId
-        - $ref: './AcademicSession.yaml'
-          title: Expanded AcademicSession
+      $ref: './Identifier.yaml'
+  children:
+    description: |
+      The expanded child academicSession objects of this session (e.g. all
+      academic sessions in Autumn term 20xx).
+      When the client requests expansion of `children`, the full expanded
+      academicSession objects MUST be returned here instead of only the identifiers.
+      If no child sessions are defined, this value is `null`.
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './AcademicSession.yaml'
+  yearId:
+    description: |
+      The identifier of the top-level academicSession year for this session
+      (e.g. 20xx where the current session is week 40 of a semester).
+      When the client does not request expansion of `year`, only this identifier
+      is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   year:
-    description: The top level year of this session (e.g. 20xx where the current session is a week 40 of a semester). This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academicSession.
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: academicSessionId
+    description: |
+      The expanded top-level academicSession year object for this session
+      (e.g. 20xx where the current session is week 40 of a semester).
+      When the client requests expansion of `year`, the full expanded
+      academicSession object MUST be returned here instead of only the identifier.
+      If no top-level year is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './AcademicSession.yaml'
-        title: Expanded AcademicSession
-      - type: 'null'
   otherCodes:
     type:
       - array

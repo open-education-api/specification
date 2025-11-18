@@ -46,39 +46,59 @@ allOf:
         oneOf:
           - $ref: './Room.yaml'
           - type: 'null'
+      componentId:
+        description: |
+          The identifier of the component that is offered in this component offering.
+          When the client does not request expansion of `component`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
       component:
         description: |
-          The component that is offered in this component offering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a test component.
-          By default only the `componentId` (a string) is returned. If the client requested an expansion of `component` the full component object should be returned.
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: componentId
+          The expanded component that is offered in this component offering.
+          When the client requests expansion of `component`, the full component object MUST be returned here instead of only the identifier.
+          If no component is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
           - $ref: './TestComponent.yaml'
-            title: Test Component object
-          - type: 'null'
-      courseOfferings:
+      courseOfferingIds:
         description: |
-          An array of 0 or more course offerings where this test component offering is related to. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a course offering.
-          By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
+          The identifiers of the course offerings to which this test component offering is related.
+          When the client does not request expansion of `courseOfferings`, only these identifiers are returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
         type:
           - array
           - 'null'
         items:
-          oneOf:
-            - $ref: './Identifier.yaml'
-              title: courseOfferingId
-            - $ref: './CourseOffering.yaml'
-              title: CourseOffering object
+          $ref: './Identifier.yaml'
+          title: courseOfferingId
+      courseOfferings:
+        description: |
+          The expanded course offering objects to which this test component offering is related.
+          When the client requests expansion of `courseOfferings`, the full course offering objects MUST be returned here instead of only the identifiers.
+          If no course offerings are defined, this value is `null`.
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './CourseOffering.yaml'
+      organisationId:
+        description: |
+          The identifier of the organisation that manages this component offering.
+          When the client does not request expansion of `organisation`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
       organisation:
         description: |
-          The organisation that manages this component offering. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
-          By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: organisationId
+          The expanded organisation object that manages this component offering.
+          When the client requests expansion of `organisation`, the full organisation object MUST be returned here instead of only the identifier.
+          If no organisation is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
           - $ref: './Organisation.yaml'
-            title: Organisation object
-          - type: 'null'
       documents:
         type:
           - array
