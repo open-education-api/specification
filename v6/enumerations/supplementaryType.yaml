@@ -1,0 +1,21 @@
+type: string
+description: |
+  The specific type of supplementary information.
+  These values describe the semantic purpose of the supplementary content.
+  The supplementaryType MUST NOT repeat or encode the baseType.
+  The baseType defines the media form (text, image, video), while supplementaryType defines the intent.
+
+  | Code          | Description                                         |
+  |---------------|-----------------------------------------------------|
+  | `announcement`| General-purpose announcement or notice              |
+  | `badge`       | A visual label or achievement marker                |
+  | `marketing`   | Promotional or marketing-related content            |
+  | `promo`       | A short promotional highlight or teaser            |
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - announcement
+  - badge
+  - marketing
+  - promo
+example: badge

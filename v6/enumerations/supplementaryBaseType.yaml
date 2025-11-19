@@ -1,0 +1,18 @@
+type: string
+description: |
+  The fundamental media form of the supplementary content.  
+  The selected baseType determines how the associated `value` MUST be interpreted.
+  The supplementaryType defines the semantic intent, but MUST NOT duplicate this base media form.
+
+  | Code    | Description                                                            |
+  |---------|------------------------------------------------------------------------|
+  | `image` | Visual media referenced via a URI (e.g. photographs, illustrations)    |
+  | `text`  | Free-form textual content or Markdown-based descriptions               |
+  | `video` | Video media referenced via a URI (e.g. recordings, promotional footage)|
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - image
+  - text
+  - video
+example: text
