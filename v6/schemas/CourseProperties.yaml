@@ -171,27 +171,7 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
   supplementaryInformation:
-    type: array
-    description: Optional supplementary information associated with this resource.
-    items:
-      type: object
-      properties:
-        supplementaryBaseType:
-          $ref: '../enumerations/supplementaryBaseType.yaml'
-        supplementaryType:
-          $ref: '../enumerations/supplementaryType.yaml'
-        value:
-          type: string
-          description: |
-            The content of the supplementary item:
-            - For supplementaryBaseType `image` or `video` this MUST be a valid URI.
-            - For supplementaryBaseType `text` this MAY be free-form text or Markdown.
-            - Custom supplementaryTypes MUST align with the chosen baseType.
-          example: https://example.com/immages/image1.png
-      required:
-        - supplementaryBaseType
-        - supplementaryType
-        - value
+    $ref: './SupplementaryInformation.yaml'
   programmes:
     description: The programme of which this course is a part of. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a programme.
     type:         # array is used because of implementation of alliances in programme where courses can be part of regular education and alliances
