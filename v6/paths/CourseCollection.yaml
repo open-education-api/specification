@@ -50,6 +50,8 @@ get:
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
