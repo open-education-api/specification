@@ -134,8 +134,7 @@ patch:
       description: Created
     '202':
       description: Accepted
-
-              
+       
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':

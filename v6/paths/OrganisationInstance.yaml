@@ -71,7 +71,6 @@ put:
         schema:
           $ref: '../schemas/Organisation.yaml'
 
-
   responses:
     '200':
       description: OK
@@ -79,8 +78,6 @@ put:
       description: Created
     '202':
       description: Accepted
-
-
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'

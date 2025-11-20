@@ -1,4 +1,13 @@
-description: Not Found
+description: |
+  Not Found.  
+  
+  Returned only when a specific resource identified by its identifier
+  cannot be located. This applies to instance endpoints where a single,
+  uniquely-addressable object is expected.  
+  
+  Collection endpoints should not return a 404. If no items match the request,
+  they must return an empty array. A 404 may still occur if the collection
+  endpoint itself does not exist or is not accessible.
 content:
   application/problem+json:
     schema:
