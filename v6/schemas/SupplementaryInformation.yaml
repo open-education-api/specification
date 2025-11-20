@@ -2,20 +2,34 @@ type: array
 description: Optional supplementary information associated with this resource.
 items:
   type: object
+  description: |
+    A supplementary content item consists of a technical media form (`type`),
+    a semantic purpose (`role`), and an array of `value` entries. Together these
+    fields define both how the content MUST be interpreted (`type`) and why it
+    is provided (`role`).
+
+    The `type` specifies the underlying media form (text, image, video or http)
+    and determines how each `value` item MUST be handled. The `role` describes
+    the intent or purpose of the supplementary item (for example announcement,
+    badge, marketing or promotional teaser) and MUST NOT duplicate or encode
+    the media form defined by `type`.
+
+    The separation between `type` and `role` ensures that the same media form
+    can serve multiple purposes, and that the semantic meaning remains
+    independent from the technical representation of the content. The `value`
+    array contains one or more language-typed strings, allowing the same content
+    item to be expressed in multiple languages or alternative textual variants.
   properties:
-    supplementaryBaseType:
-      $ref: '../enumerations/supplementaryBaseType.yaml'
-    supplementaryType:
+    role:
+      $ref: '../enumerations/supplementaryRole.yaml'
+    type:
       $ref: '../enumerations/supplementaryType.yaml'
-    supplementaryValue:
-      type: string
-      description: |
-        The content of the supplementary item:
-        - For supplementaryBaseType `image` or `video` this MUST be a valid URI.
-        - For supplementaryBaseType `text` this MAY be free-form text or Markdown.
-        - Custom supplementaryTypes MUST align with the chosen baseType.
-      example: https://example.com/immages/image1.png
+    value:
+      type: array
+      minItems: 1
+      items:
+        $ref: './LanguageTypedString.yaml'
   required:
-    - supplementaryBaseType
-    - supplementaryType
-    - supplementaryValue
+    - role
+    - type
+    - value
