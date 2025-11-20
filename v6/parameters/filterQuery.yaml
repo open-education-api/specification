@@ -11,7 +11,6 @@ description: |
 
   Wildcards:
   - Prefer using only the asterisk `*` as a wildcard for partial matches (e.g., like and not_like).
-  - Other wildcard characters (such as `%`) MUST be escaped and MAY NOT be supported by all implementations.
 
   Implementation note:
   - The availability and behaviour of this query functionality are entirely determined by the organisation hosting
@@ -48,14 +47,12 @@ schema:
         type: string
         description: |
           Partial match using wildcards. Prefer `*` as the wildcard.
-          Other wildcards (e.g., `%`) MUST be escaped and MAY NOT be supported.
         # Quotes are required here because YAML interprets unquoted * as an alias reference.
         example: "*Amsterdam*"
       not_like:
         type: string
         description: |
           Negated partial match using wildcards. Prefer `*` as the wildcard.
-          Other wildcards (e.g., `%`) MUST be escaped and MAY NOT be supported.
         # Quotes are required here because YAML interprets unquoted * as an alias reference.
         example: "*deprecated*"
       any_in_array:

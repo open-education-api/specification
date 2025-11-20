@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Unified error response codes across all operations to: 400, 401, 403, 404, 405, 429, 500
 
+## [6.0.0 Removed % as wildcard] - 2025-11-19
+
+### Removed
+- Removed % as a wildcard option for filtering; it makes no sense to support it alongside *.
+
 ## [6.0.0 Update parent–child cardinality] - 2025-11-04
 
 ### Changed
