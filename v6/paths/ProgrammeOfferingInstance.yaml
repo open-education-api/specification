@@ -95,6 +95,8 @@ put:
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
@@ -132,8 +134,7 @@ patch:
       description: Created
     '202':
       description: Accepted
-
-              
+       
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
