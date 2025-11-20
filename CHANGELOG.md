@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added supplementaryInformation
+
 ## [6.0.0 Standardised error responses across all operations] - 2025-11-20
 
 ### Fixed
