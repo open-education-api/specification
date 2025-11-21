@@ -66,7 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - field for instructors added in courses and programmes.
 
 ### Changed
-- flexibleEntryStart and flexibleEntryEnd will be replaced with flexibleEntry.
+- flexibleEntryStart and flexibleEntryEnd have been renamed to flexibleEntryStartDateTime and flexibleEntryEndDateTime
 - teachingLanguages, refers to ISO 4647 will be corrected to RFC 4647.
 - in enrolmentPeriods, the field targetGroup should be renamed to targetGroups.
 
