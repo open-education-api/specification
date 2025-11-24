@@ -47,15 +47,22 @@ properties:
       final: indicates that the result has been finalised by the exam committee. 
       Can be done in any step of the test taking and assessment cycle. 
     example: true
+  assessorId:
+    description: |
+      The identifier of the assessor responsible for evaluating the result.
+      When the client does not request expansion of `assessor`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   assessor:
     description: |
-      The assessor responsible for evaluating the result.
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: assessorId
+      The expanded assessor (person) responsible for evaluating the result.
+      When the client requests expansion of `assessor`, the full person object MUST be returned here instead of only the identifier.
+      If no assessor is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './Person.yaml'
-        title: Person object
-      - type: 'null'
   resultDateTime:
     type: string
     description: The date this result has been published, RFC3339 (date-time)

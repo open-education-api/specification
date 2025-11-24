@@ -18,16 +18,22 @@ properties:
         items:
             $ref: './Identifier.yaml'
       - type: 'null'
+  academicSessionId:
+    description: |
+      The identifier of the academicSession during which this courseOffering takes place.
+      When the client does not request expansion of `academicSession`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   academicSession:
     description: |
-      The academic session during which this courseoffering takes place. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an academic session.
-      By default only the `academicSessionId` (a string) is returned. If the client requested an expansion of `academicSession` the full academicsession object should be returned.
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: academicSessionId
+      The expanded academicSession object during which this courseOffering takes place.
+      When the client requests expansion of `academicSession`, the full expanded academicSession object MUST be returned here instead of only the identifier.
+      If no academicSession is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './AcademicSession.yaml'
-        title: AcademicSession object
-      - type: 'null'
   name:
     type: array
     description: The name of this offering

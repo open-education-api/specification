@@ -96,16 +96,22 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
+  buildingId:
+    description: |
+      The identifier of the building in which the room is located.
+      When the client does not request expansion of `building`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   building:
     description: |
-      The building in which the room is located. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a building.
-      By default only the `buildingId` (a string) is returned. If the client requested an expansion of `building` the full building object should be returned.
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: buildingId
+      The expanded building object in which the room is located.
+      When the client requests expansion of `building`, the full building object MUST be returned here instead of only the identifier.
+      If no building is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './Building.yaml'
-        title: Building object
-      - type: 'null'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'

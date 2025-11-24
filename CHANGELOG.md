@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Removed % as a wildcard option for filtering; it makes no sense to support it alongside *.
 
+## [6.0.0 Removal of oneOf identifier–object pattern for code generation] - 2025-11-18
+
+### Changed
+- Reworked identifier-or-object oneOf pattern across the specification to prevent code-generation issues and ensure consistent, predictable schemas.
+
 ## [6.0.0 Update parent–child cardinality] - 2025-11-04
 
 ### Changed
