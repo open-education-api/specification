@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Reworked identifier-or-object oneOf pattern across the specification to prevent code-generation issues and ensure consistent, predictable schemas.
+## [6.0.0 Add fieldsOfStudy to learningOutcome] - 2025-11-26
+
+### Added
+- Add fieldsOfStudy to learningOutcome
 ## [6.0.0 Add attendance to learningComponentOfferingAssociation] - 2025-11-26
 
 ### Added
