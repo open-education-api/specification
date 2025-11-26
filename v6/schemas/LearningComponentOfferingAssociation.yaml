@@ -7,3 +7,7 @@ allOf:
         oneOf:
           - $ref: './LearningComponentOfferingAssociationResult.yaml'
           - type: 'null'
+      attendance:
+        oneOf:
+          - $ref: '../enumerations/associationAttendance.yaml'
+          - type: 'null'
