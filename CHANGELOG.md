@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added supplementaryInformation
+## [6.0.0 Fix link to ISCED documentation] - 2025-11-26
+
+### Fixed
+- Link to ISCED documentation
 
 ## [6.0.0 Standardised error responses across all operations] - 2025-11-20
 
@@ -71,7 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - field for instructors added in courses and programmes.
 
 ### Changed
-- flexibleEntryStart and flexibleEntryEnd will be replaced with flexibleEntry.
+- flexibleEntryStart and flexibleEntryEnd have been renamed to flexibleEntryStartDateTime and flexibleEntryEndDateTime
 - teachingLanguages, refers to ISO 4647 will be corrected to RFC 4647.
 - in enrolmentPeriods, the field targetGroup should be renamed to targetGroups.
 
