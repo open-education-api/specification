@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added supplementaryInformation
+## [6.0.0 Add attendance to learningComponentOfferingAssociation] - 2025-11-26
+
+### Added
+- Add attendance to learningComponentOfferingAssociation
+
 ## [6.0.0 Fix link to ISCED documentation] - 2025-11-26
 
 ### Fixed
