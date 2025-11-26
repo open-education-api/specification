@@ -21,12 +21,20 @@ allOf:
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
         example: "2019-10-23T22:59:59+01:00"
-      flexibleEntry:
+      flexibleEntryPeriodStartDateTime:
         type:
-          - boolean
+          - string
           - 'null'
-        description: flexibleEntry determines whether the startDateTime and endDateTime are flexible (true) or fixed (false).
-        example: true
+        description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEndDateTime`.
+        format: date
+        example: "2019-08-21T09:00:00+01:00"
+      flexibleEntryPeriodEndDateTime:
+        type:
+          - string
+          - 'null'
+        description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStartDateTime`.
+        format: date
+        example: "2019-10-21T22:59:59+01:00"
       addresses:
         type:
           - array
