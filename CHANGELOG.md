@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Corrected all example payloads for standard error responses.
+## [6.0.0 Fix link to ISCED documentation] - 2025-11-26
+
+### Fixed
+- Link to ISCED documentation
 
 ## [6.0.0 Standardised error responses across all operations] - 2025-11-20
 
