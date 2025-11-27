@@ -33,7 +33,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/CourseOfferingAssociationFull.yaml'          
+            $ref: '../schemas/CourseOfferingAssociation.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -69,7 +69,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/CourseOfferingAssociationExpanded.yaml'
+          $ref: '../schemas/CourseOfferingAssociation.yaml'
   responses:
     '200':
       description: OK

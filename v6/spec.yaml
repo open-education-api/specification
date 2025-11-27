@@ -246,7 +246,7 @@ tags:
   - name: course_offering_association_model
     x-displayName: CourseOfferingAssociation
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociationFull" />
+      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociation" />
 
   - name: course_offering_model
     x-displayName: CourseOffering
