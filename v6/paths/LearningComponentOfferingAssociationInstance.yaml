@@ -187,7 +187,7 @@ patch:
             remoteState:
               $ref: '../enumerations/remoteAssociationState.yaml'
             result:
-              $ref: '../schemas/CourseOfferingAssociationResult.yaml'
+              $ref: '../schemas/LearningComponentOfferingAssociationResult.yaml'
 
 
   responses:

@@ -17,6 +17,9 @@ allOf:
           - learningComponentOfferingId
     properties:
       result:
+        oneOf:
+          - $ref: './LearningComponentOfferingAssociationResult.yaml'
+          - type: 'null'      
         type:
           - object
           - 'null'
