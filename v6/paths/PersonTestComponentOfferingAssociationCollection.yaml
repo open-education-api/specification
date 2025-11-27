@@ -54,11 +54,7 @@ get:
                       allOf:
                         - $ref: '../schemas/TestComponentOfferingAssociation.yaml'
                         - type: object
-                          required:
-                            - offering
                           properties:
-                            offering:
-                              $ref: '../schemas/TestComponentOffering.yaml'
                             academicSession:
                               $ref: '../schemas/AcademicSession.yaml'
                   ext:

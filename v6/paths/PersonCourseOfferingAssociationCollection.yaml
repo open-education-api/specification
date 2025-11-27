@@ -55,8 +55,6 @@ get:
                         - $ref: '../schemas/CourseOfferingAssociation.yaml'
                         - type: object
                           properties:
-                            offering:
-                              $ref: '../schemas/CourseOffering.yaml'
                             academicSession:
                               $ref: '../schemas/AcademicSession.yaml'
                   ext:
