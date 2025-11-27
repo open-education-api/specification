@@ -362,7 +362,7 @@ tags:
     x-displayName: LearningComponentOfferingAssociation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/LearningComponentOfferingAssociationFull" />
+        schemaRef="#/components/schemas/LearningComponentOfferingAssociation" />
 
   - name: learning_component_offering_model
     x-displayName: LearningComponentOffering

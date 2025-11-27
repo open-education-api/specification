@@ -2,6 +2,19 @@ allOf:
   - $ref: './AssociationId.yaml'
   - $ref: './AssociationProperties.yaml'
   - type: object
+    anyOf:
+      - required:
+          - person
+          - offering
+      - required:
+          - personId
+          - offering
+      - required:
+          - person
+          - offeringId
+      - required:
+          - personId
+          - offeringId
     properties:
       result:
         oneOf:
@@ -11,3 +24,37 @@ allOf:
         oneOf:
           - $ref: '../enumerations/associationAttendance.yaml'
           - type: 'null'
+      personId:
+        description: |
+          The identifier of the person referenced here.
+          When the client does not request expansion of `person`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        readOnly: true
+        $ref: './Identifier.yaml'
+      person:
+        description: |
+          The expanded person object referenced here.
+          When the client requests expansion of `person`, the full expanded person object MUST be returned here instead of only the identifier.
+          If no person is defined, this value is `null`.
+        readOnly: true
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './Person.yaml'
+      offeringId:
+        description: |
+          The identifier of the learningComponentOffering referenced here.
+          When the client does not request expansion of `offering`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      offering:
+        description: |
+          The expanded learningComponentOffering object referenced here.
+          When the client requests expansion of `offering`, the full expanded learningComponentOffering object MUST be returned here instead of only the identifier.
+          If no offering is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './LearningComponentOffering.yaml'
