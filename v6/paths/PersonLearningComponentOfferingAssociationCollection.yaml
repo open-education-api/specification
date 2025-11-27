@@ -51,16 +51,7 @@ get:
                   items:
                     type: array
                     items:
-                      allOf:
-                        - $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
-                        - type: object
-                          required:
-                            - offering
-                          properties:
-                            offering:
-                              $ref: '../schemas/LearningComponentOffering.yaml'
-                            academicSession:
-                              $ref: '../schemas/AcademicSession.yaml'
+                      $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':
