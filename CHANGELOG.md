@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Clarified that `flexibleEntryPeriodStartDateTime` and `flexibleEntryPeriodEndDateTime` apply only to participants who have already enrolled, and indicate when they may begin participation without missing essential content.
+## [6.0.0 Corrected error response examples] - 2025-11-24
+
+### Fixed
+- Corrected all example payloads for standard error responses.
 ## [6.0.0 Add fieldsOfStudy to learningOutcome] - 2025-11-26
 
 ### Added
