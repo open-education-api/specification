@@ -93,7 +93,7 @@ put:
                 otherCodes: 
                   - codeType: "identifier"
                     code: "1234qwe12"
-                organisation: "452c1a86-a0af-475b-b03f-724878b0f387"
+                organisationId: "452c1a86-a0af-475b-b03f-724878b0f387"
 
   responses:
     '200':
