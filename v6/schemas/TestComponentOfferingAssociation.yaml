@@ -2,6 +2,19 @@ allOf:
   - $ref: './AssociationId.yaml'
   - $ref: './AssociationProperties.yaml'
   - type: object
+    anyOf:
+      - required:
+          - person
+          - testComponentOffering
+      - required:
+          - personId
+          - testComponentOffering
+      - required:
+          - person
+          - testComponentOfferingId
+      - required:
+          - personId
+          - testComponentOfferingId
     properties:
       extraDuration:
         type:
@@ -46,3 +59,59 @@ allOf:
         oneOf:
           - $ref: './TestComponentOfferingAssociationResult.yaml'
           - type: 'null'
+      personId:
+        description: |
+          The identifier of the person referenced here.
+          When the client does not request expansion of `person`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        readOnly: true
+        $ref: './Identifier.yaml'
+      person:
+        description: |
+          The expanded person object referenced here.
+          When the client requests expansion of `person`, the full person object MUST be returned here instead of only the identifier.
+          If no person is defined, this value is `null`.
+        readOnly: true
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './Person.yaml'
+        title: Person
+      testComponentOfferingId:
+        description: |
+          The identifier of the testComponentOffering referenced here.
+          When the client does not request expansion of `offering`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      testComponentOffering:
+        description: |
+          The expanded testComponentOffering object referenced here.
+          When the client requests expansion of `testComponentOffering`, the full TestComponentOffering object MUST be returned here instead of only the identifier.
+          If no testComponentOffering is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './TestComponentOffering.yaml'
+      attemptIds:
+        description: |
+          The identifiers of the attempts related to this testComponentOffering association.
+          When the client does not request expansion of `attempts`, only these identifiers are returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './Identifier.yaml'
+          title: attemptId
+      attempts:
+        description: |
+          The expanded attempt objects related to this testComponentOffering association.
+          When the client requests expansion of `attempts`, the full TestComponentOfferingAssociationAttempt objects MUST be returned here instead of only the identifiers.
+          If no attempts are defined, this value is `null`.
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './TestComponentOfferingAssociationAttempt.yaml'
