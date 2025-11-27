@@ -563,7 +563,7 @@ tags:
   - name: test_component_offering_association_attempt_model
     x-displayName: TestComponentOfferingAssociationAttempt
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttempt" />
+      <SchemaDefinition schemaRef="#/components/schemas/TestComponentOfferingAssociationAttemptFull" />
 
   - name: test_component_offering_association_model
     x-displayName: TestComponentOfferingAssocation
