@@ -1,0 +1,17 @@
+allOf:
+  - $ref: 'Problem.yaml'
+    type: object
+    required:
+      - requestedVersion
+      - supportedVersions
+    properties:
+      requestedVersion:
+        type: string
+        description: The version requested by the client.
+        example: "5.0"
+      supportedVersions:
+        type: array
+        description: Versions the server can serve, typically in descending order.
+        items:
+          type: string
+        example: ["4.2","4.1"]
