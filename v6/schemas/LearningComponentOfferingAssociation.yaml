@@ -5,16 +5,16 @@ allOf:
     anyOf:
       - required:
           - person
-          - offering
+          - learningComponentOffering
       - required:
           - personId
-          - offering
+          - learningComponentOffering
       - required:
           - person
-          - offeringId
+          - learningComponentOfferingId
       - required:
           - personId
-          - offeringId
+          - learningComponentOfferingId
     properties:
       result:
         oneOf:
@@ -42,13 +42,13 @@ allOf:
           - 'null'
         allOf:
           - $ref: './Person.yaml'
-      offeringId:
+      learningComponentOfferingId:
         description: |
           The identifier of the learningComponentOffering referenced here.
           When the client does not request expansion of `offering`, only this identifier is returned.
           This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
         $ref: './Identifier.yaml'
-      offering:
+      learningComponentOffering:
         description: |
           The expanded learningComponentOffering object referenced here.
           When the client requests expansion of `offering`, the full expanded learningComponentOffering object MUST be returned here instead of only the identifier.

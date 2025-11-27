@@ -108,7 +108,7 @@ put:
                     # eckid cross chain
                   }
                 ]
-              offeringId: "123e4567-e89b-12d3-a456-134564174000"
+              learningComponentOfferingId: "123e4567-e89b-12d3-a456-134564174000"
 
           Change student enrolment to offering (zitting) (flow 2.x):
             value:
@@ -123,7 +123,7 @@ put:
                 extraTimeInMin: 30
                 personalNeeds: [extraTime,spoken,spell-checker-on-screen]
               personId: "123e4567-e89b-12d3-a456-426614174000"
-              offeringId: "123e4567-e89b-12d3-a456-134564174000"    
+              learningComponentOfferingId: "123e4567-e89b-12d3-a456-134564174000"    
 
 
   responses:
