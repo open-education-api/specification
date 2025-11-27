@@ -19,23 +19,6 @@ allOf:
       result:
         oneOf:
           - $ref: './LearningComponentOfferingAssociationResult.yaml'
-          - type: 'null'      
-        type:
-          - object
-          - 'null'
-        allOf:
-          - $ref: './Result.yaml'
-          - type: object
-            required:
-              - weight
-            properties:
-              weight:
-                type: integer
-                description: The weight to 100 as total for this offering in the course
-                format: int32
-                minimum: 0
-                maximum: 100
-                example: 100
       attendance:
         oneOf:
           - $ref: '../enumerations/associationAttendance.yaml'
