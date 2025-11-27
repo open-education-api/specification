@@ -25,11 +25,13 @@ description: |
 content:
   application/problem+json:
     schema:
-      allOf:
-        - $ref: 'ProblemVersionNotAcceptable.yaml'
+      $ref: 'ProblemVersionNotAcceptable.yaml'
     examples:
       unsupportedOoapiVersion:
         summary: "Requested OOAPI version is not supported"
+        description: |
+          Example where the client requests OOAPI version 5.0 and the server
+          cannot serve that version or a lower compatible minor version.
         value:
           type: "https://api.example.org/problems/version-not-acceptable"
           title: "Version not acceptable"
@@ -40,6 +42,10 @@ content:
           instance: "https://api.example.org/courses"
       unsupportedConsumerVersion:
         summary: "Requested consumer version is not supported"
+        description: |
+          Example where the client requests consumer version 2.0 which is not
+          supported by the server and no lower compatible consumer version is
+          available.
         value:
           type: "https://api.example.org/problems/version-not-acceptable"
           title: "Consumer version not acceptable"
