@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Reworked identifier-or-object oneOf pattern across the specification to prevent code-generation issues and ensure consistent, predictable schemas.
+## [6.0.0 Add suplementary info] - 2025-11-28
+
+### Added
+- Added supplementaryInformation
+
 ## [6.0.0 Add additional properties to enrolment periods for queueing capabilities] - 2025-11-26
 
 ### Added

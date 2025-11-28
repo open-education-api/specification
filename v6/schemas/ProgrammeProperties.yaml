@@ -305,6 +305,9 @@ properties:
       - 'null'
     allOf:
       - $ref: './Organisation.yaml'
+      - type: 'null'
+  supplementaryInformation:
+    $ref: './SupplementaryInformation.yaml'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'

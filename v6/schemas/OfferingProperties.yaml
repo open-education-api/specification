@@ -168,6 +168,8 @@ properties:
     description: An array of periods that a person can enrol into this offering. The period is defined by targetgroup and dateTime
     items:
       $ref: './EnrolmentPeriods.yaml'
+  supplementaryInformation:
+    $ref: './SupplementaryInformation.yaml'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'
