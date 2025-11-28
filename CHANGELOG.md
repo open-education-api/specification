@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Reworked identifier-or-object oneOf pattern across the specification to prevent code-generation issues and ensure consistent, predictable schemas.
+## [6.0.0 Add additional properties to enrolment periods for queueing capabilities] - 2025-11-26
+
+### Added
+- Add the following porperties to enrolmentPeriods
+  - enrolmentType: string  
+  - queueEnabled: boolean
+  - queuedNumberStudents: number >= 0
+  - maxQueuedNumberStudents: number >= 0
+
 ## [6.0.0 Clarified semantics of flexible entry attributes] - 2025-11-24
 
 ### Fixed
