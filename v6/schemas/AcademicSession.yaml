@@ -77,6 +77,9 @@ properties:
       When the client does not request expansion of `children`, only these
       identifiers are returned.
       This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      
+      Although childIds and children (e.g. organisationIds vs organisations) may seem 
+      unusual, the naming simply follows the specification’s singular–plural convention.
     type:
       - array
       - 'null'
