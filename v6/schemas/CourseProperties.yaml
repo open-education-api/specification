@@ -272,7 +272,6 @@ properties:
       - 'null'
     allOf:
       - $ref: './Organisation.yaml'
-      - type: 'null'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'
