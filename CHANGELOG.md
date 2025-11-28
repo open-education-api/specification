@@ -10,6 +10,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Defined `406 Not Acceptable` as the response for unsupported OOAPI or consumer versions when no lower compatible minor version is available.
 
+## [6.0.0 Add suplementary info] - 2025-11-28
+
+### Added
+- Added supplementaryInformation
+
+## [6.0.0 Add additional properties to enrolment periods for queueing capabilities] - 2025-11-26
+
+### Added
+- Add the following porperties to enrolmentPeriods
+  - enrolmentType: string  
+  - queueEnabled: boolean
+  - queuedNumberStudents: number >= 0
+  - maxQueuedNumberStudents: number >= 0
+
 ## [6.0.0 Clarified semantics of flexible entry attributes] - 2025-11-24
 
 ### Fixed

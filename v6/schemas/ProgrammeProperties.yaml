@@ -252,6 +252,8 @@ properties:
       - $ref: './Organisation.yaml'
         title: Organisation object
       - type: 'null'
+  supplementaryInformation:
+    $ref: './SupplementaryInformation.yaml'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'
