@@ -25,12 +25,45 @@ properties:
     items:
       type: string
       description: the specific targetgroup
+  enrolmentType:
+    type:
+      - string
+      - 'null'
+    description: |
+      The way the enrolment proces should be handled for this period and targetgroup. 
+      Likely valeus are:
+        url - a url where the user should be directed to for finishing the enrolment
+        broker - using a system that is specialized to handle enrolment
+    example: "url"
   enrolmentUrl:
     type:
       - string
       - 'null'
     description: The URL where a person of this targetGroup can enrol him or herself
     example: "https://university.example.org/"
+  queueEnabled: 
+    type: 
+      - boolean
+      - 'null'
+    description: |
+      a boolean value (true or false) indicating whether enrolment is queued.
+    example: false
+  queuedNumberStudents: 
+    type:
+      - number
+      - 'null'
+    description: The number of students that have a queued enrolment state for this offering.
+    format: int32
+    minimum: 0
+    example: 200
+  maxQueuedNumberStudents:
+    type:
+      - number
+      - 'null'
+    description: The maximum number of students allowed in the queue for this offering.
+    format: int32
+    minimum: 0
+    example: 200
   comment:
     type:
       - string
