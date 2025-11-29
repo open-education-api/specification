@@ -61,33 +61,57 @@ properties:
           4. Explain how different perspectives drive forward advance-
           ments in animal welfare, legislation and science.
           (based on: https://repub.eur.nl/pub/132564/Repub_132564_O-A.pdf)
+  parentIds:
+    description: |
+      The identifiers of the learning outcomes which are the parents of this learning outcome.
+      When the client does not request expansion of `parents`, only these identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './Identifier.yaml'
   parents:
     description: |
-      The learning outcome which are the parent of this Learning outcome. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome. 
-      By default only the learningOutcomeId (a string) is returned. 
-      If the client requested an expansion of Learning outcome the full learning outcome object should be returned. 
+      The expanded learning outcome objects which are the parents of this learning outcome.
+      When the client requests expansion of `parents`, the full expanded learning outcome objects MUST be returned here instead of only the identifiers.
+      If no parents are defined, this value is `null`.
     type:
       - array
       - 'null'
     items:
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: learningOutcomeId
+      type:
+        - object
+        - 'null'
+      allOf:
         - $ref: './LearningOutcome.yaml'
-          title: LearningOutcome object
+  childIds:
+    description: |
+      The identifiers of all learning outcomes for which this learning outcome is the parent.
+      When the client does not request expansion of `children`, only these identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      
+      Although childIds and children (e.g. organisationIds vs organisations) may seem 
+      unusual, the naming simply follows the specification’s singular–plural convention.
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './Identifier.yaml'
   children:
     description: |
-      All the learning outcomes for which this learning outcome is the parent. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome.
-      By default only the `learningOutcomeId` (a string) is returned. If the client requested an expansion of `learning_outcome` the full learning outcome object should be returned.
+      The expanded learning outcome objects for which this learning outcome is the parent.
+      When the client requests expansion of `children`, the full expanded learning outcome objects MUST be returned here instead of only the identifiers.
+      If no children are defined, this value is `null`.
     type:
       - array
       - 'null'
     items:
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: learningOutcomeId
+      type:
+        - object
+        - 'null'
+      allOf:
         - $ref: './LearningOutcome.yaml'
-          title: LearningOutcome object
   fieldsOfStudy:
     type:
       - string

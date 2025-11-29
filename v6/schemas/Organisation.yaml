@@ -83,39 +83,65 @@ properties:
         code: 114B529
       - codeType: kvk_organisation_id
         code: '50277374'
+  rootId:
+    description: |
+      The identifier of the organisation which is the root organisation of this organisation.
+      When the client does not request expansion of `root`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   root:
     description: |
-      The organisation which is the root organisation of this organisation. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When root is expanded, the full object MUST be returned. In this case an organisation.
-      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `root` the full organisation object should be returned.
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: organisationId
+      The expanded organisation object which is the root organisation of this organisation.
+      When the client requests expansion of `root`, the full expanded organisation object MUST be returned here instead of only the identifier.
+      If no root organisation is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './Organisation.yaml'
-        title: Organisation object
-      - type: 'null'
+  parentId:
+    description: |
+      The identifier of the organisational unit which is the parent of this organisation.
+      When the client does not request expansion of `parent`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   parent:
     description: |
-      The organisational unit which is the parent of this organisation. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When parent is expanded, the full object MUST be returned. In this case an organisation.
-      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `parent` the full organisation object should be returned.
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: organisationId
+      The expanded organisation object which is the parent of this organisation.
+      When the client requests expansion of `parent`, the full expanded organisation object MUST be returned here instead of only the identifier.
+      If no parent organisation is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './Organisation.yaml'
-        title: Organisation object
-      - type: 'null'
-  children:
+  childIds:
     description: |
-      All the organisational units for which this organisation is the parent. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When `children` is expanded, the full object MUST be returned. In this case an organisation.
-      By default only an arrray of `organisationId` (a string) is returned. If the client requested an expansion of `children` an array of full organisation objects should be returned.
+      The identifiers of the organisational units for which this organisation is the parent.
+      When the client does not request expansion of `children`, only these identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      
+      Although childIds and children (e.g. organisationIds vs organisations) may seem 
+      unusual, the naming simply follows the specification’s singular–plural convention.
     type:
       - array
       - 'null'
     items:
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: organisationId
+      $ref: './Identifier.yaml'
+  children:
+    description: |
+      The expanded organisational unit objects for which this organisation is the parent.
+      When the client requests expansion of `children`, the full expanded organisation objects MUST be returned here instead of only the identifiers.
+      If no children are defined, this value is `null`.
+    type:
+      - array
+      - 'null'
+    items:
+      type:
+        - object
+        - 'null'
+      allOf:
         - $ref: './Organisation.yaml'
-          title: Organisation object
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'
