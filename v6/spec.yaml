@@ -246,7 +246,7 @@ tags:
   - name: course_offering_association_model
     x-displayName: CourseOfferingAssociation
     description: |
-      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociationFull" />
+      <SchemaDefinition schemaRef="#/components/schemas/CourseOfferingAssociation" />
 
   - name: course_offering_model
     x-displayName: CourseOffering
@@ -362,7 +362,7 @@ tags:
     x-displayName: LearningComponentOfferingAssociation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/LearningComponentOfferingAssociationFull" />
+        schemaRef="#/components/schemas/LearningComponentOfferingAssociation" />
 
   - name: learning_component_offering_model
     x-displayName: LearningComponentOffering
@@ -569,7 +569,7 @@ tags:
     x-displayName: TestComponentOfferingAssocation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/TestComponentOfferingAssociationFull" />
+        schemaRef="#/components/schemas/TestComponentOfferingAssociation" />
 
   - name: test_component_offering_model
     x-displayName: TestComponentOffering

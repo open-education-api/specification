@@ -33,7 +33,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/LearningComponentOfferingAssociationFull.yaml'          
+            $ref: '../schemas/LearningComponentOfferingAssociation.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -69,7 +69,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/LearningComponentOfferingAssociationExpanded.yaml'
+          $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
         examples:
           Add student to created offering (zitting) (flow 2.2.B and 2.3):
             value:
@@ -108,7 +108,7 @@ put:
                     # eckid cross chain
                   }
                 ]
-              offeringId: "123e4567-e89b-12d3-a456-134564174000"
+              learningComponentOfferingId: "123e4567-e89b-12d3-a456-134564174000"
 
           Change student enrolment to offering (zitting) (flow 2.x):
             value:
@@ -123,7 +123,8 @@ put:
                 extraTimeInMin: 30
                 personalNeeds: [extraTime,spoken,spell-checker-on-screen]
               personId: "123e4567-e89b-12d3-a456-426614174000"
-              offeringId: "123e4567-e89b-12d3-a456-134564174000"  
+              learningComponentOfferingId: "123e4567-e89b-12d3-a456-134564174000"    
+
 
   responses:
     '200':
@@ -186,7 +187,7 @@ patch:
             remoteState:
               $ref: '../enumerations/remoteAssociationState.yaml'
             result:
-              $ref: '../schemas/CourseOfferingAssociationResult.yaml'
+              $ref: '../schemas/LearningComponentOfferingAssociationResult.yaml'
 
 
   responses:
