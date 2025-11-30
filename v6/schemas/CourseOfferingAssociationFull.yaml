@@ -1,19 +1,54 @@
 allOf:
   - $ref: './CourseOfferingAssociation.yaml'
   - type: object
-    required:
-      - person
-      - offering
+    anyOf:
+      - required:
+          - person
+          - offering
+      - required:
+          - personId
+          - offering
+      - required:
+          - person
+          - offeringId
+      - required:
+          - personId
+          - offeringId
     properties:
+      personId:
+        description: |
+          The identifier of the person referenced here.
+          When the client or server does not expand `person`, only this
+          identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
       person:
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: personId
+        description: |
+          The expanded person object referenced here.
+          When the client or server expands `person`, the full expanded
+          person object MUST be returned here instead of only the identifier.
+          If no person is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
           - $ref: './Person.yaml'
-            title: Person
+      offeringId:
+        description: |
+          The identifier of the courseOffering referenced here.
+          When the client or server does not expand `offering`, only this
+          identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
       offering:
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: courseOfferingId
+        description: |
+          The expanded courseOffering object referenced here.
+          When the client or server expands `offering`, the full expanded
+          courseOffering object MUST be returned here instead of only the
+          identifier.
+          If no offering is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
           - $ref: './CourseOffering.yaml'
-            title: CourseOffering

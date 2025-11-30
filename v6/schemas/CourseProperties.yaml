@@ -85,17 +85,28 @@ properties:
     minLength: 2
     maxLength: 6
     example: '0732'
-  learningOutcomes:
-    description: Related learning outcomes to this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a learning outcome.
+  learningOutcomeIds:
+    description: |
+      The identifiers of the learning outcomes related to this course.
+      When the client does not request expansion of `learningOutcomes`, only these
+      identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
     type:
       - array
       - 'null'
     items:
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: learningOutcomeId
-        - $ref: './LearningOutcome.yaml'
-          title: LearningOutcome
+      $ref: './Identifier.yaml'
+  learningOutcomes:
+    description: |
+      The expanded learning outcome objects related to this course.
+      When the client requests expansion of `learningOutcomes`, the full expanded
+      learning outcome objects MUST be returned here instead of only the identifiers.
+      If no learning outcomes are defined, this value is `null`.
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './LearningOutcome.yaml'
   admissionRequirements:
     type:
       - array
@@ -170,51 +181,97 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
+  programmeIds:
+    description: |
+      The identifiers of the programmes of which this course is a part.
+      This array is used because a course can belong to multiple programmes,
+      for example in alliances.
+      When the client does not request expansion of `programmes`, only these
+      identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './Identifier.yaml'
   supplementaryInformation:
     $ref: './SupplementaryInformation.yaml'
   programmes:
-    description: The programme of which this course is a part of. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a programme.
-    type:         # array is used because of implementation of alliances in programme where courses can be part of regular education and alliances
+    description: |
+      The expanded programme objects of which this course is a part.
+      This array is used because a course can belong to multiple programmes,
+      for example in alliances.
+      When the client requests expansion of `programmes`, the full expanded
+      programme objects MUST be returned here instead of only the identifiers.
+      If no programmes are defined, this value is `null`.
+    type:
       - array
       - 'null'
     items:
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: programmeId
-        - $ref: './Programme.yaml'
-          title: Programme object
+      $ref: './Programme.yaml'
+  coordinatorIds:
+    description: |
+      The identifiers of the persons responsible for this course.
+      When the client does not request expansion of `coordinators`, only these
+      identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './Identifier.yaml'
   coordinators:
-    description: The person(s) responsible for this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a person.
+    description: |
+      The expanded person objects responsible for this course.
+      When the client requests expansion of `coordinators`, the full expanded
+      person objects MUST be returned here instead of only the identifiers.
+      If no coordinators are defined, this value is `null`.
     type:
       - array
       - 'null'
     items:
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: personId
-        - $ref: './Person.yaml'
-          title: Person object
+      $ref: './Person.yaml'
+  instructorIds:
+    description: |
+      The identifiers of the persons teaching or delivering this course.
+      When the client does not request expansion of `instructors`, only these
+      identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './Identifier.yaml'
   instructors:
-    description: The person(s) teaching or delivering this course. This object is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case a person.
+    description: |
+      The expanded person objects teaching or delivering this course.
+      When the client requests expansion of `instructors`, the full expanded
+      person objects MUST be returned here instead of only the identifiers.
+      If no instructors are defined, this value is `null`.
     type:
       - array
       - 'null'
     items:
-      oneOf:
-        - $ref: './Identifier.yaml'
-          title: personId
-        - $ref: './Person.yaml'
-          title: Person object
+      $ref: './Person.yaml'
+  organisationId:
+    description: |
+      The identifier of the organisation that manages this group.
+      When the client does not request expansion of `organisation`, only this
+      identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   organisation:
     description: |
-      The organisation that manages this group. [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses). When expanded, the full object MUST be returned. In this case an organisation.
-      By default only the `organisationId` (a string) is returned. If the client requested an expansion of `organisation` the full organisation object should be returned.
-    oneOf:
-      - $ref: './Identifier.yaml'
-        title: organisationId
+      The expanded organisation object that manages this group.
+      When the client requests expansion of `organisation`, the full expanded
+      organisation object MUST be returned here instead of only the identifier.
+      If no organisation is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './Organisation.yaml'
-        title: Organisation object
-      - type: 'null'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'

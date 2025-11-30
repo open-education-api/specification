@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Defined `406 Not Acceptable` as the response for unsupported OOAPI or consumer versions when no lower compatible minor version is available.
+## [6.0.0 Update Rework identifier-or-object oneOf pattern] - 2025-11-18
+
+### Changed
+- Reworked identifier-or-object oneOf pattern across the specification to prevent code-generation issues and ensure consistent, predictable schemas.
 
 ## [6.0.0 Add suplementary info] - 2025-11-28
 
