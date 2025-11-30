@@ -50,7 +50,7 @@ allOf:
         description: |
           The identifier of the learningComponent that is offered in this learningComponent offering.
           When the client does not request expansion of `learningComponent`, only this identifier is returned.
-          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
         $ref: './Identifier.yaml'
       learningComponent:
         description: |
@@ -66,7 +66,7 @@ allOf:
         description: |
           The identifiers of the courseOfferings to which this learningComponent offering is related.
           When the client does not request expansion of `courseOfferings`, only these identifiers are returned.
-          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
         type:
           - array
           - 'null'
@@ -90,7 +90,7 @@ allOf:
         description: |
           The identifier of the organisation that manages this component offering.
           When the client does not request expansion of `organisation`, only this identifier is returned.
-          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
         $ref: './Identifier.yaml'
       organisation:
         description: |

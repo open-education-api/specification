@@ -27,7 +27,7 @@ allOf:
         description: |
           The identifier of the person referenced here.
           When the client does not request expansion of `person`, only this identifier is returned.
-          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
         readOnly: true
         $ref: './Identifier.yaml'
       person:
@@ -45,7 +45,7 @@ allOf:
         description: |
           The identifier of the learningComponentOffering referenced here.
           When the client does not request expansion of `offering`, only this identifier is returned.
-          This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
         $ref: './Identifier.yaml'
       learningComponentOffering:
         description: |
