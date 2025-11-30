@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Defined `406 Not Acceptable` as the response for unsupported OOAPI or consumer versions when no lower compatible minor version is available.
+## [6.0.0 Consolidate xxxOfferingAssociation models] - 2025-11-29
+
+### Changed
+- Consolidate xxxOfferingAssociation models
+
 ## [6.0.0 Update Rework identifier-or-object oneOf pattern] - 2025-11-18
 
 ### Changed
