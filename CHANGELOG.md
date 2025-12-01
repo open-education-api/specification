@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [6.0.0 CUpdate links to openonderwijsapi.nl, should include version number] - 2025-11-30
+## [6.0.0 Resolve missing expansions for some calls] - 2025-11-30
+
+### Changed
+## [6.0.1 Expandable fields corrections] - 2025-12-01
+
+### Fixed
+- Added missing `offering` and `academicSession` expandable fields to `GET /persons/{personId}/course-offering-associations`.
+- Added missing `room` expandable field to `GET /courses/{courseId}/learning-component-offerings` and others.
+
+## [6.0.0 Update links to openonderwijsapi.nl, should include version number] - 2025-11-30
 
 ### Changed
 - Update links to openonderwijsapi.nl, should include version number

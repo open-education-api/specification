@@ -23,8 +23,9 @@ get:
         items:
           type: string
           enum:
-            - person
+            - academic_session
             - course_offering
+            - person
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:

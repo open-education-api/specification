@@ -50,10 +50,22 @@ properties:
       a periode, trimester, semester or academic year
     format: date-time
     example: "2025-09-01T09:00:00+01:00"
+  roomId:
+    description: |
+      The identifier of the room for this offering.
+      When the client does not request expansion of `room`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
   room:
-    oneOf:
+    description: |
+      The expanded room object for this offering.
+      When the client requests expansion of `room`, the full expanded room object MUST be returned here instead of only the identifier.
+      If no room is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
       - $ref: './Room.yaml'
-      - type: 'null'
   attendance:
     oneOf:
       - $ref: '../enumerations/attendance.yaml'
