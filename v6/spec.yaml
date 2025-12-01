@@ -493,7 +493,7 @@ tags:
     x-displayName: ProgrammeOfferingAssociation
     description: |
       <SchemaDefinition
-        schemaRef="#/components/schemas/ProgrammeOfferingAssociationFull" />
+        schemaRef="#/components/schemas/ProgrammeOfferingAssociation" />
 
   - name: programme_offering_model
     x-displayName: ProgrammeOffering
