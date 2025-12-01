@@ -5,10 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+
+## [6.0.0 Fix bug in programme_offering_association_model] - 2025-11-30
+
+### Fixed
+- Fix bug in programme_offering_association_model, ProgrammeOfferingAssocaitionFull should have been ProgrammeOfferingAssocaition
+
 ## [6.0.0 Add 406 Not Acceptable for unsupported version negotiation] - 2025-11-27
 
 ### Added
 - Defined `406 Not Acceptable` as the response for unsupported OOAPI or consumer versions when no lower compatible minor version is available.
+
 ## [6.0.0 Consolidate xxxOfferingAssociation models] - 2025-11-29
 
 ### Changed
