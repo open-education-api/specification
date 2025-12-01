@@ -54,11 +54,7 @@ get:
                       allOf:
                         - $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
                         - type: object
-                          required:
-                            - offering
                           properties:
-                            offering:
-                              $ref: '../schemas/LearningComponentOffering.yaml'
                             academicSession:
                               $ref: '../schemas/AcademicSession.yaml'
                   ext:
@@ -71,6 +67,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

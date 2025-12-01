@@ -33,7 +33,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/ProgrammeOfferingAssociationFull.yaml'          
+            $ref: '../schemas/ProgrammeOfferingAssociation.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -42,6 +42,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
@@ -69,7 +71,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/ProgrammeOfferingAssociationExpanded.yaml'
+          $ref: '../schemas/ProgrammeOfferingAssociation.yaml'
 
 
   responses:
@@ -89,6 +91,8 @@ put:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
@@ -156,6 +160,8 @@ patch:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

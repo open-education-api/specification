@@ -74,7 +74,7 @@ properties:
       - string
       - 'null'
     description: |
-      Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf. 
+      Field(s) of study (e.g. ISCED-F) (https://unesdoc.unesco.org/ark:/48223/pf0000228085.locale=en). 
       ISCED-F categorizes the fields of study 2 numbers at root level and further subdivision as more numbers are added
       Perferably fieldsOfStudy contains at least 4 digits
       ISCEDF2013vSOI2021 currently allows for 6 numbers max (https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/documents/2025/pubsoi2021_ed2425.pdf) .
@@ -181,14 +181,6 @@ properties:
     description: An array of additional human readable codes/identifiers for the entity being described.
     items:
       $ref: './IdentifierEntry.yaml'
-  consumer:
-    oneOf:
-      - $ref: './Consumer.yaml'
-      - type: 'null'
-  ext:
-    oneOf:
-      - $ref: './Ext.yaml'
-      - type: 'null'
   programmeIds:
     description: |
       The identifiers of the programmes of which this course is a part.
@@ -202,6 +194,8 @@ properties:
       - 'null'
     items:
       $ref: './Identifier.yaml'
+  supplementaryInformation:
+    $ref: './SupplementaryInformation.yaml'
   programmes:
     description: |
       The expanded programme objects of which this course is a part.
@@ -278,4 +272,11 @@ properties:
       - 'null'
     allOf:
       - $ref: './Organisation.yaml'
-
+  consumer:
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
+  ext:
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

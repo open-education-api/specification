@@ -19,6 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Update links to openonderwijsapi.nl, should include version number
 
+## [6.0.0 Add 406 Not Acceptable for unsupported version negotiation] - 2025-11-27
+
+### Added
+- Defined `406 Not Acceptable` as the response for unsupported OOAPI or consumer versions when no lower compatible minor version is available.
+
 ## [6.0.0 Consolidate xxxOfferingAssociation models] - 2025-11-29
 
 ### Changed
@@ -47,6 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Clarified that `flexibleEntryPeriodStartDateTime` and `flexibleEntryPeriodEndDateTime` apply only to participants who have already enrolled, and indicate when they may begin participation without missing essential content.
+
 ## [6.0.0 Corrected error response examples] - 2025-11-24
 
 ### Fixed
@@ -131,7 +137,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - field for instructors added in courses and programmes.
 
 ### Changed
-- flexibleEntryStart and flexibleEntryEnd will be replaced with flexibleEntry.
+- flexibleEntryStart and flexibleEntryEnd have been renamed to flexibleEntryStartDateTime and flexibleEntryEndDateTime
 - teachingLanguages, refers to ISO 4647 will be corrected to RFC 4647.
 - in enrolmentPeriods, the field targetGroup should be renamed to targetGroups.
 

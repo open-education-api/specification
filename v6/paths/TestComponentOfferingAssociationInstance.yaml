@@ -34,7 +34,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/TestComponentOfferingAssociationFull.yaml'          
+            $ref: '../schemas/TestComponentOfferingAssociation.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -43,6 +43,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
@@ -70,7 +72,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/TestComponentOfferingAssociationExpanded.yaml'
+          $ref: '../schemas/TestComponentOfferingAssociation.yaml'
         examples:
           Add student to created offering (zitting) (flow 2.2.B and 2.3):
             value:
@@ -144,6 +146,8 @@ put:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
@@ -212,6 +216,8 @@ patch:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

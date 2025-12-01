@@ -51,7 +51,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/LearningComponentOfferingAssociationExpandable.yaml'
+                      $ref: '../schemas/LearningComponentOfferingAssociation.yaml'
                   ext:
                     $ref: '../schemas/Ext.yaml'
     '400':
@@ -62,6 +62,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

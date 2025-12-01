@@ -90,6 +90,9 @@ properties:
       The identifiers of all learning outcomes for which this learning outcome is the parent.
       When the client does not request expansion of `children`, only these identifiers are returned.
       This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      
+      Although childIds and children (e.g. organisationIds vs organisations) may seem 
+      unusual, the naming simply follows the specification’s singular–plural convention.
     type:
       - array
       - 'null'
@@ -109,6 +112,22 @@ properties:
         - 'null'
       allOf:
         - $ref: './LearningOutcome.yaml'
+  fieldsOfStudy:
+    type:
+      - string
+      - 'null'
+    description: |
+      Field(s) of study (e.g. ISCED-F) (https://unesdoc.unesco.org/ark:/48223/pf0000228085.locale=en). 
+      ISCED-F categorizes the fields of study 2 numbers at root level and further subdivision as more numbers are added
+      Perferably fieldsOfStudy contains at least 4 digits
+      ISCEDF2013vSOI2021 currently allows for 6 numbers max (https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/documents/2025/pubsoi2021_ed2425.pdf) .
+      07 Engineering, manufacturing and construction
+      073 Architecture and construction
+      0731 Architecture and town planning
+      073101 Townplanning
+    minLength: 2
+    maxLength: 6
+    example: '0732'
   otherCodes:
     type:
       - array
