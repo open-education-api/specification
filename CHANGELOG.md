@@ -10,10 +10,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Update links to openonderwijsapi.nl, should include version number
 
+
+## [6.0.0 Fix bug in programme_offering_association_model] - 2025-11-30
+
+### Fixed
+- Fix bug in programme_offering_association_model, ProgrammeOfferingAssocaitionFull should have been ProgrammeOfferingAssocaition
+
 ## [6.0.0 Add 406 Not Acceptable for unsupported version negotiation] - 2025-11-27
 
 ### Added
 - Defined `406 Not Acceptable` as the response for unsupported OOAPI or consumer versions when no lower compatible minor version is available.
+
 ## [6.0.0 Consolidate xxxOfferingAssociation models] - 2025-11-29
 
 ### Changed
