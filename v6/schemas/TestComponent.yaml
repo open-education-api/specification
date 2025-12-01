@@ -119,7 +119,7 @@ properties:
     description: |
       The identifiers of the learning outcomes related to this test component.
       When the client does not request expansion of `learningOutcomes`, only these identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
     type:
       - array
       - 'null'
@@ -145,7 +145,7 @@ properties:
     description: The extra information that is provided for enrolment
     example:
       - language: en-GB
-        value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/#/technical/formatting-text) MAY be used for rich text representation.
+        value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6/#/technical/formatting-text) MAY be used for rich text representation.
   resources:
     type:
       - array
@@ -183,7 +183,7 @@ properties:
     description: |
       The identifier of the parent Test Component of which the current Test Component is a child.
       When the client does not request expansion of `parent`, only this identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   parent:
     description: |
@@ -199,7 +199,7 @@ properties:
     description: |
       The identifiers of the Test Components which are part of this Test Component.
       When the client does not request expansion of `children`, only these identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
       
       Although childIds and children (e.g. organisationIds vs organisations) may seem 
       unusual, the naming simply follows the specification’s singular–plural convention.
@@ -218,7 +218,7 @@ properties:
     description: |
       The identifier of the course of which this component is a part.
       When the client does not request expansion of `course`, only this identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   course:
     description: |
@@ -235,7 +235,7 @@ properties:
     description: |
       The identifier of the organisation which provides this component.
       When the client does not request expansion of `organisation`, only this identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   organisation:
     description: |

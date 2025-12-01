@@ -82,7 +82,7 @@ properties:
     description: |
       The identifier of the coordinator responsible for overseeing the test.
       When the client does not request expansion of `coordinator`, only this identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   coordinator:
     description: |
