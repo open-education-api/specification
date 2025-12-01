@@ -47,6 +47,22 @@ get:
       schema:
         type: string
         format: date-time
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to include, separated by a comma
+      required: false
+      style: form
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - academic_session
+            - course_offering
+            - learning_component
+            - organisation
+            - room
   responses:
     '200':
       description: OK

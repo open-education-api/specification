@@ -23,14 +23,14 @@ get:
         items:
           type: string
           enum:
-            - programme
-            - programme_offering
+            - academic_session
             - course
             - course_offering
             - learning_component
-            - test_component
             - organisation
-            - academic_session
+            - programme
+            - programme_offering
+            - test_component
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:
