@@ -1,16 +1,17 @@
 type: string
 description: |
-  Indication of the attendance of a student during the test.
-  Possible values are:
-  not_known (No information on presence available or not yet known)
-  not_present (not present),
-  not_started (present but not started),
-  not_finished (present and started but not finished/submitted)
-  and present (present and finished/submitted)"
-enum:
-  - not_known
-  - not_present
+  The attendance status of an individual's association with an offering:
+  - unknown: attendance status is unknown or unrecorded
+  - not_started: attendance has not yet begun
+  - unfinished: attendance has begun but not completed
+  - present: individual attended as expected
+  - absent: individual did not attend
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - unknown
   - not_started
-  - not_finished
+  - unfinished
   - present
+  - absent
 example: present
