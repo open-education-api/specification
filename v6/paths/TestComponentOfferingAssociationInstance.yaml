@@ -25,6 +25,7 @@ get:
           enum:
             - person
             - test_component_offering
+            - room
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:

@@ -25,6 +25,7 @@ get:
           enum:
             - test_component
             - organisation
+            - room
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:

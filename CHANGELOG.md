@@ -5,6 +5,66 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Resolve missing expansions for some calls] - 2025-11-30
+
+### Changed
+## [6.0.1 Expandable fields corrections] - 2025-12-01
+
+### Fixed
+- Added missing `offering` and `academicSession` expandable fields to `GET /persons/{personId}/course-offering-associations`.
+- Added missing `room` expandable field to `GET /courses/{courseId}/learning-component-offerings` and others.
+
+## [6.0.0 Update links to openonderwijsapi.nl, should include version number] - 2025-11-30
+
+### Changed
+- Update links to openonderwijsapi.nl, should include version number
+
+## [6.0.0 Consolidate xxxOfferingAssociation models] - 2025-11-29
+
+### Changed
+- Consolidate xxxOfferingAssociation models
+
+## [6.0.0 Update Rework identifier-or-object oneOf pattern] - 2025-11-18
+
+### Changed
+- Reworked identifier-or-object oneOf pattern across the specification to prevent code-generation issues and ensure consistent, predictable schemas.
+
+## [6.0.0 Add suplementary info] - 2025-11-28
+
+### Added
+- Added supplementaryInformation
+
+## [6.0.0 Add additional properties to enrolment periods for queueing capabilities] - 2025-11-26
+
+### Added
+- Add the following porperties to enrolmentPeriods
+  - enrolmentType: string  
+  - queueEnabled: boolean
+  - queuedNumberStudents: number >= 0
+  - maxQueuedNumberStudents: number >= 0
+
+## [6.0.0 Clarified semantics of flexible entry attributes] - 2025-11-24
+
+### Fixed
+- Clarified that `flexibleEntryPeriodStartDateTime` and `flexibleEntryPeriodEndDateTime` apply only to participants who have already enrolled, and indicate when they may begin participation without missing essential content.
+## [6.0.0 Corrected error response examples] - 2025-11-24
+
+### Fixed
+- Corrected all example payloads for standard error responses.
+## [6.0.0 Add fieldsOfStudy to learningOutcome] - 2025-11-26
+
+### Added
+- Add fieldsOfStudy to learningOutcome
+## [6.0.0 Add attendance to learningComponentOfferingAssociation] - 2025-11-26
+
+### Added
+- Add attendance to learningComponentOfferingAssociation
+
+## [6.0.0 Fix link to ISCED documentation] - 2025-11-26
+
+### Fixed
+- Link to ISCED documentation
+
 ## [6.0.0 Standardised error responses across all operations] - 2025-11-20
 
 ### Fixed

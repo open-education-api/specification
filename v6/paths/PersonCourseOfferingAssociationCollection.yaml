@@ -36,6 +36,19 @@ get:
       required: false
       schema:
         $ref: '../enumerations/resultState.yaml'
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to expand, separated by a comma
+      required: false
+      style: form
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - academic_session
+            - course_offering
   responses:
     '200':
       description: OK
