@@ -4,8 +4,8 @@ description: |
   determines how the associated `value` MUST be interpreted. It defines the
   technical representation of the content, independent of its semantic role.
 
-  The `type` specifies the underlying media form, such as text-plain,
-  text-md, text-http, image, video or uri.
+  The `type` specifies the underlying media form, such as text_plain,
+  text_md, text_http, image, video or uri.
 
   The `role` defines the semantic intent of the item and MUST NOT duplicate the
   technical media form defined by `type`.
@@ -13,18 +13,18 @@ description: |
   | Code        | Description                                                              |
   |-------------|--------------------------------------------------------------------------|
   | `image`     | Visual media referenced via a URI (for example photographs or artwork)   |
-  | `text-http` | HTTP-encoded textual content                                             |
-  | `text-md`   | Markdown-formatted text content.                                         |
-  | `text-plain`| Plain text content.                                                      |
+  | `text_http` | HTTP-encoded textual content                                             |
+  | `text_md`   | Markdown-formatted text content.                                         |
+  | `text_plain`| Plain text content.                                                      |
   | `uri`       | A URI linking to an external resource                                    |
   | `video`     | Video media referenced via a URI (for example recordings or trailers)    |
 
   This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - image
-  - text-http
-  - text-md
-  - text-plain
+  - text_http
+  - text_md
+  - text_plain
   - uri
   - video
-example: text-plain
+example: text_plain
