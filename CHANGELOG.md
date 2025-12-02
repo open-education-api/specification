@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Bug fix, snake case supplementary type and room in offering zhould have been rooms] - 2025-12-02
+
+### Fixed
+- Corrected `supplementaryType` values to use snake_case (`text-` → `text_`) in line with
+  naming conventions.
+- Updated xxxOffering and related schemas to use `rooms`/`roomIds` instead of
+  the incorrect singular `room`/`roomId`.
+
 ## [6.0.0 Title ro RC2 and alignment attendance and associationAttendance] - 2025-12-01
 
 ### Fixed
