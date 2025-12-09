@@ -72,7 +72,7 @@ properties:
     $ref: '../enumerations/sector.yaml'
   fieldsOfStudy:
     type: string
-    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
+    description: Field(s) of study (e.g. ISCED-F) (https://unesdoc.unesco.org/ark:/48223/pf0000228085.locale=en).
     maxLength: 4
     example: '0732'
   enrollment:
