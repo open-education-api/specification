@@ -61,7 +61,7 @@ properties:
       - type: 'null'
   qualificationDesignations:
       type: array
-      description: Academic field designations that specify the discipline area of the degree (e.g., "of Arts", "of Sciences", "of Engineering"). Multiple designations may apply to interdisciplinary programs.
+      description: Academic field designations that specify the discipline area of the degree (e.g., "of Arts", "of Sciences", "of Engineering"). Multiple designations may apply to interdisciplinary programmes.
       items:
         type: string
         description: The designation suffix indicating the academic field or discipline (e.g., "of Arts" for humanities, "of Sciences" for natural sciences, "of Engineering" for engineering disciplines)

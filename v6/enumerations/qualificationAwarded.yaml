@@ -1,6 +1,6 @@
 type: string
 description: |
-  Type of qualification that can be obtained upon completing the program:
+  Type of qualification that can be obtained upon completing the programme:
   - diploma
   - vocational_diploma
   - certificate
