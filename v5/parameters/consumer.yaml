@@ -1,6 +1,6 @@
 name: consumer
 in: query
-description: Request entities meant for a specific consumer. This query parameter is independent from the `consumers` attribute. See the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
+description: Request entities meant for a specific consumer. This query parameter is independent from the `consumers` attribute. See the [documentation on support for specific consumers](https://openonderwijsapi.nl/v5/#/technical/consumers-and-profiles/) for more information about this mechanism.
 required: false
 schema:
   type: string
