@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Bug fix, language corrections and broken link] - 2025-12-09
+
+### Fixed
+- Various language and spelling corrections across the specification (#552).
+- Corrected a broken link to the v5 documentation (#551).
+
 ## [6.0.0 Bug fix, snake case supplementary type and room in offering zhould have been rooms] - 2025-12-02
 
 ### Fixed
