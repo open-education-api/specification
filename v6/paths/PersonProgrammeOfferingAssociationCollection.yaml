@@ -1,5 +1,5 @@
 get:
-  summary: GET /persons/{personId}/progam-offering-associations
+  summary: GET /persons/{personId}/programme-offering-associations
   operationId: listProgrammeOfferingAssociationsByPersonId
   description: Get a list of all programme offering associations for an individual person.
   tags:

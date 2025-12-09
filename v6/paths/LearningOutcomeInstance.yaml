@@ -7,7 +7,7 @@ get:
   parameters:
     - name: learningOutcomeId
       in: path
-      description: learning outcomecomponent ID
+      description: learning outcome component ID
       required: true
       schema:
         type: string

@@ -172,7 +172,7 @@ tags:
     x-deprecated: true
     description: |
       The association API is now depricated and has been replaced by more specific
-      endpoints programme offering assocation, course offering association, learning
+      endpoints programme offering association, course offering association, learning
       component offering association and test component offering association.
 
   - name: building_model

@@ -10,7 +10,7 @@ description: |
   - doctoral: Doctoral degree — research-based doctoral degree (EQF level 8)
   - none: No formal qualification is awarded for this programme
   
-  In case of a degree (for example bachelor or master), the type of degree can be specificied using `qualificationDesignations`.
+  In case of a degree (for example bachelor or master), the type of degree can be specified using `qualificationDesignations`.
 x-ooapi-extensible-enum:
   - diploma
   - vocational_diploma

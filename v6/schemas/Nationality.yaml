@@ -27,8 +27,8 @@ properties:
     maxLength: 4
     description: >
       A nationality code for a country that no longer exists on https://en.wikipedia.org/wiki/ISO_3166-3
-      It is not adviced to use the original iso3166-1 for such a country since country codes
+      It is not advised to use the original iso3166-1 for such a country since country codes
       can get reassigned to new countries ones the original country code is officially obsolete. It is possible
-      that a person has a nationality of a country that does not exist anymore (after a country got split up like CZ and YU)\
+      that a person has a nationality of a country that does not exist any more (after a country got split up like CZ and YU)\
       and never applied for nationality of one of the new countries.
     example: ANHH

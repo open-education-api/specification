@@ -27,7 +27,7 @@ allOf:
         type:
           - array
           - 'null'
-        description: The additional facilities or resrouces needed by a person to make the component accessible and usable.
+        description: The additional facilities or resources needed by a person to make the component accessible and usable.
         items:
           $ref: '../enumerations/personalNeed.yaml'
       attempt:

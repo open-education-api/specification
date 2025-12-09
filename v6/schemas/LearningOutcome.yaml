@@ -45,21 +45,21 @@ properties:
       $ref: './LanguageTypedString.yaml'
     example:
       - language: en-GB
-        value: >
+        value: |
           The candidate should have retained the information that they
           have been taught and be able to:
-          1. Relate opinions as voiced collectively or individually by
-          * animal protection societies
-          * patient support societies
-          * establishments and researchers
-          * industry, including pharma, biotech and food
-          * people with personal, cultural or religious beliefs;
+          1. Relate opinions as voiced collectively or individually by:
+            * animal protection societies
+            * patient support societies
+            * establishments and researchers
+            * industry, including pharma, biotech and food
+            * people with personal, cultural or religious beliefs;
           2. Recognize the fundamental right of freedom of speech;
           3. Recall different perspectives which enable an individual to
-          determine their own opinion on the use of animals for sci-
-          entific purposes;
-          4. Explain how different perspectives drive forward advance-
-          ments in animal welfare, legislation and science.
+            determine their own opinion on the use of animals for scientific
+            purposes;
+          4. Explain how different perspectives drive forward advancements
+            in animal welfare, legislation and science.
           (based on: https://repub.eur.nl/pub/132564/Repub_132564_O-A.pdf)
   parentIds:
     description: |
@@ -118,13 +118,13 @@ properties:
       - 'null'
     description: |
       Field(s) of study (e.g. ISCED-F) (https://unesdoc.unesco.org/ark:/48223/pf0000228085.locale=en). 
-      ISCED-F categorizes the fields of study 2 numbers at root level and further subdivision as more numbers are added
-      Perferably fieldsOfStudy contains at least 4 digits
-      ISCEDF2013vSOI2021 currently allows for 6 numbers max (https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/documents/2025/pubsoi2021_ed2425.pdf) .
+      ISCED-F categorizes the fields of study 2 numbers at root level and further subdivision as more numbers are added.
+      Preferably fieldsOfStudy contains at least 4 digits.
+      ISCEDF2013vSOI2021 currently allows for 6 numbers max (https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/documents/2025/pubsoi2021_ed2425.pdf).
       07 Engineering, manufacturing and construction
       073 Architecture and construction
       0731 Architecture and town planning
-      073101 Townplanning
+      073101 Town planning
     minLength: 2
     maxLength: 6
     example: '0732'

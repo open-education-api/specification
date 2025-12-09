@@ -54,7 +54,7 @@ get:
 put:
   summary: PUT /programme-offering-associations/{programmeOfferingAssociationId}
   description: |
-    PUT a single programme offering association to enrol a person on specific association that can later be retreived.  
+    PUT a single programme offering association to enrol a person on specific association that can later be retrieved.  
   operationId: replaceProgrammeOfferingAssociationById
   tags:
     - programme offering associations
@@ -105,7 +105,7 @@ patch:
   operationId: partialUpdateProgrammeOfferingAssociationById
   description: |
     Update the status or result of an enrolment. Other elements of the association object COULD 
-    also be PATCHED. But are not likely and have therefor not been included in this endpoint.
+    also be PATCHED. But are not likely and have therefore not been included in this endpoint.
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
     to update parts of resource objects.
