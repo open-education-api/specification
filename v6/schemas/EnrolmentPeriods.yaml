@@ -14,7 +14,7 @@ properties:
     type:
       - string
       - 'null'
-    description: The moment until which the enrolment shoud be available (when the enrolment for this taretgroup stops), RFC3339 (date-time)
+    description: The moment until which the enrolment should be available (when the enrolment for this target group stops), RFC3339 (date-time)
     format: date-time
     example: 2020-09-30T20:00:00+01:00
   targetGroups:
@@ -24,14 +24,14 @@ properties:
     description: The people for whom this enrolment is available.
     items:
       type: string
-      description: the specific targetgroup
+      description: the specific target group
   enrolmentType:
     type:
       - string
       - 'null'
     description: |
-      The way the enrolment proces should be handled for this period and targetgroup. 
-      Likely valeus are:
+      The way the enrolment process should be handled for this period and target group. 
+      Likely values are:
         url - a url where the user should be directed to for finishing the enrolment
         broker - using a system that is specialized to handle enrolment
     example: "url"
@@ -39,7 +39,7 @@ properties:
     type:
       - string
       - 'null'
-    description: The URL where a person of this targetGroup can enrol him or herself
+    description: The URL where a person of this target group can enrol him or herself
     example: "https://university.example.org/"
   queueEnabled: 
     type: 
@@ -68,7 +68,7 @@ properties:
     type:
       - string
       - 'null'
-    description: Additional information regarding this enollment period that can be shared with the persons in the target groups.
+    description: Additional information regarding this enrolment period that can be shared with the persons in the target groups.
     example: "Additional information..."
   consumer:
     oneOf:

@@ -7,7 +7,7 @@ required:
 properties:
   personId:
     type: string
-    description: Unique id for this membership (this is the personID since there is a 1-1 relationship between membersip of a group and a person) item
+    description: Unique id for this membership (this is the personID since there is a 1-1 relationship between membership of a group and a person) item
     format: uuid
     example: 123e4567-e89b-12d3-a456-122564174000
   startDateTime:

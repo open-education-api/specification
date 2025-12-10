@@ -42,7 +42,7 @@ properties:
     - language: en-GB
       value: all information on what happens in room Bb 4.35
   consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/v5/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'

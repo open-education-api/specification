@@ -33,7 +33,7 @@ properties:
     type:
       - string
       - 'null'
-    description: The Name a person chooses to use. this is part of a Self Sovereign name e.g. in the eduId proces comparable to schema.org alternateName
+    description: The Name a person chooses to use. this is part of a Self Sovereign name e.g. in the eduId process comparable to schema.org alternateName
     maxLength: 256
     example: Marieke
   preferredName:
@@ -131,7 +131,7 @@ properties:
     type:
       - string
       - 'null'
-    description: The primary e-mailaddress of this person
+    description: The primary email address of this person
     format: email
     maxLength: 256
     example: vandamme.mcw@universiteitvanharderwijk.nl
@@ -139,7 +139,7 @@ properties:
     type:
       - string
       - 'null'
-    description: The secondary e-mailaddress of this person
+    description: The secondary email address of this person
     format: email
     maxLength: 256
     example: poekie@xyz.nl

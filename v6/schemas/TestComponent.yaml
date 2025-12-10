@@ -73,7 +73,7 @@ properties:
       - 'null'
     description: |
       The minimum value that is required to pass an offering for this component. 
-      This value is inclusive and dependes on the resultValueType.
+      This value is inclusive and depends on the resultValueType.
     example: "5.5"
   state:
     oneOf:

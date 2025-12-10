@@ -1,7 +1,7 @@
 put:
   summary: PUT /groups/{groupId}/memberships/{personId}
   operationId: replacePersoninGroupById
-  description: Replace or add a single groupmember from source system to recipient.
+  description: Replace or add a single group member from source system to recipient.
   tags:
     - groups
   parameters:

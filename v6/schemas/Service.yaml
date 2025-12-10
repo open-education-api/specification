@@ -1,5 +1,5 @@
 type: object
-description: A metadataset providing details on the provider of this OOAPI implementation
+description: A metadata set providing details on the provider of this OOAPI implementation
 required:
   - contactEmail
   - specification

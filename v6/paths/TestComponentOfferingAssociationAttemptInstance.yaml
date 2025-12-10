@@ -92,7 +92,7 @@ patch:
   operationId: partialUpdateTestComponentOfferingAssociationAttemptById
   description: |
     Update the result of an attempt. Other elements of the attempt object COULD 
-    also be PATCHED. But are not likely and have therefor not been included in this endpoint.
+    also be PATCHED. But are not likely and have therefore not been included in this endpoint.
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
     to update parts of resource objects.

@@ -42,7 +42,7 @@ properties:
       $ref: './LanguageTypedString.yaml'
     example:
       - language: en-GB
-        value: Final written test for INFOMQNM for fall semseter 2020
+        value: Final written test for INFOMQNM for fall semester 2020
   state:
     description: The state of this offering, e.g. active, inactive, archived
     oneOf:
@@ -138,7 +138,7 @@ properties:
       - boolean
       - 'null'
     description: |
-      resultExpected, previously knwon as isLineItem is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
+      resultExpected, previously known as isLineItem is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
       Offerings need not always result in a grade or another type of result. 
       If there is a result expected from a programmeOffering/courseOffering/componentOffering the is resultExpected field should parse true
     example: true
@@ -165,7 +165,7 @@ properties:
     type:
       - array
       - 'null'
-    description: An array of periods that a person can enrol into this offering. The period is defined by targetgroup and dateTime
+    description: An array of periods that a person can enrol into this offering. The period is defined by target group and dateTime
     items:
       $ref: './EnrolmentPeriods.yaml'
   supplementaryInformation:
