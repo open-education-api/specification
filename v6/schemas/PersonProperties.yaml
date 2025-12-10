@@ -5,11 +5,13 @@ anyOf:
       - surname
       - primaryCode
       - activeEnrolment
-  - required:
+  - title: "With required given name"
+    required:
       - givenname
       - primaryCode
       - activeEnrolment
-  - required:
+  - title: "With required preferred name"
+    required:
       - preferredName
       - primaryCode
       - activeEnrolment
