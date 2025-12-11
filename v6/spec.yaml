@@ -12,7 +12,7 @@ info:
       <figcaption> OOAPI information model that feeds OOAPI specification (click to enlarge)</figcaption>
     </figure>
 
-    The model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the endpoints of the API. The smaller concepts of programmeOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.
+    The model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the endpoints of the API. The smaller concepts of programmeOffering, courseOffering, learningComponentOffering, and testComponentOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.
     
     The original file for this model can be found <a target="_blank" href="ooapi_v6_i7.drawio">here</a>
 
@@ -171,7 +171,7 @@ tags:
   - name: associations
     x-deprecated: true
     description: |
-      The association API is now depricated and has been replaced by more specific
+      The association API is now deprecated and has been replaced by more specific
       endpoints programme offering association, course offering association, learning
       component offering association and test component offering association.
 
@@ -215,7 +215,7 @@ tags:
          <td>POST <a
            href="#tag/course-offering-associations/operation/createExternalCourseOfferingAssociationByopenId">
            /course-offering-associations/external/me</a> gets student details from
-           .wellknown at home institution. It passes offering details (provided by
+           well known at home institution. It passes offering details (provided by
            external institution) to the home institution so the home institution can
            create a placeholder for the offering and its results.
          </td>
@@ -263,7 +263,7 @@ tags:
     x-displayName: Data model
     description: |
       The Open Education API defines different objects using schemas.
-      These schemas are based on OpenApi base types, with occasional specific amendments to these base types.
+      These schemas are based on OpenAPI base types, with occasional specific amendments to these base types.
       The types we use are:
         The data type of a schema is defined by the type keyword, for example, type: string. OpenAPI defines the following basic types:
         - [string](#strings) (this includes dates and files)
@@ -381,7 +381,7 @@ tags:
 
   - name: memberships
     description: |
-      The memberships API provides information about meberships that are related to
+      The memberships API provides information about membership that are related to
       groups and persons. 
 
   - name: news
@@ -433,7 +433,7 @@ tags:
               href="#tag/offerings/paths/~1offerings~1{offeringId}~1associations~1external/post">
               /offerings/{offeringId}/associations/me</a> local enrolment based on
               selected offering
-              This call will allow for a local student using his .wellknown credentials
+              This call will allow for a local student using his well known credentials
               to enrol for the offering identified by the offeringId
               <br>Alternatively the association can also be created through POST
               <a href="#tag/associations/paths/~1associations~1me/post">/associations/me</a>
@@ -442,7 +442,7 @@ tags:
          <td>POST <a
            href="#tag/course-offering-associations/operation/createExternalProgrammeOfferingAssociationByopenId">
            /programme-offering-associations/external/me</a> gets student details from
-           .wellknown at home institution. It passes offering details (provided by
+           well known at home institution. It passes offering details (provided by
            external institution) to the home institution so the home institution can
            create a placeholder for the offering and its results.
          </td>
@@ -454,7 +454,7 @@ tags:
           This method is not yet implemented it requires full student details and
           offering details. This would mean the OOAPI message would contain more than
           one resource in the message. At the moment the student mobility project is
-          looking into a sollution.
+          looking into a solution.
           <br> Alternatively it could be achieved through using two calls:
           <ul>
            <li>create student with POST
@@ -578,7 +578,7 @@ tags:
 
 
 x-tagGroups:
-  - name: Requests and respones
+  - name: Requests and responses
     tags: 
       - security
       - service metadata
