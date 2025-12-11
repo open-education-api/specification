@@ -2,7 +2,7 @@ post:
   summary: POST /course-offering-associations/external/me
   operationId: createExternalCourseOfferingAssociationByopenId
   description: |
-    POST a single course offering association, enrol a person based on person information obtained from .wellknown endpoint, an offering, 
+    POST a single course offering association, enrol a person based on person information obtained from well known endpoint, an offering, 
     and the organisation/type=root information form the organisation that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
 
