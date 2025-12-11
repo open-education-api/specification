@@ -1,7 +1,7 @@
 type: object
 description: |
-  A named period of time that can be used to communicate the various schedules and time periods an institution recognizes and uses to organize their education. AcademicSessions can be nested.
-  Offerings MAY be be linked to a specific AcademicSession to indicate that the specified Offering takes place during the AcademicSession, however this is not mandatory.
+  A named period of time that can be used to communicate the various schedules and time periods an institution recognizes and uses to organise their education. AcademicSessions can be nested.
+  Offerings MAY be linked to a specific AcademicSession to indicate that the specified Offering takes place during the AcademicSession, however this is not mandatory.
 required:
   - academicSessionId
   - academicSessionType
