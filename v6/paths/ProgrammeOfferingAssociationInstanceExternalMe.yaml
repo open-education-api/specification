@@ -2,7 +2,7 @@ post:
   summary: POST /programme-offering-associations/external/me
   operationId: createExternalProgrammeOfferingAssociationByopenId
   description: |
-    POST a single programme offering association, enrol a person based on person information obtained from well-known endpoint, an offering, 
+    POST a single programme offering association, enrol a person based on person information obtained from well known endpoint, an offering, 
     and the organisation/type=root information from the organisation that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
 

@@ -2,7 +2,7 @@ name: q
 in: query
 description: |
   Filter by persons having a given name, surname prefix, surname, display name, initials, email
-  or secondaryEmail containing the given search term (exact partial match, case insensitive)
+  or secondary email containing the given search term (exact partial match, case insensitive)
 required: false
 schema:
   type: string
