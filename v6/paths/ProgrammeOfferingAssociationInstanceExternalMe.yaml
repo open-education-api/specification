@@ -3,7 +3,7 @@ post:
   operationId: createExternalProgrammeOfferingAssociationByopenId
   description: |
     POST a single programme offering association, enrol a person based on person information obtained from well known endpoint, an offering, 
-    and the organisation/type=root information form the organisation that is issuing this association. 
+    and the organisation/type=root information from the organisation that is issuing this association. 
     The offering can either be identified by an offeringId if known or the full offering details. 
 
     Security must be implemented at the level of the actual deployment rather than in the core specification. 

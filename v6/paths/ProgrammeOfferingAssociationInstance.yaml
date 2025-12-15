@@ -54,7 +54,7 @@ get:
 put:
   summary: PUT /programme-offering-associations/{programmeOfferingAssociationId}
   description: |
-    PUT a single programme offering association to enrol a person on specific association that can later be retrieved.  
+    PUT a single programme offering association to enrol a person on a specific association that can later be retrieved.  
   operationId: replaceProgrammeOfferingAssociationById
   tags:
     - programme offering associations

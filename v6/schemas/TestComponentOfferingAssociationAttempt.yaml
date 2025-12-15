@@ -1,7 +1,7 @@
 type: object
 description: |
   Planning and execution information on an attempt belong to a TestComponentOfferingAssociation. Result on the attempt
-  is only relevant when a score or rawScore could be determined.
+  is only relevant when a score or rawScore can be determined.
 required:
   - attemptId
 properties:
@@ -23,7 +23,7 @@ properties:
       - integer
       - 'null'
     description: |
-      Which attempt this is for the given person on the given offering
+      Which attempt this is for the given person on the given offering.
     format: int32
     example: 1
   state:
@@ -35,9 +35,10 @@ properties:
       - string
       - 'null'
     description: |
-      Moment (date and time) of the start of the actual attempt. This can be the start date-time for a test where the 
-      association can have no start- or end date-times, but only have a relation with an academic session representing
-      a term, trimester, semester or academic year
+      Moment (date and time) of the start of the actual attempt. This can be the
+      start date and time for an assessment where the association has no start or
+      end date and time, but only has a relation with an academic session representing
+      a term, trimester, semester or academic year.
     format: date-time
     example: "2025-09-01T09:00:00+01:00"
   endDateTime:
@@ -45,15 +46,17 @@ properties:
       - string
       - 'null'
     description: |
-      Moment (date and time) of the end of the actual attempt. This can be the deadline for handing in a document for an assignment or the end date-time for a test where the 
-      association can have no start- or end date-times, but only have a relation with an academic session representing
-      a term, trimester, semester or academic year
+      Moment (date and time) of the end of the actual attempt. This can be the deadline 
+      for handing in a document for an assignment or the end
+      date and time for an test where the association has no start or
+      end date and time, but only has a relation with an academic session representing
+      a term, trimester, semester or academic year.
     format: date-time
     example: "2025-09-01T09:00:00+01:00"
   roomIds:
     description: |
       The identifiers of the rooms for this offering.
-      When the client does not request expansion of `room`, only these identifiers are returned.
+      When the client does not request expansion of `rooms`, only these identifiers are returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
     type:
       - array
@@ -63,7 +66,7 @@ properties:
   rooms:
     description: |
       The expanded room objects for this offering. 
-      When the client requests expansion of `room`, the full expanded room objects MUST be returned here instead of only the identifiers. 
+      When the client requests expansion of `rooms`, the full expanded room objects MUST be returned here instead of only the identifiers. 
       If no rooms are defined, this value is `null`.
     type:
       - array
@@ -94,7 +97,7 @@ properties:
     $ref: './Identifier.yaml'
   coordinator:
     description: |
-      The expanded coordinator responsible for overseeing the test.
+      The expanded person object representing the coordinator responsible for overseeing the test.
       When the client requests expansion of `coordinator`, the full person object MUST be returned here instead of only the identifier.
       If no coordinator is defined, this value is `null`.
     type:
@@ -107,7 +110,7 @@ properties:
       - array
       - 'null'
     description: |
-      Documents that are related to the test component offering association attempt. E.g. test made, work handed in, etc.
+      Documents that are related to the test component offering association attempt. E.g. test completed, work handed in, etc.
     items:
       $ref: './Document.yaml'
   result:

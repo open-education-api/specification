@@ -72,7 +72,7 @@ properties:
       - string
       - 'null'
     description: |
-      The minimum value that is required to pass an offering for this component. 
+      The minimum value that is required to pass this component within one offering. 
       This value is inclusive and depends on the resultValueType.
     example: "5.5"
   state:
@@ -197,18 +197,19 @@ properties:
       - $ref: './TestComponent.yaml'
   childIds:
     description: |
-      The identifiers of the Test Components which are part of this Test Component.
+      The identifiers of the Test Components that are part of this Test Component.
       When the client does not request expansion of `children`, only these identifiers are returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
       
-      Although childIds and children (e.g. organisationIds vs organisations) may seem 
-      unusual, the naming simply follows the specification’s singular–plural convention.
+      Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
+      seem unusual, this naming is intentional and follows the singular–plural convention defined 
+      by the specification.
     type: array
     items:
       $ref: './Identifier.yaml'
   children:
     description: |
-      The expanded Test Components which are part of this Test Component (e.g. combined tests).
+      The expanded Test Components that are part of this Test Component (e.g. combined tests).
       When the client requests expansion of `children`, the full Test Component objects MUST be returned here instead of only the identifiers.
     type: array
     items:

@@ -6,7 +6,7 @@ description: |
   - passed: The individual has met the required criteria to pass
   - failed: The individual did not meet the required criteria to pass
 
-  This is an extensible enumeration. Use the prefix x- for custom values.
+  This is an extensible enumeration. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - unknown
   - passed

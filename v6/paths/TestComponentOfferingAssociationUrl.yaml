@@ -1,7 +1,7 @@
 get:
   summary: GET /test-component-offering-associations/{testComponentOfferingAssociationId}/url
   description: |
-    Get the URL of test component association to start the testing tool.
+    Get the URL of the test component association to start the testing tool.
   operationId: listTestComponentOfferingAssociationUrl
   tags:
     - test component offering associations

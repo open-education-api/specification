@@ -25,7 +25,7 @@ get:
           enum:
             - learning_component
             - organisation
-            - room
+            - rooms
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:

@@ -6,7 +6,7 @@ description: |
   - employee: Staff member employed by the organisation (e.g. teacher, administrator)
   - guest: External person temporarily affiliated, without formal student or employee status
 
-  This is an extensible enumeration. Use the prefix x- for custom values.
+  This is an extensible enumeration. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - student
   - employee

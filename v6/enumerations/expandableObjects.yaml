@@ -20,6 +20,7 @@ description: |
     - programmes: the programmes in the array containing programme objects can be expanded.
     - programme_offering: the programmeOffering object can be expanded.
     - room: the room object can be expanded.
+    - rooms: the rooms in the array can be expanded.
     - test_component: the testComponent object can be expanded.
     - test_component_offering: the testComponentOffering object can be expanded.
     - year: the academicSession object indicating the year can be expanded.
@@ -43,6 +44,7 @@ x-ooapi-extensible-enum:
 - programmes
 - programme_offering
 - room
+- rooms
 - test_component
 - test_component_offering
 - year

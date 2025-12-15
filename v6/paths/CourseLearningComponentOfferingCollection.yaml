@@ -62,7 +62,7 @@ get:
             - course_offering
             - learning_component
             - organisation
-            - room
+            - rooms
   responses:
     '200':
       description: OK

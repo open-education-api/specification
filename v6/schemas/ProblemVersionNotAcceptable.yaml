@@ -8,7 +8,7 @@ allOf:
       consumer:
         description: |
           Indicates which party caused the version mismatch. When null, the 406 was
-          triggered by an unsupported OOAPI version. When populated with a Consumer
+          triggered by an unsupported OOAPI version. If populated with a Consumer
           object, the 406 was caused by a consumer-specific version that did not match
           any supported version. This field MAY contain a full Consumer object or be
           null.

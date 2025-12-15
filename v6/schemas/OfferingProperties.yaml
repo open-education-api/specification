@@ -138,9 +138,11 @@ properties:
       - boolean
       - 'null'
     description: |
-      resultExpected, previously known as isLineItem is used so the specific instance of the object is identified as being an element that CAN contain “grade” information.
+      resultExpected, previously known as isLineItem is used so the specific instance of the object is 
+      identified as being an element that CAN contain “grade” information.
       Offerings need not always result in a grade or another type of result. 
-      If there is a result expected from a programmeOffering/courseOffering/componentOffering the is resultExpected field should parse true
+      If there is a result expected from a programmeOffering/courseOffering/componentOffering the 
+      is resultExpected field should be set to true
     example: true
   resultValueType:
     oneOf:

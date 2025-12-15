@@ -103,9 +103,9 @@ properties:
       - 'null'
     description: |
       Field(s) of study (e.g. ISCED-F) (https://unesdoc.unesco.org/ark:/48223/pf0000228085.locale=en). 
-      ISCED-F categorizes the fields of study 2 numbers at root level and further subdivision as more numbers are added.
+      ISCED-F categorizes the fields of study 2 digits at root level and further subdivision as more digits are added.
       Preferably fieldsOfStudy contains at least 4 digits.
-      ISCEDF2013vSOI2021 currently allows for 6 numbers max (https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/documents/2025/pubsoi2021_ed2425.pdf).
+      ISCEDF2013vSOI2021 currently allows for 6 digits max (https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/documents/2025/pubsoi2021_ed2425.pdf).
       07 Engineering, manufacturing and construction
       073 Architecture and construction
       0731 Architecture and town planning
@@ -232,8 +232,9 @@ properties:
       When the client does not request expansion of `children`, only these identifiers are returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
       
-      Although childIds and children (e.g. organisationIds vs organisations) may seem 
-      unusual, the naming simply follows the specification’s singular–plural convention.
+      Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
+      seem unusual, this naming is intentional and follows the singular–plural convention defined 
+      by the specification.
     type:
       - array
       - 'null'
