@@ -4,7 +4,7 @@ description: |
     - academic_session: the academicSession object can be expanded.
     - building: the building object can be expanded.
     - child: the child object (which is an instance of the current object) can be expanded.
-    - children: a set of such objects (which are an instance of the current object) can be expanded.
+    - children: a set of objects (which are an instance of the current object) can be expanded.
     - coordinators: the person object indicating a coordinator can be expanded.
     - instructors: the person object indicating an instructor can be expanded.
     - course: the course object can be expanded.
