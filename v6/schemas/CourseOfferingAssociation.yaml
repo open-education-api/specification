@@ -1,11 +1,12 @@
 allOf:
-  - $ref: './CourseOfferingAssociationWrite.yaml'
+  - $ref: './CourseOfferingAssociationExternalMe.yaml'
   - type: object
     anyOf:
       - required:
-          - person
-      - required:
           - personId
+      - title: "With expanded person"
+        required:
+          - person
     properties:
       personId:
         description: |

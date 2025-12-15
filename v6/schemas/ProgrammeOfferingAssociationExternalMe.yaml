@@ -4,9 +4,10 @@ allOf:
   - type: object
     anyOf:
       - required:
-          - programmeOffering
-      - required:
           - programmeOfferingId
+      - title: "With expanded programme offering"
+        required:
+          - programmeOffering
     properties:
       result:
         oneOf:

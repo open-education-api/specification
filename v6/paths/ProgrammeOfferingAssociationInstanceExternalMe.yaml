@@ -23,7 +23,7 @@ post:
           required:
             - remoteState
           allOf:
-          - $ref: '../schemas/ProgrammeOfferingAssociationWrite.yaml'
+          - $ref: '../schemas/ProgrammeOfferingAssociationExternalMe.yaml'
           - properties:
               issuer:
                 $ref: '../schemas/Organisation.yaml'

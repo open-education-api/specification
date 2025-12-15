@@ -4,17 +4,20 @@ allOf:
   - type: object
     anyOf:
       - required:
-          - person
-          - learningComponentOffering
-      - required:
-          - personId
-          - learningComponentOffering
-      - required:
-          - person
-          - learningComponentOfferingId
-      - required:
           - personId
           - learningComponentOfferingId
+      - title: "With expanded learning component offering"
+        required:
+          - personId
+          - learningComponentOffering
+      - title: "With expanded person"
+        required:
+          - person
+          - learningComponentOfferingId
+      - title: "With expanded person and learning component offering"
+        required:
+          - person
+          - learningComponentOffering
     properties:
       result:
         oneOf:
