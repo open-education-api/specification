@@ -3,9 +3,10 @@ allOf:
   - type: object
     anyOf:
       - required:
-          - person
-      - required:
           - personId
+      - title: "With expanded peron"
+        required:
+          - person
     properties:
       personId:
         description: |

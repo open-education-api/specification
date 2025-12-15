@@ -4,17 +4,20 @@ allOf:
   - type: object
     anyOf:
       - required:
-          - person
-          - testComponentOffering
-      - required:
-          - personId
-          - testComponentOffering
-      - required:
-          - person
-          - testComponentOfferingId
-      - required:
           - personId
           - testComponentOfferingId
+      - title: "With expanded test component offering"
+        required:
+          - personId
+          - testComponentOffering
+      - title: "With expanded person"
+        required:
+          - person
+          - testComponentOfferingId
+      - title: "With expanded test component offering and person"
+        required:
+          - person
+          - testComponentOffering
     properties:
       extraDuration:
         type:

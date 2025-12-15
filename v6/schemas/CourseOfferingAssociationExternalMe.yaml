@@ -4,9 +4,10 @@ allOf:
   - type: object
     anyOf:
       - required:
-          - courseOffering
-      - required:
           - courseOfferingId
+      - title: "With expanded course offering"
+        required:
+          - courseOffering
     properties:
       studyLoad:
         description: |
