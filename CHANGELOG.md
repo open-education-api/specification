@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Bug fix, multiple language corrections found by ChatGPT] - 2025-12-15
+
+### Fixed
+- Various language and spelling corrections across the specification (#558).
+- expension: changed room to rooms (multiple rooms are available)
+- enumeration: contacttime --> contact_time
+- enumeration: notAvailable --> not_available
+
 ## [6.0.0 Bug fix, language corrections and broken link] - 2025-12-09
 
 ### Fixed
