@@ -3,7 +3,7 @@ description: |
   The state of this association for the organisation performing the request:
 
   - pending: The association request has been submitted, but not yet processed
-  - cancelled: The association request was withdrawn before being completed
+  - cancelled: The association request was withdrawn before completion
   - denied: The association request was reviewed, and explicitly rejected
   - associated: The association has been successfully established, and is active
   - queued: The association request is awaiting processing in a queue

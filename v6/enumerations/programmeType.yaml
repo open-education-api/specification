@@ -9,7 +9,7 @@ description: |
   - track: A structured learning path within a programme, often thematically or methodologically defined
   - specification: A further defined variant or subset of a track or specialisation
 
-  This is an extensible enumeration. Use the prefix x- for custom values.
+  This is an extensible enumeration. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - programme
   - minor

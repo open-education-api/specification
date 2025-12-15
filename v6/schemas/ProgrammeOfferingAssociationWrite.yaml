@@ -14,7 +14,7 @@ allOf:
           - type: 'null'
       programmeOfferingId:
         description: |
-          The identifier of the programmeOffering referenced here.
+          The identifier of the `programmeOffering` referenced here.
           When the client does not request expansion of `offering`, only this identifier is returned.
           This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
         $ref: './Identifier.yaml'

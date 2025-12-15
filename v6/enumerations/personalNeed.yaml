@@ -10,7 +10,7 @@ description: |
   - spoken: Spoken output support (e.g. text-to-speech)
   - spell_checker_on_screen: On-screen spell checking tool enabled during writing tasks
 
-  This is an extensible enumeration. Use the prefix x- for custom values.
+  This is an extensible enumeration. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - extra_time
   - spoken

@@ -7,7 +7,7 @@ description: |
   - active: The offering is currently available for students to enrol in and participate
   - inactive: The offering is not currently available for students, but may be available in the future
 
-  This is an extensible enumeration. Use the prefix x- for custom values.
+  This is an extensible enumeration. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - concept
   - cancelled

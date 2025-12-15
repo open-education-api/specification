@@ -55,7 +55,7 @@ get:
 put:
   summary: PUT /test-component-offering-associations/{testComponentOfferingAssociationId}
   description: |
-    PUT a single test component offering association to enrol a person on s specific association that can later be retrieved.  
+    PUT a single test component offering association to enrol a person on a specific association that can later be retrieved.  
   operationId: replaceTestComponentOfferingAssociationById
   tags:
     - test component offering associations

@@ -10,7 +10,7 @@ description: |
   - academy: A specialised academic unit, often focused on applied or artistic disciplines
   - school: An organisational unit typically used in primary, secondary, or specialised higher education contexts
 
-  This is an extensible enumeration. Use the prefix x- for custom values.
+  This is an extensible enumeration. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - root
   - institute

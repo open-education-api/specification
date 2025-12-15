@@ -27,7 +27,7 @@ properties:
       - integer
       - 'null'
     description: |
-      The number of points scored by a person (on the test or assessment form) which the result could be calculated. 
+      The number of points scored by a person (on the test or assessment) from which the result could be calculated. 
       The raw score provides additional insight in the achievement of the person. 
       The raw score also needs the value of maxRawScore to provide necessary context.
     example: 72
@@ -45,7 +45,7 @@ properties:
     default: false
     description: |
       final: indicates that the result has been finalised by the exam committee. 
-      Can be done in any step of the test taking and assessment cycle. 
+      This can be done in any step of the test taking and assessment cycle. 
     example: true
   assessorId:
     description: |
