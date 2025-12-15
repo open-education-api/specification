@@ -24,7 +24,7 @@ post:
           required:
             - remoteState
           allOf:
-          - $ref: '../schemas/CourseOfferingAssociationWrite.yaml'
+          - $ref: '../schemas/CourseOfferingAssociationExternalMe.yaml'
           - properties:
               issuer:
                 $ref: '../schemas/Organisation.yaml'
