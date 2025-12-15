@@ -202,7 +202,7 @@ properties:
       This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
       
       Although childIds and children (e.g. organisationIds vs organisations) may seem 
-      unusual, the naming simply follows the specification’s singular–plural convention.
+      unusual, the naming simply follows the specifications singular–plural convention.
     type: array
     items:
       $ref: './Identifier.yaml'

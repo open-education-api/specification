@@ -3,7 +3,7 @@ allOf:
   - type: object
     description: |
       A group is simply a collection of persons. Groups can be used to accommodate various use cases.
-      Groups MAY optionally have a relation to an Offering, however the meaning of such relations is left unspecified and is left up to the implementer.
+      Groups MAY optionally have a relation to an offering, however the meaning of such relations is left unspecified and is left up to the implementer.
     required:
       - groupType
       - name
@@ -43,8 +43,8 @@ allOf:
           - 'null'
         description: |
           The moment on which this group starts being active, RFC3339 (date-time).
-          Groups can be ordered in time through the academic-session  
-          The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
+          Groups can be ordered in time through the academicSession. The start and 
+          end date and time fields SHOULD always contain the most accurate dates.
         format: date-time
         example: 2025-05-30T20:00:00+01:00
       endDateTime:
@@ -53,8 +53,8 @@ allOf:
           - 'null'
         description: |
           The moment on which this group ends being active, RFC3339 (date-time)
-          Groups can be ordered in time through the academic-session  
-          The start- and endDateTime SHOULD ALWAYS be the date that is the most accurate.
+          Groups can be ordered in time through the academicSession. The start and 
+          end date and time fields SHOULD always contain the most accurate dates.
         format: date-time
         example: 2025-06-30T20:00:00+01:00
       personCount:

@@ -78,7 +78,7 @@ properties:
       with a single space, and surname and given names with a comma and space).
 
       If the surname or given names are not available or are secret, the values
-      "secret" and "notAvailable" are recommended. The surname prefix may be
+      "secret" and "not_available" are recommended. The surname prefix may be
       omitted. E.g. "van der Graaf, Jacobus Adrianus". 
 
       Optionally, the value of
@@ -237,7 +237,7 @@ properties:
   assignedNeeds:
     description: |
       Assigned resources or time based on the needs of a person. 
-      They describe which needs the student requires under which conditions e.g. 15% extra times for tests that requires maths skills.
+      They describe which needs the student requires under which conditions e.g. 15% extra time for tests that requires maths skills.
       These needs can later in the flows be mapped to a personalNeed for a specific association.
       Examples of such assignedNeeds: "ExtraTimeOnlyMaths25%", "ExtraTimeOnlyMaths30Min", "ExtraTimeDigitalTests25%"
     type:

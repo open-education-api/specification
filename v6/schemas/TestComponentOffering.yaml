@@ -3,7 +3,7 @@ allOf:
   - $ref: './OfferingProperties.yaml'
   - type: object
     description: |
-      startDateTime and endDateTime of an offering are to be provided at least in the state `active`. In all other states the
+      startDateTime and endDateTime of an offering must be provided at least in the state `active`. In all other states the
       times on the academic session should indicate in what timeframe the offering will or should have been available.
     properties:
       startDateTime:
@@ -45,7 +45,7 @@ allOf:
       roomIds:
         description: |
           The identifiers of the rooms for this offering.
-          When the client does not request expansion of `room`, only these identifiers are returned.
+          When the client does not request expansion of `rooms`, only these identifiers are returned.
           This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
         type:
           - array
@@ -55,7 +55,7 @@ allOf:
       rooms:
         description: |
           The expanded room objects for this offering. 
-          When the client requests expansion of `room`, the full expanded room objects MUST be returned here instead of only the identifiers. 
+          When the client requests expansion of `rooms`, the full expanded room objects MUST be returned here instead of only the identifiers. 
           If no rooms are defined, this value is `null`.
         type:
           - array

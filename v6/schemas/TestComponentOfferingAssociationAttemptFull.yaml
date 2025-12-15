@@ -7,7 +7,8 @@ allOf:
           - string
           - 'null'
         description: |
-          The unique identifier of the enrolment of the student in a courseOffering on the behalf of the current association is taking place 
+          The unique identifier of the student’s enrolment in a course offering to which the 
+          current association relates.
         format: uuid
         example: "123e4567-e89b-12d3-a456-426614174000"
       testComponentOfferingAssociationId:

@@ -40,8 +40,11 @@ properties:
       - array
       - 'null'
     description: | 
-      If the organisation is an educational organisation, any general description should clearly mention the type of education organisation, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).
-      If the organisation is not an educational organisation, a general description should describe the role it plays in education like providing certain types of internships, educational services, products or facilities.
+      If the organisation is an educational organisation, any general description should clearly mention the type of 
+      education organisation, especially in the case of a binary system. In Dutch; universiteit (university) or 
+      hogeschool (university of applied sciences).
+      If the organisation is not an educational organisation, a general description should describe the role it plays 
+      in education like providing certain types of internships, educational services, products or facilities.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
@@ -122,7 +125,7 @@ properties:
       This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
       
       Although childIds and children (e.g. organisationIds vs organisations) may seem 
-      unusual, the naming simply follows the specification’s singular–plural convention.
+      unusual, the naming simply follows the specifications singular–plural convention.
     type:
       - array
       - 'null'
