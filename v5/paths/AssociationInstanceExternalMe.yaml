@@ -18,7 +18,7 @@ post:
           required:
             - remoteState
           allOf:
-          - $ref: '../schemas/AssociationExternalMe.yaml'
+          - $ref: '../schemas/AssociationWrite.yaml'
           - properties:
               issuer:
                 $ref: '../schemas/Organization.yaml'
