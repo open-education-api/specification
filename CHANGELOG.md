@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0 Bug fix, on accidental change in v5 branch] - 2025-12-15
+
+### Fixed
+- rename of the associationWrite.yaml in AssociationInstanceExternalMe.yaml
+
 ## [6.0.0 Bug fix, multiple language corrections found by ChatGPT] - 2025-12-15
 
 ### Fixed
