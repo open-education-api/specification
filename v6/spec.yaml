@@ -1,9 +1,12 @@
 openapi: "3.1.1"
 info:
-  version: "6.0 - Release Candidate 2 - 2024-06-12"
+  version: "6.0"
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API. 
+
+    The specification can be downloaded as a whole in <a href="./ooapiv6.yaml" download>yaml</a>
+    and in <a href="./ooapiv6.json" download>json</a>
 
     <figure>
     	<a target="_blank" href="ooapi_v6.png">
