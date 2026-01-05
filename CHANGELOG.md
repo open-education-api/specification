@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.0 make v6 production ready] - 2025-12-19
 
 ### Fixed
-- added json and yaml downloadable links and removede RC tag
+- added json and yaml downloadable links and remove RC tag
 
 ## [6.0.0 Bug fix, on accidental change in v5 branch] - 2025-12-15
 
