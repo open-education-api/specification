@@ -2,12 +2,18 @@ type: object
 description: A membership contains the information on a membership of a person for a specific group
 required:
   - personId
+  - groupId
   - role
   - state
 properties:
   personId:
     type: string
     description: Unique id for this membership (this is the personID since there is a 1-1 relationship between membership of a group and a person) item
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-122564174000
+  groupId:
+    type: string
+    description: Id for the group where the person has a membership
     format: uuid
     example: 123e4567-e89b-12d3-a456-122564174000
   startDateTime:

@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - documentation rendering issue for versions 1 through 4
 
+## [6.0.0 extra fix for omissions on offeringAssocations] - 2026-01-06
+
+### Fixed
+- Improved the handling of ProgrammeOfferingAssocation and CourseOfferingAssocation and Memberships
+
 ## [6.0.0 make v6 production ready] - 2025-12-19
 
 ### Fixed
