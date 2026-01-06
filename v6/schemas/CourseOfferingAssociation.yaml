@@ -1,13 +1,54 @@
 allOf:
-  - $ref: './CourseOfferingAssociationExternalMe.yaml'
+  - $ref: './AssociationId.yaml'
+  - $ref: './AssociationProperties.yaml'
   - type: object
     anyOf:
       - required:
+          - courseOfferingId
           - personId
       - title: "With expanded person"
         required:
+          - courseOfferingId
           - person
+      - title: "With expanded course offering and person"
+        required:
+          - courseOffering
+          - person
+      - title: "With expanded course offering"
+        required:
+          - courseOffering
+          - personId
     properties:
+      studyLoad:
+        description: |
+          Only required when the studyload for the individual student/enrolment is different 
+          from the studyload of the course offering.
+        oneOf:
+          - $ref: './StudyLoadDescriptor.yaml'
+          - type: 'null'
+      result:
+        oneOf:
+          - $ref: './CourseOfferingAssociationResult.yaml'
+          - type: 'null'
+      courseOfferingId:
+        description: |
+          The identifier of the courseOffering referenced here.
+          When the client or server does not expand `offering`, only this
+          identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      courseOffering:
+        description: |
+          The expanded courseOffering object referenced here.
+          When the client or server expands `offering`, the full expanded
+          courseOffering object MUST be returned here instead of only the
+          identifier.
+          If no offering is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './CourseOffering.yaml'
       personId:
         description: |
           The identifier of the person referenced here.
