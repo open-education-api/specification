@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1-4 repair documentation] - 2026-01-06
+
+### Fixed
+- documentation rendering issue for versions 1 through 4
 
 ## [6.0.0 extra fix for omissions on offeringAssocations] - 2026-01-06
 
