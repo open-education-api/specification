@@ -159,14 +159,21 @@ info:
     - /test-components/{testComponentId}
     - /test-components/{testComponentId}/test-component-offerings
 
+  contact:
+    name: OOAPI Working Group / SURF
+    url: https://openonderwijsapi.nl
+    email: info@openonderwijsapi.nl   
 
   x-logo:
     url: ../logo.png
     href: ./docs.html
 
 servers:
-  - url: http://demo01.eduapi.nl/v5
+  - url: http://demo01.eduapi.nl/v6
     description: SURF demo implementation
+
+
+security: []    
 
 tags:
   - name: academic sessions
