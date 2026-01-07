@@ -57,7 +57,7 @@ properties:
     example: nld
   fieldsOfStudy:
     type: string
-    description: Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.
+    description: Field(s) of study (e.g. ISCED-F) (https://unesdoc.unesco.org/ark:/48223/pf0000228085.locale=en).
     maxLength: 4
     example: '0732'
   learningOutcomes:
@@ -135,7 +135,7 @@ properties:
     items:
       $ref: './IdentifierEntry.yaml'
   consumers:
-    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/#/technical/consumers-and-profiles/) for more information about this mechanism.
+    description: The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/v5/#/technical/consumers-and-profiles/) for more information about this mechanism.
     type: array
     items:
       $ref: './Consumer.yaml'

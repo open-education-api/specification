@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './OfferingId.yaml'
+  - $ref: './CourseOfferingId.yaml'
   - $ref: './OfferingProperties.yaml'
   - type: object
     description: |
@@ -8,73 +8,112 @@ allOf:
     title: CourseOffering
     properties:
       startDateTime:
-        type: string
-        description: The moment on which this offering starts, RFC3339 (full-date)
+        type:
+          - string
+          - 'null'
+        description: The moment on which this offering starts, RFC3339 (date-time)
         format: date-time
-        example: 2019-08-21T08:30:00+01:00
+        example: "2019-08-21T08:30:00+01:00"
       endDateTime:
-        type: string
-        description: The moment on which this offering ends, RFC3339 (full-date)
+        type:
+          - string
+          - 'null'
+        description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
-        example: 2019-10-23T22:59:59+01:00
-      enrollStartDateTime:
-        type: string
-        description: The moment from which a student can enroll for this offering, RFC3339 (date-time).
-        format: date-time
-        example: 2019-05-01T00:00:00+01:00
-      enrollEndDateTime:
-        type: string
-        description: The last moment to which a student can enroll for this component, RFC3339 (date-time).
-        format: date-time
-        example: 2019-08-01T23:59:59+01:00
-      flexibleEntryPeriodStart:
-        type: string
-        description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodEnd`.
-        format: date-time
-      flexibleEntryPeriodEnd:
-        type: string
-        description: If this is a course wherein participants can start at various moments, without missing anything, use this attribute in combination with `flexibleEntryPeriodStart`.
-        format: date-time
+        example: "2019-10-23T22:59:59+01:00"
+      flexibleEntryPeriodStartDateTime:
+        type:
+          - string
+          - 'null'
+        description: |
+          Use this attribute for courses that allow participants who have already
+          enrolled to begin their participation at different moments without
+          missing essential content. This attribute MUST be used in combination
+          with `flexibleEntryPeriodEndDateTime`.
+        format: date
+        example: "2019-08-21T09:00:00+01:00"
+      flexibleEntryPeriodEndDateTime:
+        type:
+          - string
+          - 'null'
+        description: |
+          If this is a course wherein participants who have already enrolled can
+          start at various moments without missing any essential content, use this
+          attribute in combination with `flexibleEntryPeriodStartDateTime`.
+        format: date
+        example: "2019-10-21T22:59:59+01:00"
       addresses:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Addresses for this offering
         items:
           $ref: './Address.yaml'
       priceInformation:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Price information for this offering.
         items:
           $ref: './Cost.yaml'
+      courseId:
+        description: |
+          The identifier of the course that is offered in this course offering.
+          When the client does not request expansion of `course`, only this
+          identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
       course:
         description: |
-          The course that is offered in this courseoffering. [`expandable`](#tag/course_model)
-          By default only the `courseId` (a string) is returned. If the client requested an expansion of `course` the full course object should be returned.
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: courseId
+          The expanded course object that is offered in this course offering.
+          When the client requests expansion of `course`, the full expanded
+          course object MUST be returned here instead of only the identifier.
+          If no course is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
           - $ref: './Course.yaml'
-            title: Course object      
-      programOfferings:
+      programmeOfferingIds:
         description: |
-          An array of 0 or more programofferings that this courseoffering is related to. [`expandable`](#tag/program_offering_model)
-          By default only the `programOfferingId` (a string) is returned. If the client requested an expansion of `programOffering` the full programOffering object should be returned.
-        type: array
-        items: 
-          oneOf:
-            - $ref: './Identifier.yaml'
-              title: programOfferingId
-            - $ref: './ProgramOffering.yaml'
-              title: ProgramOffering object     
-      organization:
+          An array of 0 or more identifiers of programmeOfferings that this
+          course offering is related to.
+          When the client does not request expansion of `programmeOfferings`,
+          only these identifiers are returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './Identifier.yaml'
+      programmeOfferings:
         description: |
-          The organization that manages this courseoffering. [`expandable`](#tag/organization_model)
-          By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: organizationId
-          - $ref: './Organization.yaml'
-            title: Organization object     
-
-
-
-
+          An array of 0 or more expanded programmeOffering objects that this
+          course offering is related to.
+          When the client requests expansion of `programmeOfferings`, the full
+          expanded programmeOffering objects MUST be returned here instead of
+          only the identifiers.
+          If no programmeOfferings are defined, this value is `null`.
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './ProgrammeOffering.yaml'
+      organisationId:
+        description: |
+          The identifier of the organisation that manages this course offering.
+          When the client does not request expansion of `organisation`, only this
+          identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      organisation:
+        description: |
+          The expanded organisation object that manages this course offering.
+          When the client requests expansion of `organisation`, the full expanded
+          organisation object MUST be returned here instead of only the identifier.
+          If no organisation is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './Organisation.yaml'

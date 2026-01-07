@@ -1,13 +1,16 @@
 type: string
 description: |
   The role of the person associated with the offering:
-  - student: enrolled participant in the offering
-  - lecturer: delivers or leads the teaching content
-  - teaching_assistant: supports the lecturer in teaching activities
-  - coordinator: responsible for organizational or administrative aspects
-  - invigilator: supervises exams or assessments
-  - assessor: evaluates student performance or work
-  - guest: external participant with a non-standard role
+    
+  - student: Enrolled participant in the offering
+  - lecturer: Delivers lectures or leads teaching
+  - teaching_assistant: Supports the lecturer in teaching activities
+  - coordinator: Responsible for organisational or administrative aspects
+  - invigilator: Supervises examinations or assessments
+  - assessor: Evaluates student performance or work
+  - guest: External participant with an atypical role
+    
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - student
   - lecturer

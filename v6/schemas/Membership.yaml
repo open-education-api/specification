@@ -2,20 +2,31 @@ type: object
 description: A membership contains the information on a membership of a person for a specific group
 required:
   - personId
-  - startDateTime
+  - groupId
+  - role
+  - state
 properties:
   personId:
     type: string
-    description: Unique id for this membership (this is the personID since there is a 1-1 relationship between membersip of a group and a person) item
+    description: Unique id for this membership (this is the personID since there is a 1-1 relationship between membership of a group and a person) item
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-122564174000
+  groupId:
+    type: string
+    description: Id for the group where the person has a membership
     format: uuid
     example: 123e4567-e89b-12d3-a456-122564174000
   startDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The moment from which the person participates in this membership, RFC3339 (date-time)
     format: date-time
     example: 2020-09-28T08:30:00+01:00
   endDateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The moment until which this person participates in this membership (when the membership stops), RFC3339 (date-time)
     format: date-time
     example: 2020-09-30T20:00:00+01:00
@@ -23,14 +34,11 @@ properties:
     $ref: '../enumerations/membershipState.yaml'
   role:
     $ref: '../enumerations/membershipRole.yaml'
-  consumers:
-    description: |
-            The additional consumer elements that can be provided, see the [documentation on support for specific consumers](https://open-education-api.github.io/specification/#/consumers) 
-            for more information about this mechanism.
-    type: array
-    items:
-      $ref: './Consumer.yaml'
-    example:
-      $ref: '../consumers/TEST/V1/examples/TestConsumer.yaml'
+  consumer:
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
   ext:
-    $ref: './Ext.yaml'
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

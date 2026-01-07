@@ -12,6 +12,8 @@ get:
       schema:
         type: string
         format: uuid
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
@@ -27,6 +29,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
@@ -64,8 +68,8 @@ put:
       description: OK
     '201':
       description: Created
-
-
+    '202':
+      description: Accepted
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
@@ -75,6 +79,8 @@ put:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

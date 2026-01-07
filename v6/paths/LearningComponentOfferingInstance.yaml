@@ -7,7 +7,7 @@ get:
   parameters:
     - name: learningComponentOfferingId
       in: path
-      description: learning component offering ID
+      description: Learning Component Offering ID
       required: true
       schema:
         type: string
@@ -17,13 +17,17 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
-            - learning-component
-            - organization
+            - learning_component
+            - organisation
+            - rooms
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
@@ -39,61 +43,14 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
-
-
-
-
-patch:
-  summary: PATCH /learning-component-offerings/{learningComponentOfferingId}
-  operationId: partialUpdateLearningComponentOfferingsById
-  description: Change attributes of a single learning component offering.
-  tags:
-    - learning component offerings
-  parameters:
-    - name: learningComponentOfferingId
-      in: path
-      description: Offering ID
-      required: true
-      schema:
-        type: string
-        format: uuid
-
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '../schemas/LearningComponentOffering.yaml'
-
-
-  responses:
-    '200':
-      description: OK
-    '201':
-      description: Created
-
-              
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
-    '401':
-      $ref: '../schemas/ErrorUnauthorized.yaml'
-    '403':
-      $ref: '../schemas/ErrorForbidden.yaml'
-    '404':
-      $ref: '../schemas/ErrorNotFound.yaml'
-    '405':
-      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
-    '429':
-      $ref: '../schemas/ErrorTooManyRequests.yaml'
-    '500':
-      $ref: '../schemas/ErrorInternalServerError.yaml'
-
 
 put:
   summary: PUT /learning-component-offerings/{learningComponentOfferingId}
@@ -104,7 +61,7 @@ put:
   parameters:
     - name: learningComponentOfferingId
       in: path
-      description: Offering ID
+      description: Learning Component Offering ID
       required: true
       schema:
         type: string
@@ -123,6 +80,8 @@ put:
       description: OK
     '201':
       description: Created
+    '202':
+      description: Accepted
 
               
     '400':
@@ -133,6 +92,57 @@ put:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+patch:
+  summary: PATCH /learning-component-offerings/{learningComponentOfferingId}
+  operationId: partialUpdateLearningComponentOfferingsById
+  description: Change attributes of a single learning component offering.
+  tags:
+    - learning component offerings
+  parameters:
+    - name: learningComponentOfferingId
+      in: path
+      description: Learning Component Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/LearningComponentOffering.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+    '202':
+      description: Accepted
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

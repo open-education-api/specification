@@ -1,14 +1,15 @@
 type: string
 description: |
-  The type of this Academic Session This is an *extensible enumeration*.
-  - academic_year: academic year
-  - semester: semester, typically there are two semesters per academic year
-  - trimester: trimester, typically there are three trimesters per academic year
-  - quarter: quarter, typically there are four quarters per academic year
-  - testing_period: a period in which tests take place
-  - period: any other period in an academic year
+  The type of this academic session. This is an *extensible enumeration*.
 
-  Implementations are allowed to add additional values to those above, as long as they do not overlap in definition to existing values.
+  - academic_year: Academic year
+  - semester: Semester, typically comprising two terms per academic year
+  - trimester: Trimester, typically comprising three terms per academic year
+  - quarter: Quarter, typically comprising four terms per academic year
+  - testing_period: A period during which tests take place
+  - period: Any other period within an academic year
+
+  Implementations may add further values beyond those listed above, provided they do not overlap in definition with existing values.
 x-ooapi-extensible-enum:
   - academic_year
   - semester

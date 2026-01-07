@@ -3,3 +3,9 @@ content:
   application/problem+json:
     schema:
       $ref: 'Problem.yaml'
+    example:
+      type: "https://api.example.org/problems/unauthorized"
+      title: "Unauthorized"
+      status: 401
+      detail: "Authentication credentials were missing or invalid."
+      instance: "https://api.example.org/student/12345"

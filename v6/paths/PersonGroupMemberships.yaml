@@ -1,7 +1,7 @@
 put:
   summary: PUT /groups/{groupId}/memberships/{personId}
   operationId: replacePersoninGroupById
-  description: Replace or add a single groupmember from source system to recipient.
+  description: Replace or add a single group member from source system to recipient.
   tags:
     - groups
   parameters:
@@ -32,6 +32,7 @@ put:
             Create a new group member in remote system:
               value:
                 personId: 123e4567-e89b-12d3-a456-122564174000
+                groupId: 123e4567-e89b-12d3-a456-122564174000
                 startDateTime: 2025-09-28T08:30:00+01:00
                 endDateTime: 2025-11-30T20:00:00+01:00
                 state: active
@@ -43,6 +44,9 @@ put:
       description: OK
     '201':
       description: Created
+    '202':
+      description: Accepted
+
               
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
@@ -52,6 +56,8 @@ put:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

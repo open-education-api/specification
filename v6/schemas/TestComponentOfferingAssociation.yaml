@@ -2,48 +2,119 @@ allOf:
   - $ref: './AssociationId.yaml'
   - $ref: './AssociationProperties.yaml'
   - type: object
+    anyOf:
+      - required:
+          - personId
+          - testComponentOfferingId
+      - title: "With expanded test component offering"
+        required:
+          - personId
+          - testComponentOffering
+      - title: "With expanded person"
+        required:
+          - person
+          - testComponentOfferingId
+      - title: "With expanded test component offering and person"
+        required:
+          - person
+          - testComponentOffering
     properties:
       extraDuration:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The extra duration of this component for this specific candidate. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
         pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
         example: PT20M
       requiredPersonalNeeds:
-        type: array
-        description: The additional facilities or resrouces needed by a person to make the component accessible and usable.
-        items:      
+        type:
+          - array
+          - 'null'
+        description: The additional facilities or resources needed by a person to make the component accessible and usable.
+        items:
           $ref: '../enumerations/personalNeed.yaml'
       attempt:
-        type: integer
+        type:
+          - integer
+          - 'null'
         description: The attempt this association is linked to.
         example: 2
       attendance:
-        $ref: '../enumerations/associationAttendance.yaml'
+        oneOf:
+          - $ref: '../enumerations/associationAttendance.yaml'
+          - type: 'null'
       irregularities:
-        type: array
+        type:
+          - array
+          - 'null'
         description: The irregularities that are reported for this association. This is a list of the irregularities that are reported for this association.
         items:
           type: string
       documents:
-        type: array
+        type:
+          - array
+          - 'null'
         description: |
           Documents that are related to the test component offering association. E.g. handed in documents, plagiarism reports, test made, etc.
         items:
-          type: object
-          required:
-            - documentId
-            - documentType
-            - documentName
-          properties:
-            documentId:
-              type: string
-              description: The unique identifier of the document
-              example: 12345678-1234-1234-1234-123456789012
-            documentType:
-              $ref: ../enumerations/documentType.yaml
-            documentName:
-              type: string
-              description: The name of the document
-              example: paper_test_1234333.pdf
+          $ref: './Document.yaml'
       result:
-        $ref: './TestComponentOfferingAssociationResult.yaml'
+        oneOf:
+          - $ref: './TestComponentOfferingAssociationResult.yaml'
+          - type: 'null'
+      personId:
+        description: |
+          The identifier of the person referenced here.
+          When the client does not request expansion of `person`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        readOnly: true
+        $ref: './Identifier.yaml'
+      person:
+        description: |
+          The expanded person object referenced here.
+          When the client requests expansion of `person`, the full person object MUST be returned here instead of only the identifier.
+          If no person is defined, this value is `null`.
+        readOnly: true
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './Person.yaml'
+        title: Person
+      testComponentOfferingId:
+        description: |
+          The identifier of the testComponentOffering referenced here.
+          When the client does not request expansion of `offering`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      testComponentOffering:
+        description: |
+          The expanded testComponentOffering object referenced here.
+          When the client requests expansion of `testComponentOffering`, the full TestComponentOffering object MUST be returned here instead of only the identifier.
+          If no testComponentOffering is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './TestComponentOffering.yaml'
+      attemptIds:
+        description: |
+          The identifiers of the attempts related to this testComponentOffering association.
+          When the client does not request expansion of `attempts`, only these identifiers are returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './Identifier.yaml'
+          title: attemptId
+      attempts:
+        description: |
+          The expanded attempt objects related to this testComponentOffering association.
+          When the client requests expansion of `attempts`, the full TestComponentOfferingAssociationAttempt objects MUST be returned here instead of only the identifiers.
+          If no attempts are defined, this value is `null`.
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './TestComponentOfferingAssociationAttempt.yaml'

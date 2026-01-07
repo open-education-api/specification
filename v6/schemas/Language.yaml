@@ -1,0 +1,18 @@
+description: | 
+  The language used in the described entity. A string formatted according to RFC 4647 https://www.rfc-editor.org/rfc/rfc4647.html
+  RFC 4647 supports language specifications from very general to very specific. 
+  This breaks down as:
+  - ([a-z]{2,3}) - Primary language subtag (2-3 letters) ISO 639-1, ISO 639-2, or ISO 639-3 https://www.iso.org/iso-639-language-code
+  - (-([A-Z]{2}|[0-9]{3}))? - Optional region/country (2 uppercase letters or 3 digits) ISO 3166-1 or UN M.49 https://www.iso.org/iso-3166-country-codes.html
+  - (-([a-z]{4}))? - Optional script subtag (4 lowercase letters)
+  - (-([a-z]{2}|[0-9]{3}))* - Optional variant subtags
+  - (-[a-z0-9]{2,8})* - Optional extension subtags
+  - (-x(-[a-z0-9]{1,8})+)? - Optional private use extensions
+
+  When using this schema, the most common format is a two-letter language code as specified by ISO 639-1, optionally followed by a dash and a two-letter country code as specified by ISO 3166-1 (e.g. "en" or "en-GB").
+  More specific language tags are also allowed, such as "zh-Hant-TW" for Traditional Chinese as used in Taiwan.
+  For sign language based on a certain language two methods are commonly used: either using the subtag "sgn" (e.g. "nl-sgn-NL" for Dutch Sign Language) or using the subtag "s" (e.g. "nl-s-NL" for Dutch Sign Language). Both methods are allowed.
+type: string
+minLength: 2
+pattern: "^([a-z]{2,3})(-([A-Z]{2}|[0-9]{3}))?(-([a-z]{4}))?(-([a-z]{2}|[0-9]{3}))*(-[a-z0-9]{2,8})*(-x(-[a-z0-9]{1,8})+)?$"
+example: en-GB

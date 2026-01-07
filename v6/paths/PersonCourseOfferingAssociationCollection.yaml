@@ -15,6 +15,9 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
     - name: role
       in: query
       description: Filter by role
@@ -33,6 +36,19 @@ get:
       required: false
       schema:
         $ref: '../enumerations/resultState.yaml'
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to expand, separated by a comma
+      required: false
+      style: form
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - academic_session
+            - course_offering
   responses:
     '200':
       description: OK
@@ -52,8 +68,6 @@ get:
                         - $ref: '../schemas/CourseOfferingAssociation.yaml'
                         - type: object
                           properties:
-                            offering:
-                              $ref: '../schemas/CourseOffering.yaml'
                             academicSession:
                               $ref: '../schemas/AcademicSession.yaml'
                   ext:
@@ -66,6 +80,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

@@ -1,0 +1,21 @@
+allOf:
+  - $ref: './TestComponentOfferingAssociationAttempt.yaml'
+  - type: object
+    properties:
+      courseOfferingAssociationId:
+        type:
+          - string
+          - 'null'
+        description: |
+          The unique identifier of the student’s enrolment in a course offering to which the 
+          current association relates.
+        format: uuid
+        example: "123e4567-e89b-12d3-a456-426614174000"
+      testComponentOfferingAssociationId:
+        type:
+          - string
+          - 'null'
+        description: |
+          The associationId under which this attempt was made.
+        format: uuid
+        example: "123e4567-e89b-12d3-a456-426614174000"

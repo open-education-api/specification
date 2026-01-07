@@ -10,9 +10,11 @@ properties:
     format: date-time
     example: '2025-09-01T08:30:00+01:00'
   validTo:
-    type: string
+    type:
+      - string
+      - 'null'
     description: The day on which this timelineOverride ends (exclusive), RFC3339 (date)
     format: date-time
-    example: '2025-11-31T08:30:00+01:00'
+    example: '2025-11-30T08:30:00+01:00'
   course:
     $ref: './CourseProperties.yaml'

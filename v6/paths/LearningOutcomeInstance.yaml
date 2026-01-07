@@ -7,7 +7,7 @@ get:
   parameters:
     - name: learningOutcomeId
       in: path
-      description: learning outcomecomponent ID
+      description: learning outcome component ID
       required: true
       schema:
         type: string
@@ -17,12 +17,17 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
-            - organization
+            - organisation
+            - parents
+            - children
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
@@ -38,6 +43,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

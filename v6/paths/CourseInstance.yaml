@@ -17,14 +17,18 @@ get:
       explode: false
       description: Optional properties to include, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
-            - programs
+            - programmes
             - coordinators
-            - organization
+            - instructors
+            - organisation
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/returnTimelineOverrides.yaml'
   responses:
     '200':
@@ -41,6 +45,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

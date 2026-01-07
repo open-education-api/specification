@@ -1,5 +1,5 @@
 allOf:
-  - $ref: './OfferingId.yaml'
+  - $ref: './LearningComponentOfferingId.yaml'
   - $ref: './OfferingProperties.yaml'
   - type: object
     description: |
@@ -7,67 +7,118 @@ allOf:
       times on the academic session should indicate in what timeframe the offering will or should have been available.
     properties:
       startDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment on which this offering starts, RFC3339 (date-time)
         format: date-time
         example: 2020-12-15T10:00:00+01:00
       endDateTime:
-        type: string
+        type:
+          - string
+          - 'null'
         description: The moment on which this offering ends, RFC3339 (date-time)
         format: date-time
         example: 2020-12-16T18:00:00+01:00
-      enrollStartDateTime:
-        type: string
-        description: The moment from which a student can enroll for this component, RFC3339 (date-time).
-        format: date-time
-      enrollEndDateTime:
-        type: string
-        description: The last moment to which a student can enroll for this component, RFC3339 (date-time).
-        format: date-time
       resultWeight:
-        type: integer
+        type:
+          - integer
+          - 'null'
         description: The result weight of this offering
         minimum: 0
         maximum: 100
         example: 100
       addresses:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Addresses for this offering
         items:
           $ref: './Address.yaml'
       priceInformation:
-        type: array
+        type:
+          - array
+          - 'null'
         description: Price information for this offering.
         items:
           $ref: './Cost.yaml'
-      room:
-        $ref: './Room.yaml'
+      roomIds:
+        description: |
+          The identifiers of the rooms for this offering.
+          When the client does not request expansion of `rooms`, only these identifiers are returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './Identifier.yaml'
+      rooms:
+        description: |
+          The expanded room objects for this offering. 
+          When the client requests expansion of `rooms`, the full expanded room objects MUST be returned here instead of only the identifiers. 
+          If no rooms are defined, this value is `null`.
+        type:
+          - array
+          - 'null'
+        items:
+          type:
+            - object
+            - 'null'
+          allOf:
+            - $ref: './Room.yaml'
+      learningComponentId:
+        description: |
+          The identifier of the learningComponent that is offered in this learningComponent offering.
+          When the client does not request expansion of `learningComponent`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
       learningComponent:
         description: |
-          The learning component that is offered in this learningComponentoffering. [`expandable`](#tag/learning_component_model)
-          By default only the `learningComponentId` (a string) is returned. If the client requested an expansion of `learning_component` the full learning component object should be returned.
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: componentId
+          The expanded learningComponent object that is offered in this learningComponent offering.
+          When the client requests expansion of `learningComponent`, the full expanded learningComponent object MUST be returned here instead of only the identifier.
+          If no learningComponent is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
           - $ref: './LearningComponent.yaml'
-            title: LearningComponent object  
+      courseOfferingIds:
+        description: |
+          The identifiers of the courseOfferings to which this learningComponent offering is related.
+          When the client does not request expansion of `courseOfferings`, only these identifiers are returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        type:
+          - array
+          - 'null'
+        items:
+          $ref: './Identifier.yaml'
       courseOfferings:
         description: |
-          An array of 0 or more courseofferings where this LearningComponentoffering is related to. [`expandable`](#tag/course_offering_model)
-          By default only the `courseOfferingId` (a string) is returned. If the client requested an expansion of `courseOffering` the full courseOffering object should be returned.
-        type: array
+          The expanded courseOffering objects to which this learningComponent offering is related.
+          When the client requests expansion of `courseOfferings`, the full expanded courseOffering objects MUST be returned here instead of only the identifiers.
+          If no courseOfferings are defined, this value is `null`.
+        type:
+          - array
+          - 'null'
         items:
-          oneOf:
-            - $ref: './Identifier.yaml'
-              title: courseOfferingId
+          type:
+            - object
+            - 'null'
+          allOf:
             - $ref: './CourseOffering.yaml'
-              title: CourseOffering object     
-      organization:
+      organisationId:
         description: |
-          The organization that manages this componentoffering. [`expandable`](#tag/organization_model)
-          By default only the `organizationId` (a string) is returned. If the client requested an expansion of `organization` the full organization object should be returned.
-        oneOf:
-          - $ref: './Identifier.yaml'
-            title: organizationId
-          - $ref: './Organization.yaml'
-            title: Organization object
+          The identifier of the organisation that manages this component offering.
+          When the client does not request expansion of `organisation`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      organisation:
+        description: |
+          The expanded organisation object that manages this component offering.
+          When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
+          If no organisation is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './Organisation.yaml'

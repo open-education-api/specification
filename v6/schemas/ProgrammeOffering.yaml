@@ -1,0 +1,89 @@
+allOf:
+  - $ref: './ProgrammeOfferingId.yaml'
+  - $ref: './OfferingProperties.yaml'
+  - type: object
+    description: A programme offering which describes the programme in time.
+    title: ProgrammeOffering
+    properties:
+      startDateTime:
+        type:
+          - string
+          - 'null'
+        description: The moment on which this offering starts, RFC3339 (date-time)
+        format: date-time
+        example: '2025-09-28T08:30:00+01:00'
+      endDateTime:
+        type:
+          - string
+          - 'null'
+        description: The moment on which this offering ends, RFC3339 (date-time)
+        format: date-time
+        example: '2025-12-28T08:30:00+01:00'
+      flexibleEntryPeriodStartDateTime:
+        type:
+          - string
+          - 'null'
+        description: |
+          Use this attribute for courses that allow participants who have already
+          enrolled to begin their participation at different moments without
+          missing essential content. This attribute MUST be used in combination
+          with `flexibleEntryPeriodEndDateTime`.
+        format: date
+        example: "2019-08-21T09:00:00+01:00"
+      flexibleEntryPeriodEndDateTime:
+        type:
+          - string
+          - 'null'
+        description: |
+          If this is a course wherein participants who have enrolled can start at
+          various moments without missing anything, use this attribute in
+          combination with `flexibleEntryPeriodStartDateTime`.
+        format: date
+        example: "2019-10-21T22:59:59+01:00"
+      addresses:
+        type:
+          - array
+          - 'null'
+        description: Addresses for this offering
+        items:
+          $ref: './Address.yaml'
+      priceInformation:
+        type:
+          - array
+          - 'null'
+        description: Price information for this offering.
+        items:
+          $ref: './Cost.yaml'
+        minItems: 1
+      programmeId:
+        description: |
+          The identifier of the programme that is offered in this programmeOffering.
+          When the client does not request expansion of `programme`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      programme:
+        description: |
+          The expanded programme object that is offered in this programmeOffering.
+          When the client requests expansion of `programme`, the full expanded programme object MUST be returned here instead of only the identifier.
+          If no programme is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './Programme.yaml'
+      organisationId:
+        description: |
+          The identifier of the organisation that manages this programmeOffering.
+          When the client does not request expansion of `organisation`, only this identifier is returned.
+          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+        $ref: './Identifier.yaml'
+      organisation:
+        description: |
+          The expanded organisation object that manages this programmeOffering.
+          When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
+          If no organisation is defined, this value is `null`.
+        type:
+          - object
+          - 'null'
+        allOf:
+          - $ref: './Organisation.yaml'

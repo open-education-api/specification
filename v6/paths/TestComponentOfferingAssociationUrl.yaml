@@ -1,7 +1,7 @@
 get:
-  summary: GET /test-component-offering-associations/{testCompnentOfferingAssociationId}/url
+  summary: GET /test-component-offering-associations/{testComponentOfferingAssociationId}/url
   description: |
-    Get the URL of testcomponent assocation to start the testing tool.
+    Get the URL of the test component association to start the testing tool.
   operationId: listTestComponentOfferingAssociationUrl
   tags:
     - test component offering associations
@@ -28,6 +28,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

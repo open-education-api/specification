@@ -17,20 +17,24 @@ get:
       explode: false
       description: Optional properties to expand, separated by a comma
       required: false
+      style: form
       schema:
         type: array
         items:
           type: string
           enum:
-            - person
+            - academic_session
             - course_offering
+            - person
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schemas/CourseOfferingAssociationFull.yaml'          
+            $ref: '../schemas/CourseOfferingAssociation.yaml'          
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
@@ -39,6 +43,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':
@@ -46,21 +52,70 @@ get:
     '500':
       $ref: '../schemas/ErrorInternalServerError.yaml'
 
+put:
+  summary: PUT /course-offering-associations/{courseOfferingAssociationId}
+  description: |
+    PUT a single course offering association to enrol a person on a specific association that can later be retrieved.  
+  operationId: replaceCourseOfferingAssociationById
+  tags:
+    - course offering associations
+  parameters:
+    - name: courseOfferingAssociationId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CourseOfferingAssociation.yaml'
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+    '202':
+      description: Accepted
 
-
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
 
 patch:
   summary: PATCH /course-offering-associations/{courseOfferingAssociationId}
   operationId: partialUpdateCourseOfferingAssociationById
   description: |
-    Update the status or result of an enrollment. Other elements of the association object COULD 
-    also be PATCHED. But are not likely and have therefor not been included in this endpoint.
+    Update the status or result of an enrolment. Other elements of the association object COULD 
+    also be PATCHED. But are not likely and have therefore not been included in this endpoint.
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
     to update parts of resource objects.
-  security:
-    - openId:
-      - associations.write
+
+    Security must be implemented at the level of the actual deployment rather than in the core 
+    specification. This means that the specification remains neutral, while concrete security 
+    measures can be applied in practice using established techniques such as OpenID with fine-grained 
+    scopes. For example, write access on associations (associations.write) can be granted in this way. 
+    The previous inline declaration has therefore been removed to avoid conflating implementation 
+    details with the specification.
+    
   tags:
     - course offering associations
 
@@ -100,45 +155,14 @@ patch:
 
     '400':
       $ref: '../schemas/ErrorBadRequest.yaml'
-
-put:
-  summary: PUT /course-offering-associations/{courseOfferingAssociationId}
-  description: |
-    PUT a single course offering association to enroll a person on specific association that can later be retreived.  
-  operationId: replaceCourseOfferingAssociationById
-  tags:
-    - course offering associations
-  parameters:
-    - name: courseOfferingAssociationId
-      in: path
-      description: The id of the association to update
-      required: true
-      schema:
-        type: string
-        format: uuid
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '../schemas/CourseOfferingAssociationExpanded.yaml'
-
-
-  responses:
-    '200':
-      description: OK
-    '201':
-      description: Created
-
-              
-    '400':
-      $ref: '../schemas/ErrorBadRequest.yaml'
     '401':
       $ref: '../schemas/ErrorUnauthorized.yaml'
     '403':
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

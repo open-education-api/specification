@@ -5,6 +5,7 @@ properties:
   code:
     description: Human readable value for the code/identifier
     type: string
+    example: '1234qwe12'
 required:
   - codeType
   - code

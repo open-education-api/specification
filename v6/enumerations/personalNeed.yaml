@@ -1,11 +1,16 @@
 type: string
 description: |
-  The personal needs that are required for this component for this specific candidate. 
-  This is a list of the personal needs that are required for this component for this specific candidate.
-  The enum list is a selection from the imsglobal personal needs. For the full list, see https://www.imsglobal.org/sites/default/files/spec/afa/3p0/information_model/imsafa3p0pnp_v1p0_InfoModel.html
-  - extra_time: additional time allocated for completing the component beyond standard timing
-  - spoken: spoken output support (e.g. text-to-speech)
-  - spell_checker_on_screen: on-screen spell checking tool enabled during writing tasks
+  The personal needs required for this component by this specific candidate.
+
+  This list is a selection from the IMS Global Personal Needs and Preferences specification.
+  For the full reference, see:  
+  https://www.imsglobal.org/sites/default/files/spec/afa/3p0/information_model/imsafa3p0pnp_v1p0_InfoModel.html
+
+  - extra_time: Additional time allocated for completing the component beyond standard timing
+  - spoken: Spoken output support (e.g. text-to-speech)
+  - spell_checker_on_screen: On-screen spell checking tool enabled during writing tasks
+
+  This is an extensible enumeration. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - extra_time
   - spoken

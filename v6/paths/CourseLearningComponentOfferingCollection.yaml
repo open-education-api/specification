@@ -16,7 +16,11 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
+    - $ref: '../parameters/offeringState.yaml'
     - name: modeOfDelivery
       in: query
       description: Filter by modeOfDelivery
@@ -43,6 +47,22 @@ get:
       schema:
         type: string
         format: date-time
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to include, separated by a comma
+      required: false
+      style: form
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - academic_session
+            - course_offering
+            - learning_component
+            - organisation
+            - rooms
   responses:
     '200':
       description: OK
@@ -69,6 +89,8 @@ get:
       $ref: '../schemas/ErrorForbidden.yaml'
     '404':
       $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
     '429':

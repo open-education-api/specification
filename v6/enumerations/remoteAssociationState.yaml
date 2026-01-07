@@ -1,14 +1,17 @@
 type: string
 description: |
-  The state of this association for the institution performing the request:
-  - pending: the association request has been submitted but not yet processed
-  - canceled: the association request was withdrawn before being completed
-  - denied: the association request was reviewed and explicitly rejected
-  - associated: the association has been successfully established and is active
-  - queued: the association request is awaiting processing in a queue
+  The state of this association for the organisation performing the request:
+
+  - pending: The association request has been submitted, but not yet processed
+  - cancelled: The association request was withdrawn before completion
+  - denied: The association request was reviewed, and explicitly rejected
+  - associated: The association has been successfully established, and is active
+  - queued: The association request is awaiting processing in a queue
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
 x-ooapi-extensible-enum:
   - pending
-  - canceled
+  - cancelled
   - denied
   - associated
   - queued

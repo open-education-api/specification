@@ -3,3 +3,9 @@ content:
   application/problem+json:
     schema:
       $ref: 'Problem.yaml'
+    example:
+      type: "https://api.example.org/problems/forbidden"
+      title: "Forbidden"
+      status: 403
+      detail: "You do not have permission to access this resource."
+      instance: "https://api.example.org/admin/enrolments"
