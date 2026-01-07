@@ -1,5 +1,0 @@
-description: Too many requests
-content:
-  application/problem+json:
-    schema:
-      $ref: 'Problem.yaml'

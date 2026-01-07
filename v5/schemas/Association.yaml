@@ -1,3 +1,0 @@
-allOf:
-  - $ref: '../schemas/AssociationId.yaml'
-  - $ref: '../schemas/AssociationProperties.yaml'

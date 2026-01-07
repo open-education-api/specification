@@ -1,9 +1,0 @@
-type: object
-description: Object for communicating data to a specific consumer (destination). This object has no relationship with the `consumer` query parameter.
-required:
-  - consumerKey
-properties:
-  consumerKey:
-    description: The key of the consumer (destination) for which this information is intended. See the [consumer registry](https://openonderwijsapi.nl/v5/#/technical/consumers-and-profiles/) for more information.
-    type: string
-additionalProperties: true
