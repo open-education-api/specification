@@ -646,6 +646,10 @@ updated RFC3339 -> RFC3339 (date-time) where applicable corrected
 - PUT /learning-component-offerings/{learningComponentOfferingId}
 - GET /learning-component-offerings/{learningComponentOfferingId}/learning-component-offering-associations
 - GET /test-component-offering-associations/{testComponentOfferingAssociationId}/url
+- Added StructureBlock object and also added enumerations:
+    - blockRuleType
+    - blockType
+
 
 ### Removed
 
@@ -704,9 +708,10 @@ updated RFC3339 -> RFC3339 (date-time) where applicable corrected
     https://github.com/watson-developer-cloud/api-guidelines/blob/master/swagger-coding-style.md
 - membership element added for groupmembership
 - added PUT path for memebership to a group
+- add structureblocks
 
 ### Removed
-- reomved components 
+- removed components 
 - removed offerings
 - removed education specification #345
 - removed news #347

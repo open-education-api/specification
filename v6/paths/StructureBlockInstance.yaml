@@ -1,0 +1,50 @@
+get:
+  summary: GET /structure-blocks/{structureBlockId}
+  operationId: listStructureBlockById
+  description: Get a single structure block.
+  tags:
+    - structure blocks
+  parameters:
+    - name: structureBlockId
+      in: path
+      description: structure block ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to expand, separated by a comma
+      required: false
+      style: form
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - organisation
+            - education
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/StructureBlock.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
