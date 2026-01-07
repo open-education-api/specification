@@ -2,7 +2,7 @@ openapi: 3.1.1
 info:
   version: '6.0'
   title: Open Education API
-  description: "OpenAPI (fka Swagger) specification for the Open Education API. \n\nThe specification can be downloaded as a whole in <a href=\"./ooapiv6.yaml\" download>yaml</a>\nand in <a href=\"./ooapiv6.json\" download>json</a>\n\n<figure>\n\t<a target=\"_blank\" href=\"ooapi_v6.png\">\n  <img src=\"ooapi_v6.png\" alt=\"OOAPI information model that feeds OOAPI specification\" width=\"100%\" class=\"img-responsive\">\n  </a>\n  <figcaption> OOAPI information model that feeds OOAPI specification (click to enlarge)</figcaption>\n</figure>\n\nThe model provides an overview of the educational domain that is modelled and\nforms the basis of the OOAPI. The overarching educational concept is not exposed\nthrough API endpoints. Instead, the educational specification defines four base\nobjects: programme, course, learning component, and test component, each with\nits own endpoint.\n\nThese base objects can be used to realise offerings. There is, however, no\ndedicated offering endpoint. Offerings are represented through four base\ntypes: programme offering, course offering, learning component offering, and\ntest component offering.\n\nRelations between an offering and a person, such as enrolment, are realised\nthrough association endpoints. These endpoints define the different types of\nassociations that can exist between offerings and persons. Other objects shown\nin the model represent groups and group memberships of a person.\n\nThe original file for this model can be found <a target=\"_blank\" href=\"ooapi_v6_i7.drawio\">here</a>\n\nThe programme relations object is not found as a separate endpoint but relations between programmes can be found within the programme endpoint by expanding that endpoint.\n\nDefinitions for all relationships in the model:\n\n| Entities                                                                                                                                                                                         | Relationship             | Cardinality | Description                                                                                                                                       |\n| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |\n| **Learning Outcomes**                                                                                                                                                                            |                          |             |                                                                                                                                                   |\n| LearningOutcome ↔ Programme, Course, LearningComponent, TestComponent                                                                                                                            | achieves                 | * : *       | Educational entities are designed to achieve specific learning outcomes that define the knowledge, skills, and competencies students will acquire |\n| LearningOutcome ↔ LearningOutcome                                                                                                                                                                | has parents              | * : *       | Learning outcomes can be organised hierarchically, where specific outcomes are grouped under broader outcomes                                     |\n| **Organisational Structure**                                                                                                                                                                     |                          |             |                                                                                                                                                   |\n| Organisation → Organisation                                                                                                                                                                      | has parent               | * : 0..1    | Organisations can be structured hierarchically (departments → faculties → institutions), creating a tree structure                                |\n| Organisation ↔ LearningOutcome, Programme, Course, LearningComponent, TestComponent, ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering, Group, AcademicSession | provides/manages/defines | 1 : *       | Organisations own and administer educational entities, manage operational delivery of offerings, oversee groups, and define academic sessions     |\n| **Educational Structure**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| Programme → Programme                                                                                                                                                                            | has parent               | * : 0..1    | Programmes can be nested (specializations, tracks, minors within main programmes)                                                                 |\n| Programme ↔ Course                                                                                                                                                                               | composed of              | * : *       | Courses can be included in multiple programmes (core in some, electives in others)                                                                |\n| Course → LearningComponent, TestComponent                                                                                                                                                        | composed of              | 1 : *       | Components are the constituent parts of a course - the building blocks (lectures, tutorials, exams) that together form the complete course        |\n| **Educational Offerings**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| Programme → ProgrammeOffering                                                                                                                                                                    | offered as               | 1 : *       | A programme can have multiple offerings for different cohorts or start dates                                                                      |\n| Course → CourseOffering                                                                                                                                                                          | offered as               | 1 : *       | A course can have multiple offerings for different times, locations, or delivery modes                                                            |\n| LearningComponent → LearningComponentOffering                                                                                                                                                    | offered as               | 1 : *       | A component can have multiple scheduled instances                                                                                                 |\n| TestComponent → TestComponentOffering                                                                                                                                                            | offered as               | 1 : *       | A test can have multiple scheduled exam sessions                                                                                                  |\n| **Offering Relationships**                                                                                                                                                                       |                          |             |                                                                                                                                                   |\n| ProgrammeOffering ↔ CourseOffering                                                                                                                                                               | includes                 | * : *       | Course offerings are part of programme offerings, indicating which courses are being delivered within that specific programme instance            |\n| CourseOffering ↔ LearningComponentOffering, TestComponentOffering                                                                                                                                | includes                 | * : *       | Component offerings are the scheduled instances that together deliver a course offering                                                           |\n| **Scheduling & Location**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| AcademicSession → ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                            | scheduled in             | 1 : *       | Each offering occurs within a specific academic session defining its temporal boundaries                                                          |\n| AcademicSession → AcademicSession                                                                                                                                                                | has parent               | * : 0..1    | Academic sessions can be nested (quarters within semesters, weeks within terms)                                                                   |\n| LearningComponentOffering, TestComponentOffering → Room                                                                                                                                          | takes place in           | * : 0..1    | Each component offering is assigned to a specific physical, virtual or no room                                                                    |\n| Room → Building                                                                                                                                                                                  | located in               | * : 1       | Each room exists within exactly one building                                                                                                      |\n| **Enrolments (Associations)**                                                                                                                                                                    |                          |             |                                                                                                                                                   |\n| Person → ProgrammeOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation                                                         | enrolled via             | 1 : 1       | Person's enrolment/participation in offerings at various levels (programme, course, component, test) with role and status                         |\n| ProgrammeOffering → ProgrammeOfferingAssociation                                                                                                                                                 | has enrolments           | 1 : *       | Each ProgrammeOffering can have multiple enrolled persons                                                                                          |\n| CourseOffering → CourseOfferingAssociation                                                                                                                                                       | has enrolments           | 1 : *       | Each CourseOffering can have multiple enrolled persons                                                                                             |\n| LearningComponentOffering → LearningComponentOfferingAssociation                                                                                                                                 | has enrolments           | 1 : *       | Each LearningComponentOffering can have multiple enrolled persons                                                                                  |\n| TestComponentOffering → TestComponentOfferingAssociation                                                                                                                                         | has enrolments           | 1 : *       | Each TestComponentOffering can have multiple enrolled persons                                                                                      |\n| **Results**                                                                                                                                                                                      |                          |             |                                                                                                                                                   |\n| ProgrammeOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation, TestComponentOfferingAssociationAttempt → Result                | has                      | 1 : 0..1    | Associations may have results representing grades or completion status (optional for active enrolments)                                           |\n| **Groups & Memberships**                                                                                                                                                                         |                          |             |                                                                                                                                                   |\n| Group → AcademicSession                                                                                                                                                                          | active during            | 1 : 1       | Groups are associated with specific academic sessions indicating when they are active                                                             |\n| Group ↔ ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                                      | related to               | * : *       | Groups can be related to offerings                                                                                                                |\n| Person → Membership                                                                                                                                                                              | has                      | 1 : *       | A membership represents one person's membership of a group                                                                                        |\n| Group → Membership                                                                                                                                                                               | contains                 | 1 : *       | Each group can have multiple members                                                                                                              |\n\nNotes:\n- Cardinality notation: `Source : Target` where `*` = many (0 or more), `1` = exactly one, `0..1` = zero or one\n- Bidirectional relationships (↔) indicate many-to-many relationships that can be traversed in both directions\n- Some relationships are implemented through junction entities (e.g., Associations for enrolments)\n- The \"offered as\" relationships connect abstract educational entities to their concrete scheduled instances\n- Organisation acts as a central entity providing and managing most other entities in the system    \n\nInformation about earlier meetings and presentations can be found <a target=\"_blank\" href=\"https://github.com/open-education-api/notulen\">here</a>\n\nInformation on the EDU-API model that was also used for this api is shown <a target=\"_blank\" href=\"eduapi.png\">here</a>\n\nThe following paths are described in the model:\n \n- / (The service endpoint)\n- /academic-sessions\n- /academic-sessions/{academicSessionId}\n- /academic-sessions/{academicSessionId}/course-offerings\n- /academic-sessions/{academicSessionId}/learning-component-offerings\n- /academic-sessions/{academicSessionId}/programme-offerings\n- /academic-sessions/{academicSessionId}/test-component-offerings\n- /buildings\n- /buildings/{buildingId}\n- /buildings/{buildingId}/rooms\n- /course-offering-associations/{courseOfferingAssociationId}\n- /course-offering-associations/external/me\n- /course-offerings/{courseOfferingId}\n- /course-offerings/{courseOfferingId}/course-offering-associations\n- /course-offerings/{courseOfferingId}/groups\n- /courses\n- /courses/{courseId}\n- /courses/{courseId}/course-offerings\n- /courses/{courseId}/learning-component-offerings\n- /courses/{courseId}/learning-components\n- /courses/{courseId}/test-component-offerings\n- /courses/{courseId}/test-components\n- /documents/{documentId}\n- /groups\n- /groups/{groupId}\n- /groups/{groupId}/memberships\n- /groups/{groupId}/memberships/{personId}\n- /learning-component-offering-associations/{learningComponentOfferingAssociationId}\n- /learning-component-offerings/{learningComponentOfferingId}\n- /learning-component-offerings/{learningComponentOfferingId}/groups\n- /learning-components/{learningComponentId}\n- /learning-components/{learningComponentId}/learning-component-offerings\n- /learning-outcomes\n- /learning-outcomes/{learningOutcomeId}\n- /organisations\n- /organisations/{organisationId}\n- /organisations/{organisationId}/course-offerings\n- /organisations/{organisationId}/courses\n- /organisations/{organisationId}/groups\n- /organisations/{organisationId}/learning-component-offerings\n- /organisations/{organisationId}/learning-components\n- /organisations/{organisationId}/programme-offerings\n- /organisations/{organisationId}/programmes\n- /organisations/{organisationId}/test-component-offerings\n- /organisations/{organisationId}/test-components\n- /persons\n- /persons/{personId}\n- /persons/{personId}/course-offering-associations\n- /persons/{personId}/learning-component-offering-associations\n- /persons/{personId}/programme-offering-associations\n- /persons/{personId}/test-component-offering-associations\n- /persons/me\n- /programme-offering-associations/{programmeOfferingAssociationId}\n- /programme-offering-associations/external/me\n- /programme-offerings/{programmeOfferingId}\n- /programme-offerings/{programmeOfferingId}/groups\n- /programme-offerings/{programmeOfferingId}/programme-offering-associations\n- /programmes\n- /programmes/{programmeId}\n- /programmes/{programmeId}/courses\n- /programmes/{programmeId}/programme-offerings\n- /programmes/{programmeId}/programmes\n- /rooms\n- /rooms/{roomId}\n- /test-component-offering-associations/{testComponentOfferingAssociationId}\n- /test-component-offerings/{testComponentOfferingId}\n- /test-component-offerings/{testComponentOfferingId}/groups\n- /test-components/{testComponentId}\n- /test-components/{testComponentId}/test-component-offerings\n"
+  description: "OpenAPI (fka Swagger) specification for the Open Education API. \n\nThe specification can be downloaded as a whole in <a href=\"./ooapiv6.yaml\" download>yaml</a>\nand in <a href=\"./ooapiv6.json\" download>json</a>\n\n<figure>\n\t<a target=\"_blank\" href=\"ooapi_v6.png\">\n  <img src=\"ooapi_v6.png\" alt=\"OOAPI information model that feeds OOAPI specification\" width=\"100%\" class=\"img-responsive\">\n  </a>\n  <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>\n</figure>\n\nThe model provides an overview of the educational domain that is modelled and\nforms the basis of the OOAPI. The overarching educational concept is not exposed\nthrough API endpoints. Instead, the educational specification defines four base\nobjects: programme, course, learning component, and test component, each with\nits own endpoint.\n\nThese base objects can be used to realise offerings. There is, however, no\ndedicated offering endpoint. Offerings are represented through four base\ntypes: programme offering, course offering, learning component offering, and\ntest component offering.\n\nRelations between an offering and a person, such as enrolment, are realised\nthrough association endpoints. These endpoints define the different types of\nassociations that can exist between offerings and persons. Other objects shown\nin the model represent groups and group memberships of a person.\n\nThe original file for this model can be found <a target=\"_blank\" href=\"ooapi_v6_i7.drawio\">here</a>\n\nThe programme relations object is not found as a separate endpoint but relations between programmes can be found within the programme endpoint by expanding that endpoint.\n\nDefinitions for all relationships in the model:\n\n| Entities                                                                                                                                                                                         | Relationship             | Cardinality | Description                                                                                                                                       |\n| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |\n| **Learning Outcomes**                                                                                                                                                                            |                          |             |                                                                                                                                                   |\n| LearningOutcome ↔ Programme, Course, LearningComponent, TestComponent                                                                                                                            | achieves                 | * : *       | Educational entities are designed to achieve specific learning outcomes that define the knowledge, skills, and competencies students will acquire |\n| LearningOutcome ↔ LearningOutcome                                                                                                                                                                | has parents              | * : *       | Learning outcomes can be organised hierarchically, where specific outcomes are grouped under broader outcomes                                     |\n| **Organisational Structure**                                                                                                                                                                     |                          |             |                                                                                                                                                   |\n| Organisation → Organisation                                                                                                                                                                      | has parent               | * : 0..1    | Organisations can be structured hierarchically (departments → faculties → institutions), creating a tree structure                                |\n| Organisation ↔ LearningOutcome, Programme, Course, LearningComponent, TestComponent, ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering, Group, AcademicSession | provides/manages/defines | 1 : *       | Organisations own and administer educational entities, manage operational delivery of offerings, oversee groups, and define academic sessions     |\n| **Educational Structure**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| Programme → Programme                                                                                                                                                                            | has parent               | * : 0..1    | Programmes can be nested (specializations, tracks, minors within main programmes)                                                                 |\n| Programme ↔ Course                                                                                                                                                                               | composed of              | * : *       | Courses can be included in multiple programmes (core in some, electives in others)                                                                |\n| Course → LearningComponent, TestComponent                                                                                                                                                        | composed of              | 1 : *       | Components are the constituent parts of a course - the building blocks (lectures, tutorials, exams) that together form the complete course        |\n| **Educational Offerings**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| Programme → ProgrammeOffering                                                                                                                                                                    | offered as               | 1 : *       | A programme can have multiple offerings for different cohorts or start dates                                                                      |\n| Course → CourseOffering                                                                                                                                                                          | offered as               | 1 : *       | A course can have multiple offerings for different times, locations, or delivery modes                                                            |\n| LearningComponent → LearningComponentOffering                                                                                                                                                    | offered as               | 1 : *       | A component can have multiple scheduled instances                                                                                                 |\n| TestComponent → TestComponentOffering                                                                                                                                                            | offered as               | 1 : *       | A test can have multiple scheduled exam sessions                                                                                                  |\n| **Offering Relationships**                                                                                                                                                                       |                          |             |                                                                                                                                                   |\n| ProgrammeOffering ↔ CourseOffering                                                                                                                                                               | includes                 | * : *       | Course offerings are part of programme offerings, indicating which courses are being delivered within that specific programme instance            |\n| CourseOffering ↔ LearningComponentOffering, TestComponentOffering                                                                                                                                | includes                 | * : *       | Component offerings are the scheduled instances that together deliver a course offering                                                           |\n| **Scheduling & Location**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| AcademicSession → ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                            | scheduled in             | 1 : *       | Each offering occurs within a specific academic session defining its temporal boundaries                                                          |\n| AcademicSession → AcademicSession                                                                                                                                                                | has parent               | * : 0..1    | Academic sessions can be nested (quarters within semesters, weeks within terms)                                                                   |\n| LearningComponentOffering, TestComponentOffering → Room                                                                                                                                          | takes place in           | * : 0..1    | Each component offering is assigned to a specific physical, virtual or no room                                                                    |\n| Room → Building                                                                                                                                                                                  | located in               | * : 1       | Each room exists within exactly one building                                                                                                      |\n| **Enrolments (Associations)**                                                                                                                                                                    |                          |             |                                                                                                                                                   |\n| Person → ProgrammeOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation                                                         | enrolled via             | 1 : 1       | Person's enrolment/participation in offerings at various levels (programme, course, component, test) with role and status                         |\n| ProgrammeOffering → ProgrammeOfferingAssociation                                                                                                                                                 | has enrolments           | 1 : *       | Each ProgrammeOffering can have multiple enrolled persons                                                                                          |\n| CourseOffering → CourseOfferingAssociation                                                                                                                                                       | has enrolments           | 1 : *       | Each CourseOffering can have multiple enrolled persons                                                                                             |\n| LearningComponentOffering → LearningComponentOfferingAssociation                                                                                                                                 | has enrolments           | 1 : *       | Each LearningComponentOffering can have multiple enrolled persons                                                                                  |\n| TestComponentOffering → TestComponentOfferingAssociation                                                                                                                                         | has enrolments           | 1 : *       | Each TestComponentOffering can have multiple enrolled persons                                                                                      |\n| **Results**                                                                                                                                                                                      |                          |             |                                                                                                                                                   |\n| ProgrammeOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation, TestComponentOfferingAssociationAttempt → Result                | has                      | 1 : 0..1    | Associations may have results representing grades or completion status (optional for active enrolments)                                           |\n| **Groups & Memberships**                                                                                                                                                                         |                          |             |                                                                                                                                                   |\n| Group → AcademicSession                                                                                                                                                                          | active during            | 1 : 1       | Groups are associated with specific academic sessions indicating when they are active                                                             |\n| Group ↔ ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                                      | related to               | * : *       | Groups can be related to offerings                                                                                                                |\n| Person → Membership                                                                                                                                                                              | has                      | 1 : *       | A membership represents one person's membership of a group                                                                                        |\n| Group → Membership                                                                                                                                                                               | contains                 | 1 : *       | Each group can have multiple members                                                                                                              |\n\nNotes:\n- Cardinality notation: `Source : Target` where `*` = many (0 or more), `1` = exactly one, `0..1` = zero or one\n- Bidirectional relationships (↔) indicate many-to-many relationships that can be traversed in both directions\n- Some relationships are implemented through junction entities (e.g., Associations for enrolments)\n- The \"offered as\" relationships connect abstract educational entities to their concrete scheduled instances\n- Organisation acts as a central entity providing and managing most other entities in the system    \n\nInformation about earlier meetings and presentations can be found <a target=\"_blank\" href=\"https://github.com/open-education-api/notulen\">here</a>\n\nInformation on the EDU-API model that was also used for this api is shown <a target=\"_blank\" href=\"eduapi.png\">here</a>\n\nThe following paths are described in the model:\n \n- / (The service endpoint)\n- /academic-sessions\n- /academic-sessions/{academicSessionId}\n- /academic-sessions/{academicSessionId}/course-offerings\n- /academic-sessions/{academicSessionId}/learning-component-offerings\n- /academic-sessions/{academicSessionId}/programme-offerings\n- /academic-sessions/{academicSessionId}/test-component-offerings\n- /buildings\n- /buildings/{buildingId}\n- /buildings/{buildingId}/rooms\n- /course-offering-associations/{courseOfferingAssociationId}\n- /course-offering-associations/external/me\n- /course-offerings/{courseOfferingId}\n- /course-offerings/{courseOfferingId}/course-offering-associations\n- /course-offerings/{courseOfferingId}/groups\n- /courses\n- /courses/{courseId}\n- /courses/{courseId}/course-offerings\n- /courses/{courseId}/learning-component-offerings\n- /courses/{courseId}/learning-components\n- /courses/{courseId}/test-component-offerings\n- /courses/{courseId}/test-components\n- /documents/{documentId}\n- /groups\n- /groups/{groupId}\n- /groups/{groupId}/memberships\n- /groups/{groupId}/memberships/{personId}\n- /learning-component-offering-associations/{learningComponentOfferingAssociationId}\n- /learning-component-offerings/{learningComponentOfferingId}\n- /learning-component-offerings/{learningComponentOfferingId}/groups\n- /learning-components/{learningComponentId}\n- /learning-components/{learningComponentId}/learning-component-offerings\n- /learning-outcomes\n- /learning-outcomes/{learningOutcomeId}\n- /organisations\n- /organisations/{organisationId}\n- /organisations/{organisationId}/course-offerings\n- /organisations/{organisationId}/courses\n- /organisations/{organisationId}/groups\n- /organisations/{organisationId}/learning-component-offerings\n- /organisations/{organisationId}/learning-components\n- /organisations/{organisationId}/programme-offerings\n- /organisations/{organisationId}/programmes\n- /organisations/{organisationId}/test-component-offerings\n- /organisations/{organisationId}/test-components\n- /persons\n- /persons/{personId}\n- /persons/{personId}/course-offering-associations\n- /persons/{personId}/learning-component-offering-associations\n- /persons/{personId}/programme-offering-associations\n- /persons/{personId}/test-component-offering-associations\n- /persons/me\n- /programme-offering-associations/{programmeOfferingAssociationId}\n- /programme-offering-associations/external/me\n- /programme-offerings/{programmeOfferingId}\n- /programme-offerings/{programmeOfferingId}/groups\n- /programme-offerings/{programmeOfferingId}/programme-offering-associations\n- /programmes\n- /programmes/{programmeId}\n- /programmes/{programmeId}/courses\n- /programmes/{programmeId}/programme-offerings\n- /programmes/{programmeId}/programmes\n- /rooms\n- /rooms/{roomId}\n- /test-component-offering-associations/{testComponentOfferingAssociationId}\n- /test-component-offerings/{testComponentOfferingId}\n- /test-component-offerings/{testComponentOfferingId}/groups\n- /test-components/{testComponentId}\n- /test-components/{testComponentId}/test-component-offerings\n"
   contact:
     name: OOAPI Working Group / SURF
     url: https://openonderwijsapi.nl
@@ -11,7 +11,7 @@ info:
     url: ../logo.png
     href: ./docs.html
 servers:
-  - url: http://demo01.eduapi.nl/v5
+  - url: http://demo01.eduapi.nl/v6
     description: SURF demo implementation
 security: []
 tags:
@@ -1142,6 +1142,7 @@ paths:
                       - pageNumber
                       - hasPreviousPage
                       - hasNextPage
+                      - items
                     properties: &ref_23
                       pageSize:
                         type: integer
@@ -1361,12 +1362,12 @@ paths:
                               example: SPRING-2026
                             startDateTime:
                               type: string
-                              description: The moment on which this academic session starts, RFC3339 (date-time)
+                              description: The moment on which this academic session starts, RFC3339 (full-date)
                               format: date-time
                               example: '2025-09-28T08:30:00+01:00'
                             endDateTime:
                               type: string
-                              description: The moment on which this academic session ends, RFC3339 (date-time)
+                              description: The moment on which this academic session ends, RFC3339 (full-date)
                               format: date-time
                               example: '2025-09-28T08:30:00+01:00'
                             parentId:
@@ -1847,14 +1848,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -4931,14 +4932,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -5933,14 +5934,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -6164,14 +6165,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -7455,7 +7456,7 @@ paths:
                             - string
                             - 'null'
                           format: date-time
-                          description: The start date and time the person is intended to start participating in the offering. Formatted according to RFC3339 (date-time)
+                          description: The start date and time the person is intended to start participating in the offering. Formatted according to RFC3339 (full-date)
                           example: '2025-01-01T08:30:00+01:00'
                         expectedEndDateTime:
                           type:
@@ -7469,7 +7470,7 @@ paths:
                             - string
                             - 'null'
                           format: date-time
-                          description: The actual end date and time the person stopped participating in the offering. Formatted according to RFC3339 (date-time)
+                          description: The actual end date and time the person stopped participating in the offering. Formatted according to RFC3339 (full-date)
                           example: '2025-10-23T08:30:00+01:00'
                         state:
                           readOnly: true
@@ -7647,7 +7648,7 @@ paths:
                                         - allOf: *ref_43
                                     resultDateTime:
                                       type: string
-                                      description: The date this result has been published, RFC3339 (date-time)
+                                      description: The date this result has been published, RFC3339 (full-date)
                                       format: date-time
                                       example: '2025-11-28T08:30:00+01:00'
                                     documents:
@@ -9552,14 +9553,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -10241,14 +10242,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -10333,7 +10334,7 @@ paths:
   /courses/{courseId}/learning-component-offerings:
     get:
       summary: GET /courses/{courseId}/learning-component-offerings
-      operationId: listLearningComponentOfferingsByCourseId
+      operationId: listLearningCompoentOfferingsByCourseId
       description: Get a list of all learning component offerings for this course, ordered chronologically.
       tags:
         - learning component offerings
@@ -10502,14 +10503,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -10819,7 +10820,7 @@ paths:
   /courses/{courseId}/test-component-offerings:
     get:
       summary: GET /courses/{courseId}/test-component-offerings
-      operationId: listTestComponentOfferingsByCourseId
+      operationId: listTestCompoentOfferingsByCourseId
       description: Get a list of all test component offerings for this course, ordered chronologically.
       tags:
         - test component offerings
@@ -10988,14 +10989,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -12730,7 +12731,7 @@ paths:
     get:
       summary: GET /learning-component-offerings/{learningComponentOfferingId}
       operationId: listLearningComponentOfferingsById
-      description: Get a single learning component offering.
+      description: Get a single learnig component offering.
       tags:
         - learning component offerings
       parameters:
@@ -13696,7 +13697,7 @@ paths:
     get:
       summary: GET /learning-components/{learningComponentId}
       operationId: listLearningComponentById
-      description: Get a single learning component.
+      description: Get a single learnig component.
       tags:
         - learning components
       parameters:
@@ -13961,14 +13962,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -14168,14 +14169,14 @@ paths:
           schema: *ref_50
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -14264,7 +14265,7 @@ paths:
     get:
       summary: GET /learning-outcomes/{learningOutcomeId}
       operationId: listLearningOutcomeById
-      description: Get a single learning outcome.
+      description: Get a single learnig outcome.
       tags:
         - learning outcomes
       parameters:
@@ -14964,14 +14965,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -15615,14 +15616,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -16055,14 +16056,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -16566,14 +16567,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -21073,14 +21074,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string
@@ -22982,7 +22983,7 @@ paths:
     get:
       summary: GET /test-component-offerings/{testComponentOfferingId}
       operationId: listTestComponentOfferingsById
-      description: Get a single learning component offering.
+      description: Get a single learnig component offering.
       tags:
         - test component offerings
       parameters:
@@ -24210,14 +24211,14 @@ paths:
             type: boolean
         - name: since
           in: query
-          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+          description: Filter all offerings by providing a minimum start moment (dateTime) for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
           required: false
           schema:
             type: string
             format: date-time
         - name: until
           in: query
-          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (date-time).
+          description: Filter all offerings by providing a maximum end moment (dateTime) for the corresponding academic session, RFC3339 (full-date).
           required: false
           schema:
             type: string

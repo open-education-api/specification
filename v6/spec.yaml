@@ -31,7 +31,7 @@ info:
     associations that can exist between offerings and persons. Other objects shown
     in the model represent groups and group memberships of a person.
     
-    The original file for this model can be found <a target="_blank" href="ooapi_v6_i7.drawio">here</a>
+    The original file for this model can be found <a target="_blank" href="ooapi_v6_latest.drawio">here</a>
 
     The programme relations object is not found as a separate endpoint but relations between programmes can be found within the programme endpoint by expanding that endpoint.
 
