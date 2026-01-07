@@ -42,12 +42,12 @@ properties:
     example: SPRING-2026
   startDateTime:
     type: string
-    description: The moment on which this academic session starts, RFC3339 (date-time)
+    description: The moment on which this academic session starts, RFC3339 (full-date)
     format: date-time
     example: '2025-09-28T08:30:00+01:00'
   endDateTime:
     type: string
-    description: The moment on which this academic session ends, RFC3339 (date-time)
+    description: The moment on which this academic session ends, RFC3339 (full-date)
     format: date-time
     example: '2025-09-28T08:30:00+01:00'
   parentId:

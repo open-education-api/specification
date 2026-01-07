@@ -29,14 +29,14 @@ get:
         type: boolean
     - name: since
       in: query
-      description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (date-time). By default only future offerings are shown (equal to `?since=<today>`).
+      description: Filter all offerings by providing a minimum start moment for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).
       required: false
       schema:
         type: string
         format: date-time
     - name: until
       in: query
-      description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (date-time).
+      description: Filter all offerings by providing a maximum end moment for the corresponding academic session, RFC3339 (full-date).
       required: false
       schema:
         type: string

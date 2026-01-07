@@ -12,7 +12,7 @@ info:
     	<a target="_blank" href="ooapi_v6.png">
       <img src="ooapi_v6.png" alt="OOAPI information model that feeds OOAPI specification" width="100%" class="img-responsive">
       </a>
-      <figcaption> OOAPI information model that feeds OOAPI specification (click to enlarge)</figcaption>
+      <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>
     </figure>
 
     The model provides an overview of the educational domain that is modelled and
@@ -159,10 +159,6 @@ info:
     - /test-components/{testComponentId}
     - /test-components/{testComponentId}/test-component-offerings
 
-  contact:
-    name: OOAPI Working Group / SURF
-    url: https://openonderwijsapi.nl
-    email: info@openonderwijsapi.nl
 
   x-logo:
     url: ../logo.png
@@ -171,8 +167,6 @@ info:
 servers:
   - url: http://demo01.eduapi.nl/v5
     description: SURF demo implementation
-
-security: []
 
 tags:
   - name: academic sessions

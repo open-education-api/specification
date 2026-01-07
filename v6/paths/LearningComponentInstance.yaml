@@ -1,7 +1,7 @@
 get:
   summary: GET /learning-components/{learningComponentId}
   operationId: listLearningComponentById
-  description: Get a single learning component.
+  description: Get a single learnig component.
   tags:
     - learning components
   parameters:
