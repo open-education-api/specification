@@ -1,0 +1,156 @@
+type: object
+description: A description of a group of people working together to achieve a goal
+required:
+  - organisationId
+  - organisationType
+  - name
+  - primaryCode
+properties:
+  organisationId:
+    type: string
+    description: Unique id of this organisation
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-123514174000
+  primaryCode:
+    description: The primary human readable identifier for the organisation. This is often the source identifier as defined by the root organisation.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: organisation_id
+      code: Org01-Root
+  organisationType:
+    $ref: '../enumerations/organisationType.yaml'
+  name:
+    type: array
+    description: The name of the organisation
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+      - language: nl-NL
+        value: Coöperatie SURF U.A.
+  shortName:
+    type:
+      - string
+      - 'null'
+    description: Short name of the organisation
+    maxLength: 256
+    example: SURF
+  description:
+    type:
+      - array
+      - 'null'
+    description: | 
+      If the organisation is an educational organisation, any general description should clearly mention the type of 
+      education organisation, especially in the case of a binary system. In Dutch; universiteit (university) or 
+      hogeschool (university of applied sciences).
+      If the organisation is not an educational organisation, a general description should describe the role it plays 
+      in education like providing certain types of internships, educational services, products or facilities.
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+      - language: nl-NL
+        value: SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.
+  addresses:
+    type:
+      - array
+      - 'null'
+    description: Addresses of this organisation
+    items:
+      $ref: './Address.yaml'
+  link:
+    type:
+      - string
+      - 'null'
+    description: URL of the organisation's website
+    format: uri
+    maxLength: 2048
+    example: https://surf.nl
+  logo:
+    type:
+      - string
+      - 'null'
+    description: Logo of this organisation
+    format: uri
+    maxLength: 2048
+    example: https://www.surf.nl/themes/surf/logo.svg
+  otherCodes:
+    type:
+      - array
+      - 'null'
+    description: An array of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+    example:
+      - codeType: institution_code
+        code: 114B529
+      - codeType: kvk_organisation_id
+        code: '50277374'
+  rootId:
+    description: |
+      The identifier of the organisation which is the root organisation of this organisation.
+      When the client does not request expansion of `root`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
+  root:
+    description: |
+      The expanded organisation object which is the root organisation of this organisation.
+      When the client requests expansion of `root`, the full expanded organisation object MUST be returned here instead of only the identifier.
+      If no root organisation is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
+      - $ref: './Organisation.yaml'
+  parentId:
+    description: |
+      The identifier of the organisational unit which is the parent of this organisation.
+      When the client does not request expansion of `parent`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
+  parent:
+    description: |
+      The expanded organisation object which is the parent of this organisation.
+      When the client requests expansion of `parent`, the full expanded organisation object MUST be returned here instead of only the identifier.
+      If no parent organisation is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
+      - $ref: './Organisation.yaml'
+  childIds:
+    description: |
+      The identifiers of the organisational units for which this organisation is the parent.
+      When the client does not request expansion of `children`, only these identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      
+      Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
+      seem unusual, this naming is intentional and follows the singular–plural convention defined 
+      by the specification.
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './Identifier.yaml'
+  children:
+    description: |
+      The expanded organisational unit objects for which this organisation is the parent.
+      When the client requests expansion of `children`, the full expanded organisation objects MUST be returned here instead of only the identifiers.
+      If no children are defined, this value is `null`.
+    type:
+      - array
+      - 'null'
+    items:
+      type:
+        - object
+        - 'null'
+      allOf:
+        - $ref: './Organisation.yaml'
+  consumer:
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
+  ext:
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

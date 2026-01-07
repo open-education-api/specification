@@ -1,0 +1,61 @@
+get:
+  summary: GET /learning-component-offerings/{learningComponentOfferingId}/groups
+  operationId: listGroupsByLearningComponentOfferingId
+  description: Get an ordered list of all groups related to a learning component offering, ordered by name.
+  tags:
+    - groups
+  parameters:
+    - name: learningComponentOfferingId
+      in: path
+      description: Learning Component Offering ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - $ref: '../parameters/pageSize.yaml'
+    - $ref: '../parameters/pageNumber.yaml'
+    - $ref: '../parameters/consumer.yaml'
+    - $ref: '../parameters/filterQuery.yaml'
+    - $ref: '../parameters/filterQueryOr.yaml'
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/search.yaml'
+    - name: groupType
+      in: query
+      description: Filter by group type
+      required: false
+      schema:
+        $ref: '../enumerations/groupType.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/Pagination.yaml'
+              - type: object
+                required: 
+                  -  items
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '../schemas/Group.yaml'
+                  ext:
+                    $ref: '../schemas/Ext.yaml'
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

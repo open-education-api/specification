@@ -1,0 +1,86 @@
+type: object
+description: A result as part of an association or attempt
+required:
+  - state
+  - resultDateTime
+properties:
+  state:
+    $ref: '../enumerations/resultState.yaml'
+  pass:
+    oneOf:
+      - $ref: '../enumerations/passState.yaml'
+      - type: 'null'
+  comment:
+    type:
+      - string
+      - 'null'
+    description: The comment on this result
+    example: "Strong performance overall, only minor calculation errors in section 3."
+  score:
+    type:
+      - string
+      - 'null'
+    description: The score of this programme/course/component association (based on resultValueType in offering)
+    example: '9'
+  rawScore:
+    type:
+      - integer
+      - 'null'
+    description: |
+      The number of points scored by a person (on the test or assessment) from which the result could be calculated. 
+      The raw score provides additional insight in the achievement of the person. 
+      The raw score also needs the value of maxRawScore to provide necessary context.
+    example: 72
+  maxRawScore:
+    type:
+      - integer
+      - 'null'
+    description: |
+      The maximum number of points a person could achieve on the test or assessment form.
+    example: 80
+  final:
+    type:
+      - boolean
+      - 'null'
+    default: false
+    description: |
+      final: indicates that the result has been finalised by the exam committee. 
+      This can be done in any step of the test taking and assessment cycle. 
+    example: true
+  assessorId:
+    description: |
+      The identifier of the assessor responsible for evaluating the result.
+      When the client does not request expansion of `assessor`, only this identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
+  assessor:
+    description: |
+      The expanded assessor (person) responsible for evaluating the result.
+      When the client requests expansion of `assessor`, the full person object MUST be returned here instead of only the identifier.
+      If no assessor is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
+      - $ref: './Person.yaml'
+  resultDateTime:
+    type: string
+    description: The date this result has been published, RFC3339 (full-date)
+    format: date-time
+    example: '2025-11-28T08:30:00+01:00'
+  documents:
+    type:
+      - array
+      - 'null'
+    description: |
+      Documents that are related to the result of the test component offering association. E.g. assessment form, assessment model, etc.
+    items:
+      $ref: './Document.yaml'
+  consumer:
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
+  ext:
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

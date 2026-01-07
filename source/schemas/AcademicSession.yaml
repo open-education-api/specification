@@ -1,0 +1,135 @@
+type: object
+description: |
+  A named period of time that can be used to communicate the various schedules and time periods an institution recognizes and uses to organise their education. AcademicSessions can be nested.
+  Offerings MAY be linked to a specific AcademicSession to indicate that the specified Offering takes place during the AcademicSession, however this is not mandatory.
+required:
+  - academicSessionId
+  - academicSessionType
+  - primaryCode
+  - name
+  - startDateTime
+  - endDateTime
+properties:
+  academicSessionId:
+    type: string
+    description: Unique id for this academic session
+    format: uuid
+    example: 123e4567-e89b-12d3-a456-426614174000
+#    readOnly: true    # Due to the machine-to-machine (M2M) communication still being under development, it is currently not possible to set this field as read-only.
+  academicSessionType:
+    $ref: '../enumerations/academicSessionType.yaml'
+  primaryCode:
+    description: The primary human readable identifier for this academic session. This is often the source identifier as defined by the institution.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: identifier
+      code: '2012-Q1'
+  name:
+    type: array
+    description: The name of this academic session
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+      - language: en-GB
+        value: Autumn term 2020
+  abbreviation:
+    type:
+      - string
+      - 'null'
+    description: The abbreviation or internal code used to identify this AcademicSession
+    maxLength: 256
+    example: SPRING-2026
+  startDateTime:
+    type: string
+    description: The moment on which this academic session starts, RFC3339 (full-date)
+    format: date-time
+    example: '2025-09-28T08:30:00+01:00'
+  endDateTime:
+    type: string
+    description: The moment on which this academic session ends, RFC3339 (full-date)
+    format: date-time
+    example: '2025-09-28T08:30:00+01:00'
+  parentId:
+    description: |
+      The identifier of the parent academicSession for this session (e.g. Autumn
+      term 20xx where the current session is week 40).
+      When the client does not request expansion of `parent`, only this
+      identifier is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
+  parent:
+    description: |
+      The expanded parent academicSession object of this session (e.g. Autumn
+      term 20xx where the current session is week 40).
+      When the client requests expansion of `parent`, the full expanded
+      academicSession object MUST be returned here instead of only the identifier.
+      If no parent is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
+      - $ref: './AcademicSession.yaml'
+  childIds:
+    description: |
+      The list of identifiers of child academicSessions of this session (e.g. all
+      academic sessions in Autumn term 20xx).
+      When the client does not request expansion of `children`, only these
+      identifiers are returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      
+      Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
+      seem unusual, this naming is intentional and follows the singular–plural convention defined 
+      by the specification.
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './Identifier.yaml'
+  children:
+    description: |
+      The expanded child academicSession objects of this session (e.g. all
+      academic sessions in Autumn term 20xx).
+      When the client requests expansion of `children`, the full expanded
+      academicSession objects MUST be returned here instead of only the identifiers.
+      If no child sessions are defined, this value is `null`.
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: './AcademicSession.yaml'
+  yearId:
+    description: |
+      The identifier of the top-level academicSession year for this session
+      (e.g. 20xx where the current session is week 40 of a semester).
+      When the client does not request expansion of `year`, only this identifier
+      is returned.
+      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+    $ref: './Identifier.yaml'
+  year:
+    description: |
+      The expanded top-level academicSession year object for this session
+      (e.g. 20xx where the current session is week 40 of a semester).
+      When the client requests expansion of `year`, the full expanded
+      academicSession object MUST be returned here instead of only the identifier.
+      If no top-level year is defined, this value is `null`.
+    type:
+      - object
+      - 'null'
+    allOf:
+      - $ref: './AcademicSession.yaml'
+  otherCodes:
+    type:
+      - array
+      - 'null'
+    description: An array of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
+  consumer:
+    oneOf:
+      - $ref: './Consumer.yaml'
+      - type: 'null'
+  ext:
+    oneOf:
+      - $ref: './Ext.yaml'
+      - type: 'null'

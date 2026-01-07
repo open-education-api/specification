@@ -1,0 +1,16 @@
+type: string
+description: |
+  Indicates the mode of study: full-time, part-time, dual or self-paced.
+
+  - full_time: Standard daytime study schedule
+  - part_time: Study scheduled outside regular working hours, such as evenings and weekends
+  - dual_training: Combination of workplace learning and academic study
+  - self_paced: Student sets their own pace and timing for study
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - full_time
+  - part_time
+  - dual_training
+  - self_paced
+example: full_time

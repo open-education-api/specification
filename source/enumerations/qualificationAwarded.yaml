@@ -1,0 +1,23 @@
+type: string
+description: |
+  Type of qualification that can be obtained upon completing the programme:
+  - diploma
+  - vocational_diploma
+  - certificate
+  - associate_degree: Associate degree — short-cycle higher education qualification (EQF level 5)
+  - bachelor: Bachelor — undergraduate degree (EQF level 6)
+  - master: Master — postgraduate degree (EQF level 7)
+  - doctoral: Doctoral degree — research-based doctoral degree (EQF level 8)
+  - none: No formal qualification is awarded for this programme
+  
+  In case of a degree (for example bachelor or master), the type of degree can be specified using `qualificationDesignations`.
+x-ooapi-extensible-enum:
+  - diploma
+  - vocational_diploma
+  - certificate
+  - associate_degree
+  - bachelor
+  - master
+  - doctoral
+  - none
+example: none

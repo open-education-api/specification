@@ -1,0 +1,16 @@
+type: string
+description: |
+  The state of this component or offering:
+    
+  - concept: not yet finalised or published
+  - cancelled: withdrawn and no longer available
+  - active: currently available and in use
+  - inactive: no longer in use, but not cancelled
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - concept
+  - cancelled
+  - active
+  - inactive
+example: active

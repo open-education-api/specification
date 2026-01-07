@@ -1,0 +1,3 @@
+allOf:
+  - $ref: './PersonId.yaml'
+  - $ref: './PersonProperties.yaml'

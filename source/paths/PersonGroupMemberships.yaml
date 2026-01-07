@@ -1,0 +1,67 @@
+put:
+  summary: PUT /groups/{groupId}/memberships/{personId}
+  operationId: replacePersoninGroupById
+  description: Replace or add a single group member from source system to recipient.
+  tags:
+    - groups
+  parameters:
+    - name: groupId
+      in: path
+      description: Group ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: personId
+      in: path
+      description: membership ID based on person ID since a person can only be once in a group
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+
+  requestBody:
+    required: true
+    content:
+        application/json:
+          schema:
+            $ref: '../schemas/Membership.yaml'
+            title: membership
+          examples:
+            Create a new group member in remote system:
+              value:
+                personId: 123e4567-e89b-12d3-a456-122564174000
+                groupId: 123e4567-e89b-12d3-a456-122564174000
+                startDateTime: 2025-09-28T08:30:00+01:00
+                endDateTime: 2025-11-30T20:00:00+01:00
+                state: active
+                role: student
+            
+ 
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+    '202':
+      description: Accepted
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+

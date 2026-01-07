@@ -1,0 +1,46 @@
+type: object
+required:
+ - consumerKey
+ - alliances
+properties:
+  consumerKey:
+    type: string
+  alliances:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: The name of the alliance
+          enum:
+           - ewuu
+           - lde
+        theme:
+          type: string
+          description: the theme of the Programme or Course within the alliance
+        selection:
+          type: boolean
+          description: A boolean value (`true` or `false`) indicating whether this Programme or Course is selective, e.g. whether student need to pass extra requirements before being allowed to enrol.
+        type:
+          type: string
+          description: A string indicating whether a Programme or Course is broadening or deepening
+          enum:
+           - broadening
+           - deepening
+        visibleForOwnStudents:
+          type: boolean
+          description: a boolean value (`true` or `false`) indicating whether this Programme or Course should be visible for students of the offering institution. The default values for this attribute is specified outside of this specification on the alliance level.
+        enrolmentForOwnStudents:
+          type: string
+          description: a string indicating which enrolments process should be followed for students of the offering institution. Allowed values are "broker"` or `"url"`. This attribute is only used if `visibleForOwnStudents` is set to `true`. If `"url"` is chosen the attribute `enrolmentUrl` is mandatory.
+          enum:
+            - broker
+            - url
+        enrolmentUrl:
+          type: string
+          description: a string formatted as an url to which students will be redirected if `enrolmentForOwnStudents is set to `"url"`.
+          format: uri
+          maxLength: 2048

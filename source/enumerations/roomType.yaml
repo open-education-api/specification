@@ -1,0 +1,28 @@
+type: string
+description: |
+  The type of this room.
+
+  - general_purpose: Multi-purpose space used for general activities or flexible functions.
+  - lecture_room: Room primarily used for lectures or large instructional sessions.
+  - computer_room: Space equipped with computers for teaching, training or research.
+  - laboratory: Room designed for practical experiments, testing or scientific work.
+  - office: Workspace for administrative or academic staff.
+  - workspace: Shared or individual area for working or studying.
+  - exam_location: Designated space for taking written or digital examinations.
+  - study_room: Quiet area intended for individual or group study.
+  - examination_room: Private space for medical or psychological assessments.
+  - conference_room: Room intended for meetings, discussions or presentations.
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - general_purpose
+  - lecture_room
+  - computer_room
+  - laboratory
+  - office
+  - workspace
+  - exam_location
+  - study_room
+  - examination_room
+  - conference_room
+example: exam_location

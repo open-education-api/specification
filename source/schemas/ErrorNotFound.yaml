@@ -1,0 +1,31 @@
+description: |
+  Not Found.  
+  
+  Returned only when a specific resource identified by its identifier
+  cannot be located. This applies to instance endpoints where a single,
+  uniquely-addressable object is expected.  
+  
+  Collection endpoints should not return a 404. If no items match the request,
+  they must return an empty array. A 404 may still occur if the collection
+  endpoint itself does not exist or is not accessible.
+content:
+  application/problem+json:
+    schema:
+      $ref: 'Problem.yaml'
+    examples:
+      instanceNotFound:
+        summary: "Instance endpoint: resource not found"
+        value:
+          type: "https://api.example.org/problems/not-found"
+          title: "Resource not found"
+          status: 404
+          detail: "The course with id 'abc123' could not be found."
+          instance: "https://api.example.org/courses/abc123"
+      collectionEndpointNotFound:
+        summary: "Collection endpoint unavailable"
+        value:
+          type: "https://api.example.org/problems/not-found"
+          title: "Collection endpoint not found"
+          status: 404
+          detail: "The collection endpoint '/course-offerings' does not exist or is not accessible."
+          instance: "https://api.example.org/course-offerings"

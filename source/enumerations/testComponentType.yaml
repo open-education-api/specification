@@ -1,0 +1,19 @@
+type: string
+description: |
+  The way the test is conducted. This can be a test on paper, a digital test, a life-skills test, an oral test, or a portfolio assessment.  
+  Together with modeOfStudy or assessment, it indicates where the test is taken and how it is conducted:
+
+  - test_on_paper: Written examination on paper, typically in a controlled setting.
+  - digital_test: Computer-based or online test, conducted via a digital platform.
+  - life_skills_test: Practical assessment of real-world competencies and life-skills.
+  - oral_test: Spoken examination, typically involving verbal questioning and answering.
+  - portfolio_assessment: Evaluation based on a collection of the candidate's work over time.
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - test_on_paper
+  - digital_test
+  - life_skills_test
+  - oral_test
+  - portfolio_assessment
+example: test_on_paper

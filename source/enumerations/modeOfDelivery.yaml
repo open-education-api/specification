@@ -1,0 +1,34 @@
+type: string
+description: |
+  The mode of delivery of the component, based on the EU vocabulary:  
+  https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/learning-assessment
+
+  | Code                 | Description                                               |
+  |----------------------|-----------------------------------------------------------|
+  | `blended`            | Structured combination of online and in-person learning   |
+  | `coil`               | Collaborative Online International Learning; joint, cross-|
+  |                      | institutional, online delivery (virtual exchange /        |
+  |                      | co-taught across institutions)                            |
+  | `hybrid`             | Delivery using different modes in a flexible and          |
+  |                      | interchangeable way                                       |
+  | `joint_delivery`     | Programme delivered collaboratively by two or more        |
+  |                      | institutions (national or international), with shared     |
+  |                      | responsibility for curriculum and teaching                |
+  | `online`             | Real-time learning delivered entirely via the internet    |
+  | `presential`         | Learning that takes place in a physical classroom setting |
+  | `project_based`      | Learning or assessment conducted as part of a project team|
+  | `research_lab_based` | Learning that occurs within a research environment        |
+  | `work_based`         | Learning through practical work or workplace experience   |
+
+  This is an *extensible enumeration*. Use the prefix `x-` for custom values.
+x-ooapi-extensible-enum:
+  - blended
+  - coil
+  - hybrid
+  - joint_delivery
+  - online
+  - presential
+  - project_based
+  - research_lab_based
+  - work_based
+example: blended

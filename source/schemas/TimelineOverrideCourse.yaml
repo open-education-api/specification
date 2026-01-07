@@ -1,0 +1,20 @@
+type: object
+required:
+  - validFrom
+  - course
+description: A timeline override of the course.
+properties:
+  validFrom:
+    type: string
+    description: The day on which this timelineOverride starts (inclusive), RFC3339 (date)
+    format: date-time
+    example: '2025-09-01T08:30:00+01:00'
+  validTo:
+    type:
+      - string
+      - 'null'
+    description: The day on which this timelineOverride ends (exclusive), RFC3339 (date)
+    format: date-time
+    example: '2025-11-30T08:30:00+01:00'
+  course:
+    $ref: './CourseProperties.yaml'

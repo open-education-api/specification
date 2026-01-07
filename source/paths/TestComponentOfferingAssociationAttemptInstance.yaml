@@ -1,0 +1,151 @@
+get:
+  summary: GET /test-component-offering-association-attempts/{testComponentOfferingAssociationAttemptId}
+  operationId: listTestComponentOfferingAssociationAttemptById
+  description: Get a single test component offering association attempt.
+  tags:
+    - test component offering association attempts
+  parameters:
+    - name: testComponentOfferingAssociationAttemptId
+      in: path
+      description: Test Component Offering Association Attempt ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/TestComponentOfferingAssociationAttemptFull.yaml'          
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+put:
+  summary: PUT /test-component-offering-association-attempts/{testComponentOfferingAssociationAttemptId}
+  description: |
+    PUT a single test component offering association attempt to enrol a person in a specific attempt or 
+    update information on that enrolment that can later be retrieved.
+  operationId: insertOrReplaceTestComponentOfferingAssociationAttemptById
+  tags:
+    - test component offering association attempts
+  parameters:
+    - name: testComponentOfferingAssociationAttemptId
+      in: path
+      description: The id of the association to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TestComponentOfferingAssociationAttemptFull.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+    '201':
+      description: Created
+    '202':
+      description: Accepted
+
+              
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+
+patch:
+  summary: PATCH /test-component-offering-association-attempts/{testComponentOfferingAssociationAttemptId}
+  operationId: partialUpdateTestComponentOfferingAssociationAttemptById
+  description: |
+    Update the result of an attempt. Other elements of the attempt object COULD 
+    also be PATCHED. But are not likely and have therefore not been included in this endpoint.
+    Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
+    a specialized media type `application/merge-patch+json` for partial resource representation 
+    to update parts of resource objects.
+  tags:
+    - test component offering association attempts
+
+  parameters:
+    - name: testComponentOfferingAssociationAttemptId
+      in: path
+      description: The id of the association attempt to update
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/merge-patch+json:
+        schema:
+          properties:
+            result:
+              $ref: '../schemas/Result.yaml'
+
+
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '../schemas/AssociationId.yaml'
+              - $ref: '../schemas/PostResponse.yaml'
+              - properties:
+                  state:
+                    $ref: '../enumerations/associationState.yaml' 
+
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'
+

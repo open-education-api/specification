@@ -1,0 +1,111 @@
+name: filter_query
+in: query
+required: false
+style: deepObject
+explode: true
+description: |
+  Filter object serialised as `filter_query[field][operation]=value`.
+  Multiple top-level fields are combined with AND. CSV is accepted where noted.
+
+  Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
+
+  Wildcards:
+  - Prefer using only the asterisk `*` as a wildcard for partial matches (e.g., like and not_like).
+
+  Implementation note:
+  - The availability and behaviour of this query functionality are entirely determined by the organisation hosting
+    the API implementation. It is not mandatory for implementers to support this functionality, and it cannot be enforced 
+    upon organisations that provide or consume OOAPI endpoints.
+  - It is up to each implementer to decide whether to support this feature. It is **not** a requirement of the OOAPI 
+    standard itself.
+  - Consumers or working groups that wish to apply specific filtering mechanisms are encouraged to do so using 
+    this approach for the sake of consistency across implementations.
+
+  Examples:  
+  - **Filter course offerings by programme, delivery, language and start date**  
+    `filter_query[programme.code][in]=B-IT-2025&filter_query[organisation.code][in]=RuG&filter_query[mode_of_delivery][in]=on_campus,hybrid&filter_query[language_of_instruction][in]=en-GB&filter_query[start_date][gt_date]=2025-09-01T00:00:00Z`  
+    
+  - **Only offerings with email contact present**  
+    `filter_query[contacts.email][is]=not_empty`  
+
+schema:
+  type: object
+  additionalProperties:
+    type: object
+    properties:
+      is:
+        $ref: ../enumerations/filterPresence.yaml
+      in:
+        type: string
+        description: Exact match; multiple values allowed as CSV.
+        example: RuG
+      not_in:
+        type: string
+        description: Negated inclusion; multiple values as CSV.
+        example: UvA,VU
+      like:
+        type: string
+        description: |
+          Partial match using wildcards. Prefer `*` as the wildcard.
+        # Quotes are required here because YAML interprets unquoted * as an alias reference.
+        example: "*Amsterdam*"
+      not_like:
+        type: string
+        description: |
+          Negated partial match using wildcards. Prefer `*` as the wildcard.
+        # Quotes are required here because YAML interprets unquoted * as an alias reference.
+        example: "*deprecated*"
+      any_in_array:
+        type: string
+        description: Match if any of the CSV values occur.
+        example: evening,block_week
+      all_in_array:
+        type: string
+        description: Match if all CSV values occur.
+        example: evening,block_week
+      gt_int:
+        type: integer
+        description: Greater than (integer).
+        example: 5
+      lt_int:
+        type: integer
+        description: Less than (integer).
+        example: 30
+      gt_float:
+        type: number
+        description: Greater than (float).
+        example: 5.5
+      lt_float:
+        type: number
+        description: Less than (float).
+        example: 12.0
+      gt_date:
+        type: string
+        format: date-time
+        description: ISO 8601 date-time.
+        example: 2025-09-01T00:00:00Z
+      lt_date:
+        type: string
+        format: date-time
+        description: ISO 8601 date-time.
+        example: 2025-12-31T23:59:59Z
+# examples are badly rendered by Redocly
+# examples:
+#  basic:
+#    summary: Filter course offerings by programme, delivery, language and start date
+#    value:
+#      programme.code:
+#        in: B-IT-2025
+#      organisation.code:
+#        in: RuG
+#      mode_of_delivery:
+#        in: on_campus,hybrid
+#      language_of_instruction:
+#        in: en-GB
+#      start_date:
+#        gt_date: 2025-09-01T00:00:00Z
+#  presenceCheck:
+#    summary: Only offerings with email contact present
+#    value:
+#      contacts.email:
+#        is: not_empty

@@ -1,0 +1,78 @@
+name: filter_query[__or][]
+in: query
+required: false
+style: deepObject
+explode: true
+description: |
+  OR blocks. Provide an array of single-field filter objects, each combined with OR.
+  Serialises as `filter_query[__or][][field][operation]=value`.
+
+  Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
+
+  Wildcards:
+  - Prefer using only the asterisk `*` as a wildcard for partial matches (e.g., like).
+
+  Implementation note:
+  - The availability and behaviour of this query functionality are entirely determined by the organisation hosting
+    the API implementation. It is not mandatory for implementers to support this functionality, and it cannot be enforced 
+    upon organisations that provide or consume OOAPI endpoints.
+  - It is up to each implementer to decide whether to support this feature. It is **not** a requirement of the OOAPI 
+    standard itself.
+  - Consumers or working groups that wish to apply specific filtering mechanisms are encouraged to do so using 
+    this approach for the sake of consistency across implementations.
+
+  Examples:  
+    - **Provider is Org A or Org B, OR campus city contains “Utrecht”**  
+      `?filter_query[__or][][organisation.id][in]=org-uu,org-hku&filter_query[__or][][campus.city][like]=*Utrecht*`  
+      
+    - **Start date after 1 Sept 2025 OR has evening/block_week tag**  
+      `?filter_query[__or][][start_date][gt_date]=2025-09-01T00:00:00Z&filter_query[__or][][tags][any_in_array]=evening,block_week`  
+
+schema:
+  type: array
+  items:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        in:
+          type: string
+          description: Exact match; multiple values allowed as CSV.
+          example: org-uu,org-hku
+        like:
+          type: string
+          description: |
+            Partial match using wildcards. Prefer `*` as the wildcard.
+          # Quotes are required here because YAML interprets unquoted * as an alias reference.
+          example: "*Utrecht*"
+        any_in_array:
+          type: string
+          description: Match if any of the CSV values occur.
+          example: evening,block_week
+        gt_date:
+          type: string
+          format: date-time
+          description: ISO 8601 / RFC 3339 date-time.
+          example: 2025-09-01T00:00:00Z
+        lt_date:
+          type: string
+          format: date-time
+          description: ISO 8601 / RFC 3339 date-time.
+          example: 2025-12-31T23:59:59Z
+# examples are badly rendered by Redocly
+# examples:
+#  providersOrLocation:
+#    summary: Provider is Org A or Org B, OR campus city contains “Utrecht”
+#    value:
+#      - organisation.id:
+#          in: org-uu,org-hku
+#      - campus.city:
+#          # Quotes are required here because YAML interprets unquoted * as an alias reference.
+#          like: "*Utrecht*"
+#  timeWindowOrTag:
+#    summary: Start date after 1 Sept 2025 OR has evening/block_week tag
+#    value:
+#      - start_date:
+#          gt_date: 2025-09-01T00:00:00Z
+#      - tags:
+#          any_in_array: evening,block_week

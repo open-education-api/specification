@@ -1,0 +1,11 @@
+description: Internal Server Error
+content:
+  application/problem+json:
+    schema:
+      $ref: 'Problem.yaml'
+    example:
+      type: "https://api.example.org/problems/internal-server-error"
+      title: "Internal server error"
+      status: 500
+      detail: "An unexpected error occurred while processing your request."
+      instance: "https://api.example.org/enrolments/submit"
