@@ -2,7 +2,7 @@ openapi: 3.1.1
 info:
   version: '6.0'
   title: Open Education API
-  description: "OpenAPI (fka Swagger) specification for the Open Education API. \n\n<figure>\n\t<a target=\"_blank\" href=\"ooapi_v6.png\">\n  <img src=\"ooapi_v6.png\" alt=\"OOAPI information model that feeds OOAPI specification\" width=\"100%\" class=\"img-responsive\">\n  </a>\n  <figcaption> OOAPI information model that feeds OOAPI specification (click to enlarge)</figcaption>\n</figure>\n\nThe model provides an overview of the educational domain that is modelled and\nforms the basis of the OOAPI. The overarching educational concept is not exposed\nthrough API endpoints. Instead, the educational specification defines four base\nobjects: programme, course, learning component, and test component, each with\nits own endpoint.\n\nThese base objects can be used to realise offerings. There is, however, no\ndedicated offering endpoint. Offerings are represented through four base\ntypes: programme offering, course offering, learning component offering, and\ntest component offering.\n\nRelations between an offering and a person, such as enrolment, are realised\nthrough association endpoints. These endpoints define the different types of\nassociations that can exist between offerings and persons. Other objects shown\nin the model represent groups and group memberships of a person.\n\nThe original file for this model can be found <a target=\"_blank\" href=\"ooapi_v6_i7.drawio\">here</a>\n\nThe programme relations object is not found as a separate endpoint but relations between programmes can be found within the programme endpoint by expanding that endpoint.\n\nDefinitions for all relationships in the model:\n\n| Entities                                                                                                                                                                                         | Relationship             | Cardinality | Description                                                                                                                                       |\n| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |\n| **Learning Outcomes**                                                                                                                                                                            |                          |             |                                                                                                                                                   |\n| LearningOutcome ↔ Programme, Course, LearningComponent, TestComponent                                                                                                                            | achieves                 | * : *       | Educational entities are designed to achieve specific learning outcomes that define the knowledge, skills, and competencies students will acquire |\n| LearningOutcome ↔ LearningOutcome                                                                                                                                                                | has parents              | * : *       | Learning outcomes can be organised hierarchically, where specific outcomes are grouped under broader outcomes                                     |\n| **Organisational Structure**                                                                                                                                                                     |                          |             |                                                                                                                                                   |\n| Organisation → Organisation                                                                                                                                                                      | has parent               | * : 0..1    | Organisations can be structured hierarchically (departments → faculties → institutions), creating a tree structure                                |\n| Organisation ↔ LearningOutcome, Programme, Course, LearningComponent, TestComponent, ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering, Group, AcademicSession | provides/manages/defines | 1 : *       | Organisations own and administer educational entities, manage operational delivery of offerings, oversee groups, and define academic sessions     |\n| **Educational Structure**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| Programme → Programme                                                                                                                                                                            | has parent               | * : 0..1    | Programmes can be nested (specializations, tracks, minors within main programmes)                                                                 |\n| Programme ↔ Course                                                                                                                                                                               | composed of              | * : *       | Courses can be included in multiple programmes (core in some, electives in others)                                                                |\n| Course → LearningComponent, TestComponent                                                                                                                                                        | composed of              | 1 : *       | Components are the constituent parts of a course - the building blocks (lectures, tutorials, exams) that together form the complete course        |\n| **Educational Offerings**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| Programme → ProgrammeOffering                                                                                                                                                                    | offered as               | 1 : *       | A programme can have multiple offerings for different cohorts or start dates                                                                      |\n| Course → CourseOffering                                                                                                                                                                          | offered as               | 1 : *       | A course can have multiple offerings for different times, locations, or delivery modes                                                            |\n| LearningComponent → LearningComponentOffering                                                                                                                                                    | offered as               | 1 : *       | A component can have multiple scheduled instances                                                                                                 |\n| TestComponent → TestComponentOffering                                                                                                                                                            | offered as               | 1 : *       | A test can have multiple scheduled exam sessions                                                                                                  |\n| **Offering Relationships**                                                                                                                                                                       |                          |             |                                                                                                                                                   |\n| ProgrammeOffering ↔ CourseOffering                                                                                                                                                               | includes                 | * : *       | Course offerings are part of programme offerings, indicating which courses are being delivered within that specific programme instance            |\n| CourseOffering ↔ LearningComponentOffering, TestComponentOffering                                                                                                                                | includes                 | * : *       | Component offerings are the scheduled instances that together deliver a course offering                                                           |\n| **Scheduling & Location**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| AcademicSession → ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                            | scheduled in             | 1 : *       | Each offering occurs within a specific academic session defining its temporal boundaries                                                          |\n| AcademicSession → AcademicSession                                                                                                                                                                | has parent               | * : 0..1    | Academic sessions can be nested (quarters within semesters, weeks within terms)                                                                   |\n| LearningComponentOffering, TestComponentOffering → Room                                                                                                                                          | takes place in           | * : 0..1    | Each component offering is assigned to a specific physical, virtual or no room                                                                    |\n| Room → Building                                                                                                                                                                                  | located in               | * : 1       | Each room exists within exactly one building                                                                                                      |\n| **Enrolments (Associations)**                                                                                                                                                                    |                          |             |                                                                                                                                                   |\n| Person → ProgrammeOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation                                                         | enrolled via             | 1 : 1       | Person's enrolment/participation in offerings at various levels (programme, course, component, test) with role and status                         |\n| ProgrammeOffering → ProgrammeOfferingAssociation                                                                                                                                                 | has enrolments           | 1 : *       | Each ProgrammeOffering can have multiple enrolled persons                                                                                          |\n| CourseOffering → CourseOfferingAssociation                                                                                                                                                       | has enrolments           | 1 : *       | Each CourseOffering can have multiple enrolled persons                                                                                             |\n| LearningComponentOffering → LearningComponentOfferingAssociation                                                                                                                                 | has enrolments           | 1 : *       | Each LearningComponentOffering can have multiple enrolled persons                                                                                  |\n| TestComponentOffering → TestComponentOfferingAssociation                                                                                                                                         | has enrolments           | 1 : *       | Each TestComponentOffering can have multiple enrolled persons                                                                                      |\n| **Results**                                                                                                                                                                                      |                          |             |                                                                                                                                                   |\n| ProgrammeOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation, TestComponentOfferingAssociationAttempt → Result                | has                      | 1 : 0..1    | Associations may have results representing grades or completion status (optional for active enrolments)                                           |\n| **Groups & Memberships**                                                                                                                                                                         |                          |             |                                                                                                                                                   |\n| Group → AcademicSession                                                                                                                                                                          | active during            | 1 : 1       | Groups are associated with specific academic sessions indicating when they are active                                                             |\n| Group ↔ ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                                      | related to               | * : *       | Groups can be related to offerings                                                                                                                |\n| Person → Membership                                                                                                                                                                              | has                      | 1 : *       | A membership represents one person's membership of a group                                                                                        |\n| Group → Membership                                                                                                                                                                               | contains                 | 1 : *       | Each group can have multiple members                                                                                                              |\n\nNotes:\n- Cardinality notation: `Source : Target` where `*` = many (0 or more), `1` = exactly one, `0..1` = zero or one\n- Bidirectional relationships (↔) indicate many-to-many relationships that can be traversed in both directions\n- Some relationships are implemented through junction entities (e.g., Associations for enrolments)\n- The \"offered as\" relationships connect abstract educational entities to their concrete scheduled instances\n- Organisation acts as a central entity providing and managing most other entities in the system    \n\nInformation about earlier meetings and presentations can be found <a target=\"_blank\" href=\"https://github.com/open-education-api/notulen\">here</a>\n\nInformation on the EDU-API model that was also used for this api is shown <a target=\"_blank\" href=\"eduapi.png\">here</a>\n\nThe following paths are described in the model:\n \n- / (The service endpoint)\n- /academic-sessions\n- /academic-sessions/{academicSessionId}\n- /academic-sessions/{academicSessionId}/course-offerings\n- /academic-sessions/{academicSessionId}/learning-component-offerings\n- /academic-sessions/{academicSessionId}/programme-offerings\n- /academic-sessions/{academicSessionId}/test-component-offerings\n- /buildings\n- /buildings/{buildingId}\n- /buildings/{buildingId}/rooms\n- /course-offering-associations/{courseOfferingAssociationId}\n- /course-offering-associations/external/me\n- /course-offerings/{courseOfferingId}\n- /course-offerings/{courseOfferingId}/course-offering-associations\n- /course-offerings/{courseOfferingId}/groups\n- /courses\n- /courses/{courseId}\n- /courses/{courseId}/course-offerings\n- /courses/{courseId}/learning-component-offerings\n- /courses/{courseId}/learning-components\n- /courses/{courseId}/test-component-offerings\n- /courses/{courseId}/test-components\n- /documents/{documentId}\n- /groups\n- /groups/{groupId}\n- /groups/{groupId}/memberships\n- /groups/{groupId}/memberships/{personId}\n- /learning-component-offering-associations/{learningComponentOfferingAssociationId}\n- /learning-component-offerings/{learningComponentOfferingId}\n- /learning-component-offerings/{learningComponentOfferingId}/groups\n- /learning-components/{learningComponentId}\n- /learning-components/{learningComponentId}/learning-component-offerings\n- /learning-outcomes\n- /learning-outcomes/{learningOutcomeId}\n- /organisations\n- /organisations/{organisationId}\n- /organisations/{organisationId}/course-offerings\n- /organisations/{organisationId}/courses\n- /organisations/{organisationId}/groups\n- /organisations/{organisationId}/learning-component-offerings\n- /organisations/{organisationId}/learning-components\n- /organisations/{organisationId}/programme-offerings\n- /organisations/{organisationId}/programmes\n- /organisations/{organisationId}/test-component-offerings\n- /organisations/{organisationId}/test-components\n- /persons\n- /persons/{personId}\n- /persons/{personId}/course-offering-associations\n- /persons/{personId}/learning-component-offering-associations\n- /persons/{personId}/programme-offering-associations\n- /persons/{personId}/test-component-offering-associations\n- /persons/me\n- /programme-offering-associations/{programmeOfferingAssociationId}\n- /programme-offering-associations/external/me\n- /programme-offerings/{programmeOfferingId}\n- /programme-offerings/{programmeOfferingId}/groups\n- /programme-offerings/{programmeOfferingId}/programme-offering-associations\n- /programmes\n- /programmes/{programmeId}\n- /programmes/{programmeId}/courses\n- /programmes/{programmeId}/programme-offerings\n- /programmes/{programmeId}/programmes\n- /rooms\n- /rooms/{roomId}\n- /test-component-offering-associations/{testComponentOfferingAssociationId}\n- /test-component-offerings/{testComponentOfferingId}\n- /test-component-offerings/{testComponentOfferingId}/groups\n- /test-components/{testComponentId}\n- /test-components/{testComponentId}/test-component-offerings\n"
+  description: "OpenAPI (fka Swagger) specification for the Open Education API. \n\nThe specification can be downloaded as a whole in <a href=\"./ooapiv6.yaml\" download>yaml</a>\nand in <a href=\"./ooapiv6.json\" download>json</a>\n\n<figure>\n\t<a target=\"_blank\" href=\"ooapi_v6.png\">\n  <img src=\"ooapi_v6.png\" alt=\"OOAPI information model that feeds OOAPI specification\" width=\"100%\" class=\"img-responsive\">\n  </a>\n  <figcaption> OOAPI information model that feeds OOAPI specification (click to enlarge)</figcaption>\n</figure>\n\nThe model provides an overview of the educational domain that is modelled and\nforms the basis of the OOAPI. The overarching educational concept is not exposed\nthrough API endpoints. Instead, the educational specification defines four base\nobjects: programme, course, learning component, and test component, each with\nits own endpoint.\n\nThese base objects can be used to realise offerings. There is, however, no\ndedicated offering endpoint. Offerings are represented through four base\ntypes: programme offering, course offering, learning component offering, and\ntest component offering.\n\nRelations between an offering and a person, such as enrolment, are realised\nthrough association endpoints. These endpoints define the different types of\nassociations that can exist between offerings and persons. Other objects shown\nin the model represent groups and group memberships of a person.\n\nThe original file for this model can be found <a target=\"_blank\" href=\"ooapi_v6_i7.drawio\">here</a>\n\nThe programme relations object is not found as a separate endpoint but relations between programmes can be found within the programme endpoint by expanding that endpoint.\n\nDefinitions for all relationships in the model:\n\n| Entities                                                                                                                                                                                         | Relationship             | Cardinality | Description                                                                                                                                       |\n| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |\n| **Learning Outcomes**                                                                                                                                                                            |                          |             |                                                                                                                                                   |\n| LearningOutcome ↔ Programme, Course, LearningComponent, TestComponent                                                                                                                            | achieves                 | * : *       | Educational entities are designed to achieve specific learning outcomes that define the knowledge, skills, and competencies students will acquire |\n| LearningOutcome ↔ LearningOutcome                                                                                                                                                                | has parents              | * : *       | Learning outcomes can be organised hierarchically, where specific outcomes are grouped under broader outcomes                                     |\n| **Organisational Structure**                                                                                                                                                                     |                          |             |                                                                                                                                                   |\n| Organisation → Organisation                                                                                                                                                                      | has parent               | * : 0..1    | Organisations can be structured hierarchically (departments → faculties → institutions), creating a tree structure                                |\n| Organisation ↔ LearningOutcome, Programme, Course, LearningComponent, TestComponent, ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering, Group, AcademicSession | provides/manages/defines | 1 : *       | Organisations own and administer educational entities, manage operational delivery of offerings, oversee groups, and define academic sessions     |\n| **Educational Structure**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| Programme → Programme                                                                                                                                                                            | has parent               | * : 0..1    | Programmes can be nested (specializations, tracks, minors within main programmes)                                                                 |\n| Programme ↔ Course                                                                                                                                                                               | composed of              | * : *       | Courses can be included in multiple programmes (core in some, electives in others)                                                                |\n| Course → LearningComponent, TestComponent                                                                                                                                                        | composed of              | 1 : *       | Components are the constituent parts of a course - the building blocks (lectures, tutorials, exams) that together form the complete course        |\n| **Educational Offerings**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| Programme → ProgrammeOffering                                                                                                                                                                    | offered as               | 1 : *       | A programme can have multiple offerings for different cohorts or start dates                                                                      |\n| Course → CourseOffering                                                                                                                                                                          | offered as               | 1 : *       | A course can have multiple offerings for different times, locations, or delivery modes                                                            |\n| LearningComponent → LearningComponentOffering                                                                                                                                                    | offered as               | 1 : *       | A component can have multiple scheduled instances                                                                                                 |\n| TestComponent → TestComponentOffering                                                                                                                                                            | offered as               | 1 : *       | A test can have multiple scheduled exam sessions                                                                                                  |\n| **Offering Relationships**                                                                                                                                                                       |                          |             |                                                                                                                                                   |\n| ProgrammeOffering ↔ CourseOffering                                                                                                                                                               | includes                 | * : *       | Course offerings are part of programme offerings, indicating which courses are being delivered within that specific programme instance            |\n| CourseOffering ↔ LearningComponentOffering, TestComponentOffering                                                                                                                                | includes                 | * : *       | Component offerings are the scheduled instances that together deliver a course offering                                                           |\n| **Scheduling & Location**                                                                                                                                                                        |                          |             |                                                                                                                                                   |\n| AcademicSession → ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                            | scheduled in             | 1 : *       | Each offering occurs within a specific academic session defining its temporal boundaries                                                          |\n| AcademicSession → AcademicSession                                                                                                                                                                | has parent               | * : 0..1    | Academic sessions can be nested (quarters within semesters, weeks within terms)                                                                   |\n| LearningComponentOffering, TestComponentOffering → Room                                                                                                                                          | takes place in           | * : 0..1    | Each component offering is assigned to a specific physical, virtual or no room                                                                    |\n| Room → Building                                                                                                                                                                                  | located in               | * : 1       | Each room exists within exactly one building                                                                                                      |\n| **Enrolments (Associations)**                                                                                                                                                                    |                          |             |                                                                                                                                                   |\n| Person → ProgrammeOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation                                                         | enrolled via             | 1 : 1       | Person's enrolment/participation in offerings at various levels (programme, course, component, test) with role and status                         |\n| ProgrammeOffering → ProgrammeOfferingAssociation                                                                                                                                                 | has enrolments           | 1 : *       | Each ProgrammeOffering can have multiple enrolled persons                                                                                          |\n| CourseOffering → CourseOfferingAssociation                                                                                                                                                       | has enrolments           | 1 : *       | Each CourseOffering can have multiple enrolled persons                                                                                             |\n| LearningComponentOffering → LearningComponentOfferingAssociation                                                                                                                                 | has enrolments           | 1 : *       | Each LearningComponentOffering can have multiple enrolled persons                                                                                  |\n| TestComponentOffering → TestComponentOfferingAssociation                                                                                                                                         | has enrolments           | 1 : *       | Each TestComponentOffering can have multiple enrolled persons                                                                                      |\n| **Results**                                                                                                                                                                                      |                          |             |                                                                                                                                                   |\n| ProgrammeOfferingAssociation, CourseOfferingAssociation, LearningComponentOfferingAssociation, TestComponentOfferingAssociation, TestComponentOfferingAssociationAttempt → Result                | has                      | 1 : 0..1    | Associations may have results representing grades or completion status (optional for active enrolments)                                           |\n| **Groups & Memberships**                                                                                                                                                                         |                          |             |                                                                                                                                                   |\n| Group → AcademicSession                                                                                                                                                                          | active during            | 1 : 1       | Groups are associated with specific academic sessions indicating when they are active                                                             |\n| Group ↔ ProgrammeOffering, CourseOffering, LearningComponentOffering, TestComponentOffering                                                                                                      | related to               | * : *       | Groups can be related to offerings                                                                                                                |\n| Person → Membership                                                                                                                                                                              | has                      | 1 : *       | A membership represents one person's membership of a group                                                                                        |\n| Group → Membership                                                                                                                                                                               | contains                 | 1 : *       | Each group can have multiple members                                                                                                              |\n\nNotes:\n- Cardinality notation: `Source : Target` where `*` = many (0 or more), `1` = exactly one, `0..1` = zero or one\n- Bidirectional relationships (↔) indicate many-to-many relationships that can be traversed in both directions\n- Some relationships are implemented through junction entities (e.g., Associations for enrolments)\n- The \"offered as\" relationships connect abstract educational entities to their concrete scheduled instances\n- Organisation acts as a central entity providing and managing most other entities in the system    \n\nInformation about earlier meetings and presentations can be found <a target=\"_blank\" href=\"https://github.com/open-education-api/notulen\">here</a>\n\nInformation on the EDU-API model that was also used for this api is shown <a target=\"_blank\" href=\"eduapi.png\">here</a>\n\nThe following paths are described in the model:\n \n- / (The service endpoint)\n- /academic-sessions\n- /academic-sessions/{academicSessionId}\n- /academic-sessions/{academicSessionId}/course-offerings\n- /academic-sessions/{academicSessionId}/learning-component-offerings\n- /academic-sessions/{academicSessionId}/programme-offerings\n- /academic-sessions/{academicSessionId}/test-component-offerings\n- /buildings\n- /buildings/{buildingId}\n- /buildings/{buildingId}/rooms\n- /course-offering-associations/{courseOfferingAssociationId}\n- /course-offering-associations/external/me\n- /course-offerings/{courseOfferingId}\n- /course-offerings/{courseOfferingId}/course-offering-associations\n- /course-offerings/{courseOfferingId}/groups\n- /courses\n- /courses/{courseId}\n- /courses/{courseId}/course-offerings\n- /courses/{courseId}/learning-component-offerings\n- /courses/{courseId}/learning-components\n- /courses/{courseId}/test-component-offerings\n- /courses/{courseId}/test-components\n- /documents/{documentId}\n- /groups\n- /groups/{groupId}\n- /groups/{groupId}/memberships\n- /groups/{groupId}/memberships/{personId}\n- /learning-component-offering-associations/{learningComponentOfferingAssociationId}\n- /learning-component-offerings/{learningComponentOfferingId}\n- /learning-component-offerings/{learningComponentOfferingId}/groups\n- /learning-components/{learningComponentId}\n- /learning-components/{learningComponentId}/learning-component-offerings\n- /learning-outcomes\n- /learning-outcomes/{learningOutcomeId}\n- /organisations\n- /organisations/{organisationId}\n- /organisations/{organisationId}/course-offerings\n- /organisations/{organisationId}/courses\n- /organisations/{organisationId}/groups\n- /organisations/{organisationId}/learning-component-offerings\n- /organisations/{organisationId}/learning-components\n- /organisations/{organisationId}/programme-offerings\n- /organisations/{organisationId}/programmes\n- /organisations/{organisationId}/test-component-offerings\n- /organisations/{organisationId}/test-components\n- /persons\n- /persons/{personId}\n- /persons/{personId}/course-offering-associations\n- /persons/{personId}/learning-component-offering-associations\n- /persons/{personId}/programme-offering-associations\n- /persons/{personId}/test-component-offering-associations\n- /persons/me\n- /programme-offering-associations/{programmeOfferingAssociationId}\n- /programme-offering-associations/external/me\n- /programme-offerings/{programmeOfferingId}\n- /programme-offerings/{programmeOfferingId}/groups\n- /programme-offerings/{programmeOfferingId}/programme-offering-associations\n- /programmes\n- /programmes/{programmeId}\n- /programmes/{programmeId}/courses\n- /programmes/{programmeId}/programme-offerings\n- /programmes/{programmeId}/programmes\n- /rooms\n- /rooms/{roomId}\n- /test-component-offering-associations/{testComponentOfferingAssociationId}\n- /test-component-offerings/{testComponentOfferingId}\n- /test-component-offerings/{testComponentOfferingId}/groups\n- /test-components/{testComponentId}\n- /test-components/{testComponentId}/test-component-offerings\n"
   contact:
     name: OOAPI Working Group / SURF
     url: https://openonderwijsapi.nl
@@ -1879,7 +1879,7 @@ paths:
                             required: &ref_125
                               - courseOfferingId
                             properties: &ref_126
-                              courseOfferingId: &ref_156
+                              courseOfferingId: &ref_157
                                 type: string
                                 description: The unique ID of the course offering, this should be unique across all programme, course, learning, and test component offerings.
                                 format: uuid
@@ -2651,10 +2651,10 @@ paths:
                                             example: 123e4567-e89b-12d3-a456-426614174000
                                       - type: object
                                         description: An object describing the metadata of a course
-                                        required: &ref_82
+                                        required: &ref_83
                                           - name
                                           - primaryCode
-                                        properties: &ref_83
+                                        properties: &ref_84
                                           primaryCode:
                                             description: The primary human readable identifier for this course. This is often the source identifier as defined by the institution.
                                             type: object
@@ -3291,14 +3291,14 @@ paths:
                                                         - specification: A further defined variant or subset of a track or specialisation
 
                                                         This is an extensible enumeration. Use the prefix `x-` for custom values.
-                                                      x-ooapi-extensible-enum: &ref_94
+                                                      x-ooapi-extensible-enum: &ref_93
                                                         - programme
                                                         - minor
                                                         - honours
                                                         - specialisation
                                                         - track
                                                         - specification
-                                                      example: &ref_95
+                                                      example: &ref_94
                                                         - programme
                                                     name:
                                                       description: The name of this programme
@@ -3385,7 +3385,7 @@ paths:
                                                             - none: No formal qualification is awarded for this programme
 
                                                             In case of a degree (for example bachelor or master), the type of degree can be specified using `qualificationDesignations`.
-                                                          x-ooapi-extensible-enum: &ref_96
+                                                          x-ooapi-extensible-enum: &ref_95
                                                             - diploma
                                                             - vocational_diploma
                                                             - certificate
@@ -3489,7 +3489,7 @@ paths:
                                                             - eqf_8: Knowledge at the most advanced frontier of a field, typically doctoral level
 
                                                             This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                                                          x-ooapi-extensible-enum: &ref_97
+                                                          x-ooapi-extensible-enum: &ref_96
                                                             - eqf_0
                                                             - eqf_1
                                                             - eqf_2
@@ -3767,17 +3767,17 @@ paths:
                                                       items:
                                                         allOf: &ref_43
                                                           - type: object
-                                                            properties: &ref_101
+                                                            properties: &ref_100
                                                               personId:
                                                                 type: string
                                                                 description: Unique id of this person
                                                                 format: uuid
                                                                 example: 123e4567-e89b-12d3-a456-426614174000
-                                                            required: &ref_102
+                                                            required: &ref_101
                                                               - personId
                                                           - type: object
                                                             description: A person that has a relationship with this institution
-                                                            anyOf: &ref_99
+                                                            anyOf: &ref_98
                                                               - required:
                                                                   - surname
                                                                   - primaryCode
@@ -3792,7 +3792,7 @@ paths:
                                                                   - preferredName
                                                                   - primaryCode
                                                                   - activeEnrolment
-                                                            properties: &ref_100
+                                                            properties: &ref_99
                                                               primaryCode:
                                                                 description: The primary human readable identifier for the person. This is often the source identifier as defined by the institution.
                                                                 example:
@@ -3946,7 +3946,7 @@ paths:
                                                                     - guest: External person temporarily affiliated, without formal student or employee status
 
                                                                     This is an extensible enumeration. Use the prefix `x-` for custom values.
-                                                                  x-ooapi-extensible-enum: &ref_98
+                                                                  x-ooapi-extensible-enum: &ref_97
                                                                     - student
                                                                     - employee
                                                                     - guest
@@ -4253,7 +4253,7 @@ paths:
                                                                 - school: An organisational unit typically used in primary, secondary, or specialised higher education contexts
 
                                                                 This is an extensible enumeration. Use the prefix `x-` for custom values.
-                                                              x-ooapi-extensible-enum: &ref_93
+                                                              x-ooapi-extensible-enum: &ref_92
                                                                 - root
                                                                 - institute
                                                                 - department
@@ -4600,7 +4600,7 @@ paths:
                                       required: &ref_144
                                         - programmeOfferingId
                                       properties: &ref_145
-                                        programmeOfferingId: &ref_157
+                                        programmeOfferingId: &ref_158
                                           type: string
                                           description: The unique ID of the programme offering, this should be unique across all programme, course, learning, and test component offerings.
                                           format: uuid
@@ -4960,12 +4960,12 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: &ref_80
+                          allOf: &ref_81
                             - type: object
                               required: &ref_146
                                 - learningComponentOfferingId
                               properties: &ref_147
-                                learningComponentOfferingId: &ref_158
+                                learningComponentOfferingId: &ref_159
                                   type: string
                                   description: The unique ID of the learning component offering, this should be unique across all programme, course, learning, and test component offerings.
                                   format: uuid
@@ -6193,12 +6193,12 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: &ref_81
+                          allOf: &ref_82
                             - type: object
                               required: &ref_149
                                 - testComponentOfferingId
                               properties: &ref_150
-                                testComponentOfferingId: &ref_159
+                                testComponentOfferingId: &ref_160
                                   type: string
                                   description: The unique ID of the test component offering, this should be unique across all programme, course, learning, and test component offerings.
                                   format: uuid
@@ -7411,7 +7411,7 @@ paths:
               required:
                 - remoteState
               allOf:
-                - allOf: &ref_71
+                - allOf: &ref_154
                     - type: object
                       properties: &ref_68
                         associationId:
@@ -7423,10 +7423,10 @@ paths:
                         - associationId
                     - type: object
                       description: A relationship between a person object and an offering
-                      required: &ref_87
+                      required: &ref_71
                         - role
                         - state
-                      properties: &ref_88
+                      properties: &ref_72
                         role:
                           type: string
                           description: |
@@ -7441,7 +7441,7 @@ paths:
                             - guest: External participant with an atypical role
                               
                             This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                          x-ooapi-extensible-enum: &ref_77
+                          x-ooapi-extensible-enum: &ref_78
                             - student
                             - lecturer
                             - teaching_assistant
@@ -7507,7 +7507,7 @@ paths:
                                 - queued: The association request is awaiting processing in a queue
 
                                 This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                              x-ooapi-extensible-enum: &ref_73
+                              x-ooapi-extensible-enum: &ref_75
                                 - pending
                                 - cancelled
                                 - denied
@@ -7549,13 +7549,13 @@ paths:
                             - type: 'null'
                         result:
                           oneOf:
-                            - allOf: &ref_74
+                            - allOf: &ref_73
                                 - type: object
                                   description: A result as part of an association or attempt
-                                  required: &ref_89
+                                  required: &ref_88
                                     - state
                                     - resultDateTime
-                                  properties: &ref_90
+                                  properties: &ref_89
                                     state:
                                       type: string
                                       description: |
@@ -7567,7 +7567,7 @@ paths:
                                         - queued: The result is awaiting processing or evaluation
 
                                         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                                      x-ooapi-extensible-enum: &ref_78
+                                      x-ooapi-extensible-enum: &ref_79
                                         - in_progress
                                         - postponed
                                         - completed
@@ -7658,11 +7658,11 @@ paths:
                                         Documents that are related to the result of the test component offering association. E.g. assessment form, assessment model, etc.
                                       items:
                                         type: object
-                                        required: &ref_105
+                                        required: &ref_104
                                           - documentId
                                           - documentType
                                           - documentName
-                                        properties: &ref_106
+                                        properties: &ref_105
                                           documentId:
                                             type: string
                                             description: The unique identifier of the document
@@ -7754,9 +7754,9 @@ paths:
                     required: *ref_69
                   - type: object
                     description: A system message as a response to a POST message
-                    required: &ref_75
+                    required: &ref_76
                       - message
-                    properties: &ref_76
+                    properties: &ref_77
                       message:
                         description: information displayed to user
                         type: array
@@ -7918,16 +7918,68 @@ paths:
           content:
             application/json:
               schema:
-                allOf: &ref_72
-                  - allOf: *ref_71
+                allOf: &ref_74
+                  - type: object
+                    properties: *ref_68
+                    required: *ref_69
+                  - type: object
+                    description: A relationship between a person object and an offering
+                    required: *ref_71
+                    properties: *ref_72
                   - type: object
                     anyOf:
                       - required:
+                          - courseOfferingId
                           - personId
                       - title: With expanded person
                         required:
+                          - courseOfferingId
                           - person
+                      - title: With expanded course offering and person
+                        required:
+                          - courseOffering
+                          - person
+                      - title: With expanded course offering
+                        required:
+                          - courseOffering
+                          - personId
                     properties:
+                      studyLoad:
+                        description: |
+                          Only required when the studyload for the individual student/enrolment is different 
+                          from the studyload of the course offering.
+                        oneOf:
+                          - type: object
+                            description: The amount of effort to complete this education in the specified unit.
+                            required: *ref_37
+                            properties: *ref_38
+                            example: *ref_39
+                          - type: 'null'
+                      result:
+                        oneOf:
+                          - allOf: *ref_73
+                          - type: 'null'
+                      courseOfferingId:
+                        description: |
+                          The identifier of the courseOffering referenced here.
+                          When the client or server does not expand `offering`, only this
+                          identifier is returned.
+                          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+                        type: string
+                        format: uuid
+                        example: 123e4567-e89b-12d3-a456-426614174000
+                      courseOffering:
+                        description: |
+                          The expanded courseOffering object referenced here.
+                          When the client or server expands `offering`, the full expanded
+                          courseOffering object MUST be returned here instead of only the
+                          identifier.
+                          If no offering is defined, this value is `null`.
+                        type:
+                          - object
+                          - 'null'
+                        allOf:
+                          - allOf: *ref_56
                       personId:
                         description: |
                           The identifier of the person referenced here.
@@ -8024,7 +8076,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf: *ref_72
+              allOf: *ref_74
       responses:
         '200':
           description: OK
@@ -8132,10 +8184,10 @@ paths:
                     - queued: The association request is awaiting processing in a queue
 
                     This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                  x-ooapi-extensible-enum: *ref_73
+                  x-ooapi-extensible-enum: *ref_75
                   example: associated
                 result:
-                  allOf: *ref_74
+                  allOf: *ref_73
       responses:
         '200':
           description: OK
@@ -8148,8 +8200,8 @@ paths:
                     required: *ref_69
                   - type: object
                     description: A system message as a response to a POST message
-                    required: *ref_75
-                    properties: *ref_76
+                    required: *ref_76
+                    properties: *ref_77
                   - properties:
                       state:
                         type: string
@@ -8650,7 +8702,7 @@ paths:
               - guest: External participant with an atypical role
                 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_77
+            x-ooapi-extensible-enum: *ref_78
             example: student
         - name: state
           in: query
@@ -8686,7 +8738,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
       responses:
         '200':
@@ -8705,7 +8757,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_72
+                          allOf: *ref_74
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -8902,7 +8954,7 @@ paths:
               - group: A group of students jointly scheduled for, assigned to, or engaged in educational activities in a context not covered by a class
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: &ref_79
+            x-ooapi-extensible-enum: &ref_80
               - class
               - team
               - group
@@ -8924,11 +8976,11 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: &ref_84
+                          allOf: &ref_85
                             - type: object
-                              required: &ref_154
+                              required: &ref_155
                                 - groupId
-                              properties: &ref_155
+                              properties: &ref_156
                                 groupId:
                                   type: string
                                   description: The unique ID of the group.
@@ -8962,7 +9014,7 @@ paths:
                                     - group: A group of students jointly scheduled for, assigned to, or engaged in educational activities in a context not covered by a class
 
                                     This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                                  x-ooapi-extensible-enum: *ref_79
+                                  x-ooapi-extensible-enum: *ref_80
                                   example: class
                                 name:
                                   type: array
@@ -9326,7 +9378,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_80
+                          allOf: *ref_81
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -9529,7 +9581,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_81
+                          allOf: *ref_82
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -9927,7 +9979,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf: &ref_162
+                allOf: &ref_163
                   - allOf: *ref_55
                   - type: object
                     description: These properties are only present when explicitly included
@@ -9939,11 +9991,11 @@ paths:
                           - 'null'
                         items:
                           type: object
-                          required: &ref_160
+                          required: &ref_161
                             - validFrom
                             - course
                           description: A timeline override of the course.
-                          properties: &ref_161
+                          properties: &ref_162
                             validFrom:
                               type: string
                               description: The day on which this timelineOverride starts (inclusive), RFC3339 (date)
@@ -9959,8 +10011,8 @@ paths:
                             course:
                               type: object
                               description: An object describing the metadata of a course
-                              required: *ref_82
-                              properties: *ref_83
+                              required: *ref_83
+                              properties: *ref_84
         '400':
           description: Bad request
           content: *ref_7
@@ -10495,7 +10547,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_80
+                          allOf: *ref_81
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -10965,7 +11017,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_81
+                          allOf: *ref_82
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -11493,7 +11545,7 @@ paths:
               - group: A group of students jointly scheduled for, assigned to, or engaged in educational activities in a context not covered by a class
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_79
+            x-ooapi-extensible-enum: *ref_80
             example: class
       responses:
         '200':
@@ -11512,7 +11564,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_84
+                          allOf: *ref_85
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -11638,7 +11690,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf: *ref_84
+                allOf: *ref_85
         '400':
           description: Bad request
           content: *ref_7
@@ -11715,7 +11767,7 @@ paths:
           application/json:
             schema:
               title: group
-              allOf: *ref_84
+              allOf: *ref_85
             examples:
               Create a group in remote system:
                 value:
@@ -11940,14 +11992,20 @@ paths:
                         items:
                           type: object
                           description: A membership contains the information on a membership of a person for a specific group
-                          required: &ref_85
+                          required: &ref_86
                             - personId
+                            - groupId
                             - role
                             - state
-                          properties: &ref_86
+                          properties: &ref_87
                             personId:
                               type: string
                               description: Unique id for this membership (this is the personID since there is a 1-1 relationship between membership of a group and a person) item
+                              format: uuid
+                              example: 123e4567-e89b-12d3-a456-122564174000
+                            groupId:
+                              type: string
+                              description: Id for the group where the person has a membership
                               format: uuid
                               example: 123e4567-e89b-12d3-a456-122564174000
                             startDateTime:
@@ -11973,7 +12031,7 @@ paths:
                                 - active: The membership is currently valid and in effect
 
                                 This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                              x-ooapi-extensible-enum: &ref_163
+                              x-ooapi-extensible-enum: &ref_164
                                 - cancelled
                                 - active
                               example: active
@@ -11991,7 +12049,7 @@ paths:
                                 - guest: External participant with an atypical role
 
                                 This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                              x-ooapi-extensible-enum: &ref_164
+                              x-ooapi-extensible-enum: &ref_165
                                 - student
                                 - lecturer
                                 - teaching_assistant
@@ -12102,12 +12160,13 @@ paths:
               title: membership
               type: object
               description: A membership contains the information on a membership of a person for a specific group
-              required: *ref_85
-              properties: *ref_86
+              required: *ref_86
+              properties: *ref_87
             examples:
               Create a new group member in remote system:
                 value:
                   personId: 123e4567-e89b-12d3-a456-122564174000
+                  groupId: 123e4567-e89b-12d3-a456-122564174000
                   startDateTime: '2025-09-28T08:30:00+01:00'
                   endDateTime: '2025-11-30T20:00:00+01:00'
                   state: active
@@ -12243,14 +12302,14 @@ paths:
           content:
             application/json:
               schema:
-                allOf: &ref_91
+                allOf: &ref_90
                   - type: object
                     properties: *ref_68
                     required: *ref_69
                   - type: object
                     description: A relationship between a person object and an offering
-                    required: *ref_87
-                    properties: *ref_88
+                    required: *ref_71
+                    properties: *ref_72
                   - type: object
                     anyOf:
                       - required:
@@ -12271,11 +12330,11 @@ paths:
                     properties:
                       result:
                         oneOf:
-                          - allOf: &ref_92
+                          - allOf: &ref_91
                               - type: object
                                 description: A result as part of an association or attempt
-                                required: *ref_89
-                                properties: *ref_90
+                                required: *ref_88
+                                properties: *ref_89
                               - type: object
                                 required:
                                   - weight
@@ -12299,7 +12358,7 @@ paths:
                               - absent: individual did not attend
 
                               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                            x-ooapi-extensible-enum: &ref_104
+                            x-ooapi-extensible-enum: &ref_103
                               - unknown
                               - not_started
                               - unfinished
@@ -12344,7 +12403,7 @@ paths:
                           - object
                           - 'null'
                         allOf:
-                          - allOf: *ref_80
+                          - allOf: *ref_81
         '400':
           description: Bad request
           content: *ref_7
@@ -12421,7 +12480,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf: *ref_91
+              allOf: *ref_90
             examples:
               Add student to created offering (zitting) (flow 2.2.B and 2.3):
                 value:
@@ -12577,10 +12636,10 @@ paths:
                     - queued: The association request is awaiting processing in a queue
 
                     This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                  x-ooapi-extensible-enum: *ref_73
+                  x-ooapi-extensible-enum: *ref_75
                   example: associated
                 result:
-                  allOf: *ref_92
+                  allOf: *ref_91
       responses:
         '200':
           description: OK
@@ -12593,8 +12652,8 @@ paths:
                     required: *ref_69
                   - type: object
                     description: A system message as a response to a POST message
-                    required: *ref_75
-                    properties: *ref_76
+                    required: *ref_76
+                    properties: *ref_77
                   - properties:
                       state:
                         type: string
@@ -12735,7 +12794,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf: *ref_80
+                allOf: *ref_81
         '400':
           description: Bad request
           content: *ref_7
@@ -12811,7 +12870,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf: *ref_80
+              allOf: *ref_81
       responses:
         '200':
           description: OK
@@ -12894,7 +12953,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf: *ref_80
+              allOf: *ref_81
       responses:
         '200':
           description: OK
@@ -13095,7 +13154,7 @@ paths:
               - group: A group of students jointly scheduled for, assigned to, or engaged in educational activities in a context not covered by a class
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_79
+            x-ooapi-extensible-enum: *ref_80
             example: class
       responses:
         '200':
@@ -13114,7 +13173,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_84
+                          allOf: *ref_85
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -13310,7 +13369,7 @@ paths:
               - guest: External participant with an atypical role
                 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_77
+            x-ooapi-extensible-enum: *ref_78
             example: student
         - name: state
           in: query
@@ -13346,7 +13405,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
       responses:
         '200':
@@ -13365,7 +13424,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_91
+                          allOf: *ref_90
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -13931,7 +13990,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_80
+                          allOf: *ref_81
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -14468,7 +14527,7 @@ paths:
               - school: An organisational unit typically used in primary, secondary, or specialised higher education contexts
 
               This is an extensible enumeration. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_93
+            x-ooapi-extensible-enum: *ref_92
             example: root
       responses:
         '200':
@@ -15335,7 +15394,7 @@ paths:
               - group: A group of students jointly scheduled for, assigned to, or engaged in educational activities in a context not covered by a class
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_79
+            x-ooapi-extensible-enum: *ref_80
             example: class
       responses:
         '200':
@@ -15354,7 +15413,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_84
+                          allOf: *ref_85
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -15585,7 +15644,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_80
+                          allOf: *ref_81
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -16231,8 +16290,8 @@ paths:
               - specification: A further defined variant or subset of a track or specialisation
 
               This is an extensible enumeration. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_94
-            example: *ref_95
+            x-ooapi-extensible-enum: *ref_93
+            example: *ref_94
         - name: qualificationAwarded
           in: query
           description: Filter by qualificationAwarded
@@ -16251,7 +16310,7 @@ paths:
               - none: No formal qualification is awarded for this programme
 
               In case of a degree (for example bachelor or master), the type of degree can be specified using `qualificationDesignations`.
-            x-ooapi-extensible-enum: *ref_96
+            x-ooapi-extensible-enum: *ref_95
             example: none
         - name: levelOfQualification
           in: query
@@ -16280,7 +16339,7 @@ paths:
               - eqf_8: Knowledge at the most advanced frontier of a field, typically doctoral level
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_97
+            x-ooapi-extensible-enum: *ref_96
             example: eqf_6
         - name: fieldsOfStudy
           in: query
@@ -16536,7 +16595,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_81
+                          allOf: *ref_82
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -16943,7 +17002,7 @@ paths:
               - guest: External person temporarily affiliated, without formal student or employee status
 
               This is an extensible enumeration. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_98
+            x-ooapi-extensible-enum: *ref_97
             example: student
       responses:
         '200':
@@ -17036,8 +17095,8 @@ paths:
               allOf:
                 - type: object
                   description: A person that has a relationship with this institution
-                  anyOf: *ref_99
-                  properties: *ref_100
+                  anyOf: *ref_98
+                  properties: *ref_99
       responses:
         '201':
           description: Created
@@ -17046,12 +17105,12 @@ paths:
               schema:
                 allOf:
                   - type: object
-                    properties: *ref_101
-                    required: *ref_102
+                    properties: *ref_100
+                    required: *ref_101
                   - type: object
                     description: A system message as a response to a POST message
-                    required: *ref_75
-                    properties: *ref_76
+                    required: *ref_76
+                    properties: *ref_77
         '400':
           description: Bad request
           content: *ref_7
@@ -17548,7 +17607,7 @@ paths:
               - guest: External participant with an atypical role
                 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_77
+            x-ooapi-extensible-enum: *ref_78
             example: student
         - name: state
           in: query
@@ -17584,7 +17643,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
         - name: expand
           in: query
@@ -17617,7 +17676,7 @@ paths:
                         type: array
                         items:
                           allOf:
-                            - allOf: *ref_72
+                            - allOf: *ref_74
                             - type: object
                               properties:
                                 academicSession:
@@ -17822,7 +17881,7 @@ paths:
               - guest: External participant with an atypical role
                 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_77
+            x-ooapi-extensible-enum: *ref_78
             example: student
         - name: state
           in: query
@@ -17858,7 +17917,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
       responses:
         '200':
@@ -17878,7 +17937,7 @@ paths:
                         type: array
                         items:
                           allOf:
-                            - allOf: *ref_91
+                            - allOf: *ref_90
                             - type: object
                               properties:
                                 academicSession:
@@ -18083,7 +18142,7 @@ paths:
               - guest: External participant with an atypical role
                 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_77
+            x-ooapi-extensible-enum: *ref_78
             example: student
         - name: state
           in: query
@@ -18119,7 +18178,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
       responses:
         '200':
@@ -18139,15 +18198,76 @@ paths:
                         type: array
                         items:
                           allOf:
-                            - allOf: &ref_103
-                                - allOf: *ref_103
+                            - allOf: &ref_107
+                                - allOf: &ref_106
+                                    - type: object
+                                      properties: *ref_68
+                                      required: *ref_69
+                                    - type: object
+                                      description: A relationship between a person object and an offering
+                                      required: *ref_71
+                                      properties: *ref_72
+                                    - type: object
+                                      anyOf:
+                                        - required:
+                                            - programmeOfferingId
+                                        - title: With expanded programme offering
+                                          required:
+                                            - programmeOffering
+                                      properties:
+                                        result:
+                                          oneOf:
+                                            - allOf: &ref_102
+                                                - type: object
+                                                  description: A result as part of an association or attempt
+                                                  required: *ref_88
+                                                  properties: *ref_89
+                                                - type: object
+                                                  required:
+                                                    - studyLoad
+                                                  properties:
+                                                    studyLoad:
+                                                      type: object
+                                                      description: The amount of effort to complete this education in the specified unit.
+                                                      required: *ref_37
+                                                      properties: *ref_38
+                                                      example: *ref_39
+                                            - type: 'null'
+                                        programmeOfferingId:
+                                          description: |
+                                            The identifier of the `programmeOffering` referenced here.
+                                            When the client does not request expansion of `offering`, only this identifier is returned.
+                                            This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+                                          type: string
+                                          format: uuid
+                                          example: 123e4567-e89b-12d3-a456-426614174000
+                                        programmeOffering:
+                                          description: |
+                                            The expanded programmeOffering object referenced here.
+                                            When the client requests expansion of `offering`, the full expanded programmeOffering object MUST be returned here instead of only the identifier.
+                                            If no offering is defined, this value is `null`.
+                                          type:
+                                            - object
+                                            - 'null'
+                                          allOf:
+                                            - allOf: *ref_57
                                 - type: object
                                   anyOf:
                                     - required:
+                                        - programmeOfferingId
                                         - personId
-                                    - title: With expanded peron
+                                    - title: With expanded person
                                       required:
+                                        - programmeOfferingId
                                         - person
+                                    - title: With expanded programme offering and person
+                                      required:
+                                        - programmeOffering
+                                        - person
+                                    - title: With expanded programme offering
+                                      required:
+                                        - programmeOffering
+                                        - personId
                                   properties:
                                     personId:
                                       description: |
@@ -18169,6 +18289,28 @@ paths:
                                         - 'null'
                                       allOf:
                                         - allOf: *ref_43
+                                    result:
+                                      oneOf:
+                                        - allOf: *ref_102
+                                        - type: 'null'
+                                    programmeOfferingId:
+                                      description: |
+                                        The identifier of the `programmeOffering` referenced here.
+                                        When the client does not request expansion of `offering`, only this identifier is returned.
+                                        This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+                                      type: string
+                                      format: uuid
+                                      example: 123e4567-e89b-12d3-a456-426614174000
+                                    programmeOffering:
+                                      description: |
+                                        The expanded programmeOffering object referenced here.
+                                        When the client requests expansion of `offering`, the full expanded programmeOffering object MUST be returned here instead of only the identifier.
+                                        If no offering is defined, this value is `null`.
+                                      type:
+                                        - object
+                                        - 'null'
+                                      allOf:
+                                        - allOf: *ref_57
                             - type: object
                               properties:
                                 academicSession:
@@ -18373,7 +18515,7 @@ paths:
               - guest: External participant with an atypical role
                 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_77
+            x-ooapi-extensible-enum: *ref_78
             example: student
         - name: state
           in: query
@@ -18409,7 +18551,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
       responses:
         '200':
@@ -18435,8 +18577,8 @@ paths:
                                   required: *ref_69
                                 - type: object
                                   description: A relationship between a person object and an offering
-                                  required: *ref_87
-                                  properties: *ref_88
+                                  required: *ref_71
+                                  properties: *ref_72
                                 - type: object
                                   anyOf:
                                     - required:
@@ -18481,11 +18623,11 @@ paths:
                                           - spell_checker_on_screen: On-screen spell checking tool enabled during writing tasks
 
                                           This is an extensible enumeration. Use the prefix `x-` for custom values.
-                                        x-ooapi-extensible-enum: &ref_165
+                                        x-ooapi-extensible-enum: &ref_166
                                           - extra_time
                                           - spoken
                                           - spell_checker_on_screen
-                                        example: &ref_166
+                                        example: &ref_167
                                           - extra_time
                                     attempt:
                                       type:
@@ -18505,7 +18647,7 @@ paths:
                                             - absent: individual did not attend
 
                                             This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                                          x-ooapi-extensible-enum: *ref_104
+                                          x-ooapi-extensible-enum: *ref_103
                                           example: present
                                         - type: 'null'
                                     irregularities:
@@ -18523,15 +18665,15 @@ paths:
                                         Documents that are related to the test component offering association. E.g. handed in documents, plagiarism reports, test made, etc.
                                       items:
                                         type: object
-                                        required: *ref_105
-                                        properties: *ref_106
+                                        required: *ref_104
+                                        properties: *ref_105
                                     result:
                                       oneOf:
                                         - allOf: &ref_113
                                             - type: object
                                               description: A result as part of an association or attempt
-                                              required: *ref_89
-                                              properties: *ref_90
+                                              required: *ref_88
+                                              properties: *ref_89
                                             - type: object
                                               required:
                                                 - weight
@@ -18582,7 +18724,7 @@ paths:
                                         - object
                                         - 'null'
                                       allOf:
-                                        - allOf: *ref_81
+                                        - allOf: *ref_82
                                     attemptIds:
                                       description: |
                                         The identifiers of the attempts related to this testComponentOffering association.
@@ -18758,14 +18900,14 @@ paths:
                                               Documents that are related to the test component offering association attempt. E.g. test completed, work handed in, etc.
                                             items:
                                               type: object
-                                              required: *ref_105
-                                              properties: *ref_106
+                                              required: *ref_104
+                                              properties: *ref_105
                                           result:
                                             oneOf:
                                               - type: object
                                                 description: A result as part of an association or attempt
-                                                required: *ref_89
-                                                properties: *ref_90
+                                                required: *ref_88
+                                                properties: *ref_89
                                               - type: 'null'
                                           consumer:
                                             oneOf:
@@ -18867,58 +19009,7 @@ paths:
               required:
                 - remoteState
               allOf:
-                - allOf: &ref_167
-                    - type: object
-                      properties: *ref_68
-                      required: *ref_69
-                    - type: object
-                      description: A relationship between a person object and an offering
-                      required: *ref_87
-                      properties: *ref_88
-                    - type: object
-                      anyOf:
-                        - required:
-                            - programmeOfferingId
-                        - title: With expanded programme offering
-                          required:
-                            - programmeOffering
-                      properties:
-                        result:
-                          oneOf:
-                            - allOf: &ref_107
-                                - type: object
-                                  description: A result as part of an association or attempt
-                                  required: *ref_89
-                                  properties: *ref_90
-                                - type: object
-                                  required:
-                                    - studyLoad
-                                  properties:
-                                    studyLoad:
-                                      type: object
-                                      description: The amount of effort to complete this education in the specified unit.
-                                      required: *ref_37
-                                      properties: *ref_38
-                                      example: *ref_39
-                            - type: 'null'
-                        programmeOfferingId:
-                          description: |
-                            The identifier of the `programmeOffering` referenced here.
-                            When the client does not request expansion of `offering`, only this identifier is returned.
-                            This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
-                          type: string
-                          format: uuid
-                          example: 123e4567-e89b-12d3-a456-426614174000
-                        programmeOffering:
-                          description: |
-                            The expanded programmeOffering object referenced here.
-                            When the client requests expansion of `offering`, the full expanded programmeOffering object MUST be returned here instead of only the identifier.
-                            If no offering is defined, this value is `null`.
-                          type:
-                            - object
-                            - 'null'
-                          allOf:
-                            - allOf: *ref_57
+                - allOf: *ref_106
                 - properties:
                     issuer:
                       type: object
@@ -18937,8 +19028,8 @@ paths:
                     required: *ref_69
                   - type: object
                     description: A system message as a response to a POST message
-                    required: *ref_75
-                    properties: *ref_76
+                    required: *ref_76
+                    properties: *ref_77
                   - properties:
                       state:
                         type: string
@@ -19078,7 +19169,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf: *ref_103
+                allOf: *ref_107
         '400':
           description: Bad request
           content: *ref_7
@@ -19155,7 +19246,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf: *ref_103
+              allOf: *ref_107
       responses:
         '200':
           description: OK
@@ -19262,10 +19353,10 @@ paths:
                     - queued: The association request is awaiting processing in a queue
 
                     This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                  x-ooapi-extensible-enum: *ref_73
+                  x-ooapi-extensible-enum: *ref_75
                   example: associated
                 result:
-                  allOf: *ref_107
+                  allOf: *ref_102
       responses:
         '200':
           description: OK
@@ -19278,8 +19369,8 @@ paths:
                     required: *ref_69
                   - type: object
                     description: A system message as a response to a POST message
-                    required: *ref_75
-                    properties: *ref_76
+                    required: *ref_76
+                    properties: *ref_77
                   - properties:
                       state:
                         type: string
@@ -19786,7 +19877,7 @@ paths:
               - group: A group of students jointly scheduled for, assigned to, or engaged in educational activities in a context not covered by a class
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_79
+            x-ooapi-extensible-enum: *ref_80
             example: class
       responses:
         '200':
@@ -19805,7 +19896,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_84
+                          allOf: *ref_85
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -20001,7 +20092,7 @@ paths:
               - guest: External participant with an atypical role
                 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_77
+            x-ooapi-extensible-enum: *ref_78
             example: student
         - name: state
           in: query
@@ -20037,7 +20128,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
       responses:
         '200':
@@ -20056,7 +20147,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_103
+                          allOf: *ref_107
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -20260,8 +20351,8 @@ paths:
               - specification: A further defined variant or subset of a track or specialisation
 
               This is an extensible enumeration. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_94
-            example: *ref_95
+            x-ooapi-extensible-enum: *ref_93
+            example: *ref_94
         - name: qualificationAwarded
           in: query
           description: Filter by qualificationAwarded
@@ -20280,7 +20371,7 @@ paths:
               - none: No formal qualification is awarded for this programme
 
               In case of a degree (for example bachelor or master), the type of degree can be specified using `qualificationDesignations`.
-            x-ooapi-extensible-enum: *ref_96
+            x-ooapi-extensible-enum: *ref_95
             example: none
         - name: levelOfQualification
           in: query
@@ -20309,7 +20400,7 @@ paths:
               - eqf_8: Knowledge at the most advanced frontier of a field, typically doctoral level
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_97
+            x-ooapi-extensible-enum: *ref_96
             example: eqf_6
         - name: fieldsOfStudy
           in: query
@@ -21217,8 +21308,8 @@ paths:
               - specification: A further defined variant or subset of a track or specialisation
 
               This is an extensible enumeration. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_94
-            example: *ref_95
+            x-ooapi-extensible-enum: *ref_93
+            example: *ref_94
         - name: qualificationAwarded
           in: query
           description: Filter by qualificationAwarded
@@ -21237,7 +21328,7 @@ paths:
               - none: No formal qualification is awarded for this programme
 
               In case of a degree (for example bachelor or master), the type of degree can be specified using `qualificationDesignations`.
-            x-ooapi-extensible-enum: *ref_96
+            x-ooapi-extensible-enum: *ref_95
             example: none
         - name: levelOfQualification
           in: query
@@ -21266,7 +21357,7 @@ paths:
               - eqf_8: Knowledge at the most advanced frontier of a field, typically doctoral level
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_97
+            x-ooapi-extensible-enum: *ref_96
             example: eqf_6
         - name: fieldsOfStudy
           in: query
@@ -22002,7 +22093,7 @@ paths:
                     - queued: The association request is awaiting processing in a queue
 
                     This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-                  x-ooapi-extensible-enum: *ref_73
+                  x-ooapi-extensible-enum: *ref_75
                   example: associated
                 result:
                   allOf: *ref_113
@@ -22018,8 +22109,8 @@ paths:
                     required: *ref_69
                   - type: object
                     description: A system message as a response to a POST message
-                    required: *ref_75
-                    properties: *ref_76
+                    required: *ref_76
+                    properties: *ref_77
                   - properties:
                       state:
                         type: string
@@ -22340,7 +22431,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
       responses:
         '200':
@@ -22799,8 +22890,8 @@ paths:
                 result:
                   type: object
                   description: A result as part of an association or attempt
-                  required: *ref_89
-                  properties: *ref_90
+                  required: *ref_88
+                  properties: *ref_89
       responses:
         '200':
           description: OK
@@ -22813,8 +22904,8 @@ paths:
                     required: *ref_69
                   - type: object
                     description: A system message as a response to a POST message
-                    required: *ref_75
-                    properties: *ref_76
+                    required: *ref_76
+                    properties: *ref_77
                   - properties:
                       state:
                         type: string
@@ -22955,7 +23046,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf: *ref_81
+                allOf: *ref_82
         '400':
           description: Bad request
           content: *ref_7
@@ -23031,7 +23122,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf: *ref_81
+              allOf: *ref_82
       responses:
         '200':
           description: OK
@@ -23114,7 +23205,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf: *ref_81
+              allOf: *ref_82
       responses:
         '200':
           description: OK
@@ -23315,7 +23406,7 @@ paths:
               - group: A group of students jointly scheduled for, assigned to, or engaged in educational activities in a context not covered by a class
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_79
+            x-ooapi-extensible-enum: *ref_80
             example: class
       responses:
         '200':
@@ -23334,7 +23425,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_84
+                          allOf: *ref_85
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -23530,7 +23621,7 @@ paths:
               - guest: External participant with an atypical role
                 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_77
+            x-ooapi-extensible-enum: *ref_78
             example: student
         - name: state
           in: query
@@ -23566,7 +23657,7 @@ paths:
               - queued: The result is awaiting processing or evaluation
 
               This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-            x-ooapi-extensible-enum: *ref_78
+            x-ooapi-extensible-enum: *ref_79
             example: completed
       responses:
         '200':
@@ -23790,7 +23881,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_81
+                          allOf: *ref_82
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -24148,7 +24239,7 @@ paths:
                       items:
                         type: array
                         items:
-                          allOf: *ref_81
+                          allOf: *ref_82
                       ext:
                         type: object
                         description: Object for additional non-standard attributes
@@ -24238,11 +24329,11 @@ components:
       required: *ref_61
       properties: *ref_62
     LearningComponentOffering:
-      allOf: *ref_80
-    LearningComponentOfferingAssociation:
-      allOf: *ref_91
-    TestComponentOffering:
       allOf: *ref_81
+    LearningComponentOfferingAssociation:
+      allOf: *ref_90
+    TestComponentOffering:
+      allOf: *ref_82
     TestComponentOfferingAssociation:
       allOf: *ref_112
     Course:
@@ -24250,14 +24341,14 @@ components:
     CourseOffering:
       allOf: *ref_56
     CourseOfferingAssociation:
-      allOf: *ref_72
+      allOf: *ref_74
     Group:
-      allOf: *ref_84
+      allOf: *ref_85
     Membership:
       type: object
       description: A membership contains the information on a membership of a person for a specific group
-      required: *ref_85
-      properties: *ref_86
+      required: *ref_86
+      properties: *ref_87
     LearningOutcome:
       type: object
       description: statements regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy (https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017H0615(01)&from=EN)
@@ -24280,7 +24371,7 @@ components:
       required: *ref_58
       properties: *ref_59
     ProgrammeOfferingAssociation:
-      allOf: *ref_103
+      allOf: *ref_107
     TestComponentOfferingAssociationAttempt:
       type: object
       description: |
@@ -24752,8 +24843,8 @@ components:
         - specification: A further defined variant or subset of a track or specialisation
 
         This is an extensible enumeration. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_94
-      example: *ref_95
+      x-ooapi-extensible-enum: *ref_93
+      example: *ref_94
     qualificationAwarded:
       type: string
       description: |
@@ -24768,7 +24859,7 @@ components:
         - none: No formal qualification is awarded for this programme
 
         In case of a degree (for example bachelor or master), the type of degree can be specified using `qualificationDesignations`.
-      x-ooapi-extensible-enum: *ref_96
+      x-ooapi-extensible-enum: *ref_95
       example: none
     modeOfStudy:
       type: string
@@ -24806,7 +24897,7 @@ components:
         - eqf_8: Knowledge at the most advanced frontier of a field, typically doctoral level
 
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_97
+      x-ooapi-extensible-enum: *ref_96
       example: eqf_6
     formalDocument:
       type: string
@@ -24832,8 +24923,8 @@ components:
       example: diploma
     PersonId:
       type: object
-      properties: *ref_101
-      required: *ref_102
+      properties: *ref_100
+      required: *ref_101
     Nationality:
       type: object
       description: |
@@ -24849,7 +24940,7 @@ components:
         - guest: External person temporarily affiliated, without formal student or employee status
 
         This is an extensible enumeration. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_98
+      x-ooapi-extensible-enum: *ref_97
       example: student
     gender:
       type: string
@@ -24883,8 +24974,8 @@ components:
     PersonProperties:
       type: object
       description: A person that has a relationship with this institution
-      anyOf: *ref_99
-      properties: *ref_100
+      anyOf: *ref_98
+      properties: *ref_99
     organisationType:
       type: string
       description: |
@@ -24899,7 +24990,7 @@ components:
         - school: An organisational unit typically used in primary, secondary, or specialised higher education contexts
 
         This is an extensible enumeration. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_93
+      x-ooapi-extensible-enum: *ref_92
       example: root
     ProgrammeProperties:
       type: object
@@ -24909,8 +25000,8 @@ components:
     CourseProperties:
       type: object
       description: An object describing the metadata of a course
-      required: *ref_82
-      properties: *ref_83
+      required: *ref_83
+      properties: *ref_84
     ProgrammeOfferingId:
       type: object
       required: *ref_144
@@ -25038,7 +25129,7 @@ components:
         - guest: External participant with an atypical role
           
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_77
+      x-ooapi-extensible-enum: *ref_78
       example: student
     associationState:
       type: string
@@ -25067,13 +25158,13 @@ components:
         - queued: The association request is awaiting processing in a queue
 
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_73
+      x-ooapi-extensible-enum: *ref_75
       example: associated
     AssociationProperties:
       type: object
       description: A relationship between a person object and an offering
-      required: *ref_87
-      properties: *ref_88
+      required: *ref_71
+      properties: *ref_72
     resultState:
       type: string
       description: |
@@ -25085,7 +25176,7 @@ components:
         - queued: The result is awaiting processing or evaluation
 
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_78
+      x-ooapi-extensible-enum: *ref_79
       example: completed
     passState:
       type: string
@@ -25101,22 +25192,22 @@ components:
       example: passed
     Document:
       type: object
-      required: *ref_105
-      properties: *ref_106
+      required: *ref_104
+      properties: *ref_105
     Result:
       type: object
       description: A result as part of an association or attempt
-      required: *ref_89
-      properties: *ref_90
+      required: *ref_88
+      properties: *ref_89
     CourseOfferingAssociationResult:
-      allOf: *ref_74
+      allOf: *ref_73
     CourseOfferingAssociationExternalMe:
-      allOf: *ref_71
+      allOf: *ref_154
     PostResponse:
       type: object
       description: A system message as a response to a POST message
-      required: *ref_75
-      properties: *ref_76
+      required: *ref_76
+      properties: *ref_77
     groupType:
       type: string
       description: |
@@ -25127,23 +25218,23 @@ components:
         - group: A group of students jointly scheduled for, assigned to, or engaged in educational activities in a context not covered by a class
 
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_79
+      x-ooapi-extensible-enum: *ref_80
       example: class
     GroupId:
       type: object
-      required: *ref_154
-      properties: *ref_155
-    courseOfferingId: *ref_156
-    programmeOfferingId: *ref_157
-    learningComponentOfferingId: *ref_158
-    testComponentOfferingId: *ref_159
+      required: *ref_155
+      properties: *ref_156
+    courseOfferingId: *ref_157
+    programmeOfferingId: *ref_158
+    learningComponentOfferingId: *ref_159
+    testComponentOfferingId: *ref_160
     TimelineOverrideCourse:
       type: object
-      required: *ref_160
+      required: *ref_161
       description: A timeline override of the course.
-      properties: *ref_161
+      properties: *ref_162
     CourseExpanded:
-      allOf: *ref_162
+      allOf: *ref_163
     membershipState:
       type: string
       description: |
@@ -25153,7 +25244,7 @@ components:
         - active: The membership is currently valid and in effect
 
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_163
+      x-ooapi-extensible-enum: *ref_164
       example: active
     membershipRole:
       type: string
@@ -25169,10 +25260,10 @@ components:
         - guest: External participant with an atypical role
 
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_164
+      x-ooapi-extensible-enum: *ref_165
       example: student
     LearningComponentOfferingAssociationResult:
-      allOf: *ref_92
+      allOf: *ref_91
     associationAttendance:
       type: string
       description: |
@@ -25184,8 +25275,12 @@ components:
         - absent: individual did not attend
 
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_104
+      x-ooapi-extensible-enum: *ref_103
       example: present
+    ProgrammeOfferingAssociationResult:
+      allOf: *ref_102
+    ProgrammeOfferingAssociationExternalMe:
+      allOf: *ref_106
     personalNeed:
       type: string
       description: |
@@ -25200,8 +25295,8 @@ components:
         - spell_checker_on_screen: On-screen spell checking tool enabled during writing tasks
 
         This is an extensible enumeration. Use the prefix `x-` for custom values.
-      x-ooapi-extensible-enum: *ref_165
-      example: *ref_166
+      x-ooapi-extensible-enum: *ref_166
+      example: *ref_167
     TestComponentOfferingAssociationResult:
       allOf: *ref_113
     attemptState:
@@ -25228,10 +25323,6 @@ components:
         This is an *extensible enumeration*. Use the prefix `x-` for custom values.
       x-ooapi-extensible-enum: *ref_114
       example: present
-    ProgrammeOfferingAssociationResult:
-      allOf: *ref_107
-    ProgrammeOfferingAssociationExternalMe:
-      allOf: *ref_167
     TimelineOverrideProgramme:
       type: object
       description: A time-line override of the programme.
