@@ -36,10 +36,6 @@ allOf:
           - 'null'
         allOf:
           - $ref: './Person.yaml'
-      result:
-        oneOf:
-          - $ref: './ProgrammeOfferingAssociationResult.yaml'
-          - type: 'null'
       programmeOfferingId:
         description: |
           The identifier of the `programmeOffering` referenced here.
