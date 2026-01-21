@@ -99,10 +99,10 @@ jobs:
       # 6) Sync specification source to the publication repo.
       #
       #    Behaviour:
-      #    - For major version 5: copy from ./v5/
+      #    - For major version 5: copy from ./v5/ (this is where v5 changes still happen today)
       #    - For all other versions: copy from ./source/
       #
-      #    This reflects the historical structure of the v5 specification.
+      #    The v5 folder is expected to be phased out over time.
       - name: Sync specification -> publication repo (specification/vX.Y)
         run: |
           set -euo pipefail
@@ -134,16 +134,27 @@ jobs:
             echo "No changes to publish."
           fi
 
-      # 8) Bundle the OpenAPI specification from source/spec.yaml into single-file outputs.
+      # 8) Bundle the OpenAPI specification into single-file outputs.
       #    - ooapi.yaml: bundled OpenAPI in YAML form
       #    - ooapi.json: bundled OpenAPI in JSON form
       #    Redocly determines the output format by the file extension (there is no --format flag).
+      #
+      #    Behaviour:
+      #    - For v5 tags: bundle from v5/spec.yaml
+      #    - For all other tags: bundle from source/spec.yaml
       - name: Bundle OpenAPI spec (release asset)
         run: |
           set -euo pipefail
           npm i -g @redocly/cli@1.34.2
-          redocly bundle source/spec.yaml -o ooapi.yaml
-          redocly bundle source/spec.yaml -o ooapi.json
+
+          if [[ "${{ steps.ver.outputs.major }}" == "5" ]]; then
+            SPEC="v5/spec.yaml"
+          else
+            SPEC="source/spec.yaml"
+          fi
+
+          redocly bundle "$SPEC" -o ooapi.yaml
+          redocly bundle "$SPEC" -o ooapi.json
 
       # 9) Create a GitHub Release in THIS repo for the tag.
       #    - tag_name selects the existing tag
