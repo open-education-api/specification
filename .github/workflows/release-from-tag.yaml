@@ -65,8 +65,11 @@ jobs:
           # Ensure we have the commit behind the tag locally
           git fetch --tags --force
 
-          # If branch exists on origin: do nothing
-          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
+          # Ensure our local view of origin/* branches is up-to-date
+          git fetch --prune origin
+
+          # If branch exists on origin: do nothing (exact check, no pattern matching)
+          if git show-ref --verify --quiet "refs/remotes/origin/$BRANCH"; then
             echo "Branch exists: $BRANCH"
             exit 0
           fi
