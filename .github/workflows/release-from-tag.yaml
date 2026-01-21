@@ -49,6 +49,7 @@ jobs:
           echo "series=$SERIES" >> "$GITHUB_OUTPUT"
           echo "folder=$FOLDER" >> "$GITHUB_OUTPUT"
           echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
+          echo "major=$MAJOR" >> "$GITHUB_OUTPUT"
 
       # 3) Ensure the release branch release/X.Y exists.
       #    - If it already exists on origin: do nothing.
@@ -95,15 +96,27 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           path: target
 
-      # 6) Sync source/ (in this repo) to specification/vX.Y/ (in publication repo).
-      #    - mkdir ensures the destination exists
-      #    - rsync --delete makes destination an exact mirror of source/
-      - name: Sync source/ -> publication repo specification/vX.Y/
+      # 6) Sync specification source to the publication repo.
+      #
+      #    Behaviour:
+      #    - For major version 5: copy from ./v5/
+      #    - For all other versions: copy from ./source/
+      #
+      #    This reflects the historical structure of the v5 specification.
+      - name: Sync specification -> publication repo (specification/vX.Y)
         run: |
           set -euo pipefail
+
           DEST="target/specification/${{ steps.ver.outputs.folder }}"
+
+          if [[ "${{ steps.ver.outputs.major }}" == "5" ]]; then
+            SRC="v5"
+          else
+            SRC="source"
+          fi
+
           mkdir -p "$DEST"
-          rsync -a --delete "source/" "${DEST}/"
+          rsync -a --delete "${SRC}/" "${DEST}/"
 
       # 7) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
@@ -115,7 +128,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "Publish source for ${{ steps.ver.outputs.tag }} -> specification/${{ steps.ver.outputs.folder }}"
+            git commit -m "Publish specification for ${{ steps.ver.outputs.tag }} -> specification/${{ steps.ver.outputs.folder }}"
             git push
           else
             echo "No changes to publish."
