@@ -168,7 +168,7 @@ jobs:
         with:
           tag_name: ${{ steps.ver.outputs.tag }}
           name: ${{ steps.ver.outputs.release_name }}
-          generate_release_notes: true
+          generate_release_notes: false
           files: |
             ooapi.yaml
             ooapi.json
