@@ -14,7 +14,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  lint:
+  lint-source-specification:
     runs-on: ubuntu-latest
 
     steps:
