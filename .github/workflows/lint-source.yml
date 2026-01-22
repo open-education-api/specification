@@ -1,4 +1,4 @@
-name: Lint v6 specification
+name: Lint source specification
 
 on:
   pull_request:
