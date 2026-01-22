@@ -1,8 +1,8 @@
 apis:
   main:
-    root: ./v6/spec.yaml
+    root: ./source/spec.yaml
   test:
-    root: ./v6/spec.yaml
+    root: ./source/spec.yaml
 extends:
   - all
   

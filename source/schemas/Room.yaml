@@ -39,7 +39,7 @@ properties:
     type:
       - array
       - 'null'
-    description: The description of this room. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6/#/technical/formatting-text) MAY be used for rich text representation.
+    description: The description of this room. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
     minItems: 1
     items:
       $ref: './LanguageTypedString.yaml'
@@ -100,7 +100,7 @@ properties:
     description: |
       The identifier of the building in which the room is located.
       When the client does not request expansion of `building`, only this identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   building:
     description: |

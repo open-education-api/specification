@@ -1,15 +1,37 @@
 name: Check Changelog
+
 on:
+  # Run this workflow for PR activity that can change the diff (and therefore the changelog requirement),
+  # and when labels change (useful if you support an "ignore changelog" label).
   pull_request:
     types: [assigned, opened, synchronize, reopened, labeled, unlabeled]
     branches:
-      - 6.0
-      - master
+      - "release/*"
+      - "main"
+
+# Least-privilege permissions: this workflow only needs to read repository contents.
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
-  Check-Changelog:
-    name: Check Changelog Action
+  check-changelog:
+    name: Check changelog update
     runs-on: ubuntu-22.04
+
     steps:
-      - uses: tarides/changelog-check-action@v3
+      # 1) Checkout the PR code so the workflow can read CHANGELOG.md (and compare changes).
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
+          # Full history is safest for tools that may inspect commits/diffs across merges.
+          fetch-depth: 0
+
+      # 2) Run the changelog check.
+      #    This action typically verifies that CHANGELOG.md was updated in the PR
+      #    (unless configured otherwise via labels/paths/action settings).
+      - name: Verify CHANGELOG.md is updated
+        uses: tarides/changelog-check-action@v3
+        with:
+          # Path to the changelog file that must be updated by the PR.
           changelog: CHANGELOG.md

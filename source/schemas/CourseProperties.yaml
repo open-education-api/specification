@@ -90,7 +90,7 @@ properties:
       The identifiers of the learning outcomes related to this course.
       When the client does not request expansion of `learningOutcomes`, only these
       identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     type:
       - array
       - 'null'
@@ -139,7 +139,7 @@ properties:
     description: The extra information that is provided for enrolment
     example:
       - language: en-GB
-        value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6/#/technical/formatting-text) MAY be used for rich text representation.
+        value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
   resources:
     type:
       - array
@@ -188,7 +188,7 @@ properties:
       for example in alliances.
       When the client does not request expansion of `programmes`, only these
       identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     type:
       - array
       - 'null'
@@ -214,7 +214,7 @@ properties:
       The identifiers of the persons responsible for this course.
       When the client does not request expansion of `coordinators`, only these
       identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     type:
       - array
       - 'null'
@@ -236,7 +236,7 @@ properties:
       The identifiers of the persons teaching or delivering this course.
       When the client does not request expansion of `instructors`, only these
       identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     
     type:
       - array
@@ -259,7 +259,7 @@ properties:
       The identifier of the organisation that manages this course.
       When the client does not request expansion of `organisation`, only this
       identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   organisation:
     description: |
