@@ -82,7 +82,7 @@ allOf:
           The identifier of the organisation that manages this group.
           When the client does not request expansion of `organisation`, only this
           identifier is returned.
-          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+          This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
         $ref: './Identifier.yaml'
       organisation:
         description: |
@@ -100,7 +100,7 @@ allOf:
           The identifier of the academicSession for which this group is intended.
           When the client does not request expansion of `academicSession`, only this
           identifier is returned.
-          This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+          This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
         $ref: './Identifier.yaml'
       academicSession:
         description: |

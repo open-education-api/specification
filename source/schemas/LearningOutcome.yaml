@@ -65,7 +65,7 @@ properties:
     description: |
       The identifiers of the learning outcomes which are the parents of this learning outcome.
       When the client does not request expansion of `parents`, only these identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     type:
       - array
       - 'null'
@@ -89,7 +89,7 @@ properties:
     description: |
       The identifiers of all learning outcomes for which this learning outcome is the parent.
       When the client does not request expansion of `children`, only these identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
       
       Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
       seem unusual, this naming is intentional and follows the singular–plural convention defined 

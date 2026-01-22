@@ -3,25 +3,48 @@ name: Lint v6 specification
 on:
   pull_request:
     branches:
-      - 6.0  # Replace with your specific branch name
+      - "release/*"
+      - "main"
   workflow_dispatch:
+
+# This workflow only reads repository contents and PR metadata.
+# It does not commit, tag, publish, or modify anything.
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
+      # Check out the repository so the runner has access to:
+      # - source/spec.yaml (via redocly.yaml -> apis.main.root)
+      # - redocly.yaml itself
+      # - any custom plugins (e.g. redocly-plugin.js)
+      #
+      # fetch-depth: 0 avoids edge cases with PRs that include merge commits
+      # or cherry-picks, even though this job is read-only.
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v4
         with:
-          node-version: '22'
+          fetch-depth: 0
 
-      - name: Install Redoc CLI
+      # Install the Redocly CLI.
+      # Node.js is already available on ubuntu-latest, so no explicit
+      # setup-node step is required here.
+      #
+      # The version is pinned to ensure consistent lint results
+      # across runs and over time.
+      - name: Install Redocly CLI
         run: npm install -g @redocly/cli@1.34.2
 
-      - name: Lint OpenAPI Specification
-        run: npx @redocly/cli lint v6/spec.yaml --skip-rule security-defined
-
+      # Run the Redocly linter for the API identified as "main".
+      #
+      # "main" refers to the API key under `apis:` in redocly.yaml.
+      # This means:
+      # - the spec file is resolved via redocly.yaml (not hardcoded here)
+      # - all configured rules, severities, plugins and extensions apply
+      # - CI logic stays stable if the source layout changes
+      - name: Lint OpenAPI specification
+        run: npx @redocly/cli lint main

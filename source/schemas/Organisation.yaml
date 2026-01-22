@@ -90,7 +90,7 @@ properties:
     description: |
       The identifier of the organisation which is the root organisation of this organisation.
       When the client does not request expansion of `root`, only this identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   root:
     description: |
@@ -106,7 +106,7 @@ properties:
     description: |
       The identifier of the organisational unit which is the parent of this organisation.
       When the client does not request expansion of `parent`, only this identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   parent:
     description: |
@@ -122,7 +122,7 @@ properties:
     description: |
       The identifiers of the organisational units for which this organisation is the parent.
       When the client does not request expansion of `children`, only these identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
       
       Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
       seem unusual, this naming is intentional and follows the singular–plural convention defined 

@@ -56,7 +56,7 @@ properties:
       term 20xx where the current session is week 40).
       When the client does not request expansion of `parent`, only this
       identifier is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   parent:
     description: |
@@ -76,7 +76,7 @@ properties:
       academic sessions in Autumn term 20xx).
       When the client does not request expansion of `children`, only these
       identifiers are returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
       
       Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
       seem unusual, this naming is intentional and follows the singular–plural convention defined 
@@ -104,7 +104,7 @@ properties:
       (e.g. 20xx where the current session is week 40 of a semester).
       When the client does not request expansion of `year`, only this identifier
       is returned.
-      This field is [`expandable`](https://openonderwijsapi.nl/v6/#/technical/expanding-responses).
+      This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
     $ref: './Identifier.yaml'
   year:
     description: |

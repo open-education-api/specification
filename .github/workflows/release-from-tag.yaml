@@ -172,3 +172,34 @@ jobs:
           files: |
             ooapi.yaml
             ooapi.json
+
+      # 10) Update bundled spec files in THIS repo (spec repo) on release/X.Y (only if changed).
+      - name: Update bundled spec files in spec repo (release/X.Y) (if any)
+        run: |
+          set -euo pipefail
+
+          SERIES="${{ steps.ver.outputs.series }}"
+          BRANCH="release/${SERIES}"
+
+          # Switch from the tag checkout (detached HEAD) to the corresponding release branch
+          git fetch --prune origin
+          git checkout -B "$BRANCH" "origin/$BRANCH"
+
+          if [[ "${{ steps.ver.outputs.major }}" == "5" ]]; then
+            DEST_DIR="v5"
+          else
+            DEST_DIR="source"
+          fi
+
+          cp -f ooapi.yaml "${DEST_DIR}/ooapi.yaml"
+          cp -f ooapi.json "${DEST_DIR}/ooapi.json"
+
+          if git status --porcelain "${DEST_DIR}/ooapi.yaml" "${DEST_DIR}/ooapi.json" | grep -q .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add "${DEST_DIR}/ooapi.yaml" "${DEST_DIR}/ooapi.json"
+            git commit -m "Update ${DEST_DIR}/ooapi.{yaml,json} for ${{ steps.ver.outputs.tag }}"
+            git push origin "$BRANCH"
+          else
+            echo "No bundled spec changes to commit."
+          fi
