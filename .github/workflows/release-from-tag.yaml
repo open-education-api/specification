@@ -14,12 +14,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 0) Create an installation token for the publishing GitHub App.
+      #    This token must be used for ALL pushes (both this repo and the publication repo).
+      - name: Create GitHub App installation token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.OOAPI_APP_PUBLISH_ID }}
+          private-key: ${{ secrets.OOAPI_APP_PUBLISH_SECRET }}
+          owner: open-education-api
+          repositories: |
+            specification
+            open-education-api.github.io
+
       # 1) Checkout this repository (the repo where the tag was created).
       #    - fetch-depth: 0 ensures full history + tags exist locally.
       - name: Checkout source repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
 
       # 2) Parse the tag name and derive:
       #    - series: X.Y (used for release branch name release/X.Y)
@@ -64,6 +78,8 @@ jobs:
       #    - If it already exists on origin: do nothing.
       #    - If not: create it locally from the tag and push it to origin.
       - name: Create release branch if missing (simple git)
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
 
@@ -77,6 +93,9 @@ jobs:
           # Ensure our local view of origin/* branches is up-to-date
           git fetch --prune origin
 
+          # Ensure pushes use the GitHub App token (not GITHUB_TOKEN)
+          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
           # If branch exists on origin: do nothing (exact check, no pattern matching)
           if git show-ref --verify --quiet "refs/remotes/origin/$BRANCH"; then
             echo "Branch exists: $BRANCH"
@@ -86,18 +105,6 @@ jobs:
           echo "Creating branch $BRANCH from tag $TAG"
           git branch "$BRANCH" "$TAG"
           git push origin "$BRANCH"
-
-      # 4) Create an installation token for the publishing GitHub App.
-      #    This token grants write access to the publication repo.
-      - name: Create GitHub App installation token
-        id: app-token
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ vars.OOAPI_APP_PUBLISH_ID }}
-          private-key: ${{ secrets.OOAPI_APP_PUBLISH_SECRET }}
-          owner: open-education-api
-          repositories: |
-            open-education-api.github.io
 
       # 5) Checkout the publication repository into ./target
       #    so we can copy files into it and push changes.
@@ -132,9 +139,14 @@ jobs:
 
       # 7) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
           cd target
+
+          # Ensure pushes use the GitHub App token
+          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/open-education-api/open-education-api.github.io.git"
 
           if git status --porcelain | grep -q .; then
             git config user.name "github-actions[bot]"
@@ -184,6 +196,8 @@ jobs:
 
       # 10) Update bundled spec files in THIS repo (spec repo) on release/X.Y (only if changed).
       - name: Update bundled spec files in spec repo (release/X.Y) (if any)
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
 
@@ -193,6 +207,9 @@ jobs:
           # Switch from the tag checkout (detached HEAD) to the corresponding release branch
           git fetch --prune origin
           git checkout -B "$BRANCH" "origin/$BRANCH"
+
+          # Ensure pushes use the GitHub App token (not GITHUB_TOKEN)
+          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
           if [[ "${{ steps.ver.outputs.major }}" == "5" ]]; then
             DEST_DIR="v5"
