@@ -42,7 +42,16 @@ jobs:
           MINOR="${BASH_REMATCH[2]}"
 
           SERIES="${MAJOR}.${MINOR}"     # X.Y
-          FOLDER="v${SERIES}"            # vX.Y
+
+          # Publication folder rule:
+          # - For major version 5: always publish to v5 (not v5.0, v5.1, ...)
+          # - For all other versions: publish to vX.Y
+          if [[ "$MAJOR" == "5" ]]; then
+            FOLDER="v5"
+          else
+            FOLDER="v${SERIES}"          # vX.Y
+          fi
+
           RELEASE_NAME="$TAG"            # vX.Y or vX.Y.Z
 
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
