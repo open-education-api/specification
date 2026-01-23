@@ -165,7 +165,7 @@ info:
     email: info@openonderwijsapi.nl   
 
   x-logo:
-    url: ../logo.png
+    url:  ./logo.png
     href: ./docs.html
 
 servers:
