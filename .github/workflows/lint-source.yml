@@ -30,6 +30,22 @@ jobs:
         with:
           fetch-depth: 0
 
+      # If source/ does not exist but v5/ does, this is a valid legacy layout.
+      # In that case we skip linting successfully.
+      - name: Check source layout
+        run: |
+          set -euo pipefail
+
+          if [ ! -d "source" ] && [ -d "v5" ]; then
+            echo "source/ not present, v5/ detected – skipping lint"
+            exit 0
+          fi
+
+          if [ ! -d "source" ]; then
+            echo "::error::source/ directory not found."
+            exit 1
+          fi
+
       # Install the Redocly CLI.
       # Node.js is already available on ubuntu-latest, so no explicit
       # setup-node step is required here.
