@@ -1,5 +1,0 @@
-description: Method not allowed
-content:
-  application/problem+json:
-    schema:
-      $ref: 'Problem.yaml'

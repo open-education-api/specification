@@ -1,9 +1,0 @@
-allOf:
-  - $ref: './Association.yaml'
-  - type: object
-    properties:
-      result:
-        $ref: './ProgramResult.yaml'
-      person:
-        $ref: './PersonId.yaml'
-
