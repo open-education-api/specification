@@ -1,5 +1,0 @@
-description: Bad request
-content:
-  application/problem+json:
-    schema:
-      $ref: 'Problem.yaml'

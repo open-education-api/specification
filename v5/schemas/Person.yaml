@@ -1,3 +1,0 @@
-allOf:
-  - $ref: '../schemas/PersonId.yaml'
-  - $ref: '../schemas/PersonProperties.yaml'

@@ -1,3 +1,0 @@
-type: string
-description: An identifier of another resource.
-format: uuid
