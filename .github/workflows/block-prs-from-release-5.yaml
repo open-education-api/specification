@@ -1,0 +1,33 @@
+name: Block merge from release/5.*
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - "main"
+      - "release/*"
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  block-release-5:
+    name: Block PRs from release/5.*
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Fail if PR originates from release/5.*
+        run: |
+          set -euo pipefail
+
+          SOURCE_BRANCH="${{ github.event.pull_request.head.ref }}"
+          TARGET_BRANCH="${{ github.event.pull_request.base.ref }}"
+
+          echo "Source branch: $SOURCE_BRANCH"
+          echo "Target branch: $TARGET_BRANCH"
+
+          if [[ "$SOURCE_BRANCH" == release/5.* ]]; then
+            echo "::error::Merging from release/5.* is not allowed."
+            exit 1
+          fi
