@@ -1,8 +1,0 @@
-type: string
-description: The state of this result
-enum:
-  - in progress
-  - postponed
-  - completed
-  - queued
-example: completed

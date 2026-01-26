@@ -1,8 +1,0 @@
-type: string
-description: The state of this association
-enum:
-  - pending
-  - canceled
-  - denied
-  - associated
-example: associated
