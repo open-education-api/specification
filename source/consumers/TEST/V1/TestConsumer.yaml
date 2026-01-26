@@ -1,7 +1,0 @@
-type: object
-description: extra elements   
-properties:
-  additional:
-    type: string
-  attributes:
-    type: string
