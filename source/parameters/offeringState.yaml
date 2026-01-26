@@ -1,6 +1,0 @@
-name: state
-in: query
-description: Filter by an Offering's `state`.
-required: false
-schema:
-  $ref: '../enumerations/offeringState.yaml'

@@ -1,8 +1,0 @@
-type: object
-required:
-  - version
-properties:
-  version:
-    type: string
-    description: The complete version number, including subversion numbers, for this API
-    example: 1.32a
