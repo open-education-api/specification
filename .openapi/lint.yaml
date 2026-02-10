@@ -1,0 +1,41 @@
+extends: all
+
+rules:
+  - id: semantic-path-params
+    disabled: true
+  - id: style-component-description
+    disabled: true
+  - id: owasp-rate-limit
+    disabled: true
+  - id: oas3-example-missing
+    disabled: true
+  - id: owasp-array-limit
+    disabled: true
+  - id: error owasp-string-limit
+    disabled: true
+  - id: owasp-string-restricted
+    disabled: true
+  - id: owasp-security-hosts-https-oas3
+    disabled: true
+  - id: owasp-protection-global-unsafe
+    disabled: true
+  - id: owasp-protection-global-unsafe-strict
+    disabled: true
+  - id: owasp-string-limit
+    disabled: true
+  - id: oas-schema-check
+    disabled: true
+  - id: owasp-protection-global-safe
+    disabled: true
+  - id: owasp-integer-limit
+    disabled: true
+  - id: owasp-integer-format
+    disabled: true
+  - id: owasp-no-additional-properties
+    disabled: true
+  - id: owasp-additional-properties-constrained
+    disabled: true
+  - id: owasp-rate-limit-retry-after
+    disabled: true
+  - id: style-info-license
+    disabled: true
