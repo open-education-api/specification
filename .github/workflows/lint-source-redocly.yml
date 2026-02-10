@@ -53,7 +53,7 @@ jobs:
       # The version is pinned to ensure consistent lint results
       # across runs and over time.
       - name: Install Redocly CLI
-        run: npm install -g @redocly/cli@latests
+        run: npm install -g @redocly/cli@latest
 
       # Run the Redocly linter for the API identified as "main".
       #
