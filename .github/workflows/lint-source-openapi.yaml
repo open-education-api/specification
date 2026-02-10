@@ -14,14 +14,13 @@ permissions:
   pull-requests: read
 
 jobs:
-  lint-source-specification:
+  lint-source-openapi:
     runs-on: ubuntu-latest
 
     steps:
       # Check out the repository so the runner has access to:
-      # - source/spec.yaml (via redocly.yaml -> apis.main.root)
-      # - redocly.yaml itself
-      # - any custom plugins (e.g. redocly-plugin.js)
+      # - source/spec.yaml
+      # - .openapi/lint.yaml
       #
       # fetch-depth: 0 avoids edge cases with PRs that include merge commits
       # or cherry-picks, even though this job is read-only.
@@ -34,10 +33,8 @@ jobs:
       # In that case we skip linting successfully.
       - name: Check source layout
         run: |
-          set -euo pipefail
-
           if [ ! -d "source" ] && [ -d "v5" ]; then
-            echo "source/ not present, v5/ detected – skipping lint"
+            echo "source/ not present, v5/ detected, skipping lint"
             exit 0
           fi
 
@@ -46,21 +43,13 @@ jobs:
             exit 1
           fi
 
-      # Install the Redocly CLI.
-      # Node.js is already available on ubuntu-latest, so no explicit
-      # setup-node step is required here.
-      #
-      # The version is pinned to ensure consistent lint results
-      # across runs and over time.
-      - name: Install Redocly CLI
-        run: npm install -g @redocly/cli@1.34.2
+      # Install the OpenAPI CLI using Go (always latest).
+      - name: Install openapi CLI
+        run: |
+          go install github.com/speakeasy-api/openapi/cmd/openapi@latest
+          echo "$HOME/go/bin" >> $GITHUB_PATH
 
-      # Run the Redocly linter for the API identified as "main".
-      #
-      # "main" refers to the API key under `apis:` in redocly.yaml.
-      # This means:
-      # - the spec file is resolved via redocly.yaml (not hardcoded here)
-      # - all configured rules, severities, plugins and extensions apply
-      # - CI logic stays stable if the source layout changes
+      # Run the OpenAPI linter using the repo config.
       - name: Lint OpenAPI specification
-        run: npx @redocly/cli lint main
+        run: |
+          openapi spec lint source/spec.yaml -c .openapi/lint.yaml
