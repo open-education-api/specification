@@ -17,6 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - removed readonly on person and personid
 - removed read and writeonly on state and remotestate
+## [6.1.0 Fix required fields in service endpoint] - 2026-02-10
+
+### Fixed
+- Required fields verbs, expandableObjects, and supportedOperations corrected
+
 
 ## [clean-up] - 2026-01-06
 
