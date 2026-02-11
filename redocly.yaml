@@ -1,8 +1,6 @@
 apis:
   main:
     root: ./source/spec.yaml
-  test:
-    root: ./source/spec.yaml
 extends:
   - all
   
@@ -30,12 +28,13 @@ rules:
   no-unresolved-refs: error
   custom-rules/no-items-array: error
 
-  info-license: off
   required-string-property-missing-min-length: off
   boolean-parameter-prefixes: off
   path-segment-plural: off
+
+  info-license: off
   no-invalid-schema-examples: off
-  no-required-schema-properties-undefined: off
+ # no-required-schema-properties-undefined: off
 
 #  array-parameter-serialization: off
 #  request-mime-type: off

@@ -1,0 +1,17 @@
+# .spectral.yaml
+extends:
+  - [spectral:oas, all]
+
+rules:
+  oas3-missing-example: false
+  operation-description: false
+  component-description: false
+  no-unnecessary-combinator: false
+  camel-case-properties: false
+  path-item-refs: false
+  info-license: false
+  oas-missing-type: false
+  circular-references: false
+  description-duplication: false
+  oas3-unused-component: false
+#  oas3-valid-schema-example: false
