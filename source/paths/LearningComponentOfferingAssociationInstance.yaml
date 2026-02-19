@@ -80,7 +80,7 @@ put:
               #volgorde conform ooapi-v5
               associationId: "123e4567-e89b-12d3-a456-426614174000"
               role: student
-              state: associated
+              remoteState: associated
               consumer:
                 consumerKey: nl-test-admin
                 extraTimeInMin: 30
@@ -120,7 +120,7 @@ put:
               #associationType op volgende regel ontbreekt in endpoint-definitie
               associationId: "123e4567-e89b-12d3-a456-426614174000"
               role: student
-              state: associated
+              remoteState: associated
               consumer:
                 consumerKey: nl-test-admin
                 extraTimeInMin: 30
