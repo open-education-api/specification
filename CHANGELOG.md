@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - example in personalNeed and programmeType
 - required field items (removed) in pagination
 - required field givenname -> givenName
+- flexibble Start/End date-time, changed type to date-time
 
 ## [clean-up] - 2026-01-06
 
