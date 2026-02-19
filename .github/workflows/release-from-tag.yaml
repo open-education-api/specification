@@ -1,4 +1,4 @@
-name: Publish specification on tag (vX.Y / vX.Y.Z)
+name: Publish specification on tag (vX.Y / vX.Y.Q)
 
 on:
   push:
@@ -38,17 +38,18 @@ jobs:
       # 2) Parse the tag name and derive:
       #    - series: X.Y (used for release branch name release/X.Y)
       #    - folder: vX.Y (used for publication folder specification/vX.Y)
-      #    - release_name: exactly the tag name (releases are named vX.Y or vX.Y.Z)
+      #    - release_name: exactly the tag name (releases are named vX.Y or vX.Y.Q)
       #    This step also validates the tag format.
       - name: Determine versions from tag
         id: ver
         run: |
           set -euo pipefail
 
-          TAG="${GITHUB_REF_NAME}"   # e.g. v6.0 or v6.0.1
+          TAG="${GITHUB_REF_NAME}"   # e.g. v6.0, v6.0.0, v6.0.rc4, v6.0.apple5
 
-          if [[ ! "$TAG" =~ ^v([0-9]+)\.([0-9]+)(\.([0-9]+))?$ ]]; then
-            echo "Unsupported tag format: $TAG (expected vX.Y or vX.Y.Z)"
+          # Accept vX.Y or vX.Y.Q (Q can be anything)
+          if [[ ! "$TAG" =~ ^v([0-9]+)\.([0-9]+)(\.(.+))?$ ]]; then
+            echo "Unsupported tag format: $TAG (expected vX.Y or vX.Y.Q)"
             exit 1
           fi
 
@@ -66,7 +67,7 @@ jobs:
             FOLDER="v${SERIES}"          # vX.Y
           fi
 
-          RELEASE_NAME="$TAG"            # vX.Y or vX.Y.Z
+          RELEASE_NAME="$TAG"            # vX.Y or vX.Y.Q
 
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "series=$SERIES" >> "$GITHUB_OUTPUT"
@@ -182,7 +183,7 @@ jobs:
 
       # 9) Create a GitHub Release in THIS repo for the tag.
       #    - tag_name selects the existing tag
-      #    - name sets the release title (equal to vX.Y or vX.Y.Z)
+      #    - name sets the release title (equal to vX.Y or vX.Y.Q)
       #    - generate_release_notes lets GitHub produce notes automatically
       - name: Create GitHub Release for this tag (with assets)
         uses: softprops/action-gh-release@v2
