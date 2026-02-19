@@ -5,11 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.1.0 Fix required fields in service endpoint] - 2026-02-10
+## [6.0.RC3 Fix required fields in service endpoint] - 2026-02-19
 
 ### Fixed
-- Required fields verbs, expandableObjects, and supportedOperations corrected
-
+- Required fields verbs, expandableObjects, and supportedOperations in service.yaml corrected
+- linting options in workflow extended and added for vacuum
+- example in personalNeed and programmeType
+- required field items (removed) in pagination
+- required field givenname -> givenName
 
 ## [clean-up] - 2026-01-06
 
