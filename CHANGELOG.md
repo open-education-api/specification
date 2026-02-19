@@ -5,28 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0.RC3 Fix required fields in service endpoint] - 2026-02-19
-
-### Fixed
-- Required fields verbs, expandableObjects, and supportedOperations in service.yaml corrected
-- linting options in workflow extended and added for vacuum
-- example in personalNeed and programmeType
-- required field items (removed) in pagination
-- required field givenname -> givenName
-- flexibble Start/End date-time, changed type to date-time
-
-## [minor modifications on associations, attempts and results] - 2026-02-23
-
-### Fixed
-- weight not required anymore on LearningComponentAssociationResult and TestComponentAssociationResult
-- added enumeration value "unknown" to enumeration testComponentType
-- the path TestComponentCollection referred to offerings instead of components
 
 ## [6.0.RC3 Fix readonly person in association PUT and freadonly state] - 2026-02-19
 
 ### Fixed
 - removed readonly on person and personid
-- removed read and writeonly on state and remotestate
+- changed state to remotestate
+
 
 ## [clean-up] - 2026-01-06
 
