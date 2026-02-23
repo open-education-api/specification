@@ -1,8 +1,6 @@
 allOf:
   - $ref: './Result.yaml'
   - type: object
-    required:
-      - weight
     properties:
       weight:
         type: integer
