@@ -34,7 +34,7 @@ get:
                   items:
                     type: array
                     items:
-                      $ref: '../schemas/TestComponentOffering.yaml'
+                      $ref: '../schemas/TestComponent.yaml'
                   ext:
                       $ref: '../schemas/Ext.yaml'
     '400':
