@@ -34,6 +34,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - removed readonly on person and personid
 - removed read and writeonly on state and remotestate
 
+## [minor modifications on associations, attempts and results] - 2026-02-23
+
+### Fixed
+- weight not required anymore on LearningComponentAssociationResult and TestComponentAssociationResult
 
 ## [clean-up] - 2026-01-06
 
