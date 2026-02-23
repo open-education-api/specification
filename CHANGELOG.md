@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - weight not required anymore on LearningComponentAssociationResult and TestComponentAssociationResult
+- added enumeration value "unknown" to enumeration testComponentType
 
 ## [clean-up] - 2026-01-06
 
