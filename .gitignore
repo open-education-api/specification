@@ -1,6 +1,28 @@
-#files to be ignored 
-
-# ignore all local .vscode testing
+# =========================
+# Editor / local tooling
+# =========================
 .vscode/
+
+# =========================
+# macOS
+# =========================
 .DS_Store
+._*
+
+# =========================
+# Windows
+# =========================
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# =========================
+# Tool-specific
+# =========================
 *.drawio.bkp
+
+# =========================
+# Vale-specific
+# =========================
+.vale.ini
+styles/

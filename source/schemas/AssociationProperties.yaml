@@ -29,9 +29,9 @@ properties:
     example: '2025-10-23T08:30:00+01:00'
   state:
     $ref: '../enumerations/associationState.yaml'
-    readOnly: true
+#    readOnly: true
   remoteState:
-    writeOnly: true
+#    writeOnly: true
     oneOf:
       - $ref: '../enumerations/remoteAssociationState.yaml'
       - type: 'null'
