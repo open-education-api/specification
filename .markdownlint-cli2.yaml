@@ -1,0 +1,44 @@
+config:
+  default: true
+  
+  MD007: false
+
+  # Structural constraints intentionally not enforced
+  MD003: false   # Heading style is not enforced
+  MD024: false   # Duplicate headings are allowed
+  MD025: false   # Multiple top-level headings are allowed
+  MD026: false   # Trailing punctuation in headings is allowed
+  MD036: false   # Emphasis directly after a heading is allowed
+  MD041: false   # Mandatory H1 on the first line does not add value
+
+  # Whitespace and layout flexibility
+  MD012: false   # Multiple consecutive blank lines are allowed
+  MD022: false   # Blank lines around headings are not enforced
+  MD028: false   # Blank lines inside blockquotes are allowed
+  MD031: false   # Blank lines around fenced code blocks are not enforced
+  MD032: false   # Blank lines around lists are not enforced
+  MD058: false   # Blank lines around tables are not enforced
+
+  # Lists and numbering
+  MD004: false   # Unordered list marker style is not enforced
+  MD029: false   # Ordered list numbering style is not enforced
+  MD030: false   # List marker spacing is not enforced
+
+  # Tables, links, and inline content
+  MD033: false   # Inline HTML is allowed
+  MD034: false   # Bare URLs are allowed
+  MD051: false   # Link fragment validation is not enforced
+  MD055: false   # Table pipe style is not enforced
+  MD059: false   # Descriptive link text is not enforced
+  MD060: false   # Compact table pipe style reduces source readability
+
+  # Code blocks
+  MD040: false   # Code fences without a language are allowed
+
+  # Line length
+  MD013: false   # Line length is not enforced
+
+ignores:
+  - "**/_media/**"
+  - "**/.DS*"
+
