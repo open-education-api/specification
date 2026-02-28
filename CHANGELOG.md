@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - added enumeration value "unknown" to enumeration testComponentType
 - the path TestComponentCollection referred to offerings instead of components
 
+## [6.0.RC3 Fix readonly person in association PUT and readonly state] - 2026-02-19
+
+### Fixed
+- removed readonly on person and personid
+- removed read and writeonly on state and remotestate
+
 ## [clean-up] - 2026-01-06
 
 ### Fixed
