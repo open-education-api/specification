@@ -58,9 +58,10 @@ jobs:
       #    Output will be written to ./dist
       - name: Run Zudoku build
         run: |
-          set -euo pipefail
-          npm i -g zudoku@latest
-          zudoku build
+            set -euo pipefail
+            npm init -y
+            npm i zudoku@latest react react-dom
+            npx zudoku build
 
       # 6) Checkout publication repository into ./target
       - name: Checkout publication repository (open-education-api.github.io)

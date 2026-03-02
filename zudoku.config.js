@@ -9,7 +9,7 @@ export default {
   ],
   apis: {
     type: "file",
-    input: "../ooapi.zudoku.json",
+    input: "oeapi.zudoku.json",
     path: "api",
     options: {
       expandAllTags: false

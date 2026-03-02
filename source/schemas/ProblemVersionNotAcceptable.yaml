@@ -1,10 +1,14 @@
 allOf:
   - $ref: 'Problem.yaml'
-    type: object
+  - type: object
     required:
       - requestedVersion
       - supportedVersions
     properties:
+      type:
+        $ref: 'Problem.yaml#/properties/type'
+      title:
+        $ref: 'Problem.yaml#/properties/title'
       consumer:
         description: |
           Indicates which party caused the version mismatch. When null, the 406 was
