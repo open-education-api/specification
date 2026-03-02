@@ -1,5 +1,5 @@
 export default {
-  basePath: "/zudoku/dist",
+  basePath: "/dist",
   prerender: false,
   build: {
     outDir: "../.."

@@ -26,3 +26,9 @@ $RECYCLE.BIN/
 # =========================
 .vale.ini
 styles/
+
+# =========================
+# Zudoku & Node
+# =========================
+dist/
+node_modules/
