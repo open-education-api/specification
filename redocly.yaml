@@ -5,7 +5,7 @@ extends:
   - all
   
 plugins:
-  - './redocly-plugin.js'
+  - './redocly-plugin.cjs'
   
 rules:
   
