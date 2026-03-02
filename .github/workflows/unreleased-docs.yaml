@@ -3,7 +3,7 @@ name: Publish Zudoku docs to specification/unreleased
 on:
   push:
     branches:
-      - main
+      - "*"
   workflow_dispatch:
 
 permissions:
@@ -40,11 +40,27 @@ jobs:
         with:
           node-version: "latest"
 
-      # 3-5) Bundle + preprocess + zudoku build (combined)
-      - name: Build Zudoku docs (bundle + preprocess + build)
+      # 3) Bundle specification into oeapi.json
+      - name: Bundle spec to oeapi.json
         run: |
           set -euo pipefail
-          node build_oeapi.js source/spec.yaml oeapi.json oeapi.yaml oeapi.zudoku.json /specification/unreleased
+          npm i -g @redocly/cli@1.34.2
+          redocly bundle "source/spec.yaml" -o oeapi.json
+
+      # 4) Preprocess oeapi.json for Zudoku
+      - name: Preprocess oeapi.json -> oeapi.zudoku.json
+        run: |
+          set -euo pipefail
+          node ./preprocess_zudoku.js oeapi.json oeapi.zudoku.json
+
+      # 5) Run Zudoku build
+      #    Uses existing zudoku.config.ts in repository root
+      #    Output will be written to ./dist
+      - name: Run Zudoku build
+        run: |
+          set -euo pipefail
+          npm i -g zudoku@latest
+          zudoku build
 
       # 6) Checkout publication repository into ./target
       - name: Checkout publication repository (open-education-api.github.io)
@@ -60,7 +76,7 @@ jobs:
           set -euo pipefail
           DEST="target/specification/unreleased"
           mkdir -p "$DEST"
-          rsync -a --delete "dist/specification/unreleased/" "${DEST}/"
+          rsync -a --delete "dist/" "${DEST}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
