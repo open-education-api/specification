@@ -77,7 +77,7 @@ jobs:
           set -euo pipefail
           DEST="target/specification/unreleased"
           mkdir -p "$DEST"
-          rsync -a --delete "specification/unreleased/" "${DEST}/"
+          rsync -a --delete "dist/specification/unreleased/" "${DEST}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
