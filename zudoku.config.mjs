@@ -3,7 +3,7 @@ export default {
   docs: {
     dir: "./docs"
   },
-  prerender: false,
+  prerender: true,
   build: {
     outDir: "../.."
   },
