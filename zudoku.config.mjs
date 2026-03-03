@@ -16,7 +16,7 @@ export default {
     files: ["pages/**/*.mdx"]
   },
   navigation: [
-    { type: "link", to: "index", label: "HomeL" },
+    { type: "link", to: "index", label: "Home" },
     { type: "link", to: "api", label: "API Reference" }
   ],
   apis: {
