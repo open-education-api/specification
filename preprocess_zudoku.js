@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * OpenAPI Preprocessor for Zudoku
  * Creates flat allOf structures without nesting
@@ -8,7 +6,7 @@
  * Generates examples from schema properties for responses without examples.
  */
 
-const fs = require('fs');
+import fs from 'fs';
 
 function resolveRef(refPath, spec) {
   if (!refPath.startsWith('#/')) return null;
@@ -499,7 +497,7 @@ function preprocessForZudoku(inputFile, outputFile) {
   console.log(`✅ Injected placeholder operations (internal): ${injected}`);
 }
 
-if (require.main === module) {
+if (import.meta.url === new URL(import.meta.url).href) {
   if (process.argv.length !== 4) {
     console.log('Usage: preprocess_zudoku.js <input> <output>');
     process.exit(1);
@@ -508,4 +506,4 @@ if (require.main === module) {
   preprocessForZudoku(process.argv[2], process.argv[3]);
 }
 
-module.exports = { preprocessForZudoku };
+export { preprocessForZudoku };
