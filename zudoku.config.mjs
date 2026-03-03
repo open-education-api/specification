@@ -1,5 +1,5 @@
 export default {
-  basePath: "/dist",
+  basePath: "/specification/unreleased",
   prerender: false,
   build: {
     outDir: "../.."
