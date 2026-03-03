@@ -1,5 +1,8 @@
 export default {
   basePath: "/specification/unreleased",
+  docs: {
+    dir: "./docs"
+  },
   prerender: false,
   build: {
     outDir: "../.."
