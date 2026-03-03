@@ -1,10 +1,22 @@
+import rehypeRaw from "rehype-raw"
+
 export default {
-  basePath: "/dist",
+  markdown: {
+    rehypePlugins: [rehypeRaw]
+  }, 
+  basePath: "/specification/unreleased",
   prerender: false,
-  build: {
-    outDir: "../.."
+  redirects: [
+    { from: "/", to: "/index/" },
+    { from: "/index", to: "/index/" }
+  ],
+
+  docs: {
+    home: "/index/",
+    files: ["pages/**/*.mdx"]
   },
   navigation: [
+    { type: "link", to: "index", label: "HomeL" },
     { type: "link", to: "api", label: "API Reference" }
   ],
   apis: {
