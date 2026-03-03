@@ -1,13 +1,12 @@
 export default {
   basePath: "/specification/unreleased",
-  docs: {
-    dir: "./docs"
-  },
-  prerender: true,
+  docs: { files: "/pages/**/*.{md,mdx}" },
+  prerender: false,
   build: {
     outDir: "../.."
   },
   navigation: [
+    { type: "link", to: "/", label: "Home" },
     { type: "link", to: "api", label: "API Reference" }
   ],
   apis: {
