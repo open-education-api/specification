@@ -1,22 +1,10 @@
-import rehypeRaw from "rehype-raw"
-
 export default {
-  markdown: {
-    rehypePlugins: [rehypeRaw]
-  }, 
-  basePath: process.env.ZUDOKU_BASEPATH ?? "/specification/unreleased",
+  basePath: "/dist",
   prerender: false,
-  redirects: [
-    { from: "/", to: "/index/" },
-    { from: "/index", to: "/index/" }
-  ],
-
-  docs: {
-    home: "/index/",
-    files: ["pages/**/*.mdx"]
+  build: {
+    outDir: "../.."
   },
   navigation: [
-    { type: "link", to: "index", label: "Home" },
     { type: "link", to: "api", label: "API Reference" }
   ],
   apis: {
