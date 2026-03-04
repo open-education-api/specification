@@ -41,4 +41,5 @@ config:
 ignores:
   - "**/_media/**"
   - "**/.DS*"
+  - "CHANGELOG.md"
 
