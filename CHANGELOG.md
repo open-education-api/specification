@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - the path TestComponentCollection referred to offerings instead of components
 ## [6.0.RC3 Fix readonly person in association PUT and freadonly state] - 2026-02-19
 
+## [6.0.RC3 Fix readonly person in association PUT and readonly state] - 2026-02-19
+
 ### Fixed
 - removed readonly on person and personid
 - removed read and writeonly on state and remotestate
