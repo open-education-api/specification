@@ -51,7 +51,7 @@ properties:
       type: object
       description: Object for communicating VERBS and endpoints that are supported by this implementation.
       required:
-        - verb
+        - verbs
         - path
       properties:
         verbs:
@@ -72,12 +72,14 @@ properties:
           maxLength: 2048
           example: "/courses"
   supportedExpands:
-    type: array
+    type:
+      - array
+      - 'null'
     items:
       type: object
       description: Object for communicating the expands and paths for which they are implemented.
       required:
-      - expandableObject
+      - expandableObjects
       - path
       properties:
         expandableObjects:

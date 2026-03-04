@@ -7,7 +7,7 @@ anyOf:
       - activeEnrolment
   - title: "With required given name"
     required:
-      - givenname
+      - givenName
       - primaryCode
       - activeEnrolment
   - title: "With required preferred name"
