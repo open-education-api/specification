@@ -1,4 +1,4 @@
-name: Publish specification on tag (vX.Y / vX.Y.Z)
+name: Publish specification on tag (vX.Y / vX.Y-rcZ)
 
 on:
   push:
@@ -34,79 +34,70 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
+      
+      # 2) Setup Node for running build_oeapi.js.
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
 
-      # 2) Parse the tag name and derive:
-      #    - series: X.Y (used for release branch name release/X.Y)
-      #    - folder: vX.Y (used for publication folder specification/vX.Y)
-      #    - release_name: exactly the tag name (releases are named vX.Y or vX.Y.Z)
-      #    This step also validates the tag format.
-      - name: Determine versions from tag
+      # 3) Parse the tag name and derive, release, publish root, etc
+      - name: Determine variables for version, release, etc
         id: ver
         run: |
           set -euo pipefail
-
-          TAG="${GITHUB_REF_NAME}"   # e.g. v6.0 or v6.0.1
-
-          if [[ ! "$TAG" =~ ^v([0-9]+)\.([0-9]+)(\.([0-9]+))?$ ]]; then
-            echo "Unsupported tag format: $TAG (expected vX.Y or vX.Y.Z)"
+          TAG="${GITHUB_REF_NAME}"   # e.g. v6.0, v6.0-rc1, v6.0-rc2
+          # Accept vX.Y or vX.Y-rcZ (rcZ can be any text after '-')
+          if [[ ! "$TAG" =~ ^v([0-9]+)\.([0-9]+)(-(.+))?$ ]]; then
+            echo "Unsupported tag format: $TAG (expected vX.Y or vX.Y-rcZ)"
             exit 1
           fi
 
           MAJOR="${BASH_REMATCH[1]}"
           MINOR="${BASH_REMATCH[2]}"
-
           SERIES="${MAJOR}.${MINOR}"     # X.Y
 
-          # Publication folder rule:
-          # - For major version 5: always publish to v5 (not v5.0, v5.1, ...)
-          # - For all other versions: publish to vX.Y
+          # Specialities for version v5
           if [[ "$MAJOR" == "5" ]]; then
-            FOLDER="v5"
+            SITE_PATH="specification/v5"
+            SOURCE_FOLDER="v5"
+            SPECIFICATION="v5/spec.yaml"
           else
-            FOLDER="v${SERIES}"          # vX.Y
+            SITE_PATH="specification/v${SERIES}"
+            SOURCE_FOLDER="source"
+            SPECIFICATION="source/spec.yaml"
           fi
+          echo "SOURCE_FOLDER=$SOURCE_FOLDER" >> "$GITHUB_ENV"
+          echo "SPECIFICATION=$SPECIFICATION" >> "$GITHUB_ENV"
+          echo "SITE_PATH=${SITE_PATH}" >> "$GITHUB_ENV"
+          echo "BRANCH=release/${SERIES}" >> "$GITHUB_ENV"
 
-          RELEASE_NAME="$TAG"            # vX.Y or vX.Y.Z
-
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-          echo "series=$SERIES" >> "$GITHUB_OUTPUT"
-          echo "folder=$FOLDER" >> "$GITHUB_OUTPUT"
-          echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
-          echo "major=$MAJOR" >> "$GITHUB_OUTPUT"
-
-      # 3) Ensure the release branch release/X.Y exists.
-      #    - If it already exists on origin: do nothing.
-      #    - If not: create it locally from the tag and push it to origin.
-      - name: Create release branch if missing (simple git)
+      # 4) Ensure the tag commit belongs to main or release/*
+      - name: Validate tag origin branch (main vs release/X.Y)
         env:
           APP_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
+          git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
+          TAG_COMMIT="$(git rev-list -n 1 "${GITHUB_REF_NAME}")"
 
-          TAG="${{ steps.ver.outputs.tag }}"
-          SERIES="${{ steps.ver.outputs.series }}"
-          BRANCH="release/${SERIES}"
-
-          # Ensure we have the commit behind the tag locally
-          git fetch --tags --force
-
-          # Ensure our local view of origin/* branches is up-to-date
-          git fetch --prune origin
-
-          # Ensure pushes use the GitHub App token (not GITHUB_TOKEN)
-          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-
-          # If branch exists on origin: do nothing (exact check, no pattern matching)
           if git show-ref --verify --quiet "refs/remotes/origin/$BRANCH"; then
-            echo "Branch exists: $BRANCH"
-            exit 0
+            git branch -r --contains "$TAG_COMMIT" | grep -Eq "origin/${BRANCH}$" || { echo "Tag ${GITHUB_REF_NAME} must be on ${BRANCH}"; exit 1; }
+          else
+            git branch -r --contains "$TAG_COMMIT" | grep -Eq "origin/main$" || { echo "Tag ${GITHUB_REF_NAME} must be on main (will create ${BRANCH})"; exit 1; }
+            echo "Creating branch $BRANCH from tag ${GITHUB_REF_NAME}"
+            git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+            git branch "$BRANCH" "${GITHUB_REF_NAME}"
+            git push origin "$BRANCH"
           fi
 
-          echo "Creating branch $BRANCH from tag $TAG"
-          git branch "$BRANCH" "$TAG"
-          git push origin "$BRANCH"
+      # 5) Build release YAML, release JSON and zudoku documentation
+      - name: Build (bundle + docs)
+        run: |
+          set -euo pipefail
+          node build_oeapi.js "$SPECIFICATION" oeapi.json oeapi.yaml oeapi.zudoku.json "/$SITE_PATH"
 
-      # 5) Checkout the publication repository into ./target
+      # 6) Checkout the publication repository into ./target
       #    so we can copy files into it and push changes.
       - name: Checkout publication repository (open-education-api.github.io)
         uses: actions/checkout@v4
@@ -115,29 +106,15 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           path: target
 
-      # 6) Sync specification source to the publication repo.
-      #
-      #    Behaviour:
-      #    - For major version 5: copy from ./v5/ (this is where v5 changes still happen today)
-      #    - For all other versions: copy from ./source/
-      #
-      #    The v5 folder is expected to be phased out over time.
+      # 7) Sync specification source to the publication repo.
       - name: Sync specification -> publication repo (specification/vX.Y)
         run: |
           set -euo pipefail
+          mkdir -p "target/$SITE_PATH"
+          rsync -a --delete "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
+          rsync -a --delete "${SOURCE_FOLDER}/" "target/${SITE_PATH}/source/"
 
-          DEST="target/specification/${{ steps.ver.outputs.folder }}"
-
-          if [[ "${{ steps.ver.outputs.major }}" == "5" ]]; then
-            SRC="v5"
-          else
-            SRC="source"
-          fi
-
-          mkdir -p "$DEST"
-          rsync -a --delete "${SRC}/" "${DEST}/"
-
-      # 7) Commit and push only if there are changes in the publication repo.
+      # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
         env:
           APP_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -145,87 +122,44 @@ jobs:
           set -euo pipefail
           cd target
 
-          # Ensure pushes use the GitHub App token
           git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/open-education-api/open-education-api.github.io.git"
 
           if git status --porcelain | grep -q .; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "Publish specification for ${{ steps.ver.outputs.tag }} -> specification/${{ steps.ver.outputs.folder }}"
+            git commit -m "Publish specification for ${GITHUB_REF_NAME} -> ${SITE_PATH}"
             git push
           else
             echo "No changes to publish."
           fi
 
-      # 8) Bundle the OpenAPI specification into single-file outputs.
-      #    - ooapi.yaml: bundled OpenAPI in YAML form
-      #    - ooapi.json: bundled OpenAPI in JSON form
-      #    Redocly determines the output format by the file extension (there is no --format flag).
-      #
-      #    Behaviour:
-      #    - For v5 tags: bundle from v5/spec.yaml
-      #    - For all other tags: bundle from source/spec.yaml
-      - name: Bundle OpenAPI spec (release asset)
-        run: |
-          set -euo pipefail
-          npm i -g @redocly/cli@1.34.2
-
-          if [[ "${{ steps.ver.outputs.major }}" == "5" ]]; then
-            SPEC="v5/spec.yaml"
-          else
-            SPEC="source/spec.yaml"
-          fi
-
-          redocly bundle "$SPEC" -o ooapi.yaml
-          redocly bundle "$SPEC" -o ooapi.json
-
-      # 9) Create a GitHub Release in THIS repo for the tag.
+      # 9) Create a GitHub Release in specification (this) repo for the tag.
       #    - tag_name selects the existing tag
-      #    - name sets the release title (equal to vX.Y or vX.Y.Z)
+      #    - name sets the release title (equal to vX.Y or vX.Y-rcZ)
       #    - generate_release_notes lets GitHub produce notes automatically
       - name: Create GitHub Release for this tag (with assets)
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.ver.outputs.tag }}
-          name: ${{ steps.ver.outputs.release_name }}
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
           generate_release_notes: false
           files: |
-            ooapi.yaml
-            ooapi.json
+            oeapi.yaml
+            oeapi.json
 
-      # 10) Update bundled spec files in THIS repo (spec repo) on release/X.Y (only if changed).
-      - name: Update bundled spec files in spec repo (release/X.Y) (if any)
+      # 10) Add release yaml and json to release branch
+      - name: Commit generated files to release branch
         env:
           APP_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
 
-          SERIES="${{ steps.ver.outputs.series }}"
-          BRANCH="release/${SERIES}"
-
-          # Switch from the tag checkout (detached HEAD) to the corresponding release branch
-          git fetch --prune origin
-          git checkout -B "$BRANCH" "origin/$BRANCH"
-
-          # Ensure pushes use the GitHub App token (not GITHUB_TOKEN)
           git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
 
-          if [[ "${{ steps.ver.outputs.major }}" == "5" ]]; then
-            DEST_DIR="v5"
-          else
-            DEST_DIR="source"
-          fi
+          git switch -C "$BRANCH" "origin/$BRANCH"
 
-          cp -f ooapi.yaml "${DEST_DIR}/ooapi.yaml"
-          cp -f ooapi.json "${DEST_DIR}/ooapi.json"
-
-          if git status --porcelain "${DEST_DIR}/ooapi.yaml" "${DEST_DIR}/ooapi.json" | grep -q .; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add "${DEST_DIR}/ooapi.yaml" "${DEST_DIR}/ooapi.json"
-            git commit -m "Update ${DEST_DIR}/ooapi.{yaml,json} for ${{ steps.ver.outputs.tag }}"
-            git push origin "$BRANCH"
-          else
-            echo "No bundled spec changes to commit."
-          fi
+          git add oeapi.yaml oeapi.json oeapi.zudoku.json
+          git commit -m "Add generated files for ${GITHUB_REF_NAME}" || exit 0
+          git push
