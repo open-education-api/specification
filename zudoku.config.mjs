@@ -4,7 +4,7 @@ export default {
   markdown: {
     rehypePlugins: [rehypeRaw]
   }, 
-  basePath: "/specification/unreleased",
+  basePath: process.env.ZUDOKU_BASEPATH ?? "/specification/unreleased",
   prerender: false,
   redirects: [
     { from: "/", to: "/index/" },

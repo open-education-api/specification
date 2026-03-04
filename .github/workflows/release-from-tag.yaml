@@ -41,18 +41,26 @@ jobs:
         with:
           node-version: "latest"
 
-      # 2) Parse the tag name and derive:
-      #    - series: X.Y (used for release branch name release/X.Y)
-      #    - folder: vX.Y (used for publication folder specification/vX.Y)
-      #    - release_name: exactly the tag name (releases are named vX.Y or vX.Y-rcZ)
-      #    This step also validates the tag format.
-      - name: Determine versions from tag
+      # 2) Ensure the tag commit belongs to main or release/*
+      - name: Validate tag origin branch
+        run: |
+          set -euo pipefail
+          git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
+          TAG_COMMIT="$(git rev-list -n 1 "${GITHUB_REF_NAME}")"
+          git branch -r --contains "$TAG_COMMIT" | grep -Eq 'origin/(main|release/)' || { echo "Tag ${GITHUB_REF_NAME} is not on main or release/*"; exit 1; }
+      
+      # 3) Setup Node for running build_oeapi.js.
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+
+      # 4) Parse the tag name and derive, release, publish root, etc
+      - name: Determine variables for version, release, etc
         id: ver
         run: |
           set -euo pipefail
-
           TAG="${GITHUB_REF_NAME}"   # e.g. v6.0, v6.0-rc1, v6.0-rc2
-
           # Accept vX.Y or vX.Y-rcZ (rcZ can be any text after '-')
           if [[ ! "$TAG" =~ ^v([0-9]+)\.([0-9]+)(-(.+))?$ ]]; then
             echo "Unsupported tag format: $TAG (expected vX.Y or vX.Y-rcZ)"
@@ -77,35 +85,6 @@ jobs:
           echo "SPECIFICATION=$SPECIFICATION" >> "$GITHUB_ENV"
           echo "SITE_PATH=${SITE_PATH}" >> "$GITHUB_ENV"
           echo "BRANCH=release/${SERIES}" >> "$GITHUB_ENV"
-
-          RELEASE_NAME="$TAG"            # vX.Y or vX.Y-rcZ
-
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-          echo "series=$SERIES" >> "$GITHUB_OUTPUT"
-          echo "folder=$FOLDER" >> "$GITHUB_OUTPUT"
-          echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
-          echo "major=$MAJOR" >> "$GITHUB_OUTPUT"
-
-      # 3) Ensure the release branch release/X.Y exists.
-      #    - If it already exists on origin: do nothing.
-      #    - If not: create it locally from the tag and push it to origin.
-      - name: Create release branch if missing (simple git)
-        env:
-          APP_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          set -euo pipefail
-          git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
-          TAG_COMMIT="$(git rev-list -n 1 "${GITHUB_REF_NAME}")"
-
-          if git show-ref --verify --quiet "refs/remotes/origin/$BRANCH"; then
-            git branch -r --contains "$TAG_COMMIT" | grep -Eq "origin/${BRANCH}$" || { echo "Tag ${GITHUB_REF_NAME} must be on ${BRANCH}"; exit 1; }
-          else
-            git branch -r --contains "$TAG_COMMIT" | grep -Eq "origin/main$" || { echo "Tag ${GITHUB_REF_NAME} must be on main (will create ${BRANCH})"; exit 1; }
-            echo "Creating branch $BRANCH from tag ${GITHUB_REF_NAME}"
-            git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-            git branch "$BRANCH" "${GITHUB_REF_NAME}"
-            git push origin "$BRANCH"
-          fi
 
       # 5) Build release YAML, release JSON and zudoku documentation
       - name: Build (bundle + docs)
@@ -164,18 +143,27 @@ jobs:
             oeapi.yaml
             oeapi.json
 
-      # 10) Add release yaml and json to release branch
-      - name: Commit generated files to release branch
+      # 10) Ensure the release branch release/X.Y exists.
+      #    - If it already exists on origin: do nothing.
+      #    - If not: create it locally from the tag and push it to origin.
+      - name: Create release branch if missing (simple git)
         env:
           APP_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
 
+          # Ensure, the commit behind the tag locally, local view is up to date, pushes use de GitHub App
+          git fetch --tags --force
+          git fetch --prune origin
           git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
 
-          git switch -C "$BRANCH" "origin/$BRANCH"
+          # If branch exists on origin: do nothing (exact check, no pattern matching)
+          if git show-ref --verify --quiet "refs/remotes/origin/$BRANCH"; then
+            echo "Branch exists: $BRANCH"
+            exit 0
+          fi
 
-          git add oeapi.yaml oeapi.json oeapi.zudoku.json
-          git commit -m "Add generated files for ${GITHUB_REF_NAME}" || exit 0
-          git push
+          echo "Creating branch $BRANCH from tag ${GITHUB_REF_NAME}"
+          git branch "$BRANCH" "${GITHUB_REF_NAME}"
+          git push origin "$BRANCH"
