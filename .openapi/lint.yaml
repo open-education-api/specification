@@ -1,17 +1,19 @@
 extends: all
 
 rules:
-  - id: semantic-path-params
+  - id: style-info-license
     disabled: true
   - id: style-component-description
     disabled: true
-  - id: owasp-rate-limit
-    disabled: true
   - id: oas3-example-missing
+    disabled: true
+  - id: oas-schema-check
+    disabled: true
+  - id: owasp-rate-limit
     disabled: true
   - id: owasp-array-limit
     disabled: true
-  - id: error owasp-string-limit
+  - id: owasp-string-limit
     disabled: true
   - id: owasp-string-restricted
     disabled: true
@@ -20,10 +22,6 @@ rules:
   - id: owasp-protection-global-unsafe
     disabled: true
   - id: owasp-protection-global-unsafe-strict
-    disabled: true
-  - id: owasp-string-limit
-    disabled: true
-  - id: oas-schema-check
     disabled: true
   - id: owasp-protection-global-safe
     disabled: true
@@ -36,6 +34,4 @@ rules:
   - id: owasp-additional-properties-constrained
     disabled: true
   - id: owasp-rate-limit-retry-after
-    disabled: true
-  - id: style-info-license
     disabled: true

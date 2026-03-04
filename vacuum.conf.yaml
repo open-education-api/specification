@@ -1,0 +1,8 @@
+# run: vacuum lint source/spec.yaml --details
+
+ruleset: .spectral.yaml
+details: true
+snippets: true
+lint:
+  ignore-polymorph-circle-ref: true
+  ignore-array-circle-ref: true
