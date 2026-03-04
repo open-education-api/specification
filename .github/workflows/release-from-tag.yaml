@@ -160,6 +160,6 @@ jobs:
 
           git switch -C "$BRANCH" "origin/$BRANCH"
 
-          git add oeapi.yaml oeapi.json
+          git add oeapi.yaml oeapi.json oeapi.zudoku.json
           git commit -m "Add generated files for ${GITHUB_REF_NAME}" || exit 0
           git push
