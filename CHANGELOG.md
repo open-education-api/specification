@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - removed readonly on person and personid
 - removed read and writeonly on state and remotestate
 
+## [6.0.RC3 Fix required fields in service endpoint] - 2026-02-19
+
+### Fixed
+- Required fields verbs, expandableObjects, and supportedOperations in service.yaml corrected
+- linting options in workflow extended and added for vacuum
+- example in personalNeed and programmeType
+- required field items (removed) in pagination
+- required field givenname -> givenName
+
 ## [clean-up] - 2026-01-06
 
 ### Fixed
