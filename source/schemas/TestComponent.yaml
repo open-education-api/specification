@@ -48,14 +48,14 @@ properties:
       - string
       - 'null'
     description: The duration of this component. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
-    pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
+    pattern: '^-?P(?:\d+Y)?(?:\d+M)?(?:\d+(?:D|W))?(?:T(?:\d+H)?(?:\d+M)?(?:\d+(?:\.\d+)?S)?)?$'
     example: PT1H30M # 1 hour and 30 minutes
   extraDuration:
     type:
       - string
       - 'null'
     description: The extra duration of this component for candidates that are awarded extra time as a personal need. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
-    pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
+    pattern: '^-?P(?:\d+Y)?(?:\d+M)?(?:\d+(?:D|W))?(?:T(?:\d+H)?(?:\d+M)?(?:\d+(?:\.\d+)?S)?)?$'
     example: PT30M # 30 minutes
   resultValueType:
     oneOf:
