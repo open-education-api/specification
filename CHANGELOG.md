@@ -21,11 +21,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.0.RC3 Fix required fields in service endpoint] - 2026-02-19
 
 ### Fixed
-- Required fields verbs, expandableObjects, and supportedOperations in service.yaml corrected
-- linting options in workflow extended and added for vacuum
-- example in personalNeed and programmeType
-- required field items (removed) in pagination
-- required field givenname -> givenName
+- corrected required fields verbs, expandableObjects, and supportedOperations in service.yaml corrected
+- added linting options in workflow extended and added for vacuum
+- corrected example in personalNeed and programmeType
+- corrected required field items (removed) in pagination
+- corrected required field givenname -> givenName
+- corrected example errors found by vacuum (date-time needs quotes)
+- updated releasename to v6.0-rc3
+- updated description in spec (moved to homepage)
+- corrected regex patern incompatibility with OpenAPI 3.1 (duration fields)
+- corrected date fields to date-time for flexibleEntryPeriods
+- corrected schema evaluation error for ProblemVersionNotAcceptable
+- updated preprocessor for zudoku, so that enums are shown
 
 ## [clean-up] - 2026-01-06
 
