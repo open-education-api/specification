@@ -1,4 +1,4 @@
-name: Publish specification on tag (vX.Y / vX.Y-rcZ)
+name: Publish unreleased specification
 
 on:
   push:
