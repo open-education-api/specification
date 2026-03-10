@@ -8,6 +8,31 @@
 
 import fs from 'fs';
 
+function renameOoapiEnum(node) {
+  let count = 0;
+
+  function walk(obj) {
+    if (!obj || typeof obj !== "object") return;
+
+    if ("x-ooapi-extensible-enum" in obj) {
+      obj.enum = obj["x-ooapi-extensible-enum"];
+      delete obj["x-ooapi-extensible-enum"];
+      count++;
+    }
+
+    for (const v of Object.values(obj)) {
+      if (Array.isArray(v)) {
+        v.forEach(walk);
+      } else if (v && typeof v === "object") {
+        walk(v);
+      }
+    }
+  }
+
+  walk(node);
+  return count;
+}
+
 function resolveRef(refPath, spec) {
   if (!refPath.startsWith('#/')) return null;
   const parts = refPath.substring(2).split('/');
@@ -491,6 +516,10 @@ function preprocessForZudoku(inputFile, outputFile) {
 
   // Mark tags with only injected operations
   markTagsWithOnlyInjected(spec);
+
+  // Ensure OOAPI extensible enums are visible in Zudoku by materializing them as OpenAPI enums
+  const replaced = renameOoapiEnum(spec);
+  console.log(`✅ Replaced x-ooapi-extensible-enum -> enum: ${replaced}`);
 
   fs.writeFileSync(outputFile, JSON.stringify(spec, null, 2));
   console.log(`✅ Zudoku version created: ${outputFile}`);

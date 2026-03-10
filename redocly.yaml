@@ -1,6 +1,7 @@
 apis:
   main:
     root: ./source/spec.yaml
+
 extends:
   - all
   
@@ -44,3 +45,5 @@ rules:
 #  operation-4xx-problem-details-rfc7807: off
 #  tags-alphabetical: off
 
+ignore:
+  - "oeapi*"

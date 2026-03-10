@@ -28,7 +28,7 @@ allOf:
           enrolled to begin their participation at different moments without
           missing essential content. This attribute MUST be used in combination
           with `flexibleEntryPeriodEndDateTime`.
-        format: date
+        format: date-time
         example: "2019-08-21T09:00:00+01:00"
       flexibleEntryPeriodEndDateTime:
         type:
@@ -38,7 +38,7 @@ allOf:
           If this is a course wherein participants who have enrolled can start at
           various moments without missing anything, use this attribute in
           combination with `flexibleEntryPeriodStartDateTime`.
-        format: date
+        format: date-time
         example: "2019-10-21T22:59:59+01:00"
       addresses:
         type:

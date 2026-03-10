@@ -5,18 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [minor modifications on associations, attempts and results] - 2026-02-23
+## [6.0.RC2 minor modifications on associations, attempts and results] - 2026-02-23
 
 ### Fixed
 - weight not required anymore on LearningComponentAssociationResult and TestComponentAssociationResult
 - added enumeration value "unknown" to enumeration testComponentType
 - the path TestComponentCollection referred to offerings instead of components
 
-## [6.0.RC3 Fix readonly person in association PUT and readonly state] - 2026-02-19
+## [6.0.RC2 Fix readonly person in association PUT and readonly state] - 2026-02-19
 
 ### Fixed
 - removed readonly on person and personid
 - removed read and writeonly on state and remotestate
+
+## [6.0.RC2 Fix required fields in service endpoint] - 2026-02-19
+
+### Fixed
+- corrected required fields verbs, expandableObjects, and supportedOperations in service.yaml corrected
+- added linting options in workflow extended and added for vacuum
+- corrected example in personalNeed and programmeType
+- corrected required field items (removed) in pagination
+- corrected required field givenname -> givenName
+- corrected example errors found by vacuum (date-time needs quotes)
+- updated releasename to v6.0-rc2
+- updated description in spec (moved to homepage)
+- corrected regex patern incompatibility with OpenAPI 3.1 (duration fields)
+- corrected date fields to date-time for flexibleEntryPeriods
+- corrected schema evaluation error for ProblemVersionNotAcceptable
+- updated preprocessor for zudoku, so that enums are shown
 
 ## [clean-up] - 2026-01-06
 

@@ -12,7 +12,7 @@ export default {
   ],
 
   docs: {
-    home: "/index/",
+    home: "/index",
     files: ["pages/**/*.mdx"]
   },
   navigation: [

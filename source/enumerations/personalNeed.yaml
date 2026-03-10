@@ -15,5 +15,4 @@ x-ooapi-extensible-enum:
   - extra_time
   - spoken
   - spell_checker_on_screen
-example:
-  - extra_time
+example: extra_time
