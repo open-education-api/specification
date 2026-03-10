@@ -1,0 +1,125 @@
+name: Publish specification by hand from release branch
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 0) Create an installation token for the publishing GitHub App.
+      #    This token must be used for ALL pushes (both this repo and the publication repo).
+      - name: Create GitHub App installation token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.OOAPI_APP_PUBLISH_ID }}
+          private-key: ${{ secrets.OOAPI_APP_PUBLISH_SECRET }}
+          owner: open-education-api
+          repositories: |
+            specification
+            open-education-api.github.io
+
+      # 1) Checkout this repository (release/X.Y).
+      #    - fetch-depth: 0 ensures full history.
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+      
+      # 2) Setup Node for running build_oeapi.js.
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+
+      # 3) Ensure the workflow runs only on release/X.Y
+      - name: Validate release branch
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"   # e.g. release/6.0
+
+          if [[ ! "$BRANCH" =~ ^release/[0-9]+\.[0-9]+$ ]]; then
+            echo "Workflow must run from a release/X.Y branch (current: $BRANCH)"
+            exit 1
+          fi
+
+      # 4) Parse the branch name and derive release, publish root, etc
+      - name: Determine variables for version, release, etc
+        id: ver
+        run: |
+          set -euo pipefail
+          BRANCH="${GITHUB_REF_NAME}"   # e.g. release/6.0
+
+          if [[ ! "$BRANCH" =~ ^release/([0-9]+)\.([0-9]+)$ ]]; then
+            echo "Unsupported branch format: $BRANCH (expected release/X.Y)"
+            exit 1
+          fi
+
+          MAJOR="${BASH_REMATCH[1]}"
+          MINOR="${BASH_REMATCH[2]}"
+          SERIES="${MAJOR}.${MINOR}"     # X.Y
+
+          # Specialities for version v5
+          if [[ "$MAJOR" == "5" ]]; then
+            SITE_PATH="specification/v5"
+            SOURCE_FOLDER="v5"
+            SPECIFICATION="v5/spec.yaml"
+          else
+            SITE_PATH="specification/v${SERIES}"
+            SOURCE_FOLDER="source"
+            SPECIFICATION="source/spec.yaml"
+          fi
+
+          echo "SOURCE_FOLDER=$SOURCE_FOLDER" >> "$GITHUB_ENV"
+          echo "SPECIFICATION=$SPECIFICATION" >> "$GITHUB_ENV"
+          echo "SITE_PATH=${SITE_PATH}" >> "$GITHUB_ENV"
+          echo "BRANCH=${BRANCH}" >> "$GITHUB_ENV"
+          
+      # 5) Build release YAML, release JSON and zudoku documentation
+      - name: Build (bundle + docs)
+        run: |
+          set -euo pipefail
+          node build_oeapi.js "$SPECIFICATION" oeapi.json oeapi.yaml oeapi.zudoku.json "/$SITE_PATH"
+
+      # 6) Checkout the publication repository into ./target
+      #    so we can copy files into it and push changes.
+      - name: Checkout publication repository (open-education-api.github.io)
+        uses: actions/checkout@v4
+        with:
+          repository: open-education-api/open-education-api.github.io
+          token: ${{ steps.app-token.outputs.token }}
+          path: target
+
+      # 7) Sync documentation source to the publication repo.
+      - name: Sync documentation -> publication repo (specification/vX.Y)
+        run: |
+          set -euo pipefail
+          mkdir -p "target/$SITE_PATH"
+          rsync -a --delete "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
+
+      # 8) Commit and push only if there are changes in the publication repo.
+      - name: Commit and push publication repo changes (if any)
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+          cd target
+
+          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/open-education-api/open-education-api.github.io.git"
+
+          if git status --porcelain | grep -q .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Publish specification for ${GITHUB_REF_NAME} -> ${SITE_PATH}"
+            git push
+          else
+            echo "No changes to publish."
+          fi
