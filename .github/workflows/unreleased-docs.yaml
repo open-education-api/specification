@@ -1,0 +1,81 @@
+name: Publish Zudoku docs to specification/unreleased
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish-unreleased:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 0) Create an installation token for the publishing GitHub App.
+      #    This token must be used for ALL pushes (both this repo and the publication repo).
+      - name: Create GitHub App installation token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.OOAPI_APP_PUBLISH_ID }}
+          private-key: ${{ secrets.OOAPI_APP_PUBLISH_SECRET }}
+          owner: open-education-api
+          repositories: |
+            specification
+            open-education-api.github.io
+
+      # 1) Checkout this repository (specification repo)
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      # 2) Setup Node (latest) for running preprocess script
+      - name: Setup Node (latest)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+
+      # 3-5) Bundle + preprocess + zudoku build (combined)
+      - name: Build Zudoku docs (bundle + preprocess + build)
+        run: |
+          set -euo pipefail
+          node build_oeapi.js source/spec.yaml oeapi.json oeapi.yaml oeapi.zudoku.json /specification/unreleased
+
+      # 6) Checkout publication repository into ./target
+      - name: Checkout publication repository (open-education-api.github.io)
+        uses: actions/checkout@v4
+        with:
+          repository: open-education-api/open-education-api.github.io
+          token: ${{ steps.app-token.outputs.token }}
+          path: target
+
+      # 7) Publish Zudoku build output to specification/unreleased
+      - name: Publish dist -> specification/unreleased
+        run: |
+          set -euo pipefail
+          DEST="target/specification/unreleased"
+          mkdir -p "$DEST"
+          rsync -a --delete "dist/specification/unreleased/" "${DEST}/"
+
+      # 8) Commit and push only if there are changes in the publication repo.
+      - name: Commit and push publication repo changes (if any)
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+          cd target
+          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/open-education-api/open-education-api.github.io.git"
+          if git status --porcelain | grep -q .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Publish Zudoku docs (unreleased)"
+            git push
+          else
+            echo "No changes to publish."
+          fi

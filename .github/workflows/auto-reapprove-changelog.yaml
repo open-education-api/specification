@@ -1,0 +1,79 @@
+name: Auto re-approve when only CHANGELOG changed
+
+on:
+  pull_request_target:
+    types: [synchronize, reopened, ready_for_review]
+
+# Required to read PR metadata and submit an approval review.
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  reapprove:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+
+    steps:
+      # 1) Create a GitHub App installation token.
+      - name: Create GitHub App installation token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.OOAPI_APP_PUBLISH_ID }}
+          private-key: ${{ secrets.OOAPI_APP_PUBLISH_SECRET }}
+          owner: open-education-api
+          repositories: |
+            specification
+
+      # 2) Checkout the PR HEAD commit.
+      #    Only git diff is executed; no PR code is run.
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      # 3) Re-approve if only CHANGELOG.md changed since the last APPROVED review.
+      - name: Re-approve if only CHANGELOG changed
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+
+          REPO="${{ github.repository }}"
+          PR="${{ github.event.pull_request.number }}"
+
+          # Only these files may change without requiring a new human review.
+          ALLOWED_REGEX='^(CHANGELOG\.md)$'
+
+          # Retrieve the commit SHA of the most recent APPROVED review.
+          APPROVED_COMMIT="$(
+            gh api "/repos/${REPO}/pulls/${PR}/reviews?per_page=100" \
+              --jq '[.[] | select(.state=="APPROVED")][0].commit_id'
+          )"
+
+          # If no approval exists yet, do nothing.
+          if [ -z "${APPROVED_COMMIT}" ] || [ "${APPROVED_COMMIT}" = "null" ]; then
+            exit 0
+          fi
+
+          # Determine which files changed since that approval.
+          CHANGED="$(git diff --name-only "${APPROVED_COMMIT}..HEAD" || true)"
+
+          # If no changes occurred after approval, do nothing.
+          if [ -z "${CHANGED}" ]; then
+            exit 0
+          fi
+
+          # If any file outside the allow-list changed, do not re-approve.
+          if echo "${CHANGED}" | grep -qEv "${ALLOWED_REGEX}"; then
+            exit 0
+          fi
+
+          # Only CHANGELOG.md changed -> submit approval.
+          gh api -X POST "/repos/${REPO}/pulls/${PR}/reviews" \
+            -f event="APPROVE" \
+            -f body="Auto re-approve: only CHANGELOG.md changed since last approval."

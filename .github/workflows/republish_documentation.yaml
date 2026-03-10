@@ -1,9 +1,6 @@
-name: Publish specification on tag (vX.Y / vX.Y-rcZ)
+name: Publish specification by hand from release branch
 
 on:
-  push:
-    tags:
-      - "v*.*"
   workflow_dispatch:
 
 permissions:
@@ -27,8 +24,8 @@ jobs:
             specification
             open-education-api.github.io
 
-      # 1) Checkout this repository (the repo where the tag was created).
-      #    - fetch-depth: 0 ensures full history + tags exist locally.
+      # 1) Checkout this repository (release/X.Y).
+      #    - fetch-depth: 0 ensures full history.
       - name: Checkout source repository
         uses: actions/checkout@v4
         with:
@@ -41,15 +38,27 @@ jobs:
         with:
           node-version: "latest"
 
-      # 3) Parse the tag name and derive, release, publish root, etc
+      # 3) Ensure the workflow runs only on release/X.Y
+      - name: Validate release branch
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"   # e.g. release/6.0
+
+          if [[ ! "$BRANCH" =~ ^release/[0-9]+\.[0-9]+$ ]]; then
+            echo "Workflow must run from a release/X.Y branch (current: $BRANCH)"
+            exit 1
+          fi
+
+      # 4) Parse the branch name and derive release, publish root, etc
       - name: Determine variables for version, release, etc
         id: ver
         run: |
           set -euo pipefail
-          TAG="${GITHUB_REF_NAME}"   # e.g. v6.0, v6.0-rc1, v6.0-rc2
-          # Accept vX.Y or vX.Y-rcZ (rcZ can be any text after '-')
-          if [[ ! "$TAG" =~ ^v([0-9]+)\.([0-9]+)(-(.+))?$ ]]; then
-            echo "Unsupported tag format: $TAG (expected vX.Y or vX.Y-rcZ)"
+          BRANCH="${GITHUB_REF_NAME}"   # e.g. release/6.0
+
+          if [[ ! "$BRANCH" =~ ^release/([0-9]+)\.([0-9]+)$ ]]; then
+            echo "Unsupported branch format: $BRANCH (expected release/X.Y)"
             exit 1
           fi
 
@@ -67,30 +76,12 @@ jobs:
             SOURCE_FOLDER="source"
             SPECIFICATION="source/spec.yaml"
           fi
+
           echo "SOURCE_FOLDER=$SOURCE_FOLDER" >> "$GITHUB_ENV"
           echo "SPECIFICATION=$SPECIFICATION" >> "$GITHUB_ENV"
           echo "SITE_PATH=${SITE_PATH}" >> "$GITHUB_ENV"
-          echo "BRANCH=release/${SERIES}" >> "$GITHUB_ENV"
-
-      # 4) Ensure the tag commit belongs to main or release/*
-      - name: Validate tag origin branch (main vs release/X.Y)
-        env:
-          APP_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          set -euo pipefail
-          git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
-          TAG_COMMIT="$(git rev-list -n 1 "${GITHUB_REF_NAME}")"
-
-          if git show-ref --verify --quiet "refs/remotes/origin/$BRANCH"; then
-            git branch -r --contains "$TAG_COMMIT" | grep -Eq "origin/${BRANCH}$" || { echo "Tag ${GITHUB_REF_NAME} must be on ${BRANCH}"; exit 1; }
-          else
-            git branch -r --contains "$TAG_COMMIT" | grep -Eq "origin/main$" || { echo "Tag ${GITHUB_REF_NAME} must be on main (will create ${BRANCH})"; exit 1; }
-            echo "Creating branch $BRANCH from tag ${GITHUB_REF_NAME}"
-            git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-            git branch "$BRANCH" "${GITHUB_REF_NAME}"
-            git push origin "$BRANCH"
-          fi
-
+          echo "BRANCH=${BRANCH}" >> "$GITHUB_ENV"
+          
       # 5) Build release YAML, release JSON and zudoku documentation
       - name: Build (bundle + docs)
         run: |
@@ -106,14 +97,12 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           path: target
 
-      # 7) Sync specification source to the publication repo.
-      - name: Sync specification -> publication repo (specification/vX.Y)
+      # 7) Sync documentation source to the publication repo.
+      - name: Sync documentation -> publication repo (specification/vX.Y)
         run: |
           set -euo pipefail
           mkdir -p "target/$SITE_PATH"
           rsync -a --delete "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
-          rsync -a --delete "${SOURCE_FOLDER}/" "target/${SITE_PATH}/source/"
-          rsync -a oeapi.json oeapi.yaml "target/${SITE_PATH}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
@@ -134,33 +123,3 @@ jobs:
           else
             echo "No changes to publish."
           fi
-
-      # 9) Create a GitHub Release in specification (this) repo for the tag.
-      #    - tag_name selects the existing tag
-      #    - name sets the release title (equal to vX.Y or vX.Y-rcZ)
-      #    - generate_release_notes lets GitHub produce notes automatically
-      - name: Create GitHub Release for this tag (with assets)
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: ${{ github.ref_name }}
-          generate_release_notes: false
-          files: |
-            oeapi.yaml
-            oeapi.json
-
-      # 10) Add release yaml and json to release branch
-      - name: Commit generated files to release branch
-        env:
-          APP_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          set -euo pipefail
-
-          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
-
-          git switch -C "$BRANCH" "origin/$BRANCH"
-
-          git add oeapi.yaml oeapi.json oeapi.zudoku.json
-          git commit -m "Add generated files for ${GITHUB_REF_NAME}" || exit 0
-          git push
