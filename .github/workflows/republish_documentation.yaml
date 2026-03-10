@@ -1,4 +1,4 @@
-name: Publish specification on tag (vX.Y / vX.Y-rcZ)
+name: Publish specification by hand from release branch
 
 on:
   workflow_dispatch:
@@ -24,8 +24,8 @@ jobs:
             specification
             open-education-api.github.io
 
-      # 1) Checkout this repository (the repo where the tag was created).
-      #    - fetch-depth: 0 ensures full history + tags exist locally.
+      # 1) Checkout this repository (release/X.Y).
+      #    - fetch-depth: 0 ensures full history.
       - name: Checkout source repository
         uses: actions/checkout@v4
         with:
@@ -97,14 +97,12 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           path: target
 
-      # 7) Sync specification source to the publication repo.
-      - name: Sync specification -> publication repo (specification/vX.Y)
+      # 7) Sync documentation source to the publication repo.
+      - name: Sync documentation -> publication repo (specification/vX.Y)
         run: |
           set -euo pipefail
           mkdir -p "target/$SITE_PATH"
           rsync -a --delete "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
-          rsync -a --delete "${SOURCE_FOLDER}/" "target/${SITE_PATH}/source/"
-          rsync -a oeapi.json oeapi.yaml "target/${SITE_PATH}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
@@ -125,33 +123,3 @@ jobs:
           else
             echo "No changes to publish."
           fi
-
-      # 9) Create a GitHub Release in specification (this) repo for the tag.
-      #    - tag_name selects the existing tag
-      #    - name sets the release title (equal to vX.Y or vX.Y-rcZ)
-      #    - generate_release_notes lets GitHub produce notes automatically
-      - name: Create GitHub Release for this tag (with assets)
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: ${{ github.ref_name }}
-          generate_release_notes: false
-          files: |
-            oeapi.yaml
-            oeapi.json
-
-      # 10) Add release yaml and json to release branch
-      - name: Commit generated files to release branch
-        env:
-          APP_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          set -euo pipefail
-
-          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git fetch --prune origin "+refs/heads/*:refs/remotes/origin/*"
-
-          git switch -C "$BRANCH" "origin/$BRANCH"
-
-          git add oeapi.yaml oeapi.json oeapi.zudoku.json
-          git commit -m "Add generated files for ${GITHUB_REF_NAME}" || exit 0
-          git push
