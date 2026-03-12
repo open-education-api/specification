@@ -1,6 +1,6 @@
 # This workflow lints the OpenAPI source specification used to build the OEAPI spec.
 
-name: Lint source specification
+name: Lint OpenAPI CLI
 
 on:
   pull_request:

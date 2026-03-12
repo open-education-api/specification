@@ -1,6 +1,6 @@
 # This workflow publishes a specification manually from a release/X.Y branch.
 
-name: Publish specification by hand from release branch
+name: Republish Zudoku specification by hand from release branch
 
 on:
   workflow_dispatch:
