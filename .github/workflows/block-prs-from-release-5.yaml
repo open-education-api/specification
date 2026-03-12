@@ -1,3 +1,5 @@
+# This workflow blocks pull requests that originate from release/5.*.
+
 name: Block merge from release/5.*
 
 on:
@@ -17,6 +19,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+      # Fail the workflow when the source branch starts with release/5.
       - name: Fail if PR originates from release/5.*
         run: |
           set -euo pipefail
@@ -31,3 +34,4 @@ jobs:
             echo "::error::Merging from release/5.* is not allowed."
             exit 1
           fi
+          
