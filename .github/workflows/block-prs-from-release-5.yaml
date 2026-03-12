@@ -1,6 +1,6 @@
 # This workflow blocks pull requests that originate from release/5.*.
 
-name: Block merge from release/5.*
+name: Block PRs from release/5.*
 
 on:
   pull_request:

@@ -1,6 +1,6 @@
 # This workflow lints the source specification with Redocly.
 
-name: Lint source specification
+name: Lint Redocly
 
 on:
   pull_request:

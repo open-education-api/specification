@@ -1,7 +1,7 @@
 # This workflow publishes the unreleased Zudoku documentation from main
 # to specification/unreleased in the publication repository.
 
-name: Publish Zudoku docs to specification/unreleased
+name: Create and publish from main (unreleased)
 
 on:
   push:
