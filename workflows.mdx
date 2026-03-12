@@ -1,0 +1,112 @@
+---
+title: GitHub Actions workflows
+sidebar_label: Workflows
+---
+
+# GitHub Actions workflows
+
+Short overview of the workflows in this repository.
+
+## Linting specification
+
+Runs different validations and lintings on the source specification.
+
+**Purpose**  
+Ensures OEAPI remains technically correct and consistent with the OpenAPI
+specification.
+
+### Lint OpenAPI CLI
+
+Runs OpenAPI validation and linting on the source specification.
+
+|               | Value                                                  |
+|---------------|--------------------------------------------------------|
+| Config        | `.openapi/lint.yaml`                                   |
+| Local install | `go install github.com/speakeasy-api/openapi/cmd/openapi@latest` |
+| Local command | `openapi spec lint source/spec.yaml -c .openapi/lint.yaml` |
+
+### Lint Redocly
+
+Runs Redocly validation rules on the specification.
+
+|               | Value                                           |
+|---------------|-------------------------------------------------|
+| Config        | `redocly.yaml`                                  |
+| Custom rules  | `redocly-plugin.cjs`                            |
+| Local install | `npm install -g @redocly/cli`                   |
+| Local command | `redocly lint source/spec.yaml`                 |
+
+### Lint Vacuum (planned)
+
+Runs Vacuum validation rules on the specification. This check is currently not
+implemented as a workflow.
+
+|               | Value                                           |
+|---------------|-------------------------------------------------|
+| Config        | `vacuum.conf.yaml`                              |
+|               | `.spectral.yaml`                                |
+| Local install | `npm install -g @quobix/vacuum`                 |
+| Local command | `vacuum lint source/spec.yaml`                  |
+
+## Blocking PRs
+
+### Block PRs from `release/5.*`
+
+Blocks pull requests that originate from `release/5.*` branches.
+
+**Purpose**  
+Prevents changes from legacy release branches being merged into supported
+branches.
+
+## Update files
+
+### Auto re-approve when only CHANGELOG changed
+
+Automatically re-approves a pull request when the only change after an approval
+is an update to `CHANGELOG.md`.
+
+**Purpose**  
+Avoids unnecessary manual re-approval when the changelog is updated after a
+review.
+
+### Check changelog
+
+Checks whether `CHANGELOG.md` is updated in a pull request.
+
+**Purpose**  
+Ensures every functional change is recorded in the changelog.
+
+**Bypass team**  
+This check may be bypassed because it verifies documentation discipline rather
+than technical correctness. In rare situations a pull request may need to be
+merged while the changelog is updated later or the change does not require a
+changelog update.
+
+## Publish and release
+
+### Create and publish new release from tag
+
+Builds and publishes a release when a version tag is created. If it does not
+exist, the workflow also creates the corresponding release branch.
+
+**Purpose**  
+Creates the official released version of the specification and publishes it to
+the documentation site and release artefacts.
+
+### Publish Zudoku specification by hand from a release branch
+
+Manually republishes Zudoku documentation from a release branch.
+
+**Purpose**  
+Allows controlled republishing when something needs to be rebuilt without
+creating a new release. Needed for example for documentation changes in the
+code.
+
+### Create and publish from main (unreleased)
+
+Publishes the documentation from `main` to the `unreleased` section of the
+documentation site.
+
+**Purpose**  
+Keeps the public preview documentation in sync with the current development
+state.
