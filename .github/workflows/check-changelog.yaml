@@ -1,3 +1,5 @@
+# This workflow checks that CHANGELOG.md was updated in pull requests.
+
 name: Check Changelog
 
 on:
@@ -35,3 +37,4 @@ jobs:
         with:
           # Path to the changelog file that must be updated by the PR.
           changelog: CHANGELOG.md
+          

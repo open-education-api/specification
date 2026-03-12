@@ -1,3 +1,6 @@
+# This workflow publishes the unreleased Zudoku documentation from main
+# to specification/unreleased in the publication repository.
+
 name: Publish Zudoku docs to specification/unreleased
 
 on:
@@ -61,6 +64,8 @@ jobs:
           DEST="target/specification/unreleased"
           mkdir -p "$DEST"
           rsync -a --delete "dist/specification/unreleased/" "${DEST}/"
+          rsync -a --delete "${SOURCE_FOLDER}/" "target/${SITE_PATH}/source/"
+          rsync -a oeapi.json oeapi.yaml "target/${SITE_PATH}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)

@@ -1,3 +1,5 @@
+# This workflow lints the source specification with Redocly.
+
 name: Lint source specification
 
 on:
@@ -64,3 +66,4 @@ jobs:
       # - CI logic stays stable if the source layout changes
       - name: Lint OpenAPI specification
         run: npx @redocly/cli lint main
+        

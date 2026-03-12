@@ -1,3 +1,5 @@
+# This workflow lints the OpenAPI source specification used to build the OEAPI spec.
+
 name: Lint source specification
 
 on:
@@ -53,3 +55,4 @@ jobs:
       - name: Lint OpenAPI specification
         run: |
           openapi spec lint source/spec.yaml -c .openapi/lint.yaml
+          
