@@ -1,3 +1,5 @@
+# This workflow publishes a specification manually from a release/X.Y branch.
+
 name: Publish specification by hand from release branch
 
 on:
@@ -102,7 +104,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "target/$SITE_PATH"
-          rsync -a --delete "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
+          rsync -a "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)

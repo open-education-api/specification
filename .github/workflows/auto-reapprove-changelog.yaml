@@ -1,3 +1,6 @@
+# Automatically re-approve a PR when only CHANGELOG.md changed
+# after the last approval.
+
 name: Auto re-approve when only CHANGELOG changed
 
 on:

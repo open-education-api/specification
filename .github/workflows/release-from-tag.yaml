@@ -1,3 +1,6 @@
+# This workflow publishes an OEAPI specification when a version tag
+# (vX.Y or vX.Y-rcZ) is pushed.
+
 name: Publish specification on tag (vX.Y / vX.Y-rcZ)
 
 on:
