@@ -46,9 +46,11 @@ jobs:
             exit 1
           fi
 
-      # Install Vacuum using the official GitHub Action.
+      # Install Vacuum using Go.
       - name: Install Vacuum
-        uses: daveshanley/vacuum-action@v0
+        run: |
+          go install github.com/daveshanley/vacuum/cmd/vacuum@latest
+          echo "$HOME/go/bin" >> $GITHUB_PATH
 
       # Run Vacuum using the repository configuration and Spectral rules.
       - name: Lint OpenAPI specification
