@@ -49,7 +49,7 @@ jobs:
       # Install Vacuum using Go.
       - name: Install Vacuum
         run: |
-          go install github.com/daveshanley/vacuum/cmd/vacuum@latest
+          go install github.com/daveshanley/vacuum@latest
           echo "$HOME/go/bin" >> $GITHUB_PATH
 
       # Run Vacuum using the repository configuration and Spectral rules.
