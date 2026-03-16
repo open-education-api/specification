@@ -6,7 +6,7 @@ info:
     OpenAPI (fka Swagger) specification for the Open Education API. 
 
     The model provides an overview of the educational domain that is modelled and
-    forms the basis of the OOAPI. The overarching educational concept is not exposed
+    forms the basis of the OEAPI. The overarching educational concept is not exposed
     through API endpoints. Instead, the educational specification defines four base
     objects: programme, course, learning component, and test component, each with
     its own endpoint.
@@ -22,7 +22,7 @@ info:
     in the model represent groups and group memberships of a person.
     
   contact:
-    name: OOAPI Working Group / SURF
+    name: OEAPI Working Group / SURF
     url: https://openonderwijsapi.nl
     email: info@openonderwijsapi.nl   
 
@@ -211,7 +211,7 @@ tags:
       students based on these groups. For example, class 1b will be assigned to the
       course offering on Monday morning. Not all groups are related to an offering. A
       group of people can also be a team that is working on a task outside the 
-      scope of the OOAPI. These can be teams of students, but also teams of employees.
+      scope of the OEAPI. These can be teams of students, but also teams of employees.
 
   - name: learning component offering associations
     description: |
@@ -334,7 +334,7 @@ tags:
           <!--
           <td>
           This method is not yet implemented it requires full student details and
-          offering details. This would mean the OOAPI message would contain more than
+          offering details. This would mean the OEAPI message would contain more than
           one resource in the message. At the moment the student mobility project is
           looking into a solution.
           <br> Alternatively it could be achieved through using two calls:
@@ -412,7 +412,7 @@ tags:
 
   - name: service metadata
     description: |
-      The service API provides additional metadata needed to make the OOAPI fit for
+      The service API provides additional metadata needed to make the OEAPI fit for
       this organisation.
 
   - name: service_model

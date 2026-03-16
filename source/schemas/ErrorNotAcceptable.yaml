@@ -2,7 +2,7 @@ description: |
   Not Acceptable.
 
   Returned when the server cannot produce a representation in the
-  requested OOAPI or consumer version. The server may serve the
+  requested OEAPI or consumer version. The server may serve the
   requested version or any lower compatible minor version.
 
   If neither the requested version nor a lower minor version is
@@ -28,15 +28,15 @@ content:
       $ref: 'ProblemVersionNotAcceptable.yaml'
     examples:
       unsupportedOoapiVersion:
-        summary: "Requested OOAPI version is not supported"
+        summary: "Requested OEAPI version is not supported"
         description: |
-          Example where the client requests OOAPI version 5.0 and the server
+          Example where the client requests OEAPI version 5.0 and the server
           cannot serve that version or a lower compatible minor version.
         value:
           type: "https://api.example.org/problems/version-not-acceptable"
           title: "Version not acceptable"
           status: 406
-          detail: "The requested OOAPI version '5.0' cannot be served."
+          detail: "The requested OEAPI version '5.0' cannot be served."
           requestedVersion: "5.0"
           supportedVersions: ["6.1","6.0"]
           instance: "https://api.example.org/courses"
