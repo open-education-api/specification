@@ -46,16 +46,11 @@ jobs:
             exit 1
           fi
 
-      # Install Vacuum using Go.
+      # Install Vacuum using npm
       - name: Install Vacuum
-        run: |
-          go install github.com/daveshanley/vacuum@latest
-          echo "$HOME/go/bin" >> $GITHUB_PATH
+        run: npm install -g @quobix/vacuum
 
       # Run Vacuum using the repository configuration and Spectral rules.
       - name: Lint OpenAPI specification
         run: |
-          vacuum lint \
-            --config vacuum.conf.yaml \
-            --ruleset .spectral.yaml \
-            source/spec.yaml
+          vacuum lint source/spec.yaml
