@@ -19,6 +19,8 @@ specification.
 
 Runs OpenAPI validation and linting on the source specification.
 
+Workflow: [lint-source-openapi.yaml](../.github/workflows/lint-source-openapi.yaml)
+
 |               | Value                                                  |
 |---------------|--------------------------------------------------------|
 | Config        | `.openapi/lint.yaml`                                   |
@@ -29,6 +31,8 @@ Runs OpenAPI validation and linting on the source specification.
 
 Runs Redocly validation rules on the specification.
 
+Workflow: [lint-source-redocly.yml](../.github/workflows/lint-source-redocly.yml)
+
 |               | Value                                           |
 |---------------|-------------------------------------------------|
 | Config        | `redocly.yaml`                                  |
@@ -36,10 +40,12 @@ Runs Redocly validation rules on the specification.
 | Local install | `npm install -g @redocly/cli`                   |
 | Local command | `redocly lint source/spec.yaml`                 |
 
-### Lint Vacuum (planned)
+### Lint Vacuum (not active yet)
 
 Runs Vacuum validation rules on the specification. This check is currently not
 implemented as a workflow.
+
+Workflow: [lint-source-vacuum.yaml](../.github/workflows/lint-source-vacuum.yaml)
 
 |               | Value                                           |
 |---------------|-------------------------------------------------|
@@ -54,6 +60,8 @@ implemented as a workflow.
 
 Blocks pull requests that originate from `release/5.*` branches.
 
+Workflow: [block-prs-from-release-5.yaml](../.github/workflows/block-prs-from-release-5.yaml)
+
 **Purpose**  
 Prevents changes from legacy release branches being merged into supported
 branches.
@@ -65,6 +73,8 @@ branches.
 Automatically re-approves a pull request when the only change after an approval
 is an update to `CHANGELOG.md`.
 
+Workflow: [auto-reapprove-changelog.yaml](../.github/workflows/auto-reapprove-changelog.yaml)
+
 **Purpose**  
 Avoids unnecessary manual re-approval when the changelog is updated after a
 review.
@@ -72,6 +82,8 @@ review.
 ### Check changelog
 
 Checks whether `CHANGELOG.md` is updated in a pull request.
+
+Workflow: [check-changelog.yaml](../.github/workflows/check-changelog.yaml)
 
 **Purpose**  
 Ensures every functional change is recorded in the changelog.
@@ -89,6 +101,8 @@ changelog update.
 Builds and publishes a release when a version tag is created. If it does not
 exist, the workflow also creates the corresponding release branch.
 
+Workflow: [release-from-tag.yaml](../.github/workflows/release-from-tag.yaml)
+
 **Purpose**  
 Creates the official released version of the specification and publishes it to
 the documentation site and release artefacts.
@@ -96,6 +110,8 @@ the documentation site and release artefacts.
 ### Publish Zudoku specification by hand from a release branch
 
 Manually republishes Zudoku documentation from a release branch.
+
+Workflow: [republish_documentation.yaml](../.github/workflows/republish_documentation.yaml)
 
 **Purpose**  
 Allows controlled republishing when something needs to be rebuilt without
@@ -106,6 +122,8 @@ code.
 
 Publishes the documentation from `main` to the `unreleased` section of the
 documentation site.
+
+Workflow: [unreleased-docs.yaml](../.github/workflows/unreleased-docs.yaml)
 
 **Purpose**  
 Keeps the public preview documentation in sync with the current development

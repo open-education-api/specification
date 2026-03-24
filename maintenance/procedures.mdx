@@ -1,0 +1,111 @@
+# OEAPI Procedures
+
+This document describes the procedures used to maintain the Open Education API
+(OEAPI).
+
+## Change Procedure
+
+For the overall change management process, see
+[Change management](https://openonderwijsapi.nl/v6.0/contributing/specification/change-management.md).
+
+### Developer steps
+
+1. Identify the target version for the change.
+   - Use `main` if the change is intended for the next upcoming version.
+   - Use `release/X.Y` if the change is intended as a fix for an existing
+     published version.
+2. Create a working branch from the correct target branch.
+   - Branch from `main` for changes to the next upcoming version.
+   - Branch from `release/X.Y` for fixes to an existing published version.
+3. Implement the change in the working branch.
+4. Create a pull request to the correct target branch.
+   - Create a pull request to `main` if the branch was created from `main`.
+   - Create a pull request to `release/X.Y` if the branch was created from
+     `release/X.Y`.
+5. Complete the review process and address any review comments.
+6. Merge the pull request into the target branch.
+7. Changes on `main` are automatic published to `specification/unreleased`.
+   [Create and publish from main (unreleased)](./workflow.mdx#create-and-publish-from-main-unreleased)
+ 
+### Branching rules
+
+- Only the next upcoming version is developed on `main`.
+- More distant future versions are not developed in parallel.
+- Fixes for an already published version start from `release/X.Y`.
+- Changes for future development start from `main`.
+
+## Update Documentation (Release)
+
+This procedure describes how to update the documentation for an existing
+released version.
+
+### Steps
+
+1. Identify the target version for the change. Use `release/X.Y`.
+2. Create a working branch from `release/X.Y`.
+3. Implement the documentation change in the working branch.
+4. Create a pull request to `release/X.Y`.
+5. Complete the review process and address any review comments.
+6. Merge the pull request into `release/X.Y`.
+7. Manually trigger the publish workflow
+   [Publish Zudoku specification](./workflow.mdx#Publish-Zudoku-specification-by-hand-from-a-release-branch)
+ 
+## Release Procedure (new major/minor)
+
+1. Ensure all changes for the upcoming release are merged into `main`.
+2. Determine the new version number. If breaking, increment the major version;
+   if non-breaking, increment the minor version.
+3. Create a release candidate tag from `main` (e.g. `v6.1-rc.1`).
+4. Push the tag to GitHub.
+5. Verify that the website publication has been triggered as expected.
+ 
+Pushing a release candidate tag triggers the automated release workflow. See
+[Create and publish new release from tag](./workflow.mdx#create-and-publish-new-release-from-tag)
+for the workflow description.
+
+The workflow:
+- creates the corresponding release branch `release/X.Y`,
+  i.e. `release/6.1`, if it does not yet exist
+- creates the GitHub Release
+- builds the release artefacts
+- publishes the released version to the documentation site
+- creates a protected branch `release/X.Y`, i.e. `release/6.1`
+
+## Release Candidate Procedure
+
+1. Ensure all changes for the upcoming release candidate are merged into the
+   release branch `release/X.Y`, i.e. `release/6.1`.
+2. Create a new release candidate tag from `release/X.Y`
+   (e.g. `v6.1-rc.2`).
+3. Push the tag to GitHub.
+4. If changes must be propagated, create a pull request from `release/X.Y`
+   to the appropriate target branch (e.g. `main`, `release/X.(Y+1)` or
+   `release/(X+1).0`).
+5. Verify that the website publication has been triggered as expected.
+ 
+Pushing a release candidate tag triggers the automated release workflow. See
+[Create and publish new release from tag](./workflow.mdx#create-and-publish-new-release-from-tag)
+for the workflow description.
+
+The workflow:
+- creates the GitHub Release
+- builds the release artefacts
+- publishes the released version to the documentation site
+
+## Finalise Release
+
+1. Ensure that the release branch `release/X.Y`, i.e. `release/6.1`,
+   is final.
+2. Create the final version tag from `release/X.Y` (e.g. `v6.1`).
+3. Push the tag to GitHub.
+4. Verify that the website publication has been triggered as expected.
+ 
+Pushing the final version tag triggers the automated release workflow. See
+[Create and publish new release from tag](./workflow.mdx#create-and-publish-new-release-from-tag)
+for the workflow description.
+
+The workflow:
+- creates the GitHub Release
+- builds the release artefacts
+- publishes the released version to the documentation site
+
