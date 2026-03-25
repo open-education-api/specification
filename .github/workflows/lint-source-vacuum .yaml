@@ -46,14 +46,11 @@ jobs:
             exit 1
           fi
 
-      # Install Vacuum using the official GitHub Action.
+      # Install Vacuum using npm
       - name: Install Vacuum
-        uses: daveshanley/vacuum-action@v0
+        run: npm install -g @quobix/vacuum
 
       # Run Vacuum using the repository configuration and Spectral rules.
       - name: Lint OpenAPI specification
         run: |
-          vacuum lint \
-            --config vacuum.conf.yaml \
-            --ruleset .spectral.yaml \
-            source/spec.yaml
+          vacuum lint source/spec.yaml
