@@ -9,11 +9,19 @@ description: |
   available, a 406 response is returned to indicate that no acceptable
   representation can be produced.
 
-  This behaviour slightly deviates from strict HTTP semantics. Although
-  no HTTP Accept header is used, the server performs an internal
-  Accept-like version check after the HTTP layer, and returns 406 to
-  signal that the requested representation cannot be provided.
+  This behaviour slightly deviates from strict HTTP semantics. The client
+  requests exactly one OEAPI version and at most one consumer with one
+  consumer version using the HTTP Accept header. Standard HTTP content
+  negotiation is not applied. The server performs an internal Accept-like
+  version check after the HTTP layer.
 
+  If the request can be satisfied, the server returns a compatible
+  version. A compatible version is any version within the same major
+  version, with a higher or lower minor version.
+
+  If no compatible version can be provided, the server returns 406 to
+  signal that the requested representation cannot be provided.
+  
   This approach improves clarity, implementation consistency and
   debugging, because the requested and supported versions are explicit
   in both the request and the 406 response, avoiding ambiguity caused
@@ -48,9 +56,11 @@ content:
           available.
         value:
           type: "https://api.example.org/problems/version-not-acceptable"
-          title: "Consumer version not acceptable"
+          title: "Version not acceptable"
           status: 406
           detail: "The consumer version '2.0' is not supported."
+          consumer:
+            consumerKey: "mbo-oke-roster-service"
           requestedVersion: "2.0"
           supportedVersions: ["1.0","0.94"]
           instance: "https://api.example.org/enrolments"
