@@ -1,0 +1,39 @@
+*.md   linguist-language=Markdown
+*.md   linguist-detectable=true
+*.md   linguist-documentation=false
+
+*.mdx  linguist-language=MDX
+*.mdx  linguist-detectable=true
+*.mdx  linguist-documentation=false
+
+*.yaml linguist-language=YAML
+*.yaml linguist-detectable=true
+*.yaml linguist-documentation=false
+
+*.yml  linguist-language=YAML
+*.yml  linguist-detectable=true
+*.yml  linguist-documentation=false
+
+*.json linguist-language=JSON
+*.json linguist-detectable=true
+*.json linguist-documentation=false
+
+*.js   linguist-language=JavaScript
+*.js   linguist-detectable=true
+*.js   linguist-documentation=false
+
+*.mjs  linguist-language=JavaScript
+*.mjs  linguist-detectable=true
+*.mjs  linguist-documentation=false
+
+*.cjs  linguist-language=JavaScript
+*.cjs  linguist-detectable=true
+*.cjs  linguist-documentation=false
+
+*.ts   linguist-language=TypeScript
+*.ts   linguist-detectable=true
+*.ts   linguist-documentation=false
+
+*.sh   linguist-language=Shell
+*.sh   linguist-detectable=true
+*.sh   linguist-documentation=false
