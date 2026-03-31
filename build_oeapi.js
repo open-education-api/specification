@@ -28,4 +28,4 @@ run("node", ["preprocess_zudoku.js", json, zudokujson]);
 
 // build zudoku static website
 run("npm", ["i", "zudoku", "react", "react-dom"]);
-run("npx", ["zudoku", "build"], { ZUDOKU_BASEPATH: webpad });
+run("npx", ["zudoku", "build"], { ZUDOKU_PUBLIC_BASEPATH: webpad, NODE_OPTIONS: "--no-webstorage" });
