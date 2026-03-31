@@ -64,8 +64,8 @@ jobs:
           DEST="target/specification/unreleased"
           mkdir -p "$DEST"
           rsync -a --delete "dist/specification/unreleased/" "${DEST}/"
-          rsync -a --delete "${SOURCE_FOLDER}/" "target/${SITE_PATH}/source/"
-          rsync -a oeapi.json oeapi.yaml "target/${SITE_PATH}/"
+          rsync -a --delete "source/" "${DEST}/source/"
+          rsync -a oeapi.json oeapi.yaml "${DEST}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
