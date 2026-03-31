@@ -15,7 +15,7 @@
 *.yml  linguist-documentation=false
 
 *.json linguist-language=JSON
-*.json linguist-detectable=true
+*.json linguist-detectable=false
 *.json linguist-documentation=false
 
 *.js   linguist-language=JavaScript
