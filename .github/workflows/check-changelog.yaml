@@ -19,12 +19,12 @@ permissions:
 jobs:
   check-changelog:
     name: Check changelog update
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       # 1) Checkout the PR code so the workflow can read CHANGELOG.md (and compare changes).
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Full history is safest for tools that may inspect commits/diffs across merges.
           fetch-depth: 0

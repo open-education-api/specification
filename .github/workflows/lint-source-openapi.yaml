@@ -27,7 +27,7 @@ jobs:
       # fetch-depth: 0 avoids edge cases with PRs that include merge commits
       # or cherry-picks, even though this job is read-only.
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
