@@ -432,8 +432,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/AcademicSession"
-                          },
-                          "description": "A named period of time that can be used to communicate the various schedules and time periods an institution recognizes and uses to organise their education. AcademicSessions can be nested.\nOfferings MAY be linked to a specific AcademicSession to indicate that the specified Offering takes place during the AcademicSession, however this is not mandatory.\n"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -2349,8 +2348,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/Building"
-                          },
-                          "description": "An object describing a building and the properties of a building."
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -2638,8 +2636,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/Room"
-                          },
-                          "description": "An area within a building where education can take place"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -6478,8 +6475,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/LearningComponent"
-                          },
-                          "description": "A component is a part of a course"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -7230,8 +7226,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/TestComponent"
-                          },
-                          "description": "A component is a part of a course"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -8119,8 +8114,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/Membership"
-                          },
-                          "description": "A membership contains the information on a membership of a person for a specific group"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -9869,8 +9863,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/LearningComponent"
-                          },
-                          "description": "A component is a part of a course"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -11174,8 +11167,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/LearningOutcome"
-                          },
-                          "description": "statements regarding what a learner knows, understands and is able to do on completion of a learning process, which are defined in terms of knowledge, skills and responsibility and autonomy (https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017H0615(01)&from=EN)"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -11444,8 +11436,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/Organisation"
-                          },
-                          "description": "A description of a group of people working together to achieve a goal"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -13141,8 +13132,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/LearningComponent"
-                          },
-                          "description": "A component is a part of a course"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -14534,8 +14524,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/TestComponent"
-                          },
-                          "description": "A component is a part of a course"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -18689,8 +18678,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/Room"
-                          },
-                          "description": "An area within a building where education can take place"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -19470,8 +19458,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/TestComponentOfferingAssociationAttempt"
-                          },
-                          "description": "Planning and execution information on an attempt belong to a TestComponentOfferingAssociation. Result on the attempt\nis only relevant when a score or rawScore can be determined.\n"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -21225,8 +21212,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/TestComponent"
-                          },
-                          "description": "A component is a part of a course"
+                          }
                         },
                         "ext": {
                           "$ref": "#/components/schemas/Ext"
@@ -26860,8 +26846,7 @@
               "minItems": 1,
               "items": {
                 "$ref": "#/components/schemas/LanguageTypedString"
-              },
-              "description": "A String with an associated language code. IF this object is used both fields are mandatory."
+              }
             }
           },
           "required": [
@@ -28107,8 +28092,7 @@
             ],
             "items": {
               "$ref": "#/components/schemas/StudyLoadDescriptor"
-            },
-            "description": "The amount of effort to complete this education in the specified unit."
+            }
           },
           "qualificationAwarded": {
             "oneOf": [
@@ -28496,8 +28480,7 @@
             ],
             "items": {
               "$ref": "#/components/schemas/StudyLoadDescriptor"
-            },
-            "description": "The amount of effort to complete this education in the specified unit."
+            }
           },
           "modesOfDelivery": {
             "type": [

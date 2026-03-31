@@ -454,6 +454,9 @@ function addEnumDescriptionsToArrayLevel(spec) {
       .split('/')
       .reduce((obj, key) => (obj && typeof obj === 'object' ? obj[key] : null), spec);
   }
+  function isStringSchema(schema) {
+    return schema.type === 'string';
+  }
   function walk(node) {
     if (!node || typeof node !== 'object') return;
     if (
@@ -464,7 +467,7 @@ function addEnumDescriptionsToArrayLevel(spec) {
       typeof node.items.$ref === 'string'
     ) {
       const target = getRefTarget(node.items.$ref);
-      if (target && target.description) {
+      if (isStringSchema(target) && target.description) {
         node.description = target.description;
         count++;
       }
