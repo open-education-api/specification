@@ -21,7 +21,7 @@ jobs:
       #    This token must be used for ALL pushes (both this repo and the publication repo).
       - name: Create GitHub App installation token
         id: app-token
-        uses: actions/create-github-app-token@v2
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ vars.OOAPI_APP_PUBLISH_ID }}
           private-key: ${{ secrets.OOAPI_APP_PUBLISH_SECRET }}
@@ -33,14 +33,14 @@ jobs:
       # 1) Checkout this repository (the repo where the tag was created).
       #    - fetch-depth: 0 ensures full history + tags exist locally.
       - name: Checkout source repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
       
       # 2) Setup Node for running build_oeapi.js.
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "latest"
 
@@ -103,7 +103,7 @@ jobs:
       # 6) Checkout the publication repository into ./target
       #    so we can copy files into it and push changes.
       - name: Checkout publication repository (open-education-api.github.io)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: open-education-api/open-education-api.github.io
           token: ${{ steps.app-token.outputs.token }}

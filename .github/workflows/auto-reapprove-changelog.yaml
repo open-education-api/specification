@@ -21,7 +21,7 @@ jobs:
       # 1) Create a GitHub App installation token.
       - name: Create GitHub App installation token
         id: app-token
-        uses: actions/create-github-app-token@v2
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ vars.OOAPI_APP_PUBLISH_ID }}
           private-key: ${{ secrets.OOAPI_APP_PUBLISH_SECRET }}
@@ -32,7 +32,7 @@ jobs:
       # 2) Checkout the PR HEAD commit.
       #    Only git diff is executed; no PR code is run.
       - name: Checkout PR head
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.sha }}
