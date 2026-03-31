@@ -13,7 +13,7 @@ export default {
 
   docs: {
     home: "/index",
-    files: ["**/*.mdx"]
+    files: ["*.mdx"]
   },
   navigation: [
     { type: "link", to: "https://openonderwijsapi.nl", label: "Back" },
