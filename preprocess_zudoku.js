@@ -440,6 +440,47 @@ function markTagsWithOnlyInjected(spec) {
   return marked;
 }
 
+function addEnumDescriptionsToArrayLevel(spec) {
+  let count = 0;
+  function isArrayType(typeValue) {
+    if (typeValue === 'array') return true;
+    if (Array.isArray(typeValue)) return typeValue.includes('array');
+    return false;
+  }
+  function getRefTarget(ref) {
+    if (typeof ref !== 'string' || !ref.startsWith('#/')) return null;
+    return ref
+      .slice(2)
+      .split('/')
+      .reduce((obj, key) => (obj && typeof obj === 'object' ? obj[key] : null), spec);
+  }
+  function isStringSchema(schema) {
+    return schema.type === 'string';
+  }
+  function walk(node) {
+    if (!node || typeof node !== 'object') return;
+    if (
+      isArrayType(node.type) &&
+      !node.description &&
+      node.items &&
+      typeof node.items === 'object' &&
+      typeof node.items.$ref === 'string'
+    ) {
+      const target = getRefTarget(node.items.$ref);
+      if (isStringSchema(target) && target.description) {
+        node.description = target.description;
+        count++;
+      }
+    }
+    for (const value of Object.values(node)) {
+      if (Array.isArray(value)) value.forEach(walk);
+      else if (value && typeof value === 'object') walk(value);
+    }
+  }
+  walk(spec);
+  return count;
+}
+
 function preprocessForZudoku(inputFile, outputFile) {
   const spec = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
   spec.components = spec.components || {};
@@ -516,6 +557,10 @@ function preprocessForZudoku(inputFile, outputFile) {
 
   // Mark tags with only injected operations
   markTagsWithOnlyInjected(spec);
+
+  // Add descriptions from ../enumerations/* item refs to array level
+  const added = addEnumDescriptionsToArrayLevel(spec);
+  console.log(`✅ Added enum descriptions to array level: ${added}`);
 
   // Ensure OOAPI extensible enums are visible in Zudoku by materializing them as OpenAPI enums
   const replaced = renameOoapiEnum(spec);
