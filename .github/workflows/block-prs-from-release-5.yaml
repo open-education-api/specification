@@ -16,7 +16,7 @@ permissions:
 jobs:
   block-release-5:
     name: Block PRs from release/5.*
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       # Fail the workflow when the source branch starts with release/5.
