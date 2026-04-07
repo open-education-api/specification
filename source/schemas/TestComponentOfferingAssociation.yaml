@@ -33,11 +33,20 @@ allOf:
         description: The additional facilities or resources needed by a person to make the component accessible and usable.
         items:
           $ref: '../enumerations/personalNeed.yaml'
-      attempt:
+      initialAttemptOnAssociation:
         type:
           - integer
           - 'null'
-        description: The attempt this association is linked to.
+        description: |
+          Indicates the initial attempt within this association. 
+          The student's first attempt overall may have been consumed under a previous association.
+        example: 2
+      maximumNumberOfAttemptsOnAssociation:
+        type:
+          - integer
+          - 'null'
+        description: |
+          Indicates the maximum number of attempts allowed within this association.
         example: 2
       attendance:
         oneOf:
