@@ -33,9 +33,9 @@ rules:
   boolean-parameter-prefixes: off
   path-segment-plural: off
 
-  info-license: off
+#  info-license: off
   no-invalid-schema-examples: off
- # no-required-schema-properties-undefined: off
+#  no-required-schema-properties-undefined: off
 
 #  array-parameter-serialization: off
 #  request-mime-type: off

@@ -9,7 +9,6 @@ rules:
   no-unnecessary-combinator: false
   camel-case-properties: false
   path-item-refs: false
-  info-license: false
   oas-missing-type: false
   circular-references: false
   description-duplication: false
