@@ -92,7 +92,11 @@ patch:
   summary: PATCH /test-component-offering-association-attempts/{testComponentOfferingAssociationAttemptId}
   operationId: partialUpdateTestComponentOfferingAssociationAttemptById
   description: |
-    Update the actual presence and when available, the result of an attempt. 
+    This patch operation is used in a situation where one system is responsible for the test component offering association and another system is
+    acting on this association by planning test moments and enrolling people in those test moment. This patch operation allows the 
+    system responsible for the test moment execution to update the state of a person attending a test moment. Updates can be used to update presence, but also update 
+    the result/score achieved.
+    
     Implementation of the PATCH activity is based on use PATCH with JSON Merge Patch standard, 
     a specialized media type `application/merge-patch+json` for partial resource representation 
     to update parts of resource objects.
