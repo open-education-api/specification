@@ -38,15 +38,23 @@ allOf:
           - integer
           - 'null'
         description: |
-          Indicates the initial attempt within this association. 
-          The student's first attempt overall may have been consumed under a previous association.
+          Persons (students) often are allowed only a limited number of attempts on a specific test. These attempts can be handled in different ways by different institutions. 
+          Some scenarios are:
+            - All attempts are consumed on one association on only one offering.
+            - Each attempt is consumed on a different association on the same offering.
+            - Each attempt is consumed on a different association on a different offering.
+          Also combinations of these scenarios are possible, for example when a student is allowed to have 2 attempts on the same offering, 
+          Because a student can already have consumed attempts under previous associations and offerings, it is necessary to know the first attempt to be consumed within this association.
         example: 2
       maximumNumberOfAttemptsOnAssociation:
         type:
           - integer
           - 'null'
         description: |
-          Indicates the maximum number of attempts allowed within this association.
+          Depending on the scenario used for handling attempts. Three variants are possible here:
+            - Only one attempt is allowed on this association. The value of this property is 1.
+            - An unlimited number of attempts is allowed on this association. The value of this property is null.
+            - A limited number of attempts is allowed on this association. The value of this property is the maximum number of attempts allowed on this association.
         example: 2
       attendance:
         oneOf:
