@@ -44,6 +44,7 @@ allOf:
             - Each attempt is consumed on a different association on the same offering.
             - Each attempt is consumed on a different association on a different offering.
           Also combinations of these scenarios are possible, for example when a student is allowed to have 2 attempts on the same offering, 
+          in special situation the exam board allows a third attempt but only on a different offering.
           Because a student can already have consumed attempts under previous associations and offerings, it is necessary to know the first attempt to be consumed within this association.
         example: 2
       maximumNumberOfAttemptsOnAssociation:
