@@ -22,6 +22,15 @@ properties:
       - 'null'
     description: The score of this programme/course/component association (based on resultValueType in offering)
     example: '9'
+  resultvaluetype:
+    oneOf:
+      - $ref: '../enumerations/resultValueType.yaml'
+      - type: 'null'
+    description: |
+      The type of the result value (e.g. grade, percentage, pass/fail, etc.). 
+      The resultvaluetype of the score is usually based on the resultValueType defined in the offering. In situations where the score
+      is based on a different resultValueType than the one defined in the offering, this property can be used to provide the necessary 
+      context for interpreting the score.
   rawScore:
     type:
       - integer
