@@ -1,8 +1,6 @@
 extends: all
 
 rules:
-  - id: style-info-license
-    disabled: true
   - id: style-component-description
     disabled: true
   - id: oas3-example-missing
