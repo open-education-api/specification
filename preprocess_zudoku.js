@@ -481,6 +481,17 @@ function addEnumDescriptionsToArrayLevel(spec) {
   return count;
 }
 
+function sortComponentSchemas(spec) {
+  if (!spec.components?.schemas || typeof spec.components.schemas !== 'object') return 0;
+
+  const entries = Object.entries(spec.components.schemas);
+  spec.components.schemas = Object.fromEntries(
+    entries.sort(([a], [b]) => a.localeCompare(b))
+  );
+
+  return entries.length;
+}
+
 function preprocessForZudoku(inputFile, outputFile) {
   const spec = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
   spec.components = spec.components || {};
@@ -565,6 +576,10 @@ function preprocessForZudoku(inputFile, outputFile) {
   // Ensure OOAPI extensible enums are visible in Zudoku by materializing them as OpenAPI enums
   const replaced = renameOoapiEnum(spec);
   console.log(`✅ Replaced x-ooapi-extensible-enum -> enum: ${replaced}`);
+
+  // Sort component schemas alphabetically for Zudoku
+  const sortedSchemas = sortComponentSchemas(spec);
+  console.log(`✅ Sorted component schemas alphabetically: ${sortedSchemas}`);
 
   fs.writeFileSync(outputFile, JSON.stringify(spec, null, 2));
   console.log(`✅ Zudoku version created: ${outputFile}`);
