@@ -1,0 +1,5621 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "4.0",
+    "title": "Open Education API",
+    "description": "OpenAPI (fka Swagger) specification for the Open Education API.\n\n<figure>\n\t<a target=\"_blank\" href=\"OOAPI_model_v4.png\">\n  <img src=\"OOAPI_model_v4.png\" alt=\"OOAPI information model that feeds OOAPI specification\" width=\"70%\" class=\"img-responsive\">\n  </a>\n  <figcaption> OOAPI information model that feeds OOAPI specification (click to enlage)</figcaption>\n</figure>\n\nThe model provides an overview of how the objects on which the API is specified are related. The overarching concept educations is not found in the in the end points of the API. The smaller concepts of programOffering, courseOffering and conceptOffering are all found in the offering endpoint. The different types of association can all be found in the association endpoint.\n\nThe program relations object is not found as a separate endpoint but relations between programs can be found within the program endpoint by expanding that endpoint.\n\nInformation about earlier meetings and presentations can be found <a target=\"_blank\" href=\"https://github.com/open-education-api/notulen\">here</a>\n\nInformation on the EDU-API model that was also used for this api is shown <a target=\"_blank\" href=\"eduapi.png\">here</a>\n",
+    "x-logo": {
+      "url": "../logo.png"
+    }
+  },
+  "tags": [
+    {
+      "name": "service metadata",
+      "description": "The service API provides additional metadata needed to make the OOAPI fit for this organization."
+    },
+    {
+      "name": "academic sessions",
+      "description": "The academic sessions API provides information about the different time periods a program can be offered."
+    },
+    {
+      "name": "associations",
+      "description": "The associations API provides information about the association between an offering and a person (e.g. students, lecturers, etc)."
+    },
+    {
+      "name": "buildings",
+      "description": "The building API provides a building that is currently used by the organization. Including all location details."
+    },
+    {
+      "name": "courses",
+      "description": "The courses API provides a self-contained and formally structured learning experience. Aimed at providing learning outcomes to students. Usually placed in the context of a program."
+    },
+    {
+      "name": "components",
+      "description": "The components API provides information about components being part of parent courses."
+    },
+    {
+      "name": "news",
+      "description": "The news API provides news feeds and items regarding a specific subject."
+    },
+    {
+      "name": "offerings",
+      "description": "The offerings API provides information about offerings which have a global timeframe, e.g. a period to which students can enroll."
+    },
+    {
+      "name": "organizations",
+      "description": "The organizations API provides the organizations that are responsible for the execution and recognition of education."
+    },
+    {
+      "name": "persons",
+      "description": "The persons API provides information about persons related to an organization."
+    },
+    {
+      "name": "programs",
+      "description": "The programs API provides a coherent set of educational components, aimed at the realization of competences or objectives in the field of knowledge, insight, attitudes and skills that the person who completes the program must have."
+    },
+    {
+      "name": "rooms",
+      "description": "The rooms API provides the part of a building where an activity can take place. Including detail information on the resources available, number of seats, etc. (Updated continuously)"
+    },
+    {
+      "name": "about identifiers",
+      "description": "All identifiers should be globally unique for the scope of an institute. This should be guaranteed automatically, when using UUID's as prescribed by this specification.\n"
+    },
+    {
+      "name": "query information (use of q)",
+      "description": "Endpoints can be searched using the q parameter. This parameter acts as a filter for the endpoint it filters items having a:\n* name,\n* abbreviation or\n* description\n\nor for persons:\n* givenName\n* surNamePrefix\n* surname\n* displayName\n* initials\n* mail\n* secondaryMail\n\ncontaining the given search term (exact partial match, case insensitive)\n\n# Examples\n<pre lang=\"json\"><code class=\"json\">\nGET /programs?q=stud\n\nResult:\n{\n  \"programId\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"type\": \"alliance\",\n  <strong>\"name\": \"Student Mobility\",\n  \"abbreviation\": \"studM\",\n  \"description\": \"program that is a place holder for all courses that are made available for student mobility\",</strong>\n  \"ects\": 5,\n  \"qualificationAwarded\": \"None\",\n  \"lengthOfProgram\": 6,\n  \"levelOfQualification\": 6,\n  \"sector\": \"university education\",\n  \"fieldsOfStudy\": \"0732\",\n  \"crohoCreboCode\": \"59312\",\n  \"profileOfProgram\": \"the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program\",\n  \"learningOutcomes\": [\n  \"string\"\n  ],\n  \"admissionRequirements\": \"Students need to be enrolled at qualifying institutions of higher education that participate in this alliance\",\n  \"qualificationRequirements\": \"None\",\n  \"link\": \"https://bijvak.nl\",\n  \"ext\": { }\n}\n</code></pre>\n"
+    },
+    {
+      "name": "expand information",
+      "description": "Most endpoints also provide additional information which is not provided by default. To obtain this information we use an expand mechanism\n\n# Endpoints which are expandable\n* academic-session\n* association\n* component\n* component-offering\n* course\n* course-offering\n* organization\n* program\n* program-offering\n* room\n\n# Examples\nFirst expand the program only to show additional parent information:\n```\nGET /programs/{programId}?expand=parent\n\nResult:\n{\n\"programId\": \"123e4567-e89b-12d3-a456-426614174000\",\n\"type\": \"alliance\",\n\"name\": \"Student Mobility\",\n\"abbreviation\": \"studM\",\n\"description\": \"program that is a place holder for all courses that are made available for student mobility\",\n\"ects\": 5,\n\"qualificationAwarded\": \"None\",\n\"lengthOfProgram\": 6,\n\"levelOfQualification\": 6,\n\"sector\": \"university education\",\n\"fieldsOfStudy\": \"0732\",\n\"crohoCreboCode\": \"59312\",\n\"profileOfProgram\": \"the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program\",\n\"learningOutcomes\": [\n\"string\"\n],\n\"admissionRequirements\": \"Students need to be enrolled at qualifying institutions of higher education that participate in this alliance\",\n\"qualificationRequirements\": \"None\",\n\"link\": \"https://bijvak.nl\",\n\"ext\": { },\n\"parent\": {\n  \"programId\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"type\": \"alliance\",\n  \"name\": \"Student Mobility\",\n  \"abbreviation\": \"studM\",\n  \"description\": \"program that is a place holder for all courses that are made available for student mobility\",\n  \"ects\": 5,\n  \"qualificationAwarded\": \"None\",\n  \"lengthOfProgram\": 6,\n  \"levelOfQualification\": 6,\n  \"sector\": \"university education\",\n  \"fieldsOfStudy\": \"0732\",\n  \"crohoCreboCode\": \"59312\",\n  \"profileOfProgram\": \"the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program\",\n  \"learningOutcomes\": [\n  \"string\"\n  ],\n  \"admissionRequirements\": \"Students need to be enrolled at qualifying institutions of higher education that participate in this alliance\",\n  \"qualificationRequirements\": \"None\",\n  \"link\": \"https://bijvak.nl\",\n  \"ext\": { }\n}\n}\n```\n\nWhen additional information is needed on a program the program information can be expanded further by including additional parameters in an array style. If no values are provided for expand there will be no additional information provided. An empty expand parameter will be handled in the same manner as the normal GET function to the API.\n\n\n```\nGET /programs/{programId}?expand=parent,children,organization\n\nResult:\n{\n\"programId\": \"123e4567-e89b-12d3-a456-426614174000\",\n\"type\": \"alliance\",\n\"name\": \"Student Mobility\",\n\"abbreviation\": \"studM\",\n\"description\": \"program that is a place holder for all courses that are made available for student mobility\",\n\"ects\": 5,\n\"qualificationAwarded\": \"None\",\n\"lengthOfProgram\": 6,\n\"levelOfQualification\": 6,\n\"sector\": \"university education\",\n\"fieldsOfStudy\": \"0732\",\n\"crohoCreboCode\": \"59312\",\n\"profileOfProgram\": \"the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program\",\n\"learningOutcomes\": [\n\"string\"\n],\n\"admissionRequirements\": \"Students need to be enrolled at qualifying institutions of higher education that participate in this alliance\",\n\"qualificationRequirements\": \"None\",\n\"link\": \"https://bijvak.nl\",\n\"ext\": { },\n\"parent\": {\n  \"programId\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"type\": \"alliance\",\n  \"name\": \"Student Mobility\",\n  \"abbreviation\": \"studM\",\n  \"description\": \"program that is a place holder for all courses that are made available for student mobility\",\n  \"ects\": 5,\n  \"qualificationAwarded\": \"None\",\n  \"lengthOfProgram\": 6,\n  \"levelOfQualification\": 6,\n  \"sector\": \"university education\",\n  \"fieldsOfStudy\": \"0732\",\n  \"crohoCreboCode\": \"59312\",\n  \"profileOfProgram\": \"the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program\",\n  \"learningOutcomes\": [\n  \"string\"\n  ],\n  \"admissionRequirements\": \"Students need to be enrolled at qualifying institutions of higher education that participate in this alliance\",\n  \"qualificationRequirements\": \"None\",\n  \"link\": \"https://bijvak.nl\",\n  \"ext\": { }\n},\n\"children\": [\n  {\n  \"programId\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"type\": \"alliance\",\n  \"name\": \"Student Mobility\",\n  \"abbreviation\": \"studM\",\n  \"description\": \"program that is a place holder for all courses that are made available for student mobility\",\n  \"ects\": 5,\n  \"qualificationAwarded\": \"None\",\n  \"lengthOfProgram\": 6,\n  \"levelOfQualification\": 6,\n  \"sector\": \"university education\",\n  \"fieldsOfStudy\": \"0732\",\n  \"crohoCreboCode\": \"59312\",\n  \"profileOfProgram\": \"the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program\",\n  \"learningOutcomes\": [\n  \"string\"\n  ],\n  \"admissionRequirements\": \"Students need to be enrolled at qualifying institutions of higher education that participate in this alliance\",\n  \"qualificationRequirements\": \"None\",\n  \"link\": \"https://bijvak.nl\",\n  \"ext\": { }\n  }\n],\n\"organization\": {\n  \"organizationId\": \"123e4567-e89b-12d3-a456-123514174000\",\n  \"name\": \"Coöperatie SURF U.A.\",\n  \"shortName\": \"SURF\",\n  \"description\": \"SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF.\",\n  \"type\": \"root\",\n  \"addresses\": [\n  {\n  \"type\": \"postal\",\n  \"street\": \"Moreelsepark\",\n  \"streetNumber\": \"48\",\n  \"additional\": \"On the other side of the road\",\n  \"postalCode\": \"3511 EP\",\n  \"city\": \"Utrecht\",\n  \"countryCode\": \"NL\",\n  \"geolocation\": {\n  \"latitude\": 52.089123,\n  \"longitude\": 5.113337\n  },\n  \"ext\": { }\n  }\n  ],\n  \"link\": \"https://surf.nl\",\n  \"logo\": \"https://www.surf.nl/themes/surf/logo.svg\",\n  \"brin\": \"00AA\",\n  \"ext\": { }\n}\n}\n```\n"
+    },
+    {
+      "name": "sorting information",
+      "description": "Most endpoints provide sorting. To sort you can sort on the elements that are specified per endpoint. All elements can be sorted ascending by default o descending,\nby adding \"-\" in front of the element to be sorted. The sorting takes place based on comma separated values. e.g.:\n\n```\nGET /programs?sort=programId\n```\nprovides a list of all programs sorted ascending based on programId\n```\nGET /programs?sort=name,-ects\n```\nprovides a list of all programs first sorted on name ascending and ects descending\n"
+    },
+    {
+      "name": "extension information",
+      "description": "Most endpoints can be extended. This can be done by providing the extended information in the designated \"ext\" area of the endpoint. All users of the OOAPI are encouraged to feed their extensions back to the OOAPI working group so this information can be used as feedback for future versions of the OOAPI.\n"
+    },
+    {
+      "name": "Error responses",
+      "description": "Error responses are formatted in the `problem+json` media type ([RFC7807](https://tools.ietf.org/html/rfc7807)):\n```\n{\n  \"status\": 404,\n  \"title\": \"A short, human-readable summary of the problem type, e.g. 'resource not found'.\"\n  \"detail\": \"An optional human-readable explanation specific to this occurrence of the problem.\"\n}\n```\n"
+    },
+    {
+      "name": "Multi-lingual support",
+      "description": "The OOAPI specifcation relies on the HTTP content negotiation mechanism to specify how a client can request information in a specific (natural) language, and how a server should respond to that request. In short: a client adds an `Accept-Language` header to their request, which the server uses to determine in what language the requested content should be returned. More information about this mechanism can be found at [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language).\n"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          }
+        ],
+        "summary": "GET /",
+        "description": "Get metadata for the service.",
+        "tags": [
+          "service metadata"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Service"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons": {
+      "get": {
+        "summary": "GET /persons",
+        "description": "Get an ordered list of all persons.",
+        "tags": [
+          "persons"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/personSearch"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "affiliations",
+            "in": "query",
+            "description": "Filter by affiliations",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/personAffiliations"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "personId",
+                  "givenName",
+                  "surName",
+                  "displayName",
+                  "-personId",
+                  "-givenName",
+                  "-surName",
+                  "-displayName"
+                ]
+              },
+              "default": "personId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Person"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons/me": {
+      "get": {
+        "summary": "GET /persons/me",
+        "description": "Returns the person object for the currently authenticated user.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "persons"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons/{personId}": {
+      "get": {
+        "summary": "GET /persons/{personId}",
+        "description": "Get a single person.",
+        "tags": [
+          "persons"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "personId",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons/{personId}/associations": {
+      "get": {
+        "summary": "GET /persons/{personId}/associations",
+        "description": "Get a list of all associations for an individual person.",
+        "tags": [
+          "persons"
+        ],
+        "parameters": [
+          {
+            "name": "personId",
+            "in": "path",
+            "description": "Person ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by association type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "programOffering",
+                "courseOffering",
+                "componentOffering"
+              ]
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "Filter by role",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/associationRole"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Filter by state",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/associationState"
+            }
+          },
+          {
+            "name": "result-state",
+            "in": "query",
+            "description": "Filter by result state",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/resultState"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "associationId",
+                  "-associationId"
+                ]
+              },
+              "default": "associationId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "allOf": [
+                              {
+                                "$ref": "#/components/schemas/ProgramOfferingAssociation"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "offering"
+                                ],
+                                "properties": {
+                                  "offering": {
+                                    "$ref": "#/components/schemas/ProgramOffering"
+                                  },
+                                  "academicSession": {
+                                    "$ref": "#/components/schemas/AcademicSession"
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "allOf": [
+                              {
+                                "$ref": "#/components/schemas/CourseOfferingAssociation"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "offering"
+                                ],
+                                "properties": {
+                                  "offering": {
+                                    "$ref": "#/components/schemas/CourseOffering"
+                                  },
+                                  "academicSession": {
+                                    "$ref": "#/components/schemas/AcademicSession"
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "allOf": [
+                              {
+                                "$ref": "#/components/schemas/ComponentOfferingAssociation"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "offering"
+                                ],
+                                "properties": {
+                                  "offering": {
+                                    "$ref": "#/components/schemas/ComponentOffering"
+                                  },
+                                  "academicSession": {
+                                    "$ref": "#/components/schemas/AcademicSession"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations": {
+      "get": {
+        "summary": "GET /organizations",
+        "description": "Get an ordered list of all organizations, ordered by name.",
+        "tags": [
+          "organizations"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by organization type",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/organizationType"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "organizationId",
+                  "name",
+                  "-organizationId",
+                  "-name"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Organization"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}": {
+      "get": {
+        "summary": "GET /organizations/{organizationId}",
+        "description": "Get a single organization.",
+        "tags": [
+          "organizations"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "Organization ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Optional properties to include, separated by a comma",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "parent",
+                  "children"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationExpanded"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/programs": {
+      "get": {
+        "summary": "GET /organizations/{organizationId}/programs",
+        "description": "Get an ordered list of all programs for a given organization, ordered by name.",
+        "tags": [
+          "organizations"
+        ],
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "Organization ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by program type",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/programType"
+            }
+          },
+          {
+            "name": "qualificationAwarded",
+            "in": "query",
+            "description": "Filter by qualificationAwarded",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/qualificationAwarded"
+            }
+          },
+          {
+            "name": "levelOfQualification",
+            "in": "query",
+            "description": "Filter by levelOfQualification",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/levelOfQualification"
+            }
+          },
+          {
+            "name": "sector",
+            "in": "query",
+            "description": "Filter by sector",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/sector"
+            }
+          },
+          {
+            "name": "fieldsOfStudy",
+            "in": "query",
+            "description": "Filter by fieldsOfStudy",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "croho-creboCode",
+            "in": "query",
+            "description": "Filter by croho-creboCode",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "programId",
+                  "name",
+                  "ects",
+                  "-programId",
+                  "-name",
+                  "-ects"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Program"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/courses": {
+      "get": {
+        "summary": "GET /organizations/{organizationId}/courses",
+        "description": "Get an ordered list of all courses for a given organization, ordered by name.",
+        "tags": [
+          "organizations"
+        ],
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "Organization ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "description": "Filter by level",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/level"
+            }
+          },
+          {
+            "name": "modeOfDelivery",
+            "in": "query",
+            "description": "Filter by modeOfDelivery",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/modesOfDelivery"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "courseId",
+                  "name",
+                  "ects",
+                  "-courseId",
+                  "-name",
+                  "-ects"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Course"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/components": {
+      "get": {
+        "summary": "GET /organizations/{organizationId}/components",
+        "description": "Get an ordered list of all components for a given organization, ordered by name.",
+        "tags": [
+          "organizations"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "Organization ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by component type",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/componentType"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "componentId",
+                  "name",
+                  "-componentId",
+                  "-name"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Component"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/organizations/{organizationId}/offerings": {
+      "get": {
+        "summary": "GET /organizations/{organizationId}/offerings",
+        "description": "Get a list of all offerings for a given organization",
+        "tags": [
+          "organizations"
+        ],
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "Organization ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by offering type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "program",
+                "course",
+                "component"
+              ]
+            }
+          },
+          {
+            "name": "mainLanguage",
+            "in": "query",
+            "description": "Filter by mainLanguage",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-nl",
+                "en-gb"
+              ]
+            }
+          },
+          {
+            "name": "isLineItem",
+            "in": "query",
+            "description": "Filter by isLineItem",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "description": "Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "offeringId",
+                  "name",
+                  "startDate",
+                  "endDate",
+                  "-offeringId",
+                  "-name",
+                  "-startDate",
+                  "-endDate"
+                ]
+              },
+              "default": "startDate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/components/schemas/ProgramOffering"
+                          },
+                          {
+                            "$ref": "#/components/schemas/CourseOffering"
+                          },
+                          {
+                            "$ref": "#/components/schemas/ComponentOffering"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/academic-sessions": {
+      "get": {
+        "summary": "GET /academic-sessions",
+        "description": "Get a list of all academic sessions, ordered chronologically.",
+        "tags": [
+          "academic sessions"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "parent",
+            "in": "query",
+            "description": "Filter by parent (academicSessionId), may be empty to retrieve all years (which have no parent)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "Filter by year (academicSessionId)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "academicSessionId",
+                  "name",
+                  "startDate",
+                  "-academicSessionId",
+                  "-name",
+                  "-startDate"
+                ]
+              },
+              "default": "startDate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/AcademicSession"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/academic-sessions/{academicSessionId}": {
+      "get": {
+        "summary": "GET /academic-sessions/{academicSessionId}",
+        "description": "Get a single academic session.",
+        "tags": [
+          "academic sessions"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "academicSessionId",
+            "in": "path",
+            "description": "Academic session ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Optional properties to include, separated by a comma",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "parent",
+                  "year"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcademicSessionExpanded"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/academic-sessions/{academicSessionId}/offerings": {
+      "get": {
+        "summary": "GET /academic-sessions/{academicSessionId}/offerings",
+        "description": "Get a list of all offerings during this academic session",
+        "tags": [
+          "academic sessions"
+        ],
+        "parameters": [
+          {
+            "name": "academicSessionId",
+            "in": "path",
+            "description": "Academic session ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by offering type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "program",
+                "course",
+                "component"
+              ]
+            }
+          },
+          {
+            "name": "mainLanguage",
+            "in": "query",
+            "description": "Filter by mainLanguage",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-nl",
+                "en-gb"
+              ]
+            }
+          },
+          {
+            "name": "isLineItem",
+            "in": "query",
+            "description": "Filter by isLineItem",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "description": "Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "offeringId",
+                  "name",
+                  "startDate",
+                  "endDate",
+                  "-offeringId",
+                  "-name",
+                  "-startDate",
+                  "-endDate"
+                ]
+              },
+              "default": "startDate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/components/schemas/ProgramOffering"
+                          },
+                          {
+                            "$ref": "#/components/schemas/CourseOffering"
+                          },
+                          {
+                            "$ref": "#/components/schemas/ComponentOffering"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programs": {
+      "get": {
+        "summary": "GET /programs",
+        "description": "Get an ordered list of all programs, ordered by name.",
+        "tags": [
+          "programs"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by program type",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/programType"
+            }
+          },
+          {
+            "name": "qualificationAwarded",
+            "in": "query",
+            "description": "Filter by qualificationAwarded",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/qualificationAwarded"
+            }
+          },
+          {
+            "name": "levelOfQualification",
+            "in": "query",
+            "description": "Filter by levelOfQualification",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/levelOfQualification"
+            }
+          },
+          {
+            "name": "sector",
+            "in": "query",
+            "description": "Filter by sector",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/sector"
+            }
+          },
+          {
+            "name": "fieldsOfStudy",
+            "in": "query",
+            "description": "Filter by fieldsOfStudy",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "crohoCreboCode",
+            "in": "query",
+            "description": "Filter by crohoCreboCode",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "programId",
+                  "name",
+                  "ects",
+                  "-programId",
+                  "-name",
+                  "-ects"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Program"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programs/{programId}": {
+      "get": {
+        "summary": "GET /programs/{programId}",
+        "description": "Get a single program.",
+        "tags": [
+          "programs"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "programId",
+            "in": "path",
+            "description": "Program ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Optional properties to include, separated by a comma",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "parent",
+                  "children",
+                  "organization"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgramExpanded"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programs/{programId}/courses": {
+      "get": {
+        "summary": "GET /programs/{programId}/courses",
+        "description": "Get an ordered list of all courses given through this program.",
+        "tags": [
+          "programs"
+        ],
+        "parameters": [
+          {
+            "name": "programId",
+            "in": "path",
+            "description": "Program ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "description": "Filter by level",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/level"
+            }
+          },
+          {
+            "name": "modeOfDelivery",
+            "in": "query",
+            "description": "Filter by modeOfDelivery",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/modesOfDelivery"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "courseId",
+                  "name",
+                  "ects",
+                  "-courseId",
+                  "-name",
+                  "-ects"
+                ]
+              },
+              "default": "courseId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Course"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/programs/{programId}/offerings": {
+      "get": {
+        "summary": "GET /programs/{programId}/offerings",
+        "description": "Get a list of all offerings for this program, ordered chronologically.",
+        "tags": [
+          "programs"
+        ],
+        "parameters": [
+          {
+            "name": "programId",
+            "in": "path",
+            "description": "Program ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "mainLanguage",
+            "in": "query",
+            "description": "Filter by mainLanguage",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-nl",
+                "en-gb"
+              ]
+            }
+          },
+          {
+            "name": "modeOfStudy",
+            "in": "query",
+            "description": "Filter by modeOfStudy",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/modeOfStudy"
+            }
+          },
+          {
+            "name": "isLineItem",
+            "in": "query",
+            "description": "Filter by isLineItem",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "description": "Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "offeringId",
+                  "name",
+                  "startDate",
+                  "endDate",
+                  "-offeringId",
+                  "-name",
+                  "-startDate",
+                  "-endDate"
+                ]
+              },
+              "default": "startDate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ProgramOffering"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/courses": {
+      "get": {
+        "summary": "GET /courses",
+        "description": "Get a list of all courses, ordered by name (ascending).",
+        "tags": [
+          "courses"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "description": "Filter by level",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/level"
+            }
+          },
+          {
+            "name": "modeOfDelivery",
+            "in": "query",
+            "description": "Filter by modeOfDelivery",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/modesOfDelivery"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "courseId",
+                  "name",
+                  "ects",
+                  "-courseId",
+                  "-name",
+                  "-ects"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Course"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/courses/{courseId}": {
+      "get": {
+        "summary": "GET /courses/{courseId}",
+        "description": "Get a single course.",
+        "tags": [
+          "courses"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Optional properties to include, separated by a comma",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "programs",
+                  "coordinator",
+                  "organization"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseExpanded"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/courses/{courseId}/components": {
+      "get": {
+        "summary": "GET /courses/{courseId}/components",
+        "description": "Get an ordered list of all course components.",
+        "tags": [
+          "courses"
+        ],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by component type",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/componentType"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "componentId",
+                  "name",
+                  "-componentId",
+                  "-name"
+                ]
+              },
+              "default": "componentId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Component"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/courses/{courseId}/offerings": {
+      "get": {
+        "summary": "GET /courses/{courseId}/offerings",
+        "description": "Get a list of all offerings for this course, ordered chronologically.",
+        "tags": [
+          "courses"
+        ],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "mainLanguage",
+            "in": "query",
+            "description": "Filter by mainLanguage",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-nl",
+                "en-gb"
+              ]
+            }
+          },
+          {
+            "name": "modeOfStudy",
+            "in": "query",
+            "description": "Filter by modeOfStudy",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/modeOfStudy"
+            }
+          },
+          {
+            "name": "isLineItem",
+            "in": "query",
+            "description": "Filter by isLineItem",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "description": "Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "offeringId",
+                  "name",
+                  "startDate",
+                  "endDate",
+                  "-offeringId",
+                  "-name",
+                  "-startDate",
+                  "-endDate"
+                ]
+              },
+              "default": "startDate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CourseOffering"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/components/{componentId}": {
+      "get": {
+        "summary": "GET /components/{componentId}",
+        "description": "Get a single component.",
+        "tags": [
+          "components"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "componentId",
+            "in": "path",
+            "description": "component ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Optional properties to include, separated by a comma",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "course",
+                  "organization"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentExpanded"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/components/{componentId}/offerings": {
+      "get": {
+        "summary": "GET /components/{componentId}/offerings",
+        "description": "Get a list of all offerings for this component, ordered chronologically.",
+        "tags": [
+          "components"
+        ],
+        "parameters": [
+          {
+            "name": "componentId",
+            "in": "path",
+            "description": "Component ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "mainLanguage",
+            "in": "query",
+            "description": "Filter by mainLanguage",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "nl-nl",
+                "en-gb"
+              ]
+            }
+          },
+          {
+            "name": "isLineItem",
+            "in": "query",
+            "description": "Filter by isLineItem",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Filter all offerings by providing a minimum start date for the corresponding academic session, RFC3339 (full-date). By default only future offerings are shown (equal to `?since=<today>`).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "description": "Filter all offerings by providing a maximum end date for the corresponding academic session, RFC3339 (full-date).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "offeringId",
+                  "name",
+                  "startDateTime",
+                  "endDateTime",
+                  "-offeringId",
+                  "-name",
+                  "-startDateTime",
+                  "-endDateTime"
+                ]
+              },
+              "default": "startDateTime"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ComponentOffering"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/offerings/{offeringId}": {
+      "get": {
+        "summary": "GET /offerings/{offeringId}",
+        "description": "Get a single offering.",
+        "tags": [
+          "offerings"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "offeringId",
+            "in": "path",
+            "description": "Offering ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Optional properties to include, separated by a comma",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "program",
+                  "programOffering",
+                  "course",
+                  "courseOffering",
+                  "component",
+                  "organization",
+                  "academicSession"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ProgramOfferingExpanded"
+                    },
+                    {
+                      "$ref": "#/components/schemas/CourseOfferingExpanded"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ComponentOfferingExpanded"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/offerings/{offeringId}/associations": {
+      "get": {
+        "summary": "GET /offerings/{offeringId}/associations",
+        "description": "Get a list of all offering associations.",
+        "tags": [
+          "offerings"
+        ],
+        "parameters": [
+          {
+            "name": "offeringId",
+            "in": "path",
+            "description": "Offering ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by association type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "programOffering",
+                "courseOffering",
+                "componentOffering"
+              ]
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "Filter by role",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/associationRole"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Filter by state",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/associationState"
+            }
+          },
+          {
+            "name": "result-state",
+            "in": "query",
+            "description": "Filter by result state",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/resultState"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "associationId",
+                  "-associationId"
+                ]
+              },
+              "default": [
+                "associationId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "oneOf": [
+                              {
+                                "$ref": "#/components/schemas/ProgramOfferingAssociation"
+                              },
+                              {
+                                "$ref": "#/components/schemas/CourseOfferingAssociation"
+                              },
+                              {
+                                "$ref": "#/components/schemas/ComponentOfferingAssociation"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "person"
+                            ],
+                            "properties": {
+                              "person": {
+                                "$ref": "#/components/schemas/Person"
+                              },
+                              "academicSession": {
+                                "$ref": "#/components/schemas/AcademicSession"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/associations/{associationId}": {
+      "get": {
+        "summary": "GET /associations/{associationId}",
+        "description": "Get a single association.",
+        "tags": [
+          "associations"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "associationId",
+            "in": "path",
+            "description": "Association ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Optional properties to include, separated by a comma",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "person",
+                  "offering"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssociationExpanded"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/buildings": {
+      "get": {
+        "summary": "GET /buildings",
+        "description": "Get a list of all buildings, ordered by name (ascending).",
+        "tags": [
+          "buildings"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "buildingId",
+                  "name",
+                  "-buildingId",
+                  "-name"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Building"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/buildings/{buildingId}": {
+      "get": {
+        "summary": "GET /buildings/{buildingId}",
+        "description": "Get a single building.",
+        "tags": [
+          "buildings"
+        ],
+        "parameters": [
+          {
+            "name": "buildingId",
+            "in": "path",
+            "description": "Building ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Building"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/buildings/{buildingId}/rooms": {
+      "get": {
+        "summary": "GET /buildings/{buildingId}/rooms",
+        "description": "Get a list of all rooms in a building.",
+        "tags": [
+          "buildings"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by room type",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/roomType"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "roomId",
+                  "name",
+                  "totalSeats",
+                  "availableSeats",
+                  "-roomId",
+                  "-name",
+                  "-totalSeats",
+                  "-availableSeats"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Room"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rooms": {
+      "get": {
+        "summary": "GET /rooms",
+        "description": "Get a list of all rooms, ordered by name (ascending).",
+        "tags": [
+          "rooms"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by room type",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/roomType"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "roomId",
+                  "name",
+                  "totalSeats",
+                  "availableSeats",
+                  "-roomId",
+                  "-name",
+                  "-totalSeats",
+                  "-availableSeats"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Room"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rooms/{roomId}": {
+      "get": {
+        "summary": "GET /rooms/{roomId}",
+        "description": "Get a single room.",
+        "tags": [
+          "rooms"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "roomId",
+            "in": "path",
+            "description": "Room ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Optional properties to include, separated by a comma",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "building"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoomExpanded"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news-feeds": {
+      "get": {
+        "summary": "GET /news-feeds",
+        "description": "Get a list of all news feeds, ordered by title.",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by news type",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "organization",
+                "program",
+                "course",
+                "component",
+                "person",
+                "building",
+                "room"
+              ]
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "newsFeedId",
+                  "name",
+                  "-newsFeedId",
+                  "-name"
+                ]
+              },
+              "default": "name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/NewsFeed"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news-feeds/{newsFeedId}": {
+      "get": {
+        "summary": "GET /news-feeds/{newsFeedId}",
+        "description": "Get a single news feed.",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "newsFeedId",
+            "in": "path",
+            "description": "News feed ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsFeed"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news-feeds/{newsFeedId}/news-items": {
+      "get": {
+        "summary": "GET /news-feeds/{newsFeedId}/news-items",
+        "description": "Get an ordered list of all news items.",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "newsFeedId",
+            "in": "path",
+            "description": "News feed ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/pageSize"
+          },
+          {
+            "$ref": "#/components/parameters/pageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          },
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "Filter by author",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "explode": false,
+            "description": "Sort by one or more attributes, the default is ascending. Prefixing the attribute with a minus sign `-` allows for descending sort. Examples: [ATTR | -ATTR | ATTR1,-ATTR2]",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "newsItemId",
+                  "name",
+                  "validFrom",
+                  "validUntil",
+                  "lastModified",
+                  "-newsItemId",
+                  "-name",
+                  "-validFrom",
+                  "-validUntil",
+                  "-lastModified"
+                ]
+              },
+              "default": "newsItemId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "pageSize",
+                    "pageNumber",
+                    "items"
+                  ],
+                  "properties": {
+                    "pageSize": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The number of items per page"
+                    },
+                    "pageNumber": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "The current page number"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/NewsItem"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news-items/{newsItemId}": {
+      "get": {
+        "summary": "GET /news-items/{newsItemId}",
+        "description": "Get a single news item.",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/acceptLanguage"
+          },
+          {
+            "name": "newsItemId",
+            "in": "path",
+            "description": "News item ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsItem"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "parameters": {
+      "acceptLanguage": {
+        "name": "Accept-Language",
+        "in": "header",
+        "description": "The Accept-Language request HTTP header advertises which languages the client is able to understand, and which locale variant is preferred. See [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language) for more information.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "pageSize": {
+        "name": "pageSize",
+        "in": "query",
+        "description": "The number of items per page",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32",
+          "default": 10,
+          "enum": [
+            10,
+            20,
+            50,
+            100,
+            250
+          ]
+        }
+      },
+      "pageNumber": {
+        "name": "pageNumber",
+        "in": "query",
+        "description": "The page number to get. Page numbers start at 1.",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "personSearch": {
+        "name": "q",
+        "in": "query",
+        "description": "Filter by persons having a givenName, surNamePrefix, surname, displayName, initials, mail or secondaryMail containing the given search term (exact partial match, case insensitive)",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "search": {
+        "name": "q",
+        "in": "query",
+        "description": "Filter by items having a name, abbreviation or description containing the given search term (exact partial match, case insensitive)",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "schemas": {
+      "Ext": {
+        "type": "object",
+        "description": "Object for additional non-standard attributes"
+      },
+      "Service": {
+        "type": "object",
+        "description": "A metadataset providing details on the provider of this OOAPI implementation",
+        "required": [
+          "contactEmail",
+          "specification",
+          "documentation"
+        ],
+        "properties": {
+          "contactEmail": {
+            "type": "string",
+            "description": "Contact e-mail address of the service owner",
+            "format": "email",
+            "maxLength": 256,
+            "example": "admin@universiteitvanharderwijk.nl"
+          },
+          "specification": {
+            "type": "string",
+            "description": "URL of the API specification (YAML or JSON, compliant with [Open API Specification v3](https://github.com/OAI/OpenAPI-Specification/))",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://rawgit.com/open-education-api/specification/v3/docs.html#tag/course-offerings/paths/~1course-offerings/get"
+          },
+          "documentation": {
+            "type": "string",
+            "description": "URL of the API documentation, including general terms and privacy statement",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://open-education-api.github.io/specification/v4/docs.html"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "Problem": {
+        "type": "object",
+        "description": "A system message including the error code and an explanation",
+        "required": [
+          "status",
+          "title"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The HTTP status code",
+            "example": "404"
+          },
+          "title": {
+            "type": "string",
+            "description": "A short, human-readable summary of the problem type",
+            "example": "Resource not found"
+          },
+          "detail": {
+            "type": "string",
+            "description": "A human-readable explanation specific to this occurrence of the problem"
+          }
+        }
+      },
+      "personAffiliations": {
+        "type": "array",
+        "description": "The affiliations of this person, the relations a person has with the organization providing this endpoint\n- student: student\n- employee: medewerker\n- guest: gast\n",
+        "items": {
+          "type": "string",
+          "enum": [
+            "student",
+            "employee",
+            "guest"
+          ],
+          "example": "student"
+        }
+      },
+      "gender": {
+        "type": "string",
+        "description": "The gender of this person",
+        "enum": [
+          "M",
+          "F",
+          "U",
+          "X"
+        ],
+        "example": "F"
+      },
+      "postalType": {
+        "type": "string",
+        "description": "Address type\n- postal: post\n- visit: bezoek\n- deliveries: bezorg\n",
+        "enum": [
+          "postal",
+          "visit",
+          "deliveries"
+        ]
+      },
+      "Address": {
+        "type": "object",
+        "description": "The full street address",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/postalType"
+          },
+          "street": {
+            "type": "string",
+            "description": "The street name",
+            "example": "Moreelsepark"
+          },
+          "streetNumber": {
+            "type": "string",
+            "description": "The street number",
+            "example": "48"
+          },
+          "additional": {
+            "type": "string",
+            "description": "Further details like building name, suite, apartment number, etc.",
+            "example": "On the other side of the road"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal code",
+            "example": "3511 EP"
+          },
+          "city": {
+            "type": "string",
+            "description": "name of the city / locality",
+            "example": "Utrecht"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)",
+            "example": "NL"
+          },
+          "geolocation": {
+            "type": "object",
+            "description": "Geolocation of the entrance of this address (WGS84 coordinate reference system)",
+            "required": [
+              "latitude",
+              "longitude"
+            ],
+            "properties": {
+              "latitude": {
+                "type": "number",
+                "format": "double",
+                "example": 52.089123
+              },
+              "longitude": {
+                "type": "number",
+                "format": "double",
+                "example": 5.113337
+              }
+            }
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "ICERelationType": {
+        "type": "string",
+        "description": "Type of relation between person and In Case of Emergency contact",
+        "enum": [
+          "partner",
+          "parent",
+          "other"
+        ],
+        "example": "partner"
+      },
+      "Person": {
+        "type": "object",
+        "description": "A person that has a relationship with this institution",
+        "required": [
+          "personId",
+          "givenName",
+          "surname",
+          "displayName",
+          "affiliations",
+          "mail"
+        ],
+        "properties": {
+          "personId": {
+            "type": "string",
+            "description": "Unique id of this person",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "givenName": {
+            "type": "string",
+            "description": "The first name of this person",
+            "maxLength": 256,
+            "example": "Maartje"
+          },
+          "surnamePrefix": {
+            "type": "string",
+            "description": "The prefix of the family name of this person",
+            "example": "van"
+          },
+          "surname": {
+            "type": "string",
+            "description": "The family name of this person",
+            "maxLength": 256,
+            "example": "Damme"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "The name of this person which will be displayed",
+            "maxLength": 256,
+            "example": "Maartje van Damme"
+          },
+          "initials": {
+            "type": "string",
+            "description": "The initials of this person",
+            "example": "MCW"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "description": "The date of birth of this person, RFC3339 (full-date)",
+            "format": "date",
+            "example": "2003-09-30"
+          },
+          "cityOfBirth": {
+            "type": "string",
+            "description": "The city of birth of this person",
+            "example": "Utrecht"
+          },
+          "countryOfBirth": {
+            "type": "string",
+            "description": "The country of birth of this person the country code according to [iso-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)",
+            "example": "NL"
+          },
+          "nationality": {
+            "type": "string",
+            "description": "The nationality (CCA3) of this person according to https://gist.github.com/zspine/2365808.",
+            "example": "Dutch"
+          },
+          "dateOfNationality": {
+            "type": "string",
+            "description": "The date of nationality of this person, RFC3339 (full-date)",
+            "format": "date",
+            "example": "2003-09-30"
+          },
+          "affiliations": {
+            "$ref": "#/components/schemas/personAffiliations"
+          },
+          "mail": {
+            "type": "string",
+            "description": "The primary e-mailaddress of this person",
+            "format": "email",
+            "maxLength": 256,
+            "example": "vandamme.mcw@universiteitvanharderwijk.nl"
+          },
+          "secondaryMail": {
+            "type": "string",
+            "description": "The secondary e-mailaddress of this person",
+            "format": "email",
+            "maxLength": 256,
+            "example": "poekie@xyz.nl"
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "description": "The telephone number of this person",
+            "maxLength": 256,
+            "example": "+31 123 456 789"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "The mobile number of this person",
+            "maxLength": 256,
+            "example": "+31 612 345 678"
+          },
+          "photoSocial": {
+            "type": "string",
+            "description": "The url of the informal picture of this person",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Placeholder_female_superhero_c.png/203px-Placeholder_female_superhero_c.png"
+          },
+          "photoOfficial": {
+            "type": "string",
+            "description": "The url of the official picture of this person",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://upload.wikimedia.org/wikipedia/commons/6/66/Johannes_Vermeer_%281632-1675%29_-_The_Girl_With_The_Pearl_Earring_%281665%29.jpg"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/gender"
+          },
+          "titlePrefix": {
+            "type": "string",
+            "description": "A title prefix to be used for this person",
+            "example": "drs"
+          },
+          "titleSuffix": {
+            "type": "string",
+            "description": "A title suffix to be used for this person",
+            "example": "BSc"
+          },
+          "office": {
+            "type": "string",
+            "description": "The name of the office where this person is located"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "ICEName": {
+            "type": "string",
+            "description": "Full name of In Case of Emergency contact",
+            "maxLength": 256,
+            "example": "Janne"
+          },
+          "ICEPhoneNumber": {
+            "type": "string",
+            "description": "Phone number of In Case of Emergency contact",
+            "maxLength": 256,
+            "example": "+31 623 456 789"
+          },
+          "ICERelation": {
+            "$ref": "#/components/schemas/ICERelationType"
+          },
+          "languageOfChoice": {
+            "type": "array",
+            "description": "The language(s) of choice for this person, RFC3066",
+            "items": {
+              "type": "string",
+              "example": "nl-NL"
+            }
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "associationRole": {
+        "type": "string",
+        "description": "The role of this person associated with the offering\n  - student: student\n  - lecturer: docent\n  - teaching assistant: studentassistent\n  - coordinator: coördinator\n  - guest: gast\n",
+        "enum": [
+          "student",
+          "lecturer",
+          "teaching assistant",
+          "coordinator",
+          "guest"
+        ],
+        "example": "student"
+      },
+      "associationState": {
+        "type": "string",
+        "description": "The state of this association",
+        "enum": [
+          "pending",
+          "canceled",
+          "denied",
+          "associated"
+        ],
+        "example": "associated"
+      },
+      "resultState": {
+        "type": "string",
+        "description": "The state of this result",
+        "enum": [
+          "in progress",
+          "postponed",
+          "completed"
+        ],
+        "example": "completed"
+      },
+      "Association": {
+        "type": "object",
+        "description": "A relationship between a person object and an offering",
+        "required": [
+          "associationId",
+          "type",
+          "role",
+          "state"
+        ],
+        "properties": {
+          "associationId": {
+            "type": "string",
+            "description": "Unique id of this association",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-1237891417400"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of this association",
+            "enum": [
+              "programOfferingAssociation",
+              "courseOfferingAssociation",
+              "componentOfferingAssociation"
+            ],
+            "example": "componentOfferingAssociation"
+          },
+          "role": {
+            "$ref": "#/components/schemas/associationRole"
+          },
+          "state": {
+            "$ref": "#/components/schemas/associationState"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "Result": {
+        "type": "object",
+        "description": "A result as part of an association",
+        "required": [
+          "state",
+          "resultDate"
+        ],
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/resultState"
+          },
+          "comment": {
+            "type": "string",
+            "description": "The comment on this result",
+            "example": "None"
+          },
+          "score": {
+            "type": "string",
+            "description": "The score of this program/course/component association (based on resultValueType in offering)",
+            "example": "9"
+          },
+          "resultDate": {
+            "type": "string",
+            "description": "The date this result has been published, RFC3339 (full-date)",
+            "format": "date",
+            "example": "2020-09-28"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "ProgramResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Result"
+          },
+          {
+            "type": "object",
+            "required": [
+              "ects"
+            ],
+            "properties": {
+              "ects": {
+                "type": "number",
+                "description": "The number of EC's that have been earned to the current moment",
+                "minimum": 0,
+                "example": 15
+              }
+            }
+          }
+        ]
+      },
+      "ProgramOfferingAssociation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Association"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "result": {
+                "$ref": "#/components/schemas/ProgramResult"
+              }
+            }
+          }
+        ]
+      },
+      "AcademicSession": {
+        "type": "object",
+        "description": "A period in time during which an offering can take place. Academicsessions can be nested.",
+        "required": [
+          "academicSessionId",
+          "name",
+          "startDate",
+          "endDate"
+        ],
+        "properties": {
+          "academicSessionId": {
+            "type": "string",
+            "description": "Unique id for this academic session",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this academic session",
+            "maxLength": 256,
+            "example": "Fall semester 2020"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "The day on which this academic session starts, RFC3339 (full-date)",
+            "format": "date",
+            "example": "2020-08-17"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "The day on which this academic session ends, RFC3339 (full-date)",
+            "format": "date",
+            "example": "2020-12-18"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "resultValueType": {
+        "type": "string",
+        "description": "The result value type for this offering",
+        "enum": [
+          "pass-or-fail",
+          "US letter",
+          "UK letter",
+          "0-100",
+          "1-10"
+        ],
+        "example": "1-10"
+      },
+      "Offering": {
+        "type": "object",
+        "description": "Either a program, course or component offering which descrbes the program, course or offering in time",
+        "required": [
+          "offeringId",
+          "type",
+          "name",
+          "description",
+          "mainLanguage",
+          "isLineItem"
+        ],
+        "properties": {
+          "offeringId": {
+            "type": "string",
+            "description": "Unique id of this offering",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-134564174000"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of this offering",
+            "enum": [
+              "program",
+              "course",
+              "component"
+            ],
+            "example": "component"
+          },
+          "academicSession": {
+            "$ref": "#/components/schemas/AcademicSession"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this offering",
+            "maxLength": 256,
+            "example": "Final written test for INFOMQNM for fall semseter 2020"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "The abbreviation or internal code used to identify this offering",
+            "maxLength": 256,
+            "example": "Test-INFOMQNM-20FS"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this offering",
+            "example": "Prove in wirting knowledge of research methods, including: Acquire knowledge of HCI research paradigms Able to design suitable research studies (e.g., choose between within and between subject designs) Define/apply/design metrics and scales Define/produce materials (e.g., stimuli and questionnaires) Define protocols for research studies Understands and take in account concepts of reliability and validity Analyze and improve methods and analysis of published scientific articles Able to deliver scientific reports Prove in writing knowledge of ­­­statistics, including: Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates) Data preparation (e.g., coding and feature selection) Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors) Select an appropriate sampling method (e.g., stratified) Perform parametric tests (e.g., repeated measures (M)ANOVA) Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)"
+          },
+          "mainLanguage": {
+            "type": "string",
+            "description": "The main language in which the courses within this program are given, RFC3066",
+            "example": "nl-NL"
+          },
+          "maxNumberStudents": {
+            "type": "number",
+            "description": "The maximum number of students allowed to enroll for this offering",
+            "format": "int32",
+            "minimum": 0,
+            "example": 200
+          },
+          "enrolledNumberStudents": {
+            "type": "number",
+            "description": "The number of students that have already enrolled for this offering",
+            "format": "int32",
+            "minimum": 0,
+            "example": 150
+          },
+          "pendingNumberStudents": {
+            "type": "number",
+            "description": "The number of students that have a pending enrollment request for this offering",
+            "format": "int32",
+            "minimum": 0,
+            "example": 50
+          },
+          "isLineItem": {
+            "type": "boolean",
+            "description": "Whether the offering is a line item or not",
+            "example": true
+          },
+          "resultValueType": {
+            "$ref": "#/components/schemas/resultValueType"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "modeOfStudy": {
+        "type": "string",
+        "description": "Indicate whether the course is full-time, part-time, dual or self-paced.\n  - full-time: fulltime\n  - part-time: parttime\n  - dual training: duaal\n  - self-paced: eigen tempo\n",
+        "enum": [
+          "full-time",
+          "part-time",
+          "dual training",
+          "self-paced"
+        ]
+      },
+      "ProgramOffering": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Offering"
+          },
+          {
+            "type": "object",
+            "required": [
+              "modeOfStudy",
+              "startDate",
+              "endDate"
+            ],
+            "properties": {
+              "modeOfStudy": {
+                "$ref": "#/components/schemas/modeOfStudy"
+              },
+              "startDate": {
+                "type": "string",
+                "description": "The moment on which this offering starts, RFC3339 (full-date)",
+                "format": "date",
+                "example": "2019-08-21"
+              },
+              "endDate": {
+                "type": "string",
+                "description": "The moment on which this offering ends, RFC3339 (full-date)",
+                "format": "date",
+                "example": "2023-06-15"
+              }
+            }
+          }
+        ]
+      },
+      "CourseResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Result"
+          },
+          {
+            "type": "object",
+            "required": [
+              "ects"
+            ],
+            "properties": {
+              "ects": {
+                "type": "number",
+                "description": "The number of EC's that is earned",
+                "minimum": 0,
+                "example": 7.5
+              }
+            }
+          }
+        ]
+      },
+      "CourseOfferingAssociation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Association"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "result": {
+                "$ref": "#/components/schemas/CourseResult"
+              }
+            }
+          }
+        ]
+      },
+      "CourseOffering": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Offering"
+          },
+          {
+            "type": "object",
+            "required": [
+              "modeOfStudy",
+              "startDate",
+              "endDate"
+            ],
+            "properties": {
+              "modeOfStudy": {
+                "$ref": "#/components/schemas/modeOfStudy"
+              },
+              "startDate": {
+                "type": "string",
+                "description": "The moment on which this offering starts, RFC3339 (full-date)",
+                "format": "date"
+              },
+              "endDate": {
+                "type": "string",
+                "description": "The moment on which this offering ends, RFC3339 (full-date)",
+                "format": "date"
+              }
+            }
+          }
+        ]
+      },
+      "ComponentResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Result"
+          },
+          {
+            "type": "object",
+            "required": [
+              "weight"
+            ],
+            "properties": {
+              "weight": {
+                "type": "integer",
+                "description": "The weight to 100 as total for this offering in the course",
+                "format": "int32",
+                "minimum": 0,
+                "maximum": 100,
+                "example": 100
+              }
+            }
+          }
+        ]
+      },
+      "ComponentOfferingAssociation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Association"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "result": {
+                "$ref": "#/components/schemas/ComponentResult"
+              }
+            }
+          }
+        ]
+      },
+      "roomType": {
+        "type": "string",
+        "description": "The type of this room\n- general purpose: algemeen\n- lecture room: collegezaal\n- computer room: computerruimte\n- laboratory: laboratorium\n- office: kantoor\n- workspace: werkruimte\n- exam location: tentamenruimte\n- study room: studieruimte\n- examination room: onderzoekskamer\n- conference room: vergaderkamer\n",
+        "enum": [
+          "general purpose",
+          "lecture room",
+          "computer room",
+          "laboratory",
+          "office",
+          "workspace",
+          "exam location",
+          "study room",
+          "examination room",
+          "conference room"
+        ],
+        "example": "exam location"
+      },
+      "Room": {
+        "type": "object",
+        "description": "An area within a building where education can take place",
+        "required": [
+          "roomId",
+          "name",
+          "type"
+        ],
+        "properties": {
+          "roomId": {
+            "type": "string",
+            "description": "Unique id for this room",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-332114174000"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "The abbreviation of the name of this room",
+            "maxLength": 256,
+            "example": "Bb 4.54"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this room",
+            "maxLength": 256,
+            "example": "Beatrix building room 4.54"
+          },
+          "type": {
+            "$ref": "#/components/schemas/roomType"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this room",
+            "example": "External education and exam room 4.54"
+          },
+          "totalSeats": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The total number of seats located in the room",
+            "example": 300
+          },
+          "availableSeats": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The total number of available (=non-reserved) seats in the room",
+            "example": 200
+          },
+          "floor": {
+            "type": "string",
+            "description": "The floor on which this room is located",
+            "example": "4"
+          },
+          "wing": {
+            "type": "string",
+            "description": "The wing in which this room is located",
+            "example": "None"
+          },
+          "geolocation": {
+            "type": "object",
+            "description": "Geolocation of the entrance of this room (WGS84 coordinate reference system)",
+            "required": [
+              "latitude",
+              "longitude"
+            ],
+            "properties": {
+              "latitude": {
+                "type": "number",
+                "format": "double",
+                "example": 52.088255
+              },
+              "longitude": {
+                "type": "number",
+                "format": "double",
+                "example": 5.106669
+              }
+            }
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "ComponentOffering": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Offering"
+          },
+          {
+            "type": "object",
+            "required": [
+              "startDateTime",
+              "endDateTime"
+            ],
+            "properties": {
+              "startDateTime": {
+                "type": "string",
+                "description": "The moment on which this offering starts, RFC3339 (date-time)",
+                "format": "date-time",
+                "example": "2020-12-15"
+              },
+              "endDateTime": {
+                "type": "string",
+                "description": "The moment on which this offering ends, RFC3339 (date-time)",
+                "format": "date-time",
+                "example": "2020-12-16"
+              },
+              "resultWeight": {
+                "type": "integer",
+                "description": "The result weight of this offering",
+                "minimum": 0,
+                "maximum": 100,
+                "example": 100
+              },
+              "room": {
+                "$ref": "#/components/schemas/Room"
+              }
+            }
+          }
+        ]
+      },
+      "organizationType": {
+        "type": "string",
+        "description": "The type of this organization",
+        "enum": [
+          "root",
+          "institution",
+          "department",
+          "faculty"
+        ],
+        "example": "root"
+      },
+      "Organization": {
+        "type": "object",
+        "description": "A description of a group of people working to gether to achieve a goal",
+        "required": [
+          "organizationId",
+          "name",
+          "shortName",
+          "type"
+        ],
+        "properties": {
+          "organizationId": {
+            "type": "string",
+            "description": "Unique id of this organization",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-123514174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the organization",
+            "maxLength": 256,
+            "example": "Coöperatie SURF U.A."
+          },
+          "shortName": {
+            "type": "string",
+            "description": "Short name of the organization",
+            "maxLength": 256,
+            "example": "SURF"
+          },
+          "description": {
+            "type": "string",
+            "description": "Any general description of the organization should clearly mention the type of higher education organization, especially in the case of a binary system. In Dutch; universiteit (university) or hogeschool (university of applied sciences).",
+            "example": "SURF is een coöperatieve vereniging van Nederlandse onderwijs- en onderzoeksinstellingen waarin de leden hun krachten bundelen. De leden zijn eigenaar van SURF."
+          },
+          "type": {
+            "$ref": "#/components/schemas/organizationType"
+          },
+          "addresses": {
+            "type": "array",
+            "description": "Addresses of this organization",
+            "items": {
+              "$ref": "#/components/schemas/Address"
+            }
+          },
+          "link": {
+            "type": "string",
+            "description": "URL of the organization's website",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://surf.nl"
+          },
+          "logo": {
+            "type": "string",
+            "description": "Logo of this organization",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://www.surf.nl/themes/surf/logo.svg"
+          },
+          "brin": {
+            "type": "string",
+            "description": "BRIN-code of this organization\n-00BX (BRIN-nummer instelling)\n-26ED00 (BRIN-nummer vestiging)\n-10305 (nummer Bevoegd Gezag)\n-641 (nummer Administratie Kantoor)\n",
+            "example": "00AA"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "OrganizationExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Organization"
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included",
+            "properties": {
+              "parent": {
+                "$ref": "#/components/schemas/Organization"
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Organization"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "programType": {
+        "type": "string",
+        "description": "The type of this program\n- program: opleiding\n- minor: minor\n- honours: honours\n- specialization: specialisatie\n- elective: keuzevak\n- module: module\n- track: track\n- joint-degree: joint-degree\n- alliance: alliance\n",
+        "enum": [
+          "program",
+          "minor",
+          "honours",
+          "specialization",
+          "elective",
+          "module",
+          "track",
+          "joint-degree",
+          "alliance"
+        ],
+        "example": "alliance"
+      },
+      "qualificationAwarded": {
+        "type": "string",
+        "description": "Type of qualificaton that can be obtained on finishing the program",
+        "enum": [
+          "AD",
+          "BA",
+          "BSc",
+          "LLB",
+          "MA",
+          "MSc",
+          "LLM",
+          "Phd",
+          "None"
+        ],
+        "example": "None"
+      },
+      "levelOfQualification": {
+        "type": "string",
+        "description": "Level of qualification according to the National Qualification Framework and the European Qualifications Framework",
+        "enum": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "4+",
+          "5",
+          "6",
+          "7",
+          "8"
+        ],
+        "example": "6"
+      },
+      "sector": {
+        "type": "string",
+        "description": "The sector for this program\n- secondary vocational education: middelbaar beroepsonderwijs\n- higher professional education: hoger beroepsonderwijs\n- university education: universitair onderwijs\n",
+        "enum": [
+          "secondary vocational education",
+          "higher professional education",
+          "university education"
+        ],
+        "example": "university education"
+      },
+      "Program": {
+        "type": "object",
+        "description": "A collection of courses that lead to a certifiable learning outcome",
+        "required": [
+          "programId",
+          "type",
+          "name",
+          "abbreviation",
+          "description"
+        ],
+        "properties": {
+          "programId": {
+            "type": "string",
+            "description": "Unique id for this program",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "type": {
+            "$ref": "#/components/schemas/programType"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this program",
+            "maxLength": 256,
+            "example": "Student Mobility"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "The abbreviation of this program",
+            "maxLength": 256,
+            "example": "studM"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this program",
+            "example": "program that is a place holder for all courses that are made available for student mobility"
+          },
+          "ects": {
+            "type": "number",
+            "description": "The number of Euopean Credits that can be archieved in this program",
+            "minimum": 0,
+            "example": 5
+          },
+          "qualificationAwarded": {
+            "$ref": "#/components/schemas/qualificationAwarded"
+          },
+          "lengthOfProgram": {
+            "type": "integer",
+            "description": "The duration of this program in months",
+            "example": 6
+          },
+          "levelOfQualification": {
+            "$ref": "#/components/schemas/levelOfQualification"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/sector"
+          },
+          "fieldsOfStudy": {
+            "type": "string",
+            "description": "Field(s) of study (e.g. ISCED-F) (http://uis.unesco.org/sites/default/files/documents/isced-fields-of-education-and-training-2013-en.pdf.",
+            "maxLength": 4,
+            "example": "0732"
+          },
+          "crohoCreboCode": {
+            "type": "string",
+            "description": "CrohoCode in wo/hbo or creboCode in mbo",
+            "example": "59312"
+          },
+          "profileOfProgram": {
+            "type": "string",
+            "description": "Brief description of the main focus of the program.",
+            "example": "the program is meant to be a place holder for all courses that can be exchanged between Universities, therefore there is no main focus for this program"
+          },
+          "learningOutcomes": {
+            "type": "array",
+            "description": "List of learning outcomes at program level. It is advisable to limit the number of learning outcomes to approximately 20. It is also advisable to make sure that the program learning outcomes in the course catalogue correspond with those on the Diploma Supplement.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "admissionRequirements": {
+            "type": "string",
+            "description": "This information may be given at an institutional level and/or at the level of individual programmes. Make sure that it is clear whether the information applies to fee-paying students (national and/or international) or to exchange students.",
+            "example": "Students need to be enrolled at qualifying institutions of higher education that participate in this alliance"
+          },
+          "qualificationRequirements": {
+            "type": "string",
+            "description": "Normally, students will receive a diploma when they have completed the (official) study program and have obtained the required number of credits. If there are any other specific requirements that students need to have fulfilled, mention them here.",
+            "example": "None"
+          },
+          "link": {
+            "type": "string",
+            "description": "URL of the program's website",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://bijvak.nl"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "level": {
+        "type": "string",
+        "description": "The level of this course (ECTS-year of study if applicable)\n- secondary vocational education 3: mbo 3\n- secondary vocational education 4: mbo 4\n- associate degree: associate degree\n- bachelor: bachelor\n- master: master\n- doctoral: doctoraal\n",
+        "enum": [
+          "secondary vocational education 3",
+          "secondary vocational education 4",
+          "associate degree",
+          "bachelor",
+          "master",
+          "doctoral"
+        ],
+        "example": "master"
+      },
+      "modesOfDelivery": {
+        "type": "array",
+        "description": "The mode of delivery of the component (ECTS-mode of delivery)\n- distance-learning: afstandsleren\n- on campus: op de campus\n- online: online\n- hybrid: hybride\n- situated: op locatie\n",
+        "items": {
+          "type": "string",
+          "enum": [
+            "distance-learning",
+            "on campus",
+            "online",
+            "hybrid",
+            "situated"
+          ],
+          "example": "situated"
+        }
+      },
+      "Course": {
+        "type": "object",
+        "description": "An object describing the metadata of a course",
+        "required": [
+          "courseId",
+          "name",
+          "abbreviation",
+          "description",
+          "level"
+        ],
+        "properties": {
+          "courseId": {
+            "type": "string",
+            "description": "Unique id of this course",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this course (ECTS-title)",
+            "maxLength": 256,
+            "example": "Academic and Professional Writing"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "The abbreviation or internal code used to identify this course (ECTS-code)",
+            "maxLength": 256,
+            "example": "INFOMQNM"
+          },
+          "ects": {
+            "type": "number",
+            "description": "The number of EC's that is earned when the course is completed successfully (ECTS-ects)",
+            "minimum": 0,
+            "example": 7.5
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this course (ECTS-description)",
+            "example": "As with all empirical sciences, to assure valid outcomes, HCI studies heavily rely on research methods and statistics. This holds for the design of user interfaces, personalized recommender systems, and interaction paradigms for the internet of things. This course prepares you to do so by learning you to collect data, design experiments, and analyze the results. By the end of the course, you will have a detailed understanding of how to select and apply quantitative research methods and analysis to address virtually all HCI challenges. Quantitative research and data analysis will be taught in the context of state-of-the-art HCI challenges. Lectures will be alternated with hands-on learning, including work with predefined datasets (e.g., addressing facial features, cognitive load, and emotion). Additionally, students will set up their own research (e.g., using eye tracking). Data processing and analysis will be executed using R."
+          },
+          "learningOutcomes": {
+            "type": "array",
+            "description": "Statements that describe the knowledge or skills students should acquire by the end of a particular course (ECTS-learningoutcome)",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms Able to design suitable research studies (e.g., choose between within and between subject designs) Define/apply/design metrics and scales Define/produce materials (e.g., stimuli and questionnaires) Define protocols for research studies Understands and take in account concepts of reliability and validity Analyze and improve methods and analysis of published scientific articles Able to deliver scientific reports",
+              " Executable knowledge of ­­­statistics, including: Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates) Data preparation (e.g., coding and feature selection) Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors) Select an appropriate sampling method (e.g., stratified) Perform parametric tests (e.g., repeated measures (M)ANOVA) Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)"
+            ]
+          },
+          "requirements": {
+            "type": "string",
+            "description": "The requirements needed to enter this course (ECTS-prerequisites)",
+            "example": "None"
+          },
+          "level": {
+            "$ref": "#/components/schemas/level"
+          },
+          "modeOfDelivery": {
+            "$ref": "#/components/schemas/modesOfDelivery"
+          },
+          "enrollment": {
+            "type": "string",
+            "description": "The extra information that is provided for enrollment",
+            "example": "enrollment through SIS"
+          },
+          "resources": {
+            "type": "array",
+            "description": "An overview of the literature and other resources that is used in this course (ECTS-recommended reading and other sources)",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "book to be announced",
+              "on-line resource x"
+            ]
+          },
+          "assessment": {
+            "type": "string",
+            "description": "A description of the way exams for this course are taken (ECTS-assessment method and criteria)",
+            "example": "Exam on campus"
+          },
+          "link": {
+            "type": "string",
+            "description": "URL of the course's website",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://osiris.uu.nl/osiris_student_uuprd/OnderwijsCatalogusZoekCursus.do#submitForm?cursuscode=INFOMQNM"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "componentType": {
+        "type": "string",
+        "description": "The component type\n- test: tentamen\n- lecture: college\n- practical: practicum\n- tutorial: werkcollege\n- consultation: consultatie\n- project: project\n- workshop: workshop\n- excursion: excursie\n- independent study: zelfstudie\n- external: extern\n- skills training: vaardighedentraining\n",
+        "enum": [
+          "test",
+          "lecture",
+          "practical",
+          "tutorial",
+          "consultation",
+          "project",
+          "workshop",
+          "excursion",
+          "independent study",
+          "external",
+          "skills training"
+        ],
+        "example": "test"
+      },
+      "Component": {
+        "type": "object",
+        "description": "A component is a part of a course",
+        "required": [
+          "componentId",
+          "type",
+          "name",
+          "abbreviation"
+        ],
+        "properties": {
+          "componentId": {
+            "type": "string",
+            "description": "Unique id of this component",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "type": {
+            "$ref": "#/components/schemas/componentType"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this component",
+            "maxLength": 256,
+            "example": "Written test for INFOMQNM"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "The abbreviation of this component",
+            "maxLength": 256,
+            "example": "Test-INFOMQNM"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this component",
+            "example": "Prove executable knowledge of research methods, including: Acquire knowledge of HCI research paradigms Able to design suitable research studies (e.g., choose between within and between subject designs) Define/apply/design metrics and scales Define/produce materials (e.g., stimuli and questionnaires) Define protocols for research studies Understands and take in account concepts of reliability and validity Analyze and improve methods and analysis of published scientific articles Able to deliver scientific reports\nProve executable knowledge of ­­­statistics, including: Handle hypothesis testing with complex designs (e.g., including , dependent, independent, and co variates) Data preparation (e.g., coding and feature selection) Reason towards adequate techniques to ensure valid outcomes (e.g., be aware of type I, type II errors) Select an appropriate sampling method (e.g., stratified) Perform parametric tests (e.g., repeated measures (M)ANOVA) Perform non-parametric tests (e.g., Chi-square, Mann-Whitney, and Kruskal-Wallis)"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "AcademicSessionExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AcademicSession"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "parent": {
+                "$ref": "#/components/schemas/AcademicSession",
+                "description": "The parent Academicsession of this session (e.g. fall semester 20xx where the current session is a week 40)"
+              },
+              "year": {
+                "$ref": "#/components/schemas/AcademicSession",
+                "description": "The top level year of this session (e.g. 20xx where the current session is a week 40 of a semester)"
+              }
+            }
+          }
+        ]
+      },
+      "ProgramExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Program"
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included. This allows for creating and displaying strutures of programs",
+            "properties": {
+              "parent": {
+                "description": "Parent program of which the current program is a child.",
+                "$ref": "#/components/schemas/Program"
+              },
+              "children": {
+                "type": "array",
+                "description": "Programs which are a part of this program (e.g specializations)",
+                "items": {
+                  "$ref": "#/components/schemas/Program"
+                }
+              },
+              "organization": {
+                "description": "The organization providing the current course",
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          }
+        ]
+      },
+      "CourseExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Course"
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included",
+            "properties": {
+              "programs": {
+                "description": "The program of which this course is a part of",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Program"
+                }
+              },
+              "coordinators": {
+                "type": "array",
+                "description": "The person(s) responsible for this course",
+                "items": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              },
+              "organization": {
+                "description": "The organization providing the current course",
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          }
+        ]
+      },
+      "ComponentExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Component"
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included",
+            "properties": {
+              "course": {
+                "description": "The course of which this component is a part",
+                "$ref": "#/components/schemas/Course"
+              },
+              "organization": {
+                "description": "Organization which provides this component",
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          }
+        ]
+      },
+      "ProgramOfferingExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ProgramOffering"
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included",
+            "properties": {
+              "program": {
+                "$ref": "#/components/schemas/Program"
+              },
+              "organization": {
+                "$ref": "#/components/schemas/Organization"
+              },
+              "academicSession": {
+                "$ref": "#/components/schemas/AcademicSession"
+              }
+            }
+          }
+        ]
+      },
+      "CourseOfferingExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CourseOffering"
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included",
+            "properties": {
+              "course": {
+                "$ref": "#/components/schemas/Course"
+              },
+              "programOffering": {
+                "$ref": "#/components/schemas/ProgramOffering"
+              },
+              "organization": {
+                "$ref": "#/components/schemas/Organization"
+              },
+              "academicSession": {
+                "$ref": "#/components/schemas/AcademicSession"
+              }
+            }
+          }
+        ]
+      },
+      "ComponentOfferingExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentOffering"
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included",
+            "properties": {
+              "component": {
+                "$ref": "#/components/schemas/Component"
+              },
+              "courseOffering": {
+                "$ref": "#/components/schemas/CourseOffering"
+              },
+              "organization": {
+                "$ref": "#/components/schemas/Organization"
+              },
+              "academicSession": {
+                "$ref": "#/components/schemas/AcademicSession"
+              }
+            }
+          }
+        ]
+      },
+      "AssociationExpanded": {
+        "allOf": [
+          {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProgramOfferingAssociation"
+              },
+              {
+                "$ref": "#/components/schemas/CourseOfferingAssociation"
+              },
+              {
+                "$ref": "#/components/schemas/ComponentOfferingAssociation"
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included",
+            "properties": {
+              "person": {
+                "description": "The person this association is to",
+                "$ref": "#/components/schemas/Person"
+              },
+              "offering": {
+                "description": "The offering this association is for",
+                "$ref": "#/components/schemas/Offering"
+              }
+            }
+          }
+        ]
+      },
+      "Building": {
+        "type": "object",
+        "description": "An object describing a building and the properties of a building.",
+        "required": [
+          "buildingId",
+          "name",
+          "address"
+        ],
+        "properties": {
+          "buildingId": {
+            "type": "string",
+            "description": "Unique id of this building",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-331214174000"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "The abbreviation of the name of this building",
+            "maxLength": 256,
+            "example": "Bb"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of this building",
+            "maxLength": 256,
+            "example": "Beatrix building"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this building",
+            "example": "external rooms location for exams"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "RoomExpanded": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Room"
+          },
+          {
+            "type": "object",
+            "description": "These properties are only present when explicitly included.",
+            "properties": {
+              "building": {
+                "description": "The building in which the room is located",
+                "$ref": "#/components/schemas/Building"
+              }
+            }
+          }
+        ]
+      },
+      "NewsFeed": {
+        "type": "object",
+        "description": "A placeholder or collection of news items",
+        "required": [
+          "newsFeedId",
+          "name",
+          "description",
+          "type"
+        ],
+        "properties": {
+          "newsFeedId": {
+            "type": "string",
+            "description": "Unique id for this news feed",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-134564174222"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name for this news feed",
+            "maxLength": 256,
+            "example": "room Bb 4.35 news"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this news feed",
+            "example": "all information on what happens in room Bb 4.35"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the object this news feed relates to",
+            "enum": [
+              "organization",
+              "program",
+              "course",
+              "component",
+              "person",
+              "building",
+              "room"
+            ],
+            "example": "room"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      },
+      "newsItemType": {
+        "type": "string",
+        "description": "The type of this news item\n- calamity: calamiteit\n- general: algemeen\n- schedule-change: roosterwijziging\n- announcement: aankondiging\n",
+        "enum": [
+          "calamity",
+          "general",
+          "schedule-change",
+          "announcement"
+        ]
+      },
+      "NewsItem": {
+        "type": "object",
+        "description": "A newsitem contains the message and metadata of that message",
+        "required": [
+          "newsItemId",
+          "name"
+        ],
+        "properties": {
+          "newsItemId": {
+            "type": "string",
+            "description": "Unique id for this news item",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-122564174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name for this news item",
+            "maxLength": 256,
+            "example": "Room Bb 4.35 will be un available from 2020-09-29 until 2020-09-30"
+          },
+          "type": {
+            "$ref": "#/components/schemas/newsItemType"
+          },
+          "authors": {
+            "type": "array",
+            "description": "The authors of the article with this news item",
+            "items": {
+              "type": "string",
+              "maxLength": 256
+            },
+            "example": [
+              "admin@universiteitvanharderwijk.nl"
+            ]
+          },
+          "image": {
+            "type": "string",
+            "description": "The url containing the address of the image belonging to this news item",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://upload.wikimedia.org/wikipedia/commons/4/44/Antu_emblem-unavailable.svg"
+          },
+          "link": {
+            "type": "string",
+            "description": "The url containing the address of the article belonging to this news item",
+            "format": "uri",
+            "maxLength": 2048,
+            "example": "https://www.universiteitvanharderwijk.nl/cms/ruimtegebrek"
+          },
+          "content": {
+            "type": "string",
+            "description": "The content of this news item",
+            "example": "The room Bb 4.35 will be under maintenance"
+          },
+          "validFrom": {
+            "type": "string",
+            "description": "The moment from which this news item is valid, RFC3339 (date-time)",
+            "format": "date-time",
+            "example": "2020-09-28T08:30:00.000Z"
+          },
+          "validUntil": {
+            "type": "string",
+            "description": "The moment until which this news item is valid, RFC3339 (date-time)",
+            "format": "date-time",
+            "example": "2020-09-30T20:00:00.000Z"
+          },
+          "lastModified": {
+            "type": "string",
+            "description": "The moment on which this news item was updated, RFC3339 (date-time)",
+            "format": "date-time",
+            "example": "2020-09-28T00:00:00.000Z"
+          },
+          "ext": {
+            "$ref": "#/components/schemas/Ext"
+          }
+        }
+      }
+    }
+  }
+}
