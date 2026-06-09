@@ -20,7 +20,11 @@ info:
     through association endpoints. These endpoints define the different types of
     associations that can exist between offerings and persons. Other objects shown
     in the model represent groups and group memberships of a person.
-    
+
+  license:
+    name: EUPL-1.2
+    url: https://github.com/open-education-api/specification/blob/release/6.0/LICENSE.md
+
   contact:
     name: OEAPI Working Group / SURF
     url: https://openonderwijsapi.nl

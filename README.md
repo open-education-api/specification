@@ -7,23 +7,20 @@ This repository contains the [OpenAPI](https://github.com/OAI/OpenAPI-Specificat
 * [Contributing](#contributing)
 * [Mailinglist](#mailinglist)
 * [Community](#community)
-* [Roadmap](ROADMAP.md)
-
-If you have a question, a Slack channel is available at: [openonderwijsapi.slack.com](https://openonderwijsapi.slack.com).
 
 ## Versions
 
 This is the current version:
 
-* [v6](https://open-education-api.github.io/specification/v6/docs.html) (Current version - v6)
+* [v6](https://open-education-api.github.io/specification/v6/index) (Current version - v6)
 
 These are the previous versions:
 
 * [v5](https://open-education-api.github.io/specification/v5/docs.html) (Previous version - v5)
 * [v4](https://open-education-api.github.io/specification/v4/docs.html) (Previous version - v4)
-* [v3](./v3/docs.html) (Previous version - v3)
-* [v2](./v2/docs.html) (Previous version - v2)
-* [v1](./v1/docs.html) (Previous version - v1)
+* [v3](https://open-education-api.github.io/specification/v3/docs.html) (Previous version - v3)
+* [v2](https://open-education-api.github.io/specification/v2/docs.html) (Previous version - v2)
+* [v1](https://open-education-api.github.io/specification/v1/docs.html) (Previous version - v1)
 
 ## Operating area and Application
 
@@ -43,3 +40,9 @@ https://list.surf.nl/postorius/lists/openonderwijsapi.list.surf.nl
 ## Community
 
 The Open Education API is driven by the [Open Education API Working Group](https://openonderwijsapi.nl/#/community/). The working group includes representatives of higher educational organizations and suppliers.
+
+## License
+
+Copyright (c) 2017-2026 SURF U.A. Cooperative <https://surf.nl>.
+
+See the LICENSE file in the root of this project for license details.

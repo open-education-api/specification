@@ -1,3 +1,5 @@
+// node build_oeapi.js source/spec.yaml oeapi.json oeapi.yaml oeapi.zudoku.json /specification/unreleased
+
 import { spawnSync } from "node:child_process";
 
 function run(cmd, args, env = {}) {

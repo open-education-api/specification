@@ -23,8 +23,8 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ vars.OOAPI_APP_PUBLISH_ID }}
-          private-key: ${{ secrets.OOAPI_APP_PUBLISH_SECRET }}
+          client-id: ${{ vars.OEAPI_APP_PUBLISH_CLIENT_ID }}
+          private-key: ${{ secrets.OEAPI_APP_PUBLISH_SECRET }}
           owner: open-education-api
           repositories: |
             specification
