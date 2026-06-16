@@ -33,6 +33,13 @@ allOf:
         description: The additional facilities or resources needed by a person to make the component accessible and usable.
         items:
           $ref: '../enumerations/personalNeed.yaml'
+      attempt:
+        type:
+          - integer
+          - 'null'
+        description: The attempt this association is linked to. This attempt attribute has been deprecated in favor of the initialAttemptOnAssociation attribute.
+        deprecated: true
+        example: 2
       initialAttemptOnAssociation:
         type:
           - integer
