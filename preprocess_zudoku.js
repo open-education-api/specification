@@ -108,6 +108,70 @@ function flattenAllOfForZudoku(schema, spec) {
   return result;
 }
 
+
+function cloneJsonForAllOf(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function flattenDirectNestedAllOfRefs(spec) {
+  let count = 0;
+
+  function expandAllOfItems(items, seenRefs = new Set()) {
+    const expanded = [];
+    let changed = false;
+
+    for (const item of items) {
+      if (item && typeof item === 'object' && typeof item.$ref === 'string') {
+        const ref = item.$ref;
+        const resolved = resolveRef(ref, spec);
+
+        if (
+          resolved &&
+          typeof resolved === 'object' &&
+          Array.isArray(resolved.allOf) &&
+          !seenRefs.has(ref)
+        ) {
+          const nextSeenRefs = new Set(seenRefs);
+          nextSeenRefs.add(ref);
+
+          const nested = expandAllOfItems(resolved.allOf, nextSeenRefs);
+          expanded.push(...nested.items.map(cloneJsonForAllOf));
+          count++;
+          changed = true;
+          continue;
+        }
+      }
+
+      expanded.push(item);
+    }
+
+    return { items: expanded, changed };
+  }
+
+  function walk(node) {
+    if (!node || typeof node !== 'object') return;
+
+    if (Array.isArray(node.allOf)) {
+      const expanded = expandAllOfItems(node.allOf);
+      if (expanded.changed) {
+        node.allOf = expanded.items;
+      }
+    }
+
+    for (const value of Object.values(node)) {
+      if (Array.isArray(value)) {
+        value.forEach(walk);
+      } else if (value && typeof value === 'object') {
+        walk(value);
+      }
+    }
+  }
+
+  walk(spec);
+  return count;
+}
+
+
 function generateExampleFromSchema(schema, spec, seenRefs = [], depth = 0) {
   if (!schema) return null;
   
@@ -518,6 +582,10 @@ function preprocessForZudoku(inputFile, outputFile) {
       }
     }
   }
+
+  // Flatten every allOf item that directly references another allOf
+  const flattenedNestedAllOfRefs = flattenDirectNestedAllOfRefs(spec);
+  console.log(`✅ Flattened directly nested allOf refs: ${flattenedNestedAllOfRefs}`);
 
   // Add examples to responses without examples
   addExamplesToResponses(spec);
