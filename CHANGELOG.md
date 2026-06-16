@@ -5,10 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.0-RC.2 Solved documentation issue] - 2026-05-12
+## [6.1-RC.1 (main) Update based on missing features for(Dutch) OKE project] - 2026-04-07
 
 ### Fixed
-- Added alphabetical sorting of `components.schemas` in the Zudoku preprocessor.
+- Added attempt objects to PATCH TestComponentOfferingAssociationAttemptInstance
+- Added first and number of attempts to TestComponentOfferingAssociation
+- Made attempts attribute deprecated on TestComponentOfferingAssociation
+- Added non required primaryCode and otherCodes to associations.
+- Added an optional resultValueType property to the Result schema object.
 
 ## [6.0-RC.2 update examples 406] - 2026-03-13
 
