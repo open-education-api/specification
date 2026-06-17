@@ -86,9 +86,44 @@ properties:
     type:
       - string
       - 'null'
-    description: The moment when participants can follow this programme for the first time.
+    deprecated: true
+    description: The moment when participants can follow this programme for the first time. Superseded by the new DateTime attributes.
     format: date-time
     example: '2025-08-28T08:30:00+01:00'
+  firstPossibleOfferingStartDateTime:
+    type:
+      - string
+      - 'null'
+    description: |
+      The first possible start datetime for an offering based on this programme. 
+      An offering may not start before this moment. 
+      Subsequently associations belonging to such an offering may not have a start datetime 
+      before the start datetime of the offering.  
+    format: date-time
+    example: '2020-09-01T00:00:00+02:00'
+  lastPossibleOfferingStartDateTime:
+    type:
+      - string
+      - 'null'
+    description: |
+      The last possible start datetime for an offering based on this programme. 
+      An offering may not start beyond this moment. 
+      Associations belonging to such an offering may start later, 
+      but still have end before the end datetime of that offering and 
+      ultimately before the last OfferingEnddateTime on the programme.
+    format: date-time
+    example: '2024-09-01T00:00:00+02:00'
+  lastPossibleOfferingEndDateTime:
+    type:
+      - string
+      - 'null'
+    description: |
+      The last possible end datetime for an offering based on this programme. 
+      An offering must end on this moment. 
+      Subsequently associations belonging to such an offering also need to end on 
+      or before this moment.
+    format: date-time
+    example: '2027-08-11T23:59:00+02:00'
   levelOfQualification:
     oneOf:
       - $ref: '../enumerations/levelOfQualification.yaml'
