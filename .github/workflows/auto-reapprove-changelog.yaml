@@ -3,7 +3,7 @@
 
 name: Auto re-approve when only CHANGELOG changed
 
-on:
+'on':
   pull_request_target:
     types: [synchronize, reopened, ready_for_review]
 
