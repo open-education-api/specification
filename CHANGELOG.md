@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added FirstPossibleOfferingStartDateTime to Programme, Course, LearningComponent and TestComponent
 - Added LastPossibleOfferingStartDateTime to Programme, Course, LearningComponent and TestComponent
 - Added lastPossibleOfferingEndDateTime to Programme, Course, LearningComponent and TestComponent
+## [6.1-RC.1 Replace RFC 7807 with RFC 9457] - 2026-06-18
+
+### fixed
+- Replace RFC 7807 with RFC 9457 for errorhandling.
 
 ## [6.1-RC.1 (main) Update based on missing features for(Dutch) OKE project] - 2026-04-07
 
@@ -18,8 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added attempt objects to PATCH TestComponentOfferingAssociationAttemptInstance
 - Added first and number of attempts to TestComponentOfferingAssociation
 - Made attempts attribute deprecated on TestComponentOfferingAssociation
-- Added non required primaryCode and otherCodes to associations.
-- Added an optional resultValueType property to the Result schema object.
+- Added non required primaryCode and otherCodes to associations
+- Added an optional resultValueType property to the Result schema object
 
 ## [6.0-RC.2 update examples 406] - 2026-03-13
 
