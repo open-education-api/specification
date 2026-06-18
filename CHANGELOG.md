@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.1-RC.1 Replace RFC 7807 with RFC 9457]
+## [6.1-RC.1 Replace RFC 7807 with RFC 9457] - 2026-06-18
 
 ### fixed
 - Replace RFC 7807 with RFC 9457 for errorhandling
