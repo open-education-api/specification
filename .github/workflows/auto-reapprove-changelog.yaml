@@ -29,8 +29,18 @@ jobs:
           repositories: |
             specification
 
-      # 2) Check whether only CHANGELOG.md changed since the last approval.
-      #    This uses the GitHub GraphQL API and compare API instead of checking out PR code.
+      # 2) Checkout the PR HEAD commit.
+      #    Only git diff is executed; no PR code is run.
+      - name: Checkout PR head
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      # 3) Check whether only CHANGELOG.md changed since the last approval.
+      #    This uses the GitHub GraphQL API, PR files API and local git diff.
       - name: Check and re-approve if only CHANGELOG changed
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -92,19 +102,19 @@ jobs:
 
           echo "Last approved commit: ${APPROVED_COMMIT}"
 
-          # Determine which files changed since the last approval.
+          # Determine which PR files changed since the last approval.
           FILES_CHANGED="$(
-            gh api "/repos/${REPO}/compare/${APPROVED_COMMIT}...${HEAD_SHA}" \
-              --jq '.files[].filename'
+            git diff --name-only "${APPROVED_COMMIT}..HEAD" -- \
+              $(gh api "repos/${REPO}/pulls/${PR}/files?per_page=100" --jq '.[].filename')
           )"
 
-          # If no changes occurred after approval, do nothing.
+          # If no PR files changed after approval, do nothing.
           if [ -z "${FILES_CHANGED}" ]; then
-            echo "No files changed after approval."
+            echo "No PR files changed after approval."
             exit 0
           fi
 
-          echo "Files changed since approval:"
+          echo "PR files changed since approval:"
           echo "${FILES_CHANGED}"
 
           # If any file outside the allow-list changed, do not re-approve.
