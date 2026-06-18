@@ -3,7 +3,7 @@
 
 name: Auto re-approve when only CHANGELOG changed
 
-on:
+'on':
   pull_request_target:
     types: [synchronize, reopened, ready_for_review]
 
@@ -15,7 +15,7 @@ permissions:
 jobs:
   reapprove:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
+    if: ${{ github.event.pull_request.draft == false }}
 
     steps:
       # 1) Create a GitHub App installation token.
@@ -45,7 +45,7 @@ jobs:
           # Only these files may change without requiring a new human review.
           ALLOWED_REGEX='^CHANGELOG\.md$'
 
-          # Retrieve the commit SHA of the most recent stale dismissed approval.
+          # Retrieve the commit SHA of the most recent dismissed approval.
           APPROVED_COMMIT="$(
             gh api graphql \
               -F owner="${OWNER}" \
@@ -58,6 +58,7 @@ jobs:
                       timelineItems(last: 100, itemTypes: [REVIEW_DISMISSED_EVENT]) {
                         nodes {
                           ... on ReviewDismissedEvent {
+                            createdAt
                             previousReviewState
                             review {
                               commit {
@@ -77,6 +78,7 @@ jobs:
                   | select(.previousReviewState == "APPROVED")
                   | select(.review.commit.oid != null)
                 ]
+                | sort_by(.createdAt)
                 | last
                 | .review.commit.oid // empty
               '
