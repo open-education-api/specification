@@ -16,8 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added attempt objects to PATCH TestComponentOfferingAssociationAttemptInstance
 - Added first and number of attempts to TestComponentOfferingAssociation
 - Made attempts attribute deprecated on TestComponentOfferingAssociation
-- Added non required primaryCode and otherCodes to associations.
-- Added an optional resultValueType property to the Result schema object.
+- Added non required primaryCode and otherCodes to associations
+- Added an optional resultValueType property to the Result schema object
 
 ## [6.0-RC.2 update examples 406] - 2026-03-13
 
