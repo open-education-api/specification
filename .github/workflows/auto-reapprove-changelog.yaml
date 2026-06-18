@@ -43,43 +43,43 @@ jobs:
           # Only these files may change without requiring a new human review.
           ALLOWED_REGEX='^CHANGELOG\.md$'
 
-          echo "Review states:"
-          gh api "/repos/${REPO}/pulls/${PR}/reviews?per_page=100" \
-            --jq '.[] | "\(.submitted_at) \(.state) \(.commit_id)"'
-
-          # Retrieve the commit SHA of the most recent approval.
-          # After a new commit, GitHub may mark the previous approval as DISMISSED.
-          APPROVED_COMMIT="$(
+          # Retrieve the commit SHA of the most recent stale dismissed review.
+          DISMISSED_COMMIT="$(
             gh api "/repos/${REPO}/pulls/${PR}/reviews?per_page=100" \
               --jq '
-                [.[] | select(.state=="APPROVED" or (.state=="DISMISSED" and (.body // "" | contains("stale"))))]
+                [
+                  .[]
+                  | select(.state == "DISMISSED")
+                  | select((.dismissal_message // "" | ascii_downcase | contains("stale")))
+                  | select(.commit_id != null)
+                ]
                 | sort_by(.submitted_at)
                 | last
                 | .commit_id // empty
               '
           )"
 
-          # If no approval exists yet, do nothing.
-          if [ -z "${APPROVED_COMMIT}" ]; then
-            echo "No previous approval found."
+          # If no stale dismissed review exists, do nothing.
+          if [ -z "${DISMISSED_COMMIT}" ]; then
+            echo "No stale dismissed review found."
             exit 0
           fi
 
-          echo "Last approved commit: ${APPROVED_COMMIT}"
+          echo "Stale dismissed review commit: ${DISMISSED_COMMIT}"
 
-          # Determine which files changed since the last approval.
+          # Determine which files changed since the stale dismissed review.
           FILES_CHANGED="$(
-            gh api "/repos/${REPO}/compare/${APPROVED_COMMIT}...${HEAD_SHA}" \
+            gh api "/repos/${REPO}/compare/${DISMISSED_COMMIT}...${HEAD_SHA}" \
               --jq '.files[].filename'
           )"
 
-          # If no changes occurred after approval, do nothing.
+          # If no changes occurred after the stale dismissed review, do nothing.
           if [ -z "${FILES_CHANGED}" ]; then
-            echo "No files changed after approval."
+            echo "No files changed after stale dismissed review."
             exit 0
           fi
 
-          echo "Files changed after approval:"
+          echo "Files changed since stale dismissed review:"
           echo "${FILES_CHANGED}"
 
           # If any file outside the allow-list changed, do not re-approve.
@@ -88,8 +88,9 @@ jobs:
             exit 0
           fi
 
-          # Only CHANGELOG.md changed since the last approval: submit approval.
+          # Only CHANGELOG.md changed since the stale dismissed review: submit approval.
           gh api -X POST "/repos/${REPO}/pulls/${PR}/reviews" \
             -f commit_id="${HEAD_SHA}" \
             -f event="APPROVE" \
             -f body="Auto re-approve: only CHANGELOG.md changed since last approval."
+            
