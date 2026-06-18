@@ -30,6 +30,7 @@ jobs:
             specification
 
       # 2) Check whether only CHANGELOG.md changed since the last approval.
+      #    This uses the GitHub compare API instead of checking out PR code.
       - name: Check and re-approve if only CHANGELOG changed
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
