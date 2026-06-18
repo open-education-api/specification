@@ -30,7 +30,6 @@ jobs:
             specification
 
       # 2) Check whether only CHANGELOG.md changed since the last approval.
-      #    This uses the GitHub compare API instead of checking out PR code.
       - name: Check and re-approve if only CHANGELOG changed
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -43,10 +42,20 @@ jobs:
           # Only these files may change without requiring a new human review.
           ALLOWED_REGEX='^CHANGELOG\.md$'
 
-          # Retrieve the commit SHA of the most recent APPROVED review.
+          echo "Review states:"
+          gh api "/repos/${REPO}/pulls/${PR}/reviews?per_page=100" \
+            --jq '.[] | "\(.submitted_at) \(.state) \(.commit_id)"'
+
+          # Retrieve the commit SHA of the most recent approval.
+          # After a new commit, GitHub may mark the previous approval as DISMISSED.
           APPROVED_COMMIT="$(
             gh api "/repos/${REPO}/pulls/${PR}/reviews?per_page=100" \
-              --jq '[.[] | select(.state=="APPROVED")] | sort_by(.submitted_at) | last | .commit_id // empty'
+              --jq '
+                [.[] | select(.state=="APPROVED" or (.state=="DISMISSED" and (.body // "" | contains("stale"))))]
+                | sort_by(.submitted_at)
+                | last
+                | .commit_id // empty
+              '
           )"
 
           # If no approval exists yet, do nothing.
@@ -83,4 +92,3 @@ jobs:
             -f commit_id="${HEAD_SHA}" \
             -f event="APPROVE" \
             -f body="Auto re-approve: only CHANGELOG.md changed since last approval."
-            
