@@ -43,18 +43,10 @@ jobs:
           # Only these files may change without requiring a new human review.
           ALLOWED_REGEX='^CHANGELOG\.md$'
 
-          echo "PR: ${PR}"
-          echo "HEAD_SHA: ${HEAD_SHA}"
-
           # Retrieve the commit SHA of the most recent APPROVED review.
           APPROVED_COMMIT="$(
             gh api "/repos/${REPO}/pulls/${PR}/reviews?per_page=100" \
-              --jq '
-                [.[] | select(.state == "APPROVED")]
-                | sort_by(.submitted_at)
-                | last
-                | .commit_id // empty
-              '
+              --jq '[.[] | select(.state=="APPROVED")] | sort_by(.submitted_at) | last | .commit_id // empty'
           )"
 
           # If no approval exists yet, do nothing.
@@ -87,9 +79,8 @@ jobs:
           fi
 
           # Only CHANGELOG.md changed since the last approval: submit approval.
-          echo "Only CHANGELOG.md changed. Re-approving."
-
           gh api -X POST "/repos/${REPO}/pulls/${PR}/reviews" \
             -f commit_id="${HEAD_SHA}" \
             -f event="APPROVE" \
-            -f body="Auto re-approve: only CHANGELOG.md changed since the last approval."
+            -f body="Auto re-approve: only CHANGELOG.md changed since last approval."
+            
