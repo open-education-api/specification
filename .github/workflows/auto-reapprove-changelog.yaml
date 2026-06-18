@@ -1,5 +1,5 @@
-# Automatically re-approve a PR when only CHANGELOG.md changed
-# after the last approval.
+# Automatically re-approve a PR when it was already approved
+# and only CHANGELOG.md changed after the last approval.
 
 name: Auto re-approve when only CHANGELOG changed
 
@@ -29,54 +29,67 @@ jobs:
           repositories: |
             specification
 
-      # 2) Checkout the PR HEAD commit.
-      #    Only git diff is executed; no PR code is run.
-      - name: Checkout PR head
-        uses: actions/checkout@v6
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
-          token: ${{ steps.app-token.outputs.token }}
-
-      # 3) Re-approve if only CHANGELOG.md changed since the last APPROVED review.
-      - name: Re-approve if only CHANGELOG changed
+      # 2) Check whether only CHANGELOG.md changed since the last approval.
+      #    This uses the GitHub compare API instead of checking out PR code.
+      - name: Check and re-approve if only CHANGELOG changed
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -euo pipefail
 
-          REPO="${{ github.repository }}"
-          PR="${{ github.event.pull_request.number }}"
-
           # Only these files may change without requiring a new human review.
-          ALLOWED_REGEX='^(CHANGELOG\.md)$'
+          ALLOWED_REGEX='^CHANGELOG\.md$'
+
+          echo "PR: ${PR}"
+          echo "HEAD_SHA: ${HEAD_SHA}"
 
           # Retrieve the commit SHA of the most recent APPROVED review.
           APPROVED_COMMIT="$(
             gh api "/repos/${REPO}/pulls/${PR}/reviews?per_page=100" \
-              --jq '[.[] | select(.state=="APPROVED")][0].commit_id'
+              --jq '
+                [.[] | select(.state == "APPROVED")]
+                | sort_by(.submitted_at)
+                | last
+                | .commit_id // empty
+              '
           )"
 
           # If no approval exists yet, do nothing.
-          if [ -z "${APPROVED_COMMIT}" ] || [ "${APPROVED_COMMIT}" = "null" ]; then
+          if [ -z "${APPROVED_COMMIT}" ]; then
+            echo "No previous approval found."
             exit 0
           fi
 
-          # Determine which files changed since that approval.
-          CHANGED="$(git diff --name-only "${APPROVED_COMMIT}..HEAD" || true)"
+          echo "Last approved commit: ${APPROVED_COMMIT}"
+
+          # Determine which files changed since the last approval.
+          FILES_CHANGED="$(
+            gh api "/repos/${REPO}/compare/${APPROVED_COMMIT}...${HEAD_SHA}" \
+              --jq '.files[].filename'
+          )"
 
           # If no changes occurred after approval, do nothing.
-          if [ -z "${CHANGED}" ]; then
+          if [ -z "${FILES_CHANGED}" ]; then
+            echo "No files changed after approval."
             exit 0
           fi
+
+          echo "Files changed after approval:"
+          echo "${FILES_CHANGED}"
 
           # If any file outside the allow-list changed, do not re-approve.
-          if echo "${CHANGED}" | grep -qEv "${ALLOWED_REGEX}"; then
+          if echo "${FILES_CHANGED}" | grep -qEv "${ALLOWED_REGEX}"; then
+            echo "Files outside allow-list changed. Not re-approving."
             exit 0
           fi
 
-          # Only CHANGELOG.md changed -> submit approval.
+          # Only CHANGELOG.md changed since the last approval: submit approval.
+          echo "Only CHANGELOG.md changed. Re-approving."
+
           gh api -X POST "/repos/${REPO}/pulls/${PR}/reviews" \
+            -f commit_id="${HEAD_SHA}" \
             -f event="APPROVE" \
-            -f body="Auto re-approve: only CHANGELOG.md changed since last approval."
+            -f body="Auto re-approve: only CHANGELOG.md changed since the last approval."
