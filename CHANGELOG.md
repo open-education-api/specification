@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [6.1-RC.1 Replace RFC 7807 with RFC 9457] - 2026-06-18
 
 ### fixed
-- Replace RFC 7807 with RFC 9457 for errorhandling
+- Replace RFC 7807 with RFC 9457 for errorhandling.
 
 ## [6.1-RC.1 (main) Update based on missing features for(Dutch) OKE project] - 2026-04-07
 
