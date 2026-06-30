@@ -428,7 +428,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: academicSessionType
           in: query
@@ -557,7 +556,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -633,7 +631,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -711,7 +708,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -789,7 +785,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -861,7 +856,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
       responses:
@@ -950,7 +944,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: buildingId
@@ -1379,7 +1372,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -1452,7 +1444,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -1514,7 +1505,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
         - $ref: '#/components/parameters/offeringState'
@@ -1591,7 +1581,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
         - $ref: '#/components/parameters/offeringState'
@@ -1662,7 +1651,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -1787,7 +1775,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -1872,7 +1859,6 @@ paths:
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/teachingLanguage'
         - $ref: '#/components/parameters/offeringState'
@@ -1971,7 +1957,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -2028,7 +2013,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -2112,7 +2096,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -2215,7 +2198,6 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/search'
@@ -2398,7 +2380,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
       responses:
         '200':
@@ -2864,7 +2845,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -2926,7 +2906,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -2992,7 +2971,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3108,7 +3086,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3179,7 +3156,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: since
@@ -3297,7 +3273,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: organisationType
@@ -3455,7 +3430,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3600,7 +3574,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -3662,7 +3635,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3740,7 +3712,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3797,7 +3768,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3875,7 +3845,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3956,7 +3925,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -4034,7 +4002,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -4085,7 +4052,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/personSearch'
         - name: affiliations
@@ -4307,7 +4273,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -4397,7 +4362,6 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/consumer'
         - name: role
@@ -4476,7 +4440,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -4554,7 +4517,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -4994,7 +4956,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -5056,7 +5017,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -5123,7 +5083,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -5261,7 +5220,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -5330,7 +5288,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -5407,7 +5364,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -5489,7 +5445,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: roomType
@@ -5852,7 +5807,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: attendance
           in: query
@@ -6259,7 +6213,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -6321,7 +6274,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -6387,7 +6339,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -6503,7 +6454,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -12338,7 +12288,6 @@ components:
               format: date-time
               description: ISO 8601 date-time.
               example: '2025-12-31T23:59:59Z'
-    filterQueryOr:
       name: filter_query[__or][]
       in: query
       required: false
