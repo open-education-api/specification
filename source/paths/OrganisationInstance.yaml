@@ -31,7 +31,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/Organisation.yaml'
     '400':
@@ -69,7 +69,7 @@ put:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           $ref: '../schemas/Organisation.yaml'
 

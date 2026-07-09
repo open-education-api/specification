@@ -37,7 +37,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/ProgrammeOffering.yaml'
             title: programmeOffering
@@ -77,7 +77,7 @@ put:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           $ref: '../schemas/ProgrammeOffering.yaml'
 
@@ -126,7 +126,7 @@ patch:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           $ref: '../schemas/ProgrammeOffering.yaml'
 
