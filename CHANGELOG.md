@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0-RC.3 Solved filter parameter issue] - 2026-07-09
+
+### Fixed
+- Merged the filter_query and filter_query[__or][] parameter definitions into a single filter_query parameter to clarify deepObject encoding.
+
 ## [6.0-RC.2 Solved documentation issue] - 2026-05-12
 
 ### Fixed
