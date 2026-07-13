@@ -16,13 +16,12 @@ get:
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/filterQuery.yaml'
-    - $ref: '../parameters/filterQueryOr.yaml'
     - $ref: '../parameters/fields.yaml'
   responses:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/Pagination.yaml'

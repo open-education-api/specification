@@ -9,7 +9,6 @@ get:
     - $ref: '../parameters/pageSize.yaml'
     - $ref: '../parameters/pageNumber.yaml'
     - $ref: '../parameters/filterQuery.yaml'
-    - $ref: '../parameters/filterQueryOr.yaml'
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
@@ -23,7 +22,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/Pagination.yaml'

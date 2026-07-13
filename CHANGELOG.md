@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Merged the filter_query and filter_query[__or][] parameter definitions into a single filter_query parameter to clarify deepObject encoding.
 
+## [6.0-RC.3 Solved content-type issue] - 2026-07-09
+
+### Fixed
+- Content-type updated to application/vnd.oeapi+json
+
 ## [6.0-RC.2 Solved documentation issue] - 2026-05-12
 
 ### Fixed

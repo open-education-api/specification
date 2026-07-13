@@ -17,7 +17,6 @@ get:
     - $ref: '../parameters/consumer.yaml'
     - $ref: '../parameters/search.yaml'
     - $ref: '../parameters/filterQuery.yaml'
-    - $ref: '../parameters/filterQueryOr.yaml'
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/teachingLanguage.yaml'
     - $ref: '../parameters/offeringState.yaml'
@@ -67,7 +66,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/Pagination.yaml'
