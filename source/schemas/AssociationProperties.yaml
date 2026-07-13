@@ -4,6 +4,14 @@ required:
   - role
   - state
 properties:
+  primaryCode:
+    description: |
+      The primary human readable identifier for this association. This is often the source identifier as defined by the institution.
+      For OEAPI 6.x this attribute is not required. For OEAPI 7.x this attribute may become required.
+    $ref: './IdentifierEntry.yaml'
+    example:
+      codeType: identifier
+      code: "2.1"
   role:
     $ref: '../enumerations/associationRole.yaml'
   startDateTime:
@@ -27,6 +35,13 @@ properties:
     format: date-time
     description: The actual end date and time the person stopped participating in the offering. Formatted according to RFC3339 (full-date)
     example: '2025-10-23T08:30:00+01:00'
+  otherCodes:
+    type:
+      - array
+      - 'null'
+    description: An array of additional human readable codes/identifiers for the entity being described.
+    items:
+      $ref: './IdentifierEntry.yaml'
   state:
     $ref: '../enumerations/associationState.yaml'
 #    readOnly: true

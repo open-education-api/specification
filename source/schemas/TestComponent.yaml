@@ -57,6 +57,40 @@ properties:
     description: The extra duration of this component for candidates that are awarded extra time as a personal need. The duration format is from the ISO 8601 ABNF as given in Appendix A of RFC 3339.
     pattern: '^-?P(?:\d+Y)?(?:\d+M)?(?:\d+(?:D|W))?(?:T(?:\d+H)?(?:\d+M)?(?:\d+(?:\.\d+)?S)?)?$'
     example: PT30M # 30 minutes
+  firstPossibleOfferingStartDateTime:
+    type:
+      - string
+      - 'null'
+    description: |
+      The first possible start datetime for an offering based on this test component. 
+      An offering may not start before this moment. 
+      Subsequently associations belonging to such an offering may not have a start datetime 
+      before the start datetime of the offering.
+    format: date-time
+    example: '2020-09-01T00:00:00+02:00'
+  lastPossibleOfferingStartDateTime:
+    type:
+      - string
+      - 'null'
+    description: |
+      The last possible start datetime for an offering based on this test component. 
+      An offering may not start beyond this moment. 
+      Associations belonging to such an offering may start later, 
+      but still have end before the end datetime of that offering and 
+      ultimately before the last OfferingEnddateTime on the test component.
+    format: date-time
+    example: '2024-09-01T00:00:00+02:00'
+  lastPossibleOfferingEndDateTime:
+    type:
+      - string
+      - 'null'
+    description: |
+      The last possible end datetime for an offering based on this test component. 
+      An offering must end on this moment. 
+      Subsequently associations belonging to such an offering also need to end on 
+      or before this moment.
+    format: date-time
+    example: '2027-08-11T23:59:00+02:00'
   resultValueType:
     oneOf:
       - $ref: '../enumerations/resultValueType.yaml'
