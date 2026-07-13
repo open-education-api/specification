@@ -31,7 +31,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/ProgrammeOfferingAssociation.yaml'          
     '400':
@@ -69,7 +69,7 @@ put:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           $ref: '../schemas/ProgrammeOfferingAssociation.yaml'
 
@@ -143,7 +143,7 @@ patch:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/AssociationId.yaml'
