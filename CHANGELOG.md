@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0-RC.3 Fix typo in AcademicSessionCourseOfferingCollection.yaml] - 2026-07-14
+
+### Fixed
+- Fixed the `AcademicSessionCourseCollection` response schema by correctly defining `items` as an array of `CourseOffer` objects.
+
 ## [6.0-RC.3 Solved filter parameter issue] - 2026-07-09
 
 ### Fixed
