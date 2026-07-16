@@ -25,6 +25,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added non required primaryCode and otherCodes to associations
 - Added an optional resultValueType property to the Result schema object
 
+## [6.0-RC.3 Fix typo in AcademicSessionCourseOfferingCollection.yaml] - 2026-07-14
+
+### Fixed
+- Fixed the `AcademicSessionCourseCollection` response schema by correctly defining `items` as an array of `CourseOffer` objects.
+
+## [6.0-RC.3 Solved filter parameter issue] - 2026-07-09
+
+### Fixed
+- Merged the filter_query and filter_query[__or][] parameter definitions into a single filter_query parameter to clarify deepObject encoding.
+
+## [6.0-RC.3 Solved content-type issue] - 2026-07-09
+
+### Fixed
+- Content-type updated to application/vnd.oeapi+json
+
+## [6.0-RC.2 Solved documentation issue] - 2026-05-12
+
+### Fixed
+- Added alphabetical sorting of `components.schemas` in the Zudoku preprocessor.
+
 ## [6.0-RC.2 update examples 406] - 2026-03-13
 
 ### Fixed
