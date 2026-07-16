@@ -19,7 +19,7 @@ post:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           required:
             - remoteState
@@ -33,7 +33,7 @@ post:
     '201':
       description: Created
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/AssociationId.yaml'

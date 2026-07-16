@@ -35,7 +35,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/ProgrammeExpanded.yaml'
     '400':

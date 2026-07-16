@@ -32,7 +32,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/CourseOffering.yaml'
             title: courseOffering
@@ -72,7 +72,7 @@ put:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           $ref: '../schemas/CourseOffering.yaml'
 
@@ -121,7 +121,7 @@ patch:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           $ref: '../schemas/CourseOffering.yaml'
 

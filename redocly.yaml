@@ -13,7 +13,7 @@ rules:
   response-mime-type:
     severity: error
     allowedValues:
-      - application/json
+      - application/vnd.oeapi+json
       - application/problem+json
       - application/octet-stream
       - application/merge-patch+json
@@ -21,7 +21,7 @@ rules:
   request-mime-type:
     severity: error
     allowedValues:
-      - application/json
+      - application/vnd.oeapi+json
       - application/problem+json
       - application/octet-stream
       - application/merge-patch+json

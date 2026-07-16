@@ -22,7 +22,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/Pagination.yaml'
@@ -62,7 +62,7 @@ post:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/PersonProperties.yaml'
@@ -72,7 +72,7 @@ post:
     '201':
       description: Created
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/PersonId.yaml'

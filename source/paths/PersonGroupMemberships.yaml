@@ -24,7 +24,7 @@ put:
   requestBody:
     required: true
     content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/Membership.yaml'
             title: membership
