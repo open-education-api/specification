@@ -25,6 +25,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added non required primaryCode and otherCodes to associations
 - Added an optional resultValueType property to the Result schema object
 
+## [6.0-RC.3 Fix missing expand in GroupInstance.yaml] - 2026-08-18
+
+### Fixed
+- Added `academic_session` to expands in GroupInstance
+
 ## [6.0-RC.3 Fix typo in AcademicSessionCourseOfferingCollection.yaml] - 2026-07-14
 
 ### Fixed
