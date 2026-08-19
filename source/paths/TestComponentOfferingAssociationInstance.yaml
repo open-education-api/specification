@@ -99,18 +99,19 @@ put:
                 affiliations: [student]
                 email: vandamme.mcw@student.roc.nl
                 languageOfChoice: [nl-NL]
-                otherCodes: [
-                  {
-                    codeType: "accountId",
-                    code: "s1234567@student.roc.nl"
-                    # surfconext identifier
-                  },
-                  {
-                    codeType: "eckid",
-                    code: "https://roc.nl/8078d3...28bc85"
-                    # eckid cross chain
-                  }
-                ]
+                otherCodes: 
+                  [
+                    {
+                      codeType: "accountId",
+                      code: "s1234567@student.roc.nl"
+                      # surfconext identifier
+                    },
+                    {
+                      codeType: "eckid",
+                      code: "https://roc.nl/8078d3...28bc85"
+                      # eckid cross chain
+                    }
+                  ]
               testComponentOfferingId: "123e4567-e89b-12d3-a456-134564174000"
 
           Change student enrolment to offering (zitting) (flow 2.x):

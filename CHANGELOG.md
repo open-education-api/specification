@@ -32,6 +32,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - removed unused expensions in ProgrammeOfferingInstance.yaml and LearningOutcomeInstance.yaml
 - Added parents to enumeration
 
+## [6.0-RC.3 Fix identation in examples LearningComponentOfferingAssociationInstance.yaml and TestComponentOfferingAssociationInstance.yaml] - 2026-08-18
+
+### Fixed
+- Fixed identation for otherCodes objects in the examples.
+
 ## [6.0-RC.3 Fix typo in AcademicSessionCourseOfferingCollection.yaml] - 2026-07-14
 
 ### Fixed
