@@ -32,6 +32,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - removed unused expensions in ProgrammeOfferingInstance.yaml and LearningOutcomeInstance.yaml
 - Added parents to enumeration
 
+## [6.0-RC.3 Fix format of flexibleEntryPeriodEndDateTime] - 2026-08-18
+
+### Fixed
+- Fixed format of the `flexibleEntryPeriodEndDateTime` in `CourseOffering.yaml)` to date-time
+
+## [6.0-RC.3 Fix format in service.yaml] - 2026-08-18
+
+### Fixed
+- Format should be `uri-template` in stead of `uri-reference`
+
 ## [6.0-RC.3 Fix identation in examples LearningComponentOfferingAssociationInstance.yaml and TestComponentOfferingAssociationInstance.yaml] - 2026-08-18
 
 ### Fixed
