@@ -30,6 +30,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed format of the `flexibleEntryPeriodEndDateTime` in `CourseOffering.yaml)` to date-time
 - 
+## [6.0-RC.3 Fix format in service.yaml] - 2026-08-18
+
+### Fixed
+- Format should be `uri-template` in stead of `uri-reference`
+
 ## [6.0-RC.3 Fix identation in examples LearningComponentOfferingAssociationInstance.yaml and TestComponentOfferingAssociationInstance.yaml] - 2026-08-18
 
 ### Fixed
