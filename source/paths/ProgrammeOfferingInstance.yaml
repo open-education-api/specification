@@ -24,13 +24,8 @@ get:
           type: string
           enum:
             - academic_session
-            - course
-            - course_offering
-            - learning_component
             - organisation
             - programme
-            - programme_offering
-            - test_component
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:

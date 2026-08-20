@@ -23,7 +23,6 @@ get:
         items:
           type: string
           enum:
-            - organisation
             - parents
             - children
     - $ref: '../parameters/fields.yaml'
