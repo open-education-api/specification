@@ -66,11 +66,9 @@ allOf:
           The expanded programme object that is offered in this programmeOffering.
           When the client requests expansion of `programme`, the full expanded programme object MUST be returned here instead of only the identifier.
           If no programme is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Programme.yaml'
+          - type: 'null'
       organisationId:
         description: |
           The identifier of the organisation that manages this programmeOffering.
@@ -82,8 +80,6 @@ allOf:
           The expanded organisation object that manages this programmeOffering.
           When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
           If no organisation is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Organisation.yaml'
+          - type: 'null'

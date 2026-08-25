@@ -75,11 +75,9 @@ allOf:
           When the client requests expansion of `person`, the full person object MUST be returned here instead of only the identifier.
           If no person is defined, this value is `null`.
       #  readOnly: true
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Person.yaml'
+          - type: 'null'
         title: Person
       testComponentOfferingId:
         description: |
@@ -92,11 +90,9 @@ allOf:
           The expanded testComponentOffering object referenced here.
           When the client requests expansion of `testComponentOffering`, the full TestComponentOffering object MUST be returned here instead of only the identifier.
           If no testComponentOffering is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './TestComponentOffering.yaml'
+          - type: 'null'
       attemptIds:
         description: |
           The identifiers of the attempts related to this testComponentOffering association.

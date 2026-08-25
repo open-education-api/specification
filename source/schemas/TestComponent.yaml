@@ -243,11 +243,9 @@ properties:
       The expanded organisation object which provides this component.
       When the client requests expansion of `organisation`, the full organisation object MUST be returned here instead of only the identifier.
       If no organisation is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Organisation.yaml'
+      - type: 'null'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'

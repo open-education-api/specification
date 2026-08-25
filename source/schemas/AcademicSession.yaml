@@ -113,11 +113,9 @@ properties:
       When the client requests expansion of `year`, the full expanded
       academicSession object MUST be returned here instead of only the identifier.
       If no top-level year is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './AcademicSession.yaml'
+      - type: 'null'
   otherCodes:
     type:
       - array

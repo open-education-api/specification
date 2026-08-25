@@ -69,11 +69,9 @@ allOf:
           When the client requests expansion of `course`, the full expanded
           course object MUST be returned here instead of only the identifier.
           If no course is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Course.yaml'
+          - type: 'null'
       programmeOfferingIds:
         description: |
           An array of 0 or more identifiers of programmeOfferings that this
@@ -112,8 +110,6 @@ allOf:
           When the client requests expansion of `organisation`, the full expanded
           organisation object MUST be returned here instead of only the identifier.
           If no organisation is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Organisation.yaml'
+          - type: 'null'

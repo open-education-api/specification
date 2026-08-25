@@ -31,11 +31,9 @@ allOf:
           When the client requests expansion of `person`, the full expanded person object MUST be returned here instead of only the identifier.
           If no person is defined, this value is `null`.
         readOnly: true
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Person.yaml'
+          - type: 'null'
       programmeOfferingId:
         description: |
           The identifier of the `programmeOffering` referenced here.
