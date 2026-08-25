@@ -58,11 +58,9 @@ properties:
       The expanded assessor (person) responsible for evaluating the result.
       When the client requests expansion of `assessor`, the full person object MUST be returned here instead of only the identifier.
       If no assessor is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Person.yaml'
+      - type: 'null'
   resultDateTime:
     type: string
     description: The date this result has been published, RFC3339 (full-date)
