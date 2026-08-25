@@ -221,11 +221,9 @@ properties:
       The expanded parent programme of which the current programme is a child.
       When the client requests expansion of `parent`, the full expanded programme object MUST be returned here instead of only the identifier.
       If no parent is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Programme.yaml'
+      - type: 'null'
   childIds:
     description: |
       The identifiers of the programmes which are a part of this programme (e.g. specialisations).
@@ -301,11 +299,9 @@ properties:
       The expanded organisation object providing this programme.
       When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
       If no organisation is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Organisation.yaml'
+      - type: 'null'
   supplementaryInformation:
     $ref: './SupplementaryInformation.yaml'
   consumer:

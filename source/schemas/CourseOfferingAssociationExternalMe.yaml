@@ -34,8 +34,6 @@ allOf:
           courseOffering object MUST be returned here instead of only the
           identifier.
           If no offering is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './CourseOffering.yaml'
+          - type: 'null'

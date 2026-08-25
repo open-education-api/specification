@@ -44,11 +44,9 @@ allOf:
           courseOffering object MUST be returned here instead of only the
           identifier.
           If no offering is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './CourseOffering.yaml'
+          - type: 'null'
       personId:
         description: |
           The identifier of the person referenced here.
@@ -62,8 +60,7 @@ allOf:
           When the client or server expands `person`, the full expanded
           person object MUST be returned here instead of only the identifier.
           If no person is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Person.yaml'
+          - type: 'null'
+          

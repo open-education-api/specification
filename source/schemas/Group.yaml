@@ -90,11 +90,9 @@ allOf:
           When the client requests expansion of `organisation`, the full expanded
           organisation object MUST be returned here instead of only the identifier.
           If no organisation is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Organisation.yaml'
+          - type: 'null'
       academicSessionId:
         description: |
           The identifier of the academicSession for which this group is intended.
@@ -108,11 +106,9 @@ allOf:
           When the client requests expansion of `academicSession`, the full expanded
           academicSession object MUST be returned here instead of only the identifier.
           If no academicSession is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
-          - $ref: './AcademicSession.yaml'          
+        oneOf:
+          - $ref: './AcademicSession.yaml'
+          - type: 'null'
       offeringIds:
         description: |
           The offering identifiers (0..N) associated with this group.

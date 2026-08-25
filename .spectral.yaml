@@ -10,6 +10,7 @@ rules:
 #  camel-case-properties: false
 #  path-item-refs: false
 #  oas-missing-type: false
+#  no-unnecessary-combinator: false
   circular-references: false
 #  description-duplication: false
   oas3-unused-component: false

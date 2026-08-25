@@ -20,8 +20,7 @@ allOf:
           - learningComponentOffering
     properties:
       result:
-        oneOf:
-          - $ref: './LearningComponentOfferingAssociationResult.yaml'
+        $ref: './LearningComponentOfferingAssociationResult.yaml'
       attendance:
         oneOf:
           - $ref: '../enumerations/associationAttendance.yaml'
@@ -39,11 +38,9 @@ allOf:
           When the client requests expansion of `person`, the full expanded person object MUST be returned here instead of only the identifier.
           If no person is defined, this value is `null`.
        # readOnly: true
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Person.yaml'
+          - type: 'null'
       learningComponentOfferingId:
         description: |
           The identifier of the learningComponentOffering referenced here.
@@ -55,8 +52,6 @@ allOf:
           The expanded learningComponentOffering object referenced here.
           When the client requests expansion of `offering`, the full expanded learningComponentOffering object MUST be returned here instead of only the identifier.
           If no offering is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './LearningComponentOffering.yaml'
+          - type: 'null'

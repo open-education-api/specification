@@ -29,11 +29,9 @@ properties:
       The expanded academicSession object during which this courseOffering takes place.
       When the client requests expansion of `academicSession`, the full expanded academicSession object MUST be returned here instead of only the identifier.
       If no academicSession is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './AcademicSession.yaml'
+      - type: 'null'
   name:
     type: array
     description: The name of this offering

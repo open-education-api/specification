@@ -107,11 +107,9 @@ properties:
       The expanded building object in which the room is located.
       When the client requests expansion of `building`, the full building object MUST be returned here instead of only the identifier.
       If no building is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Building.yaml'
+      - type: 'null'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'
