@@ -77,11 +77,9 @@ allOf:
           The expanded component that is offered in this component offering.
           When the client requests expansion of `component`, the full component object MUST be returned here instead of only the identifier.
           If no component is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './TestComponent.yaml'
+          - type: 'null'
       courseOfferingIds:
         description: |
           The identifiers of the course offerings to which this test component offering is related.
