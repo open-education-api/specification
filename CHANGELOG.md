@@ -25,6 +25,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added non required primaryCode and otherCodes to associations
 - Added an optional resultValueType property to the Result schema object
 
+## [6.0-RC.3 Add 409 to different POST, PATCH and PUT endpoints] - 2026-08-24
+
+### Fixed
+- Add errror 409 to all PUT, PATCH and POST endpoints
+
 ## [6.0-RC.3 Fixed language description to RFC 5646] - 2026-08-19
 
 ### Fixed
