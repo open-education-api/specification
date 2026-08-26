@@ -260,7 +260,9 @@ properties:
       When the client does not request expansion of `organisation`, only this
       identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   organisation:
     description: |
       The expanded organisation object that manages this course.

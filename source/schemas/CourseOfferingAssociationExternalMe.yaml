@@ -26,7 +26,9 @@ allOf:
           When the client or server does not expand `offering`, only this
           identifier is returned.
           This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-        $ref: './Identifier.yaml'
+        oneOf:
+          - $ref: './Identifier.yaml'
+          - type: 'null'
       courseOffering:
         description: |
           The expanded courseOffering object referenced here.

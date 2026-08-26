@@ -158,7 +158,9 @@ properties:
       The identifier of the parent learningComponent of which the current learningComponent is a child.
       When the client does not request expansion of `parent`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   parent:
     description: |
       The expanded parent learningComponent of which the current learningComponent is a child.
@@ -198,7 +200,9 @@ properties:
       The identifier of the course of which this component is a part.
       When the client does not request expansion of `course`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   course:
     description: |
       The expanded course object of which this component is a part.
@@ -212,7 +216,9 @@ properties:
       The identifier of the organisation which provides this component.
       When the client does not request expansion of `organisation`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   organisation:
     description: |
       The expanded organisation object which provides this component.

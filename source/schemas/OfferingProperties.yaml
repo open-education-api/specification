@@ -23,7 +23,9 @@ properties:
       The identifier of the academicSession during which this courseOffering takes place.
       When the client does not request expansion of `academicSession`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   academicSession:
     description: |
       The expanded academicSession object during which this courseOffering takes place.
