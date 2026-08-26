@@ -184,17 +184,17 @@ properties:
       The identifier of the parent Test Component of which the current Test Component is a child.
       When the client does not request expansion of `parent`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   parent:
     description: |
       The expanded parent Test Component of which the current Test Component is a child.
       When the client requests expansion of `parent`, the full Test Component object MUST be returned here instead of only the identifier.
       If no parent is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './TestComponent.yaml'
+      - type: 'null'
   childIds:
     description: |
       The identifiers of the Test Components that are part of this Test Component.
@@ -220,24 +220,26 @@ properties:
       The identifier of the course of which this component is a part.
       When the client does not request expansion of `course`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './TestComponent.yaml'
+      - type: 'null'
   course:
     description: |
       The expanded course object of which this component is a part.
       When the client requests expansion of `course`, the full course object MUST be returned here instead of only the identifier.
       If no course is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Course.yaml'
+      - type: 'null'
     title: Course object
   organisationId:
     description: |
       The identifier of the organisation which provides this component.
       When the client does not request expansion of `organisation`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   organisation:
     description: |
       The expanded organisation object which provides this component.

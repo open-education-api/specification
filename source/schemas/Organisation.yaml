@@ -91,7 +91,9 @@ properties:
       The identifier of the organisation which is the root organisation of this organisation.
       When the client does not request expansion of `root`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   root:
     description: |
       The expanded organisation object which is the root organisation of this organisation.
@@ -105,7 +107,9 @@ properties:
       The identifier of the organisational unit which is the parent of this organisation.
       When the client does not request expansion of `parent`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   parent:
     description: |
       The expanded organisation object which is the parent of this organisation.
