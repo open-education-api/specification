@@ -61,27 +61,25 @@ allOf:
           - array
           - 'null'
         items:
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: './Room.yaml'
+            - type: 'null'
       componentId:
         description: |
           The identifier of the component that is offered in this component offering.
           When the client does not request expansion of `component`, only this identifier is returned.
           This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-        $ref: './Identifier.yaml'
+        oneOf:
+          - $ref: './Identifier.yaml'
+          - type: 'null'
       component:
         description: |
           The expanded component that is offered in this component offering.
           When the client requests expansion of `component`, the full component object MUST be returned here instead of only the identifier.
           If no component is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './TestComponent.yaml'
+          - type: 'null'
       courseOfferingIds:
         description: |
           The identifiers of the course offerings to which this test component offering is related.
@@ -108,17 +106,17 @@ allOf:
           The identifier of the organisation that manages this component offering.
           When the client does not request expansion of `organisation`, only this identifier is returned.
           This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-        $ref: './Identifier.yaml'
+        oneOf:
+          - $ref: './Identifier.yaml'
+          - type: 'null'
       organisation:
         description: |
           The expanded organisation object that manages this component offering.
           When the client requests expansion of `organisation`, the full organisation object MUST be returned here instead of only the identifier.
           If no organisation is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Organisation.yaml'
+          - type: 'null'
       documents:
         type:
           - array
