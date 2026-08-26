@@ -49,8 +49,7 @@ allOf:
           The expanded programmeOffering object referenced here.
           When the client requests expansion of `offering`, the full expanded programmeOffering object MUST be returned here instead of only the identifier.
           If no offering is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './ProgrammeOffering.yaml'
+          - type: 'null'
+
