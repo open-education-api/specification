@@ -72,11 +72,7 @@ properties:
       - array
       - 'null'
     items:
-      type:
-        - object
-        - 'null'
-      allOf:
-        - $ref: './Room.yaml'
+      $ref: './Room.yaml'
   attendance:
     oneOf:
       - $ref: '../enumerations/attendance.yaml'
@@ -94,17 +90,17 @@ properties:
       The identifier of the coordinator responsible for overseeing the test.
       When the client does not request expansion of `coordinator`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   coordinator:
     description: |
       The expanded person object representing the coordinator responsible for overseeing the test.
       When the client requests expansion of `coordinator`, the full person object MUST be returned here instead of only the identifier.
       If no coordinator is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Person.yaml'
+      - type: 'null'
   documents:
     type:
       - array
