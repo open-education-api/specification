@@ -7,10 +7,10 @@ rules:
   operation-description: false
   component-description: false
   no-unnecessary-combinator: false
-  camel-case-properties: false
-  path-item-refs: false
-  oas-missing-type: false
+#  camel-case-properties: false
+#  path-item-refs: false
+#  oas-missing-type: false
   circular-references: false
-  description-duplication: false
+#  description-duplication: false
   oas3-unused-component: false
 #  oas3-valid-schema-example: false
