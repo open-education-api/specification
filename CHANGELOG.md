@@ -35,6 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed language description to RFC 5646
 
+## [6.0-RC.3 Fixed readonly in ProgrammeOfferingAssociation] - 2026-08-19
+
+### Fixed
+- Removed readonly for person(id) in ProgrammeOfferingAssociation
+
 ## [6.0-RC.3 Fix missing and unused expand] - 2026-08-18
 
 ### Fixed
