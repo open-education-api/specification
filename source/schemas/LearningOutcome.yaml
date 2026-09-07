@@ -80,11 +80,9 @@ properties:
       - array
       - 'null'
     items:
-      type:
-        - object
-        - 'null'
-      allOf:
+      oneOf:
         - $ref: './LearningOutcome.yaml'
+        - type: 'null'
   childIds:
     description: |
       The identifiers of all learning outcomes for which this learning outcome is the parent.
@@ -108,11 +106,9 @@ properties:
       - array
       - 'null'
     items:
-      type:
-        - object
-        - 'null'
-      allOf:
+      oneOf:
         - $ref: './LearningOutcome.yaml'
+        - type: 'null'
   fieldsOfStudy:
     type:
       - string
