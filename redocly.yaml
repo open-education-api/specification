@@ -1,3 +1,8 @@
+# Redocly configuration file
+# 
+# npx @redocly/cli lint main
+# redocly lint main
+
 apis:
   main:
     root: ./source/spec.yaml
@@ -34,7 +39,7 @@ rules:
   path-segment-plural: off
 
 #  info-license: off
-  no-invalid-schema-examples: off
+#  no-invalid-schema-examples: off
 #  no-required-schema-properties-undefined: off
 
 #  array-parameter-serialization: off

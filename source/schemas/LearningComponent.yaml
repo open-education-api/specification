@@ -107,11 +107,9 @@ properties:
       - array
       - 'null'
     items:
-      type:
-        - object
-        - 'null'
-      allOf:
+      oneOf:
         - $ref: './LearningOutcome.yaml'
+        - type: 'null'
   enrolment:
     type:
       - array
@@ -160,17 +158,17 @@ properties:
       The identifier of the parent learningComponent of which the current learningComponent is a child.
       When the client does not request expansion of `parent`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   parent:
     description: |
       The expanded parent learningComponent of which the current learningComponent is a child.
       When the client requests expansion of `parent`, the full expanded learningComponent object MUST be returned here instead of only the identifier.
       If no parent is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './LearningComponent.yaml'
+      - type: 'null'
   childIds:
     description: |
       The identifiers of the learningComponents which are a part of this learningComponent (e.g. combined tests).
@@ -194,43 +192,41 @@ properties:
       - array
       - 'null'
     items:
-      type:
-        - object
-        - 'null'
-      allOf:
+      oneOf:
         - $ref: './LearningComponent.yaml'
+        - type: 'null'
   courseId:
     description: |
       The identifier of the course of which this component is a part.
       When the client does not request expansion of `course`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   course:
     description: |
       The expanded course object of which this component is a part.
       When the client requests expansion of `course`, the full expanded course object MUST be returned here instead of only the identifier.
       If no course is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Course.yaml'
+      - type: 'null'
   organisationId:
     description: |
       The identifier of the organisation which provides this component.
       When the client does not request expansion of `organisation`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   organisation:
     description: |
       The expanded organisation object which provides this component.
       When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
       If no organisation is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Organisation.yaml'
+      - type: 'null'
   consumer:
     oneOf:
       - $ref: './Consumer.yaml'

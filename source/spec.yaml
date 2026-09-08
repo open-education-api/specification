@@ -35,7 +35,7 @@ info:
     href: ./docs.html
 
 servers:
-  - url: http://demo01.eduapi.nl/v6
+  - url: https://demo01.eduapi.nl/v6
     description: SURF demo implementation
 
 
@@ -223,8 +223,8 @@ tags:
 
   - name: learning component offerings
     description: |
-      The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enrol.
+      The offerings API provides information about learning components offerings which 
+      have a global timeframe, e.g. a period to which students can enrol.
 
   - name: learning components 
     description: |
@@ -367,8 +367,8 @@ tags:
 
   - name: programme offerings
     description: |
-      The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enrol.
+      The offerings API provides information about programme offerings which have a 
+      global timeframe, e.g. a period to which students can enrol.
 
   - name: programme_model
     x-displayName: Programme
@@ -433,8 +433,8 @@ tags:
 
   - name: test component offerings
     description: |
-      The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enrol.
+      The offerings API provides information about test component offerings which 
+      have a global timeframe, e.g. a period to which students can enrol.
 
   - name: test components 
     description: |
