@@ -1,4 +1,4 @@
-name: Lint source specification
+name: Lint source specification vacuum
 
 on:
   pull_request:
@@ -14,7 +14,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  lint-source-specification:
+  lint-source-vacuum:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,26 +41,5 @@ jobs:
             exit 0
           fi
 
-          if [ ! -d "source" ]; then
-            echo "::error::source/ directory not found."
-            exit 1
-          fi
-
-      # Install the Redocly CLI.
-      # Node.js is already available on ubuntu-latest, so no explicit
-      # setup-node step is required here.
-      #
-      # The version is pinned to ensure consistent lint results
-      # across runs and over time.
-      - name: Install Redocly CLI
-        run: npm install -g @redocly/cli@1.34.2
-
-      # Run the Redocly linter for the API identified as "main".
-      #
-      # "main" refers to the API key under `apis:` in redocly.yaml.
-      # This means:
-      # - the spec file is resolved via redocly.yaml (not hardcoded here)
-      # - all configured rules, severities, plugins and extensions apply
-      # - CI logic stays stable if the source layout changes
-      - name: Lint OpenAPI specification
-        run: npx @redocly/cli lint main
+          echo "v5/ not present, cannot skip lint, but no code to lint either – failing"
+          exit 1
