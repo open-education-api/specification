@@ -220,13 +220,13 @@ function generateExampleFromSchema(schema, spec, seenRefs = [], depth = 0) {
     return Object.keys(merged).length > 0 ? merged : null;
   }
   
-  // Handle oneOf - take first option
-  if (schema.oneOf && schema.oneOf.length > 0) {
+  // Handle oneOf - take first option, unless this schema has its own properties
+  if (schema.oneOf && schema.oneOf.length > 0 && !schema.properties) {
     return generateExampleFromSchema(schema.oneOf[0], spec, seenRefs, depth + 1);
   }
   
-  // Handle anyOf - take first option
-  if (schema.anyOf && schema.anyOf.length > 0) {
+  // Handle anyOf - take first option, unless this schema has its own properties
+  if (schema.anyOf && schema.anyOf.length > 0 && !schema.properties) {
     return generateExampleFromSchema(schema.anyOf[0], spec, seenRefs, depth + 1);
   }
   
