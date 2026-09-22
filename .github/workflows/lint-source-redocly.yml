@@ -14,7 +14,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  lint-source-specification:
+  lint-source-redocly:
     runs-on: ubuntu-latest
 
     steps:

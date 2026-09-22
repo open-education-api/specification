@@ -14,7 +14,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  lint-source-specification:
+  lint-source-openapi:
     runs-on: ubuntu-latest
 
     steps:
