@@ -1,4 +1,4 @@
-name: Lint source specification
+name: Lint source specification redocly
 
 on:
   pull_request:
