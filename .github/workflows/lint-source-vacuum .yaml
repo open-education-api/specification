@@ -3,10 +3,10 @@
 name: Lint Vacuum
 
 on:
-#  pull_request:
-#    branches:
-#      - "release/*"
-#      - "main"
+  pull_request:
+    branches:
+      - "release/*"
+      - "main"
   workflow_dispatch:
 
 # This workflow only reads repository contents and PR metadata.
