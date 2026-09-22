@@ -64,8 +64,7 @@ post:
     content:
       application/vnd.oeapi+json:
           schema:
-            allOf:
-              - $ref: '../schemas/PersonProperties.yaml'
+            $ref: '../schemas/PersonProperties.yaml'
   
 
   responses:

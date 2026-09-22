@@ -6,7 +6,7 @@ rules:
   oas3-missing-example: false
   operation-description: false
   component-description: false
-  no-unnecessary-combinator: false
+ # no-unnecessary-combinator: false
   camel-case-properties: false
   path-item-refs: false
   oas-missing-type: false
