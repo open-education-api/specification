@@ -223,7 +223,7 @@ tags:
 
   - name: learning component offerings
     description: |
-      The offerings API provides information about learning components offerings which 
+      The offerings API provides information about learning component offerings which 
       have a global timeframe, e.g. a period to which students can enrol.
 
   - name: learning components 
