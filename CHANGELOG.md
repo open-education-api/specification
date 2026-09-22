@@ -25,6 +25,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added non required primaryCode and otherCodes to associations
 - Added an optional resultValueType property to the Result schema object
 
+## [6.0-RC.3 Fixed vacuum error no-unnecessary-combinator] - 2026-08-25
+
+### Fixed
+- All specifications with only one option in oneOf or allOf have been eliminated
+
 ## [6.0-RC.3 Add 409 to different POST, PATCH and PUT endpoints] - 2026-08-24
 
 ### Fixed
