@@ -52,17 +52,17 @@ properties:
       The identifier of the assessor responsible for evaluating the result.
       When the client does not request expansion of `assessor`, only this identifier is returned.
       This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-    $ref: './Identifier.yaml'
+    oneOf:
+      - $ref: './Identifier.yaml'
+      - type: 'null'
   assessor:
     description: |
       The expanded assessor (person) responsible for evaluating the result.
       When the client requests expansion of `assessor`, the full person object MUST be returned here instead of only the identifier.
       If no assessor is defined, this value is `null`.
-    type:
-      - object
-      - 'null'
-    allOf:
+    oneOf:
       - $ref: './Person.yaml'
+      - type: 'null'
   resultDateTime:
     type: string
     description: The date this result has been published, RFC3339 (full-date)

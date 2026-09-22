@@ -60,30 +60,30 @@ allOf:
           The identifier of the programme that is offered in this programmeOffering.
           When the client does not request expansion of `programme`, only this identifier is returned.
           This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-        $ref: './Identifier.yaml'
+        oneOf:
+          - $ref: './Identifier.yaml'
+          - type: 'null'
       programme:
         description: |
           The expanded programme object that is offered in this programmeOffering.
           When the client requests expansion of `programme`, the full expanded programme object MUST be returned here instead of only the identifier.
           If no programme is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Programme.yaml'
+          - type: 'null'
       organisationId:
         description: |
           The identifier of the organisation that manages this programmeOffering.
           When the client does not request expansion of `organisation`, only this identifier is returned.
           This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-        $ref: './Identifier.yaml'
+        oneOf:
+          - $ref: './Identifier.yaml'
+          - type: 'null'
       organisation:
         description: |
           The expanded organisation object that manages this programmeOffering.
           When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
           If no organisation is defined, this value is `null`.
-        type:
-          - object
-          - 'null'
-        allOf:
+        oneOf:
           - $ref: './Organisation.yaml'
+          - type: 'null'
