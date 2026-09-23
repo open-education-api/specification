@@ -1,6 +1,10 @@
 name: filter_query
 in: query
 required: false
+
+x-lint-ignore:
+  - camel-case-properties
+
 style: deepObject
 explode: true
 description: |
