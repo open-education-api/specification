@@ -121,7 +121,7 @@ jobs:
           rsync -a --delete "${SOURCE_FOLDER}/" "target/${SITE_PATH}/source/"
           rsync -a oeapi.json oeapi.yaml "target/${SITE_PATH}/"
           mkdir -p "target/$CHANGELOG_PATH"
-          rsync -a "changelog.md" "target/${CHANGELOG_PATH}/"
+          rsync -a "CHANGELOG.md" "target/${CHANGELOG_PATH}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
