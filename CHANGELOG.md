@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# Release 6.1 changes
+
+## [6.1-RC.1 (main) Date-time attributes on education specifications ] - 2026-06-17
+
+### Added
+- Added FirstPossibleOfferingStartDateTime to Programme, Course, LearningComponent and TestComponent
+- Added LastPossibleOfferingStartDateTime to Programme, Course, LearningComponent and TestComponent
+- Added lastPossibleOfferingEndDateTime to Programme, Course, LearningComponent and TestComponent
+## [6.1-RC.1 Replace RFC 7807 with RFC 9457] - 2026-06-18
+
+### fixed
+- Replace RFC 7807 with RFC 9457 for errorhandling.
+
+## [6.1-RC.1 (main) Update based on missing features for(Dutch) OKE project] - 2026-04-07
+
+### Fixed
+- Added attempt objects to PATCH TestComponentOfferingAssociationAttemptInstance
+- Added first and number of attempts to TestComponentOfferingAssociation
+- Made attempts attribute deprecated on TestComponentOfferingAssociation
+- Added non required primaryCode and otherCodes to associations
+- Added an optional resultValueType property to the Result schema object
+
 # Release 6.0 changes
 
 ## [6.0-RC.3 Fixed vacuum error no-unnecessary-combinator] - 2026-08-25
@@ -835,7 +857,7 @@ updated RFC3339 -> RFC3339 (date-time) where applicable corrected
 - update result-state parameter to resultState #320
 - update relation between component offerings allow for 0 or more relations #341 and 
 
-# Release 5.0 and ealier changes
+
 
 ## [5.0.0] - 2022-07-19
 The v5.0.0 release is the same as 5.0.0 RC2.
