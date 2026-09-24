@@ -24,7 +24,7 @@ put:
   requestBody:
     required: true
     content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/Membership.yaml'
             title: membership
@@ -60,6 +60,8 @@ put:
       $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '409':
+      $ref: '../schemas/ErrorConflict.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':

@@ -1,18 +1,24 @@
-description: | 
-  The language used in the described entity. A string formatted according to RFC 4647 https://www.rfc-editor.org/rfc/rfc4647.html
-  RFC 4647 supports language specifications from very general to very specific. 
-  This breaks down as:
-  - ([a-z]{2,3}) - Primary language subtag (2-3 letters) ISO 639-1, ISO 639-2, or ISO 639-3 https://www.iso.org/iso-639-language-code
-  - (-([A-Z]{2}|[0-9]{3}))? - Optional region/country (2 uppercase letters or 3 digits) ISO 3166-1 or UN M.49 https://www.iso.org/iso-3166-country-codes.html
-  - (-([a-z]{4}))? - Optional script subtag (4 lowercase letters)
-  - (-([a-z]{2}|[0-9]{3}))* - Optional variant subtags
-  - (-[a-z0-9]{2,8})* - Optional extension subtags
-  - (-x(-[a-z0-9]{1,8})+)? - Optional private use extensions
+description: |
+  The language used in the described entity. The value **must be a language tag that conforms to RFC 5646** (Tags for Identifying Languages, BCP 47):
+  https://www.rfc-editor.org/rfc/rfc5646.html
 
-  When using this schema, the most common format is a two-letter language code as specified by ISO 639-1, optionally followed by a dash and a two-letter country code as specified by ISO 3166-1 (e.g. "en" or "en-GB").
-  More specific language tags are also allowed, such as "zh-Hant-TW" for Traditional Chinese as used in Taiwan.
-  For sign language based on a certain language two methods are commonly used: either using the subtag "sgn" (e.g. "nl-sgn-NL" for Dutch Sign Language) or using the subtag "s" (e.g. "nl-s-NL" for Dutch Sign Language). Both methods are allowed.
+  A tag consists of the following components, in this exact order:
+  1. **language** – two‑ to three‑letter codes (ISO 639‑1/‑2) **or** four‑letter codes (ISO 639‑5) **or** five‑ to eight‑letter registered language subtags.
+  2. **script** – optional, four letters in Title‑Case (e.g. `Latn`, `Hant`).
+  3. **region** – optional, either two uppercase letters (ISO 3166‑1) **or** three digits (UN M.49).
+  4. **variant** – zero or more subtags, each either five‑ to eight‑alphanumerics or a digit followed by three alphanumerics (e.g. `1901`, `oxendict`).
+  5. **extension** – zero or more extensions. Each extension starts with a *singleton* (a single alphanumeric character except `x`) followed by one or more subtags of two‑ to eight‑alphanumerics (e.g. `u‑co‑phonebk`).
+  6. **private‑use** – optional, the letter `x` followed by one or more subtags of one‑ to eight‑alphanumerics (e.g. `x‑private`).
+
+  The most common form is a two‑letter language code (ISO 639‑1) optionally followed by a hyphen and a two‑letter country code (ISO 3166‑1), for example `en` or `en‑GB`.
+
+  More specific tags are also valid, for instance `zh‑Hant‑TW` (Traditional Chinese as used in Taiwan).
+
+  For sign languages two conventions are recognised:
+  * `sgn` – e.g. `nl‑sgn‑NL` (Dutch Sign Language)
+  * `s`   – e.g. `nl‑s‑NL` (Dutch Sign Language)
+
 type: string
 minLength: 2
-pattern: "^([a-z]{2,3})(-([A-Z]{2}|[0-9]{3}))?(-([a-z]{4}))?(-([a-z]{2}|[0-9]{3}))*(-[a-z0-9]{2,8})*(-x(-[a-z0-9]{1,8})+)?$"
+pattern: "^(?:(?:[A-Za-z]{2,3}(?:-[A-Za-z]{3}){0,2}|[A-Za-z]{4}|[A-Za-z]{5,8})(?:-[A-Za-z]{4})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-(?:[A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*?(?:-(?:[A-WY-Za-wy-z0-9](?:-[A-Za-z0-9]{2,8})+))*?(?:-x(?:-[A-Za-z0-9]{1,8})+)?|x(?:-[A-Za-z0-9]{1,8})+)$"
 example: en-GB

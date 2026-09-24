@@ -24,13 +24,14 @@ get:
           type: string
           enum:
             - organisation
+            - academic_session
     - $ref: '../parameters/fields.yaml'
     - $ref: '../parameters/consumer.yaml'
   responses:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/Group.yaml'
     '400':
@@ -68,7 +69,7 @@ put:
   requestBody:
     required: true
     content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/Group.yaml'
             title: group
@@ -117,6 +118,8 @@ put:
       $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '409':
+      $ref: '../schemas/ErrorConflict.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':

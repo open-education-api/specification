@@ -19,7 +19,7 @@ post:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           required:
             - remoteState
@@ -33,7 +33,7 @@ post:
     '201':
       description: Created
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/AssociationId.yaml'
@@ -55,6 +55,8 @@ post:
       $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '409':
+      $ref: '../schemas/ErrorConflict.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':

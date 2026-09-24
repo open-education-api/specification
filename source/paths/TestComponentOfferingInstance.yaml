@@ -32,7 +32,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/TestComponentOffering.yaml'
     '400':
@@ -70,7 +70,7 @@ put:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           $ref: '../schemas/TestComponentOffering.yaml'
 
@@ -96,6 +96,8 @@ put:
       $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '409':
+      $ref: '../schemas/ErrorConflict.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':
@@ -119,7 +121,7 @@ patch:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
         schema:
           $ref: '../schemas/TestComponentOffering.yaml'
 
@@ -144,6 +146,8 @@ patch:
       $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '409':
+      $ref: '../schemas/ErrorConflict.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':

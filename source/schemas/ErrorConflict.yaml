@@ -1,0 +1,12 @@
+description: Conflict
+content:
+  application/problem+json:
+    schema:
+      $ref: 'Problem.yaml'
+    example:
+      type: "https://api.example.org/problems/conflict"
+      title: "Conflict"
+      status: 409
+      detail: "The request could not be completed due to a conflict with the current state of the resource."
+      instance: "https://api.example.org/courses"
+
