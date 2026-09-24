@@ -1,3 +1,8 @@
+# Redocly configuration file
+# 
+# npx @redocly/cli lint main
+# redocly lint main
+
 apis:
   main:
     root: ./source/spec.yaml
@@ -13,7 +18,7 @@ rules:
   response-mime-type:
     severity: error
     allowedValues:
-      - application/json
+      - application/vnd.oeapi+json
       - application/problem+json
       - application/octet-stream
       - application/merge-patch+json
@@ -21,7 +26,7 @@ rules:
   request-mime-type:
     severity: error
     allowedValues:
-      - application/json
+      - application/vnd.oeapi+json
       - application/problem+json
       - application/octet-stream
       - application/merge-patch+json
@@ -34,7 +39,7 @@ rules:
   path-segment-plural: off
 
 #  info-license: off
-  no-invalid-schema-examples: off
+#  no-invalid-schema-examples: off
 #  no-required-schema-properties-undefined: off
 
 #  array-parameter-serialization: off

@@ -71,17 +71,19 @@ jobs:
           # Specialities for version v5
           if [[ "$MAJOR" == "5" ]]; then
             SITE_PATH="specification/v5"
+            CHANGELOG_PATH="v5/changelog"
             SOURCE_FOLDER="v5"
             SPECIFICATION="v5/spec.yaml"
           else
             SITE_PATH="specification/v${SERIES}"
+            CHANGELOG_PATH="v${SERIES}/changelog"
             SOURCE_FOLDER="source"
             SPECIFICATION="source/spec.yaml"
           fi
-
           echo "SOURCE_FOLDER=$SOURCE_FOLDER" >> "$GITHUB_ENV"
           echo "SPECIFICATION=$SPECIFICATION" >> "$GITHUB_ENV"
           echo "SITE_PATH=${SITE_PATH}" >> "$GITHUB_ENV"
+          echo "CHANGELOG_PATH=${CHANGELOG_PATH}" >> "$GITHUB_ENV"
           echo "BRANCH=${BRANCH}" >> "$GITHUB_ENV"
           
       # 5) Build release YAML, release JSON and zudoku documentation
@@ -104,7 +106,9 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "target/$SITE_PATH"
-          rsync -a "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
+          rsync -a --delete "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
+          mkdir -p "target/$CHANGELOG_PATH"
+          rsync -a "changelog.md" "target/${CHANGELOG_PATH}/"
 
       # 8) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)

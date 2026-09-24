@@ -22,7 +22,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/Pagination.yaml'
@@ -62,17 +62,16 @@ post:
   requestBody:
     required: true
     content:
-      application/json:
+      application/vnd.oeapi+json:
           schema:
-            allOf:
-              - $ref: '../schemas/PersonProperties.yaml'
+            $ref: '../schemas/PersonProperties.yaml'
   
 
   responses:
     '201':
       description: Created
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             allOf:
               - $ref: '../schemas/PersonId.yaml'
@@ -90,6 +89,8 @@ post:
       $ref: '../schemas/ErrorNotAcceptable.yaml'
     '405':
       $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '409':
+      $ref: '../schemas/ErrorConflict.yaml'
     '429':
       $ref: '../schemas/ErrorTooManyRequests.yaml'
     '500':

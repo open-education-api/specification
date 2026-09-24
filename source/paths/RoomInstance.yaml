@@ -30,7 +30,7 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        application/vnd.oeapi+json:
           schema:
             $ref: '../schemas/Room.yaml'
     '400':
