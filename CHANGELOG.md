@@ -29,6 +29,63 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Release 6.0 changes
 
+## [6.0-RC.3 Fixed vacuum error no-unnecessary-combinator] - 2026-08-25
+
+### Fixed
+- All specifications with only one option in oneOf or allOf have been eliminated
+
+## [6.0-RC.3 Fixed vacuum error no-unnecessary-combinator] - 2026-08-25
+
+### Fixed
+- All specifications with only one option in oneOf or allOf have been eliminated
+
+## [6.0-RC.3 Fixed vacuum error no-unnecessary-combinator] - 2026-08-25
+
+### Fixed
+- All specifications with only one option in oneOf or allOf have been eliminated
+
+## [6.0-RC.3 Add 409 to different POST, PATCH and PUT endpoints] - 2026-08-24
+
+### Fixed
+- Add errror 409 to all PUT, PATCH and POST endpoints
+
+## [6.0-RC.3 Fixed vacuum error no-unnecessary-combinator] - 2026-08-25
+
+### Fixed
+- All specifications with only one option in oneOf or allOf have been eliminated
+
+## [6.0-RC.3 Fixed language description to RFC 5646] - 2026-08-19
+
+### Fixed
+- Fixed language description to RFC 5646
+
+## [6.0-RC.3 Fixed readonly in ProgrammeOfferingAssociation] - 2026-08-19
+
+### Fixed
+- Removed readonly for person(id) in ProgrammeOfferingAssociation
+
+## [6.0-RC.3 Fix missing and unused expand] - 2026-08-18
+
+### Fixed
+- Added `academic_session` to expands in GroupInstance
+- removed unused expensions in ProgrammeOfferingInstance.yaml and LearningOutcomeInstance.yaml
+- Added parents to enumeration
+
+## [6.0-RC.3 Fix format of flexibleEntryPeriodEndDateTime] - 2026-08-18
+
+### Fixed
+- Fixed format of the `flexibleEntryPeriodEndDateTime` in `CourseOffering.yaml)` to date-time
+
+## [6.0-RC.3 Fix format in service.yaml] - 2026-08-18
+
+### Fixed
+- Format should be `uri-template` in stead of `uri-reference`
+
+## [6.0-RC.3 Fix identation in examples LearningComponentOfferingAssociationInstance.yaml and TestComponentOfferingAssociationInstance.yaml] - 2026-08-18
+
+### Fixed
+- Fixed identation for otherCodes objects in the examples.
+
 ## [6.0-RC.3 Fix typo in AcademicSessionCourseOfferingCollection.yaml] - 2026-07-14
 
 ### Fixed
