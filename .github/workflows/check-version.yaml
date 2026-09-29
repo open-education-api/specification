@@ -1,0 +1,72 @@
+# This workflow checks that index.mdx matches the version in source/spec.yaml.
+
+name: Check specification version
+
+on:
+  pull_request:
+    branches:
+      - "release/*"
+      - "main"
+  workflow_dispatch:
+
+# This workflow only reads repository files.
+permissions:
+  contents: read
+
+jobs:
+  check-version:
+    name: Check specification version
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the PR content.
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Check version in index.mdx
+        run: |
+          set -euo pipefail
+
+          node --input-type=module <<'NODE'
+          import { readFileSync } from "node:fs";
+
+          const errors = [];
+          let specText;
+          let indexLines;
+
+          try {
+            specText = readFileSync("source/spec.yaml", "utf8");
+          } catch {
+            errors.push("source/spec.yaml: file not found");
+          }
+
+          try {
+            indexLines = readFileSync("index.mdx", "utf8").split(/\r?\n/);
+          } catch {
+            errors.push("index.mdx: file not found");
+          }
+
+          const info = specText?.match(/^info:\s*\r?\n((?:^[ \t]+.*\r?\n|^\s*\r?\n)*)/m)?.[1];
+          const version = info?.match(/^[ \t]+version:\s*["']?([^\s"'#]+)["']?\s*(?:#.*)?$/m)?.[1];
+          if (specText && !version) errors.push("source/spec.yaml: cannot find info.version");
+
+          if (version && indexLines) {
+            const expectedTitle = `OEAPI - V${version}`;
+            if (!indexLines.some((line) => /^(?:#\s+|title:\s*["']?)/.test(line.trim()) && line.includes(`${expectedTitle} `))) {
+              const foundTitle = indexLines[0]?.match(/^#\s+OEAPI\s+-\s+\S+/)?.[0];
+              errors.push(`index.mdx: expected title "${expectedTitle} ..."; found: ${foundTitle ? `${foundTitle} ...` : indexLines[0] ?? "(missing)"}`);
+            }
+
+            for (const [lineNumber, extension] of [[5, "yaml"], [6, "json"]]) {
+              const expectedFile = `./oeapi-${version}.${extension}`;
+              if (!indexLines[lineNumber - 1]?.includes(`href="${expectedFile}"`)) {
+                const foundFile = indexLines[lineNumber - 1]?.match(/href=["']([^"']+)["']/)?.[1];
+                errors.push(`index.mdx:${lineNumber}: expected download file ${expectedFile}; found: ${foundFile ?? "(missing)"}`);
+              }
+            }
+          }
+
+          for (const error of errors) console.error(`::error::${error}`);
+          if (errors.length) process.exit(1);
+          console.log(`index.mdx matches source/spec.yaml version ${version}`);
+          NODE
