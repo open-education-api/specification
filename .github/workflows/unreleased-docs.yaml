@@ -67,12 +67,12 @@ jobs:
           spec = spec.replace(info[0], updatedInfo);
 
           let titles = 0;
-          index = index.replace(/^(\s*(?:#\s+|title:\s*["']?)OEAPI - )\d+\.\d+(?:-[\w.]+)?/gm,
+          index = index.replace(/^(\s*(?:#\s+|title:\s*["']?)OEAPI - )V?\d+\.\d+(?:-[\w.]+)?/gm,
             (_, prefix) => { titles++; return `${prefix}${version}`; });
           if (titles !== 1) throw new Error(`Expected one OEAPI version title in index.mdx, found ${titles}`);
 
           for (const extension of ['json', 'yaml']) {
-            const pattern = new RegExp(`\\./oeapi-\\d+\\.\\d+(?:-[\\w.]+)?\\.${extension}\\b`, 'g');
+            const pattern = new RegExp(`\\./oeapi(?:-\\d+\\.\\d+(?:-[\\w.]+)?)?\\.${extension}\\b`, 'g');
             let links = 0;
             index = index.replace(pattern, () => { links++; return `./oeapi-${version}.${extension}`; });
             if (links !== 1) throw new Error(`Expected one ${extension} download link in index.mdx, found ${links}`);
