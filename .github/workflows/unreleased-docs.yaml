@@ -68,7 +68,7 @@ jobs:
 
           let titles = 0;
           index = index.replace(/^(\s*(?:#\s+|title:\s*["']?)OEAPI - )V?\d+\.\d+(?:-[\w.]+)?/gm,
-            (_, prefix) => { titles++; return `${prefix}${version}`; });
+            (_, prefix) => { titles++; return `${prefix}V${version}`; });
           if (titles !== 1) throw new Error(`Expected one OEAPI version title in index.mdx, found ${titles}`);
 
           for (const extension of ['json', 'yaml']) {
