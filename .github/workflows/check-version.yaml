@@ -1,0 +1,23 @@
+# This workflow checks that index.mdx matches the version in source/spec.yaml.
+
+name: Check specification version
+
+on:
+  pull_request:
+    branches:
+      - "release/5.0"
+  workflow_dispatch:
+
+# This workflow only reads repository files.
+permissions:
+  contents: read
+
+jobs:
+  check-version:
+    name: Check specification version
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the PR content.
+      - name: Checkout code
+        uses: actions/checkout@v6
