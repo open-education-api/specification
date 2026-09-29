@@ -2,7 +2,7 @@
 
 import { spawnSync } from "node:child_process";
 import { readFileSync } from "node:fs";
-import { extname } from "node:path";
+import { basename, extname } from "node:path";
 
 function run(cmd, args, env = {}) {
   const r = spawnSync(cmd, args, {
@@ -39,10 +39,10 @@ if (version) {
   }
 
   for (const [lineNumber, extension] of [[5, "yaml"], [6, "json"]]) {
-    const expectedFile = `./oeapi-${version}.${extension}`;
-    if (!indexLines[lineNumber - 1]?.includes(`href="${expectedFile}"`)) {
-      const foundFile = indexLines[lineNumber - 1]?.match(/href=["']([^"']+)["']/)?.[1];
-      errors.push(`index.mdx:${lineNumber}: expected download file ${expectedFile}; found: ${foundFile ?? "(missing)"}`);
+    const expectedFile = `oeapi-${version}.${extension}`;
+    const foundPath = indexLines[lineNumber - 1]?.match(/href=["']([^"']+)["']/)?.[1];
+    if (basename(foundPath ?? "") !== expectedFile) {
+      errors.push(`index.mdx:${lineNumber}: expected download file ${expectedFile}; found: ${foundPath ?? "(missing)"}`);
     }
   }
 }
