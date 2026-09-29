@@ -43,13 +43,52 @@ jobs:
         with:
           node-version: "latest"
 
-      # 3-5) Bundle + preprocess + zudoku build (combined)
+      # 3) Mark the published specification and index as unreleased.
+      - name: Set unreleased version
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('node:fs');
+
+          const specPath = 'source/spec.yaml';
+          const indexPath = 'index.mdx';
+          let spec = fs.readFileSync(specPath, 'utf8');
+          let index = fs.readFileSync(indexPath, 'utf8');
+
+          const info = spec.match(/^info:\s*\r?\n((?:^[ \t]+.*\r?\n|^\s*\r?\n)*)/m);
+          const versionLine = info?.[1].match(/^([ \t]+version:\s*)(["']?)([^\s"'#]+)\2(\s*(?:#.*)?)$/m);
+          if (!versionLine) throw new Error('Cannot find info.version in source/spec.yaml');
+
+          const baseVersion = versionLine[3].match(/^(\d+\.\d+)/)?.[1];
+          if (!baseVersion) throw new Error(`Unexpected version: ${versionLine[3]}`);
+          const version = `${baseVersion}-unreleased`;
+          const updatedInfo = info[0].replace(versionLine[0],
+            `${versionLine[1]}${versionLine[2]}${version}${versionLine[2]}${versionLine[4]}`);
+          spec = spec.replace(info[0], updatedInfo);
+
+          let titles = 0;
+          index = index.replace(/^(\s*(?:#\s+|title:\s*["']?)OEAPI - )\d+\.\d+(?:-[\w.]+)?/gm,
+            (_, prefix) => { titles++; return `${prefix}${version}`; });
+          if (titles !== 1) throw new Error(`Expected one OEAPI version title in index.mdx, found ${titles}`);
+
+          for (const extension of ['json', 'yaml']) {
+            const pattern = new RegExp(`\\./oeapi-\\d+\\.\\d+(?:-[\\w.]+)?\\.${extension}\\b`, 'g');
+            let links = 0;
+            index = index.replace(pattern, () => { links++; return `./oeapi-${version}.${extension}`; });
+            if (links !== 1) throw new Error(`Expected one ${extension} download link in index.mdx, found ${links}`);
+          }
+
+          fs.writeFileSync(specPath, spec);
+          fs.writeFileSync(indexPath, index);
+          NODE
+
+      # 4-6) Bundle + preprocess + zudoku build (combined)
       - name: Build Zudoku docs (bundle + preprocess + build)
         run: |
           set -euo pipefail
           node build_oeapi.js source/spec.yaml oeapi.json oeapi.yaml oeapi.zudoku.json /specification/unreleased
 
-      # 6) Checkout publication repository into ./target
+      # 7) Checkout publication repository into ./target
       - name: Checkout publication repository (open-education-api.github.io)
         uses: actions/checkout@v6
         with:
@@ -57,7 +96,7 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           path: target
 
-      # 7) Publish Zudoku build output to specification/unreleased
+      # 8) Publish Zudoku build output to specification/unreleased
       - name: Publish dist -> specification/unreleased
         run: |
           set -euo pipefail
@@ -69,7 +108,7 @@ jobs:
           mkdir -p "target/unreleased/changelog"
           rsync -a "CHANGELOG.md" "target/unreleased/changelog/"
           
-      # 8) Commit and push only if there are changes in the publication repo.
+      # 9) Commit and push only if there are changes in the publication repo.
       - name: Commit and push publication repo changes (if any)
         env:
           APP_TOKEN: ${{ steps.app-token.outputs.token }}
