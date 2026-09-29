@@ -72,9 +72,12 @@ jobs:
           if (titles !== 1) throw new Error(`Expected one OEAPI version title in index.mdx, found ${titles}`);
 
           for (const extension of ['json', 'yaml']) {
-            const pattern = new RegExp(`\\./oeapi(?:-\\d+\\.\\d+(?:-[\\w.]+)?)?\\.${extension}\\b`, 'g');
+            const pattern = new RegExp(`(href=["'][^"'/]*?(?:[^"']*/)?)(oeapi(?:-\\d+\\.\\d+(?:-[\\w.]+)?)?\\.${extension})(["'])`, 'g');
             let links = 0;
-            index = index.replace(pattern, () => { links++; return `./oeapi-${version}.${extension}`; });
+            index = index.replace(pattern, (_, prefix, _file, quote) => {
+              links++;
+              return `${prefix}oeapi-${version}.${extension}${quote}`;
+            });
             if (links !== 1) throw new Error(`Expected one ${extension} download link in index.mdx, found ${links}`);
           }
 

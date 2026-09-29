@@ -58,10 +58,11 @@ jobs:
             }
 
             for (const [lineNumber, extension] of [[5, "yaml"], [6, "json"]]) {
-              const expectedFile = `./oeapi-${version}.${extension}`;
-              if (!indexLines[lineNumber - 1]?.includes(`href="${expectedFile}"`)) {
-                const foundFile = indexLines[lineNumber - 1]?.match(/href=["']([^"']+)["']/)?.[1];
-                errors.push(`index.mdx:${lineNumber}: expected download file ${expectedFile}; found: ${foundFile ?? "(missing)"}`);
+              const expectedFile = `oeapi-${version}.${extension}`;
+              const foundPath = indexLines[lineNumber - 1]?.match(/href=["']([^"']+)["']/)?.[1];
+              const foundFile = foundPath?.split("/").pop();
+              if (foundFile !== expectedFile) {
+                errors.push(`index.mdx:${lineNumber}: expected download file ${expectedFile}; found: ${foundPath ?? "(missing)"}`);
               }
             }
           }
