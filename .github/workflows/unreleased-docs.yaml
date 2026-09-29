@@ -65,7 +65,7 @@ jobs:
           mkdir -p "$DEST"
           rsync -a --delete "dist/specification/unreleased/" "${DEST}/"
           rsync -a --delete "source/" "${DEST}/source/"
-          rsync -a oeapi.json oeapi.yaml "${DEST}/"
+          rsync -a oeapi-*.json oeapi-*.yaml "${DEST}/"
           mkdir -p "target/unreleased/changelog"
           rsync -a "CHANGELOG.md" "target/unreleased/changelog/"
           
