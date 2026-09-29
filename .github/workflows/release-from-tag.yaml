@@ -102,6 +102,15 @@ jobs:
         run: |
           set -euo pipefail
           node build_oeapi.js "$SPECIFICATION" oeapi.json oeapi.yaml oeapi.zudoku.json "/$SITE_PATH"
+          SPEC_VERSION="$(node -e '
+            const fs = require("node:fs");
+            const source = fs.readFileSync(process.env.SPECIFICATION, "utf8");
+            const info = source.match(/^info:\s*\r?\n((?:^[ \t]+.*\r?\n|^\s*\r?\n)*)/m)?.[1];
+            const version = info?.match(/^[ \t]+version:\s*["\x27]?([^\s"\x27#]+)["\x27]?\s*(?:#.*)?$/m)?.[1];
+            if (!version) process.exit(1);
+            process.stdout.write(version);
+          ')"
+          echo "SPEC_VERSION=$SPEC_VERSION" >> "$GITHUB_ENV"
 
       # 6) Checkout the publication repository into ./target
       #    so we can copy files into it and push changes.
@@ -119,7 +128,7 @@ jobs:
           mkdir -p "target/$SITE_PATH"
           rsync -a --delete "dist/${SITE_PATH}/" "target/${SITE_PATH}/"
           rsync -a --delete "${SOURCE_FOLDER}/" "target/${SITE_PATH}/source/"
-          rsync -a oeapi.json oeapi.yaml "target/${SITE_PATH}/"
+          rsync -a oeapi-*.json oeapi-*.yaml "target/${SITE_PATH}/"
           mkdir -p "target/$CHANGELOG_PATH"
           rsync -a "CHANGELOG.md" "target/${CHANGELOG_PATH}/"
 
@@ -154,8 +163,8 @@ jobs:
           name: ${{ github.ref_name }}
           generate_release_notes: false
           files: |
-            oeapi.yaml
-            oeapi.json
+            oeapi-${{ env.SPEC_VERSION }}.yaml
+            oeapi-${{ env.SPEC_VERSION }}.json
 
       # 10) Add release yaml and json to release branch
       - name: Commit generated files to release branch
@@ -169,6 +178,6 @@ jobs:
 
           git switch -C "$BRANCH" "origin/$BRANCH"
 
-          git add oeapi.yaml oeapi.json oeapi.zudoku.json
+          git add oeapi-*.yaml oeapi-*.json oeapi.zudoku.json
           git commit -m "Add generated files for ${GITHUB_REF_NAME}" || exit 0
           git push

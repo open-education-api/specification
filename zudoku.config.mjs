@@ -16,7 +16,7 @@ export default {
     files: ["*.mdx"]
   },
   navigation: [
-    { type: "link", to: "https://openonderwijsapi.nl", label: "Back" },
+    { type: "link", to: "https://oeapi.eu", label: "Back" },
     { type: "link", to: "index", label: "Home" },
     { type: "link", to: "api", label: "API Reference" }
   ],
