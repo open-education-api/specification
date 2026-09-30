@@ -27,8 +27,8 @@ info:
 
   contact:
     name: OEAPI Working Group / SURF
-    url: https://openonderwijsapi.nl
-    email: info@openonderwijsapi.nl   
+    url: https://oeapi.eu
+    email: info@oeapi.eu   
 
   x-logo:
     url:  ./logo.png
