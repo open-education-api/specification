@@ -1,0 +1,103 @@
+# This workflow rebuilds the generated release files for an existing tag
+# and adds them to release/6.0.
+
+name: Restore generated release files
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to rebuild, e.g. v6.0-rc.3"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 0) Create an installation token for the publishing GitHub App.
+      - name: Create GitHub App installation token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.OEAPI_APP_PUBLISH_CLIENT_ID }}
+          private-key: ${{ secrets.OEAPI_APP_PUBLISH_SECRET }}
+          owner: open-education-api
+          repositories: |
+            specification
+
+      # 1) Checkout the requested tag.
+      - name: Checkout tag
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.tag }}
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      # 2) Setup Node for running build_oeapi.js.
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "latest"
+
+      # 3) Build the release files from the tag.
+      - name: Build release files
+        run: |
+          set -euo pipefail
+
+          node build_oeapi.js \
+            source/spec.yaml \
+            oeapi.json \
+            oeapi.yaml \
+            oeapi.zudoku.json \
+            /specification/v6.0
+
+          SPEC_VERSION="$(node -e '
+            const fs = require("node:fs");
+            const source = fs.readFileSync("source/spec.yaml", "utf8");
+            const info = source.match(/^info:\s*\r?\n((?:^[ \t]+.*\r?\n|^\s*\r?\n)*)/m)?.[1];
+            const version = info?.match(/^[ \t]+version:\s*["\x27]?([^\s"\x27#]+)["\x27]?\s*(?:#.*)?$/m)?.[1];
+            if (!version) process.exit(1);
+            process.stdout.write(version);
+          ')"
+
+          echo "SPEC_VERSION=$SPEC_VERSION" >> "$GITHUB_ENV"
+
+      # 4) Checkout release/6.0 separately.
+      - name: Checkout release branch
+        uses: actions/checkout@v6
+        with:
+          ref: release/6.0
+          token: ${{ steps.app-token.outputs.token }}
+          path: release-branch
+
+      # 5) Add the generated files to release/6.0.
+      - name: Commit generated files
+        run: |
+          set -euo pipefail
+
+          cp "oeapi-${SPEC_VERSION}.yaml" release-branch/
+          cp "oeapi-${SPEC_VERSION}.json" release-branch/
+          cp oeapi.zudoku.json release-branch/
+
+          cd release-branch
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            "oeapi-${SPEC_VERSION}.yaml" \
+            "oeapi-${SPEC_VERSION}.json" \
+            oeapi.zudoku.json
+
+          if git diff --cached --quiet; then
+            echo "Files already exist and are unchanged."
+          else
+            git commit -m "Add generated files for ${{ inputs.tag }}"
+            git push
+          fi
+          
