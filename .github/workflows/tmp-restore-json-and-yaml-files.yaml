@@ -6,7 +6,7 @@ name: Restore v6.0-rc.3 release files
 on:
   push:
     paths:
-      - ".github/workflows/restore-release-files.yaml"
+      - ".github/workflows/tmp-restore-json-and-yaml-files.yaml"
 
 permissions:
   contents: write
@@ -97,4 +97,3 @@ jobs:
             git commit -m "Add generated files for v6.0-rc.3"
             git push
           fi
-          
