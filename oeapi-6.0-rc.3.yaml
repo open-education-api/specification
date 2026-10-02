@@ -1,6 +1,6 @@
 openapi: 3.1.1
 info:
-  version: '6.0'
+  version: 6.0-rc.3
   title: Open Education API
   description: |
     OpenAPI (fka Swagger) specification for the Open Education API. 
@@ -25,13 +25,13 @@ info:
     url: https://github.com/open-education-api/specification/blob/release/6.0/LICENSE.md
   contact:
     name: OEAPI Working Group / SURF
-    url: https://openonderwijsapi.nl
-    email: info@openonderwijsapi.nl
+    url: https://oeapi.eu
+    email: info@oeapi.eu
   x-logo:
     url: ./logo.png
     href: ./docs.html
 servers:
-  - url: http://demo01.eduapi.nl/v6
+  - url: https://demo01.eduapi.nl/v6
     description: SURF demo implementation
 security: []
 tags:
@@ -197,8 +197,8 @@ tags:
       The API for associations between persons and learning component offerings.
   - name: learning component offerings
     description: |
-      The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enrol.
+      The offerings API provides information about learning component offerings which 
+      have a global timeframe, e.g. a period to which students can enrol.
   - name: learning components
     description: |
       The learning components API provides information about learning activities that
@@ -326,8 +326,8 @@ tags:
       <a href="https://swimlanes.io/d/s5mfpj7Si">here</a>
   - name: programme offerings
     description: |
-      The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enrol.
+      The offerings API provides information about programme offerings which have a 
+      global timeframe, e.g. a period to which students can enrol.
   - name: programme_model
     x-displayName: Programme
     description: |
@@ -380,8 +380,8 @@ tags:
       The API for associations between persons and test component offerings.
   - name: test component offerings
     description: |
-      The offerings API provides information about offerings which have a global
-      timeframe, e.g. a period to which students can enrol.
+      The offerings API provides information about test component offerings which 
+      have a global timeframe, e.g. a period to which students can enrol.
   - name: test components
     description: |
       The test components API provides information about test or assessment activities
@@ -416,7 +416,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/Service'
         '400':
@@ -448,7 +448,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: academicSessionType
           in: query
@@ -474,7 +473,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -539,7 +538,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/AcademicSession'
         '400':
@@ -577,7 +576,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -606,7 +604,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -615,7 +613,9 @@ paths:
                       - items
                     properties:
                       items:
-                        $ref: '#/components/schemas/CourseOffering'
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/CourseOffering'
                       ext:
                         $ref: '#/components/schemas/Ext'
         '400':
@@ -653,7 +653,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -682,7 +681,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -731,7 +730,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -760,7 +758,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -809,7 +807,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -838,7 +835,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -881,14 +878,13 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -939,7 +935,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/Building'
         '400':
@@ -970,7 +966,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: buildingId
@@ -990,7 +985,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -1040,7 +1035,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               required:
                 - remoteState
@@ -1053,7 +1048,7 @@ paths:
         '201':
           description: Created
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/AssociationId'
@@ -1073,6 +1068,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -1112,7 +1109,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/CourseOfferingAssociation'
         '400':
@@ -1149,7 +1146,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/CourseOfferingAssociation'
       responses:
@@ -1171,6 +1168,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -1215,7 +1214,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/AssociationId'
@@ -1235,6 +1234,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -1274,7 +1275,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/CourseOffering'
                 title: courseOffering
@@ -1311,7 +1312,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/CourseOffering'
       responses:
@@ -1333,6 +1334,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -1354,7 +1357,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/CourseOffering'
       responses:
@@ -1376,6 +1379,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -1399,7 +1404,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -1423,7 +1427,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -1472,7 +1476,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -1485,7 +1488,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -1534,7 +1537,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
         - $ref: '#/components/parameters/offeringState'
@@ -1562,7 +1564,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -1611,7 +1613,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
         - $ref: '#/components/parameters/offeringState'
@@ -1639,7 +1640,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -1682,7 +1683,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -1702,7 +1702,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -1769,7 +1769,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/CourseExpanded'
         '400':
@@ -1807,7 +1807,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -1842,7 +1841,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -1892,7 +1891,6 @@ paths:
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/teachingLanguage'
         - $ref: '#/components/parameters/offeringState'
@@ -1942,7 +1940,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -1991,7 +1989,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -1999,7 +1996,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -2048,7 +2045,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -2083,7 +2079,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -2132,7 +2128,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -2140,7 +2135,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -2235,7 +2230,6 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/search'
@@ -2249,7 +2243,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -2306,13 +2300,14 @@ paths:
               type: string
               enum:
                 - organisation
+                - academic_session
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/consumer'
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/Group'
         '400':
@@ -2348,7 +2343,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/Group'
               title: group
@@ -2395,6 +2390,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -2418,13 +2415,12 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -2479,7 +2475,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/Membership'
               title: membership
@@ -2511,6 +2507,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -2550,7 +2548,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/LearningComponentOfferingAssociation'
         '400':
@@ -2587,7 +2585,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/LearningComponentOfferingAssociation'
             examples:
@@ -2658,6 +2656,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -2701,7 +2701,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/AssociationId'
@@ -2721,6 +2721,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -2760,7 +2762,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/LearningComponentOffering'
         '400':
@@ -2796,7 +2798,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/LearningComponentOffering'
       responses:
@@ -2818,6 +2820,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -2839,7 +2843,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/LearningComponentOffering'
       responses:
@@ -2861,6 +2865,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -2884,7 +2890,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -2897,7 +2902,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -2946,7 +2951,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -2970,7 +2974,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3012,7 +3016,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3026,7 +3029,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3090,7 +3093,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/LearningComponent'
         '400':
@@ -3128,7 +3131,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3157,7 +3159,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3199,7 +3201,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: since
@@ -3220,7 +3221,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3276,7 +3277,6 @@ paths:
             items:
               type: string
               enum:
-                - organisation
                 - parents
                 - children
         - $ref: '#/components/parameters/fields'
@@ -3285,7 +3285,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/LearningOutcome'
         '400':
@@ -3317,7 +3317,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: organisationType
@@ -3330,7 +3329,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3394,7 +3393,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/Organisation'
         '400':
@@ -3430,7 +3429,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/Organisation'
       responses:
@@ -3452,6 +3451,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -3475,7 +3476,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3504,7 +3504,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3571,7 +3571,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3620,7 +3620,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -3633,7 +3632,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3682,7 +3681,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3711,7 +3709,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3760,7 +3758,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3768,7 +3765,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3817,7 +3814,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3846,7 +3842,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3895,7 +3891,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -3927,7 +3922,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -3976,7 +3971,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -4005,7 +3999,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -4054,7 +4048,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -4062,7 +4055,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -4105,7 +4098,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/personSearch'
         - name: affiliations
@@ -4118,7 +4110,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -4157,15 +4149,14 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
-              allOf:
-                - $ref: '#/components/schemas/PersonProperties'
+              $ref: '#/components/schemas/PersonProperties'
       responses:
         '201':
           description: Created
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/PersonId'
@@ -4182,6 +4173,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -4206,7 +4199,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/Person'
         '400':
@@ -4246,7 +4239,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/Person'
         '400':
@@ -4282,7 +4275,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/Person'
       responses:
@@ -4304,6 +4297,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -4327,7 +4322,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -4364,7 +4358,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -4417,7 +4411,6 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/consumer'
         - name: role
@@ -4442,7 +4435,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -4496,7 +4489,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -4520,7 +4512,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -4574,7 +4566,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -4598,7 +4589,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -4652,7 +4643,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               required:
                 - remoteState
@@ -4665,7 +4656,7 @@ paths:
         '201':
           description: CREATED
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/AssociationId'
@@ -4685,6 +4676,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -4723,7 +4716,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/ProgrammeOfferingAssociation'
         '400':
@@ -4760,7 +4753,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/ProgrammeOfferingAssociation'
       responses:
@@ -4782,6 +4775,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -4825,7 +4820,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/AssociationId'
@@ -4845,6 +4840,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -4876,20 +4873,15 @@ paths:
               type: string
               enum:
                 - academic_session
-                - course
-                - course_offering
-                - learning_component
                 - organisation
                 - programme
-                - programme_offering
-                - test_component
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/consumer'
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/ProgrammeOffering'
                 title: programmeOffering
@@ -4926,7 +4918,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/ProgrammeOffering'
       responses:
@@ -4948,6 +4940,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -4969,7 +4963,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/ProgrammeOffering'
       responses:
@@ -4991,6 +4985,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -5014,7 +5010,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -5027,7 +5022,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -5076,7 +5071,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -5100,7 +5094,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -5143,7 +5137,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -5175,7 +5168,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -5243,7 +5236,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/ProgrammeExpanded'
         '400':
@@ -5281,7 +5274,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -5301,7 +5293,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -5350,7 +5342,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -5385,7 +5376,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -5427,7 +5418,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -5466,7 +5456,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -5509,7 +5499,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: roomType
@@ -5522,7 +5511,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -5585,7 +5574,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/Room'
         '400':
@@ -5639,7 +5628,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/TestComponentOfferingAssociation'
         '400':
@@ -5676,7 +5665,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/TestComponentOfferingAssociation'
             examples:
@@ -5747,6 +5736,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -5790,7 +5781,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/AssociationId'
@@ -5810,6 +5801,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -5834,7 +5827,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/Url'
         '400':
@@ -5872,7 +5865,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: attendance
           in: query
@@ -5896,7 +5888,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -5954,7 +5946,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/TestComponentOfferingAssociationAttempt'
       responses:
@@ -5976,6 +5968,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -6001,7 +5995,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/TestComponentOfferingAssociationAttemptFull'
         '400':
@@ -6039,7 +6033,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/TestComponentOfferingAssociationAttemptFull'
       responses:
@@ -6061,6 +6055,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -6096,7 +6092,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/AssociationId'
@@ -6116,6 +6112,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -6155,7 +6153,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/TestComponentOffering'
         '400':
@@ -6191,7 +6189,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/TestComponentOffering'
       responses:
@@ -6213,6 +6211,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -6234,7 +6234,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          application/vnd.oeapi+json:
             schema:
               $ref: '#/components/schemas/TestComponentOffering'
       responses:
@@ -6256,6 +6256,8 @@ paths:
           $ref: '#/components/responses/ErrorMethodNotAllowed'
         '406':
           $ref: '#/components/responses/ErrorNotAcceptable'
+        '409':
+          $ref: '#/components/responses/ErrorConflict'
         '429':
           $ref: '#/components/responses/ErrorTooManyRequests'
         '500':
@@ -6279,7 +6281,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - name: groupType
@@ -6292,7 +6293,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -6341,7 +6342,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - name: role
           in: query
@@ -6365,7 +6365,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -6407,7 +6407,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -6421,7 +6420,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -6485,7 +6484,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 $ref: '#/components/schemas/TestComponent'
         '400':
@@ -6523,7 +6522,6 @@ paths:
         - $ref: '#/components/parameters/pageNumber'
         - $ref: '#/components/parameters/consumer'
         - $ref: '#/components/parameters/filterQuery'
-        - $ref: '#/components/parameters/filterQueryOr'
         - $ref: '#/components/parameters/fields'
         - $ref: '#/components/parameters/search'
         - $ref: '#/components/parameters/teachingLanguage'
@@ -6552,7 +6550,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            application/vnd.oeapi+json:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Pagination'
@@ -6655,7 +6653,7 @@ components:
               path:
                 description: the path of the operation
                 type: string
-                format: uri-reference
+                format: uri-template
                 maxLength: 2048
                 example: /courses
         supportedExpands:
@@ -6677,7 +6675,7 @@ components:
               path:
                 description: the path of the operation
                 type: string
-                format: uri-reference
+                format: uri-template
                 maxLength: 2048
                 example: /courses
         ext:
@@ -6742,8 +6740,10 @@ components:
             term 20xx where the current session is week 40).
             When the client does not request expansion of `parent`, only this
             identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         parent:
           description: |
             The expanded parent academicSession object of this session (e.g. Autumn
@@ -6751,18 +6751,16 @@ components:
             When the client requests expansion of `parent`, the full expanded
             academicSession object MUST be returned here instead of only the identifier.
             If no parent is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/AcademicSession'
+            - type: 'null'
         childIds:
           description: |
             The list of identifiers of child academicSessions of this session (e.g. all
             academic sessions in Autumn term 20xx).
             When the client does not request expansion of `children`, only these
             identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
 
             Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
             seem unusual, this naming is intentional and follows the singular–plural convention defined 
@@ -6790,8 +6788,10 @@ components:
             (e.g. 20xx where the current session is week 40 of a semester).
             When the client does not request expansion of `year`, only this identifier
             is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         year:
           description: |
             The expanded top-level academicSession year object for this session
@@ -6799,11 +6799,9 @@ components:
             When the client requests expansion of `year`, the full expanded
             academicSession object MUST be returned here instead of only the identifier.
             If no top-level year is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/AcademicSession'
+            - type: 'null'
         otherCodes:
           type:
             - array
@@ -6964,7 +6962,7 @@ components:
             The identifiers of the learning outcomes related to this learning component.
             When the client does not request expansion of `learningOutcomes`, only these
             identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -6980,11 +6978,9 @@ components:
             - array
             - 'null'
           items:
-            type:
-              - object
-              - 'null'
-            allOf:
+            oneOf:
               - $ref: '#/components/schemas/LearningOutcome'
+              - type: 'null'
         enrolment:
           type:
             - array
@@ -6994,7 +6990,7 @@ components:
           description: The extra information that is provided for enrolment
           example:
             - language: en-GB
-              value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
+              value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://oeapi.eu/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
         resources:
           type:
             - array
@@ -7034,23 +7030,23 @@ components:
           description: |
             The identifier of the parent learningComponent of which the current learningComponent is a child.
             When the client does not request expansion of `parent`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         parent:
           description: |
             The expanded parent learningComponent of which the current learningComponent is a child.
             When the client requests expansion of `parent`, the full expanded learningComponent object MUST be returned here instead of only the identifier.
             If no parent is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/LearningComponent'
+            - type: 'null'
         childIds:
           description: |
             The identifiers of the learningComponents which are a part of this learningComponent (e.g. combined tests).
             When the client does not request expansion of `children`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
 
             Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
             seem unusual, this naming is intentional and follows the singular–plural convention defined 
@@ -7069,43 +7065,41 @@ components:
             - array
             - 'null'
           items:
-            type:
-              - object
-              - 'null'
-            allOf:
+            oneOf:
               - $ref: '#/components/schemas/LearningComponent'
+              - type: 'null'
         courseId:
           description: |
             The identifier of the course of which this component is a part.
             When the client does not request expansion of `course`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         course:
           description: |
             The expanded course object of which this component is a part.
             When the client requests expansion of `course`, the full expanded course object MUST be returned here instead of only the identifier.
             If no course is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Course'
+            - type: 'null'
         organisationId:
           description: |
             The identifier of the organisation which provides this component.
             When the client does not request expansion of `organisation`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         organisation:
           description: |
             The expanded organisation object which provides this component.
             When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
             If no organisation is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Organisation'
+            - type: 'null'
         consumer:
           oneOf:
             - $ref: '#/components/schemas/Consumer'
@@ -7219,7 +7213,7 @@ components:
           description: |
             The identifiers of the learning outcomes related to this test component.
             When the client does not request expansion of `learningOutcomes`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -7245,7 +7239,7 @@ components:
           description: The extra information that is provided for enrolment
           example:
             - language: en-GB
-              value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
+              value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://oeapi.eu/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
         resources:
           type:
             - array
@@ -7285,23 +7279,23 @@ components:
           description: |
             The identifier of the parent Test Component of which the current Test Component is a child.
             When the client does not request expansion of `parent`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         parent:
           description: |
             The expanded parent Test Component of which the current Test Component is a child.
             When the client requests expansion of `parent`, the full Test Component object MUST be returned here instead of only the identifier.
             If no parent is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/TestComponent'
+            - type: 'null'
         childIds:
           description: |
             The identifiers of the Test Components that are part of this Test Component.
             When the client does not request expansion of `children`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
 
             Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
             seem unusual, this naming is intentional and follows the singular–plural convention defined 
@@ -7321,35 +7315,35 @@ components:
           description: |
             The identifier of the course of which this component is a part.
             When the client does not request expansion of `course`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/TestComponent'
+            - type: 'null'
         course:
           description: |
             The expanded course object of which this component is a part.
             When the client requests expansion of `course`, the full course object MUST be returned here instead of only the identifier.
             If no course is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Course'
+            - type: 'null'
           title: Course object
         organisationId:
           description: |
             The identifier of the organisation which provides this component.
             When the client does not request expansion of `organisation`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         organisation:
           description: |
             The expanded organisation object which provides this component.
             When the client requests expansion of `organisation`, the full organisation object MUST be returned here instead of only the identifier.
             If no organisation is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Organisation'
+            - type: 'null'
         consumer:
           oneOf:
             - $ref: '#/components/schemas/Consumer'
@@ -7407,7 +7401,7 @@ components:
               description: |
                 The identifiers of the rooms for this offering.
                 When the client does not request expansion of `rooms`, only these identifiers are returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
               type:
                 - array
                 - 'null'
@@ -7422,32 +7416,30 @@ components:
                 - array
                 - 'null'
               items:
-                type:
-                  - object
-                  - 'null'
-                allOf:
+                oneOf:
                   - $ref: '#/components/schemas/Room'
+                  - type: 'null'
             learningComponentId:
               description: |
                 The identifier of the learningComponent that is offered in this learningComponent offering.
                 When the client does not request expansion of `learningComponent`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             learningComponent:
               description: |
                 The expanded learningComponent object that is offered in this learningComponent offering.
                 When the client requests expansion of `learningComponent`, the full expanded learningComponent object MUST be returned here instead of only the identifier.
                 If no learningComponent is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/LearningComponent'
+                - type: 'null'
             courseOfferingIds:
               description: |
                 The identifiers of the courseOfferings to which this learningComponent offering is related.
                 When the client does not request expansion of `courseOfferings`, only these identifiers are returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
               type:
                 - array
                 - 'null'
@@ -7462,27 +7454,25 @@ components:
                 - array
                 - 'null'
               items:
-                type:
-                  - object
-                  - 'null'
-                allOf:
+                oneOf:
                   - $ref: '#/components/schemas/CourseOffering'
+                  - type: 'null'
             organisationId:
               description: |
                 The identifier of the organisation that manages this component offering.
                 When the client does not request expansion of `organisation`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             organisation:
               description: |
                 The expanded organisation object that manages this component offering.
                 When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
                 If no organisation is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Organisation'
+                - type: 'null'
     LearningComponentOfferingAssociation:
       allOf:
         - $ref: '#/components/schemas/AssociationId'
@@ -7506,8 +7496,7 @@ components:
                 - learningComponentOffering
           properties:
             result:
-              oneOf:
-                - $ref: '#/components/schemas/LearningComponentOfferingAssociationResult'
+              $ref: '#/components/schemas/LearningComponentOfferingAssociationResult'
             attendance:
               oneOf:
                 - $ref: '#/components/schemas/associationAttendance'
@@ -7516,34 +7505,34 @@ components:
               description: |
                 The identifier of the person referenced here.
                 When the client does not request expansion of `person`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             person:
               description: |
                 The expanded person object referenced here.
                 When the client requests expansion of `person`, the full expanded person object MUST be returned here instead of only the identifier.
                 If no person is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Person'
+                - type: 'null'
             learningComponentOfferingId:
               description: |
                 The identifier of the learningComponentOffering referenced here.
                 When the client does not request expansion of `offering`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             learningComponentOffering:
               description: |
                 The expanded learningComponentOffering object referenced here.
                 When the client requests expansion of `offering`, the full expanded learningComponentOffering object MUST be returned here instead of only the identifier.
                 If no offering is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/LearningComponentOffering'
+                - type: 'null'
     TestComponentOffering:
       allOf:
         - $ref: '#/components/schemas/TestComponentOfferingId'
@@ -7593,7 +7582,7 @@ components:
               description: |
                 The identifiers of the rooms for this offering.
                 When the client does not request expansion of `rooms`, only these identifiers are returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
               type:
                 - array
                 - 'null'
@@ -7608,32 +7597,30 @@ components:
                 - array
                 - 'null'
               items:
-                type:
-                  - object
-                  - 'null'
-                allOf:
+                oneOf:
                   - $ref: '#/components/schemas/Room'
+                  - type: 'null'
             componentId:
               description: |
                 The identifier of the component that is offered in this component offering.
                 When the client does not request expansion of `component`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             component:
               description: |
                 The expanded component that is offered in this component offering.
                 When the client requests expansion of `component`, the full component object MUST be returned here instead of only the identifier.
                 If no component is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/TestComponent'
+                - type: 'null'
             courseOfferingIds:
               description: |
                 The identifiers of the course offerings to which this test component offering is related.
                 When the client does not request expansion of `courseOfferings`, only these identifiers are returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
               type:
                 - array
                 - 'null'
@@ -7654,18 +7641,18 @@ components:
               description: |
                 The identifier of the organisation that manages this component offering.
                 When the client does not request expansion of `organisation`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             organisation:
               description: |
                 The expanded organisation object that manages this component offering.
                 When the client requests expansion of `organisation`, the full organisation object MUST be returned here instead of only the identifier.
                 If no organisation is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Organisation'
+                - type: 'null'
             documents:
               type:
                 - array
@@ -7758,40 +7745,40 @@ components:
               description: |
                 The identifier of the person referenced here.
                 When the client does not request expansion of `person`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             person:
               description: |
                 The expanded person object referenced here.
                 When the client requests expansion of `person`, the full person object MUST be returned here instead of only the identifier.
                 If no person is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Person'
+                - type: 'null'
               title: Person
             testComponentOfferingId:
               description: |
                 The identifier of the testComponentOffering referenced here.
                 When the client does not request expansion of `offering`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             testComponentOffering:
               description: |
                 The expanded testComponentOffering object referenced here.
                 When the client requests expansion of `testComponentOffering`, the full TestComponentOffering object MUST be returned here instead of only the identifier.
                 If no testComponentOffering is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/TestComponentOffering'
+                - type: 'null'
             attemptIds:
               description: |
                 The identifiers of the attempts related to this testComponentOffering association.
                 When the client does not request expansion of `attempts`, only these identifiers are returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
               type:
                 - array
                 - 'null'
@@ -7871,7 +7858,7 @@ components:
                 If this is a course wherein participants who have already enrolled can
                 start at various moments without missing any essential content, use this
                 attribute in combination with `flexibleEntryPeriodStartDateTime`.
-              format: date
+              format: date-time
               example: '2019-10-21T22:59:59+01:00'
             addresses:
               type:
@@ -7892,26 +7879,26 @@ components:
                 The identifier of the course that is offered in this course offering.
                 When the client does not request expansion of `course`, only this
                 identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             course:
               description: |
                 The expanded course object that is offered in this course offering.
                 When the client requests expansion of `course`, the full expanded
                 course object MUST be returned here instead of only the identifier.
                 If no course is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Course'
+                - type: 'null'
             programmeOfferingIds:
               description: |
                 An array of 0 or more identifiers of programmeOfferings that this
                 course offering is related to.
                 When the client does not request expansion of `programmeOfferings`,
                 only these identifiers are returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
               type:
                 - array
                 - 'null'
@@ -7935,19 +7922,19 @@ components:
                 The identifier of the organisation that manages this course offering.
                 When the client does not request expansion of `organisation`, only this
                 identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             organisation:
               description: |
                 The expanded organisation object that manages this course offering.
                 When the client requests expansion of `organisation`, the full expanded
                 organisation object MUST be returned here instead of only the identifier.
                 If no organisation is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Organisation'
+                - type: 'null'
     CourseOfferingAssociation:
       allOf:
         - $ref: '#/components/schemas/AssociationId'
@@ -7986,8 +7973,10 @@ components:
                 The identifier of the courseOffering referenced here.
                 When the client or server does not expand `offering`, only this
                 identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             courseOffering:
               description: |
                 The expanded courseOffering object referenced here.
@@ -7995,29 +7984,27 @@ components:
                 courseOffering object MUST be returned here instead of only the
                 identifier.
                 If no offering is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/CourseOffering'
+                - type: 'null'
             personId:
               description: |
                 The identifier of the person referenced here.
                 When the client or server does not expand `person`, only this
                 identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             person:
               description: |
                 The expanded person object referenced here.
                 When the client or server expands `person`, the full expanded
                 person object MUST be returned here instead of only the identifier.
                 If no person is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Person'
+                - type: 'null'
     Group:
       allOf:
         - $ref: '#/components/schemas/GroupId'
@@ -8102,37 +8089,37 @@ components:
                 The identifier of the organisation that manages this group.
                 When the client does not request expansion of `organisation`, only this
                 identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             organisation:
               description: |
                 The expanded organisation object that manages this group.
                 When the client requests expansion of `organisation`, the full expanded
                 organisation object MUST be returned here instead of only the identifier.
                 If no organisation is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Organisation'
+                - type: 'null'
             academicSessionId:
               description: |
                 The identifier of the academicSession for which this group is intended.
                 When the client does not request expansion of `academicSession`, only this
                 identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             academicSession:
               description: |
                 The expanded academicSession object for which this group is intended.
                 When the client requests expansion of `academicSession`, the full expanded
                 academicSession object MUST be returned here instead of only the identifier.
                 If no academicSession is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/AcademicSession'
+                - type: 'null'
             offeringIds:
               description: |
                 The offering identifiers (0..N) associated with this group.
@@ -8268,7 +8255,7 @@ components:
           description: |
             The identifiers of the learning outcomes which are the parents of this learning outcome.
             When the client does not request expansion of `parents`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -8283,16 +8270,14 @@ components:
             - array
             - 'null'
           items:
-            type:
-              - object
-              - 'null'
-            allOf:
+            oneOf:
               - $ref: '#/components/schemas/LearningOutcome'
+              - type: 'null'
         childIds:
           description: |
             The identifiers of all learning outcomes for which this learning outcome is the parent.
             When the client does not request expansion of `children`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
 
             Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
             seem unusual, this naming is intentional and follows the singular–plural convention defined 
@@ -8311,11 +8296,9 @@ components:
             - array
             - 'null'
           items:
-            type:
-              - object
-              - 'null'
-            allOf:
+            oneOf:
               - $ref: '#/components/schemas/LearningOutcome'
+              - type: 'null'
         fieldsOfStudy:
           type:
             - string
@@ -8458,39 +8441,39 @@ components:
           description: |
             The identifier of the organisation which is the root organisation of this organisation.
             When the client does not request expansion of `root`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         root:
           description: |
             The expanded organisation object which is the root organisation of this organisation.
             When the client requests expansion of `root`, the full expanded organisation object MUST be returned here instead of only the identifier.
             If no root organisation is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Organisation'
+            - type: 'null'
         parentId:
           description: |
             The identifier of the organisational unit which is the parent of this organisation.
             When the client does not request expansion of `parent`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         parent:
           description: |
             The expanded organisation object which is the parent of this organisation.
             When the client requests expansion of `parent`, the full expanded organisation object MUST be returned here instead of only the identifier.
             If no parent organisation is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Organisation'
+            - type: 'null'
         childIds:
           description: |
             The identifiers of the organisational units for which this organisation is the parent.
             When the client does not request expansion of `children`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
 
             Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
             seem unusual, this naming is intentional and follows the singular–plural convention defined 
@@ -8509,11 +8492,9 @@ components:
             - array
             - 'null'
           items:
-            type:
-              - object
-              - 'null'
-            allOf:
+            oneOf:
               - $ref: '#/components/schemas/Organisation'
+              - type: 'null'
         consumer:
           oneOf:
             - $ref: '#/components/schemas/Consumer'
@@ -8608,34 +8589,34 @@ components:
               description: |
                 The identifier of the programme that is offered in this programmeOffering.
                 When the client does not request expansion of `programme`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             programme:
               description: |
                 The expanded programme object that is offered in this programmeOffering.
                 When the client requests expansion of `programme`, the full expanded programme object MUST be returned here instead of only the identifier.
                 If no programme is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Programme'
+                - type: 'null'
             organisationId:
               description: |
                 The identifier of the organisation that manages this programmeOffering.
                 When the client does not request expansion of `organisation`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             organisation:
               description: |
                 The expanded organisation object that manages this programmeOffering.
                 When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
                 If no organisation is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Organisation'
+                - type: 'null'
     Room:
       type: object
       description: An area within a building where education can take place
@@ -8678,7 +8659,7 @@ components:
           type:
             - array
             - 'null'
-          description: The description of this room. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
+          description: The description of this room. [The limited implementation of Git Hub Markdown syntax](https://oeapi.eu/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
           minItems: 1
           items:
             $ref: '#/components/schemas/LanguageTypedString'
@@ -8739,18 +8720,18 @@ components:
           description: |
             The identifier of the building in which the room is located.
             When the client does not request expansion of `building`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         building:
           description: |
             The expanded building object in which the room is located.
             When the client requests expansion of `building`, the full building object MUST be returned here instead of only the identifier.
             If no building is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Building'
+            - type: 'null'
         consumer:
           oneOf:
             - $ref: '#/components/schemas/Consumer'
@@ -8784,36 +8765,34 @@ components:
               description: |
                 The identifier of the person referenced here.
                 When the client does not request expansion of `person`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              readOnly: true
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             person:
               description: |
                 The expanded person object referenced here.
                 When the client requests expansion of `person`, the full expanded person object MUST be returned here instead of only the identifier.
                 If no person is defined, this value is `null`.
-              readOnly: true
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/Person'
+                - type: 'null'
             programmeOfferingId:
               description: |
                 The identifier of the `programmeOffering` referenced here.
                 When the client does not request expansion of `offering`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             programmeOffering:
               description: |
                 The expanded programmeOffering object referenced here.
                 When the client requests expansion of `offering`, the full expanded programmeOffering object MUST be returned here instead of only the identifier.
                 If no offering is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/ProgrammeOffering'
+                - type: 'null'
     TestComponentOfferingAssociationAttempt:
       type: object
       description: |
@@ -8874,7 +8853,7 @@ components:
           description: |
             The identifiers of the rooms for this offering.
             When the client does not request expansion of `rooms`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -8889,11 +8868,7 @@ components:
             - array
             - 'null'
           items:
-            type:
-              - object
-              - 'null'
-            allOf:
-              - $ref: '#/components/schemas/Room'
+            $ref: '#/components/schemas/Room'
         attendance:
           oneOf:
             - $ref: '#/components/schemas/attendance'
@@ -8910,18 +8885,18 @@ components:
           description: |
             The identifier of the coordinator responsible for overseeing the test.
             When the client does not request expansion of `coordinator`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         coordinator:
           description: |
             The expanded person object representing the coordinator responsible for overseeing the test.
             When the client requests expansion of `coordinator`, the full person object MUST be returned here instead of only the identifier.
             If no coordinator is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Person'
+            - type: 'null'
         documents:
           type:
             - array
@@ -8980,6 +8955,7 @@ components:
         - learning_outcomes
         - organisation
         - parent
+        - parents
         - person
         - programme
         - programmes
@@ -9055,12 +9031,12 @@ components:
       example: Resource not found
     Consumer:
       type: object
-      description: The additional elements of a consumer that may be provided, see the [documentation on support for specific consumers](https://openonderwijsapi.nl/v6.0/#/technical/consumers-and-profiles/) for further information about this mechanism.
+      description: The additional elements of a consumer that may be provided, see the [documentation on support for specific consumers](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/) for further information about this mechanism.
       required:
         - consumerKey
       properties:
         consumerKey:
-          description: The key of the consumer (destination) for which this information is intended. See the [consumer registry](https://openonderwijsapi.nl/v6.0/#/technical/consumers-and-profiles/). This key is used to select the additional data to be presented in the request.
+          description: The key of the consumer (destination) for which this information is intended. See the [consumer registry](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/). This key is used to select the additional data to be presented in the request.
           type: string
           example: test-consumer
         exampleProperty:
@@ -9291,22 +9267,27 @@ components:
         code: 1234qwe12
     Language:
       description: |
-        The language used in the described entity. A string formatted according to RFC 4647 https://www.rfc-editor.org/rfc/rfc4647.html
-        RFC 4647 supports language specifications from very general to very specific. 
-        This breaks down as:
-        - ([a-z]{2,3}) - Primary language subtag (2-3 letters) ISO 639-1, ISO 639-2, or ISO 639-3 https://www.iso.org/iso-639-language-code
-        - (-([A-Z]{2}|[0-9]{3}))? - Optional region/country (2 uppercase letters or 3 digits) ISO 3166-1 or UN M.49 https://www.iso.org/iso-3166-country-codes.html
-        - (-([a-z]{4}))? - Optional script subtag (4 lowercase letters)
-        - (-([a-z]{2}|[0-9]{3}))* - Optional variant subtags
-        - (-[a-z0-9]{2,8})* - Optional extension subtags
-        - (-x(-[a-z0-9]{1,8})+)? - Optional private use extensions
+        The language used in the described entity. The value **must be a language tag that conforms to RFC 5646** (Tags for Identifying Languages, BCP 47):
+        https://www.rfc-editor.org/rfc/rfc5646.html
 
-        When using this schema, the most common format is a two-letter language code as specified by ISO 639-1, optionally followed by a dash and a two-letter country code as specified by ISO 3166-1 (e.g. "en" or "en-GB").
-        More specific language tags are also allowed, such as "zh-Hant-TW" for Traditional Chinese as used in Taiwan.
-        For sign language based on a certain language two methods are commonly used: either using the subtag "sgn" (e.g. "nl-sgn-NL" for Dutch Sign Language) or using the subtag "s" (e.g. "nl-s-NL" for Dutch Sign Language). Both methods are allowed.
+        A tag consists of the following components, in this exact order:
+        1. **language** – two‑ to three‑letter codes (ISO 639‑1/‑2) **or** four‑letter codes (ISO 639‑5) **or** five‑ to eight‑letter registered language subtags.
+        2. **script** – optional, four letters in Title‑Case (e.g. `Latn`, `Hant`).
+        3. **region** – optional, either two uppercase letters (ISO 3166‑1) **or** three digits (UN M.49).
+        4. **variant** – zero or more subtags, each either five‑ to eight‑alphanumerics or a digit followed by three alphanumerics (e.g. `1901`, `oxendict`).
+        5. **extension** – zero or more extensions. Each extension starts with a *singleton* (a single alphanumeric character except `x`) followed by one or more subtags of two‑ to eight‑alphanumerics (e.g. `u‑co‑phonebk`).
+        6. **private‑use** – optional, the letter `x` followed by one or more subtags of one‑ to eight‑alphanumerics (e.g. `x‑private`).
+
+        The most common form is a two‑letter language code (ISO 639‑1) optionally followed by a hyphen and a two‑letter country code (ISO 3166‑1), for example `en` or `en‑GB`.
+
+        More specific tags are also valid, for instance `zh‑Hant‑TW` (Traditional Chinese as used in Taiwan).
+
+        For sign languages two conventions are recognised:
+        * `sgn` – e.g. `nl‑sgn‑NL` (Dutch Sign Language)
+        * `s`   – e.g. `nl‑s‑NL` (Dutch Sign Language)
       type: string
       minLength: 2
-      pattern: ^([a-z]{2,3})(-([A-Z]{2}|[0-9]{3}))?(-([a-z]{4}))?(-([a-z]{2}|[0-9]{3}))*(-[a-z0-9]{2,8})*(-x(-[a-z0-9]{1,8})+)?$
+      pattern: ^(?:(?:[A-Za-z]{2,3}(?:-[A-Za-z]{3}){0,2}|[A-Za-z]{4}|[A-Za-z]{5,8})(?:-[A-Za-z]{4})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-(?:[A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*?(?:-(?:[A-WY-Za-wy-z0-9](?:-[A-Za-z0-9]{2,8})+))*?(?:-x(?:-[A-Za-z0-9]{1,8})+)?|x(?:-[A-Za-z0-9]{1,8})+)$
       example: en-GB
     LanguageTypedString:
       type: object
@@ -9633,18 +9614,18 @@ components:
           description: |
             The identifier of the academicSession during which this courseOffering takes place.
             When the client does not request expansion of `academicSession`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         academicSession:
           description: |
             The expanded academicSession object during which this courseOffering takes place.
             When the client requests expansion of `academicSession`, the full expanded academicSession object MUST be returned here instead of only the identifier.
             If no academicSession is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/AcademicSession'
+            - type: 'null'
         name:
           type: array
           description: The name of this offering
@@ -10782,7 +10763,7 @@ components:
           description: The extra information that is provided for enrolment
           example:
             - language: en-GB
-              value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
+              value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://oeapi.eu/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
         resources:
           type:
             - array
@@ -10797,7 +10778,7 @@ components:
           description: |
             The identifiers of the learning outcomes related to this programme.
             When the client does not request expansion of `learningOutcomes`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -10876,23 +10857,23 @@ components:
           description: |
             The identifier of the parent programme of which the current programme is a child.
             When the client does not request expansion of `parent`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         parent:
           description: |
             The expanded parent programme of which the current programme is a child.
             When the client requests expansion of `parent`, the full expanded programme object MUST be returned here instead of only the identifier.
             If no parent is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Programme'
+            - type: 'null'
         childIds:
           description: |
             The identifiers of the programmes which are a part of this programme (e.g. specialisations).
             When the client does not request expansion of `children`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
 
             Although `childIds` and `children` (for example `organisationIds` versus `organisations`) may 
             seem unusual, this naming is intentional and follows the singular–plural convention defined 
@@ -10916,7 +10897,7 @@ components:
           description: |
             The identifiers of the persons responsible for this programme.
             When the client does not request expansion of `coordinators`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -10936,7 +10917,7 @@ components:
           description: |
             The identifiers of the persons teaching or delivering this programme.
             When the client does not request expansion of `instructors`, only these identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -10956,18 +10937,18 @@ components:
           description: |
             The identifier of the organisation providing this programme.
             When the client does not request expansion of `organisation`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         organisation:
           description: |
             The expanded organisation object providing this programme.
             When the client requests expansion of `organisation`, the full expanded organisation object MUST be returned here instead of only the identifier.
             If no organisation is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Organisation'
+            - type: 'null'
         supplementaryInformation:
           $ref: '#/components/schemas/SupplementaryInformation'
         consumer:
@@ -11070,7 +11051,7 @@ components:
             The identifiers of the learning outcomes related to this course.
             When the client does not request expansion of `learningOutcomes`, only these
             identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -11119,7 +11100,7 @@ components:
           description: The extra information that is provided for enrolment
           example:
             - language: en-GB
-              value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://openonderwijsapi.nl/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
+              value: enrolment through SIS. [The limited implementation of Git Hub Markdown syntax](https://oeapi.eu/v6.0/#/technical/formatting-text) MAY be used for rich text representation.
         resources:
           type:
             - array
@@ -11170,7 +11151,7 @@ components:
             for example in alliances.
             When the client does not request expansion of `programmes`, only these
             identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -11196,7 +11177,7 @@ components:
             The identifiers of the persons responsible for this course.
             When the client does not request expansion of `coordinators`, only these
             identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -11218,7 +11199,7 @@ components:
             The identifiers of the persons teaching or delivering this course.
             When the client does not request expansion of `instructors`, only these
             identifiers are returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
           type:
             - array
             - 'null'
@@ -11240,19 +11221,19 @@ components:
             The identifier of the organisation that manages this course.
             When the client does not request expansion of `organisation`, only this
             identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         organisation:
           description: |
             The expanded organisation object that manages this course.
             When the client requests expansion of `organisation`, the full expanded
             organisation object MUST be returned here instead of only the identifier.
             If no organisation is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Organisation'
+            - type: 'null'
         consumer:
           oneOf:
             - $ref: '#/components/schemas/Consumer'
@@ -11651,18 +11632,18 @@ components:
           description: |
             The identifier of the assessor responsible for evaluating the result.
             When the client does not request expansion of `assessor`, only this identifier is returned.
-            This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-          $ref: '#/components/schemas/Identifier'
+            This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+          oneOf:
+            - $ref: '#/components/schemas/Identifier'
+            - type: 'null'
         assessor:
           description: |
             The expanded assessor (person) responsible for evaluating the result.
             When the client requests expansion of `assessor`, the full person object MUST be returned here instead of only the identifier.
             If no assessor is defined, this value is `null`.
-          type:
-            - object
-            - 'null'
-          allOf:
+          oneOf:
             - $ref: '#/components/schemas/Person'
+            - type: 'null'
         resultDateTime:
           type: string
           description: The date this result has been published, RFC3339 (full-date)
@@ -11721,8 +11702,10 @@ components:
                 The identifier of the courseOffering referenced here.
                 When the client or server does not expand `offering`, only this
                 identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             courseOffering:
               description: |
                 The expanded courseOffering object referenced here.
@@ -11730,11 +11713,9 @@ components:
                 courseOffering object MUST be returned here instead of only the
                 identifier.
                 If no offering is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/CourseOffering'
+                - type: 'null'
     PostResponse:
       type: object
       description: A system message as a response to a POST message
@@ -11932,18 +11913,18 @@ components:
               description: |
                 The identifier of the `programmeOffering` referenced here.
                 When the client does not request expansion of `offering`, only this identifier is returned.
-                This field is [`expandable`](https://openonderwijsapi.nl/v6.0/#/technical/expanding-responses).
-              $ref: '#/components/schemas/Identifier'
+                This field is [`expandable`](https://oeapi.eu/v6.0/#/technical/expanding-responses).
+              oneOf:
+                - $ref: '#/components/schemas/Identifier'
+                - type: 'null'
             programmeOffering:
               description: |
                 The expanded programmeOffering object referenced here.
                 When the client requests expansion of `offering`, the full expanded programmeOffering object MUST be returned here instead of only the identifier.
                 If no offering is defined, this value is `null`.
-              type:
-                - object
-                - 'null'
-              allOf:
+              oneOf:
                 - $ref: '#/components/schemas/ProgrammeOffering'
+                - type: 'null'
     personalNeed:
       type: string
       description: |
@@ -12246,6 +12227,18 @@ components:
             status: 500
             detail: An unexpected error occurred while processing your request.
             instance: https://api.example.org/enrolments/submit
+    ErrorConflict:
+      description: Conflict
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+          example:
+            type: https://api.example.org/problems/conflict
+            title: Conflict
+            status: 409
+            detail: The request could not be completed due to a conflict with the current state of the resource.
+            instance: https://api.example.org/courses
   parameters:
     primaryCode:
       name: primaryCode
@@ -12282,7 +12275,7 @@ components:
     consumer:
       name: consumer
       in: query
-      description: Request entities intended for a specific consumer. The `consumer` profile allows for adding additional data, or specific rules concerning the presentation of the data. A consumer can be selected based on the key of the consumer profile. An implementation of the OEAPI SHOULD always return the consumer information inside the consumer property of the object(s) that are requested. Further information regarding the use of consumers can be found in the [documentation](https://openonderwijsapi.nl/v6.0/#/technical/consumers-and-profiles/)
+      description: Request entities intended for a specific consumer. The `consumer` profile allows for adding additional data, or specific rules concerning the presentation of the data. A consumer can be selected based on the key of the consumer profile. An implementation of the OEAPI SHOULD always return the consumer information inside the consumer property of the object(s) that are requested. Further information regarding the use of consumers can be found in the [documentation](https://oeapi.eu/v6.0/#/technical/consumers-and-profiles/)
       required: false
       schema:
         type: string
@@ -12290,11 +12283,16 @@ components:
       name: filter_query
       in: query
       required: false
+      x-lint-ignore:
+        - camel-case-properties
       style: deepObject
       explode: true
       description: |
         Filter object serialised as `filter_query[field][operation]=value`.
         Multiple top-level fields are combined with AND. CSV is accepted where noted.
+
+        OR blocks. Provide an array of single-field filter objects, each combined with OR.
+        Serialises as `filter_query[__or][][field][operation]=value`.
 
         Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
 
@@ -12315,9 +12313,47 @@ components:
           `filter_query[programme.code][in]=B-IT-2025&filter_query[organisation.code][in]=RuG&filter_query[mode_of_delivery][in]=on_campus,hybrid&filter_query[language_of_instruction][in]=en-GB&filter_query[start_date][gt_date]=2025-09-01T00:00:00Z`  
           
         - **Only offerings with email contact present**  
-          `filter_query[contacts.email][is]=not_empty`  
+          `filter_query[contacts.email][is]=not_empty`
+
+        - **Provider is Org A or Org B, OR campus city contains “Utrecht”**  
+          `?filter_query[__or][][organisation.id][in]=org-uu,org-hku&filter_query[__or][][campus.city][like]=*Utrecht*`  
+            
+        - **Start date after 1 Sept 2025 OR has evening/block_week tag**  
+          `?filter_query[__or][][start_date][gt_date]=2025-09-01T00:00:00Z&filter_query[__or][][tags][any_in_array]=evening,block_week`  
       schema:
         type: object
+        properties:
+          __or:
+            type: array
+            items:
+              type: object
+              additionalProperties:
+                type: object
+                properties:
+                  in:
+                    type: string
+                    description: Exact match; multiple values allowed as CSV.
+                    example: org-uu,org-hku
+                  like:
+                    type: string
+                    description: |
+                      Partial match using wildcards. Prefer `*` as the wildcard.
+                      # Quotes are required here because YAML interprets unquoted * as an alias reference.
+                    example: '*Utrecht*'
+                  any_in_array:
+                    type: string
+                    description: Match if any of the CSV values occur.
+                    example: evening,block_week
+                  gt_date:
+                    type: string
+                    format: date-time
+                    description: ISO 8601 / RFC 3339 date-time.
+                    example: '2025-09-01T00:00:00Z'
+                  lt_date:
+                    type: string
+                    format: date-time
+                    description: ISO 8601 / RFC 3339 date-time.
+                    example: '2025-12-31T23:59:59Z'
         additionalProperties:
           type: object
           properties:
@@ -12375,66 +12411,6 @@ components:
               format: date-time
               description: ISO 8601 date-time.
               example: '2025-12-31T23:59:59Z'
-    filterQueryOr:
-      name: filter_query[__or][]
-      in: query
-      required: false
-      style: deepObject
-      explode: true
-      description: |
-        OR blocks. Provide an array of single-field filter objects, each combined with OR.
-        Serialises as `filter_query[__or][][field][operation]=value`.
-
-        Inspired by Storyblok (https://www.storyblok.com/docs/api/content-delivery/v2/filter-queries)
-
-        Wildcards:
-        - Prefer using only the asterisk `*` as a wildcard for partial matches (e.g., like).
-
-        Implementation note:
-        - The availability and behaviour of this query functionality are entirely determined by the organisation hosting
-          the API implementation. It is not mandatory for implementers to support this functionality, and it cannot be enforced 
-          upon organisations that provide or consume OEAPI endpoints.
-        - It is up to each implementer to decide whether to support this feature. It is **not** a requirement of the OEAPI 
-          standard itself.
-        - Consumers or working groups that wish to apply specific filtering mechanisms are encouraged to do so using 
-          this approach for the sake of consistency across implementations.
-
-        Examples:  
-          - **Provider is Org A or Org B, OR campus city contains “Utrecht”**  
-            `?filter_query[__or][][organisation.id][in]=org-uu,org-hku&filter_query[__or][][campus.city][like]=*Utrecht*`  
-            
-          - **Start date after 1 Sept 2025 OR has evening/block_week tag**  
-            `?filter_query[__or][][start_date][gt_date]=2025-09-01T00:00:00Z&filter_query[__or][][tags][any_in_array]=evening,block_week`  
-      schema:
-        type: array
-        items:
-          type: object
-          additionalProperties:
-            type: object
-            properties:
-              in:
-                type: string
-                description: Exact match; multiple values allowed as CSV.
-                example: org-uu,org-hku
-              like:
-                type: string
-                description: |
-                  Partial match using wildcards. Prefer `*` as the wildcard.
-                example: '*Utrecht*'
-              any_in_array:
-                type: string
-                description: Match if any of the CSV values occur.
-                example: evening,block_week
-              gt_date:
-                type: string
-                format: date-time
-                description: ISO 8601 / RFC 3339 date-time.
-                example: '2025-09-01T00:00:00Z'
-              lt_date:
-                type: string
-                format: date-time
-                description: ISO 8601 / RFC 3339 date-time.
-                example: '2025-12-31T23:59:59Z'
     fields:
       name: fields
       in: query
