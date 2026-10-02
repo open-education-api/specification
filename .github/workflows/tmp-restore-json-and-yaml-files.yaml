@@ -1,15 +1,12 @@
-# This workflow rebuilds the generated release files for an existing tag
-# and adds them to release/6.0.
+# This workflow restores the generated release files for v6.0-rc.3
+# to the release/6.0 branch.
 
-name: Restore generated release files
+name: Restore v6.0-rc.3 release files
 
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: "Tag to rebuild, e.g. v6.0-rc.3"
-        required: true
-        type: string
+  push:
+    paths:
+      - ".github/workflows/restore-release-files.yaml"
 
 permissions:
   contents: write
@@ -30,11 +27,11 @@ jobs:
           repositories: |
             specification
 
-      # 1) Checkout the requested tag.
+      # 1) Checkout v6.0-rc.3.
       - name: Checkout tag
         uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.tag }}
+          ref: v6.0-rc.3
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
 
@@ -44,7 +41,7 @@ jobs:
         with:
           node-version: "latest"
 
-      # 3) Build the release files from the tag.
+      # 3) Build the release files from v6.0-rc.3.
       - name: Build release files
         run: |
           set -euo pipefail
@@ -75,7 +72,7 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           path: release-branch
 
-      # 5) Add the generated files to release/6.0.
+      # 5) Copy the generated files to release/6.0 and commit them.
       - name: Commit generated files
         run: |
           set -euo pipefail
@@ -97,7 +94,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Files already exist and are unchanged."
           else
-            git commit -m "Add generated files for ${{ inputs.tag }}"
+            git commit -m "Add generated files for v6.0-rc.3"
             git push
           fi
           
