@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Release 6.1 changes
 
+## [6.1-RC.1 (main) Consumer and Ext objects on Document object ] - 2026-10-21
+
+### Added
+- Added Consumer and Ext object to document object that is used in several association and offering schemas
+
 ## [6.1-RC.1 (main) Date-time attributes on education specifications ] - 2026-06-17
 
 ### Added
