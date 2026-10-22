@@ -6,7 +6,7 @@ description: |
     - assessment_form: A form used to assess a test
     - assessment_model: A formal description of how a test is assessed
     - assignment: A description of what is expected from a student, e.g. to submit a paper
-    - attendance_report: A report containing information on a student’s attendance for a course or test
+    - attendance_report: A report containing information on a student's attendance for a course or test
     - handed_in_document: A document submitted by the student
     - instructions: Instructions for the student on how to enrol in a course or take a test
     - plagiarism_report: A report containing information on (potential) plagiarism, e.g. in a submitted document
@@ -27,4 +27,4 @@ x-ooapi-extensible-enum:
   - session_report
   - test_made
   - other
-example: test_made
+example: "test_made"
