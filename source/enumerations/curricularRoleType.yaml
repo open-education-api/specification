@@ -1,0 +1,22 @@
+type: string
+description: |
+  The curricular role of this rule node. Used for display and adviser
+  tooling. Carries no evaluation semantics — structural behaviour is
+  fully determined by `selection` and `constraints`.
+
+  - `compulsory`       — the student must complete all items in this node.
+  - `restrictedChoice` — the student chooses from a defined list of items.
+  - `elective`         — the student chooses freely within a defined pool.
+  - `freeElective`     — the student has unconstrained choice up to a credit
+                          target (Dutch: profileringsruimte).
+  - `specialisation`   — the node represents a coherent specialisation track;
+                          typically only one specialisation is chosen per programme.
+
+  This is an *extensible enumeration*. Use the `x-` prefix for custom values.
+x-ooapi-extensible-enum:
+  - compulsory
+  - restrictedChoice
+  - elective
+  - freeElective
+  - specialisation
+example: restrictedChoice

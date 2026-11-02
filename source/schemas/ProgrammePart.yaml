@@ -1,0 +1,159 @@
+description: |
+  A terminal part (leaf) in a `ProgrammeRule` node. References exactly one
+  OOAPI v6 object — a `Course`, a `Programme`, a `LearningOutcome`, or an
+  anonymous ECTS credit block — determined by `leafType`.
+
+  **Discriminator: `leafType`**
+
+  | leafType          | Required FK field   | OOAPI endpoint                               | Constraint evaluation    |
+  |-------------------|---------------------|----------------------------------------------|--------------------------|
+  | `course`          | `courseId`          | `/courses/{courseId}`                        | contributes `attributes` |
+  | `programme`       | `programmeId`       | `/programmes/{programmeId}`                  | contributes `attributes` |
+  | `ects`            | `creditTarget`      | (anonymous block, no OOAPI object)           | contributes `attributes` |
+  | `learningOutcome` | `learningOutcomeId` | `/learning-outcomes/{learningOutcomeId}`     | excluded (display only)  |
+
+  **`attributes`** carries the numeric values used by `ConstraintSet`
+  evaluation. Standard keys: `ects`, `sbu`, `contactHours`, `level`.
+  Custom keys are prefixed with `x-`. Learning outcome parts SHOULD have
+  an empty or absent `attributes` map.
+
+  **`name`** falls back to the referenced OOAPI object's `name[0].value`
+  when absent. Consumers SHOULD display `name` if present, otherwise
+  resolve the FK reference.
+type: object
+required:
+  - programmePartId
+  - leafType
+  - displayOrder
+properties:
+  programmePartId:
+    type: string
+    format: uuid
+    description: Unique identifier for this part.
+    example: b1000000-0000-0000-0000-000000000001
+
+  leafType:
+    type: string
+    enum:
+      - course
+      - programme
+      - ects
+      - learningOutcome
+    description: |
+      Discriminator determining which FK field is populated and whether
+      this part contributes to constraint evaluation.
+    example: course
+
+  # ── FK references ──────────────────────────────────────────────────────────
+  courseId:
+    type:
+      - string
+      - "null"
+    format: uuid
+    description: |
+      Reference to an OOAPI `Course` (`/courses/{courseId}`).
+      MUST be a valid UUID when `leafType: course`; null otherwise.
+    example: c1000000-0000-0000-0000-000000000001
+
+  programmeId:
+    type:
+      - string
+      - "null"
+    format: uuid
+    description: |
+      Reference to an OOAPI `Programme` (`/programmes/{programmeId}`).
+      Typically used for minors, honours tracks, or joint-degree
+      sub-programmes. MUST be set when `leafType: programme`; null otherwise.
+    example: null
+
+  learningOutcomeId:
+    type:
+      - string
+      - "null"
+    format: uuid
+    description: |
+      Reference to an OOAPI `LearningOutcome`
+      (`/learning-outcomes/{learningOutcomeId}`).
+      MUST be set when `leafType: learningOutcome`; null otherwise.
+      Parts of this type are display-only; `attributes` SHOULD be empty.
+    example: null
+
+  creditTarget:
+    type:
+      - number
+      - "null"
+    minimum: 0
+    description: |
+      ECTS credit budget for an anonymous free-credit block
+      (e.g. "12 ECTS free choice"). MUST be set when `leafType: ects`;
+      null otherwise. Not a reference to an OOAPI object.
+    example: null
+
+  # ── Constraint evaluation ──────────────────────────────────────────────────
+  attributes:
+    type: object
+    description: |
+      Numeric attribute values used by `ConstraintSet` evaluation.
+      Each key corresponds to a `ProgrammeConstraint.key` in the
+      enclosing or ancestor rule's `constraints`.
+
+      Standard keys:
+      - `ects`         — ECTS credit value of this part
+      - `sbu`          — study burden in hours
+      - `contactHours` — scheduled contact hours
+      - `level`        — EQF / NL level (e.g. 400, 600, 700)
+
+      Custom keys are prefixed with `x-`.
+      Learning outcome parts SHOULD have an empty or absent `attributes`.
+    additionalProperties:
+      type: number
+    example:
+      ects: 5
+      sbu: 140
+      level: 400
+
+  # ── Display ────────────────────────────────────────────────────────────────
+  name:
+    description: |
+      Optional multilingual display name. Follows the OOAPI v6
+      `LanguageTypedString` convention (BCP 47 language tag + value).
+      Falls back to the referenced OOAPI object's own `name` field when
+      absent — consumers SHOULD resolve the FK reference in that case.
+    type:
+      - array
+      - "null"
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+      - language: nl-NL
+        value: Inleiding tot AI
+      - language: en-GB
+        value: Introduction to AI
+
+  displayOrder:
+    type: integer
+    minimum: 0
+    description: |
+      Display position of this part within its parent node's `parts[]`.
+      Lower values appear first. Controls rendering order only — carries
+      no business rule or prerequisite semantics.
+    example: 0
+
+example:
+  programmePartId: b1000000-0000-0000-0000-000000000001
+  leafType: course
+  courseId: c1000000-0000-0000-0000-000000000001
+  programmeId: null
+  learningOutcomeId: null
+  creditTarget: null
+  attributes:
+    ects: 5
+    sbu: 140
+    level: 400
+  displayOrder: 0
+  name:
+    - language: nl-NL
+      value: Programmeren 1
+    - language: en-GB
+      value: Programming 1

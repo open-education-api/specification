@@ -1,0 +1,47 @@
+description: |
+  A single constraint item expressing a minimum and optional maximum
+  for a named attribute key. Constraint keys are evaluated against the
+  sum of `ProgrammePart.attributes` values across all selected parts
+  in the subtree rooted at the enclosing `ProgrammeRule`.
+
+  **Built-in keys**
+
+  | key              | what is counted / summed                        |
+  |------------------|-------------------------------------------------|
+  | `ects`           | sum of `attributes.ects`                        |
+  | `sbu`            | sum of `attributes.sbu`                         |
+  | `contactHours`   | sum of `attributes.contactHours`                |
+  | `course`         | count of selected parts with `leafType: course` |
+  | `level-{N}`      | count of parts where `attributes.level ≥ N`     |
+  | `x-{name}`       | institution-defined; sum of `attributes.x-name` |
+
+type: object
+required:
+  - key
+  - min
+properties:
+  key:
+    type: string
+    description: |
+      The attribute key this constraint applies to. Use built-in keys
+      (see schema description) or prefix with `x-` for custom keys.
+    examples:
+      - ects
+      - sbu
+      - level-400
+      - x-internationalCredits
+  min:
+    type: number
+    minimum: 0
+    description: Lower bound (inclusive). Always required.
+    example: 1
+  max:
+    type: number
+    minimum: 0
+    description: |
+      Upper bound (inclusive). Optional — omit when there is no upper
+      bound. MUST be ≥ `min` when present.
+    example: 1
+example:
+  key: ects
+  min: 60

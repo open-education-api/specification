@@ -1,0 +1,160 @@
+description: |
+  An interior node in the curriculum rule tree. Each node combines tree
+  structure with a `selection` rule (local pick instruction) and an optional
+  `constraints` set (subtree-wide aggregate validation).
+
+  **Node flavours**
+
+  | Flavour       | `programme-parts[]`   | `children[]` | Evaluates against                  |
+  |---------------|-------------|--------------|-------------------------------------|
+  | Root node     | null        | non-null     | entire programme subtree            |
+  | Grouping node | null        | non-null     | sum of child rule outcomes          |
+  | Leaf node     | non-null    | null         | `programme-parts[]` directly                  |
+
+  `programme-parts[]` and `children[]` are mutually exclusive: a node MUST NOT
+  have both non-null simultaneously.
+
+  **`selection` vs `constraints`**
+
+  | Field         | Scope                        | Question answered                         |
+  |---------------|------------------------------|-------------------------------------------|
+  | `selection`   | immediate children/programme-parts     | "how many does the student pick here?"    |
+  | `constraints` | entire subtree below         | "what must the totals add up to?"         |
+
+  These are independent gates: both must pass for the node to validate.
+  `selection.type: all` with no `unit`/`min`/`max` is common for mandatory
+  blocks; in that case all aggregate validation lives in `constraints`.
+
+  The root node has `programmeId` set and `parentRuleId: null`. Its
+  `constraints` validate the programme total (e.g. ≥ 60 ECTS).
+type: object
+required:
+  - programmeRuleId
+  - name
+  - selection
+  - displayOrder
+properties:
+
+  # ── Identity ─────────────────────────────────────────────────────────────
+  programmeRuleId:
+    type: string
+    format: uuid
+    description: Unique identifier for this rule node.
+    example: a1b2c3d4-0001-0000-0000-000000000000
+
+  parentRuleId:
+    type:
+      - string
+      - "null"
+    format: uuid
+    description: |
+      Identifier of the parent `ProgrammeRule`. Null on the root node.
+    example: null
+
+  programmeId:
+    type:
+      - string
+      - "null"
+    format: uuid
+    description: |
+      Set only on the root node. References the OOAPI `Programme`
+      (`/programmes/{programmeId}`) this curriculum tree belongs to.
+      Null on all non-root nodes.
+    example: 550e8400-e29b-41d4-a716-446655440000
+
+  # ── Display ───────────────────────────────────────────────────────────────
+  name:
+    description: |
+      Multilingual display name for this rule node. Follows the OOAPI v6
+      `LanguageTypedString` convention (BCP 47 language tag + value).
+      The root node's name is typically redundant with the `Programme` name
+      and may be a copy of it.
+    type: array
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+      - language: nl-NL
+        value: Keuzevakken jaar 2
+      - language: en-GB
+        value: Electives year 2
+
+  description:
+    description: |
+      Optional multilingual description explaining the rule to students.
+    type:
+      - array
+      - "null"
+    minItems: 1
+    items:
+      $ref: './LanguageTypedString.yaml'
+    example:
+      - language: en-GB
+        value: Choose at least 2 courses from the selection below.
+
+  displayOrder:
+    type: integer
+    minimum: 0
+    description: |
+      Display position among siblings. Lower values appear first.
+      Controls rendering order only — no business rule semantics.
+    example: 0
+
+  # ── Selection rule (local) ────────────────────────────────────────────────
+  selection:
+    $ref: './SelectionRule.yaml'
+
+  # ── Constraint set (subtree-wide) ─────────────────────────────────────────
+  constraints:
+    description: |
+      Optional subtree-wide aggregate validation. Evaluated against the
+      sum of `ProgrammePart.attributes` across all selected parts in
+      this node's subtree. Absent means no aggregate constraints apply.
+    $ref: './ConstraintSet.yaml'
+
+  # ── Structure ─────────────────────────────────────────────────────────────
+  programme-parts:
+    description: |
+      Terminal parts of this node. Non-null on leaf nodes; null on
+      grouping and root nodes.
+      Mutually exclusive with `children[]`.
+    type:
+      - array
+      - "null"
+    items:
+      $ref: './ProgrammePart.yaml'
+
+  children:
+    description: |
+      Child rule nodes. Non-null on grouping and root nodes; null on
+      leaf nodes. Mutually exclusive with `programme-parts[]`.
+      Recursive — each child may itself have `children[]` or `programme-parts[]`.
+    type:
+      - array
+      - "null"
+    items:
+      $ref: './ProgrammeRule.yaml'
+
+  role:
+    type: string
+    description: |
+      The curricular role of this rule node. Used for display and adviser
+      tooling. Carries no evaluation semantics — structural behaviour is
+      fully determined by `selection` and `constraints`.
+
+      - `compulsory`       — the student must complete all items in this node.
+      - `restrictedChoice` — the student chooses from a defined list of items.
+      - `elective`         — the student chooses freely within a defined pool.
+      - `freeElective`     — the student has unconstrained choice up to a credit
+                             target (Dutch: profileringsruimte).
+      - `specialisation`   — the node represents a coherent specialisation track;
+                             typically only one specialisation is chosen per programme.
+
+      This is an *extensible enumeration*. Use the `x-` prefix for custom values.
+    x-ooapi-extensible-enum:
+      - compulsory
+      - restrictedChoice
+      - elective
+      - freeElective
+      - specialisation
+    example: restrictedChoice

@@ -1,0 +1,308 @@
+get:
+  summary: GET /programme-rule/{programmeRuleId}
+  operationId: listProgrammeRulesById
+  description: Get a single programmeRule.
+  tags:
+    - programme rules
+  parameters:
+    - name: programmeRuleId
+      in: path
+      description: Programme Rule ID
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: expand
+      in: query
+      explode: false
+      description: Optional properties to include, separated by a comma
+      required: false
+      style: form
+      schema:
+        type: array
+        items:
+          type: string
+          enum:
+            - parent
+            - children
+            - programme-parts
+    - $ref: '../parameters/fields.yaml'
+    - $ref: '../parameters/consumer.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/vnd.oeapi+json:
+          schema:
+            $ref: '../schemas/ProgrammeRule.yaml'  
+          examples:
+            one year programme: 
+             value:
+                programmeRuleId: 00000000-0000-0000-0000-000000000001
+                parentRuleId: null
+                programmeId: 10000000-0000-0000-0000-000000000001
+                name:
+                  - language: nl-NL
+                    value: Eenjarig programma
+                  - language: en-GB
+                    value: One-year programme
+                description:
+                  - language: nl-NL
+                    value: Een eenjarig programma van 60 ECTS met kernvakken, keuzevakken en een minor.
+                  - language: en-GB
+                    value: A one-year programme of 60 ECTS combining core courses, electives, and a minor.
+                displayOrder: 0
+                role: compulsory
+                selection:
+                  type: all
+                constraints:
+                  operator: and
+                  items:
+                    - key: ects
+                      min: 60
+                      max: 60
+                programme-parts: null
+                children:
+
+                  # ── Mandatory courses — 18 ECTS ──────────────────────────────────────────
+                  - programmeRuleId: 00000000-0000-0000-0000-000000000002
+                    parentRuleId: 00000000-0000-0000-0000-000000000001
+                    programmeId: null
+                    name:
+                      - language: nl-NL
+                        value: Verplichte vakken
+                      - language: en-GB
+                        value: Mandatory courses
+                    description:
+                      - language: nl-NL
+                        value: Alle drie vakken zijn verplicht (18 ECTS).
+                      - language: en-GB
+                        value: All three courses are compulsory (18 ECTS).
+                    displayOrder: 0
+                    role: compulsory
+                    selection:
+                      type: all
+                    constraints:
+                      operator: and
+                      items:
+                        - key: ects
+                          min: 18
+                          max: 18
+                    children: null
+                    programme-parts:
+                      - programmePartId: 20000000-0000-0000-0000-000000000001
+                        leafType: course
+                        courseId: 30000000-0000-0000-0000-000000000001
+                        programmeId: null
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 6
+                          sbu: 168
+                        displayOrder: 0
+                        name:
+                          - language: nl-NL
+                            value: Vak A
+                          - language: en-GB
+                            value: Course A
+                      - programmePartId: 20000000-0000-0000-0000-000000000002
+                        leafType: course
+                        courseId: 30000000-0000-0000-0000-000000000002
+                        programmeId: null
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 6
+                          sbu: 168
+                        displayOrder: 1
+                        name:
+                          - language: nl-NL
+                            value: Vak B
+                          - language: en-GB
+                            value: Course B
+                      - programmePartId: 20000000-0000-0000-0000-000000000003
+                        leafType: course
+                        courseId: 30000000-0000-0000-0000-000000000003
+                        programmeId: null
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 6
+                          sbu: 168
+                        displayOrder: 2
+                        name:
+                          - language: nl-NL
+                            value: Vak C
+                          - language: en-GB
+                            value: Course C
+
+                  # ── Electives — ≥ 2 courses AND ≥ 12 ECTS ───────────────────────────────
+                  - programmeRuleId: 00000000-0000-0000-0000-000000000003
+                    parentRuleId: 00000000-0000-0000-0000-000000000001
+                    programmeId: null
+                    name:
+                      - language: nl-NL
+                        value: Keuzevakken
+                      - language: en-GB
+                        value: Elective courses
+                    description:
+                      - language: nl-NL
+                        value: Kies minimaal 2 vakken ter waarde van minimaal 12 ECTS.
+                      - language: en-GB
+                        value: Choose at least 2 courses worth at least 12 ECTS in total.
+                    displayOrder: 1
+                    role: elective
+                    selection:
+                      type: minimum
+                      unit: courses
+                      min: 2
+                    constraints:
+                      operator: and
+                      items:
+                        - key: ects
+                          min: 12
+                    children: null
+                    programme-parts:
+                      - programmePartId: 20000000-0000-0000-0000-000000000004
+                        leafType: course
+                        courseId: 30000000-0000-0000-0000-000000000004
+                        programmeId: null
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 6
+                          sbu: 168
+                        displayOrder: 0
+                        name:
+                          - language: nl-NL
+                            value: Vak D
+                          - language: en-GB
+                            value: Course D
+                      - programmePartId: 20000000-0000-0000-0000-000000000005
+                        leafType: course
+                        courseId: 30000000-0000-0000-0000-000000000005
+                        programmeId: null
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 6
+                          sbu: 168
+                        displayOrder: 1
+                        name:
+                          - language: nl-NL
+                            value: Vak E
+                          - language: en-GB
+                            value: Course E
+                      - programmePartId: 20000000-0000-0000-0000-000000000006
+                        leafType: course
+                        courseId: 30000000-0000-0000-0000-000000000006
+                        programmeId: null
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 6
+                          sbu: 168
+                        displayOrder: 2
+                        name:
+                          - language: nl-NL
+                            value: Vak F
+                          - language: en-GB
+                            value: Course F
+                      - programmePartId: 20000000-0000-0000-0000-000000000007
+                        leafType: course
+                        courseId: 30000000-0000-0000-0000-000000000007
+                        programmeId: null
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 6
+                          sbu: 168
+                        displayOrder: 3
+                        name:
+                          - language: nl-NL
+                            value: Vak G
+                          - language: en-GB
+                            value: Course G
+
+                  # ── Minor — exactly 30 ECTS, pick 1 of 3 ────────────────────────────────
+                  - programmeRuleId: 00000000-0000-0000-0000-000000000004
+                    parentRuleId: 00000000-0000-0000-0000-000000000001
+                    programmeId: null
+                    name:
+                      - language: nl-NL
+                        value: Minor
+                      - language: en-GB
+                        value: Minor
+                    description:
+                      - language: nl-NL
+                        value: Kies precies één minor (30 ECTS).
+                      - language: en-GB
+                        value: Select exactly one minor programme (30 ECTS).
+                    displayOrder: 2
+                    role: restrictedChoice
+                    selection:
+                      type: range
+                      unit: ects
+                      min: 30
+                      max: 30
+                    children: null
+                    programme-parts:
+                      - programmePartId: 20000000-0000-0000-0000-000000000008
+                        leafType: programme
+                        courseId: null
+                        programmeId: 10000000-0000-0000-0000-000000000002
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 30
+                        displayOrder: 0
+                        name:
+                          - language: nl-NL
+                            value: Minor Kunstmatige Intelligentie
+                          - language: en-GB
+                            value: Minor Artificial Intelligence
+                      - programmePartId: 20000000-0000-0000-0000-000000000009
+                        leafType: programme
+                        courseId: null
+                        programmeId: 10000000-0000-0000-0000-000000000003
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 30
+                        displayOrder: 1
+                        name:
+                          - language: nl-NL
+                            value: Minor Data Engineering
+                          - language: en-GB
+                            value: Minor Data Engineering
+                      - programmePartId: 20000000-0000-0000-0000-000000000010
+                        leafType: programme
+                        courseId: null
+                        programmeId: 10000000-0000-0000-0000-000000000004
+                        learningOutcomeId: null
+                        creditTarget: null
+                        attributes:
+                          ects: 30
+                        displayOrder: 2
+                        name:
+                          - language: nl-NL
+                            value: Minor Business en Technologie
+                          - language: en-GB
+                            value: Minor Business and Technology
+
+    '400':
+      $ref: '../schemas/ErrorBadRequest.yaml'
+    '401':
+      $ref: '../schemas/ErrorUnauthorized.yaml'
+    '403':
+      $ref: '../schemas/ErrorForbidden.yaml'
+    '404':
+      $ref: '../schemas/ErrorNotFound.yaml'
+    '406':
+      $ref: '../schemas/ErrorNotAcceptable.yaml'
+    '405':
+      $ref: '../schemas/ErrorMethodNotAllowed.yaml'
+    '429':
+      $ref: '../schemas/ErrorTooManyRequests.yaml'
+    '500':
+      $ref: '../schemas/ErrorInternalServerError.yaml'

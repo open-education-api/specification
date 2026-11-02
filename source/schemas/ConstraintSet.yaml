@@ -1,0 +1,68 @@
+description: |
+  A flat set of constraints that together express the aggregate validation
+  rule for a `ProgrammeRule` subtree. The `operator` combines all items.
+
+  **Scope:** constraints are evaluated against the sum of
+  `ProgrammePart.attributes` across ALL selected parts in the subtree
+  rooted at the enclosing `ProgrammeRule` — not just the immediate parts.
+  This makes `constraints` subtree-wide, in contrast to `selection` which
+  is local to the immediate children/parts of the node.
+
+  **Evaluation model**
+
+  ```
+  ConstraintSet
+    operator: and | or          ← combines all items
+    items:
+      - ProgrammeConstraint { key, min, max? }
+  ```
+
+  **Example — ≥120 SBU AND ≤240 SBU AND ≥100 ECTS:**
+  ```yaml
+  operator: and
+  items:
+    - key: sbu
+      min: 120
+      max: 240
+    - key: ects
+      min: 100
+  ```
+
+  **Example — ≥30 ECTS OR ≥840 SBU (either satisfies):**
+  ```yaml
+  operator: or
+  items:
+    - key: ects
+      min: 30
+    - key: sbu
+      min: 840
+  ```
+
+type: object
+required:
+  - operator
+  - items
+properties:
+  operator:
+    type: string
+    enum:
+      - and
+      - or
+    description: |
+      Logical operator applied across all `items`.
+      - `and` — all constraints must be satisfied simultaneously.
+      - `or`  — at least one constraint must be satisfied.
+    example: and
+  items:
+    type: array
+    minItems: 1
+    description: One or more constraints evaluated under `operator`.
+    items:
+      $ref: './ProgrammeConstraint.yaml'
+example:
+  operator: and
+  items:
+    - key: ects
+      min: 60
+    - key: sbu
+      min: 1680

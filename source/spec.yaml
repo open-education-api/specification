@@ -74,6 +74,11 @@ tags:
       This path is no longer supported; you can now use learning components or test
       components.
 
+  - name: constraint_set_model
+    x-displayName: ConstraintSet
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/ConstraintSet" />
+
   - name: course offering associations
     description: |
       The course offering associations API provides information about the association
@@ -370,6 +375,40 @@ tags:
       The offerings API provides information about programme offerings which have a 
       global timeframe, e.g. a period to which students can enrol.
 
+  - name: programme rules
+    description: |
+      The programme rules API exposes the curriculum rule tree for a programme.
+
+      **Endpoints:**
+      - `GET /programmes/{programmeId}/programme-rules` — returns the complete
+        rule tree (root node with nested `parts[]` and child `rules[]`).
+      - `GET /programme-rules/{programmeRuleId}` — returns a single rule node
+        with its immediate `parts[]` (ProgrammePart leaves) and child `rules[]`.
+
+      **Model structure (v2.0):**
+
+      A `ProgrammeRule` is an interior node. It carries:
+      - `selection` — a `SelectionRule` that applies **locally** to the
+        `parts[]` leaves directly attached to this node
+        (type: all | minimum | range; unit: courses | ects | sbu | contactHours | x-*).
+      - `constraints` — a `ConstraintSet` that applies to the **entire subtree**
+        rooted at this node (flat: operator + items[] of ProgrammeConstraint).
+      - `role` *(optional)* — display hint for portals and adviser tooling
+        (compulsory | restrictedChoice | elective | freeElective | specialisation).
+
+      `ProgrammePart` is a terminal leaf node. It is **always embedded** in a
+      `ProgrammeRule` response via the `parts[]` array; it has no standalone
+      API endpoint.
+
+      The root node has `programmeId` set. Rule evaluation is fully determined
+      by `selection` and `constraints`; the `role` field carries no evaluation
+      semantics.
+    
+  - name: programme_constraint_model
+    x-displayName: ProgrammeConstraint
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/ProgrammeConstraint" />
+
   - name: programme_model
     x-displayName: Programme
     description: |
@@ -385,6 +424,46 @@ tags:
     x-displayName: ProgrammeOffering
     description: |
       <SchemaDefinition schemaRef="#/components/schemas/ProgrammeOffering" />
+
+  - name: programme_part_model
+    x-displayName: ProgrammePart
+    description: |
+      A **terminal leaf** in the curriculum rule tree. A `ProgrammePart` references
+      exactly one OOAPI v6 object — a `Course`, a `Programme`, a `LearningOutcome`,
+      or an anonymous ECTS credit block — determined by the `leafType` discriminator.
+
+      `ProgrammePart` is always owned by a `ProgrammeRule` leaf node (one that has
+      `parts[]` set and `children: null`). It carries numeric `attributes` (ects, sbu,
+      contactHours, level, and custom `x-*` keys) that feed the subtree-wide
+      `ConstraintSet` evaluation of ancestor nodes.
+
+      `ProgrammePart` has **no child nodes** and **no selection or constraint logic**
+      of its own — all structural rules live in the enclosing `ProgrammeRule`.
+
+      <SchemaDefinition schemaRef="#/components/schemas/ProgrammePart" />
+
+  - name: programme_rule_model
+    x-displayName: ProgrammeRule
+    description: |
+      An **interior node** in the curriculum rule tree. `ProgrammeRule` combines
+      tree structure with two independent validation gates:
+
+      - **`selection`** (`SelectionRule`) — local scope: controls how many of the
+        node's *immediate* children or parts a student must pick.
+      - **`constraints`** (`ConstraintSet`) — subtree scope: validates aggregate
+        totals (ECTS, SBU, contact hours, …) across *all* selected `ProgrammePart`
+        leaves in the subtree below this node.
+
+      A node holds either `children[]` (pointing to child `ProgrammeRule` nodes)
+      or `parts[]` (pointing to `ProgrammePart` leaves) — never both simultaneously.
+      The root node additionally carries `programmeId` and has `parentRuleId: null`.
+
+      The optional `role` field (extensible enum) provides a display hint for
+      student portals and adviser tooling: `compulsory`, `restrictedChoice`,
+      `elective`, `freeElective`, or `specialisation`. It carries no evaluation
+      semantics — structure is fully determined by `selection` and `constraints`.
+
+      <SchemaDefinition schemaRef="#/components/schemas/ProgrammeRule" />
 
   - name: programmes
     description: |
@@ -413,6 +492,11 @@ tags:
       By leaving the global security section empty, implementation details are
       separated from the functional description, while still providing guidance on how
       concrete security measures can be applied in practice.
+
+  - name: selection_rule_model
+    x-displayName: SelectionRule
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/SelectionRule" />
 
   - name: service metadata
     description: |
@@ -487,6 +571,7 @@ x-tagGroups:
       - programmes
       - programme offerings
       - programme offering associations
+      - programme rules
       - rooms
       - test components
       - test component offerings
@@ -517,6 +602,8 @@ x-tagGroups:
       - programme_model
       - programme_offering_model
       - programme_offering_association_model
+      - programme_part_model
+      - programme_rule_model
       - room_model
 
 components:
@@ -559,6 +646,17 @@ components:
       $ref: schemas/Programme.yaml
     ProgrammeOffering:
       $ref: schemas/ProgrammeOffering.yaml
+    ProgrammePart:
+      $ref: schemas/ProgrammePart.yaml
+    ProgrammeRule:
+      $ref: schemas/ProgrammeRule.yaml
+    SelectionRule:
+      $ref: schemas/SelectionRule.yaml
+    ConstraintSet:
+      $ref: schemas/ConstraintSet.yaml
+    ProgrammeConstraint:
+      $ref: schemas/ProgrammeConstraint.yaml
+
     Room:
       $ref: schemas/Room.yaml
     ProgrammeOfferingAssociation:
@@ -705,6 +803,13 @@ paths:
   /programme-offerings/{programmeOfferingId}/programme-offering-associations:
     $ref: paths/ProgrammeOfferingProgrammeOfferingAssociationCollection.yaml
 
+  /programmes/{programmeId}/programme-rules:
+    $ref: paths/ProgrammeRuleCollection.yaml
+
+  /programme-rules/{programmeRuleId}:
+    $ref: paths/ProgrammeRuleInstance.yaml
+
+    
   /programmes:
     $ref: paths/ProgrammeCollection.yaml
   /programmes/{programmeId}:
