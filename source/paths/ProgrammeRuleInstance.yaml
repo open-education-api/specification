@@ -53,14 +53,13 @@ get:
                     value: A one-year programme of 60 ECTS combining core courses, electives, and a minor.
                 displayOrder: 0
                 role: compulsory
-                selection:
-                  type: all
-                constraints:
-                  operator: and
-                  items:
-                    - key: ects
-                      min: 60
-                      max: 60
+                directChildrenRule:
+                  mode: all
+                allChildrenRules:
+                  - unit: ects
+                    mode: range
+                    min: 60
+                    max: 60
                 programme-parts: null
                 children:
 
@@ -80,14 +79,13 @@ get:
                         value: All three courses are compulsory (18 ECTS).
                     displayOrder: 0
                     role: compulsory
-                    selection:
-                      type: all
-                    constraints:
-                      operator: and
-                      items:
-                        - key: ects
-                          min: 18
-                          max: 18
+                    directChildrenRule:
+                      mode: all
+                    allChildrenRules:
+                      - unit: ects
+                        mode: range
+                        min: 18
+                        max: 18
                     children: null
                     programme-parts:
                       - programmePartId: 20000000-0000-0000-0000-000000000001
@@ -152,15 +150,13 @@ get:
                         value: Choose at least 2 courses worth at least 12 ECTS in total.
                     displayOrder: 1
                     role: elective
-                    selection:
-                      type: minimum
-                      unit: courses
+                    directChildrenRule:
+                      mode: range
                       min: 2
-                    constraints:
-                      operator: and
-                      items:
-                        - key: ects
-                          min: 12
+                    allChildrenRules:
+                      - unit: ects
+                        mode: range
+                        min: 12
                     children: null
                     programme-parts:
                       - programmePartId: 20000000-0000-0000-0000-000000000004
@@ -240,9 +236,8 @@ get:
                         value: Select exactly one minor programme (30 ECTS).
                     displayOrder: 2
                     role: restrictedChoice
-                    selection:
-                      type: range
-                      unit: ects
+                    directChildrenRule:
+                      mode: range
                       min: 30
                       max: 30
                     children: null

@@ -1,0 +1,60 @@
+description: |
+  A single subtree-wide aggregate constraint. Each entry in
+  `ProgrammeRule.allChildrenRules` is one `RuleConstraint`.
+
+  The constraint is evaluated against the sum of the named `unit` attribute
+  across ALL selected `ProgrammePart` nodes in the subtree rooted at the
+  enclosing `ProgrammeRule`.
+
+  All entries in `allChildrenRules` must pass simultaneously (implicit `and`).
+
+  **Built-in unit keys:**
+
+  | Key              | Measures                                           |
+  |------------------|----------------------------------------------------|
+  | `ects`           | European Credit Transfer credits                   |
+  | `sbu`            | Study Burden Units (studiebelastingsuren)           |
+  | `contactHours`   | Scheduled contact hours                            |
+  | `course`         | Number of courses (count of leaf parts)            |
+  | `level-{N}`      | Credits at qualification level N (e.g. `level-400`)|
+  | `x-{name}`       | Institution-defined custom attribute               |
+
+type: object
+required:
+  - unit
+  - mode
+properties:
+  unit:
+    type: string
+    description: |
+      The attribute key to aggregate across the subtree.
+      Use built-in keys (see schema description) or prefix with `x-` for
+      institution-defined attributes.
+    pattern: '^(ects|sbu|contactHours|course|level-[0-9]+|x-[a-zA-Z][a-zA-Z0-9\-_]*)$'
+    example: ects
+  mode:
+    type: string
+    enum:
+      - all
+      - range
+    description: |
+      - `all`   — no bounds; the unit must simply be present (rarely used here).
+      - `range` — the aggregated value must fall within [min, max];
+                  omit `max` for a lower-bound-only constraint (≥ min).
+    example: range
+  min:
+    type: number
+    minimum: 0
+    description: Lower bound (inclusive). Required when mode is `range`.
+    example: 60
+  max:
+    type: number
+    minimum: 0
+    description: |
+      Upper bound (inclusive). Optional — omit for a lower-bound-only constraint.
+      MUST be ≥ `min` when present.
+    example: 60
+example:
+  unit: ects
+  mode: range
+  min: 60

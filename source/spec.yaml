@@ -74,11 +74,6 @@ tags:
       This path is no longer supported; you can now use learning components or test
       components.
 
-  - name: constraint_set_model
-    x-displayName: ConstraintSet
-    description: |
-      <SchemaDefinition schemaRef="#/components/schemas/ConstraintSet" />
-
   - name: course offering associations
     description: |
       The course offering associations API provides information about the association
@@ -388,11 +383,10 @@ tags:
       **Model structure (v2.0):**
 
       A `ProgrammeRule` is an interior node. It carries:
-      - `selection` — a `SelectionRule` that applies **locally** to the
-        `parts[]` leaves directly attached to this node
-        (type: all | minimum | range; unit: courses | ects | sbu | contactHours | x-*).
-      - `constraints` — a `ConstraintSet` that applies to the **entire subtree**
-        rooted at this node (flat: operator + items[] of ProgrammeConstraint).
+      - `directChildrenRule` — a `RuleRangeDef` that applies **locally** to the
+        immediate children/parts of this node (mode: all | range; optional min/max).
+      - `allChildrenRules` — a list of `RuleConstraint` entries that apply to the
+        **entire subtree** rooted at this node (each with a mandatory unit + mode/min/max).
       - `role` *(optional)* — display hint for portals and adviser tooling
         (compulsory | restrictedChoice | elective | freeElective | specialisation).
 
@@ -403,11 +397,6 @@ tags:
       The root node has `programmeId` set. Rule evaluation is fully determined
       by `selection` and `constraints`; the `role` field carries no evaluation
       semantics.
-    
-  - name: programme_constraint_model
-    x-displayName: ProgrammeConstraint
-    description: |
-      <SchemaDefinition schemaRef="#/components/schemas/ProgrammeConstraint" />
 
   - name: programme_model
     x-displayName: Programme
@@ -435,12 +424,14 @@ tags:
       `ProgrammePart` is always owned by a `ProgrammeRule` leaf node (one that has
       `parts[]` set and `children: null`). It carries numeric `attributes` (ects, sbu,
       contactHours, level, and custom `x-*` keys) that feed the subtree-wide
-      `ConstraintSet` evaluation of ancestor nodes.
+      `allChildrenRules` evaluation of ancestor nodes.
 
       `ProgrammePart` has **no child nodes** and **no selection or constraint logic**
       of its own — all structural rules live in the enclosing `ProgrammeRule`.
 
       <SchemaDefinition schemaRef="#/components/schemas/ProgrammePart" />
+    
+
 
   - name: programme_rule_model
     x-displayName: ProgrammeRule
@@ -448,9 +439,9 @@ tags:
       An **interior node** in the curriculum rule tree. `ProgrammeRule` combines
       tree structure with two independent validation gates:
 
-      - **`selection`** (`SelectionRule`) — local scope: controls how many of the
+      - **`directChildrenRule`** (`RuleRangeDef`) — local scope: controls how many of the
         node's *immediate* children or parts a student must pick.
-      - **`constraints`** (`ConstraintSet`) — subtree scope: validates aggregate
+      - **`allChildrenRules`** (list of `RuleConstraint`) — subtree scope: validates aggregate
         totals (ECTS, SBU, contact hours, …) across *all* selected `ProgrammePart`
         leaves in the subtree below this node.
 
@@ -482,6 +473,16 @@ tags:
       Including detailed information on the resources available, number of seats, etc.
       (Updated continuously)
 
+  - name: rule_constraint_model
+    x-displayName: RuleConstraint
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/RuleConstraint" />
+
+  - name: rule_range_def_model
+    x-displayName: RuleRangeDef
+    description: |
+      <SchemaDefinition schemaRef="#/components/schemas/RuleRangeDef" />
+
   - name: security
     description: |
       Within the specification, no global security is defined. This keeps the core
@@ -492,11 +493,6 @@ tags:
       By leaving the global security section empty, implementation details are
       separated from the functional description, while still providing guidance on how
       concrete security measures can be applied in practice.
-
-  - name: selection_rule_model
-    x-displayName: SelectionRule
-    description: |
-      <SchemaDefinition schemaRef="#/components/schemas/SelectionRule" />
 
   - name: service metadata
     description: |
@@ -650,12 +646,10 @@ components:
       $ref: schemas/ProgrammePart.yaml
     ProgrammeRule:
       $ref: schemas/ProgrammeRule.yaml
-    SelectionRule:
-      $ref: schemas/SelectionRule.yaml
-    ConstraintSet:
-      $ref: schemas/ConstraintSet.yaml
-    ProgrammeConstraint:
-      $ref: schemas/ProgrammeConstraint.yaml
+    RuleRangeDef:
+      $ref: schemas/RuleRangeDef.yaml
+    RuleConstraint:
+      $ref: schemas/RuleConstraint.yaml
 
     Room:
       $ref: schemas/Room.yaml

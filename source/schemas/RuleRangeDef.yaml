@@ -1,0 +1,40 @@
+description: |
+  Defines a cardinality rule — the mode and optional min/max bounds used to
+  evaluate a set of items. Shared by `directChildrenRule` (where it applies
+  to immediate children/parts of a node) and by each entry in
+  `allChildrenRules` (where it applies to the subtree aggregate for a given unit).
+
+  **Modes:**
+  - `all`   — every item must be selected; min/max are not applicable.
+  - `range` — the count or measured value must fall within [min, max];
+              omit `max` for a lower-bound-only constraint (≥ min).
+
+type: object
+required:
+  - mode
+properties:
+  mode:
+    type: string
+    enum:
+      - all
+      - range
+    description: |
+      - `all`   — select every item; min/max ignored.
+      - `range` — select between min and max (inclusive); omit max for ≥ min only.
+    example: range
+  min:
+    type: number
+    minimum: 0
+    description: Lower bound (inclusive). Required when mode is `range`.
+    example: 1
+  max:
+    type: number
+    minimum: 0
+    description: |
+      Upper bound (inclusive). Optional — omit for a lower-bound-only rule.
+      MUST be ≥ `min` when present.
+    example: 3
+example:
+  mode: range
+  min: 1
+  max: 1

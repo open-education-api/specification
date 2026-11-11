@@ -1,37 +1,38 @@
 description: |
   An interior node in the curriculum rule tree. Each node combines tree
-  structure with a `selection` rule (local pick instruction) and an optional
-  `constraints` set (subtree-wide aggregate validation).
+  structure with a `directChildrenRule` (local cardinality rule) and an optional
+  `allChildrenRules` list (subtree-wide aggregate constraints).
 
   **Node flavours**
 
-  | Flavour       | `programme-parts[]`   | `children[]` | Evaluates against                  |
-  |---------------|-------------|--------------|-------------------------------------|
-  | Root node     | null        | non-null     | entire programme subtree            |
-  | Grouping node | null        | non-null     | sum of child rule outcomes          |
-  | Leaf node     | non-null    | null         | `programme-parts[]` directly                  |
+  | Flavour       | `programme-parts[]` | `children[]` | Evaluates against            |
+  |---------------|---------------------|--------------|------------------------------|
+  | Root node     | null                | non-null     | entire programme subtree     |
+  | Grouping node | null                | non-null     | sum of child rule outcomes   |
+  | Leaf node     | non-null            | null         | `programme-parts[]` directly |
 
   `programme-parts[]` and `children[]` are mutually exclusive: a node MUST NOT
   have both non-null simultaneously.
 
-  **`selection` vs `constraints`**
+  **`directChildrenRule` vs `allChildrenRules`**
 
-  | Field         | Scope                        | Question answered                         |
-  |---------------|------------------------------|-------------------------------------------|
-  | `selection`   | immediate children/programme-parts     | "how many does the student pick here?"    |
-  | `constraints` | entire subtree below         | "what must the totals add up to?"         |
+  | Field                | Scope                       | Question answered                      |
+  |----------------------|-----------------------------|----------------------------------------|
+  | `directChildrenRule` | immediate children or parts | "how many does the student pick here?" |
+  | `allChildrenRules`   | entire subtree below        | "what must the totals add up to?"      |
 
   These are independent gates: both must pass for the node to validate.
-  `selection.type: all` with no `unit`/`min`/`max` is common for mandatory
-  blocks; in that case all aggregate validation lives in `constraints`.
+  `directChildrenRule.mode: all` with no `min`/`max` is common for mandatory
+  blocks; aggregate validation then lives entirely in `allChildrenRules`.
 
   The root node has `programmeId` set and `parentRuleId: null`. Its
-  `constraints` validate the programme total (e.g. ≥ 60 ECTS).
+  `allChildrenRules` validate the programme total (e.g. ≥ 60 ECTS).
+
 type: object
 required:
   - programmeRuleId
   - name
-  - selection
+  - directChildrenRule
   - displayOrder
 properties:
 
@@ -100,24 +101,43 @@ properties:
       Controls rendering order only — no business rule semantics.
     example: 0
 
-  # ── Selection rule (local) ────────────────────────────────────────────────
-  selection:
-    $ref: './SelectionRule.yaml'
-
-  # ── Constraint set (subtree-wide) ─────────────────────────────────────────
-  constraints:
+  # ── Direct children rule (local) ──────────────────────────────────────────
+  directChildrenRule:
     description: |
-      Optional subtree-wide aggregate validation. Evaluated against the
-      sum of `ProgrammePart.attributes` across all selected parts in
-      this node's subtree. Absent means no aggregate constraints apply.
-    $ref: './ConstraintSet.yaml'
+      Cardinality rule applied to the immediate children of this node —
+      either the `programme-parts[]` leaves (leaf node) or the `children[]`
+      sub-rules (grouping/root node). Determines how many the student must
+      pick from this level only.
+    $ref: './RuleRangeDef.yaml'
+
+  # ── All children rules (subtree-wide) ─────────────────────────────────────
+  allChildrenRules:
+    description: |
+      Optional list of subtree-wide aggregate constraints. Each entry is
+      evaluated against the sum of the named `unit` attribute across ALL
+      selected `ProgrammePart` nodes in this node's subtree. All entries
+      must pass simultaneously (implicit `and`).
+      Absent means no aggregate constraints apply.
+    type:
+      - array
+      - "null"
+    minItems: 1
+    items:
+      $ref: './RuleConstraint.yaml'
+    example:
+      - unit: ects
+        mode: range
+        min: 60
+        max: 60
+      - unit: sbu
+        mode: range
+        min: 1680
 
   # ── Structure ─────────────────────────────────────────────────────────────
   programme-parts:
     description: |
       Terminal parts of this node. Non-null on leaf nodes; null on
-      grouping and root nodes.
-      Mutually exclusive with `children[]`.
+      grouping and root nodes. Mutually exclusive with `children[]`.
     type:
       - array
       - "null"
@@ -135,12 +155,13 @@ properties:
     items:
       $ref: './ProgrammeRule.yaml'
 
+  # ── Role (display hint) ───────────────────────────────────────────────────
   role:
     type: string
     description: |
       The curricular role of this rule node. Used for display and adviser
       tooling. Carries no evaluation semantics — structural behaviour is
-      fully determined by `selection` and `constraints`.
+      fully determined by `directChildrenRule` and `allChildrenRules`.
 
       - `compulsory`       — the student must complete all items in this node.
       - `restrictedChoice` — the student chooses from a defined list of items.
