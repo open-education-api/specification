@@ -238,8 +238,13 @@ get:
                     role: restrictedChoice
                     directChildrenRule:
                       mode: range
-                      min: 30
-                      max: 30
+                      min: 1
+                      max: 1
+                    allChildrenRules:
+                      - unit: ects
+                        mode: range
+                        min: 30
+                        max: 30
                     children: null
                     programme-parts:
                       - programmePartId: 20000000-0000-0000-0000-000000000008
